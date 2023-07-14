@@ -1,0 +1,10 @@
+﻿  Player.cpp
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(74,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(73,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(83,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(82,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(112,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(111,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(121,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(120,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
