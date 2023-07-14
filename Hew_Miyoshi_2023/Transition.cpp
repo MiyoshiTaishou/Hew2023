@@ -1,0 +1,60 @@
+#include<SimpleMath.h>
+#include"main.h"
+#include "Transition.h"
+#include"renderer.h"
+#include"shader.h"
+#include"sprite.h"
+
+using namespace DirectX::SimpleMath;
+
+void Transition::Init()
+{
+	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\unlitTexturePS.cso");
+
+	m_Sprite = AddComponent<Sprite>();
+	m_Sprite->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT, "asset\\texture\\title.jpg");
+
+	// マテリアルの設定
+	MATERIAL material{};
+	material.Diffuse = Color(0.0f, 0.0f, 0.0f, 1.0f);
+	material.TextureEnable = false;
+	m_Sprite->SetMaterial(material);
+}
+
+void Transition::Update()
+{
+	switch (m_State)
+	{
+	case State::Stop://フェードイン終了
+		break;
+	case State::In://フェードイン中（透明度を下げていく）
+	{
+		m_Alpha -= 2.0f / 60.0f;//1秒間に2ずつ透明
+
+		if (m_Alpha < 0.0f)
+			m_State = State::Stop;
+
+		break;
+	}		
+	case State::Out://フェードアウト中（透明度を挙げていく）
+	{
+		m_Alpha += 2.0f / 60.0f;//1秒間に2ずつ透明
+
+		//完全に不透明ならFINISH状態へ
+		if (m_Alpha > 1.0f)
+			m_State = State::Finish;
+
+		break;
+	}		
+	case State::Finish://フェードアウト終了
+		break;
+	default:
+		break;
+	}
+
+	// マテリアルの設定
+	MATERIAL material{};
+	material.Diffuse = Color(0.0f, 0.0f, 0.0f, m_Alpha);
+	material.TextureEnable = false;
+	m_Sprite->SetMaterial(material);
+}

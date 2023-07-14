@@ -1,0 +1,11 @@
+﻿  Player.cpp
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(66,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(65,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(75,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(74,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  コード生成しています。
+  274 of 2297 functions (11.9%) were compiled, the rest were copied from previous compilation.
+    65 functions were new in current compilation
+    145 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\x64\Release\20230529-GM31-gameobject(ちょっとcomponent化).exe
