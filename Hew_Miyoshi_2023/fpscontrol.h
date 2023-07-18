@@ -30,7 +30,7 @@ public:
 			std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(tt)));
 			//指定した相対時間だけ現スレッドをブロックする (function template)
 		}
-	}
+	}	
 
 private:
 	uint64_t m_MicrosecondsPerFrame = 0;				// micro second

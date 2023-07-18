@@ -174,7 +174,6 @@ float calcPointSegmentDist(
 	return distance;
 }
 
-
 // 幅をもった線分（四角形）と球の当たり判定を行う
 bool CollisionSphereOrientedQuad(
 	Vector3 StartPos,						// 開始位置

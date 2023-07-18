@@ -13,6 +13,7 @@
 #include"input.h"
 #include"Bullet.h"
 #include"box.h"
+#include"Enemy.h"
 #include"camera.h"
 
 #include"ImGuiManager.h"
@@ -27,9 +28,10 @@ void Player::Init()
 	//AddComponent<PhysicsComponent>()->Init();		
 	//AddComponent<JumpComponent>()->Init();				
 
-	this->m_Scale *= 10;
+	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Position.y = 10.0f;
 	this->m_Position.x = 10.0f;		
+	this->m_Position.z = -10.0f;		
 
 	m_SE = AddComponent<Audio>();
 	m_SE->Load("asset\\audio\\wan.wav");
@@ -53,7 +55,7 @@ void Player::Update()
 	Vector3 oldPosition = m_Position;
 
 	//接地
-	float groundHeight = 0.0f;
+	float groundHeight = 2.0f;
 
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
@@ -89,6 +91,7 @@ void Player::Update()
 
 	if (Input::GetKeyPress('S'))
 	{
+		m_Rotation.x -= 5.0f / 60.f;
 		m_Position -= (cameraObj->GetForward() * Vecm);
 		time += 0.1;
 	}
@@ -141,6 +144,8 @@ void Player::Update()
 				fabs(PlayerSize.y * m_Scale.y),
 				fabs(PlayerSize.z * m_Scale.z));
 
+			//BoundingSphere playerBS{};
+
 			// AABB当たり判定
 			bool sts = CollisionAABB(aabbPlayer, aabbGoal);
 
@@ -150,6 +155,57 @@ void Player::Update()
 			}
 		}
 
+	}
+
+	//エネミーの当たり判定
+	{
+		std::vector<Enemy*> enemylist = scene->GetGameObjects<Enemy>();
+
+		for (auto& enemyObj : enemylist)
+		{
+			Vector3 position = enemyObj->GetPosition();
+			Vector3 scale = enemyObj->GetScale();
+
+			// エネミーのAABB作成
+			AABB aabbEnemy;
+			Vector3 EnemySize(1.0f, 1.0f, 1.0f);
+			aabbEnemy = SetAABB(
+				position,
+				fabs(EnemySize.x * scale.x),
+				fabs(EnemySize.y * scale.y),
+				fabs(EnemySize.z * scale.z));
+
+			// プレイヤのAABB作成
+			AABB aabbPlayer;
+			Vector3 PlayerSize(1.0f, 1.0f, 1.0f);
+			aabbPlayer = SetAABB(
+				Vector3(m_Position.x, m_Position.y + 1.0f, m_Position.z),
+				fabs(PlayerSize.x * m_Scale.x),
+				fabs(PlayerSize.y * m_Scale.y),
+				fabs(PlayerSize.z * m_Scale.z));			
+
+			// AABB当たり判定
+			bool sts = CollisionAABB(aabbPlayer, aabbEnemy);
+
+			if (sts)
+			{
+				GameObject* child = AddChild<Enemy>();
+				Vector3 scale = child->GetScale();
+				scale = enemyObj->GetScale();
+				scale *= 0.1f;
+				child->SetScale(scale);
+
+				//一番近い頂点座標を取ってくる
+				Vector3 pos = GetClosestVeretex(m_VertexPos, enemyObj->GetPosition());
+				pos *= this->GetForward() * 1.8f;
+
+				child->SetPosition(pos);
+
+				m_Children.push_back(child);
+				mchild = child;
+				enemyObj->SetDestroy();
+			}
+		}
 	}
 
 	//Boxの当たり判定
@@ -195,7 +251,7 @@ void Player::Update()
 					m_Position.z = oldPosition.z;
 				}			
 				else
-					groundHeight = position.y + scale.y * 2.0f;
+					groundHeight = position.y + scale.y * 2.0f + 2.0f;
 			}							
 		}
 	}	
@@ -230,7 +286,7 @@ void Player::Draw()
 	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f",this->m_Scale.x,this->m_Scale.y,this->m_Scale.z);
 	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
 	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);	
 	ImGui::Text("Time%f\n", time);
 	ImGui::End();	
 
