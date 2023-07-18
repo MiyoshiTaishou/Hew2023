@@ -1,10 +1,9 @@
 ﻿  Player.cpp
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(74,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(73,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(83,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(82,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(112,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(111,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(121,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\Player.cpp(120,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(87,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(93,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(111,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(133,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(132,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(142,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(141,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

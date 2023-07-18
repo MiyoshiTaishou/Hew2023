@@ -9,3 +9,4 @@ C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230623_Mo
 C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230626_Scene\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
 C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230627_Reuslt\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
 C:\Users\Taish\OneDrive\デスクトップ\HAL\三年生\GM31\授業\20230704\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
