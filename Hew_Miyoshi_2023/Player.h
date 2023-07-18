@@ -24,6 +24,19 @@ private:
 	//塊の大きさ
 	float m_Size;	
 	
+	//頂点座標
 	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;
+
+	//初速度
+	float velocity = 0.1f;
+
+	//加速度
+	float acc = 0.01f;
+
+	//時間
+	float time = 0.0f;
+
+	//実際の加速度
+	float vel = 0;
 };
 
