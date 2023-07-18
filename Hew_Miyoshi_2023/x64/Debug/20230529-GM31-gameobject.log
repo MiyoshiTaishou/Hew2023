@@ -1,9 +1,1 @@
-﻿  Player.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(87,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(93,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(111,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(133,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(132,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(142,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp(141,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
+﻿  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

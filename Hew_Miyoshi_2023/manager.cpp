@@ -8,6 +8,7 @@
 #include	"audio.h"
 #include	"Game.h"
 #include	"Title.h"
+#include	"fpscontrol.h"
 
 #include"ImGuiManager.h"
 
@@ -75,6 +76,12 @@ void Manager::Draw(uint64_t d)
 	ImGuiManager::Begin();	
 
 	m_Scene->DrawBase();
+
+	float fps = 1000.0f / d;
+
+	ImGui::Begin("FPS");
+	ImGui::Text("%fFPS",fps);
+	ImGui::End();
 
 	ImGuiManager::End();
 	Renderer::End();
