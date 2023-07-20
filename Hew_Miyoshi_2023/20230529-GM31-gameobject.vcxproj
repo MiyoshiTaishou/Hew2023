@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddForce.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="audio.cpp" />
     <ClCompile Include="BackCameraComponent.cpp" />
@@ -194,6 +195,7 @@
     <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddForce.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="audio.h" />
     <ClInclude Include="BackCameraComponent.h" />

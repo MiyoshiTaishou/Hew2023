@@ -17,5 +17,10 @@ public:
 	void Update();
 	void Draw();
 
-	void SetTarget(DirectX::SimpleMath::Vector3 target);	
+	void SetTarget(DirectX::SimpleMath::Vector3 target);
+
+	DirectX::SimpleMath::Matrix GetViewMatrix()
+	{
+		return m_ViewMatrix;
+	}
 };
