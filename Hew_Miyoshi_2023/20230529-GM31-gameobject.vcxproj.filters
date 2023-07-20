@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\UI">
       <UniqueIdentifier>{90a79112-d071-4ac8-b173-b0a4cde86c16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Function">
+      <UniqueIdentifier>{8d8b1f6e-2a85-4f01-b282-baf626c8521a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -158,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="NoRotationCameraComponent.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="AddForce.cpp">
+      <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="NoRotationCameraComponent.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="AddForce.h">
+      <Filter>ソース ファイル\Function</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

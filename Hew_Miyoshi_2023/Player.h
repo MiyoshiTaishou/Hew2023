@@ -12,6 +12,7 @@ public:
 	void Uninit()override;
 	void Update()override;
 	void Draw()override;	
+	DirectX::SimpleMath::Vector2 GetVelocity();
 
 private:
 
@@ -27,8 +28,8 @@ private:
 	//頂点座標
 	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;
 
-	//初速度
-	float velocity = 0.1f;
+	//速度
+	DirectX::SimpleMath::Vector2 velocity{};
 
 	//加速度
 	float acc = 0.01f;
@@ -38,5 +39,11 @@ private:
 
 	//実際の加速度
 	float vel = 0;
+
+	//質量
+	float math = 5.0f;
+
+	//跳ね返り係数
+	float coefficient = 1.0f;
 };
 

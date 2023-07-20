@@ -15,6 +15,7 @@
 #include"box.h"
 #include"Enemy.h"
 #include"camera.h"
+#include"AddForce.h"
 
 #include"ImGuiManager.h"
 
@@ -23,6 +24,7 @@ using namespace DirectX::SimpleMath;
 void Player::Init()
 {			
 	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	AddComponent<Rigidbody>()->Init(1,-1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
 	m_VertexPos =  AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");	
 	//AddComponent<PhysicsComponent>()->Init();		
@@ -57,21 +59,13 @@ void Player::Update()
 	//接地
 	float groundHeight = 2.0f;
 
+	//カメラの前向きベクトル
+	Vector3 forward = cameraObj->GetForward();
+
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
 	}	
-
-	//等加速度運動
-	float m = (velocity * time) + ((acc * (time * time)) / 2);
-
-	//加速の上限
-	if (m > 0.5f)
-		m = 0.5f;
-
-	vel = m;
-
-	Vector3 Vecm = Vector3(m, m, m);
-
+	
 	//現在の位置を更新	
 	if (Input::GetKeyPress('A'))
 	{
@@ -83,17 +77,17 @@ void Player::Update()
 	}
 
 	if (Input::GetKeyPress('W'))
-	{
-		m_Rotation.x += 5.0f / 60.f;
-		m_Position += (cameraObj->GetForward() * Vecm);
-		time += 0.1;
+	{		
+		m_Rotation.x += 10.0f / 60.0f;
+		Vector3 force = forward * 100.0f;
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
 	}
 
 	if (Input::GetKeyPress('S'))
 	{
-		m_Rotation.x -= 5.0f / 60.f;
-		m_Position -= (cameraObj->GetForward() * Vecm);
-		time += 0.1;
+		m_Rotation.x -= 10.0f / 60.0f;
+		Vector3 force = forward * -100.0f;
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
 	}
 
 	//ジャンプ
@@ -106,15 +100,7 @@ void Player::Update()
 	m_Velocity.y -= 0.015f;
 
 	//抵抗
-	m_Velocity.y -= m_Velocity.y * 0.01f;
-
-	//移動
-	m_Position += m_Velocity;
-
-	time -= 0.05;
-
-	if (time < 0)
-		time = 0;
+	m_Velocity.y -= m_Velocity.y * 0.01f;	
 
 	// ゴールとの当たり判定
 	{
@@ -241,8 +227,8 @@ void Player::Update()
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
-					m_Position.x = oldPosition.x;
-					m_Position.z = oldPosition.z;
+					Vector3 force = -forward * 100.0f;
+					GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
 				}			
 				else
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
@@ -292,4 +278,9 @@ void Player::Draw()
 		ImGui::Text("Rot\nX %f\nY %f\nZ %f", mchild->GetRotation().x, mchild->GetRotation().y, mchild->GetRotation().z);
 		ImGui::End();
 	}
+}
+
+Vector2 Player::GetVelocity()
+{
+	return velocity;
 }

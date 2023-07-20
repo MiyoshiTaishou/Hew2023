@@ -6,6 +6,7 @@
 #include"scene.h"
 #include"manager.h"
 #include"camera.h"
+#include"Player.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -20,60 +21,23 @@ void PhysicsComponent::Uninit()
 
 void PhysicsComponent::Update()
 {
+	//シーンにあるオブジェを取る
 	Scene* nowscene = Manager::GetScene();
 	Camera* cameraObj = nowscene->GetGameObject<Camera>();
+	Player* playerObj = nowscene->GetGameObject<Player>();
 
-	Vector3 vec = m_GameObject->GetPosition();
-	Vector3 fvec = cameraObj->GetForward();	
-	Vector3 rot = m_GameObject->GetRotation();
-	Vector3 camerarot = cameraObj->GetRotation();
+	//カメラのマトリックスを取る
+	Matrix viewmtx = cameraObj->GetViewMatrix();
+	Vector3 ZAxis = Vector3(viewmtx._13, 0.0f, viewmtx._33);
+	Vector3 XAxis = Vector3(viewmtx._11, 0.0f, viewmtx._31);
 
-	//等加速度運動
-	float m = (velocity * time) + ((acc * (time * time)) / 2);	
+	//プレイヤーの速度を取る
+	float vel = playerObj->GetVelocity().x;
 
-	//加速の上限
-	if (m > 0.5f)
-		m = 0.5f;
 
-	vel = m;
-
-	Vector3 Vecm = Vector3(m, m, m);	
-
-	//現在の位置を更新	
-	if (Input::GetKeyPress('A'))
-	{
-		rot.y -= 1.0f / 60.0f;
-	}
-	if (Input::GetKeyPress('D'))
-	{
-		rot.y += 1.0f / 60.0f;
-	}
-
-	if (Input::GetKeyPress('W'))
-	{
-		rot.x += 5.0f / 60.f;
-		vec += (fvec * Vecm);
-	}
-
-	if (Input::GetKeyPress('S'))
-		vec -= (fvec * Vecm);	
-
-	m_GameObject->SetPosition(vec);
-	m_GameObject->SetRotation(rot);
-	//cameraObj->SetRotation(camerarot);
-
-	if (Input::GetKeyPress('W') || Input::GetKeyPress('S'))
-	{
-		time += 1.0f / 60.0f;
-		return;
-	}		
-
-	time = 0;
 }
 
 void PhysicsComponent::Draw()
 {
-	ImGui::Begin("Physics");
-	ImGui::Text("%f", vel);
-	ImGui::End();
+	
 }
