@@ -126,33 +126,13 @@ void Player::Update()
 			Vector3 position = goal->GetPosition();
 			Vector3 scale = goal->GetScale();
 
-			// ゴールのAABB作成
-			AABB aabbGoal;
-			Vector3 GoalSize(2.0f, 2.0f, 2.0f);
-			aabbGoal = SetAABB(
-				position,
-				fabs(GoalSize.x * scale.x),
-				fabs(GoalSize.y * scale.y),
-				fabs(GoalSize.z * scale.z));
+			//距離を求める
+			Vector3 direction = m_Position - position;
+			float length = direction.Length();
+			float radius = fabs(m_Scale.x / 2.0f);
 
-			// プレイヤのAABB作成
-			AABB aabbPlayer;
-			Vector3 PlayerSize(1.0f, 2.0f, 1.0f);
-			aabbPlayer = SetAABB(
-				Vector3(m_Position.x, m_Position.y + 1.0f, m_Position.z),
-				fabs(PlayerSize.x * m_Scale.x),
-				fabs(PlayerSize.y * m_Scale.y),
-				fabs(PlayerSize.z * m_Scale.z));
-
-			//BoundingSphere playerBS{};
-
-			// AABB当たり判定
-			bool sts = CollisionAABB(aabbPlayer, aabbGoal);
-
-			if (sts)
-			{
+			if (length < radius)
 				goal->SetDestroy();
-			}
 		}
 
 	}
@@ -166,27 +146,34 @@ void Player::Update()
 			Vector3 position = enemyObj->GetPosition();
 			Vector3 scale = enemyObj->GetScale();
 
-			// エネミーのAABB作成
-			AABB aabbEnemy;
-			Vector3 EnemySize(1.0f, 1.0f, 1.0f);
-			aabbEnemy = SetAABB(
-				position,
-				fabs(EnemySize.x * scale.x),
-				fabs(EnemySize.y * scale.y),
-				fabs(EnemySize.z * scale.z));
+			//// エネミーのAABB作成
+			//AABB aabbEnemy;
+			//Vector3 EnemySize(1.0f, 1.0f, 1.0f);
+			//aabbEnemy = SetAABB(
+			//	position,
+			//	fabs(EnemySize.x * scale.x),
+			//	fabs(EnemySize.y * scale.y),
+			//	fabs(EnemySize.z * scale.z));
 
-			// プレイヤのAABB作成
-			AABB aabbPlayer;
-			Vector3 PlayerSize(1.0f, 1.0f, 1.0f);
-			aabbPlayer = SetAABB(
-				Vector3(m_Position.x, m_Position.y + 1.0f, m_Position.z),
-				fabs(PlayerSize.x * m_Scale.x),
-				fabs(PlayerSize.y * m_Scale.y),
-				fabs(PlayerSize.z * m_Scale.z));			
+			//// プレイヤのAABB作成
+			//AABB aabbPlayer;
+			//Vector3 PlayerSize(1.0f, 1.0f, 1.0f);
+			//aabbPlayer = SetAABB(
+			//	Vector3(m_Position.x, m_Position.y + 1.0f, m_Position.z),
+			//	fabs(PlayerSize.x * m_Scale.x),
+			//	fabs(PlayerSize.y * m_Scale.y),
+			//	fabs(PlayerSize.z * m_Scale.z));			
 
-			// AABB当たり判定
-			bool sts = CollisionAABB(aabbPlayer, aabbEnemy);
+			//距離を求める
+			Vector3 direction = m_Position - position;
+			float length = direction.Length();
+			float radius = fabs(m_Scale.x / 2.0f);
 
+			bool sts = false;
+
+			if (length < radius)
+				sts = true;
+			
 			if (sts)
 			{
 				GameObject* child = AddChild<Enemy>();
@@ -216,6 +203,13 @@ void Player::Update()
 		{
 			Vector3 position = boxobj->GetPosition();
 			Vector3 scale = boxobj->GetScale();
+
+			//プレイヤーのBS作成
+			BoundingSphere playerBS{};
+			playerBS.center = m_Position;
+			playerBS.radius = fabs(m_Scale.x / 2.0f);
+
+			//bool sts CollisionSphereOrientedQuad(position)
 
 			//幅を取る
 			Vector3 PWidth = m_Position - m_Scale - Vector3(0.5f, 0.5f, 0.5f);
