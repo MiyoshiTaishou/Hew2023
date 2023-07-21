@@ -11,6 +11,16 @@ enum class ForceMode
 	VelocityChange // 質量に依存せず、瞬間的な力を与える
 };
 
+enum class Freeze
+{
+	Xpos,
+	YPos,
+	ZPos,
+	XRot,
+	YRot,
+	ZRot
+};
+
 class Rigidbody : public Component
 {
 public:
@@ -18,13 +28,28 @@ public:
 	
 	void Init(float _mass, float _drag,float _gravityScale);
 	void Update() override;
+	void Draw() override;
 
 	void AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode);	
+
+	DirectX::SimpleMath::Vector3 GetVelocity();
+	void SetVelocity(DirectX::SimpleMath::Vector3 _vel);
+
+	void SetFreeze(Freeze freez,bool _b);
+	bool GetFreeze(Freeze freez);
+
 private:
 	float mass;//オブジェクトの質量
 	float drag;//摩擦
 	float gravityScale;//重力の強さ
 	DirectX::SimpleMath::Vector3 velocity;//オブジェクトの現在の速度
-	DirectX::SimpleMath::Vector3 force;//オブジェクトに現在加えられている力
+	DirectX::SimpleMath::Vector3 force;//オブジェクトに現在加えられている力	
+	
+	bool mXPos = false;
+	bool mYPos = false;
+	bool mZPos = false;
+	bool mXRot = false;
+	bool mYRot = false;
+	bool mZRot = false;
 };
 
