@@ -56,6 +56,9 @@ void Player::Update()
 
 	Vector3 oldPosition = m_Position;
 
+	GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, false);
+	GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, false);
+
 	//接地
 	float groundHeight = 2.0f;
 
@@ -66,37 +69,7 @@ void Player::Update()
 		cmpt->Update();
 	}	
 	
-	//現在の位置を更新	
-	if (Input::GetKeyPress('A'))
-	{
-		m_Rotation.y -= 1.0f / 60.0f;
-	}
-	if (Input::GetKeyPress('D'))
-	{
-		m_Rotation.y += 1.0f / 60.0f;
-	}
-
-	if (Input::GetKeyPress('W'))
-	{		
-		m_Rotation.x += 10.0f / 60.0f;
-		Vector3 force = forward * 100.0f;
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
-	}
-
-	if (Input::GetKeyPress('S'))
-	{
-		m_Rotation.x -= 10.0f / 60.0f;
-		Vector3 force = forward * -100.0f;
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
-	}
-
-	//ジャンプ
-	if (Input::GetKeyTrigger('J'))
-	{
-		Vector3 force = { 0,200,0 };
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
-	}
-
+	
 	//重力
 	m_Velocity.y -= 0.015f;
 
@@ -228,8 +201,20 @@ void Player::Update()
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
-					Vector3 force = -forward * 100.0f;
-					GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					float absVelX = fabs(vel.x);
+					float absVelZ = fabs(vel.z);
+
+					if (absVelX > 4.0f || absVelX > 4.0f)
+					{
+						Vector3 force = -vel * 5.0f;
+						GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+					}
+					else
+					{
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos,true);
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos,true);
+					}
 				}			
 				else
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
@@ -240,8 +225,10 @@ void Player::Update()
 	// 位置が０以下なら地面位置にセットする
 	if (m_Position.y < groundHeight)
 	{
+		Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
 		m_Position.y = groundHeight;	
-		m_Velocity.y = 0.0f;
+		vel.y = 0.0f;
+		GetComponent<Rigidbody>()->SetVelocity(vel);
 	}
 
 	//弾発射
@@ -254,6 +241,46 @@ void Player::Update()
 
 		m_SE->Play();
 	}
+
+	//現在の位置を更新	
+	if (Input::GetKeyPress('A'))
+	{
+		m_Rotation.y -= 1.0f / 60.0f;
+	}
+	if (Input::GetKeyPress('D'))
+	{
+		m_Rotation.y += 1.0f / 60.0f;
+	}
+
+	if (Input::GetKeyPress('W'))
+	{
+		if (GetComponent<Rigidbody>()->GetFreeze(Freeze::Xpos))
+		{
+			Vector3 force = { 0,500,0 };
+			GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+		}
+		else
+		{
+			m_Rotation.x += 10.0f / 60.0f;
+			Vector3 force = forward * 100.0f;
+			GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+		}
+	}
+
+	if (Input::GetKeyPress('S'))
+	{		
+		m_Rotation.x -= 10.0f / 60.0f;
+		Vector3 force = forward * -100.0f;
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+	}
+
+	//ジャンプ
+	if (Input::GetKeyTrigger('J'))
+	{
+		Vector3 force = { 0,100,0 };
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+	}
+
 }
 
 void Player::Draw()
@@ -267,8 +294,7 @@ void Player::Draw()
 	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f",this->m_Scale.x,this->m_Scale.y,this->m_Scale.z);
 	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
 	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);	
-	ImGui::Text("Time%f\n", time);
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);		
 	ImGui::End();	
 
 	if (mchild != nullptr)
@@ -279,9 +305,4 @@ void Player::Draw()
 		ImGui::Text("Rot\nX %f\nY %f\nZ %f", mchild->GetRotation().x, mchild->GetRotation().y, mchild->GetRotation().z);
 		ImGui::End();
 	}
-}
-
-Vector2 Player::GetVelocity()
-{
-	return velocity;
 }
