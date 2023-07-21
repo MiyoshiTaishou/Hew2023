@@ -24,7 +24,7 @@ using namespace DirectX::SimpleMath;
 void Player::Init()
 {			
 	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
-	AddComponent<Rigidbody>()->Init(1,-1);
+	AddComponent<Rigidbody>()->Init(2,-1,1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
 	m_VertexPos =  AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");	
 	//AddComponent<PhysicsComponent>()->Init();		
@@ -93,7 +93,8 @@ void Player::Update()
 	//ÉWÉÉÉìÉv
 	if (Input::GetKeyTrigger('J'))
 	{
-		m_Velocity.y = 0.35f;
+		Vector3 force = { 0,200,0 };
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
 	}
 
 	//èdóÕ

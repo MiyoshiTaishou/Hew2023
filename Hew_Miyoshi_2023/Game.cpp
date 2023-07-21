@@ -104,7 +104,7 @@ void Game::Init()
 	
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("asset\\audio\\bgm.wav");
+	bgm->GetComponent<Audio>()->Load("asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
 	bgm->GetComponent<Audio>()->Play();
 }
 

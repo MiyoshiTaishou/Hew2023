@@ -16,13 +16,14 @@ class Rigidbody : public Component
 public:
 	using Component::Component;
 	
-	void Init(float _mass, float _drag);
+	void Init(float _mass, float _drag,float _gravityScale);
 	void Update() override;
 
 	void AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode);	
 private:
 	float mass;//オブジェクトの質量
 	float drag;//摩擦
+	float gravityScale;//重力の強さ
 	DirectX::SimpleMath::Vector3 velocity;//オブジェクトの現在の速度
 	DirectX::SimpleMath::Vector3 force;//オブジェクトに現在加えられている力
 };
