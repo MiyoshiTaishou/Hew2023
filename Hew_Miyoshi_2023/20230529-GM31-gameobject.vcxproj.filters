@@ -340,5 +340,8 @@
     <FxCompile Include="shader\PS_OrangeScale.hlsl">
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
+    <FxCompile Include="shader\PS_RGBSplit.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
