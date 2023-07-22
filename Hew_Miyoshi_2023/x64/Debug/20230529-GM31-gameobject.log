@@ -1,4 +1,2 @@
-﻿C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_Cartoon.hlsl(18,11): warning X3206: implicit truncation of vector type
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_Cartoon.hlsl(18,21-99): error X4532: texlod not supported on this target
-  
-  compilation failed; no code produced
+﻿  AddForce.cpp
+  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

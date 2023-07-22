@@ -13,7 +13,7 @@
 void Cylinder::Init()
 {
 
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_RGBSplit.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\cylinder.obj");
 
 
