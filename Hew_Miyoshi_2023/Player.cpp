@@ -23,7 +23,7 @@ using namespace DirectX::SimpleMath;
 
 void Player::Init()
 {			
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");
 	AddComponent<Rigidbody>()->Init(2,-1,1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
 	m_VertexPos =  AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");	
