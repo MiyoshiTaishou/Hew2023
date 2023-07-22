@@ -1,45 +1,18 @@
-struct VS_IN
+#include "common.hlsl"
+
+
+void main(in VS_IN In, out PS_IN Out)
 {
-	float3 pos		: POSITION0;
-	float3 normal	: NORMAL0;
-	float2 uv		: TEXCOORD0;
-};
-struct VS_OUT
-{
-	float4 pos		: SV_POSITION;
-	float4 color	: COLOR0;
-	float2 uv		: TEXCOORD0;
-};
+    Out.Position = float4(In.Position.xyz, 1.0f);
+    Out.Position = mul(Out.Position, World);
+    Out.Position = mul(Out.Position, View);
+    Out.Position = mul(Out.Position, Projection);
 
-cbuffer Matrix : register(b0)
-{
-	float4x4 world;
-	float4x4 view;
-	float4x4 proj;
-};
+    Out.TexCoord = In.TexCoord;
 
-cbuffer Light : register(b1)
-{
-	float4 lightDir;
-	float4 lightDiffuse;
-	float4 lightAmbient;
-};
+    float3 N = normalize(mul(In.Normal.xyz, (float3x3) World));
+    float3 L = normalize(-Light.Direction.xyz);
 
-VS_OUT main(VS_IN vin)
-{
-	VS_OUT vout;
-	vout.pos = float4(vin.pos, 1.0f);
-	vout.pos = mul(vout.pos, world);
-	vout.pos = mul(vout.pos, view);
-	vout.pos = mul(vout.pos, proj);
-
-	vout.uv = vin.uv;
-
-	float3 N = normalize(mul(vin.normal, (float3x3)world));
-	float3 L = normalize(-lightDir.xyz);
-
-	float diffuse = saturate(dot(N, L));
-	vout.color = diffuse * lightDiffuse + lightAmbient;
-
-	return vout;
+    float diffuse = saturate(dot(N, L));
+    Out.Diffuse = diffuse * Light.Diffuse + Light.Ambient;
 }

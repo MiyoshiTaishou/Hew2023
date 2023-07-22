@@ -9,7 +9,7 @@ private:
 	DirectX::SimpleMath::Vector3	m_Target{};
 	DirectX::SimpleMath::Matrix		m_ViewMatrix{};
 
-	DirectX::SimpleMath::Vector3 m_Foward{};
+	DirectX::SimpleMath::Vector3 m_Foward{};	
 
 public:
 	void Init();
@@ -17,7 +17,7 @@ public:
 	void Update();
 	void Draw();
 
-	void SetTarget(DirectX::SimpleMath::Vector3 target);
+	void SetTarget(DirectX::SimpleMath::Vector3 target);	
 
 	DirectX::SimpleMath::Matrix GetViewMatrix()
 	{

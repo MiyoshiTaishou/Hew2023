@@ -41,6 +41,15 @@ struct LIGHT
 	DirectX::SimpleMath::Color	Ambient;
 };
 
+// データを送るための定数バッファ構造体
+struct ConstantBufferData
+{
+	DirectX::XMFLOAT4X4 World;
+	DirectX::XMFLOAT4X4 View;
+	DirectX::XMFLOAT4X4 Projection;
+	DirectX::XMFLOAT4 CameraPosition;
+};
+
 
 // レンダラ
 class Renderer
@@ -91,7 +100,5 @@ public:
 
 
 	static void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** VertexLayout, const char* FileName);
-	static void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
-
-
+	static void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);	
 };

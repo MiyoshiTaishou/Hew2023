@@ -34,6 +34,15 @@
     <Filter Include="ソース ファイル\Function">
       <UniqueIdentifier>{8d8b1f6e-2a85-4f01-b282-baf626c8521a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\PS">
+      <UniqueIdentifier>{2f28f9dd-681e-44c6-9dc0-d5f643ef4cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\VS">
+      <UniqueIdentifier>{4aa5690b-d035-44ad-b046-4d6f04c176bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Shader">
+      <UniqueIdentifier>{774032ee-7e48-40ee-8259-5d30f7669df9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -67,9 +76,6 @@
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
     <ClCompile Include="Polygon2D.cpp">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="shader.cpp">
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
     <ClCompile Include="sprite.cpp">
@@ -165,6 +171,9 @@
     <ClCompile Include="AddForce.cpp">
       <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>ソース ファイル\Component\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -192,9 +201,6 @@
       <Filter>ソース ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="Polygon2D.h">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
       <Filter>ソース ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="sprite.h">
@@ -314,8 +320,19 @@
     <ClInclude Include="AddForce.h">
       <Filter>ソース ファイル\Function</Filter>
     </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>ソース ファイル\Component\Shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader\VS_GouraudShading.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="shader\PS_GouraudShading.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

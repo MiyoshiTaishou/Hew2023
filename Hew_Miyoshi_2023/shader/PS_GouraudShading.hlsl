@@ -1,18 +1,14 @@
-struct PS_IN
+#include"common.hlsl"
+
+Texture2D g_Texture : register(t0);
+SamplerState g_SamplerState : register(s0);
+
+
+void main(in PS_IN In, out float4 outDiffuse : SV_Target)
 {
-	float4 pos		: SV_POSITION;
-	float4 color	: COLOR0;
-	float2 uv		: TEXCOORD0;
-};
+    float4 color = In.Diffuse;
 
-Texture2D tex : register(t0);
-SamplerState samp : register(s0);
-
-float4 main(PS_IN pin) : SV_TARGET
-{
-	float4 color = pin.color;
-
-	color *= tex.Sample(samp, pin.uv);
-
-	return color;
+    color *= g_Texture.Sample(g_SamplerState, In.TexCoord);   
+    
+    outDiffuse = color;
 }

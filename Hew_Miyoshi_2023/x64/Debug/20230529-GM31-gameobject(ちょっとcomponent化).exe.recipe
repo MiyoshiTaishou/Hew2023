@@ -5,7 +5,14 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PS_GouraudShading.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\VS_GouraudShading.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>
