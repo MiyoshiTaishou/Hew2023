@@ -36,8 +36,8 @@ Vector3 afterPos;
 void Game::Init()
 {
 	AddGameObject<Sky>(1);
-	AddGameObject<Field>(1);
 	AddGameObject<Player>(1);
+	AddGameObject<Field>(1);	
 	AddGameObject<Score>(3);
 
 	AddGameObject<Camera>(0);

@@ -2,6 +2,7 @@
 #include "gameObject.h"
 #include<SimpleMath.h>
 #include<vector>
+#include"GamePad.h"
 
 class Link;
 
@@ -13,6 +14,8 @@ public:
 	void Update()override;
 	void Draw()override;	
 	DirectX::SimpleMath::Vector2 GetVelocity();
+
+	DirectX::GamePad::State buttonState;
 
 private:
 
@@ -26,6 +29,6 @@ private:
 	float m_Size;	
 	
 	//í∏ì_ç¿ïW
-	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;	
+	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;		
 };
 

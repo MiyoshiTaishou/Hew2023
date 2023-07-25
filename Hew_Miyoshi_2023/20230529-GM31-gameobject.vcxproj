@@ -164,6 +164,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GamePad.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="imgui.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="fpscontrol.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="gameObject.h" />
+    <ClInclude Include="GamePad.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="imconfig.h" />
