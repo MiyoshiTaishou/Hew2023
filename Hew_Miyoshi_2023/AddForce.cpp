@@ -21,7 +21,7 @@ void Rigidbody::Update()
 
 	//d—Íˆ—	
 	const float gravity = 0.98f;
-	velocity.y -= gravity * mass;
+	velocity.y -= gravity * mass * gravityScale;
 	
 	if (mXPos)
 		velocity.x = 0.0f;

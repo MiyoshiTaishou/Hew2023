@@ -23,13 +23,13 @@ using namespace DirectX::SimpleMath;
 
 void Player::Init()
 {			
-	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
+	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
 	AddComponent<Rigidbody>()->Init(2,-1,1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
 	m_VertexPos =  AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");	
-	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");
+	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");
 	//AddComponent<PhysicsComponent>()->Init();		
-	//AddComponent<JumpComponent>()->Init();				
+	AddComponent<GamePadComponent>();
 
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Position.y = 10.0f;
@@ -246,14 +246,37 @@ void Player::Update()
 	//現在の位置を更新	
 	if (Input::GetKeyPress('A'))
 	{
-		m_Rotation.y -= 1.0f / 60.0f;
+		m_Rotation.y -= buttonState.thumbSticks.leftX / 60.0f;
 	}
+
 	if (Input::GetKeyPress('D'))
 	{
 		m_Rotation.y += 1.0f / 60.0f;
 	}
 
-	if (Input::GetKeyPress('W'))
+	//コントローラーの入力を取る
+	{
+		Vector3 force = forward * 100.0f * buttonState.thumbSticks.leftY;
+		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+		m_Rotation.y += buttonState.thumbSticks.leftX / 60.0f;
+
+		if (GetComponent<Rigidbody>()->GetFreeze(Freeze::Xpos))
+		{
+			float Stick = buttonState.thumbSticks.leftY;
+			if (Stick > 0.1)
+			{
+				Vector3 force = { 0,500,0 };
+				GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+			}
+			else
+			{
+				GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, false);
+				GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, false);
+			}				
+		}
+	}
+
+	if (Input::GetKeyPress('W') || this->buttonState.IsLeftStickPressed())
 	{
 		if (GetComponent<Rigidbody>()->GetFreeze(Freeze::Xpos))
 		{

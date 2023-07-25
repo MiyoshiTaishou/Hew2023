@@ -171,6 +171,9 @@
     <ClCompile Include="AddForce.cpp">
       <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
+    <ClCompile Include="GamePad.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="AddForce.h">
       <Filter>ソース ファイル\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePad.h">
+      <Filter>ソース ファイル\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
