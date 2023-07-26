@@ -349,5 +349,11 @@
     <FxCompile Include="shader\PS_RGBSplit.hlsl">
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
+    <FxCompile Include="shader\PS_PolarCoordinates.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="shader\common.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

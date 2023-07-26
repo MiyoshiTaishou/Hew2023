@@ -41,6 +41,17 @@ struct LIGHT
 	DirectX::SimpleMath::Color	Ambient;
 };
 
+struct Pollar
+{
+	float gauge1;//ゲージの下限値
+	float gauge2;//ゲージの上限値
+	float inner;//描画する内側の円の半径
+	float outer;//描画する外側の円の半径
+	DirectX::SimpleMath::Vector4 baseColor;//ベースカラー
+	DirectX::SimpleMath::Vector4 diffColor;//ゲージがgauge1とgauge2の間の時の色
+	DirectX::SimpleMath::Vector4 lostColor;//ゲージがgauge2を超えたときの色
+};
+
 
 // レンダラ
 class Renderer
@@ -60,6 +71,7 @@ private:
 	static ID3D11Buffer*			m_ProjectionBuffer;
 	static ID3D11Buffer*			m_MaterialBuffer;
 	static ID3D11Buffer*			m_LightBuffer;
+	static ID3D11Buffer*			m_PollarBuffer;
 
 
 	static ID3D11DepthStencilState* m_DepthStateEnable;
@@ -84,6 +96,7 @@ public:
 	static void SetProjectionMatrix(DirectX::SimpleMath::Matrix* ProjectionMatrix);
 	static void SetMaterial(MATERIAL Material);
 	static void SetLight(LIGHT Light);
+	static void SetPollar(Pollar pol);
 
 	static ID3D11Device* GetDevice( void ){ return m_Device; }
 	static ID3D11DeviceContext* GetDeviceContext( void ){ return m_DeviceContext; }

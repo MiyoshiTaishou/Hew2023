@@ -16,6 +16,7 @@ void Sky::Init()
 	m_Scale = Vector3(100.0f, 100.0f, 100.0f);
 
 
+	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
 	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_OrangeScale.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\sky.obj");
 
