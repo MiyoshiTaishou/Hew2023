@@ -18,6 +18,7 @@ ID3D11Buffer*			Renderer::m_ViewBuffer{};
 ID3D11Buffer*			Renderer::m_ProjectionBuffer{};
 ID3D11Buffer*			Renderer::m_MaterialBuffer{};
 ID3D11Buffer*			Renderer::m_LightBuffer{};
+ID3D11Buffer*			Renderer::m_PollarBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -223,7 +224,11 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers( 4, 1, &m_LightBuffer );
 	m_DeviceContext->PSSetConstantBuffers( 4, 1, &m_LightBuffer );
 
+	bufferDesc.ByteWidth = sizeof(Pollar);
 
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_PollarBuffer);	
+	m_DeviceContext->VSSetConstantBuffers(5, 1, &m_PollarBuffer);
+	m_DeviceContext->PSSetConstantBuffers(5, 1, &m_PollarBuffer);
 
 
 
@@ -244,9 +249,16 @@ void Renderer::Init(Application* ap)
 	material.Ambient = Color(1.0f, 1.0f, 1.0f, 1.0f);
 	SetMaterial(material);
 
+	Pollar pollar{};
+	pollar.baseColor = { 0.0f,1.0f,0.0f,1.0f };//ベースカラー
+	pollar.diffColor = { 1.0f,0.4f,0.0f,1.0f };
+	pollar.lostColor = { 0.2f,0.2f,0.2f,1.0f };
+	pollar.outer = 1.0f;
+	pollar.inner = 0.3f;
+	pollar.gauge1 = 1.0f - ((int)fmod(1, 7.0f) + 1) / 7.0f;
+	pollar.gauge2 = 1.0f - fmodf(0.5, 7.0f) / 7.0f;	
 
-
-
+	SetPollar(pollar);
 }
 
 
@@ -259,6 +271,7 @@ void Renderer::Uninit()
 	m_ProjectionBuffer->Release();
 	m_LightBuffer->Release();
 	m_MaterialBuffer->Release();
+	m_PollarBuffer->Release();
 
 
 	m_DeviceContext->ClearState();
@@ -396,6 +409,11 @@ void Renderer::SetMaterial( MATERIAL Material )
 void Renderer::SetLight( LIGHT Light )
 {
 	m_DeviceContext->UpdateSubresource(m_LightBuffer, 0, NULL, &Light, 0, 0);
+}
+
+void Renderer::SetPollar(Pollar pol)
+{
+	m_DeviceContext->UpdateSubresource(m_PollarBuffer, 0, NULL, &pol, 0, 0);
 }
 
 
