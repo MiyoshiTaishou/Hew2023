@@ -16,6 +16,7 @@
 #include"Enemy.h"
 #include"camera.h"
 #include"AddForce.h"
+#include"OBBCollison.h"
 
 #include"ImGuiManager.h"
 
@@ -86,13 +87,49 @@ void Player::Update()
 		{
 			Vector3 position = goal->GetPosition();
 			Vector3 scale = goal->GetScale();
+			Vector3 rotate = goal->GetRotation();
 
-			//ãóó£ÇãÅÇﬂÇÈ
-			Vector3 direction = m_Position - position;
-			float length = direction.Length();
-			float radius = fabs(m_Scale.x / 2.0f);
+			//ÉSÅ[ÉãÇÃOBBê›íË
+			OBBinfo goalOBB;
+			goalOBB.center = Vector3(0.0f, 0.0f, 0.0f);
+			goalOBB.currentcenter = position;
+			goalOBB.fLengthX = scale.x * 2 / 2;
+			goalOBB.fLengthY = scale.y * 2 / 2;
+			goalOBB.fLengthZ = scale.z * 2 / 2;
+			goalOBB.vecAxisX = Vector3(cosf(rotate.y) * cosf(rotate.z),
+				sinf(rotate.z),
+				sinf(rotate.y) * cosf(rotate.z));
+			goalOBB.vecAxisY = Vector3(-cosf(rotate.y) * sinf(rotate.z),
+				cosf(rotate.z),
+				-sinf(rotate.y) * sinf(rotate.z));
+			goalOBB.vecAxisZ = Vector3(-sinf(rotate.y),
+				0.0f,
+				cosf(rotate.y));
 
-			if (length < radius)
+			OBBinfo pOBB;
+			pOBB.center = Vector3(0.0f, 0.0f, 0.0f);
+			pOBB.currentcenter = m_Position;
+			pOBB.fLengthX = m_Scale.x * 3 / 2;
+			pOBB.fLengthY = m_Scale.y * 2 / 2;
+			pOBB.fLengthZ = m_Scale.z / 2;
+
+			Matrix rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+
+			pOBB.vecAxisX = rot._31 * Vector3(1.0f, 0.0f, 0.0f);
+			pOBB.vecAxisY = rot._32 * Vector3(0.0f, 1.0f, 0.0f);
+			pOBB.vecAxisZ = rot._33 * Vector3(0.0f, 0.0f, 1.0f);
+
+			////ãóó£ÇãÅÇﬂÇÈ
+			//Vector3 direction = m_Position - position;
+			//float length = direction.Length();
+			//float radius = fabs(m_Scale.x / 2.0f);
+
+			//if (length < radius)
+			//	goal->SetDestroy();
+
+			bool sts = Collisom(pOBB, goalOBB);
+
+			if (sts)
 				goal->SetDestroy();
 		}
 
@@ -247,6 +284,7 @@ void Player::Update()
 	if (Input::GetKeyPress('A'))
 	{
 		m_Rotation.y -= buttonState.thumbSticks.leftX / 60.0f;
+		m_Rotation.y -= 1.0f / 60.0f;
 	}
 
 	if (Input::GetKeyPress('D'))
