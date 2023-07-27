@@ -13,8 +13,8 @@
 void Box::Init()
 {
 	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
-	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_RGBSplit.cso");
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_PolarCoordinates.cso");
+	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_RGBSplit.cso");
+	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_PolarCoordinates.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\box.obj");
 	AddComponent<BoxCollider>()->Init();
 //	AddComponent<Shadow>()->SetSize(8.0f);
