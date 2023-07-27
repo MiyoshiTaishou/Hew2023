@@ -9,7 +9,7 @@ using namespace DirectX::SimpleMath;
 void Polygon2D::Init()
 {
 	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\unlitTexturePS.cso");
-	AddComponent<Sprite>()->Init(0, 0, 200, 200, "asset\\texture\\grass.jpg");
+	AddComponent<Sprite>()->Init(0, 0, 200, 200, "asset\\texture\\field.jpg");
 
 	
 /*
