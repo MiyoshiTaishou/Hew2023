@@ -249,6 +249,7 @@ void Renderer::Init(Application* ap)
 	material.Ambient = Color(1.0f, 1.0f, 1.0f, 1.0f);
 	SetMaterial(material);
 
+	//ポーラ初期化
 	Pollar pollar{};
 	pollar.baseColor = { 0.0f,1.0f,0.0f,1.0f };//ベースカラー
 	pollar.diffColor = { 1.0f,0.4f,0.0f,1.0f };

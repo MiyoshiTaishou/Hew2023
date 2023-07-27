@@ -26,6 +26,7 @@
 #include"sky.h"
 
 #include"score.h"
+#include"Timer.h"
 
 #include<SimpleMath.h>
 using namespace DirectX::SimpleMath;
@@ -39,6 +40,7 @@ void Game::Init()
 	AddGameObject<Player>(1);
 	AddGameObject<Field>(1);	
 	AddGameObject<Score>(3);
+	AddGameObject<Timer>(3);
 
 	AddGameObject<Camera>(0);
 	Camera* Cameraobj = GetGameObject<Camera>();
