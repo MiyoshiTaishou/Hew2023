@@ -52,6 +52,12 @@ struct Pollar
 	DirectX::SimpleMath::Vector4 lostColor;//ゲージがgauge2を超えたときの色
 };
 
+struct Fade
+{
+	float alpha;
+	DirectX::SimpleMath::Vector3 dummy;
+};
+
 
 // レンダラ
 class Renderer
@@ -72,6 +78,7 @@ private:
 	static ID3D11Buffer*			m_MaterialBuffer;
 	static ID3D11Buffer*			m_LightBuffer;
 	static ID3D11Buffer*			m_PollarBuffer;
+	static ID3D11Buffer*			m_FadeBuffer;
 
 
 	static ID3D11DepthStencilState* m_DepthStateEnable;
@@ -97,6 +104,7 @@ public:
 	static void SetMaterial(MATERIAL Material);
 	static void SetLight(LIGHT Light);
 	static void SetPollar(Pollar pol);
+	static void SetFade(Fade fade);
 
 	static ID3D11Device* GetDevice( void ){ return m_Device; }
 	static ID3D11DeviceContext* GetDeviceContext( void ){ return m_DeviceContext; }

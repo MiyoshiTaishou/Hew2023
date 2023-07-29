@@ -27,6 +27,8 @@
 
 #include"score.h"
 #include"Timer.h"
+#include"PostProcess.h"
+#include"Fade.h"
 
 #include<SimpleMath.h>
 using namespace DirectX::SimpleMath;
@@ -101,23 +103,27 @@ void Game::Init()
 		goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
 	}	
 
-	m_Transition = AddGameObject<Transition>(3);
-	m_Transition->FadeIn();//フェードイン開始	
+	//m_Transition = AddGameObject<Transition>(3);
+	//m_Transition->FadeIn();//フェードイン開始	
 	
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
 	bgm->GetComponent<Audio>()->Play();
+
+	//PostProcess* post = AddGameObject<PostProcess>(3);
+	m_Fade = AddGameObject<FadeUI>(3);
+	m_Fade->FadeIn();//フェードイン開始	
 }
 
 void Game::Update()
 {		
-	if (m_Transition->GetState() == Transition::State::Stop)
+	if (m_Fade->GetState() == FadeUI::State::Stop)
 		if (Input::GetKeyTrigger(VK_RETURN))
-			m_Transition->FadeOut();	
+			m_Fade->FadeOut();	
 	
 	//画面遷移が終了しているか
-	if (m_Transition->GetState() == Transition::State::Finish)
+	if (m_Fade->GetState() == FadeUI::State::Finish)
 		Manager::SetScene<Result>();
 	
 
@@ -132,7 +138,7 @@ void Game::Update()
 			m_Goal = true;
 
 			// ２秒後にスレッドを生成してフェードアウト開始
-			Invoke([=]() { m_Transition->FadeOut(); }, 2000);
+			Invoke([=]() { m_Fade->FadeOut(); }, 2000);
 		}
 	}
 }
