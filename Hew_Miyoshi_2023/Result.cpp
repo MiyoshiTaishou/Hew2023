@@ -6,6 +6,7 @@
 #include "shader.h"
 #include "sprite.h"
 #include"Transition.h"
+#include"Fade.h"
 
 void Result::Init()
 {
@@ -15,17 +16,19 @@ void Result::Init()
 	titleLogo->AddComponent<Sprite>()->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT,
 		"asset\\texture\\result.jpg");
 
-	m_Transition = AddGameObject<Transition>(3);
-	m_Transition->FadeIn();//フェードイン開始
+	//m_Transition = AddGameObject<Transition>(3);
+	//m_Transition->FadeIn();//フェードイン開始
+	m_Fade = AddGameObject<FadeUI>(3);
+	m_Fade->FadeIn();
 }
 
 void Result::Update()
 {
-	if (m_Transition->GetState() == Transition::State::Stop)
+	if (m_Fade->GetState() == FadeUI::State::Stop)
 		if (Input::GetKeyTrigger(VK_RETURN))
-			m_Transition->FadeOut();
+			m_Fade->FadeOut();
 
 	//画面遷移が終了しているか
-	if (m_Transition->GetState() == Transition::State::Finish)
+	if (m_Fade->GetState() == FadeUI::State::Finish)
 		Manager::SetScene<Title>();
 }

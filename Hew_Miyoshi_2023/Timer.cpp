@@ -42,7 +42,7 @@ void Timer::Update()
 	if (goal)
 	{
 		//ゲージ進行
-		time += 0.1;
+		time += 0.01;
 
 		pollar.gauge1 = 1.0f - ((int)fmod(time, 7.0f) + 1) / 7.0f;
 		pollar.gauge2 = 1.0f - fmodf(time, 7.0f) / 7.0f;

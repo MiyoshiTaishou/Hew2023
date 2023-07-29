@@ -19,6 +19,7 @@ ID3D11Buffer*			Renderer::m_ProjectionBuffer{};
 ID3D11Buffer*			Renderer::m_MaterialBuffer{};
 ID3D11Buffer*			Renderer::m_LightBuffer{};
 ID3D11Buffer*			Renderer::m_PollarBuffer{};
+ID3D11Buffer*			Renderer::m_FadeBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -230,6 +231,12 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers(5, 1, &m_PollarBuffer);
 	m_DeviceContext->PSSetConstantBuffers(5, 1, &m_PollarBuffer);
 
+	bufferDesc.ByteWidth = sizeof(Fade);
+
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_FadeBuffer);
+	m_DeviceContext->VSSetConstantBuffers(6, 1, &m_FadeBuffer);
+	m_DeviceContext->PSSetConstantBuffers(6, 1, &m_FadeBuffer);
+
 
 
 	// ライト初期化
@@ -260,6 +267,12 @@ void Renderer::Init(Application* ap)
 	pollar.gauge2 = 1.0f - fmodf(0.5, 7.0f) / 7.0f;	
 
 	SetPollar(pollar);
+
+	//フェード初期化
+	Fade fade{};
+	fade.alpha = 1.0f;
+
+	SetFade(fade);
 }
 
 
@@ -273,6 +286,7 @@ void Renderer::Uninit()
 	m_LightBuffer->Release();
 	m_MaterialBuffer->Release();
 	m_PollarBuffer->Release();
+	m_FadeBuffer->Release();
 
 
 	m_DeviceContext->ClearState();
@@ -415,6 +429,11 @@ void Renderer::SetLight( LIGHT Light )
 void Renderer::SetPollar(Pollar pol)
 {
 	m_DeviceContext->UpdateSubresource(m_PollarBuffer, 0, NULL, &pol, 0, 0);
+}
+
+void Renderer::SetFade(Fade fade)
+{
+	m_DeviceContext->UpdateSubresource(m_FadeBuffer, 0, NULL, &fade, 0, 0);
 }
 
 
