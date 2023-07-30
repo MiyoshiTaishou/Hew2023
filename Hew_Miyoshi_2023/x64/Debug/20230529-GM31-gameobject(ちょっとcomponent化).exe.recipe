@@ -7,25 +7,31 @@
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PS_GouraudShading.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_ConcentrationShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PS_OrangeScale.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\PS_FadeShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PS_PolarCoordinates.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\PS_GouraudShading.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PS_RGBSplit.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\PS_OrangeScale.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\vertexLightingPS.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\PS_PolarCoordinates.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\vertexLightingVS.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\PS_RGBSplit.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\VS_GouraudShading.cso</FullPath>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\vertexLightingPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\vertexLightingVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\$\shader\VS_GouraudShading.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
