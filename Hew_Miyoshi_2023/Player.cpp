@@ -38,9 +38,13 @@ void Player::Init()
 	this->m_Position.x = 10.0f;		
 	this->m_Position.z = -10.0f;		
 
+
+	//SE
 	m_SE = AddComponent<Audio>();
 	m_SE->Load("asset\\audio\\wan.wav");
 
+	m_MeetSE = AddComponent<Audio>();
+	m_MeetSE->Load("asset\\audio\\puyon.wav");
 	//m_Size=
 }
 
@@ -190,6 +194,8 @@ void Player::Update()
 				m_Children.push_back(child);
 				mchild = child;
 				enemyObj->SetDestroy();
+
+				m_MeetSE->Play();
 			}
 		}
 	}
@@ -233,6 +239,8 @@ void Player::Update()
 				m_Children.push_back(child);
 				mchild = child;
 				boxobj->SetDestroy();
+
+				m_MeetSE->Play();
 			}
 
 			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
