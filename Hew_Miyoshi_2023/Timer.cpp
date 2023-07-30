@@ -5,6 +5,7 @@
 #include"scene.h"
 #include"manager.h"
 #include"Goal.h"
+#include"Fade.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -37,9 +38,9 @@ void Timer::Draw()
 void Timer::Update()
 {	
 	Scene* scene = Manager::GetScene();
-	Goal* goal = scene->GetGameObject<Goal>();
+	FadeUI* fade = scene->GetGameObject<FadeUI>();
 
-	if (goal)
+	if (fade->GetState() == FadeUI::State::Stop)
 	{
 		//ゲージ進行
 		time += 0.01;
@@ -48,9 +49,8 @@ void Timer::Update()
 		pollar.gauge2 = 1.0f - fmodf(time, 7.0f) / 7.0f;
 
 		if (pollar.gauge2 < 0.01f)
-			if (goal)
-				goal->SetDestroy();
+			fade->FadeOut();
 
 		Renderer::SetPollar(pollar);
-	}
+	}	
 }
