@@ -6,12 +6,5 @@
   compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\vertexLightingPS.cso
   compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\vertexLightingVS.cso
   compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\VS_GouraudShading.cso
-  Game.cpp
-  GamePad.cpp
-  PhysicsComponent.cpp
-  Player.cpp
-  Timer.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Timer.cpp(46,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-  camera.cpp
-  コードを生成中...
+
   20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
