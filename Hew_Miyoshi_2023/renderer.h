@@ -64,6 +64,13 @@ struct VertexPositionTexture
 	DirectX::XMFLOAT2 texCoord;
 };
 
+struct Bloom
+{
+	float bloom;
+	float power;
+	DirectX::SimpleMath::Vector2 dummy;
+};
+
 // ƒŒƒ“ƒ_ƒ‰
 class Renderer
 {
@@ -84,6 +91,7 @@ private:
 	static ID3D11Buffer*			m_LightBuffer;
 	static ID3D11Buffer*			m_PollarBuffer;
 	static ID3D11Buffer*			m_FadeBuffer;
+	static ID3D11Buffer*			m_BloomBuffer;
 
 
 	static ID3D11DepthStencilState* m_DepthStateEnable;
@@ -110,6 +118,7 @@ public:
 	static void SetLight(LIGHT Light);
 	static void SetPollar(Pollar pol);
 	static void SetFade(Fade fade);
+	static void SetBloom(Bloom bloom);
 
 	static ID3D11Device* GetDevice( void ){ return m_Device; }
 	static ID3D11DeviceContext* GetDeviceContext( void ){ return m_DeviceContext; }

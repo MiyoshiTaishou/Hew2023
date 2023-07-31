@@ -379,5 +379,8 @@
     <FxCompile Include="shader\PS_FadeShader.hlsl">
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
+    <FxCompile Include="shader\PS_BloomBlur.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
