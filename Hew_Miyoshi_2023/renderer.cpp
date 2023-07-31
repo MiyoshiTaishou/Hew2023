@@ -20,6 +20,7 @@ ID3D11Buffer*			Renderer::m_MaterialBuffer{};
 ID3D11Buffer*			Renderer::m_LightBuffer{};
 ID3D11Buffer*			Renderer::m_PollarBuffer{};
 ID3D11Buffer*			Renderer::m_FadeBuffer{};
+ID3D11Buffer*			Renderer::m_BloomBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -237,7 +238,11 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers(6, 1, &m_FadeBuffer);
 	m_DeviceContext->PSSetConstantBuffers(6, 1, &m_FadeBuffer);
 
+	bufferDesc.ByteWidth = sizeof(Bloom);
 
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_BloomBuffer);
+	m_DeviceContext->VSSetConstantBuffers(7, 1, &m_BloomBuffer);
+	m_DeviceContext->PSSetConstantBuffers(7, 1, &m_BloomBuffer);
 
 	// ライト初期化
 	LIGHT light{};
@@ -273,6 +278,13 @@ void Renderer::Init(Application* ap)
 	fade.alpha = 1.0f;
 
 	SetFade(fade);
+
+	//ブルーム
+	Bloom bloom{};	
+	bloom.bloom = 1.0f;
+	bloom.power = 5.0f;
+
+	SetBloom(bloom);
 }
 
 
@@ -434,6 +446,11 @@ void Renderer::SetPollar(Pollar pol)
 void Renderer::SetFade(Fade fade)
 {
 	m_DeviceContext->UpdateSubresource(m_FadeBuffer, 0, NULL, &fade, 0, 0);
+}
+
+void Renderer::SetBloom(Bloom bloom)
+{
+	m_DeviceContext->UpdateSubresource(m_BloomBuffer, 0, NULL, &bloom, 0, 0);
 }
 
 

@@ -24,7 +24,8 @@ using namespace DirectX::SimpleMath;
 
 void Player::Init()
 {			
-	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
+	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
+	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_BloomBlur.cso");	
 	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_PolarCoordinates.cso");	
 	AddComponent<Rigidbody>()->Init(2,-1,1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
@@ -43,8 +44,6 @@ void Player::Init()
 
 	m_MeatSE = AddComponent<Audio>();
 	m_MeatSE->Load("asset\\audio\\‚Õ‚æ‚ñ_2.wav");
-
-	//m_Size=
 }
 
 void Player::Uninit()
@@ -56,7 +55,7 @@ void Player::Uninit()
 void Player::Update()
 {	
 	// Œ»ÝƒV[ƒ“‚ðŽæ“¾
-	Scene* scene = Manager::GetScene();
+	Scene* scene = Manager::GetScene();	
 
 	Camera* cameraObj = scene->GetGameObject<Camera>();
 

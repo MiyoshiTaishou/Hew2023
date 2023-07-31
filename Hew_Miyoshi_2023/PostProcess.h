@@ -3,6 +3,6 @@
 class PostProcess : public GameObject
 {
 public:
-	void Init();	
+	void Init();		
 };
 
