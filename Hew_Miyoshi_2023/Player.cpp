@@ -41,6 +41,9 @@ void Player::Init()
 	m_SE = AddComponent<Audio>();
 	m_SE->Load("asset\\audio\\wan.wav");
 
+	m_MeatSE = AddComponent<Audio>();
+	m_MeatSE->Load("asset\\audio\\‚Õ‚æ‚ñ_2.wav");
+
 	//m_Size=
 }
 
@@ -190,6 +193,8 @@ void Player::Update()
 				m_Children.push_back(child);
 				mchild = child;
 				enemyObj->SetDestroy();
+
+				m_MeatSE->Play();
 			}
 		}
 	}

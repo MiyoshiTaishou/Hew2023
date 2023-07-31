@@ -21,6 +21,7 @@ private:
 
 	DirectX::SimpleMath::Vector3		m_Velocity{};
 	class Audio* m_SE{};	
+	class Audio* m_MeatSE{};	
 
 	std::list<GameObject*> m_Children;
 	GameObject* mchild;
