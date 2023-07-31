@@ -73,9 +73,11 @@ void Manager::Update(uint64_t d)
 void Manager::Draw(uint64_t d)
 {
 	Renderer::Begin();
-	ImGuiManager::Begin();	
+	ImGuiManager::Begin();		
 
-	m_Scene->DrawBase();
+	m_Scene->DrawBase();	
+
+	Renderer::PostProcess();
 
 	float fps = 1000.0f / d;
 

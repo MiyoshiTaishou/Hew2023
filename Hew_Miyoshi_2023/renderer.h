@@ -58,6 +58,11 @@ struct Fade
 	DirectX::SimpleMath::Vector3 dummy;
 };
 
+struct VertexPositionTexture
+{
+	DirectX::XMFLOAT3 pos;
+	DirectX::XMFLOAT2 texCoord;
+};
 
 // ƒŒƒ“ƒ_ƒ‰
 class Renderer
@@ -114,5 +119,5 @@ public:
 	static void CreateVertexShader(ID3D11VertexShader** VertexShader, ID3D11InputLayout** VertexLayout, const char* FileName);
 	static void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
 
-
+	static void PostProcess();
 };

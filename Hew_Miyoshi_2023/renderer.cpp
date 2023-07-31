@@ -494,3 +494,155 @@ void Renderer::CreatePixelShader( ID3D11PixelShader** PixelShader, const char* F
 
 	delete[] buffer;
 }
+
+void Renderer::PostProcess()
+{	
+	// テクスチャの作成
+	ID3D11Texture2D* m_PostProcessTexture;
+	D3D11_TEXTURE2D_DESC textureDesc{};
+	textureDesc.Width = m_Application->GetWidth();
+	textureDesc.Height = m_Application->GetHeight();
+	textureDesc.MipLevels = 1;
+	textureDesc.ArraySize = 1;
+	textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	textureDesc.SampleDesc.Count = 1;
+	textureDesc.SampleDesc.Quality = 0;
+	textureDesc.Usage = D3D11_USAGE_DEFAULT;
+	textureDesc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;
+	textureDesc.CPUAccessFlags = 0;
+	textureDesc.MiscFlags = 0;
+	HRESULT hr = Renderer::GetDevice()->CreateTexture2D(&textureDesc, nullptr, &m_PostProcessTexture);
+	if (FAILED(hr))
+	{
+		// エラーハンドリング
+		return;
+	}
+
+	// フレームバッファのレンダーターゲットビューを作成
+	ID3D11RenderTargetView* m_PostProcessRenderTargetView;
+	D3D11_RENDER_TARGET_VIEW_DESC rtvDesc{};
+	rtvDesc.Format = textureDesc.Format;
+	rtvDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+	rtvDesc.Texture2D.MipSlice = 0;
+	hr = Renderer::GetDevice()->CreateRenderTargetView(m_PostProcessTexture, &rtvDesc, &m_PostProcessRenderTargetView);
+	if (FAILED(hr))
+	{
+		// エラーハンドリング
+		return;
+	}
+
+	// 頂点データの作成
+	VertexPositionTexture vertices[] =
+	{
+		{ Vector3(-1.0f,  1.0f, 0.5f), Vector2(0.0f, 0.0f) }, // 左上
+		{ Vector3(1.0f,  1.0f, 0.5f), Vector2(1.0f, 0.0f) },  // 右上
+		{ Vector3(-1.0f, -1.0f, 0.5f), Vector2(0.0f, 1.0f) }, // 左下
+		{ Vector3(1.0f, -1.0f, 0.5f), Vector2(1.0f, 1.0f) }   // 右下
+	};
+
+	// 頂点バッファの作成
+	ID3D11Buffer* m_VertexBuffer;
+	D3D11_BUFFER_DESC vbd{};
+	vbd.Usage = D3D11_USAGE_DEFAULT;
+	vbd.ByteWidth = sizeof(vertices);
+	vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	vbd.CPUAccessFlags = 0;
+	vbd.MiscFlags = 0;
+	D3D11_SUBRESOURCE_DATA vinitData{};
+	vinitData.pSysMem = vertices;
+	hr = Renderer::GetDevice()->CreateBuffer(&vbd, &vinitData, &m_VertexBuffer);
+	if (FAILED(hr))
+	{
+		// エラーハンドリング
+		return;
+	}
+
+	// インデックスバッファの作成
+	ID3D11Buffer* m_IndexBuffer;
+	uint16_t indices[] =
+	{
+		0, 1, 2,
+		2, 1, 3
+	};
+
+	D3D11_BUFFER_DESC ibd{};
+	ibd.Usage = D3D11_USAGE_DEFAULT;
+	ibd.ByteWidth = sizeof(indices);
+	ibd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	ibd.CPUAccessFlags = 0;
+	ibd.MiscFlags = 0;
+	D3D11_SUBRESOURCE_DATA iinitData{};
+	iinitData.pSysMem = indices;
+	hr = Renderer::GetDevice()->CreateBuffer(&ibd, &iinitData, &m_IndexBuffer);
+	if (FAILED(hr))
+	{
+		// エラーハンドリング
+		return;
+	}
+
+	// 通常のレンダリングターゲットテクスチャをSRVにバインドする
+	ID3D11Texture2D* pBackBufferTexture = nullptr;
+	IDXGISwapChain* pSwapChain = m_SwapChain; // スワップチェーンへのポインタ
+
+	// バックバッファの取得
+	pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&pBackBufferTexture));
+
+	// テクスチャとして使用するためのキャスト
+	ID3D11Texture2D* pBackBufferTexture2D = static_cast<ID3D11Texture2D*>(pBackBufferTexture);
+
+	ID3D11ShaderResourceView* m_ShaderResourceView;
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc{};
+	srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.Texture2D.MostDetailedMip = 0;
+	srvDesc.Texture2D.MipLevels = 1;
+	hr = Renderer::GetDevice()->CreateShaderResourceView(pBackBufferTexture2D, &srvDesc, &m_ShaderResourceView);
+	if (FAILED(hr))
+	{
+		// エラーハンドリング
+		return;
+	}
+
+	//シェーダー
+	ID3D11VertexShader* m_VertexShader = nullptr;                   // 頂点シェーダー
+	ID3D11PixelShader* m_PixelShader = nullptr;                     // ピクセルシェーダー
+	ID3D11InputLayout* m_InputLayout = nullptr;                     // インプットレイアウト
+
+	CreateVertexShader(&m_VertexShader, &m_InputLayout, "shader\\vertexLightingVS.cso");
+	CreatePixelShader(&m_PixelShader, "shader\\PS_RGBSplit.cso");
+
+	// バックバッファの取得
+	ID3D11Texture2D* backBuffer;
+	m_SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&backBuffer));
+
+	// バックバッファにアクセスするためのレンダーターゲットビューの作成
+	ID3D11RenderTargetView* backBufferRenderTargetView;
+	m_Device->CreateRenderTargetView(backBuffer, nullptr, &backBufferRenderTargetView);
+
+	// ポストプロセスのシェーダーをセット
+	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, nullptr, 0);
+	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, nullptr, 0);
+	Renderer::GetDeviceContext()->IASetInputLayout(m_InputLayout);
+
+	// ポストプロセス用のフレームバッファをレンダーターゲットにセット
+	ID3D11RenderTargetView* renderTargets[] = { m_RenderTargetView };
+	Renderer::GetDeviceContext()->OMSetRenderTargets(1, renderTargets, nullptr);
+
+	// ポストプロセス用のシェーダーリソースビューをセット
+	ID3D11ShaderResourceView* shaderResourceViews[] = { m_ShaderResourceView };
+	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, shaderResourceViews);
+
+	// 頂点バッファとインデックスバッファをセット
+	UINT stride = sizeof(VertexPositionTexture);
+	UINT offset = 0;
+	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
+	Renderer::GetDeviceContext()->IASetIndexBuffer(m_IndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	// フルスクリーンの四角形を描画
+	Renderer::GetDeviceContext()->DrawIndexed(6, 0, 0);
+
+	// シェーダーリソースビューをアンバインド
+	ID3D11ShaderResourceView* nullSRV[] = { nullptr };
+	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, nullSRV);
+}

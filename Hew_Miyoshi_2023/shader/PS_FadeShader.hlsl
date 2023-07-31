@@ -22,7 +22,7 @@ void main(in PS_IN In, out float4 outDiffuse : SV_Target)
     float lineWidth = 1.0;
 
     // 集中線の色を中心からの距離に応じて変化させる
-    float4 lineColor = float4(distance / lineWidth, distance / lineWidth, distance / lineWidth, alpha); // 赤色
+    float4 lineColor = float4(distance / lineWidth, 0.0f, distance / lineWidth, alpha); // 赤色
 
     // 集中線の描画範囲内であれば集中線の色を返し、それ以外は透明にする
     // 集中線の描画範囲内を中心からの距離で判定します
