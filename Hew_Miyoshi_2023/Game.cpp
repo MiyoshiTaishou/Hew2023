@@ -24,6 +24,7 @@
 #include"Goal.h"
 #include"Enemy.h"
 #include"sky.h"
+#include"Stage.h"
 
 #include"score.h"
 #include"Timer.h"
@@ -40,7 +41,7 @@ void Game::Init()
 {
 	AddGameObject<Sky>(1);
 	AddGameObject<Player>(1);
-	AddGameObject<Field>(1);	
+	AddGameObject<Stage>(1)->SetScale(Vector3(10,1,10));	
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
 
