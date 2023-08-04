@@ -17,6 +17,7 @@
 #include"camera.h"
 #include"AddForce.h"
 #include"OBBCollison.h"
+#include"StageHit.h"
 
 #include"ImGuiManager.h"
 
@@ -346,6 +347,16 @@ void Player::Update()
 		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
 	}
 
+
+	//’n–Ê‚Æ‚Ì“–‚½‚è”»’è
+	Vector3 ans;
+	bool sts = SearchAllSurface(m_Position.x, m_Position.z, ans);
+	if (sts) {
+		m_Position.y = ans.y;
+	}
+	else {
+		m_Position.y = m_Position.y;
+	}
 }
 
 void Player::Draw()

@@ -58,9 +58,9 @@ private:
 	static std::vector<DirectX::SimpleMath::Vector3> LoadModelVertex(const char *FileName, MODEL *Model);
 	static void LoadObj( const char *FileName, MODEL_OBJ *ModelObj );	
 	static std::vector<DirectX::SimpleMath::Vector3> LoadObjVertex(const char* FileName, MODEL_OBJ* ModelObj);
-	static void LoadMaterial( const char *FileName, MODEL_MATERIAL **MaterialArray, unsigned int *MaterialNum );
+	static void LoadMaterial( const char *FileName, MODEL_MATERIAL **MaterialArray, unsigned int *MaterialNum );	
 
-	MODEL* m_Model{};
+	MODEL* m_Model{};	
 
 public:
 
@@ -72,6 +72,9 @@ public:
 
 	void Load( const char *FileName );		
 	std::vector<DirectX::SimpleMath::Vector3> LoadVertex( const char *FileName );
+
+	std::vector<VERTEX_3D> GetVertex(const char* FileName);
+	int GetIndexNum();
 
 	void Draw() override;
 };

@@ -195,6 +195,8 @@
     <ClCompile Include="shadow.cpp" />
     <ClCompile Include="sky.cpp" />
     <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StageHit.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Transition.cpp" />
@@ -250,6 +252,8 @@
     <ClInclude Include="shadow.h" />
     <ClInclude Include="sky.h" />
     <ClInclude Include="sprite.h" />
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="StageHit.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Transition.h" />
