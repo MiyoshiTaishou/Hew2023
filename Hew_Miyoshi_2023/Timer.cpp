@@ -43,7 +43,7 @@ void Timer::Update()
 	if (fade->GetState() == FadeUI::State::Stop)
 	{
 		//ゲージ進行
-		time += 0.01;
+		time += 0.001;
 
 		pollar.gauge1 = 1.0f - ((int)fmod(time, 7.0f) + 1) / 7.0f;
 		pollar.gauge2 = 1.0f - fmodf(time, 7.0f) / 7.0f;

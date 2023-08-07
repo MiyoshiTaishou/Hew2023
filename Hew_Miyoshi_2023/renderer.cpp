@@ -22,6 +22,7 @@ ID3D11Buffer*			Renderer::m_PollarBuffer{};
 ID3D11Buffer*			Renderer::m_FadeBuffer{};
 ID3D11Buffer*			Renderer::m_BloomBuffer{};
 ID3D11Buffer*			Renderer::m_RotationBuffer{};
+ID3D11Buffer*			Renderer::m_ScaleBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -251,6 +252,12 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers(8, 1, &m_RotationBuffer);
 	m_DeviceContext->PSSetConstantBuffers(8, 1, &m_RotationBuffer);
 
+	bufferDesc.ByteWidth = sizeof(ScaleShader);
+
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_ScaleBuffer);
+	m_DeviceContext->VSSetConstantBuffers(9, 1, &m_ScaleBuffer);
+	m_DeviceContext->PSSetConstantBuffers(9, 1, &m_ScaleBuffer);
+
 	// ライト初期化
 	LIGHT light{};
 	light.Enable = true;
@@ -298,6 +305,14 @@ void Renderer::Init(Application* ap)
 	rot.rotationAngle = { 0.0f,0.0f };
 
 	SetRotationAngle(rot);
+
+	//サイズ変更
+	ScaleShader scale{};
+	scale.circlePosition = { 0.0f,0.0f };
+	scale.circleRadius = 10.0f;
+	scale.screenSize = { 1.0f,1.0f };
+
+	SetScaleShader(scale);
 }
 
 
@@ -312,6 +327,8 @@ void Renderer::Uninit()
 	m_MaterialBuffer->Release();
 	m_PollarBuffer->Release();
 	m_FadeBuffer->Release();
+	m_RotationBuffer->Release();
+	m_ScaleBuffer->Release();
 
 
 	m_DeviceContext->ClearState();
@@ -469,6 +486,11 @@ void Renderer::SetBloom(Bloom bloom)
 void Renderer::SetRotationAngle(RotationAngle rot)
 {
 	m_DeviceContext->UpdateSubresource(m_RotationBuffer, 0, NULL, &rot, 0, 0);
+}
+
+void Renderer::SetScaleShader(ScaleShader scale)
+{
+	m_DeviceContext->UpdateSubresource(m_ScaleBuffer, 0, NULL, &scale, 0, 0);
 }
 
 

@@ -10,6 +10,9 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_BloomBlur.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_Circle.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\PS_ConcentrationShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -38,6 +41,9 @@
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\VS_Rotation.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\VS_Scale.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

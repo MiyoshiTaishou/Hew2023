@@ -77,6 +77,14 @@ struct RotationAngle
 	DirectX::SimpleMath::Vector2 dummy;
 };
 
+struct ScaleShader
+{
+	DirectX::SimpleMath::Vector2 screenSize;
+	DirectX::SimpleMath::Vector2 circlePosition;
+	float circleRadius;
+	DirectX::SimpleMath::Vector3 dummy;
+};
+
 // ƒŒƒ“ƒ_ƒ‰
 class Renderer
 {
@@ -99,6 +107,7 @@ private:
 	static ID3D11Buffer*			m_FadeBuffer;
 	static ID3D11Buffer*			m_BloomBuffer;
 	static ID3D11Buffer*			m_RotationBuffer;
+	static ID3D11Buffer*			m_ScaleBuffer;
 
 
 	static ID3D11DepthStencilState* m_DepthStateEnable;
@@ -127,6 +136,7 @@ public:
 	static void SetFade(Fade fade);
 	static void SetBloom(Bloom bloom);
 	static void SetRotationAngle(RotationAngle rot);
+	static void SetScaleShader(ScaleShader scale);
 
 	static ID3D11Device* GetDevice( void ){ return m_Device; }
 	static ID3D11DeviceContext* GetDeviceContext( void ){ return m_DeviceContext; }
