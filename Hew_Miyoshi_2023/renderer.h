@@ -71,6 +71,12 @@ struct Bloom
 	DirectX::SimpleMath::Vector2 dummy;
 };
 
+struct RotationAngle
+{
+	DirectX::SimpleMath::Vector2 rotationAngle;
+	DirectX::SimpleMath::Vector2 dummy;
+};
+
 // ƒŒƒ“ƒ_ƒ‰
 class Renderer
 {
@@ -92,6 +98,7 @@ private:
 	static ID3D11Buffer*			m_PollarBuffer;
 	static ID3D11Buffer*			m_FadeBuffer;
 	static ID3D11Buffer*			m_BloomBuffer;
+	static ID3D11Buffer*			m_RotationBuffer;
 
 
 	static ID3D11DepthStencilState* m_DepthStateEnable;
@@ -119,6 +126,7 @@ public:
 	static void SetPollar(Pollar pol);
 	static void SetFade(Fade fade);
 	static void SetBloom(Bloom bloom);
+	static void SetRotationAngle(RotationAngle rot);
 
 	static ID3D11Device* GetDevice( void ){ return m_Device; }
 	static ID3D11DeviceContext* GetDeviceContext( void ){ return m_DeviceContext; }

@@ -21,6 +21,7 @@ ID3D11Buffer*			Renderer::m_LightBuffer{};
 ID3D11Buffer*			Renderer::m_PollarBuffer{};
 ID3D11Buffer*			Renderer::m_FadeBuffer{};
 ID3D11Buffer*			Renderer::m_BloomBuffer{};
+ID3D11Buffer*			Renderer::m_RotationBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -244,6 +245,12 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers(7, 1, &m_BloomBuffer);
 	m_DeviceContext->PSSetConstantBuffers(7, 1, &m_BloomBuffer);
 
+	bufferDesc.ByteWidth = sizeof(RotationAngle);
+
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_RotationBuffer);
+	m_DeviceContext->VSSetConstantBuffers(8, 1, &m_RotationBuffer);
+	m_DeviceContext->PSSetConstantBuffers(8, 1, &m_RotationBuffer);
+
 	// ƒ‰ƒCƒg‰Šú‰»
 	LIGHT light{};
 	light.Enable = true;
@@ -285,6 +292,12 @@ void Renderer::Init(Application* ap)
 	bloom.power = 5.0f;
 
 	SetBloom(bloom);
+
+	//‰ñ“]
+	RotationAngle rot{};
+	rot.rotationAngle = { 0.0f,0.0f };
+
+	SetRotationAngle(rot);
 }
 
 
@@ -451,6 +464,11 @@ void Renderer::SetFade(Fade fade)
 void Renderer::SetBloom(Bloom bloom)
 {
 	m_DeviceContext->UpdateSubresource(m_BloomBuffer, 0, NULL, &bloom, 0, 0);
+}
+
+void Renderer::SetRotationAngle(RotationAngle rot)
+{
+	m_DeviceContext->UpdateSubresource(m_RotationBuffer, 0, NULL, &rot, 0, 0);
 }
 
 

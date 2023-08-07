@@ -18,12 +18,13 @@ void Sky::Init()
 
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_OrangeScale.cso");
-	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_BloomBlur.cso");
+	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_BloomBlur.cso");
+	AddComponent<Shader>()->Load("shader\\VS_Rotation.cso", "shader\\PS_BloomBlur.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\sky.obj");
 
 	bloom.bloom = 1.0f;
 	bloom.power = 5.0f;
-	Renderer::SetBloom(bloom);
+	Renderer::SetBloom(bloom);	
 }
 
 
@@ -34,7 +35,14 @@ void Sky::Update()
 	Camera* camera = scene->GetGameObject<Camera>();
 
 	Vector3 cameraPosition = camera->GetPosition();
-	m_Position = cameraPosition;	
+	m_Position = cameraPosition;
+
+	rot.rotationAngle.x+=0.0005f;
+
+	if (rot.rotationAngle.x > 90.0f)
+		rot.rotationAngle .x= 0.0f;
+
+	Renderer::SetRotationAngle(rot);
 }
 
 void Sky::Draw()

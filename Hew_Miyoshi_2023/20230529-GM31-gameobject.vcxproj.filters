@@ -184,10 +184,10 @@
       <Filter>ソース ファイル\UI</Filter>
     </ClCompile>
     <ClCompile Include="StageHit.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Stage.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -351,10 +351,10 @@
       <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
     <ClInclude Include="StageHit.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -393,6 +393,9 @@
     </FxCompile>
     <FxCompile Include="shader\PS_BloomBlur.hlsl">
       <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="shader\VS_Rotation.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

@@ -36,6 +36,9 @@
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\VS_GouraudShading.cso</FullPath>
     </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader\VS_Rotation.cso</FullPath>
+    </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />

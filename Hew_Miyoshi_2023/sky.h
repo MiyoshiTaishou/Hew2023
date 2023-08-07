@@ -8,6 +8,7 @@ class Sky : public GameObject
 
 private:
 	Bloom bloom;
+	RotationAngle rot;
 
 public:
 	void Init() override;
