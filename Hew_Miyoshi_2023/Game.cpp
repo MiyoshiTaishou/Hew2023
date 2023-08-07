@@ -30,6 +30,7 @@
 #include"Timer.h"
 #include"PostProcess.h"
 #include"Fade.h"
+#include"ScaleUI.h"
 
 #include<SimpleMath.h>
 using namespace DirectX::SimpleMath;
@@ -44,6 +45,7 @@ void Game::Init()
 	AddGameObject<Stage>(1)->SetScale(Vector3(10,1,10));	
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
+	AddGameObject<ScaleUI>(3);
 
 	AddGameObject<Camera>(0);
 	Camera* Cameraobj = GetGameObject<Camera>();
