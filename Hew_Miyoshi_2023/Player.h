@@ -12,8 +12,7 @@ public:
 	void Init()override;	
 	void Uninit()override;
 	void Update()override;
-	void Draw()override;	
-	DirectX::SimpleMath::Vector2 GetVelocity();
+	void Draw()override;		
 
 	DirectX::GamePad::State buttonState;
 
@@ -22,6 +21,7 @@ private:
 	DirectX::SimpleMath::Vector3		m_Velocity{};
 	class Audio* m_SE{};	
 	class Audio* m_MeatSE{};	
+	class Audio* m_MeatSE2{};	
 
 	std::list<GameObject*> m_Children;
 	GameObject* mchild;

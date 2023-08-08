@@ -18,6 +18,7 @@
 #include"AddForce.h"
 #include"OBBCollison.h"
 #include"StageHit.h"
+#include"score.h"
 
 #include"ImGuiManager.h"
 
@@ -45,6 +46,9 @@ void Player::Init()
 
 	m_MeatSE = AddComponent<Audio>();
 	m_MeatSE->Load("asset\\audio\\‚Õ‚æ‚ñ_2.wav");
+
+	m_MeatSE2 = AddComponent<Audio>();
+	m_MeatSE2->Load("asset\\audio\\ƒ{ƒˆƒ“.wav");
 }
 
 void Player::Uninit()
@@ -195,6 +199,9 @@ void Player::Update()
 				enemyObj->SetDestroy();
 
 				m_MeatSE->Play();
+
+				Score* score = scene->GetGameObject<Score>();
+				score->AddCount(1);
 			}
 		}
 	}
@@ -253,6 +260,8 @@ void Player::Update()
 					{
 						Vector3 force = -vel * 5.0f;
 						GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+
+						m_MeatSE2->Play();
 					}
 					else
 					{

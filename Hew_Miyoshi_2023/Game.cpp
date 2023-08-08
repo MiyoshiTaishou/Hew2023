@@ -42,7 +42,7 @@ void Game::Init()
 {
 	AddGameObject<Sky>(1);
 	AddGameObject<Player>(1);
-	AddGameObject<Stage>(1)->SetScale(Vector3(10,1,10));	
+	//AddGameObject<Stage>(1)->SetScale(Vector3(10,1,10));	
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
 	AddGameObject<ScaleUI>(3);
@@ -130,18 +130,18 @@ void Game::Update()
 		Manager::SetScene<Result>();
 	
 
-	// ゴールしていないのであれば
-	if (!m_Goal)
-	{
-		Goal* goal = GetGameObject<Goal>();
+	//// ゴールしていないのであれば
+	//if (!m_Goal)
+	//{
+	//	Goal* goal = GetGameObject<Goal>();
 
-		// ゴールした際にゴールオブジェクトは削除される
-		if (goal == nullptr)
-		{
-			m_Goal = true;
+	//	// ゴールした際にゴールオブジェクトは削除される
+	//	if (goal == nullptr)
+	//	{
+	//		m_Goal = true;
 
-			// ２秒後にスレッドを生成してフェードアウト開始
-			Invoke([=]() { m_Fade->FadeOut(); }, 2000);
-		}
-	}
+	//		// ２秒後にスレッドを生成してフェードアウト開始
+	//		Invoke([=]() { m_Fade->FadeOut(); }, 2000);
+	//	}
+	//}
 }
