@@ -16,5 +16,6 @@ public:
 	void Init();
 	void Uninit();
 	void Draw();
+	void Update();
 	void AddCount(int Count) { m_Count += Count; }
 };

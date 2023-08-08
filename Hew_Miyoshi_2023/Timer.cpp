@@ -12,14 +12,14 @@ using namespace DirectX::SimpleMath;
 void Timer::Init()
 {
 	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
-	AddComponent<Sprite>()->Init(0,0,200,200,"asset\\texture\\field.jpg");
+	AddComponent<Sprite>()->Init(420,0,440,100,"asset\\texture\\field.jpg");
 
 	//UI設定
 	pollar.baseColor = { 0.0f,0.0f,0.0f,1.0f };//ベースカラー
 	pollar.diffColor = { 0.2f,0.2f,0.2f,1.0f };
 	pollar.lostColor = { 0.0f,-1.0f,0.0f,1.0f };
-	pollar.outer = 1.0f;
-	pollar.inner = 0.3f;
+	pollar.outer = 0.5f;
+	pollar.inner = 0.15f;
 	pollar.gauge1 = 1.0f - ((int)fmod(time, 7.0f) + 1) / 7.0f;
 	pollar.gauge2 = 1.0f - fmodf(time, 7.0f) / 7.0f;
 

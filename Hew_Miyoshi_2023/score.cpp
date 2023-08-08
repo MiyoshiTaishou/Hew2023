@@ -6,6 +6,7 @@
 #include "score.h"
 #include "camera.h"
 #include "shader.h"
+#include"Fade.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -154,5 +155,18 @@ void Score::Draw()
 
 		// ƒ|ƒŠƒSƒ“•`‰æ
 		Renderer::GetDeviceContext()->Draw(4, 0);
+	}
+}
+
+void Score::Update()
+{
+	Scene* scene = Manager::GetScene();
+	FadeUI* fade = scene->GetGameObject<FadeUI>();
+
+	//ŽlŒÂˆÈã‚­‚Á‚Â‚¢‚½‚çƒNƒŠƒA
+	if (fade->GetState() == FadeUI::State::Stop)
+	{		
+		if (this->m_Count > 3)
+			fade->FadeOut();		
 	}
 }
