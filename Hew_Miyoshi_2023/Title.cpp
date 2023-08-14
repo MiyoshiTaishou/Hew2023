@@ -36,7 +36,7 @@ void Title::Init()
 
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("asset\\audio\\bgm.wav");
+	bgm->GetComponent<Audio>()->Load("asset\\audio\\kiminochikara.wav");
 	bgm->GetComponent<Audio>()->Play();
 
 	// チェック完了
