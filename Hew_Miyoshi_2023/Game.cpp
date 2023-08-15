@@ -25,6 +25,7 @@
 #include"Enemy.h"
 #include"sky.h"
 #include"Stage.h"
+#include"Trampoline.h"
 
 #include"score.h"
 #include"Timer.h"
@@ -42,7 +43,7 @@ void Game::Init()
 {
 	AddGameObject<Sky>(1);
 	AddGameObject<Player>(1);
-	AddGameObject<Field>(1);	
+	AddGameObject<Field>(1);
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
 	AddGameObject<ScaleUI>(3);
@@ -104,11 +105,18 @@ void Game::Init()
 		Goal* goal = AddGameObject<Goal>(1);
 		goal->SetPosition(Vector3(0.0f, 0.5f, -10.0f));
 		goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
-	}	
+	}
+
+	// チェック完了
+	{
+		Trampoline* tranpoline = AddGameObject<Trampoline>(1);
+		tranpoline->SetPosition(Vector3(0.0f, 0.0f, -20.0f));
+		tranpoline->SetScale(Vector3(2.0f, 0.1f, 2.0f));
+	}
 
 	//m_Transition = AddGameObject<Transition>(3);
 	//m_Transition->FadeIn();//フェードイン開始	
-	
+
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
@@ -120,15 +128,15 @@ void Game::Init()
 }
 
 void Game::Update()
-{		
+{
 	if (m_Fade->GetState() == FadeUI::State::Stop)
 		if (Input::GetKeyTrigger(VK_RETURN))
-			m_Fade->FadeOut();	
-	
+			m_Fade->FadeOut();
+
 	//画面遷移が終了しているか
 	if (m_Fade->GetState() == FadeUI::State::Finish)
 		Manager::SetScene<Result>();
-	
+
 
 	//// ゴールしていないのであれば
 	//if (!m_Goal)

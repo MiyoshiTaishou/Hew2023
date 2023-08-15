@@ -19,27 +19,28 @@
 #include"OBBCollison.h"
 #include"StageHit.h"
 #include"score.h"
+#include"Trampoline.h"
 
 #include"ImGuiManager.h"
 
 using namespace DirectX::SimpleMath;
 
 void Player::Init()
-{			
+{
 	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
-	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_BloomBlur.cso");	
+	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_PolarCoordinates.cso");	
-	AddComponent<Rigidbody>()->Init(2,-1,1);
+	AddComponent<Rigidbody>()->Init(2, -1, 1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
-	m_VertexPos =  AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");	
+	m_VertexPos = AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");
 	//AddComponent<PhysicsComponent>()->Init();		
 	AddComponent<GamePadComponent>();
 
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Position.y = 10.0f;
-	this->m_Position.x = 10.0f;		
-	this->m_Position.z = -10.0f;		
+	this->m_Position.x = 10.0f;
+	this->m_Position.z = -10.0f;
 
 	m_SE = AddComponent<Audio>();
 	m_SE->Load("asset\\audio\\wan.wav");
@@ -53,14 +54,14 @@ void Player::Init()
 
 void Player::Uninit()
 {
-	
+
 }
 
 
 void Player::Update()
-{	
+{
 	// 現在シーンを取得
-	Scene* scene = Manager::GetScene();	
+	Scene* scene = Manager::GetScene();
 
 	Camera* cameraObj = scene->GetGameObject<Camera>();
 
@@ -77,14 +78,14 @@ void Player::Update()
 
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
-	}	
-	
-	
+	}
+
+
 	//重力
 	m_Velocity.y -= 0.015f;
 
 	//抵抗
-	m_Velocity.y -= m_Velocity.y * 0.01f;	
+	m_Velocity.y -= m_Velocity.y * 0.01f;
 
 	// ゴールとの当たり判定
 	{
@@ -179,7 +180,7 @@ void Player::Update()
 
 			if (length < radius)
 				sts = true;
-			
+
 			if (sts)
 			{
 				GameObject* child = AddChild<Enemy>();
@@ -233,7 +234,7 @@ void Player::Update()
 				GameObject* child = AddChild<Box>();
 				Vector3 scale = child->GetScale();
 				scale = boxobj->GetScale();
-				scale *= 0.1f;				
+				scale *= 0.1f;
 				child->SetScale(scale);
 
 				//一番近い頂点座標を取ってくる
@@ -265,21 +266,93 @@ void Player::Update()
 					}
 					else
 					{
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos,true);
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos,true);
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
 					}
-				}			
+				}
 				else
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
-			}							
+			}
 		}
-	}	
+	}
+
+	//トランポリン
+	{
+		Trampoline* trampoline = scene->GetGameObject<Trampoline>();
+
+		if (trampoline)
+		{
+			Vector3 position = trampoline->GetPosition();
+			Vector3 scale = trampoline->GetScale();
+
+			//プレイヤーのBS作成
+			BoundingSphere playerBS{};
+			playerBS.center = m_Position;
+			playerBS.radius = fabs(m_Scale.x / 2.0f);
+
+			//bool sts CollisionSphereOrientedQuad(position)
+
+			//幅を取る
+			Vector3 PWidth = m_Position - m_Scale - Vector3(0.5f, 0.5f, 0.5f);
+			Vector3 BWidth = position - scale - Vector3(0.5f, 0.5f, 0.5f);
+
+			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
+				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f &&
+				PWidth.x > BWidth.x && PWidth.y > BWidth.y && PWidth.z > BWidth.z)
+			{
+				GameObject* child = AddChild<Box>();
+				Vector3 scale = child->GetScale();
+				scale = trampoline->GetScale();
+				scale *= 0.1f;
+				child->SetScale(scale);
+
+				//一番近い頂点座標を取ってくる
+				Vector3 pos = GetClosestVeretex(m_VertexPos, trampoline->GetPosition());
+				pos *= this->GetForward();
+
+				child->SetPosition(pos);
+
+				m_Children.push_back(child);
+				mchild = child;
+				trampoline->SetDestroy();
+			}
+
+			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
+				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f)
+			{
+				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
+				{
+					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					float absVelX = fabs(vel.x);
+					float absVelZ = fabs(vel.z);
+
+					if (absVelX > 4.0f || absVelX > 4.0f)
+					{
+						Vector3 force = -vel * 5.0f;
+						//GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+
+						m_MeatSE2->Play();
+					}
+					else
+					{
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
+					}
+				}
+				else if (position.y + scale.y * 2.0f + 1.0f < m_Position.y && position.y + scale.y * 2.0f + 3.0f > m_Position.y)
+				{
+					groundHeight = position.y + scale.y * 2.0f + 2.0f;
+					trampoline->Action(this);
+				}
+			}
+		}
+	}
 
 	// 位置が０以下なら地面位置にセットする
 	if (m_Position.y < groundHeight)
 	{
 		Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
-		m_Position.y = groundHeight;	
+		m_Position.y = groundHeight;
 		vel.y = 0.0f;
 		GetComponent<Rigidbody>()->SetVelocity(vel);
 	}
@@ -325,7 +398,7 @@ void Player::Update()
 			{
 				GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, false);
 				GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, false);
-			}				
+			}
 		}
 	}
 
@@ -344,7 +417,7 @@ void Player::Update()
 	}
 
 	if (Input::GetKeyPress('S'))
-	{				
+	{
 		Vector3 force = forward * -100.0f;
 		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
 	}
@@ -372,15 +445,15 @@ void Player::Draw()
 {
 	for (auto& cmpt : m_Component) {
 		cmpt->Draw();
-	}		
+	}
 
 	//プレイヤーの情報を表示する
 	ImGui::Begin("Player");
-	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f",this->m_Scale.x,this->m_Scale.y,this->m_Scale.z);
+	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
 	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
 	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);		
-	ImGui::End();	
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	ImGui::End();
 
 	if (mchild != nullptr)
 	{
