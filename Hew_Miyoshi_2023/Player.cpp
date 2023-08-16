@@ -20,6 +20,7 @@
 #include"StageHit.h"
 #include"score.h"
 #include"Trampoline.h"
+#include"DragFloor.h"
 
 #include"ImGuiManager.h"
 
@@ -344,6 +345,82 @@ void Player::Update()
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
 					trampoline->Action(this);
 				}
+			}
+		}
+	}
+
+	//摩擦床
+	{
+		DragFloor* floor = scene->GetGameObject<DragFloor>();
+
+		if (floor)
+		{
+			Vector3 position = floor->GetPosition();
+			Vector3 scale = floor->GetScale();
+
+			//プレイヤーのBS作成
+			BoundingSphere playerBS{};
+			playerBS.center = m_Position;
+			playerBS.radius = fabs(m_Scale.x / 2.0f);
+
+			//bool sts CollisionSphereOrientedQuad(position)
+
+			//幅を取る
+			Vector3 PWidth = m_Position - m_Scale - Vector3(0.5f, 0.5f, 0.5f);
+			Vector3 BWidth = position - scale - Vector3(0.5f, 0.5f, 0.5f);
+
+			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
+				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f &&
+				PWidth.x > BWidth.x && PWidth.y > BWidth.y && PWidth.z > BWidth.z)
+			{
+				GameObject* child = AddChild<Box>();
+				Vector3 scale = child->GetScale();
+				scale = floor->GetScale();
+				scale *= 0.1f;
+				child->SetScale(scale);
+
+				//一番近い頂点座標を取ってくる
+				Vector3 pos = GetClosestVeretex(m_VertexPos, floor->GetPosition());
+				pos *= this->GetForward();
+
+				child->SetPosition(pos);
+
+				m_Children.push_back(child);
+				mchild = child;
+				floor->SetDestroy();
+			}
+
+			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
+				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f)
+			{
+				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
+				{
+					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					float absVelX = fabs(vel.x);
+					float absVelZ = fabs(vel.z);
+
+					if (absVelX > 4.0f || absVelX > 4.0f)
+					{
+						Vector3 force = -vel * 5.0f;
+						//GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+
+						m_MeatSE2->Play();
+					}
+					else
+					{
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
+						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
+					}
+				}
+				else if (position.y + scale.y * 2.0f + 1.0f < m_Position.y && position.y + scale.y * 2.0f + 3.0f > m_Position.y)
+				{
+					groundHeight = position.y + scale.y * 2.0f + 2.0f;	
+					this->GetComponent<Rigidbody>()->SetDrag(1);
+				}
+			}
+			else
+			{
+				this->GetComponent<Rigidbody>()->InitDrag();
 			}
 		}
 	}

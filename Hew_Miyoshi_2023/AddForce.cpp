@@ -10,6 +10,8 @@ void Rigidbody::Init(float _mass, float _drag,float _gravity)
 	mass = _mass;
 	drag = _drag;
 	gravityScale = _gravity;
+
+	saveDrag = drag;
 }
 
 void Rigidbody::Update()
@@ -128,4 +130,14 @@ bool Rigidbody::GetFreeze(Freeze freez)
 	}
 
 	return false;
+}
+
+void Rigidbody::SetDrag(float _drag)
+{
+	drag = _drag;
+}
+
+void Rigidbody::InitDrag()
+{
+	drag = saveDrag;
 }
