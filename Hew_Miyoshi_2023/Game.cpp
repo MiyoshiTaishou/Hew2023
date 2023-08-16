@@ -26,6 +26,7 @@
 #include"sky.h"
 #include"Stage.h"
 #include"Trampoline.h"
+#include"DragFloor.h"
 
 #include"score.h"
 #include"Timer.h"
@@ -112,6 +113,13 @@ void Game::Init()
 		Trampoline* tranpoline = AddGameObject<Trampoline>(1);
 		tranpoline->SetPosition(Vector3(0.0f, 0.0f, -20.0f));
 		tranpoline->SetScale(Vector3(2.0f, 0.1f, 2.0f));
+	}
+
+	// チェック完了
+	{
+		DragFloor* floor = AddGameObject<DragFloor>(1);
+		floor->SetPosition(Vector3(20.0f, 0.0f, -20.0f));
+		floor->SetScale(Vector3(2.0f, 0.1f, 2.0f));
 	}
 
 	//m_Transition = AddGameObject<Transition>(3);

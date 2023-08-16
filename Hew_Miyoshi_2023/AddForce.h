@@ -38,9 +38,13 @@ public:
 	void SetFreeze(Freeze freez,bool _b);
 	bool GetFreeze(Freeze freez);
 
+	void SetDrag(float _drag);
+	void InitDrag();
+
 private:
 	float mass;//オブジェクトの質量
 	float drag;//摩擦
+	float saveDrag;//保存用
 	float gravityScale;//重力の強さ
 	DirectX::SimpleMath::Vector3 velocity;//オブジェクトの現在の速度
 	DirectX::SimpleMath::Vector3 force;//オブジェクトに現在加えられている力	
