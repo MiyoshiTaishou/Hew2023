@@ -15,6 +15,9 @@ public:
 	void Update()override;
 	void Draw()override;
 
+	void SavepositionToFile(const std::string& filename);
+	void LoadpositionToFile(const std::string& filename);
+
 private:
 	std::vector<InfoObjData> position;
 };

@@ -7,6 +7,8 @@
 #include "field.h"
 #include "camera.h"
 
+#include <fstream>
+
 using namespace DirectX::SimpleMath;
 
 void StageEditor::Init()
@@ -25,6 +27,18 @@ void StageEditor::Update()
 void StageEditor::Draw()
 {
     ImGui::Begin("Stage Editor");
+
+    // 保存ボタン
+    if (ImGui::Button("Save Positions"))
+    {
+        SavepositionToFile("positions.txt");
+    }
+
+    // 読み込みボタン
+    if (ImGui::Button("Load Positions"))
+    {
+        LoadpositionToFile("positions.txt");
+    }
 
     // オブジェクト生成
     if (ImGui::Button("Create Object"))
@@ -71,4 +85,50 @@ void StageEditor::Draw()
             }            
 
     ImGui::End();
+}
+
+void StageEditor::SavepositionToFile(const std::string& filename)
+{
+    std::ofstream outputFile(filename);
+    
+    if (outputFile.is_open())
+    {
+        for (const InfoObjData& position : position)
+        {
+            outputFile << position.pos.x << " " << position.pos.y << " " << position.pos.z << " "
+                << position.scale.x << " " << position.scale.y << " " << position.scale.z << " "
+                << position.rot.x << " " << position.rot.y << " " << position.rot.z << "\n";
+        }
+
+        outputFile.close();
+    }
+    else
+    {
+        // エラーメッセージを表示またはログに記録
+    }
+}
+
+void StageEditor::LoadpositionToFile(const std::string& filename)
+{
+    std::ifstream inputFile(filename);
+
+    if (inputFile.is_open())
+    {
+        position.clear();
+
+        InfoObjData data;
+        while (inputFile >> data.pos.x >> data.pos.y >> data.pos.z
+            >> data.scale.x >> data.scale.y >> data.scale.z
+            >> data.rot.x >> data.rot.y >> data.rot.z)
+        {
+            Box* box = AddGameObject<Box>(3);
+            position.push_back(data);
+        }
+
+        inputFile.close();
+    }
+    else
+    {
+        // エラーメッセージを表示またはログに記録
+    }
 }
