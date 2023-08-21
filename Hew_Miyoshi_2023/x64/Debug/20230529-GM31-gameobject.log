@@ -1,7 +1,4 @@
-﻿  AddForce.cpp
-  DragFloor.cpp
-  Game.cpp
-  Player.cpp
-  Trampoline.cpp
+﻿  StageEditor.cpp
+  manager.cpp
   コードを生成中...
   20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

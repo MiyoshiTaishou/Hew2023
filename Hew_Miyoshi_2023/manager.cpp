@@ -8,6 +8,7 @@
 #include	"audio.h"
 #include	"Game.h"
 #include	"Title.h"
+#include	"StageEditor.h"
 #include	"fpscontrol.h"
 
 #include"ImGuiManager.h"
@@ -39,7 +40,8 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
-	SetScene<Title>();	
+	SetScene<StageEditor>();
+	//SetScene<Title>();
 }
 
 void Manager::Uninit()

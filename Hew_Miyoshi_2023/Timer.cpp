@@ -12,7 +12,7 @@ using namespace DirectX::SimpleMath;
 void Timer::Init()
 {
 	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
-	AddComponent<Sprite>()->Init(420,0,440,100,"asset\\texture\\field.jpg");
+	AddComponent<Sprite>()->Init(600,0,100,100,"asset\\texture\\field.jpg");
 
 	//UI設定
 	pollar.baseColor = { 0.0f,0.0f,0.0f,1.0f };//ベースカラー
