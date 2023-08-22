@@ -6,18 +6,18 @@
 #include "Player.h"
 #include "field.h"
 #include "camera.h"
-
+#include"DebugCamera.h"
 #include <fstream>
 
 using namespace DirectX::SimpleMath;
 
 void StageEditor::Init()
 {
+    AddGameObject<DebugCamera>(0);
+
     AddGameObject<Sky>(1);
     AddGameObject<Player>(1);
-    AddGameObject<Field>(1);
-
-    AddGameObject<Camera>(0);   
+    AddGameObject<Field>(1);    
 }
 
 void StageEditor::Update()
@@ -29,6 +29,25 @@ void StageEditor::Draw()
     std::vector<Box*> boxVec = GetGameObjects<Box>();
 
     ImGui::Begin("Stage Editor");
+
+    //ÉJÉÅÉâêÿÇËë÷Ç¶
+    if (ImGui::Button("CameraModeChange"))
+    {
+        Camera* camera = GetGameObject<Camera>();
+        DebugCamera* dbCamera = GetGameObject<DebugCamera>();
+
+        if (camera)
+        {
+            camera->SetDestroy();
+            AddGameObject<DebugCamera>(0);
+        }
+        else if(dbCamera)
+        {
+            dbCamera->SetDestroy();
+            AddGameObject<Camera>(0);
+        }
+
+    }
 
     // ï€ë∂É{É^Éì
     if (ImGui::Button("Save Positions"))

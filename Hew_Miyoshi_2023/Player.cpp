@@ -74,8 +74,11 @@ void Player::Update()
 	//接地
 	float groundHeight = 2.0f;
 
+	Vector3 forward = Vector3(0, 0, 0);
+
 	//カメラの前向きベクトル
-	Vector3 forward = cameraObj->GetForward();
+	if(cameraObj)
+		forward = cameraObj->GetForward();
 
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
