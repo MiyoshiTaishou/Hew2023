@@ -16,8 +16,8 @@ void StageEditor::Init()
     AddGameObject<DebugCamera>(0);
 
     AddGameObject<Sky>(1);
-    AddGameObject<Player>(1);
-    AddGameObject<Field>(1);    
+    //AddGameObject<Player>(1);
+    //AddGameObject<Field>(1);    
 }
 
 void StageEditor::Update()
@@ -35,15 +35,18 @@ void StageEditor::Draw()
     {
         Camera* camera = GetGameObject<Camera>();
         DebugCamera* dbCamera = GetGameObject<DebugCamera>();
+        Player* player = GetGameObject<Player>();
 
         if (camera)
         {
             camera->SetDestroy();
+            player->SetDestroy();
             AddGameObject<DebugCamera>(0);
         }
         else if(dbCamera)
         {
             dbCamera->SetDestroy();
+            AddGameObject<Player>(1);
             AddGameObject<Camera>(0);
         }
 

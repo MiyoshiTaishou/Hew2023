@@ -28,11 +28,11 @@ void Title::Init()
 
 	AddGameObject<Camera>(0);
 
-	//GameObject* titleLogo = AddGameObject<GameObject>(3);// 3‚ÍƒŒƒCƒ„”Ô†
-	//titleLogo->AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso",
-	//	"shader\\unlitTexturePS.cso");
-	//titleLogo->AddComponent<Sprite>()->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT,
-	//	"asset\\texture\\title.jpg");
+	GameObject* titleLogo = AddGameObject<GameObject>(3);// 3‚ÍƒŒƒCƒ„”Ô†
+	titleLogo->AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso",
+		"shader\\PS_BloomBlur.cso");
+	titleLogo->AddComponent<Sprite>()->Init(320.0f, 0.0f, 640, 320.0f,
+		"asset\\texture\\takoyaki.png");
 
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
