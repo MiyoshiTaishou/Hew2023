@@ -26,6 +26,8 @@ void StageEditor::Update()
 
 void StageEditor::Draw()
 {
+    std::vector<Box*> boxVec = GetGameObjects<Box>();
+
     ImGui::Begin("Stage Editor");
 
     // 保存ボタン
@@ -51,6 +53,15 @@ void StageEditor::Draw()
         position.push_back(data);
     }
 
+    if (ImGui::Button("Deleteobject"))    
+        for (auto& objectList : m_GameObject)        
+            for (GameObject* object : objectList)            
+                if (typeid(*object) == typeid(Box))
+                {
+                    object->SetDestroy();
+                    position.clear();
+                }
+
     std::vector<GameObject*> objects;
 
     // 各オブジェクトごとの座標設定
@@ -68,6 +79,16 @@ void StageEditor::Draw()
             ImGui::SliderFloat("rotX", &position[i].rot.x, -100.0f, 100.0f);
             ImGui::SliderFloat("rotY", &position[i].rot.y, -100.0f, 100.0f);
             ImGui::SliderFloat("rotZ", &position[i].rot.z, -100.0f, 100.0f);
+
+            if (ImGui::Button("DeleteObject"))
+            {
+                boxVec[i]->SetDestroy();
+                
+                auto first = position.begin() + i;  // 削除を開始する位置
+                auto last = position.begin() + i + 1;   // 削除を終了する位置（この位置の要素は含まれません）
+
+                position.erase(first, last);
+            }
 
             ImGui::TreePop();
         }    
