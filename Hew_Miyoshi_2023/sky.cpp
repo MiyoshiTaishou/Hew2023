@@ -35,8 +35,11 @@ void Sky::Update()
 	Scene* scene = Manager::GetScene();
 	Camera* camera = scene->GetGameObject<Camera>();
 
-	Vector3 cameraPosition = camera->GetPosition();
-	m_Position = cameraPosition;
+	if (camera)
+	{
+		Vector3 cameraPosition = camera->GetPosition();
+		m_Position = cameraPosition;
+	}
 
 	rot.rotationAngle.x+=0.0005f;
 
