@@ -28,7 +28,7 @@ void StageEditor::Draw()
 {
     std::vector<Box*> boxVec = GetGameObjects<Box>();
 
-    ImGui::Begin("Stage Editor");
+    ImGui::Begin("Stage Editor");    
 
     //カメラ切り替え
     if (ImGui::Button("CameraModeChange"))
@@ -54,32 +54,48 @@ void StageEditor::Draw()
 
     // 保存ボタン
     if (ImGui::Button("Save Positions"))
-    {
+    {       
+        AddToHistory();
         SavepositionToFile("positions.txt");
     }
 
     // 読み込みボタン
     if (ImGui::Button("Load Positions"))
-    {
+    {        
+        AddToHistory();
         LoadpositionToFile("positions.txt");
+    }
+
+    //一個前、元に戻す
+    if (ImGui::Button("Undo"))
+    {
+        Undo();
+    }
+
+    if (ImGui::Button("Redo"))
+    {     
+        Redo();
     }
 
     // オブジェクト生成
     if (ImGui::Button("Create Object"))
-    {
+    {               
+        AddToHistory();
         Box* box = AddGameObject<Box>(3);
         InfoObjData data;
         data.pos = box->GetPosition();
         data.scale = box->GetScale();
         data.rot = box->GetRotation();
-        position.push_back(data);
+        position.push_back(data);  
     }
 
     if (ImGui::Button("Deleteobject"))    
         for (auto& objectList : m_GameObject)        
             for (GameObject* object : objectList)            
                 if (typeid(*object) == typeid(Box))
-                {
+                {       
+                    AddToHistory();
+                    SavepositionToFile("undo.txt");
                     object->SetDestroy();
                     position.clear();
                 }
@@ -173,5 +189,59 @@ void StageEditor::LoadpositionToFile(const std::string& filename)
     else
     {
         // エラーメッセージを表示またはログに記録
+    }
+}
+
+void StageEditor::AddToHistory()
+{
+    if (historyIndex > 4)return;
+
+    for (InfoObjData info : position)
+    {
+        history[historyIndex].push_back(info);
+    }    
+
+    historyIndex++;
+}
+
+void StageEditor::Undo()
+{       
+    if (historyIndex <= 0)return;
+
+    historyIndex--;
+
+    for (auto& objectList : m_GameObject)
+        for (GameObject* object : objectList)
+            if (typeid(*object) == typeid(Box))
+            {                
+                object->SetDestroy();
+                position.clear();
+            }
+
+    for (InfoObjData info : history[historyIndex])
+    {
+        Box* box = AddGameObject<Box>(3);
+        position.push_back(info);
+    }    
+}
+
+void StageEditor::Redo()
+{
+    if (historyIndex > 4)return;
+
+    historyIndex++;
+
+    for (auto& objectList : m_GameObject)
+        for (GameObject* object : objectList)
+            if (typeid(*object) == typeid(Box))
+            {
+                object->SetDestroy();
+                position.clear();
+            }
+
+    for (InfoObjData info : history[historyIndex])
+    {
+        Box* box = AddGameObject<Box>(3);
+        position.push_back(info);
     }
 }

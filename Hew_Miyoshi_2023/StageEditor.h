@@ -18,7 +18,15 @@ public:
 	void SavepositionToFile(const std::string& filename);
 	void LoadpositionToFile(const std::string& filename);
 
+	void AddToHistory();
+	void Undo();
+	void Redo();
 private:
-	std::vector<InfoObjData> position;
+	std::vector<InfoObjData> position;		
+
+	// 履歴管理用のコンテナ
+	std::array<std::list<InfoObjData>, 4> history;
+
+	int historyIndex = 0;
 };
 
