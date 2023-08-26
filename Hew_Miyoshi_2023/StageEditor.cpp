@@ -144,6 +144,15 @@ void StageEditor::Draw()
             }            
 
     ImGui::End();
+
+    ImGui::Begin("History");
+    ImGui::Text("Index %d", historyIndex);
+    ImGui::Text("Size %d", history.size());
+    for (int i = 0; i < 4; i++)
+    {
+        ImGui::Text("Size %d", history[i].size());
+    }   
+    ImGui::End();
 }
 
 void StageEditor::SavepositionToFile(const std::string& filename)
@@ -194,7 +203,7 @@ void StageEditor::LoadpositionToFile(const std::string& filename)
 
 void StageEditor::AddToHistory()
 {
-    if (historyIndex > 4)return;
+    if (historyIndex > 2)return;
 
     for (InfoObjData info : position)
     {
@@ -227,7 +236,9 @@ void StageEditor::Undo()
 
 void StageEditor::Redo()
 {
-    if (historyIndex > 4)return;
+    if (historyIndex > 2)return;
+
+    if (history[historyIndex + 1].size() == 0)return;
 
     historyIndex++;
 
