@@ -47,7 +47,7 @@ void Game::Init()
 	AddGameObject<Field>(1);
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
-	AddGameObject<ScaleUI>(3);
+	//AddGameObject<ScaleUI>(3);
 
 	AddGameObject<Camera>(0);
 	//Camera* Cameraobj = GetGameObject<Camera>();
