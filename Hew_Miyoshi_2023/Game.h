@@ -1,5 +1,6 @@
 #pragma once
 #include "scene.h"
+#include "StageEditor.h"
 
 class Game :  public Scene
 {
@@ -10,5 +11,6 @@ private:
 public:
 	void Init()override;		
 	void Update()override;
+	void LoadpositionToFile(const std::string& filename);
 };
 
