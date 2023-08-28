@@ -33,6 +33,7 @@
 #include"PostProcess.h"
 #include"Fade.h"
 #include"ScaleUI.h"
+#include <fstream>
 
 #include<SimpleMath.h>
 using namespace DirectX::SimpleMath;
@@ -59,54 +60,56 @@ void Game::Init()
 	AddGameObject<Enemy>(1)->SetPosition(Vector3(10.0f, 0.0f, 5.0f));
 	AddGameObject<Enemy>(1)->SetPosition(Vector3(15.0f, 0.0f, 5.0f));
 
-	// チェック完了
-	{
-		Box* box = AddGameObject<Box>(1);
-		box->SetPosition(Vector3(-5.0f, 0.0f, 5.0f));
-		box->SetScale(Vector3(3.0f, 1.0f, 3.0f));
-	}
+	LoadpositionToFile("positions.txt");
 
-	// チェック完了
-	{
-		Box* box = AddGameObject<Box>(1);
-		box->SetPosition(Vector3(-11.0f, 0.0f, 5.0f));
-		box->SetScale(Vector3(3.0f, 2.0f, 3.0f));
-	}
+	//// チェック完了
+	//{
+	//	Box* box = AddGameObject<Box>(1);
+	//	box->SetPosition(Vector3(-5.0f, 0.0f, 5.0f));
+	//	box->SetScale(Vector3(3.0f, 1.0f, 3.0f));
+	//}
 
-	// チェック完了
-	{
-		Box* box = AddGameObject<Box>(1);
-		box->SetPosition(Vector3(-11.0f, 0.0f, 11.0f));
-		box->SetScale(Vector3(3.0f, 3.0f, 3.0f));
-	}
+	//// チェック完了
+	//{
+	//	Box* box = AddGameObject<Box>(1);
+	//	box->SetPosition(Vector3(-11.0f, 0.0f, 5.0f));
+	//	box->SetScale(Vector3(3.0f, 2.0f, 3.0f));
+	//}
 
-	// チェック完了
-	{
-		Cylinder* cylinder = AddGameObject<Cylinder>(1);
-		cylinder->SetPosition(Vector3(-11.0f, 0.0f, 20.0f));
-		cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
-	}
+	//// チェック完了
+	//{
+	//	Box* box = AddGameObject<Box>(1);
+	//	box->SetPosition(Vector3(-11.0f, 0.0f, 11.0f));
+	//	box->SetScale(Vector3(3.0f, 3.0f, 3.0f));
+	//}
 
-	// チェック完了
-	{
-		Box* box = AddGameObject<Box>(1);
-		box->SetPosition(Vector3(0.0f, 0.0f, 20.0f));
-		box->SetScale(Vector3(9.0f, 3.0f, 1.0f));
-	}
+	//// チェック完了
+	//{
+	//	Cylinder* cylinder = AddGameObject<Cylinder>(1);
+	//	cylinder->SetPosition(Vector3(-11.0f, 0.0f, 20.0f));
+	//	cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
+	//}
 
-	// チェック完了
-	{
-		Cylinder* cylinder = AddGameObject<Cylinder>(1);
-		cylinder->SetPosition(Vector3(11.0f, 0.0f, 20.0f));
-		cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
-	}
+	//// チェック完了
+	//{
+	//	Box* box = AddGameObject<Box>(1);
+	//	box->SetPosition(Vector3(0.0f, 0.0f, 20.0f));
+	//	box->SetScale(Vector3(9.0f, 3.0f, 1.0f));
+	//}
 
-	// チェック完了
-	{
-		Goal* goal = AddGameObject<Goal>(1);
-		goal->SetPosition(Vector3(0.0f, 0.5f, -10.0f));
-		goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
-	}
+	//// チェック完了
+	//{
+	//	Cylinder* cylinder = AddGameObject<Cylinder>(1);
+	//	cylinder->SetPosition(Vector3(11.0f, 0.0f, 20.0f));
+	//	cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
+	//}
+
+	//// チェック完了
+	//{
+	//	Goal* goal = AddGameObject<Goal>(1);
+	//	goal->SetPosition(Vector3(0.0f, 0.5f, -10.0f));
+	//	goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
+	//}
 
 	// チェック完了
 	{
@@ -160,4 +163,29 @@ void Game::Update()
 	//		Invoke([=]() { m_Fade->FadeOut(); }, 2000);
 	//	}
 	//}
+}
+
+void Game::LoadpositionToFile(const std::string& filename)
+{
+	std::ifstream inputFile(filename);
+
+	if (inputFile.is_open())
+	{		
+		InfoObjData data;
+		while (inputFile >> data.pos.x >> data.pos.y >> data.pos.z
+			>> data.scale.x >> data.scale.y >> data.scale.z
+			>> data.rot.x >> data.rot.y >> data.rot.z)
+		{
+			Box* box = AddGameObject<Box>(1);	
+			box->SetPosition(data.pos);
+			box->SetRotation(data.rot);
+			box->SetScale(data.scale);
+		}
+
+		inputFile.close();
+	}
+	else
+	{
+		// エラーメッセージを表示またはログに記録
+	}
 }

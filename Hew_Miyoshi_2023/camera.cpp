@@ -50,7 +50,7 @@ void Camera::Update()
 
 	this->m_Position.y += 2.0f;
 
-	this->m_Rotation.y = playerobj->GetRotation().y;
+	this->m_Rotation.y = playerobj->GetRotation().y;	
 }
 
 void Camera::Draw()
