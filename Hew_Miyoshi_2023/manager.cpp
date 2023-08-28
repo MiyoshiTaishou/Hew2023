@@ -40,8 +40,8 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
-	SetScene<StageEditor>();
-	//SetScene<Title>();
+	//SetScene<StageEditor>();
+	SetScene<Title>();
 }
 
 void Manager::Uninit()
