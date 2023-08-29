@@ -24,8 +24,5 @@ void Box::Init()
 
 
 void Box::Draw()
-{
-	ImGui::Begin("Box");
-	ImGui::Text("%f	%f	%f", this->GetPosition().x, this->GetPosition().y, this->GetPosition().z);
-	ImGui::End();
+{	
 }

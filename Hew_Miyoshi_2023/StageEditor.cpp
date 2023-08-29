@@ -7,6 +7,7 @@
 #include "field.h"
 #include "camera.h"
 #include"DebugCamera.h"
+#include"Enemy.h"
 #include <fstream>
 
 using namespace DirectX::SimpleMath;
@@ -25,9 +26,7 @@ void StageEditor::Update()
 }
 
 void StageEditor::Draw()
-{
-    std::vector<Box*> boxVec = GetGameObjects<Box>();
-
+{    
     ImGui::Begin("Stage Editor");    
 
     //カメラ切り替え
@@ -75,35 +74,35 @@ void StageEditor::Draw()
     if (ImGui::Button("Redo"))
     {     
         Redo();
-    }
+    }   
 
-    // オブジェクト生成
-    if (ImGui::Button("Create Object"))
-    {               
-        AddToHistory();
-        Box* box = AddGameObject<Box>(3);
-        InfoObjData data;
-        data.pos = box->GetPosition();
-        data.scale = box->GetScale();
-        data.rot = box->GetRotation();
-        position.push_back(data);  
-    }
+    CreateObject();
 
-    if (ImGui::Button("Deleteobject"))    
-        for (auto& objectList : m_GameObject)        
-            for (GameObject* object : objectList)            
-                if (typeid(*object) == typeid(Box))
+    if (ImGui::Button("Deleteobject"))           
+            for (GameObject* object : objList)                          
                 {       
                     AddToHistory();
                     SavepositionToFile("undo.txt");
                     object->SetDestroy();
                     position.clear();
+                    objList.clear();
                 }
+   
+    // 座標代入
+    int iterat = 0;  
+    for (GameObject* object : objList)
+    {
+        object->SetPosition(position[iterat].pos);
+        object->SetScale(position[iterat].scale);
+        object->SetRotation(position[iterat].rot);
+        iterat++;
+    }
 
-    std::vector<GameObject*> objects;
+    ImGui::End();
 
+    ImGui::Begin("ObjList");
     // 各オブジェクトごとの座標設定
-    for (int i = 0; i < position.size(); i++)    
+    for (int i = 0; i < position.size(); i++)
         if (ImGui::TreeNode(("Object " + std::to_string(i)).c_str()))
         {
             ImGui::SliderFloat("posX", &position[i].pos.x, -100.0f, 100.0f);
@@ -118,10 +117,22 @@ void StageEditor::Draw()
             ImGui::SliderFloat("rotY", &position[i].rot.y, -100.0f, 100.0f);
             ImGui::SliderFloat("rotZ", &position[i].rot.z, -100.0f, 100.0f);
 
+         /*   ImGui::InputFloat("posX", &position[i].pos.x, -100.0f, 100.0f);
+            ImGui::InputFloat("posY", &position[i].pos.y, -100.0f, 100.0f);
+            ImGui::InputFloat("posZ", &position[i].pos.z, -100.0f, 100.0f);
+
+            ImGui::InputFloat("scaleX", &position[i].scale.x, -100.0f, 100.0f);
+            ImGui::InputFloat("scaleY", &position[i].scale.y, -100.0f, 100.0f);
+            ImGui::InputFloat("scaleZ", &position[i].scale.z, -100.0f, 100.0f);
+
+            ImGui::InputFloat("rotX", &position[i].rot.x, -100.0f, 100.0f);
+            ImGui::InputFloat("rotY", &position[i].rot.y, -100.0f, 100.0f);
+            ImGui::InputFloat("rotZ", &position[i].rot.z, -100.0f, 100.0f);*/
+
             if (ImGui::Button("DeleteObject"))
             {
-                boxVec[i]->SetDestroy();
-                
+                objList[i]->SetDestroy();
+
                 auto first = position.begin() + i;  // 削除を開始する位置
                 auto last = position.begin() + i + 1;   // 削除を終了する位置（この位置の要素は含まれません）
 
@@ -129,20 +140,7 @@ void StageEditor::Draw()
             }
 
             ImGui::TreePop();
-        }    
-
-    // 座標代入
-    int iterat = 0;
-    for (auto& objectList : m_GameObject)    
-        for (GameObject* object : objectList)        
-            if (iterat < position.size() && typeid(*object) == typeid(Box))
-            {
-                object->SetPosition(position[iterat].pos);
-                object->SetScale(position[iterat].scale);
-                object->SetRotation(position[iterat].rot);
-                iterat++;
-            }            
-
+        }
     ImGui::End();
 
     ImGui::Begin("History");
@@ -165,7 +163,7 @@ void StageEditor::SavepositionToFile(const std::string& filename)
         {
             outputFile << position.pos.x << " " << position.pos.y << " " << position.pos.z << " "
                 << position.scale.x << " " << position.scale.y << " " << position.scale.z << " "
-                << position.rot.x << " " << position.rot.y << " " << position.rot.z << "\n";
+                << position.rot.x << " " << position.rot.y << " " << position.rot.z << " " << static_cast<int>(position.ClassKind) << " " << "\n";
         }
 
         outputFile.close();
@@ -185,12 +183,32 @@ void StageEditor::LoadpositionToFile(const std::string& filename)
         position.clear();
 
         InfoObjData data;
-        while (inputFile >> data.pos.x >> data.pos.y >> data.pos.z
+        int classKind;
+        while (inputFile
+            >> data.pos.x >> data.pos.y >> data.pos.z
             >> data.scale.x >> data.scale.y >> data.scale.z
-            >> data.rot.x >> data.rot.y >> data.rot.z)
+            >> data.rot.x >> data.rot.y >> data.rot.z
+            >> classKind)
         {
-            Box* box = AddGameObject<Box>(3);
-            position.push_back(data);
+            switch (classKind)
+            {
+            case CLASS::BOX:
+            {
+                Box* box = AddGameObject<Box>(1);
+                objList.push_back(box);
+                break;
+            }
+            case CLASS::ENEMY:
+            {
+                Enemy* enemy = AddGameObject<Enemy>(1);
+                objList.push_back(enemy);
+                break;
+            }
+            default:
+                break;
+            }
+          
+            position.push_back(data);          
         }
 
         inputFile.close();
@@ -199,6 +217,41 @@ void StageEditor::LoadpositionToFile(const std::string& filename)
     {
         // エラーメッセージを表示またはログに記録
     }
+}
+
+void StageEditor::CreateObject()
+{   
+        if (ImGui::TreeNode(("Create Object ")))
+        {
+            if (ImGui::Button("BOXCreate"))
+            {
+                AddToHistory();
+                Box* box = AddGameObject<Box>(3);
+                InfoObjData data;
+                data.pos = box->GetPosition();
+                data.scale = box->GetScale();
+                data.rot = box->GetRotation();
+                data.ClassKind = CLASS::BOX;
+                position.push_back(data);
+                objList.push_back(box);
+            }
+
+            if(ImGui::Button("ENEMYCreate"))
+            {
+                AddToHistory();
+                Enemy* enemy = AddGameObject<Enemy>(3);
+                InfoObjData data;
+                data.pos = enemy->GetPosition();
+                data.scale = enemy->GetScale();
+                data.rot = enemy->GetRotation();
+                data.ClassKind = CLASS::ENEMY;
+                position.push_back(data);
+                objList.push_back(enemy);
+
+            }
+
+            ImGui::TreePop();
+        }
 }
 
 void StageEditor::AddToHistory()
@@ -218,18 +271,34 @@ void StageEditor::Undo()
     if (historyIndex <= 0)return;
 
     historyIndex--;
-
-    for (auto& objectList : m_GameObject)
-        for (GameObject* object : objectList)
-            if (typeid(*object) == typeid(Box))
+   
+        for (GameObject* object : objList)           
             {                
                 object->SetDestroy();
-                position.clear();
+                position.clear();  
+                objList.clear();
             }
 
     for (InfoObjData info : history[historyIndex])
     {
-        Box* box = AddGameObject<Box>(3);
+        switch (info.ClassKind)
+        {
+        case CLASS::BOX:
+        {
+            Box* box = AddGameObject<Box>(3);
+            objList.push_back(box);
+            break;
+        }
+        case CLASS::ENEMY:
+        {
+            Enemy* enemy = AddGameObject<Enemy>(3);
+            objList.push_back(enemy);
+            break;
+        }
+        default:
+            break;
+        }
+
         position.push_back(info);
     }    
 }
@@ -241,10 +310,8 @@ void StageEditor::Redo()
     if (history[historyIndex + 1].size() == 0)return;
 
     historyIndex++;
-
-    for (auto& objectList : m_GameObject)
-        for (GameObject* object : objectList)
-            if (typeid(*object) == typeid(Box))
+   
+        for (GameObject* object : objList)            
             {
                 object->SetDestroy();
                 position.clear();
@@ -252,7 +319,24 @@ void StageEditor::Redo()
 
     for (InfoObjData info : history[historyIndex])
     {
-        Box* box = AddGameObject<Box>(3);
+        switch (info.ClassKind)
+        {
+        case CLASS::BOX:
+        {
+            Box* box = AddGameObject<Box>(3);
+            objList.push_back(box);
+            break;
+        }
+        case CLASS::ENEMY:
+        {
+            Enemy* enemy = AddGameObject<Enemy>(3);
+            objList.push_back(enemy);
+            break;
+        }
+        default:
+            break;
+        }
+
         position.push_back(info);
     }
 }
