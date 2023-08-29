@@ -205,8 +205,8 @@ void Player::Update()
 
 				m_MeatSE->Play();
 
-				Score* score = scene->GetGameObject<Score>();
-				score->AddCount(1);
+				/*Score* score = scene->GetGameObject<Score>();
+				score->AddCount(1);*/
 			}
 		}
 	}
@@ -252,8 +252,8 @@ void Player::Update()
 				boxobj->SetDestroy();
 			}
 
-			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
-				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f)
+			if (position.x - scale.x - 1.0f < m_Position.x && m_Position.x < position.x + scale.x + 1.0f &&
+				position.z - scale.z - 1.0f < m_Position.z && m_Position.z < position.z + scale.z + 1.0f)
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
@@ -437,16 +437,16 @@ void Player::Update()
 		GetComponent<Rigidbody>()->SetVelocity(vel);
 	}
 
-	//’e”­Ë
-	if (Input::GetKeyTrigger('K'))
-	{
-		Scene* scene = Manager::GetScene();
-		Bullet* bullet = scene->AddGameObject<Bullet>(2);
-		bullet->SetPosition(m_Position + Vector3(0.0f, 1.0f, 0.0f));
-		bullet->SetVelocity(this->GetForward() * 0.5f);
+	////’e”­Ë
+	//if (Input::GetKeyTrigger('K'))
+	//{
+	//	Scene* scene = Manager::GetScene();
+	//	Bullet* bullet = scene->AddGameObject<Bullet>(2);
+	//	bullet->SetPosition(m_Position + Vector3(0.0f, 1.0f, 0.0f));
+	//	bullet->SetVelocity(this->GetForward() * 0.5f);
 
-		m_SE->Play();
-	}
+	//	m_SE->Play();
+	//}
 
 	//Œ»İ‚ÌˆÊ’u‚ğXV	
 	if (Input::GetKeyPress('A'))

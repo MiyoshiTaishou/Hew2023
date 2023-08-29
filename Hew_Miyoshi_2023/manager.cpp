@@ -41,7 +41,8 @@ void Manager::Init(Application* ap)
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
 	//SetScene<StageEditor>();
-	SetScene<Title>();
+	//SetScene<Title>();
+	SetScene<Game>();
 }
 
 void Manager::Uninit()
