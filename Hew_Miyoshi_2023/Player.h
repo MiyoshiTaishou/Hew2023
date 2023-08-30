@@ -27,7 +27,18 @@ private:
 	GameObject* mchild;
 
 	//塊の大きさ
-	float m_Size;	
+	float m_Size = 0;	
+
+	//受付時間
+	int reception = 60;
+
+	//受付時間カウント
+	int receptionTime;
+	
+	//ダッシュアクションカウント
+	int actionDashu = 5;
+	int actionDashuCount = 0;
+	bool timeCountStart = false;
 	
 	//頂点座標
 	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;		

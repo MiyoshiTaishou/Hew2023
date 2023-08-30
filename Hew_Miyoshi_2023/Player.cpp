@@ -473,17 +473,26 @@ void Player::Update()
 			Vector3 force = forward * -100.0f;
 			body->AddForce(force, ForceMode::Force);
 		}
-		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
+		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))		
+			m_Rotation.y -= 1.0f / 60.0f;		
+
+		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))		
+			m_Rotation.y += 1.0f / 60.0f;	
+
+		//ダッシュ
+		if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
 		{
-			m_Rotation.y -= 1.0f / 60.0f;
+			actionDashuCount++;
+			timeCountStart = true;
 		}
-		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))
+		if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
 		{
-			m_Rotation.y += 1.0f / 60.0f;
+			actionDashuCount++;
+			timeCountStart = true;
 		}
 	}
 
-	if (Input::GetKeyPress('W') || this->buttonState.IsLeftStickPressed())
+	if (Input::GetKeyPress('W'))
 	{
 		if (body->GetFreeze(Freeze::Xpos))
 		{
@@ -520,6 +529,29 @@ void Player::Update()
 	else {
 		m_Position.y = m_Position.y;
 	}
+
+	//受付時間ないならタイムカウント
+	if (receptionTime < reception)			
+		if (actionDashuCount > actionDashu && timeCountStart)
+		{
+			//ダッシュカウントが規定以上ならダッシュする
+			Vector3 force = forward *200.0f;
+			body->AddForce(force, ForceMode::Impuluse);
+			timeCountStart = false;
+			actionDashuCount = 0;
+		}
+
+	//受付時間を超えたらリセット
+	if (receptionTime > reception)
+	{
+		timeCountStart = false;
+		receptionTime = 0;
+		actionDashuCount = 0;
+	}
+
+	if(timeCountStart)
+		receptionTime++;
+
 }
 
 void Player::Draw()
