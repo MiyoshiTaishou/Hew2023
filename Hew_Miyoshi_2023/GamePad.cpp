@@ -11,12 +11,12 @@ void GamePadComponent::Update()
 	Scene* scene = Manager::GetScene();
 	Player* player = scene->GetGameObject<Player>();
 
-	GamePad pad;
+	//GamePad pad;
 
 	//ゲームパッド取得
-	player->buttonState = pad.GetState(0);
+	/*player->buttonState = pad.GetState(0);	
 
 	if (!player->buttonState.IsConnected())return;
 
-	this->m_StateTracker.Update(player->buttonState);
+	this->m_StateTracker.Update(player->buttonState);*/
 }

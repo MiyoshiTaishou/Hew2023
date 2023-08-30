@@ -68,8 +68,9 @@ void Player::Update()
 
 	Vector3 oldPosition = m_Position;
 
-	GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, false);
-	GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, false);
+	Rigidbody* body = GetComponent<Rigidbody>();
+	body->SetFreeze(Freeze::Xpos, false);
+	body->SetFreeze(Freeze::ZPos, false);
 
 	//接地
 	float groundHeight = 2.0f;
@@ -257,21 +258,21 @@ void Player::Update()
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
-					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					Vector3 vel = body->GetVelocity();
 					float absVelX = fabs(vel.x);
 					float absVelZ = fabs(vel.z);
 
 					if (absVelX > 4.0f || absVelX > 4.0f)
 					{
 						Vector3 force = -vel * 5.0f;
-						GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+						body->AddForce(force, ForceMode::Impuluse);
 
 						m_MeatSE2->Play();
 					}
 					else
 					{
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
+						body->SetFreeze(Freeze::Xpos, true);
+						body->SetFreeze(Freeze::ZPos, true);
 					}
 				}
 				else
@@ -326,7 +327,7 @@ void Player::Update()
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
-					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					Vector3 vel = body->GetVelocity();
 					float absVelX = fabs(vel.x);
 					float absVelZ = fabs(vel.z);
 
@@ -339,8 +340,8 @@ void Player::Update()
 					}
 					else
 					{
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
+						body->SetFreeze(Freeze::Xpos, true);
+						body->SetFreeze(Freeze::ZPos, true);
 					}
 				}
 				else if (position.y + scale.y * 2.0f + 1.0f < m_Position.y && position.y + scale.y * 2.0f + 3.0f > m_Position.y)
@@ -398,7 +399,7 @@ void Player::Update()
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
-					Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+					Vector3 vel = body->GetVelocity();
 					float absVelX = fabs(vel.x);
 					float absVelZ = fabs(vel.z);
 
@@ -411,19 +412,19 @@ void Player::Update()
 					}
 					else
 					{
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, true);
-						GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, true);
+						body->SetFreeze(Freeze::Xpos, true);
+						body->SetFreeze(Freeze::ZPos, true);
 					}
 				}
 				else if (position.y + scale.y * 2.0f + 1.0f < m_Position.y && position.y + scale.y * 2.0f + 3.0f > m_Position.y)
 				{
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;	
-					this->GetComponent<Rigidbody>()->SetDrag(1);
+					body->SetDrag(1);
 				}
 			}
 			else
 			{
-				this->GetComponent<Rigidbody>()->InitDrag();
+				body->InitDrag();
 			}
 		}
 	}
@@ -431,10 +432,10 @@ void Player::Update()
 	// 位置が０以下なら地面位置にセットする
 	if (m_Position.y < groundHeight)
 	{
-		Vector3 vel = GetComponent<Rigidbody>()->GetVelocity();
+		Vector3 vel = body->GetVelocity();
 		m_Position.y = groundHeight;
 		vel.y = 0.0f;
-		GetComponent<Rigidbody>()->SetVelocity(vel);
+		body->SetVelocity(vel);
 	}
 
 	//弾発射
@@ -460,53 +461,53 @@ void Player::Update()
 		m_Rotation.y += 1.0f / 60.0f;
 	}
 
-	//コントローラーの入力を取る
+	//コントローラーの入力を取る	
 	{
-		Vector3 force = forward * 100.0f * buttonState.thumbSticks.leftY;
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
-		m_Rotation.y += buttonState.thumbSticks.leftX / 60.0f;
-
-		if (GetComponent<Rigidbody>()->GetFreeze(Freeze::Xpos))
+		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
 		{
-			float Stick = buttonState.thumbSticks.leftY;
-			if (Stick > 0.1)
-			{
-				Vector3 force = { 0,500,0 };
-				GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
-			}
-			else
-			{
-				GetComponent<Rigidbody>()->SetFreeze(Freeze::Xpos, false);
-				GetComponent<Rigidbody>()->SetFreeze(Freeze::ZPos, false);
-			}
+			Vector3 force = forward * 100.0f;
+			body->AddForce(force, ForceMode::Force);
+		}
+		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+		{
+			Vector3 force = forward * -100.0f;
+			body->AddForce(force, ForceMode::Force);
+		}
+		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
+		{
+			m_Rotation.y -= 1.0f / 60.0f;
+		}
+		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))
+		{
+			m_Rotation.y += 1.0f / 60.0f;
 		}
 	}
 
 	if (Input::GetKeyPress('W') || this->buttonState.IsLeftStickPressed())
 	{
-		if (GetComponent<Rigidbody>()->GetFreeze(Freeze::Xpos))
+		if (body->GetFreeze(Freeze::Xpos))
 		{
 			Vector3 force = { 0,500,0 };
-			GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+			body->AddForce(force, ForceMode::Force);
 		}
 		else
 		{
 			Vector3 force = forward * 100.0f;
-			GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+			body->AddForce(force, ForceMode::Force);
 		}
 	}
 
 	if (Input::GetKeyPress('S'))
 	{
 		Vector3 force = forward * -100.0f;
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Force);
+		body->AddForce(force, ForceMode::Force);
 	}
 
 	//ジャンプ
 	if (Input::GetKeyTrigger('J'))
 	{
 		Vector3 force = { 0,100,0 };
-		GetComponent<Rigidbody>()->AddForce(force, ForceMode::Impuluse);
+		body->AddForce(force, ForceMode::Impuluse);
 	}
 
 
