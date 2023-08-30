@@ -48,7 +48,7 @@ void Camera::Update()
 
 	lastCamEye = m_Position;
 
-	this->m_Position.y += 2.0f;
+	this->m_Position.y += 10.0f;
 
 	this->m_Rotation.y = playerobj->GetRotation().y;	
 }
