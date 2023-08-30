@@ -170,16 +170,37 @@ void Game::LoadpositionToFile(const std::string& filename)
 	std::ifstream inputFile(filename);
 
 	if (inputFile.is_open())
-	{		
+	{
 		InfoObjData data;
+		int classKind;
 		while (inputFile >> data.pos.x >> data.pos.y >> data.pos.z
 			>> data.scale.x >> data.scale.y >> data.scale.z
-			>> data.rot.x >> data.rot.y >> data.rot.z)
+			>> data.rot.x >> data.rot.y >> data.rot.z
+			>> classKind)
 		{
-			Box* box = AddGameObject<Box>(1);	
-			box->SetPosition(data.pos);
-			box->SetRotation(data.rot);
-			box->SetScale(data.scale);
+			switch (classKind)
+			{
+			case CLASS::BOX:
+			{
+				Box* box = AddGameObject<Box>(1);
+				box->SetPosition(data.pos);
+				box->SetRotation(data.rot);
+				box->SetScale(data.scale);
+
+				break;
+			}
+			case CLASS::ENEMY:
+			{
+				Enemy* enemy = AddGameObject<Enemy>(1);
+				enemy->SetPosition(data.pos);
+				enemy->SetRotation(data.rot);
+				enemy->SetScale(data.scale);
+
+				break;
+			}
+			default:
+				break;
+			}
 		}
 
 		inputFile.close();

@@ -328,8 +328,7 @@ void Renderer::Uninit()
 	m_PollarBuffer->Release();
 	m_FadeBuffer->Release();
 	m_RotationBuffer->Release();
-	m_ScaleBuffer->Release();
-
+	m_ScaleBuffer->Release();	
 
 	m_DeviceContext->ClearState();
 	m_RenderTargetView->Release();

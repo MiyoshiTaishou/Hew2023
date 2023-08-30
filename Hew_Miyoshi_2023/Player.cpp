@@ -206,8 +206,8 @@ void Player::Update()
 
 				m_MeatSE->Play();
 
-				Score* score = scene->GetGameObject<Score>();
-				score->AddCount(1);
+				/*Score* score = scene->GetGameObject<Score>();
+				score->AddCount(1);*/
 			}
 		}
 	}
