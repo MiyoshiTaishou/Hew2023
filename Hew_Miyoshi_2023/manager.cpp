@@ -8,6 +8,7 @@
 #include	"audio.h"
 #include	"Game.h"
 #include	"Title.h"
+#include	"Result.h"
 #include	"StageEditor.h"
 #include	"fpscontrol.h"
 
@@ -85,6 +86,27 @@ void Manager::Draw(uint64_t d)
 
 	ImGui::Begin("FPS");
 	ImGui::Text("%fFPS",fps);
+	ImGui::End();
+
+	ImGui::Begin("SceneChange");
+
+	if (ImGui::TreeNode(("Create Object ")))
+	{
+		if (ImGui::Button("TiTle"))
+			SetScene<Title>();
+
+		if (ImGui::Button("Game"))
+			SetScene<Game>();
+
+		if (ImGui::Button("Result"))
+			SetScene<Result>();
+
+		if (ImGui::Button("StageEditor"))
+			SetScene<StageEditor>();
+
+		ImGui::TreePop();
+	}
+
 	ImGui::End();
 
 	ImGuiManager::End();

@@ -14,9 +14,9 @@ void Box::Init()
 {
 	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
 	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_RGBSplit.cso");
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_BloomBlur.cso");
+	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_ConcentrationShader.cso");
-	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_PolarCoordinates.cso");
+	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_PolarCoordinates.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\box.obj");
 	AddComponent<BoxCollider>()->Init();
 //	AddComponent<Shadow>()->SetSize(8.0f);
@@ -24,8 +24,5 @@ void Box::Init()
 
 
 void Box::Draw()
-{
-	ImGui::Begin("Box");
-	ImGui::Text("%f	%f	%f", this->GetPosition().x, this->GetPosition().y, this->GetPosition().z);
-	ImGui::End();
+{	
 }
