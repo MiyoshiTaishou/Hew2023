@@ -327,3 +327,28 @@ float CalculateDistance(const Vector3& v1, const Vector3& v2)
 	return sqrt(dx * dx + dy * dy + dz * dz);
 }
 
+//void DetermineCollisionDirection(const BoundingSphere& playerCollider, const BoundingSphere& otherCollider, const DirectX::SimpleMath::Vector3& collisionPoint, DirectX::SimpleMath::Vector3& playerVel,GameObject* obj)
+//{
+//	DirectX::XMVECTOR collisionNormal = DirectX::XMVectorSubtract(DirectX::XMLoadFloat3(&collisionPoint), DirectX::XMLoadFloat3(&playerCollider.center));
+//	collisionNormal = DirectX::XMVector3Normalize(collisionNormal);	
+//
+//	float dotProduct = DirectX::XMVectorGetX(DirectX::XMVector3Dot(playerVel, collisionNormal));
+//	
+//	Rigidbody* body = obj->GetComponent<Rigidbody>();
+//
+//	if (dotProduct > 0.7f) 
+//	{
+//		obj->SetPosition(collisionPoint);
+//		body->SetVelocity({ playerVel.x,playerVel.y ,0 });
+//	}
+//	else if (dotProduct < -0.7f)
+//	{
+//		obj->SetPosition(collisionPoint);
+//		body->SetVelocity({ playerVel.x,playerVel.y ,0 });
+//	}
+//	else
+//	{
+//		obj->SetPosition(collisionPoint);
+//		body->SetVelocity({ 0,playerVel.y ,playerVel.z });
+//	}	
+//}

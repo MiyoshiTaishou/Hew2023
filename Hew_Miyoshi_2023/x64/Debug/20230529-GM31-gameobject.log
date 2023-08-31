@@ -1,4 +1,8 @@
-﻿  box.cpp
-  renderer.cpp
+﻿  collison.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp(60,14): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp(61,15): warning C4244: '=': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp(62,14): warning C4244: '=': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp(327,13): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Player.cpp
   コードを生成中...
   20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

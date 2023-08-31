@@ -1,7 +1,9 @@
 #pragma once
 
 #include	<simplemath.h>
-#include<vector>
+#include	<vector>
+#include	"AddForce.h"
+#include	"gameObject.h"
 
 // ‰~’Œ’è‹`
 struct BoundingCylinder {
@@ -27,6 +29,14 @@ struct AABB {
 	DirectX::SimpleMath::Vector3	min;
 	DirectX::SimpleMath::Vector3	max;
 };
+
+//enum DIRECTION
+//{
+//	LEFT,
+//	RIGHT,
+//	UP,
+//	DOWN
+//};
 
 // ‹…
 bool CollisionSphere(BoundingSphere p1, BoundingSphere p2);
@@ -83,3 +93,9 @@ DirectX::SimpleMath::Vector3 GetClosestVeretex(const std::vector<DirectX::Simple
 
 //‹——£‚ð‹‚ß‚é
 float CalculateDistance(const DirectX::SimpleMath::Vector3& v1, const DirectX::SimpleMath::Vector3& v2);
+
+//void DetermineCollisionDirection(const BoundingSphere& playerCollider,
+//	const BoundingSphere& otherCollider,
+//	const DirectX::SimpleMath::Vector3& collisionPoint,
+//	DirectX::SimpleMath::Vector3& playerVel,
+//	GameObject* obj);
