@@ -157,25 +157,7 @@ void Player::Update()
 		{
 			Vector3 position = enemyObj->GetPosition();
 			Vector3 scale = enemyObj->GetScale();
-
-			//// エネミーのAABB作成
-			//AABB aabbEnemy;
-			//Vector3 EnemySize(1.0f, 1.0f, 1.0f);
-			//aabbEnemy = SetAABB(
-			//	position,
-			//	fabs(EnemySize.x * scale.x),
-			//	fabs(EnemySize.y * scale.y),
-			//	fabs(EnemySize.z * scale.z));
-
-			//// プレイヤのAABB作成
-			//AABB aabbPlayer;
-			//Vector3 PlayerSize(1.0f, 1.0f, 1.0f);
-			//aabbPlayer = SetAABB(
-			//	Vector3(m_Position.x, m_Position.y + 1.0f, m_Position.z),
-			//	fabs(PlayerSize.x * m_Scale.x),
-			//	fabs(PlayerSize.y * m_Scale.y),
-			//	fabs(PlayerSize.z * m_Scale.z));			
-
+			
 			//距離を求める
 			Vector3 direction = m_Position - position;
 			float length = direction.Length();
@@ -253,16 +235,15 @@ void Player::Update()
 				boxobj->SetDestroy();
 			}
 
-			if (position.x - scale.x - 0.5f < m_Position.x && m_Position.x < position.x + scale.x + 0.5f &&
-				position.z - scale.z - 0.5f < m_Position.z && m_Position.z < position.z + scale.z + 0.5f)
+			if (position.x - scale.x - 1.0f < m_Position.x && m_Position.x < position.x + scale.x + 1.0f &&
+				position.z - scale.z - 1.0f < m_Position.z && m_Position.z < position.z + scale.z + 1.0f)
 			{
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
 					Vector3 vel = body->GetVelocity();
-					float absVelX = fabs(vel.x);
-					float absVelZ = fabs(vel.z);
+					float speed = vel.Length();
 
-					if (absVelX > 4.0f || absVelX > 4.0f)
+					if (speed > 4.0f)
 					{
 						Vector3 force = -vel * 5.0f;
 						body->AddForce(force, ForceMode::Impuluse);
@@ -437,18 +418,7 @@ void Player::Update()
 		vel.y = 0.0f;
 		body->SetVelocity(vel);
 	}
-
-	//弾発射
-	if (Input::GetKeyTrigger('K'))
-	{
-		Scene* scene = Manager::GetScene();
-		Bullet* bullet = scene->AddGameObject<Bullet>(2);
-		bullet->SetPosition(m_Position + Vector3(0.0f, 1.0f, 0.0f));
-		bullet->SetVelocity(this->GetForward() * 0.5f);
-
-		m_SE->Play();
-	}
-
+	
 	//現在の位置を更新	
 	if (Input::GetKeyPress('A'))
 	{
@@ -473,13 +443,22 @@ void Player::Update()
 			Vector3 force = forward * -100.0f;
 			body->AddForce(force, ForceMode::Force);
 		}
-		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
-		{
-			m_Rotation.y -= 1.0f / 60.0f;
-		}
-		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))
-		{
+		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))		
+			m_Rotation.y -= 1.0f / 60.0f;		
+		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))		
 			m_Rotation.y += 1.0f / 60.0f;
+		
+
+		//ダッシュ
+		if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
+		{
+			actionCheck = true;
+			actionCount++;
+		}
+		if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
+		{
+			actionCheck = true;
+			actionCount++;
 		}
 	}
 
@@ -519,6 +498,27 @@ void Player::Update()
 	}
 	else {
 		m_Position.y = m_Position.y;
+	}
+
+	//受付時間trueなら計測開始
+	if (actionCheck)
+	{
+		if (loopCount < reception)
+			if (actionDashu < actionCount)
+			{
+				Vector3 force = forward * 100.0f;
+				body->AddForce(force, ForceMode::Impuluse);
+				actionCheck = false;
+				actionDashu = 0;
+				loopCount = 0;
+			}
+
+		loopCount++;
+	}
+	else
+	{
+		loopCount = 0;
+		actionDashu = 0;
 	}
 }
 
