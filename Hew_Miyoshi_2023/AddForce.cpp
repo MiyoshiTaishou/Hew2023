@@ -32,15 +32,15 @@ void Rigidbody::Update()
 	if (mZPos)
 		velocity.z = 0.0f;
 
-	Vector3 pos = (this->m_GameObject->GetPosition() + velocity * deltaTime); // オブジェクトの位置を更新	
-	Vector3 rot = (this->m_GameObject->GetRotation() + velocity * deltaTime); // オブジェクトの回転を更新	
-	
+	//Vector3 pos = (this->m_GameObject->GetPosition() + velocity * deltaTime); // オブジェクトの位置を更新	
+	//Vector3 rot = (this->m_GameObject->GetRotation() + velocity * deltaTime); // オブジェクトの回転を更新	
+	//
 
-	this->m_GameObject->SetPosition(pos);
+	//this->m_GameObject->SetPosition(pos);
 
-	float forawrd = (rot.x + rot.z) * 0.9f;
+	/*float forawrd = (rot.x + rot.z) * 0.9f;
 
-	this->m_GameObject->SetRotation({ forawrd, this->m_GameObject->GetRotation().y,this->m_GameObject->GetRotation().y });
+	this->m_GameObject->SetRotation({ forawrd, this->m_GameObject->GetRotation().y,this->m_GameObject->GetRotation().y });*/
 	force = Vector3(0.f, 0.f, 0.f); // 放置すると一生加速するので0に戻す
 }
 
@@ -74,6 +74,11 @@ DirectX::SimpleMath::Vector3 Rigidbody::GetVelocity()
 void Rigidbody::SetVelocity(DirectX::SimpleMath::Vector3 _vel)
 {
 	velocity = _vel;
+}
+
+void Rigidbody::SetForce(DirectX::SimpleMath::Vector3 _force)
+{
+	force = _force;
 }
 
 void Rigidbody::SetFreeze(Freeze freez,bool _b)

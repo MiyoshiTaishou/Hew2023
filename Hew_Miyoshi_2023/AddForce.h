@@ -35,6 +35,8 @@ public:
 	DirectX::SimpleMath::Vector3 GetVelocity();
 	void SetVelocity(DirectX::SimpleMath::Vector3 _vel);
 
+	void SetForce(DirectX::SimpleMath::Vector3 _force);
+
 	void SetFreeze(Freeze freez,bool _b);
 	bool GetFreeze(Freeze freez);
 

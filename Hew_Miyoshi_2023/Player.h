@@ -33,6 +33,9 @@ private:
 	int actionCount = 0;
 	int actionDashu = 5;
 	bool actionCheck = false;
+
+	//•Ç“o‚è—p•Ï”
+	bool wallUp = false;
 	
 	//’¸“_À•W
 	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;		
