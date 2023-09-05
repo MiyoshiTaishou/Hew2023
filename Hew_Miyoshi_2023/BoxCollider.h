@@ -2,6 +2,8 @@
 #include"component.h"
 #include<SimpleMath.h>
 
+
+//四角形の当たり判定のコンポーネント
 class BoxCollider : public Component
 {
 public:
@@ -18,6 +20,7 @@ public:
 
 private:
 
+	//当たり判定の座標
 	DirectX::SimpleMath::Vector3 mHitBox = { 0,0,0 };
 
 	//コライダーのサイズ

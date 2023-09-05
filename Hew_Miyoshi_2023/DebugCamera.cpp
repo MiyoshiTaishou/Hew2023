@@ -15,12 +15,6 @@ void DebugCamera::Init()
 	m_Target = Vector3(0.0f, 0.0f, 0.0f);	
 }
 
-void DebugCamera::Uninit()
-{
-}
-
-
-
 void DebugCamera::Update()
 {	
 	m_Foward = this->GetForward();		

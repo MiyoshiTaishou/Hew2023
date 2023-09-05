@@ -21,8 +21,3 @@ void Box::Init()
 	AddComponent<BoxCollider>()->Init();
 //	AddComponent<Shadow>()->SetSize(8.0f);
 }
-
-
-void Box::Draw()
-{	
-}

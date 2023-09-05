@@ -30,14 +30,6 @@ struct AABB {
 	DirectX::SimpleMath::Vector3	max;
 };
 
-//enum DIRECTION
-//{
-//	LEFT,
-//	RIGHT,
-//	UP,
-//	DOWN
-//};
-
 // ‹…
 bool CollisionSphere(BoundingSphere p1, BoundingSphere p2);
 

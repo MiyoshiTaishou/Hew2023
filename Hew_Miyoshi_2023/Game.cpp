@@ -4,7 +4,6 @@
 
 #include"sprite.h"
 #include"audio.h"
-#include"BulletComponent.h"
 #include"shader.h"
 #include"Transition.h"
 #include"BoxCollider.h"
@@ -17,7 +16,6 @@
 #include"Player.h"
 #include"box.h"
 #include"cylinder.h"
-#include"Bullet.h"
 #include "manager.h"
 #include "input.h"
 #include"Result.h"

@@ -4,8 +4,6 @@ C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\audio.cpp;C:\Users\Tais
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\BackCameraComponent.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\BackCameraComponent.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\box.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\box.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\BoxCollider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\BoxCollider.obj
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Bullet.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Bullet.obj
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\BulletComponent.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\BulletComponent.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\camera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\camera.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\collison.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\cylinder.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\cylinder.obj
@@ -15,7 +13,6 @@ C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Enemy.cpp;C:\Users\Tais
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Fade.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Fade.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\field.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\field.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Game.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Game.obj
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\GamePad.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\GamePad.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Goal.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Goal.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Gravity.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Gravity.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\imgui.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\imgui.obj
@@ -30,7 +27,6 @@ C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\JumpComponent.cpp;C:\Us
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\main.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\main.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\manager.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\manager.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\modelRenderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\modelRenderer.obj
-C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\PhysicsComponent.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PhysicsComponent.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Player.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Player.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Polygon2D.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Polygon2D.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\PostProcess.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\PostProcess.obj

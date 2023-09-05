@@ -5,6 +5,8 @@ using namespace DirectX::SimpleMath;
 
 void Gravity::Update()
 {
+
+	//À•W‚ª3ˆÈ‰º‚È‚çˆ—‚ð‚µ‚È‚¢
 	if (m_GameObject->GetPosition().y < 3.0f)
 	{
 		time = 0;
@@ -13,9 +15,8 @@ void Gravity::Update()
 
 	Vector3 vec = m_GameObject->GetPosition();
 
-	vec.y -= (gravityPower.y * ((accGravity * (time*time)) / 2));
-
-	//vec.y *= accGravity;
+	//d—ÍŒvŽZ
+	vec.y -= (gravityPower.y * ((accGravity * (time*time)) / 2));	
 
 	m_GameObject->SetPosition(vec);
 

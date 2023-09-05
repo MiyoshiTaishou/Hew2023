@@ -19,12 +19,6 @@ void Camera::Init()
 	m_Foward = playerobj->GetForward();
 }
 
-void Camera::Uninit()
-{
-}
-
-
-
 void Camera::Update()
 {
 	Scene* nowscene = Manager::GetScene();
@@ -54,10 +48,7 @@ void Camera::Update()
 }
 
 void Camera::Draw()
-{
-	ImGui::Begin("Camera");
-	ImGui::Text("%d", 10);
-	ImGui::End();
+{	
 	// ƒrƒ…[•ÏŠ·Œã—ñì¬
 	Vector3 up = Vector3(0.0f, 1.0f, 0.0f);
 	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										// ¶èŒn‚É‚µ‚½@20230511 by suzuki.tomoki

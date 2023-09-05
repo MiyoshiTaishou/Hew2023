@@ -12,11 +12,6 @@
 
 void Cylinder::Init()
 {
-
 	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_RGBSplit.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\cylinder.obj");
-
-
-//	AddComponent<Shadow>()->SetSize(5.0f);
-
 }

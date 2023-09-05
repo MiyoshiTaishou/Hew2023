@@ -4,16 +4,6 @@
 
 using namespace DirectX::SimpleMath;
 
-void BackCameraComponent::Init()
-{
-	
-}
-
-void BackCameraComponent::Uninit()
-{
-	
-}
-
 void BackCameraComponent::Update()
 {
 	// ’Ç”öƒJƒƒ‰‚Ìˆ—
@@ -52,6 +42,7 @@ DirectX::SimpleMath::Vector3 BackCameraComponent::GetCameraFocus()
 	return cameraFocus;
 }
 
+//’Ç]æ‚ğŒˆ‚ß‚é
 void BackCameraComponent::SetTarget(GameObject& obj)
 {
 	targetObj = &obj;

@@ -198,7 +198,7 @@ void Application::MainLoop()
 //-----------------------------------------------------------------------------
 //      ウィンドウプロシージャです.
 //-----------------------------------------------------------------------------
-extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK Application::WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
     //ImGuiを触れるようにするための処理
