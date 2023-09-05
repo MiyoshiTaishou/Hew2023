@@ -69,9 +69,7 @@ void Player::Update()
 	Vector3 oldPosition = m_Position;
 
 	Rigidbody* body = GetComponent<Rigidbody>();
-	body->SetFreeze(Freeze::Xpos, false);
-	body->SetFreeze(Freeze::ZPos, false);
-
+	
 	//接地
 	float groundHeight = 2.0f;
 
@@ -79,18 +77,55 @@ void Player::Update()
 
 	//カメラの前向きベクトル
 	if(cameraObj)
-		forward = cameraObj->GetForward();
-
-	for (auto& cmpt : m_Component) {
-		cmpt->Update();
-	}
-
+		forward = cameraObj->GetForward();	
 
 	//重力
 	m_Velocity.y -= 0.015f;
 
 	//抵抗
 	m_Velocity.y -= m_Velocity.y * 0.01f;
+
+	//コントローラーの入力を取る	
+	{
+		if (wallUp)
+		{
+			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+			{
+				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);				
+				body->AddForce(Up, ForceMode::Force);
+			}
+		}
+		else
+		{
+			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+			{
+				Vector3 force = forward * 100.0f;
+				body->AddForce(force, ForceMode::Force);
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+			{
+				Vector3 force = forward * -100.0f;
+				body->AddForce(force, ForceMode::Force);
+			}
+			if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
+				m_Rotation.y -= 1.0f / 60.0f;
+			if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))
+				m_Rotation.y += 1.0f / 60.0f;
+
+
+			//ダッシュ
+			if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
+			{
+				actionCheck = true;
+				actionCount++;
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
+			{
+				actionCheck = true;
+				actionCount++;
+			}
+		}		
+	}
 
 	// ゴールとの当たり判定
 	{
@@ -241,9 +276,13 @@ void Player::Update()
 				if (m_Position.y < position.y + scale.y * 2.0f - 0.5f)
 				{
 					Vector3 vel = body->GetVelocity();
+
+					//上方向への速度は無視する
+					vel.y = 0.0f;
 					float speed = vel.Length();
 
-					if (speed > 4.0f)
+					//一定速度以下なら壁登りになる
+					if (speed > 10.0f)
 					{
 						Vector3 force = -vel * 5.0f;
 						body->AddForce(force, ForceMode::Impuluse);
@@ -252,12 +291,20 @@ void Player::Update()
 					}
 					else
 					{
-						body->SetFreeze(Freeze::Xpos, true);
-						body->SetFreeze(Freeze::ZPos, true);
+						m_Position.x = oldPosition.x;
+						m_Position.z = oldPosition.z;
+						Vector3 v = body->GetVelocity();
+						body->SetVelocity({ 0.0f,v.y,0.0f });
+						//body->SetForce(Vector3(0.0f, 0.0f, 0.0f));
+						//壁登りできる
+						wallUp = true;
 					}
 				}
 				else
+				{
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
+					wallUp = false;
+				}					
 			}
 		}
 	}
@@ -429,38 +476,7 @@ void Player::Update()
 	if (Input::GetKeyPress('D'))
 	{
 		m_Rotation.y += 1.0f / 60.0f;
-	}
-
-	//コントローラーの入力を取る	
-	{
-		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-		{
-			Vector3 force = forward * 100.0f;
-			body->AddForce(force, ForceMode::Force);
-		}
-		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-		{
-			Vector3 force = forward * -100.0f;
-			body->AddForce(force, ForceMode::Force);
-		}
-		if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))		
-			m_Rotation.y -= 1.0f / 60.0f;		
-		if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))		
-			m_Rotation.y += 1.0f / 60.0f;
-		
-
-		//ダッシュ
-		if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
-		{
-			actionCheck = true;
-			actionCount++;
-		}
-		if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
-		{
-			actionCheck = true;
-			actionCount++;
-		}
-	}
+	}	
 
 	if (Input::GetKeyPress('W') || this->buttonState.IsLeftStickPressed())
 	{
@@ -520,6 +536,12 @@ void Player::Update()
 		loopCount = 0;
 		actionDashu = 0;
 	}
+
+	for (auto& cmpt : m_Component) {
+		cmpt->Update();
+	}
+
+	m_Position += body->GetVelocity() * (1.0f / 60.0f);
 }
 
 void Player::Draw()
