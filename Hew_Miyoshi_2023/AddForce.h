@@ -2,7 +2,9 @@
 #include<SimpleMath.h>
 #include "component.h"
 
-//アッドフォース
+//物理挙動コンポーネント
+
+//どの計算式を使うか
 enum class ForceMode
 {
 	Force, // 質量に依存し、継続的な力を与える
@@ -11,6 +13,7 @@ enum class ForceMode
 	VelocityChange // 質量に依存せず、瞬間的な力を与える
 };
 
+//固定にする箇所
 enum class Freeze
 {
 	Xpos,
@@ -30,6 +33,7 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	//力を加える
 	void AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode);	
 
 	DirectX::SimpleMath::Vector3 GetVelocity();

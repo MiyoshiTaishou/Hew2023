@@ -3,10 +3,13 @@
 #include "gameObject.h"
 #include "renderer.h"
 
+//背景オブジェクト
 class Sky : public GameObject
 {
 
 private:
+
+	//シェーダーの値をいじれるようにするための変数
 	Bloom bloom;
 	RotationAngle rot;
 

@@ -3,7 +3,9 @@
 #include	<SimpleMath.h>
 #include	"gameObject.h"
 
-class Camera : public GameObject{
+//カメラオブジェクトコンポーネントで切り替えれるようになっている
+class Camera : public GameObject
+{
 private:
 
 	DirectX::SimpleMath::Vector3	m_Target{};
@@ -12,8 +14,7 @@ private:
 	DirectX::SimpleMath::Vector3 m_Foward{};
 
 public:
-	void Init();
-	void Uninit();
+	void Init();	
 	void Update();
 	void Draw();
 

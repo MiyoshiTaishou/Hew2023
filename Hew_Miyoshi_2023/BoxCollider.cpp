@@ -7,11 +7,13 @@ using namespace DirectX::SimpleMath;
 
 void BoxCollider::Init()
 {	
+	//当たり判定の大きさをオブジェクトの大きさに合わせる
 	mScale = m_GameObject->GetScale();	
 }
 
 void BoxCollider::Update()
 {
+	//オブジェクトの座標に当たり判定の座標を合わせる
 	mHitBox = m_GameObject->GetPosition();
 }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "gameObject.h"
 
-//エネミー弾に当たったら消える
+//エネミープレイヤーに当たったらくっつく
 class Enemy :  public GameObject
 {
 public:

@@ -53,14 +53,6 @@ void Field::Init()
 		&m_Texture);
 
 	assert(m_Texture);
-
-
-//	Renderer::CreateVertexShader(&m_VertexShader, &m_VertexLayout,
-//		"shader\\vertexLightingVS.cso");
-
-//	Renderer::CreatePixelShader(&m_PixelShader,
-//		"shader\\vertexLightingPS.cso");
-
 }
 
 void Field::Uninit()
@@ -74,11 +66,6 @@ void Field::Uninit()
 
 	m_VertexBuffer->Release();
 	m_Texture->Release();
-}
-
-
-void Field::Update()
-{
 }
 
 void Field::Draw()

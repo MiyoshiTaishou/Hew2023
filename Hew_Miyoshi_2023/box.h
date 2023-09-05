@@ -8,6 +8,5 @@ class Box : public GameObject
 private:
 
 public:
-	void Init() override;
-	void Draw()override;
+	void Init() override;	
 };

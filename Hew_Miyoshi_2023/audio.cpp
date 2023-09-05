@@ -1,14 +1,8 @@
-
 #include "main.h"
 #include "audio.h"
 
-
-
-
-
 IXAudio2*				Audio::m_Xaudio = NULL;
 IXAudio2MasteringVoice*	Audio::m_MasteringVoice = NULL;
-
 
 void Audio::InitMaster()
 {
@@ -29,14 +23,6 @@ void Audio::UninitMaster()
 	m_Xaudio->Release();
 	CoUninitialize();
 }
-
-
-
-
-
-
-
-
 
 void Audio::Load(const char *FileName)
 {
@@ -100,7 +86,6 @@ void Audio::Load(const char *FileName)
 	assert(m_SourceVoice);
 }
 
-
 void Audio::Uninit()
 {
 	m_SourceVoice->Stop();
@@ -108,10 +93,6 @@ void Audio::Uninit()
 
 	delete[] m_SoundData;
 }
-
-
-
-
 
 void Audio::Play(bool Loop)
 {

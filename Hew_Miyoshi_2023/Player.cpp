@@ -2,7 +2,6 @@
 #include "Player.h"
 #include"modelRenderer.h"
 #include"shader.h"
-#include"PhysicsComponent.h"
 #include"JumpComponent.h"
 #include"BoxCollider.h"
 #include"audio.h"
@@ -11,7 +10,6 @@
 #include"Goal.h"
 #include"collison.h"
 #include"input.h"
-#include"Bullet.h"
 #include"box.h"
 #include"Enemy.h"
 #include"camera.h"
@@ -29,14 +27,13 @@ using namespace DirectX::SimpleMath;
 void Player::Init()
 {
 	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_GouraudShading.cso");	
-	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_BloomBlur.cso");
+	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_BloomBlur.cso");
+	AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_GouraudShading.cso", "shader\\PS_PolarCoordinates.cso");	
 	AddComponent<Rigidbody>()->Init(2, -1, 1);
 	//AddComponent<ModelRenderer>()->Load("asset\\model\\bullet.obj");
 	m_VertexPos = AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");
-	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");
-	//AddComponent<PhysicsComponent>()->Init();		
-	AddComponent<GamePadComponent>();
+	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");	
 
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Position.y = 10.0f;
@@ -52,12 +49,6 @@ void Player::Init()
 	m_MeatSE2 = AddComponent<Audio>();
 	m_MeatSE2->Load("asset\\audio\\ボヨン.wav");
 }
-
-void Player::Uninit()
-{
-
-}
-
 
 void Player::Update()
 {
@@ -101,11 +92,13 @@ void Player::Update()
 			{
 				Vector3 force = forward * 100.0f;
 				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x += 0.1f;
 			}
 			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
 			{
 				Vector3 force = forward * -100.0f;
 				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x -= 0.1f;
 			}
 			if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
 				m_Rotation.y -= 1.0f / 60.0f;
@@ -541,7 +534,8 @@ void Player::Update()
 		cmpt->Update();
 	}
 
-	m_Position += body->GetVelocity() * (1.0f / 60.0f);
+	//座標更新
+	m_Position += body->GetVelocity() * (1.0f / 60.0f);	
 }
 
 void Player::Draw()

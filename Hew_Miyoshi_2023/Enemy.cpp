@@ -16,6 +16,7 @@ void Enemy::Init()
 
 void Enemy::Update()
 {
+	//‰ñ“]‚³‚¹‚Ä‚¢‚é
 	this->m_Rotation.y += 0.1f;
 
 	if (m_Rotation.y > 180)

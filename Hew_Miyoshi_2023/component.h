@@ -1,5 +1,6 @@
 #pragma once
 
+//コンポーネント親クラス
 class Component
 {
 

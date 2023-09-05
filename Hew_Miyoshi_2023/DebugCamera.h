@@ -1,5 +1,7 @@
 #pragma once
 #include"gameObject.h"
+
+//プレイヤーの操作で視点を移動できるカメラ
 class DebugCamera : public GameObject
 {
 private:
@@ -10,8 +12,7 @@ private:
 	DirectX::SimpleMath::Vector3 m_Foward{};
 
 public:
-	void Init();
-	void Uninit();
+	void Init();	
 	void Update();
 	void Draw();
 

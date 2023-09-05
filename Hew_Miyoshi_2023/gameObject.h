@@ -7,7 +7,7 @@
 
 #include "component.h"
 
-
+//オブジェクトの親クラス
 class GameObject
 {
 

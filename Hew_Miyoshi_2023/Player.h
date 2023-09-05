@@ -4,11 +4,11 @@
 #include<vector>
 #include"GamePad.h"
 
+//操作するキャラ
 class Player :  public GameObject
 {
 public:
 	void Init()override;	
-	void Uninit()override;
 	void Update()override;
 	void Draw()override;		
 
@@ -17,10 +17,13 @@ public:
 private:
 
 	DirectX::SimpleMath::Vector3		m_Velocity{};
+
+	//SE
 	class Audio* m_SE{};	
 	class Audio* m_MeatSE{};	
 	class Audio* m_MeatSE2{};	
 
+	//子オブジェクト
 	std::list<GameObject*> m_Children;
 	GameObject* mchild;
 

@@ -2,6 +2,7 @@
 
 #include "component.h"
 
+//シェーダーを適用させるコンポーネント
 class Shader : public Component
 {
 

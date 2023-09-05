@@ -3,7 +3,7 @@
 #include <xaudio2.h>
 #include "gameObject.h"
 
-
+//SE,BGMを入れるコンポーネント
 class Audio : public Component
 {
 private:

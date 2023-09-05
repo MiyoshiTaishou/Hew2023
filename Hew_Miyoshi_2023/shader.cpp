@@ -1,14 +1,15 @@
 #include "renderer.h"
 #include "shader.h"
 
+//シェーダー作成
 void Shader::Load(const char* VertexShader, const char* PixelShader)
 {
-
 	Renderer::CreateVertexShader(&m_VertexShader, &m_VertexLayout, VertexShader);
 
 	Renderer::CreatePixelShader(&m_PixelShader, PixelShader);
 }
 
+//解放処理
 void Shader::Uninit()
 {
 	m_VertexLayout->Release();
