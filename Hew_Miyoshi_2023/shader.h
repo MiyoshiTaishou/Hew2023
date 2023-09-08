@@ -1,3 +1,8 @@
+/**
+ * @file Sahder.h
+ * @brief シェーダをオブジェクトに適用させるコンポーネント
+ * @author 三好大翔
+ */
 #pragma once
 
 #include "component.h"

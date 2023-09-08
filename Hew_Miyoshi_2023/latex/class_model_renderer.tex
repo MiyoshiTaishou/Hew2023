@@ -1,0 +1,179 @@
+\doxysection{Model\+Renderer Class Reference}
+\hypertarget{class_model_renderer}{}\label{class_model_renderer}\index{ModelRenderer@{ModelRenderer}}
+
+
+{\ttfamily \#include $<$model\+Renderer.\+h$>$}
+
+Inheritance diagram for Model\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}{Load}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \mbox{\hyperlink{class_model_renderer_ad2986f451698e957af973dbecb0ed154}{Load\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\+\_\+3D}} $>$ \mbox{\hyperlink{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}{Get\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+int \mbox{\hyperlink{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}{Get\+Index\+Num}} ()
+\item 
+void \mbox{\hyperlink{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}{Draw}} () override
+\item 
+\mbox{\hyperlink{class_model_renderer_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{\texorpdfstring{$\sim$}{\string~}\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}{Preload}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+static void \mbox{\hyperlink{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}{Unload\+All}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8h_source_l00068}{68}} of file \mbox{\hyperlink{model_renderer_8h_source}{model\+Renderer.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_model_renderer_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_model_renderer_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+\index{ModelRenderer@{ModelRenderer}!Component@{Component}}
+\index{Component@{Component}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f}\label{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f} 
+\index{ModelRenderer@{ModelRenderer}!Component@{Component}}
+\index{Component@{Component}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{component_8h_source_l00012}{12}} of file \mbox{\hyperlink{component_8h_source}{component.\+h}}.
+
+\Hypertarget{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}\label{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8} 
+\index{ModelRenderer@{ModelRenderer}!Draw@{Draw}}
+\index{Draw@{Draw}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Model\+Renderer\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+頂貼+\_\+バッファ設定
+
+ソ+Cンデッソ+Nソ+Xバッファ設定
+
+プリソtexorpdfstring{$\sim$}{\string~}テソ+Bブトソtexorpdfstring{$\vert$}{|}ロソ+W設定
+
+ソ}テリソ+Aル設定
+
+テソ+Nソ+Xソ`{}ャ設定
+
+Reimplemented from \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}\label{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0} 
+\index{ModelRenderer@{ModelRenderer}!GetIndexNum@{GetIndexNum}}
+\index{GetIndexNum@{GetIndexNum}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{GetIndexNum()}{GetIndexNum()}}
+{\footnotesize\ttfamily int Model\+Renderer\+::\+Get\+Index\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}\label{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b} 
+\index{ModelRenderer@{ModelRenderer}!GetVertex@{GetVertex}}
+\index{GetVertex@{GetVertex}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{GetVertex()}{GetVertex()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\+\_\+3D}} $>$ Model\+Renderer\+::\+Get\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+要素数ソ+Jソ+Eント
+
+四角は蚕+O角に分割
+
+メモリ確保
+
+要素読込
+
+四角は蚕+O角に分割
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}\label{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04} 
+\index{ModelRenderer@{ModelRenderer}!Load@{Load}}
+\index{Load@{Load}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Model\+Renderer\+::\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_ad2986f451698e957af973dbecb0ed154}\label{class_model_renderer_ad2986f451698e957af973dbecb0ed154} 
+\index{ModelRenderer@{ModelRenderer}!LoadVertex@{LoadVertex}}
+\index{LoadVertex@{LoadVertex}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{LoadVertex()}{LoadVertex()}}
+{\footnotesize\ttfamily std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ Model\+Renderer\+::\+Load\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}\label{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026} 
+\index{ModelRenderer@{ModelRenderer}!Preload@{Preload}}
+\index{Preload@{Preload}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{Preload()}{Preload()}}
+{\footnotesize\ttfamily void Model\+Renderer\+::\+Preload (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+\Hypertarget{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}\label{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19} 
+\index{ModelRenderer@{ModelRenderer}!UnloadAll@{UnloadAll}}
+\index{UnloadAll@{UnloadAll}!ModelRenderer@{ModelRenderer}}
+\doxysubsubsection{\texorpdfstring{UnloadAll()}{UnloadAll()}}
+{\footnotesize\ttfamily void Model\+Renderer\+::\+Unload\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{model_renderer_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{model_renderer_8h}{model\+Renderer.\+h}}\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{model_renderer_8cpp}{model\+Renderer.\+cpp}}\end{DoxyCompactItemize}

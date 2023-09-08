@@ -45,7 +45,7 @@ void Sprite::Init(int x, int y, int Width, int Height, const char* TextureName)
 
 	std::wstring ws = sjis_to_wide_winapi(TextureName);
 
-	// テクスチャ読み込み
+	//! テクスチャ読み込み
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
 		ws.c_str(),
@@ -71,24 +71,24 @@ void Sprite::Uninit()
 
 void Sprite::Draw()
 {
-	// マトリクス設定
+	//! マトリクス設定
 	Renderer::SetWorldViewProjection2D();
 
-	// 頂点バッファ設定
+	//! 頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
 
-	// テクスチャ設定
+	//! テクスチャ設定
 	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
 
-	// プリミティブトポロジ設定
+	//! プリミティブトポロジ設定
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
-	// マテリアル設定
+	//! マテリアル設定
 	Renderer::SetMaterial(m_Material);
 
-	// ポリゴン描画
+	//! ポリゴン描画
 	Renderer::GetDeviceContext()->Draw(4, 0);
 
 }

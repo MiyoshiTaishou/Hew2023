@@ -1,3 +1,9 @@
+/**
+ * @file audio.h
+ * @brief BGM,SEクラスのヘッダ
+ * @author 鈴木先生
+ */
+
 #pragma once
 
 #include <xaudio2.h>

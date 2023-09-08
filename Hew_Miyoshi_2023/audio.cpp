@@ -1,3 +1,8 @@
+/**
+ * @file audio.cpp
+ * @brief SE,BGMを再生する
+ * @author 鈴木先生
+ */
 
 #include "main.h"
 #include "audio.h"
@@ -37,7 +42,12 @@ void Audio::UninitMaster()
 
 
 
-
+/**
+ * @fn
+ * 再生する音源をロードする
+ * @brief 鳴らしたいSE,BGMをロードする
+ * @param (引数名) 再生したい音源の名前
+ */
 void Audio::Load(const char *FileName)
 {
 
@@ -112,7 +122,12 @@ void Audio::Uninit()
 
 
 
-
+/**
+ * @fn
+ * 音源を再生する
+ * @brief 鳴らしたいSE,BGMを再生する
+ * @param (引数名) 再生したい音源の名前
+ */
 void Audio::Play(bool Loop)
 {
 	m_SourceVoice->Stop();

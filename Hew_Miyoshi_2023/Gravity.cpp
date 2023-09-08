@@ -3,6 +3,11 @@
 
 using namespace DirectX::SimpleMath;
 
+/**
+ * @fn
+ * 重力の計算
+ * @detail オブジェクトの座標が3.0f以下なら処理をしない
+ */
 void Gravity::Update()
 {
 	if (m_GameObject->GetPosition().y < 3.0f)

@@ -156,11 +156,8 @@
     <ClCompile Include="AddForce.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="audio.cpp" />
-    <ClCompile Include="BackCameraComponent.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletComponent.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="collison.cpp" />
     <ClCompile Include="cylinder.cpp" />
@@ -170,7 +167,6 @@
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GamePad.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="imgui.cpp" />
@@ -185,10 +181,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
     <ClCompile Include="modelRenderer.cpp" />
-    <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Polygon2D.cpp" />
-    <ClCompile Include="PostProcess.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="ScaleUI.cpp" />
@@ -211,11 +205,8 @@
     <ClInclude Include="AddForce.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="audio.h" />
-    <ClInclude Include="BackCameraComponent.h" />
     <ClInclude Include="box.h" />
     <ClInclude Include="BoxCollider.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletComponent.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="collison.h" />
     <ClInclude Include="component.h" />
@@ -228,7 +219,6 @@
     <ClInclude Include="fpscontrol.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="gameObject.h" />
-    <ClInclude Include="GamePad.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="imconfig.h" />
@@ -245,10 +235,8 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="modelRenderer.h" />
-    <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Polygon2D.h" />
-    <ClInclude Include="PostProcess.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="ScaleUI.h" />

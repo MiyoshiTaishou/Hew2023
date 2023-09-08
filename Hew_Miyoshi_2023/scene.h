@@ -1,129 +1,173 @@
 #pragma once
-#include<list>
-#include<array>
-#include<vector>
-#include<typeinfo>
-#include"gameObject.h"
-#include"modelRenderer.h"
+#include <list>
+#include <array>
+#include <vector>
+#include <typeinfo>
+#include "gameObject.h"
+#include "modelRenderer.h"
 
-//シーン管理
-
+/**
+ * @brief シーン管理クラス Scene
+ */
 class Scene
 {
 protected:
-	//STLのリスト構造
-	std::array<std::list<GameObject*>, 4> m_GameObject;
+    std::array<std::list<GameObject*>, 4> m_GameObject; /**< ゲームオブジェクトのリスト構造 */
 
 public:
+    /**
+     * @brief コンストラクタ
+     */
+    Scene() {}
 
-	//関数
-	Scene() {}
-	virtual ~Scene() {}
+    /**
+     * @brief デストラクタ
+     */
+    virtual ~Scene() {}
 
-	virtual void Init() {}
-	virtual void Uninit() {}
-	virtual void Update() {}
-	virtual void Draw() {}
+    /**
+     * @brief シーンの初期化関数
+     */
+    virtual void Init() {}
 
-	void InitBase()
-	{
-		Init();
-	}
+    /**
+     * @brief シーンの終了関数
+     */
+    virtual void Uninit() {}
 
-	void UninitBase()
-	{
-		for (auto& objectList : m_GameObject)
-		{
-			for (GameObject* object : objectList)
-			{
-				object->UninitBase(); 
-				delete object;
-			}
-			//リストクリア
-			objectList.clear();
-		}
+    /**
+     * @brief シーンの更新関数
+     */
+    virtual void Update() {}
 
-		Uninit();
+    /**
+     * @brief シーンの描画関数
+     */
+    virtual void Draw() {}
 
-		ModelRenderer::UnloadAll();
-	}
+    /**
+     * @brief 基本の初期化関数
+     */
+    void InitBase()
+    {
+        Init();
+    }
 
-	void UpdateBase()
-	{
-		for (auto& objectList : m_GameObject)
-		{
-			for (GameObject* object : objectList)
-			{
-				object->UpdateBase();
-			}
-			//ラムダ式
-			//削除していいものは削除する
-			objectList.remove_if([](GameObject* object) {return object->Destroy(); });
-		}
+    /**
+     * @brief 基本の終了関数
+     */
+    void UninitBase()
+    {
+        for (auto& objectList : m_GameObject)
+        {
+            for (GameObject* object : objectList)
+            {
+                object->UninitBase();
+                delete object;
+            }
+            objectList.clear();
+        }
 
-		Update();
-	}
+        Uninit();
 
-	void DrawBase()
-	{
-		DirectX::SimpleMath::Matrix matrix;
-		matrix = DirectX::SimpleMath::Matrix::Identity;
+        ModelRenderer::UnloadAll();
+    }
 
-		for (auto& objectList : m_GameObject)
-		{
-			for (GameObject* object : objectList)
-			{
-				object->DrawBase(matrix);
-			}		
-		}
+    /**
+     * @brief 基本の更新関数
+     */
+    void UpdateBase()
+    {
+        for (auto& objectList : m_GameObject)
+        {
+            for (GameObject* object : objectList)
+            {
+                object->UpdateBase();
+            }
+            objectList.remove_if([](GameObject* object) { return object->Destroy(); });
+        }
 
-		Draw();
-	}
+        Update();
+    }
 
-	template<typename T>
-	T* AddGameObject(int Layer)
-	{
-		T* gameObject = new T();
-		m_GameObject[Layer].push_back(gameObject);
-		gameObject->Init();
+    /**
+     * @brief 基本の描画関数
+     */
+    void DrawBase()
+    {
+        DirectX::SimpleMath::Matrix matrix;
+        matrix = DirectX::SimpleMath::Matrix::Identity;
 
-		return gameObject;
-	}
+        for (auto& objectList : m_GameObject)
+        {
+            for (GameObject* object : objectList)
+            {
+                object->DrawBase(matrix);
+            }
+        }
 
-	template<typename T>
-	T* GetGameObject()
-	{
-		for (auto& objectList : m_GameObject)
-		{
-			for (GameObject* object : objectList)
-			{
-				if (typeid(*object) == typeid(T))//型を調べる(RTTI動的型情報)
-				{
-					return (T*)object;
-				}
-			}			
-		}
+        Draw();
+    }
 
-		return nullptr;
-	}
+    /**
+     * @brief ゲームオブジェクトを追加するテンプレート関数
+     * @tparam T 追加するゲームオブジェクトの型
+     * @param Layer ゲームオブジェクトのレイヤ
+     * @return 追加されたゲームオブジェクトのポインタ
+     */
+    template<typename T>
+    T* AddGameObject(int Layer)
+    {
+        T* gameObject = new T();
+        m_GameObject[Layer].push_back(gameObject);
+        gameObject->Init();
 
-	template<typename T>
-	std::vector<T*> GetGameObjects()
-	{
-		std::vector<T*> objects;//STl配列
+        return gameObject;
+    }
 
-		for (auto& objectList : m_GameObject)
-		{
-			for (GameObject* object : objectList)
-			{
-				if (typeid(*object) == typeid(T))
-				{
-					objects.push_back((T*)object);
-				}
-			}			
-		}
+    /**
+     * @brief 特定の型のゲームオブジェクトを取得するテンプレート関数
+     * @tparam T 取得したいゲームオブジェクトの型
+     * @return 特定の型のゲームオブジェクトのポインタ
+     */
+    template<typename T>
+    T* GetGameObject()
+    {
+        for (auto& objectList : m_GameObject)
+        {
+            for (GameObject* object : objectList)
+            {
+                if (typeid(*object) == typeid(T))
+                {
+                    return (T*)object;
+                }
+            }
+        }
 
-		return objects;
-	}
+        return nullptr;
+    }
+
+    /**
+     * @brief 特定の型のゲームオブジェクトを取得するテンプレート関数
+     * @tparam T 取得したいゲームオブジェクトの型
+     * @return 特定の型のゲームオブジェクトのポインタのベクター
+     */
+    template<typename T>
+    std::vector<T*> GetGameObjects()
+    {
+        std::vector<T*> objects;
+
+        for (auto& objectList : m_GameObject)
+        {
+            for (GameObject* object : objectList)
+            {
+                if (typeid(*object) == typeid(T))
+                {
+                    objects.push_back((T*)object);
+                }
+            }
+        }
+
+        return objects;
+    }
 };
-

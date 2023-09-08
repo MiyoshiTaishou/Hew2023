@@ -1,0 +1,174 @@
+\doxysection{shadow.\+cpp}
+\hypertarget{shadow_8cpp_source}{}\label{shadow_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shadow.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shadow.cpp}}
+\mbox{\hyperlink{shadow_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{renderer_8h}{renderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{manager_8h}{manager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{scene_8h}{scene.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shadow_8h}{shadow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cylinder_8h}{cylinder.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00010}00010\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00012}\mbox{\hyperlink{class_shadow_a8bfbbdd04d70a4224d4729217c8e4455}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shadow_a8bfbbdd04d70a4224d4729217c8e4455}{Shadow::Init}}()}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}}\ vertex[4];}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00016}00016\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3(-\/1.0f,\ 0.01f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00017}00017\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00018}00018\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00019}00019\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00021}00021\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3(1.0f,\ 0.01f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00022}00022\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00023}00023\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00024}00024\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00026}00026\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3(-\/1.0f,\ 0.01f,\ -\/1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00027}00027\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00028}00028\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Vector4(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00029}00029\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(0.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00031}00031\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3(1.0f,\ 0.01f,\ -\/1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00032}00032\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00033}00033\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00034}00034\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ 頂貼_バッファ生成}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00037}00037\ \ \ \ \ D3D11\_BUFFER\_DESC\ bd;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00038}00038\ \ \ \ \ ZeroMemory(\&bd,\ \textcolor{keyword}{sizeof}(bd));}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00039}00039\ \ \ \ \ bd.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00040}00040\ \ \ \ \ bd.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}})\ *\ 4;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00041}00041\ \ \ \ \ bd.BindFlags\ =\ D3D11\_BIND\_VERTEX\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00042}00042\ \ \ \ \ bd.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00044}00044\ \ \ \ \ D3D11\_SUBRESOURCE\_DATA\ sd;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00045}00045\ \ \ \ \ ZeroMemory(\&sd,\ \textcolor{keyword}{sizeof}(sd));}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00046}00046\ \ \ \ \ sd.pSysMem\ =\ vertex;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateBuffer(\&bd,\ \&sd,\ \&m\_VertexBuffer);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ テクスチャ読み込み}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00051}00051\ \ \ \ \ DirectX::CreateWICTextureFromFile(}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}(),}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}asset/texture/shadow.png"{}},}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \&m\_Texture);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00057}00057\ \ \ \ \ assert(m\_Texture);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00061}\mbox{\hyperlink{class_shadow_a7f5ee682b71cbe31b1d41e9322fc3bc9}{00061}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shadow_a7f5ee682b71cbe31b1d41e9322fc3bc9}{Shadow::Uninit}}()}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00062}00062\ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00063}00063\ \ \ \ \ m\_VertexBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00064}00064\ \ \ \ \ m\_Texture-\/>Release();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00071}\mbox{\hyperlink{class_shadow_a6ed19fd0835fddfdf0f52189047eac13}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shadow_a6ed19fd0835fddfdf0f52189047eac13}{Shadow::Update}}()}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//接地}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{float}\ groundHeight\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}*\ scene\ =\ \mbox{\hyperlink{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}{Manager::GetScene}}();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ std::vector<Cylinder*>\ cylinderList\ =\ scene-\/>\mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{GetGameObjects}}<\mbox{\hyperlink{class_cylinder}{Cylinder}}>();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_cylinder}{Cylinder}}*\ cylinder\ :\ cylinderList)}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cylinder\ ==\ \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\_GameObject}})}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ position\ =\ cylinder-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ scale\ =\ cylinder-\/>GetScale();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ direction\ =\ m\_Position\ -\/\ position;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ direction.y\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ length\ =\ direction.Length();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ <\ scale.x)}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ groundHeight\ =\ position.y\ +\ scale.y;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ std::vector<Box*>\ boxList\ =\ scene-\/>\mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{GetGameObjects}}<\mbox{\hyperlink{class_box}{Box}}>();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_box}{Box}}*\ box\ :\ boxList)}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (box\ ==\ \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\_GameObject}})}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ position\ =\ box-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ scale\ =\ box-\/>GetScale();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (position.x\ -\/\ scale.x\ -\/\ 0.5f\ <\ m\_Position.x\ \&\&\ m\_Position.x\ <\ position.x\ +\ scale.x\ +\ 0.5f\ \&\&}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.z\ -\/\ scale.z\ -\/\ 0.5f\ <\ m\_Position.z\ \&\&\ m\_Position.z\ <\ position.z\ +\ scale.z\ +\ 0.5f)}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ groundHeight\ =\ position.y\ +\ scale.y\ *\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00123}00123\ \ \ \ \ m\_Position\ =\ \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\_GameObject}}-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}();}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00124}00124\ \ \ \ \ m\_Position.y\ =\ groundHeight;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00131}\mbox{\hyperlink{class_shadow_aa894db662a7862eb688665325e7f0fa8}{00131}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shadow_aa894db662a7862eb688665325e7f0fa8}{Shadow::Draw}}()}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ ソ}トリクス設定}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00135}00135\ \ \ \ \ Matrix\ world,\ scale,\ trans;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00136}00136\ \ \ \ \ scale\ =\ DirectX::SimpleMath::Matrix::CreateScale(m\_Size);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00137}00137\ \ \ \ \ trans\ =\ DirectX::SimpleMath::Matrix::CreateTranslation(m\_Position.x,\ m\_Position.y,\ m\_Position.z);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00138}00138\ \ \ \ \ world\ =\ scale\ *\ trans;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00139}00139\ \ \ \ \ \mbox{\hyperlink{class_renderer_a9c1db215718af048709c7f0ed9412b81}{Renderer::SetWorldMatrix}}(\&world);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{comment}{//\ 頂貼_バッファ設定}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00143}00143\ \ \ \ \ UINT\ stride\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}});}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00144}00144\ \ \ \ \ UINT\ offset\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00145}00145\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetVertexBuffers(0,\ 1,\ \&m\_VertexBuffer,\ \&stride,\ \&offset);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{comment}{//\ ソ}テリアル設定}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ material;}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00149}00149\ \ \ \ \ ZeroMemory(\&material,\ \textcolor{keyword}{sizeof}(material));}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00150}00150\ \ \ \ \ material.\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l_a8c87e0476708aa06c2f4725c962a75a6}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00151}00151\ \ \ \ \ material.\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l_affc171132d68102dc9d82733e493eadb}{TextureEnable}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{Renderer::SetMaterial}}(material);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ テクスチャ設定}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>PSSetShaderResources(0,\ 1,\ \&m\_Texture);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//\ プリソstring~ティブトポロジ設定}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetPrimitiveTopology(D3D11\_PRIMITIVE\_TOPOLOGY\_TRIANGLESTRIP);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{Renderer::SetDepthEnable}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00162}00162\ \ \ \ \ \textcolor{comment}{//\ ポリゴン描画}}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00163}00163\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>Draw(4,\ 0);}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00165}00165\ \ \ \ \ \mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{Renderer::SetDepthEnable}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{shadow_8cpp_source_l00168}00168\ \}}
+
+\end{DoxyCode}

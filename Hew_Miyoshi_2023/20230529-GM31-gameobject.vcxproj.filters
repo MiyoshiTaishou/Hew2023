@@ -69,9 +69,6 @@
     <ClCompile Include="modelRenderer.cpp">
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsComponent.cpp">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Polygon2D.cpp">
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
@@ -82,9 +79,6 @@
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
     <ClCompile Include="box.cpp">
-      <Filter>ソース ファイル\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
@@ -98,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="BackCameraComponent.cpp">
-      <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
     <ClCompile Include="imgui.cpp">
       <Filter>ソース ファイル\ImGui</Filter>
@@ -141,9 +132,6 @@
     <ClCompile Include="BoxCollider.cpp">
       <Filter>ソース ファイル\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="BulletComponent.cpp">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Goal.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
@@ -168,13 +156,7 @@
     <ClCompile Include="AddForce.cpp">
       <Filter>ソース ファイル\Function</Filter>
     </ClCompile>
-    <ClCompile Include="GamePad.cpp">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>ソース ファイル\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="PostProcess.cpp">
       <Filter>ソース ファイル\UI</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
@@ -242,9 +224,6 @@
     <ClInclude Include="Gravity.h">
       <Filter>ソース ファイル\Component</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsComponent.h">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClInclude>
     <ClInclude Include="box.h">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
@@ -260,17 +239,11 @@
     <ClInclude Include="Player.h">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>ソース ファイル\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="gameObject.h">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="input.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="BackCameraComponent.h">
-      <Filter>ソース ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="imconfig.h">
       <Filter>ソース ファイル\ImGui</Filter>
@@ -320,9 +293,6 @@
     <ClInclude Include="BoxCollider.h">
       <Filter>ソース ファイル\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="BulletComponent.h">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Goal.h">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
@@ -347,13 +317,7 @@
     <ClInclude Include="AddForce.h">
       <Filter>ソース ファイル\Function</Filter>
     </ClInclude>
-    <ClInclude Include="GamePad.h">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>ソース ファイル\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="PostProcess.h">
       <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">

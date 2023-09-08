@@ -1,0 +1,51 @@
+\doxysection{Stage\+Editor.\+h}
+\hypertarget{_stage_editor_8h_source}{}\label{_stage_editor_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageEditor.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageEditor.h}}
+\mbox{\hyperlink{_stage_editor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{scene_8h}{scene.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00004}00004\ \textcolor{comment}{//列挙圭string^でクラスの種類を管理}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00005}\mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9}{00005}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9}{CLASS}}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00007}\mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9a311c29de5b0fd16d11c0cf1f98a73370}{00007}}\ \ \ \ \ \mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9a311c29de5b0fd16d11c0cf1f98a73370}{BOX}},}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00008}\mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9a5ce368bdfc444a87fef6c208b4101571}{00008}}\ \ \ \ \ \mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9a5ce368bdfc444a87fef6c208b4101571}{ENEMY}},}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00009}\mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9ac157bdf0b85a40d2619cbc8bc1ae5fe2}{00009}}\ \ \ \ \ \mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}},}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00010}00010\ \};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00012}\mbox{\hyperlink{struct_info_obj_data}{00012}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_info_obj_data}{InfoObjData}}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00014}\mbox{\hyperlink{struct_info_obj_data_a525d83d7467aac99b9b681c1515d672b}{00014}}\ \ \ \ \ \mbox{\hyperlink{_stage_editor_8h_ad5946acbc78d91b2bd0621fbf6a3c9a9}{CLASS}}\ \mbox{\hyperlink{struct_info_obj_data_a525d83d7467aac99b9b681c1515d672b}{ClassKind}};\textcolor{comment}{//クラスの種類}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00015}\mbox{\hyperlink{struct_info_obj_data_a5950e9fdc2dda4e0eed60e7934a2e9eb}{00015}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{struct_info_obj_data_a5950e9fdc2dda4e0eed60e7934a2e9eb}{pos}};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00016}\mbox{\hyperlink{struct_info_obj_data_a151614acd918d9eff296d92e2800a440}{00016}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{struct_info_obj_data_a151614acd918d9eff296d92e2800a440}{scale}};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00017}\mbox{\hyperlink{struct_info_obj_data_ae3e16cc34291f2abd01006acdd89bbce}{00017}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{struct_info_obj_data_ae3e16cc34291f2abd01006acdd89bbce}{rot}};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00018}00018\ \};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00020}00020\ \textcolor{comment}{//ステージを作成するシーン}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00021}\mbox{\hyperlink{class_stage_editor}{00021}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stage_editor}{StageEditor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_scene}{Scene}}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}{Init}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}{Update}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}{Draw}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a949332ecb00d92b2f9ee66a909b3fc9e}{SavepositionToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_ac733a612f7433af75f518e7ea1618688}{LoadpositionToFile}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_aa88354b2858047291b6d42be27048fd3}{CreateObject}}();}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a4641d15a187538d450b4814b41ca802a}{AddToHistory}}();}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_aaaa3a0363f84dca17c4a0d0c7596a41d}{Undo}}();}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stage_editor_a96b1eea07372ef800e4ab0e6fb07fe2a}{Redo}}();}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00035}00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//std::vector<InfoObjData>\ position;}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ 履歴管理用のコンテナ}}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00039}00039\ \ \ \ \ std::array<std::list<InfoObjData>,\ 4>\ history;}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00040}00040\ \ \ \ \ std::vector<InfoObjData>\ position;}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00041}00041\ \ \ \ \ std::vector<GameObject*>\ objList;}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{int}\ historyIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00044}00044\ \};}
+\DoxyCodeLine{\Hypertarget{_stage_editor_8h_source_l00045}00045\ }
+
+\end{DoxyCode}

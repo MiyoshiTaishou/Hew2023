@@ -1,0 +1,28 @@
+\doxysection{shader.\+h}
+\hypertarget{shader_8h_source}{}\label{shader_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shader.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shader.h}}
+\mbox{\hyperlink{shader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{component_8h}{component.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00010}\mbox{\hyperlink{class_shader}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shader}{Shader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00013}00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00014}00014\ \ \ \ \ ID3D11VertexShader*\ \ \ \ \ m\_VertexShader\{\};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00015}00015\ \ \ \ \ ID3D11PixelShader*\ \ \ \ \ \ m\_PixelShader\{\};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00016}00016\ \ \ \ \ ID3D11InputLayout*\ \ \ \ \ \ m\_VertexLayout\{\};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00018}00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component::Component}};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_a23386693170f673217ce47e3e2a513c9}{Load}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ VertexShader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ PixelShader);}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_a361c38fd45e2df2836bb4b2fb9587195}{Uninit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_a55f2d3f820b7dd61003cb0e75d63001d}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{shader_8h_source_l00026}00026\ \};}
+
+\end{DoxyCode}

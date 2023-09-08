@@ -1,0 +1,136 @@
+\doxysection{Sprite Class Reference}
+\hypertarget{class_sprite}{}\label{class_sprite}\index{Sprite@{Sprite}}
+
+
+{\ttfamily \#include $<$sprite.\+h$>$}
+
+Inheritance diagram for Sprite\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sprite}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_sprite_a148acc21821e6850887b484a3be6413c}{Init}} (int x, int y, int Width, int Height, const char \texorpdfstring{$\ast$}{*}Texture\+Name)
+\item 
+void \mbox{\hyperlink{class_sprite_a20cb721df165b2769bbf96fc95e521a5}{Uninit}} () override
+\item 
+void \mbox{\hyperlink{class_sprite_a19dae127e873faf0adf984210bb5edad}{Draw}} () override
+\item 
+void \mbox{\hyperlink{class_sprite_aa47726c683a5607147e681b036619cca}{Set\+Material}} (\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} Material)
+\item 
+\mbox{\hyperlink{class_sprite_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_sprite_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{\texorpdfstring{$\sim$}{\string~}\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{sprite_8h_source_l00013}{13}} of file \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sprite_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_sprite_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+\index{Sprite@{Sprite}!Component@{Component}}
+\index{Component@{Component}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_sprite_aaa874f1577ba8f36a03983918ee3501f}\label{class_sprite_aaa874f1577ba8f36a03983918ee3501f} 
+\index{Sprite@{Sprite}!Component@{Component}}
+\index{Component@{Component}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{component_8h_source_l00012}{12}} of file \mbox{\hyperlink{component_8h_source}{component.\+h}}.
+
+\Hypertarget{class_sprite_a19dae127e873faf0adf984210bb5edad}\label{class_sprite_a19dae127e873faf0adf984210bb5edad} 
+\index{Sprite@{Sprite}!Draw@{Draw}}
+\index{Draw@{Draw}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Sprite\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+ソ}トリソ+Nソ+X設定
+
+頂貼+\_\+バッファ設定
+
+テソ+Nソ+Xソ`{}ャ設定
+
+プリソtexorpdfstring{$\sim$}{\string~}テソ+Bブトソtexorpdfstring{$\vert$}{|}ロソ+W設定
+
+ソ}テリソ+Aル設定
+
+ソtexorpdfstring{$\vert$}{|}リソ+Sン表`{}画
+
+Reimplemented from \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{sprite_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}}.
+
+\Hypertarget{class_sprite_a148acc21821e6850887b484a3be6413c}\label{class_sprite_a148acc21821e6850887b484a3be6413c} 
+\index{Sprite@{Sprite}!Init@{Init}}
+\index{Init@{Init}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Sprite\+::\+Init (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{Width,  }\item[{int}]{Height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Texture\+Name }\end{DoxyParamCaption})}
+
+テソ+Nソ+Xソ`{}ャ読み込み
+
+Definition at line \mbox{\hyperlink{sprite_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}}.
+
+\Hypertarget{class_sprite_aa47726c683a5607147e681b036619cca}\label{class_sprite_aa47726c683a5607147e681b036619cca} 
+\index{Sprite@{Sprite}!SetMaterial@{SetMaterial}}
+\index{SetMaterial@{SetMaterial}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{SetMaterial()}{SetMaterial()}}
+{\footnotesize\ttfamily void Sprite\+::\+Set\+Material (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}}]{Material }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{sprite_8h_source_l00030}{30}} of file \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}}.
+
+\Hypertarget{class_sprite_a20cb721df165b2769bbf96fc95e521a5}\label{class_sprite_a20cb721df165b2769bbf96fc95e521a5} 
+\index{Sprite@{Sprite}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily void Sprite\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{sprite_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{sprite_8h}{sprite.\+h}}\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{sprite_8cpp}{sprite.\+cpp}}\end{DoxyCompactItemize}

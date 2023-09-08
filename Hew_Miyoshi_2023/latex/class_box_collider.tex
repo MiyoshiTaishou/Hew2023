@@ -1,0 +1,152 @@
+\doxysection{Box\+Collider Class Reference}
+\hypertarget{class_box_collider}{}\label{class_box_collider}\index{BoxCollider@{BoxCollider}}
+
+
+{\ttfamily \#include $<$Box\+Collider.\+h$>$}
+
+Inheritance diagram for Box\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_box_collider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_box_collider_a612652af26c0a26dd9a46528dfffa729}{Init}} () override
+\item 
+void \mbox{\hyperlink{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}{Update}} () override
+\item 
+void \mbox{\hyperlink{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}{Draw}} () override
+\item 
+bool \mbox{\hyperlink{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}{Hit\+Check}} (\mbox{\hyperlink{class_box_collider}{Box\+Collider}} other)
+\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{Get\+Hit\+Box}} ()
+\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{Get\+Scale}} ()
+\item 
+\mbox{\hyperlink{class_box_collider_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_box_collider_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{\texorpdfstring{$\sim$}{\string~}\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8h_source_l00005}{5}} of file \mbox{\hyperlink{_box_collider_8h_source}{Box\+Collider.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_box_collider_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_box_collider_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+\index{BoxCollider@{BoxCollider}!Component@{Component}}
+\index{Component@{Component}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_box_collider_aaa874f1577ba8f36a03983918ee3501f}\label{class_box_collider_aaa874f1577ba8f36a03983918ee3501f} 
+\index{BoxCollider@{BoxCollider}!Component@{Component}}
+\index{Component@{Component}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{component_8h_source_l00012}{12}} of file \mbox{\hyperlink{component_8h_source}{component.\+h}}.
+
+\Hypertarget{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}\label{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f} 
+\index{BoxCollider@{BoxCollider}!Draw@{Draw}}
+\index{Draw@{Draw}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Box\+Collider\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+\Hypertarget{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}\label{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2} 
+\index{BoxCollider@{BoxCollider}!GetHitBox@{GetHitBox}}
+\index{GetHitBox@{GetHitBox}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{GetHitBox()}{GetHitBox()}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::\+Get\+Hit\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+\Hypertarget{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}\label{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2} 
+\index{BoxCollider@{BoxCollider}!GetScale@{GetScale}}
+\index{GetScale@{GetScale}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{GetScale()}{GetScale()}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+\Hypertarget{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}\label{class_box_collider_ac355398ea5f91401ca26aba88ac1180a} 
+\index{BoxCollider@{BoxCollider}!HitCheck@{HitCheck}}
+\index{HitCheck@{HitCheck}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{HitCheck()}{HitCheck()}}
+{\footnotesize\ttfamily bool Box\+Collider\+::\+Hit\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_box_collider}{Box\+Collider}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+\Hypertarget{class_box_collider_a612652af26c0a26dd9a46528dfffa729}\label{class_box_collider_a612652af26c0a26dd9a46528dfffa729} 
+\index{BoxCollider@{BoxCollider}!Init@{Init}}
+\index{Init@{Init}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Box\+Collider\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+\Hypertarget{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}\label{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9} 
+\index{BoxCollider@{BoxCollider}!Update@{Update}}
+\index{Update@{Update}!BoxCollider@{BoxCollider}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Box\+Collider\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_box_collider_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{_box_collider_8h}{Box\+Collider.\+h}}\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{_box_collider_8cpp}{Box\+Collider.\+cpp}}\end{DoxyCompactItemize}

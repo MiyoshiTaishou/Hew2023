@@ -1,0 +1,32 @@
+\doxysection{Box\+Collider.\+h}
+\hypertarget{_box_collider_8h_source}{}\label{_box_collider_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/BoxCollider.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/BoxCollider.h}}
+\mbox{\hyperlink{_box_collider_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{component_8h}{component.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00005}\mbox{\hyperlink{class_box_collider}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_box_collider}{BoxCollider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00007}00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component::Component}};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_a612652af26c0a26dd9a46528dfffa729}{Init}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}{Update}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}{Draw}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}{HitCheck}}(\mbox{\hyperlink{class_box_collider}{BoxCollider}}\ other);}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00016}00016\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{GetHitBox}}();}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00017}00017\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{GetScale}}();}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00019}00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00021}00021\ \ \ \ \ DirectX::SimpleMath::Vector3\ mHitBox\ =\ \{\ 0,0,0\ \};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//コライソ_ーのサイズ}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00024}00024\ \ \ \ \ DirectX::SimpleMath::Vector3\ mScale\ =\ \{\ 1.0f,1.0f,1.0f\ \};\ \ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8h_source_l00026}00026\ }
+
+\end{DoxyCode}

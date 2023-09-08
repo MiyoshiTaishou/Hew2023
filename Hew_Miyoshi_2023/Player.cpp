@@ -2,7 +2,6 @@
 #include "Player.h"
 #include"modelRenderer.h"
 #include"shader.h"
-#include"PhysicsComponent.h"
 #include"JumpComponent.h"
 #include"BoxCollider.h"
 #include"audio.h"
@@ -11,7 +10,6 @@
 #include"Goal.h"
 #include"collison.h"
 #include"input.h"
-#include"Bullet.h"
 #include"box.h"
 #include"Enemy.h"
 #include"camera.h"
@@ -36,7 +34,6 @@ void Player::Init()
 	m_VertexPos = AddComponent<ModelRenderer>()->LoadVertex("asset\\model\\bullet.obj");
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_RGBSplit.cso");
 	//AddComponent<PhysicsComponent>()->Init();		
-	AddComponent<GamePadComponent>();
 
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Position.y = 10.0f;

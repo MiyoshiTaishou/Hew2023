@@ -1,0 +1,78 @@
+\doxysection{camera.\+cpp}
+\hypertarget{camera_8cpp_source}{}\label{camera_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/camera.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/camera.cpp}}
+\mbox{\hyperlink{camera_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{manager_8h}{manager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{renderer_8h}{renderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{camera_8h}{camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_im_gui_manager_8h}{ImGuiManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00008}00008\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00015}\mbox{\hyperlink{class_camera_a1543c3415858fa4773f8a69ef903366c}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a1543c3415858fa4773f8a69ef903366c}{Camera::Init}}()}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}(0.0f,\ 10.0f,\ -\/50.0f);}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00018}00018\ \ \ \ \ m\_Target\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nowscene}}\ =\ \mbox{\hyperlink{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}{Manager::GetScene}}();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{playerobj}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nowscene}}-\/>GetGameObject<\mbox{\hyperlink{class_player}{Player}}>();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00022}00022\ \ \ \ \ m\_Forward\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{playerobj}}-\/>GetForward();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00030}\mbox{\hyperlink{class_camera_a8b3337b3e560ea6a780d646bc8c509d7}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a8b3337b3e560ea6a780d646bc8c509d7}{Camera::Uninit}}()}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00039}\mbox{\hyperlink{class_camera_a4a596a3ea1fdc7d244ba4268031a360b}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a4a596a3ea1fdc7d244ba4268031a360b}{Camera::Update}}()}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nowscene}}\ =\ \mbox{\hyperlink{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}{Manager::GetScene}}();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{playerobj}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nowscene}}-\/>GetGameObject<\mbox{\hyperlink{class_player}{Player}}>();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00044}00044\ \ \ \ \ m\_Forward\ =\ this-\/>\mbox{\hyperlink{class_game_object_ad53689a12682ef210b47aed77ea82309}{GetForward}}();}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}\ =\ playerobj-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}()\ -\/\ m\_Forward\ *\ 50.0f;}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00047}00047\ \ \ \ \ this-\/>m\_Target\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{playerobj}}-\/>GetPosition()\ +\ m\_Forward\ *\ 3.0f;}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ 緩やかカメラ処理}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ 1フレーム前のカメラ位置保存変数}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{lastCamEye}};}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}}\ =\ 0.5;\ \textcolor{comment}{//\ 平均化の重み}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.x\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{lastCamEye}}.x\ *\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}}\ +\ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.x\ *\ (1.0f\ -\/\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}});}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.y\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{lastCamEye}}.y\ *\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}}\ +\ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.y\ *\ (1.0f\ -\/\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}});}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.z\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{lastCamEye}}.z\ *\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}}\ +\ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.z\ *\ (1.0f\ -\/\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{blendFactor}});}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{lastCamEye}}\ =\ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}};}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00059}00059\ \ \ \ \ this-\/>\mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}.y\ +=\ 10.0f;}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00061}00061\ \ \ \ \ this-\/>\mbox{\hyperlink{class_game_object_aaf6a3cb0c8158651037477a2ce1af6f5}{m\_Rotation}}.y\ =\ playerobj-\/>\mbox{\hyperlink{class_game_object_aac28192140fdafe1c72199f36ee18564}{GetRotation}}().y;}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00069}\mbox{\hyperlink{class_camera_a0d80a44404b91bc03be2c117d1f8185b}{00069}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a0d80a44404b91bc03be2c117d1f8185b}{Camera::Draw}}()}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00070}00070\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ ビュー変換後列作成}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{up}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00073}00073\ \ \ \ \ m\_ViewMatrix\ =\ DirectX::XMMatrixLookAtLH(\mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}},\ m\_Target,\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{up}});\ \textcolor{comment}{//\ 左手系にした}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ プロジェクション行列の生成}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{fieldOfView}}\ =\ DirectX::XMConvertToRadians(45.0f);\ \textcolor{comment}{//\ 視野角}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{aspectRatio}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{main_8h_a236da1623e87013661976a88b8f608fd}{SCREEN\_WIDTH}})\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{main_8h_a8a4b6f014479026eeeb07292c41fa2e6}{SCREEN\_HEIGHT}});\ \textcolor{comment}{//\ アスペクト比}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nearPlane}}\ =\ 1.0f;\ \textcolor{comment}{//\ ニアクリップ}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{farPlane}}\ =\ 1000.0f;\ \textcolor{comment}{//\ ファークリップ}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ プロジェクション行列の生成}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Matrix}}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{projectionMatrix}};}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{projectionMatrix}}\ =\ DirectX::XMMatrixPerspectiveFovLH(\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{fieldOfView}},\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{aspectRatio}},\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{nearPlane}},\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{farPlane}});\ \textcolor{comment}{//\ 左手系にした}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{class_renderer_a4f539cc63a6bed2694490af38806ec9a}{Renderer::SetViewMatrix}}(\&m\_ViewMatrix);}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{class_renderer_ad69c19abd3719199a7412972f40391bf}{Renderer::SetProjectionMatrix}}(\&\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{projectionMatrix}});}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00094}\mbox{\hyperlink{class_camera_a4ab405d973c24462d2d6cc16b54ec971}{00094}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a4ab405d973c24462d2d6cc16b54ec971}{Camera::SetTarget}}(DirectX::SimpleMath::Vector3\ target)}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{target}};}
+\DoxyCodeLine{\Hypertarget{camera_8cpp_source_l00097}00097\ \}}
+
+\end{DoxyCode}

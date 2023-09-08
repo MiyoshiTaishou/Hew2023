@@ -1,0 +1,50 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Player.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game_object_8h}{gameObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}GamePad.h"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00012}\mbox{\hyperlink{class_player}{00012}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a4eaaeb9d0967fef59baac319b9cc8d60}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a7455a83ac23d2f5e0cce0ddd7d92db0c}{Uninit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00043}\mbox{\hyperlink{class_player_a8f8192dc84502ed7913ef41eb0b6136b}{00043}}\ \ \ \ \ DirectX::GamePad::State\ \mbox{\hyperlink{class_player_a8f8192dc84502ed7913ef41eb0b6136b}{buttonState}};\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00045}00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00046}00046\ \ \ \ \ DirectX::SimpleMath::Vector3\ m\_Velocity\{\};\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_SE\{\};\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_MeatSE\{\};\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_MeatSE2\{\};\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00051}00051\ \ \ \ \ std::list<GameObject*>\ m\_Children;\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{class_game_object}{GameObject}}*\ mchild;\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ 塊の大きさ}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Size;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//\ ソ_ッシュ用変数}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ loopCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{int}\ reception\ =\ 60;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{int}\ actionCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{int}\ actionDashu\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ actionCheck\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ 壁登り用変数}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ wallUp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ 頂貼_座標}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00068}00068\ \ \ \ \ std::vector<DirectX::SimpleMath::Vector3>\ m\_VertexPos;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00069}00069\ \};}
+
+\end{DoxyCode}

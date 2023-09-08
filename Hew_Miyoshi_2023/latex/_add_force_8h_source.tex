@@ -1,0 +1,67 @@
+\doxysection{Add\+Force.\+h}
+\hypertarget{_add_force_8h_source}{}\label{_add_force_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/AddForce.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/AddForce.h}}
+\mbox{\hyperlink{_add_force_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{component_8h}{component.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00005}00005\ \textcolor{comment}{//アッドフォース}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00006}\mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}{00006}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}{ForceMode}}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca9eb6b78a99cdb6ffd3d40d18621d9f80}{Force}},\ \textcolor{comment}{//\ 質量に依存し、継続的な力を与える}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca3b926d163371fd620b09b63219b12f52}{Acceleration}},\ \textcolor{comment}{//\ 質量に依存せず、継続的な力を与える}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0acaa31ccbe64d3faae9cc3281a72024dd8d}{Impuluse}},\ \textcolor{comment}{//\ 質量に依存し、瞬間的な力を与える}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca7c6c8f6e33aa732a3214ffe2e342cb2d}{VelocityChange}}\ \textcolor{comment}{//\ 質量に依存せず、瞬間的な力を与える}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00012}00012\ \};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00014}\mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{00014}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{Freeze}}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53afe4ba2da8a914680f5b2896ccf4db2b0}{Xpos}},}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a925eaeb6f228c1f5af0b32a95c435052}{YPos}},}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53affe2234ddd7625e3b9449662667d6724}{ZPos}},}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53ae3a24efe02123eef7bb68e25f14f9b4a}{XRot}},}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a68e5bd9b202cfb6446b243177494ebc7}{YRot}},}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a55033b199603801ff6565189730fc12e}{ZRot}}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00024}\mbox{\hyperlink{class_rigidbody}{00024}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rigidbody}{Rigidbody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00026}00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component::Component}};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}}(\textcolor{keywordtype}{float}\ \_mass,\ \textcolor{keywordtype}{float}\ \_drag,\textcolor{keywordtype}{float}\ \_gravityScale);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a3882dbd531e2c74718cdbfbf1b88df89}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a16be2c66365c05c2a119bd94329e78b6}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a788474bdff809f176489df1694379968}{AddForce}}(DirectX::SimpleMath::Vector3\ \_force,\ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}{ForceMode}}\ forceMode);\ \ \ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00035}00035\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_rigidbody_a01d6d0beff08f66703e4f84fdd23bab3}{GetVelocity}}();}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a39549aa790a30675f1d223e130d50f4a}{SetVelocity}}(DirectX::SimpleMath::Vector3\ \_vel);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a3589ffe60d7a57311d02af5934e07339}{SetForce}}(DirectX::SimpleMath::Vector3\ \_force);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a4444bc4d94207f7436a88cda2bd480de}{SetFreeze}}(\mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{Freeze}}\ freez,\textcolor{keywordtype}{bool}\ \_b);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_rigidbody_af55dae5a902f24a7f95630f169797f06}{GetFreeze}}(\mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{Freeze}}\ freez);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a3f3461aeb7b5a78839efdca3a4ca14aa}{SetDrag}}(\textcolor{keywordtype}{float}\ \_drag);}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rigidbody_a51d69480d42679ba8a50cfc4b0b45d5d}{InitDrag}}();}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00046}00046\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{float}\ mass;\textcolor{comment}{//オブジェクトの質量}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{float}\ drag;\textcolor{comment}{//摩擦}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{float}\ saveDrag;\textcolor{comment}{//保存用}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{float}\ gravityScale;\textcolor{comment}{//重力の強さ}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00051}00051\ \ \ \ \ DirectX::SimpleMath::Vector3\ velocity;\textcolor{comment}{//オブジェクトの現在の速度}}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00052}00052\ \ \ \ \ DirectX::SimpleMath::Vector3\ force;\textcolor{comment}{//オブジェクトに現在加えられている力\ }}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00053}00053\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ mXPos\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ mYPos\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ mZPos\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ mXRot\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ mYRot\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ mZRot\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{_add_force_8h_source_l00061}00061\ }
+
+\end{DoxyCode}

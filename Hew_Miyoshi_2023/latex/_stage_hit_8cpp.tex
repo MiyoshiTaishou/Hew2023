@@ -1,0 +1,125 @@
+\doxysection{C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\+Stage\+Hit.cpp File Reference}
+\hypertarget{_stage_hit_8cpp}{}\label{_stage_hit_8cpp}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageHit.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageHit.cpp}}
+{\ttfamily \#include "{}Stage\+Hit.\+h"{}}\newline
+{\ttfamily \#include "{}game\+Object.\+h"{}}\newline
+{\ttfamily \#include "{}model\+Renderer.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_stage_hit_8cpp_a4da51a28766718126fb36cbbee14a0f8}{Stage\+Hit\+Init}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+void \mbox{\hyperlink{_stage_hit_8cpp_aeab0f23e7ce1ccceaf2823edd88ff562}{Stage\+Hit\+Exit}} ()
+\item 
+void \mbox{\hyperlink{_stage_hit_8cpp_a7234eead18ba094a789048dfa6466e68}{Create\+Stage\+Plane\+Info\+All}} (std\+::vector$<$ Vector3 $>$ \&v, int idx)
+\item 
+bool \mbox{\hyperlink{_stage_hit_8cpp_aaa987d9c8bc7f63062a5e4b3e9cc330f}{Search\+All\+Surface}} (float x, float z, Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&ans)
+\item 
+void \mbox{\hyperlink{_stage_hit_8cpp_a5f7d63ccc2bf6d77c889a03e6674eae1}{Create\+Plane\+Info}} (const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p1, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p2, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p3, Direct\+X\+::\+Simple\+Math\+::\+Plane \&plane)
+\item 
+bool \mbox{\hyperlink{_stage_hit_8cpp_a55e0676332b962ebf8b37838976a6ac9}{Lineto\+Plane\+Cross}} (const Direct\+X\+::\+Simple\+Math\+::\+Plane \&plane, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p0, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&wv, Direct\+X\+::\+Simple\+Math\+::\+Vector3 ans)
+\item 
+bool \mbox{\hyperlink{_stage_hit_8cpp_aba5471bbda5100264d8f405d2050be1f}{Check\+In\+Triangle}} (const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&a, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&b, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&c, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_p_l_a_n_e_i_n_f_o}{PLANEINFO}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_stage_hit_8cpp_a41d5b5313729e0f343ad989c5062f6a7}{g\+\_\+\+Plane\+Info}} = nullptr
+\item 
+int \mbox{\hyperlink{_stage_hit_8cpp_a4506cbfdb8a3b58a7d2e2c41e7c8f597}{g\+\_\+\+Num\+Faces}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_stage_hit_8cpp_aba5471bbda5100264d8f405d2050be1f}\label{_stage_hit_8cpp_aba5471bbda5100264d8f405d2050be1f} 
+\index{StageHit.cpp@{StageHit.cpp}!CheckInTriangle@{CheckInTriangle}}
+\index{CheckInTriangle@{CheckInTriangle}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckInTriangle()}{CheckInTriangle()}}
+{\footnotesize\ttfamily bool Check\+In\+Triangle (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{a,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{b,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{c,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_a5f7d63ccc2bf6d77c889a03e6674eae1}\label{_stage_hit_8cpp_a5f7d63ccc2bf6d77c889a03e6674eae1} 
+\index{StageHit.cpp@{StageHit.cpp}!CreatePlaneInfo@{CreatePlaneInfo}}
+\index{CreatePlaneInfo@{CreatePlaneInfo}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{CreatePlaneInfo()}{CreatePlaneInfo()}}
+{\footnotesize\ttfamily void Create\+Plane\+Info (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p1,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p2,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p3,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Plane \&}]{plane }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_a7234eead18ba094a789048dfa6466e68}\label{_stage_hit_8cpp_a7234eead18ba094a789048dfa6466e68} 
+\index{StageHit.cpp@{StageHit.cpp}!CreateStagePlaneInfoAll@{CreateStagePlaneInfoAll}}
+\index{CreateStagePlaneInfoAll@{CreateStagePlaneInfoAll}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateStagePlaneInfoAll()}{CreateStagePlaneInfoAll()}}
+{\footnotesize\ttfamily void Create\+Stage\+Plane\+Info\+All (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Vector3 $>$ \&}]{v,  }\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_a55e0676332b962ebf8b37838976a6ac9}\label{_stage_hit_8cpp_a55e0676332b962ebf8b37838976a6ac9} 
+\index{StageHit.cpp@{StageHit.cpp}!LinetoPlaneCross@{LinetoPlaneCross}}
+\index{LinetoPlaneCross@{LinetoPlaneCross}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{LinetoPlaneCross()}{LinetoPlaneCross()}}
+{\footnotesize\ttfamily bool Lineto\+Plane\+Cross (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Plane \&}]{plane,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p0,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{wv,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{ans }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_aaa987d9c8bc7f63062a5e4b3e9cc330f}\label{_stage_hit_8cpp_aaa987d9c8bc7f63062a5e4b3e9cc330f} 
+\index{StageHit.cpp@{StageHit.cpp}!SearchAllSurface@{SearchAllSurface}}
+\index{SearchAllSurface@{SearchAllSurface}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{SearchAllSurface()}{SearchAllSurface()}}
+{\footnotesize\ttfamily bool Search\+All\+Surface (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{z,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{ans }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_aeab0f23e7ce1ccceaf2823edd88ff562}\label{_stage_hit_8cpp_aeab0f23e7ce1ccceaf2823edd88ff562} 
+\index{StageHit.cpp@{StageHit.cpp}!StageHitExit@{StageHitExit}}
+\index{StageHitExit@{StageHitExit}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{StageHitExit()}{StageHitExit()}}
+{\footnotesize\ttfamily void Stage\+Hit\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_a4da51a28766718126fb36cbbee14a0f8}\label{_stage_hit_8cpp_a4da51a28766718126fb36cbbee14a0f8} 
+\index{StageHit.cpp@{StageHit.cpp}!StageHitInit@{StageHitInit}}
+\index{StageHitInit@{StageHitInit}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{StageHitInit()}{StageHitInit()}}
+{\footnotesize\ttfamily void Stage\+Hit\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_stage_hit_8cpp_a4506cbfdb8a3b58a7d2e2c41e7c8f597}\label{_stage_hit_8cpp_a4506cbfdb8a3b58a7d2e2c41e7c8f597} 
+\index{StageHit.cpp@{StageHit.cpp}!g\_NumFaces@{g\_NumFaces}}
+\index{g\_NumFaces@{g\_NumFaces}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_NumFaces}{g\_NumFaces}}
+{\footnotesize\ttfamily int g\+\_\+\+Num\+Faces}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+
+\Hypertarget{_stage_hit_8cpp_a41d5b5313729e0f343ad989c5062f6a7}\label{_stage_hit_8cpp_a41d5b5313729e0f343ad989c5062f6a7} 
+\index{StageHit.cpp@{StageHit.cpp}!g\_PlaneInfo@{g\_PlaneInfo}}
+\index{g\_PlaneInfo@{g\_PlaneInfo}!StageHit.cpp@{StageHit.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_PlaneInfo}{g\_PlaneInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_l_a_n_e_i_n_f_o}{PLANEINFO}}\texorpdfstring{$\ast$}{*} g\+\_\+\+Plane\+Info = nullptr}
+
+
+
+Definition at line \mbox{\hyperlink{_stage_hit_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_stage_hit_8cpp_source}{Stage\+Hit.\+cpp}}.
+

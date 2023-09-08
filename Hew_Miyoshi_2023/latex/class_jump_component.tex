@@ -1,0 +1,104 @@
+\doxysection{Jump\+Component Class Reference}
+\hypertarget{class_jump_component}{}\label{class_jump_component}\index{JumpComponent@{JumpComponent}}
+
+
+{\ttfamily \#include $<$Jump\+Component.\+h$>$}
+
+Inheritance diagram for Jump\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_jump_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_jump_component_ae30051513aa6d55304dbd3b4c1c82d1d}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_jump_component_a239efb4f8342c1733f942293e5919f9a}{Draw}} () override
+\item 
+\mbox{\hyperlink{class_jump_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_jump_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{\texorpdfstring{$\sim$}{\string~}\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_jump_component_8h_source_l00013}{13}} of file \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_jump_component_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_jump_component_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+\index{JumpComponent@{JumpComponent}!Component@{Component}}
+\index{Component@{Component}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_jump_component_aaa874f1577ba8f36a03983918ee3501f}\label{class_jump_component_aaa874f1577ba8f36a03983918ee3501f} 
+\index{JumpComponent@{JumpComponent}!Component@{Component}}
+\index{Component@{Component}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{component_8h_source_l00012}{12}} of file \mbox{\hyperlink{component_8h_source}{component.\+h}}.
+
+\Hypertarget{class_jump_component_a239efb4f8342c1733f942293e5919f9a}\label{class_jump_component_a239efb4f8342c1733f942293e5919f9a} 
+\index{JumpComponent@{JumpComponent}!Draw@{Draw}}
+\index{Draw@{Draw}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Jump\+Component\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_jump_component_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_jump_component_8cpp_source}{Jump\+Component.\+cpp}}.
+
+\Hypertarget{class_jump_component_ae30051513aa6d55304dbd3b4c1c82d1d}\label{class_jump_component_ae30051513aa6d55304dbd3b4c1c82d1d} 
+\index{JumpComponent@{JumpComponent}!Update@{Update}}
+\index{Update@{Update}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Jump\+Component\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+ソ+Wャンプの計蚕+Z（鉛直投げ上げ）
+
+時間計測
+
+Reimplemented from \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_jump_component_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_jump_component_8cpp_source}{Jump\+Component.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{_jump_component_8h}{Jump\+Component.\+h}}\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{_jump_component_8cpp}{Jump\+Component.\+cpp}}\end{DoxyCompactItemize}

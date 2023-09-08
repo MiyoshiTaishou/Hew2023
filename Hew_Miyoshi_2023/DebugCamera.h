@@ -1,25 +1,38 @@
 #pragma once
-#include"gameObject.h"
-class DebugCamera : public GameObject
-{
+
+#include "gameObject.h"
+
+/**
+ * @brief デバッグ用カメラクラス
+ *
+ * このクラスはデバッグ用のカメラを表します。
+ */
+class DebugCamera : public GameObject {
 private:
-
-	DirectX::SimpleMath::Vector3	m_Target{};
-	DirectX::SimpleMath::Matrix		m_ViewMatrix{};
-
-	DirectX::SimpleMath::Vector3 m_Foward{};
+    DirectX::SimpleMath::Vector3 m_Target{}; ///< カメラのターゲット位置
+    DirectX::SimpleMath::Matrix m_ViewMatrix{}; ///< カメラのビュー行列
+    DirectX::SimpleMath::Vector3 m_Forward{}; ///< カメラの前方ベクトル
 
 public:
-	void Init();
-	void Uninit();
-	void Update();
-	void Draw();
+   
+    void Init();
+    void Uninit();
+    void Update();
+    void Draw();
 
-	void SetTarget(DirectX::SimpleMath::Vector3 target);
+    /**
+     * @brief カメラのターゲット位置を設定する
+     *
+     * @param target 新しいカメラのターゲット位置
+     */
+    void SetTarget(DirectX::SimpleMath::Vector3 target);
 
-	DirectX::SimpleMath::Matrix GetViewMatrix()
-	{
-		return m_ViewMatrix;
-	}
+    /**
+     * @brief カメラのビュー行列を取得する
+     *
+     * @return カメラのビュー行列
+     */
+    DirectX::SimpleMath::Matrix GetViewMatrix() {
+        return m_ViewMatrix;
+    }
 };
-

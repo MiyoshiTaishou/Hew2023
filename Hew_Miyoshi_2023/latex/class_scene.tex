@@ -1,0 +1,222 @@
+\doxysection{Scene Class Reference}
+\hypertarget{class_scene}{}\label{class_scene}\index{Scene@{Scene}}
+
+
+{\ttfamily \#include $<$scene.\+h$>$}
+
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
+\item 
+virtual \mbox{\hyperlink{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\texorpdfstring{$\sim$}{\string~}\+Scene}} ()
+\item 
+virtual void \mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}{Uninit}} ()
+\item 
+virtual void \mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Update}} ()
+\item 
+virtual void \mbox{\hyperlink{class_scene_ad0000891418e47223a01172bebb031a0}{Draw}} ()
+\item 
+void \mbox{\hyperlink{class_scene_af44173c6837208188f6852de556a2d7b}{Init\+Base}} ()
+\item 
+void \mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{Uninit\+Base}} ()
+\item 
+void \mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{Update\+Base}} ()
+\item 
+void \mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{Draw\+Base}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_aad19cad10b834eafe848c74cae9ca22a}{Add\+Game\+Object}} (int Layer)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}{Get\+Game\+Object}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{Get\+Game\+Objects}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ \mbox{\hyperlink{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}{m\+\_\+\+Game\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00011}{11}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00020}{20}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}\label{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e} 
+\index{Scene@{Scene}!````~Scene@{\texorpdfstring{$\sim$}{\string~}Scene}}
+\index{````~Scene@{\texorpdfstring{$\sim$}{\string~}Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Scene()}{\string~Scene()}}
+{\footnotesize\ttfamily virtual Scene\+::\texorpdfstring{$\sim$}{\string~}\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00021}{21}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_aad19cad10b834eafe848c74cae9ca22a}\label{class_scene_aad19cad10b834eafe848c74cae9ca22a} 
+\index{Scene@{Scene}!AddGameObject@{AddGameObject}}
+\index{AddGameObject@{AddGameObject}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{AddGameObject()}{AddGameObject()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \texorpdfstring{$\ast$}{*} Scene\+::\+Add\+Game\+Object (\begin{DoxyParamCaption}\item[{int}]{Layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00084}{84}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_ad0000891418e47223a01172bebb031a0}\label{class_scene_ad0000891418e47223a01172bebb031a0} 
+\index{Scene@{Scene}!Draw@{Draw}}
+\index{Draw@{Draw}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Scene\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}{Stage\+Editor}}.
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00026}{26}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}\label{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66} 
+\index{Scene@{Scene}!DrawBase@{DrawBase}}
+\index{DrawBase@{DrawBase}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{DrawBase()}{DrawBase()}}
+{\footnotesize\ttfamily void Scene\+::\+Draw\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00067}{67}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}\label{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5} 
+\index{Scene@{Scene}!GetGameObject@{GetGameObject}}
+\index{GetGameObject@{GetGameObject}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{GetGameObject()}{GetGameObject()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \texorpdfstring{$\ast$}{*} Scene\+::\+Get\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00094}{94}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_ab4781c644abb72a230e97732dc0cfe60}\label{class_scene_ab4781c644abb72a230e97732dc0cfe60} 
+\index{Scene@{Scene}!GetGameObjects@{GetGameObjects}}
+\index{GetGameObjects@{GetGameObjects}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{GetGameObjects()}{GetGameObjects()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ Scene\+::\+Get\+Game\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00111}{111}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_afa4f07e2ccd907e9686d51ee0a670619}\label{class_scene_afa4f07e2ccd907e9686d51ee0a670619} 
+\index{Scene@{Scene}!Init@{Init}}
+\index{Init@{Init}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily virtual void Scene\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_game_a76d586857ee6851adaf5f5fb8f9917ac}{Game}}, \mbox{\hyperlink{class_result_af5e428da05c1649fe0d00893780f0699}{Result}}, \mbox{\hyperlink{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}{Stage\+Editor}}, and \mbox{\hyperlink{class_title_afd467560e61d6492400f1f531fdd1ccd}{Title}}.
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00023}{23}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_af44173c6837208188f6852de556a2d7b}\label{class_scene_af44173c6837208188f6852de556a2d7b} 
+\index{Scene@{Scene}!InitBase@{InitBase}}
+\index{InitBase@{InitBase}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{InitBase()}{InitBase()}}
+{\footnotesize\ttfamily void Scene\+::\+Init\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00028}{28}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}\label{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45} 
+\index{Scene@{Scene}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily virtual void Scene\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00024}{24}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_a985ff778b088ce97ef2d75645e191ae8}\label{class_scene_a985ff778b088ce97ef2d75645e191ae8} 
+\index{Scene@{Scene}!UninitBase@{UninitBase}}
+\index{UninitBase@{UninitBase}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{UninitBase()}{UninitBase()}}
+{\footnotesize\ttfamily void Scene\+::\+Uninit\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00033}{33}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_a59cd50b7a567af365fd6ecb108896988}\label{class_scene_a59cd50b7a567af365fd6ecb108896988} 
+\index{Scene@{Scene}!Update@{Update}}
+\index{Update@{Update}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Scene\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_game_a7279736cde09902a139247810bc76d4b}{Game}}, \mbox{\hyperlink{class_result_a7f74bf5f230b8fde7f4331d91e3d9372}{Result}}, \mbox{\hyperlink{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}{Stage\+Editor}}, and \mbox{\hyperlink{class_title_a970d881556ef55c5af039041bac27d46}{Title}}.
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00025}{25}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+\Hypertarget{class_scene_ab0de5feb8f80786173dbc24d6e783e18}\label{class_scene_ab0de5feb8f80786173dbc24d6e783e18} 
+\index{Scene@{Scene}!UpdateBase@{UpdateBase}}
+\index{UpdateBase@{UpdateBase}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{UpdateBase()}{UpdateBase()}}
+{\footnotesize\ttfamily void Scene\+::\+Update\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00051}{51}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}\label{class_scene_ac868cc1ae0cc25b5ad03566ceacae017} 
+\index{Scene@{Scene}!m\_GameObject@{m\_GameObject}}
+\index{m\_GameObject@{m\_GameObject}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{m\_GameObject}{m\_GameObject}}
+{\footnotesize\ttfamily std\+::array$<$std\+::list$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}\texorpdfstring{$\ast$}{*}$>$, 4$>$ Scene\+::m\+\_\+\+Game\+Object\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{scene_8h_source_l00015}{15}} of file \mbox{\hyperlink{scene_8h_source}{scene.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{scene_8h}{scene.\+h}}\end{DoxyCompactItemize}

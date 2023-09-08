@@ -1,0 +1,139 @@
+\doxysection{Audio Class Reference}
+\hypertarget{class_audio}{}\label{class_audio}\index{Audio@{Audio}}
+
+
+{\ttfamily \#include $<$audio.\+h$>$}
+
+Inheritance diagram for Audio\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_audio}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_audio_aedf56c072f6cabe7bc39282e1f1085b1}{Uninit}} ()
+\item 
+void \mbox{\hyperlink{class_audio_a20012212e1892319f8a3b7c79e04500d}{Load}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+void \mbox{\hyperlink{class_audio_a1911ef8f952ea46ca519fda73c818825}{Play}} (bool Loop=false)
+\item 
+\mbox{\hyperlink{class_audio_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_audio_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component}} ()=delete
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{\texorpdfstring{$\sim$}{\string~}\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Draw}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_audio_ac6c527111f116bce0a4be14c6226853b}{Init\+Master}} ()
+\item 
+static void \mbox{\hyperlink{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce}{Uninit\+Master}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{audio_8h_source_l00013}{13}} of file \mbox{\hyperlink{audio_8h_source}{audio.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_audio_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_audio_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+\index{Audio@{Audio}!Component@{Component}}
+\index{Component@{Component}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_audio_aaa874f1577ba8f36a03983918ee3501f}\label{class_audio_aaa874f1577ba8f36a03983918ee3501f} 
+\index{Audio@{Audio}!Component@{Component}}
+\index{Component@{Component}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{component_8h_source_l00012}{12}} of file \mbox{\hyperlink{component_8h_source}{component.\+h}}.
+
+\Hypertarget{class_audio_ac6c527111f116bce0a4be14c6226853b}\label{class_audio_ac6c527111f116bce0a4be14c6226853b} 
+\index{Audio@{Audio}!InitMaster@{InitMaster}}
+\index{InitMaster@{InitMaster}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{InitMaster()}{InitMaster()}}
+{\footnotesize\ttfamily void Audio\+::\+Init\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{audio_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}}.
+
+\Hypertarget{class_audio_a20012212e1892319f8a3b7c79e04500d}\label{class_audio_a20012212e1892319f8a3b7c79e04500d} 
+\index{Audio@{Audio}!Load@{Load}}
+\index{Load@{Load}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Audio\+::\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{audio_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}}.
+
+\Hypertarget{class_audio_a1911ef8f952ea46ca519fda73c818825}\label{class_audio_a1911ef8f952ea46ca519fda73c818825} 
+\index{Audio@{Audio}!Play@{Play}}
+\index{Play@{Play}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Audio\+::\+Play (\begin{DoxyParamCaption}\item[{bool}]{Loop = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{audio_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}}.
+
+\Hypertarget{class_audio_aedf56c072f6cabe7bc39282e1f1085b1}\label{class_audio_aedf56c072f6cabe7bc39282e1f1085b1} 
+\index{Audio@{Audio}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily void Audio\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{audio_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}}.
+
+\Hypertarget{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce}\label{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce} 
+\index{Audio@{Audio}!UninitMaster@{UninitMaster}}
+\index{UninitMaster@{UninitMaster}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{UninitMaster()}{UninitMaster()}}
+{\footnotesize\ttfamily void Audio\+::\+Uninit\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{audio_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{audio_8h}{audio.\+h}}\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\mbox{\hyperlink{audio_8cpp}{audio.\+cpp}}\end{DoxyCompactItemize}

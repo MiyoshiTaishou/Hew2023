@@ -5,6 +5,11 @@
 
 using namespace DirectX::SimpleMath;
 
+/**
+ * @fn
+ * ジャンプの処理
+ * @brief 鉛直投げ上げの計算で上にあげている
+ */
 void JumpComponent::Update()
 {
 	Vector3 vec = m_GameObject->GetPosition();		
@@ -14,11 +19,11 @@ void JumpComponent::Update()
 	if (Input::GetKeyPress(' ') && jumpCheck)
 		jumpCheck = false;
 
-	//ジャンプの計算（鉛直投げ上げ）	
+	//!ジャンプの計算（鉛直投げ上げ）	
 
 	vec.y = ((y * time) - ((accGravity * (time * time)) / 2) + 2.0f);
 
-	//時間計測
+	//!時間計測
 	if (!jumpCheck)
 		time += 1.0f / 60.0f;
 	
@@ -29,9 +34,6 @@ void JumpComponent::Update()
 	
 	jumpCheck = true;
 	time = 0;
-	//vec.y = -1.0f;
-	//obj.SetPosition(vec);
-		
 }
 
 void JumpComponent::Draw()

@@ -1,0 +1,81 @@
+\doxysection{Box\+Collider.\+cpp}
+\hypertarget{_box_collider_8cpp_source}{}\label{_box_collider_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/BoxCollider.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/BoxCollider.cpp}}
+\mbox{\hyperlink{_box_collider_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_box_collider_8h}{BoxCollider.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{game_object_8h}{gameObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_im_gui_manager_8h}{ImGuiManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00006}00006\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00008}\mbox{\hyperlink{class_box_collider_a612652af26c0a26dd9a46528dfffa729}{00008}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_a612652af26c0a26dd9a46528dfffa729}{BoxCollider::Init}}()}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00009}00009\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00010}00010\ \ \ \ \ mScale\ =\ \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\_GameObject}}-\/>\mbox{\hyperlink{class_game_object_a7e8fa426991ab42fae1aa1a2a3f02c91}{GetScale}}();\ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00013}\mbox{\hyperlink{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}{00013}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}{BoxCollider::Update}}()}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00015}00015\ \ \ \ \ mHitBox\ =\ \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\_GameObject}}-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}();}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00018}\mbox{\hyperlink{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}{BoxCollider::Draw}}()}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00019}00019\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00022}\mbox{\hyperlink{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}{00022}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}{BoxCollider::HitCheck}}(\mbox{\hyperlink{class_box_collider}{BoxCollider}}\ other)}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ mHitBox.x;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ mHitBox.y;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{float}\ z\ =\ mHitBox.z;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{float}\ sx\ =\ mScale.x;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{float}\ sy\ =\ mScale.y;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{float}\ sz\ =\ mScale.z;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{float}\ xMax\ =\ x\ +\ sx\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{float}\ xMin\ =\ x\ -\/\ sx\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{float}\ yMax\ =\ y\ +\ sy\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{float}\ yMin\ =\ y\ -\/\ sy\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{float}\ zMax\ =\ z\ +\ sz\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{float}\ zMin\ =\ z\ -\/\ sz\ /\ 2;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00039}00039\ \ \ \ \ Vector3\ vecbox\ =\ other.\mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{GetHitBox}}();}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00040}00040\ \ \ \ \ Vector3\ vecScale\ =\ other.\mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{GetScale}}();}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{float}\ vx\ =\ vecbox.x;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{float}\ vy\ =\ vecbox.y;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{float}\ vz\ =\ vecbox.z;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{float}\ svx\ =\ vecScale.x;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{float}\ svy\ =\ vecScale.y;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{float}\ svz\ =\ vecScale.z;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{float}\ xMaxOther\ =\ vx\ +\ svx\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{float}\ xMinOther\ =\ vx\ -\/\ svx\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{float}\ yMaxOther\ =\ vy\ +\ svy\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{float}\ yMinOther\ =\ vy\ -\/\ svy\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{float}\ zMaxOther\ =\ vz\ +\ svz\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{float}\ zMinOther\ =\ vz\ -\/\ svz\ /\ 2;\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ xOverlap\ =\ (xMax\ >=\ xMinOther\ \&\&\ xMin\ <=\ xMaxOther);}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ yOverlap\ =\ (yMax\ >=\ yMinOther\ \&\&\ yMin\ <=\ yMaxOther);}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ zOverlap\ =\ (zMax\ >=\ zMinOther\ \&\&\ zMin\ <=\ zMaxOther);}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (xOverlap\ \&\&\ yOverlap\ \&\&\ zOverlap)\ \{\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00067}\mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{00067}}\ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{BoxCollider::GetHitBox}}()}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ mHitBox;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00072}\mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{00072}}\ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{BoxCollider::GetScale}}()}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ mScale;}
+\DoxyCodeLine{\Hypertarget{_box_collider_8cpp_source_l00075}00075\ \}}
+
+\end{DoxyCode}

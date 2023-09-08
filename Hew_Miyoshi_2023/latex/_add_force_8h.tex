@@ -1,0 +1,95 @@
+\doxysection{C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/\+Add\+Force.h File Reference}
+\hypertarget{_add_force_8h}{}\label{_add_force_8h}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/AddForce.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/AddForce.h}}
+{\ttfamily \#include $<$Simple\+Math.\+h$>$}\newline
+{\ttfamily \#include "{}component.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_rigidbody}{Rigidbody}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}{Force\+Mode}} \{ \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca9eb6b78a99cdb6ffd3d40d18621d9f80}{Force}}
+, \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca3b926d163371fd620b09b63219b12f52}{Acceleration}}
+, \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0acaa31ccbe64d3faae9cc3281a72024dd8d}{Impuluse}}
+, \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca7c6c8f6e33aa732a3214ffe2e342cb2d}{Velocity\+Change}}
+ \}
+\item 
+enum class \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{Freeze}} \{ \newline
+\mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53afe4ba2da8a914680f5b2896ccf4db2b0}{Xpos}}
+, \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a925eaeb6f228c1f5af0b32a95c435052}{YPos}}
+, \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53affe2234ddd7625e3b9449662667d6724}{ZPos}}
+, \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53ae3a24efe02123eef7bb68e25f14f9b4a}{XRot}}
+, \newline
+\mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a68e5bd9b202cfb6446b243177494ebc7}{YRot}}
+, \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a55033b199603801ff6565189730fc12e}{ZRot}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}\label{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac} 
+\index{AddForce.h@{AddForce.h}!ForceMode@{ForceMode}}
+\index{ForceMode@{ForceMode}!AddForce.h@{AddForce.h}}
+\doxysubsubsection{\texorpdfstring{ForceMode}{ForceMode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0ac}{Force\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Force@{Force}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!Force@{Force}}}\Hypertarget{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca9eb6b78a99cdb6ffd3d40d18621d9f80}\label{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca9eb6b78a99cdb6ffd3d40d18621d9f80} 
+Force&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Acceleration@{Acceleration}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!Acceleration@{Acceleration}}}\Hypertarget{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca3b926d163371fd620b09b63219b12f52}\label{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca3b926d163371fd620b09b63219b12f52} 
+Acceleration&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Impuluse@{Impuluse}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!Impuluse@{Impuluse}}}\Hypertarget{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0acaa31ccbe64d3faae9cc3281a72024dd8d}\label{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0acaa31ccbe64d3faae9cc3281a72024dd8d} 
+Impuluse&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VelocityChange@{VelocityChange}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!VelocityChange@{VelocityChange}}}\Hypertarget{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca7c6c8f6e33aa732a3214ffe2e342cb2d}\label{_add_force_8h_a82ef2c5b8d4fe771828e8cdf8582a0aca7c6c8f6e33aa732a3214ffe2e342cb2d} 
+Velocity\+Change&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_add_force_8h_source_l00006}{6}} of file \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}}.
+
+\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53} 
+\index{AddForce.h@{AddForce.h}!Freeze@{Freeze}}
+\index{Freeze@{Freeze}!AddForce.h@{AddForce.h}}
+\doxysubsubsection{\texorpdfstring{Freeze}{Freeze}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53}{Freeze}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Xpos@{Xpos}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!Xpos@{Xpos}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53afe4ba2da8a914680f5b2896ccf4db2b0}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53afe4ba2da8a914680f5b2896ccf4db2b0} 
+Xpos&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YPos@{YPos}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!YPos@{YPos}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a925eaeb6f228c1f5af0b32a95c435052}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a925eaeb6f228c1f5af0b32a95c435052} 
+YPos&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZPos@{ZPos}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!ZPos@{ZPos}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53affe2234ddd7625e3b9449662667d6724}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53affe2234ddd7625e3b9449662667d6724} 
+ZPos&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRot@{XRot}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!XRot@{XRot}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53ae3a24efe02123eef7bb68e25f14f9b4a}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53ae3a24efe02123eef7bb68e25f14f9b4a} 
+XRot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YRot@{YRot}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!YRot@{YRot}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a68e5bd9b202cfb6446b243177494ebc7}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a68e5bd9b202cfb6446b243177494ebc7} 
+YRot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZRot@{ZRot}!AddForce.h@{AddForce.h}}\index{AddForce.h@{AddForce.h}!ZRot@{ZRot}}}\Hypertarget{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a55033b199603801ff6565189730fc12e}\label{_add_force_8h_a59d50b71e18b063ae89c7d2cd91e2a53a55033b199603801ff6565189730fc12e} 
+ZRot&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_add_force_8h_source_l00014}{14}} of file \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}}.
+

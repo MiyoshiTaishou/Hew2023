@@ -1,3 +1,9 @@
+/**
+ * @file modelRender.h
+ * @brief モデルをロードするクラス
+ * @author 鈴木先生
+ */
+
 #pragma once
 #include <string>
 #include <unordered_map>
@@ -6,7 +12,11 @@
 #include<SimpleMath.h>
 
 
-// マテリアル構造体
+
+/**
+ * @enum MODEL_MATERIAL
+ * マテリアル構造体
+ */
 struct MODEL_MATERIAL
 {
 	char						Name[256];
@@ -17,7 +27,10 @@ struct MODEL_MATERIAL
 };
 
 
-// 描画サブセット構造体
+/**
+ * @enum SUBSET
+ * 描画サブセット構造体
+ */
 struct SUBSET
 {
 	unsigned int	StartIndex;
@@ -26,7 +39,10 @@ struct SUBSET
 };
 
 
-// モデル構造体
+/**
+ * @enum SUBSET
+ * モデル構造体
+ */
 struct MODEL_OBJ
 {
 	VERTEX_3D		*VertexArray;
@@ -38,6 +54,7 @@ struct MODEL_OBJ
 	SUBSET			*SubsetArray;
 	unsigned int	SubsetNum;
 };
+
 
 struct MODEL
 {

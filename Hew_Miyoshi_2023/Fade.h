@@ -1,43 +1,55 @@
 #pragma once
 #include "gameObject.h"
-#include"renderer.h"
+#include "renderer.h"
+
+/**
+ * @brief フェードUIオブジェクト
+ */
 class FadeUI : public GameObject
 {
 public:
-	void Init();	
-	void Update();
+   
+    void Init();
+    void Update();
 
-	//状態
-	enum class State
-	{
-		Stop,//フェードイン終了
-		In,//フェードイン
-		Out,//フェードアウト
-		Finish//フェードアウト終了
-	};
+    //状態
+    enum class State
+    {
+        Stop,//フェードイン終了
+        In,//フェードイン
+        Out,//フェードアウト
+        Finish//フェードアウト終了
+    };
 
-	State GetState() { return m_State; }
+    /**
+     * @brief フェードUIの状態を取得する
+     * @return フェードUIの状態
+     */
+    State GetState() { return m_State; }
 
-	//フェードイン初期処理
-	void FadeIn()
-	{
-		m_Alpha = 1.0f;
-		m_State = State::In;
-	}
+    /**
+     * @brief フェードイン処理を開始する
+     */
+    void FadeIn()
+    {
+        m_Alpha = 1.0f;
+        m_State = State::In;
+    }
 
-	//フェードアウト初期処理
-	void FadeOut()
-	{
-		m_Alpha = 0.0f;
-		m_State = State::Out;
-	}
+    /**
+     * @brief フェードアウト処理を開始する
+     */
+    void FadeOut()
+    {
+        m_Alpha = 0.0f;
+        m_State = State::Out;
+    }
 
 private:
-	Fade fade;
-	float time = 0.0f;	
+    Fade fade;
+    float time = 0.0f;
 
-	float m_Alpha = 0.0f;
-	State m_State = State::Stop;
-	class Sprite* m_Sprite{};
+    float m_Alpha = 0.0f;
+    State m_State = State::Stop;
+    class Sprite* m_Sprite{};
 };
-

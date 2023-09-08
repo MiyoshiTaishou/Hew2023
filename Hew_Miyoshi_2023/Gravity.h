@@ -1,8 +1,13 @@
+/**
+ * @file ファイル名.h
+ * @brief 重力をつけるコンポーネント
+ * @author 三好大翔
+ */
 #pragma once
 #include "component.h"
 #include<SimpleMath.h>
 
-//前方宣言
+//!前方宣言
 class GameObject;
 
 //重力をつけるコンポーネント
@@ -16,13 +21,13 @@ public:
 
 private:
 
-	//重力の強さ
+	//!重力の強さ
 	DirectX::SimpleMath::Vector3 gravityPower = { 0,1,0 };
 
-	//重力加速度
+	//!重力加速度
 	float accGravity = 0.0098f;
 
-	//時間
+	//!時間
 	int time = 0;
 };
 

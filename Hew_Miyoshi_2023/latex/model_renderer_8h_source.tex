@@ -1,0 +1,86 @@
+\doxysection{model\+Renderer.\+h}
+\hypertarget{model_renderer_8h_source}{}\label{model_renderer_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/modelRenderer.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/modelRenderer.h}}
+\mbox{\hyperlink{model_renderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00007}00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{component_8h}{component.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utftosjisconv_8h}{utftosjisconv.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00020}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{00020}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00022}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_aa34650ef273e88d0885fbf4c2d78c55b}{00022}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_aa34650ef273e88d0885fbf4c2d78c55b}{Name}}[256];}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00023}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_ac87161000225843e72c6e8c1e4950319}{00023}}\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_ac87161000225843e72c6e8c1e4950319}{Material}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00024}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_a65758ca1e7128a50d903e576cbb2ecb1}{00024}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_a65758ca1e7128a50d903e576cbb2ecb1}{TextureName}}[256];}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00025}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_a241bcaa578d2791eb54fd5b1018cf44e}{00025}}\ \ \ \ \ ID3D11ShaderResourceView*\ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l_a241bcaa578d2791eb54fd5b1018cf44e}{Texture}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00027}00027\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00034}\mbox{\hyperlink{struct_s_u_b_s_e_t}{00034}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00036}\mbox{\hyperlink{struct_s_u_b_s_e_t_aba2830571bf11fd777115b4418abc278}{00036}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t_aba2830571bf11fd777115b4418abc278}{StartIndex}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00037}\mbox{\hyperlink{struct_s_u_b_s_e_t_a6abebbe4a4a395ba6a4df508996781a1}{00037}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t_a6abebbe4a4a395ba6a4df508996781a1}{IndexNum}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00038}\mbox{\hyperlink{struct_s_u_b_s_e_t_a9bd76253582ff3806a4f6080e723e919}{00038}}\ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}\ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t_a9bd76253582ff3806a4f6080e723e919}{Material}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00039}00039\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00046}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{00046}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00048}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a17713ae82cd30c5221e980efa6691a8b}{00048}}\ \ \ \ \ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}}\ \ \ \ \ \ *\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a17713ae82cd30c5221e980efa6691a8b}{VertexArray}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00049}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_ac1f2fb1c68c7a21669cc9d937c2e01b4}{00049}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_ac1f2fb1c68c7a21669cc9d937c2e01b4}{VertexNum}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00051}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a5779b1011157eba5286fcdae6b09ac6e}{00051}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ *\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a5779b1011157eba5286fcdae6b09ac6e}{IndexArray}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00052}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a59b06f60803aab620a1c22e88935bf08}{00052}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a59b06f60803aab620a1c22e88935bf08}{IndexNum}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00054}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_aad65e2cd1526b91560e26b859dfbed77}{00054}}\ \ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}\ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_aad65e2cd1526b91560e26b859dfbed77}{SubsetArray}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00055}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a237b14b6756a0a1db22eb2d3f0f372e0}{00055}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j_a237b14b6756a0a1db22eb2d3f0f372e0}{SubsetNum}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00059}\mbox{\hyperlink{struct_m_o_d_e_l}{00059}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00061}\mbox{\hyperlink{struct_m_o_d_e_l_a6e1935147462bbc0f5c778b9fe0b2114}{00061}}\ \ \ \ \ ID3D11Buffer*\ \ \ \mbox{\hyperlink{struct_m_o_d_e_l_a6e1935147462bbc0f5c778b9fe0b2114}{VertexBuffer}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00062}\mbox{\hyperlink{struct_m_o_d_e_l_a863782672e94bc16546dda76c58a7681}{00062}}\ \ \ \ \ ID3D11Buffer*\ \ \ \mbox{\hyperlink{struct_m_o_d_e_l_a863782672e94bc16546dda76c58a7681}{IndexBuffer}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00064}\mbox{\hyperlink{struct_m_o_d_e_l_a3b60147d2113c93552d7100ab6f06360}{00064}}\ \ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}*\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l_a3b60147d2113c93552d7100ab6f06360}{SubsetArray}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00065}\mbox{\hyperlink{struct_m_o_d_e_l_a804e4a5ffd6b7d9b48255c8073a15f1e}{00065}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l_a804e4a5ffd6b7d9b48255c8073a15f1e}{SubsetNum}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00066}00066\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00068}\mbox{\hyperlink{class_model_renderer}{00068}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_model_renderer}{ModelRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00070}00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ MODEL*>\ m\_ModelPool;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadModel(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}\ *Model);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<DirectX::SimpleMath::Vector3>\ LoadModelVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}\ *Model);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadObj(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}\ *ModelObj\ );\ \ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<DirectX::SimpleMath::Vector3>\ LoadObjVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}*\ ModelObj);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadMaterial(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}\ **MaterialArray,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *MaterialNum\ );\ \ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}*\ m\_Model\{\};\ \ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00082}00082\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}{Preload}}(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName\ );}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}{UnloadAll}}();}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_component_a2a7f4303a0d29316167e3aa7f1e5f90a}{Component::Component}};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}{Load}}(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName\ );\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00091}00091\ \ \ \ \ std::vector<DirectX::SimpleMath::Vector3>\ \mbox{\hyperlink{class_model_renderer_ad2986f451698e957af973dbecb0ed154}{LoadVertex}}(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName\ );}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00093}00093\ \ \ \ \ std::vector<VERTEX\_3D>\ \mbox{\hyperlink{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}{GetVertex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}{GetIndexNum}}();}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00097}00097\ \};}
+
+\end{DoxyCode}

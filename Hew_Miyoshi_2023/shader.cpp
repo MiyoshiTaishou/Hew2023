@@ -19,10 +19,10 @@ void Shader::Uninit()
 
 void Shader::Draw()
 {
-	// 入力レイアウト設定
+	//! 入力レイアウト設定
 	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
 
-	// シェーダ設定
+	//! シェーダ設定
 	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, nullptr, 0);
 	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, nullptr, 0);
 }

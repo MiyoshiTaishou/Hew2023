@@ -1,3 +1,9 @@
+/**
+ * @file sprite.h
+ * @brief オブジェクトに画像をはるコンポーネント
+ * @author 三好大翔
+ */
+
 #pragma once
 
 #include	"renderer.h"
@@ -10,7 +16,6 @@ class Sprite : public Component
 private:
 	ID3D11Buffer*				m_VertexBuffer{};
 	ID3D11ShaderResourceView*	m_Texture{};
-//	ID3D11Resource*				m_TextureResource{};
 
 	MATERIAL					m_Material{};
 

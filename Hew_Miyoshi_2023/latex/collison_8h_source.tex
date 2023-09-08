@@ -1,0 +1,107 @@
+\doxysection{collison.\+h}
+\hypertarget{collison_8h_source}{}\label{collison_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/collison.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/collison.h}}
+\mbox{\hyperlink{collison_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ \ \ \ <simplemath.h>}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ \ \ \ <vector>}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ \ \ \ "{}\mbox{\hyperlink{_add_force_8h}{AddForce.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ \ \ \ "{}\mbox{\hyperlink{game_object_8h}{gameObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00008}00008\ \textcolor{comment}{//\ 噂string~柱定義}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00009}\mbox{\hyperlink{struct_bounding_cylinder}{00009}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_bounding_cylinder}{BoundingCylinder}}\ \{}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00010}\mbox{\hyperlink{struct_bounding_cylinder_a4d9322962e7bd3e53511ef7f6b2d3678}{00010}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \mbox{\hyperlink{struct_bounding_cylinder_a4d9322962e7bd3e53511ef7f6b2d3678}{bottom}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 底}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00011}\mbox{\hyperlink{struct_bounding_cylinder_afc8bd34a598342dcd0a3bd1b0590d361}{00011}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \mbox{\hyperlink{struct_bounding_cylinder_afc8bd34a598342dcd0a3bd1b0590d361}{top}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 上}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00012}\mbox{\hyperlink{struct_bounding_cylinder_a7bd12cdf340c613cb0a7cbcb1a25652f}{00012}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \mbox{\hyperlink{struct_bounding_cylinder_a7bd12cdf340c613cb0a7cbcb1a25652f}{radius}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 半径}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00013}00013\ \};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00015}00015\ \textcolor{comment}{//\ セグメント（線分）}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00016}\mbox{\hyperlink{struct_segment}{00016}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_segment}{Segment}}\ \{}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00017}\mbox{\hyperlink{struct_segment_ae4ed0ffc69879d5e6efe9a5df0d707bf}{00017}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_ae4ed0ffc69879d5e6efe9a5df0d707bf}{startpoint}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 開始貼_}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00018}\mbox{\hyperlink{struct_segment_a3364556c3f1dc9a2fbd0077601728fc9}{00018}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_segment_a3364556c3f1dc9a2fbd0077601728fc9}{endpoint}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 終了貼_}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00019}00019\ \};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00021}00021\ \textcolor{comment}{//\ 球定義}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00022}\mbox{\hyperlink{struct_bounding_sphere}{00022}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_bounding_sphere}{BoundingSphere}}\ \{}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00023}\mbox{\hyperlink{struct_bounding_sphere_a598effee94ec474ebc8dd090a8ed078a}{00023}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \mbox{\hyperlink{struct_bounding_sphere_a598effee94ec474ebc8dd090a8ed078a}{center}};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00024}\mbox{\hyperlink{struct_bounding_sphere_a569e503fe2d0d2ffbb220cf443b8b9fb}{00024}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \mbox{\hyperlink{struct_bounding_sphere_a569e503fe2d0d2ffbb220cf443b8b9fb}{radius}};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00027}00027\ \textcolor{comment}{//\ BOX定義}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00028}\mbox{\hyperlink{struct_a_a_b_b}{00028}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ \{}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00029}\mbox{\hyperlink{struct_a_a_b_b_ad7e41a99ee8f47223459e71ee2ccb8cf}{00029}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \mbox{\hyperlink{struct_a_a_b_b_ad7e41a99ee8f47223459e71ee2ccb8cf}{min}};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00030}\mbox{\hyperlink{struct_a_a_b_b_a2c196f09333c5b1d7532a945d04f9046}{00030}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ \mbox{\hyperlink{struct_a_a_b_b_a2c196f09333c5b1d7532a945d04f9046}{max}};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00031}00031\ \};}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00033}00033\ \textcolor{comment}{//enum\ DIRECTION}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00034}00034\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00035}00035\ \textcolor{comment}{//\ \ LEFT,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00036}00036\ \textcolor{comment}{//\ \ RIGHT,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00037}00037\ \textcolor{comment}{//\ \ UP,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00038}00038\ \textcolor{comment}{//\ \ DOWN}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00039}00039\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00041}00041\ \textcolor{comment}{//\ 球}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00042}00042\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{collison_8h_aa483afc6020ade149373cec67756fa38}{CollisionSphere}}(\mbox{\hyperlink{struct_bounding_sphere}{BoundingSphere}}\ p1,\ \mbox{\hyperlink{struct_bounding_sphere}{BoundingSphere}}\ p2);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00044}00044\ \textcolor{comment}{//\ AABB}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00045}00045\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{collison_8h_afd81191fc18d494c30fe16172118491f}{CollisionAABB}}(\mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ p1,\ \mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ p2);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00047}00047\ \textcolor{comment}{//\ make\ AABB}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00048}00048\ \textcolor{comment}{//AABB\ SetAABB(DirectX::SimpleMath::Vector3\ scale,\ DirectX::SimpleMath::Vector3\ centerposition,\ float\ width,\ int\ height,\ int\ depth);}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00049}\mbox{\hyperlink{collison_8h_a34509fadcd13cee7f4edd2316807fd18}{00049}}\ \mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ \mbox{\hyperlink{collison_8h_a34509fadcd13cee7f4edd2316807fd18}{SetAABB}}(DirectX::SimpleMath::Vector3\ centerposition,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ depth);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00051}00051\ \textcolor{comment}{//\ 直線と貼_の距離を求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00052}\mbox{\hyperlink{collison_8h_ae645d13560c490fe56b8e545e8af19d1}{00052}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{collison_8h_ae645d13560c490fe56b8e545e8af19d1}{calcPointLineDist}}(}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ point,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_segment}{Segment}}\&\ segment,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00055}00055\ \ \ \ \ DirectX::SimpleMath::Vector3\&\ intersectionpoint,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{float}\&\ t);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00058}00058\ \textcolor{comment}{//\ 線分に平行な予string^えられた幅の４角形の座標を求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00059}00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{collison_8h_a67317c568899b6752f556c1e0e3f0746}{CalcQuadOrientedLine}}(}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00060}00060\ \ \ \ \ DirectX::SimpleMath::Vector3\ startpos,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00061}00061\ \ \ \ \ DirectX::SimpleMath::Vector3\ endpos,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00062}00062\ \ \ \ \ DirectX::SimpleMath::Vector3*\ v,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{float}\ width);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00065}00065\ \textcolor{comment}{//\ 直線と貼_の距離を求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00066}00066\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{collison_8h_ae645d13560c490fe56b8e545e8af19d1}{calcPointLineDist}}(}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ point,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_segment}{Segment}}\&\ segment,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00069}00069\ \ \ \ \ DirectX::SimpleMath::Vector3\&\ intersectionpoint,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{float}\&\ t);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00072}00072\ \textcolor{comment}{//\ 線分と直線の長さを求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00073}\mbox{\hyperlink{collison_8h_a6363629ae2db84c619228cccea397b76}{00073}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{collison_8h_a6363629ae2db84c619228cccea397b76}{calcPointSegmentDist}}(}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_segment}{Segment}}\&\ segment,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00076}00076\ \ \ \ \ DirectX::SimpleMath::Vector3\&\ intersectionpoint,}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{float}\&\ t);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00079}00079\ \textcolor{comment}{//\ 幅をもった線分（四角形）と球の当たり判定を行う}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00080}\mbox{\hyperlink{collison_8h_a2fb86292ad62557e3548567cd9c4bc52}{00080}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{collison_8h_a2fb86292ad62557e3548567cd9c4bc52}{CollisionSphereOrientedQuad}}(}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00081}00081\ \ \ \ \ DirectX::SimpleMath::Vector3\ StartPos,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 開始位置}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00082}00082\ \ \ \ \ DirectX::SimpleMath::Vector3\ EndPos,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 終了位置}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{float}\ width,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 幅}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{float}\ radius,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 半径}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00085}00085\ \ \ \ \ DirectX::SimpleMath::Vector3\ CirclePos,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 中心座標}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00086}00086\ \ \ \ \ DirectX::SimpleMath::Vector3\&\ intersectionpoint);\ \ \ \ \ \ \ \textcolor{comment}{//\ 交貼_ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00088}00088\ \textcolor{comment}{//\ まっすぐに立ってる噂string~柱と球の当たり判定}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00089}00089\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{collison_8h_a5e1690cadbead6417bf1b180717c98a5}{CollisionSphereCylinder}}(\mbox{\hyperlink{struct_bounding_sphere}{BoundingSphere}}\ sphere,\ \mbox{\hyperlink{struct_bounding_cylinder}{BoundingCylinder}}\ cylinder);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00091}00091\ \textcolor{comment}{//一番近い頂貼_座標を求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00092}\mbox{\hyperlink{collison_8h_aa0847e83a78a1a667de146c9e251f337}{00092}}\ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{collison_8h_aa0847e83a78a1a667de146c9e251f337}{GetClosestVeretex}}(\textcolor{keyword}{const}\ std::vector<DirectX::SimpleMath::Vector3>\&\ vertices,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\ point);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00094}00094\ \textcolor{comment}{//距離を求める}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00095}\mbox{\hyperlink{collison_8h_a66497fab07a7895ce17ad092a8a80564}{00095}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{collison_8h_a66497fab07a7895ce17ad092a8a80564}{CalculateDistance}}(\textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ v1,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ v2);}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00097}00097\ \textcolor{comment}{//void\ DetermineCollisionDirection(const\ BoundingSphere\&\ playerCollider,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00098}00098\ \textcolor{comment}{//\ \ const\ BoundingSphere\&\ otherCollider,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00099}00099\ \textcolor{comment}{//\ \ const\ DirectX::SimpleMath::Vector3\&\ collisionPoint,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00100}00100\ \textcolor{comment}{//\ \ DirectX::SimpleMath::Vector3\&\ playerVel,}}
+\DoxyCodeLine{\Hypertarget{collison_8h_source_l00101}00101\ \textcolor{comment}{//\ \ GameObject*\ obj);}}
+
+\end{DoxyCode}

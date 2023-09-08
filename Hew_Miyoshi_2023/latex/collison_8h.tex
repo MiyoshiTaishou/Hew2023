@@ -1,0 +1,119 @@
+\doxysection{C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/collison.h File Reference}
+\hypertarget{collison_8h}{}\label{collison_8h}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/collison.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/collison.h}}
+{\ttfamily \#include $<$simplemath.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}Add\+Force.\+h"{}}\newline
+{\ttfamily \#include "{}game\+Object.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_bounding_cylinder}{Bounding\+Cylinder}}
+\item 
+struct \mbox{\hyperlink{struct_segment}{Segment}}
+\item 
+struct \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}}
+\item 
+struct \mbox{\hyperlink{struct_a_a_b_b}{AABB}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{collison_8h_aa483afc6020ade149373cec67756fa38}{Collision\+Sphere}} (\mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} p1, \mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} p2)
+\item 
+bool \mbox{\hyperlink{collison_8h_afd81191fc18d494c30fe16172118491f}{Collision\+AABB}} (\mbox{\hyperlink{struct_a_a_b_b}{AABB}} p1, \mbox{\hyperlink{struct_a_a_b_b}{AABB}} p2)
+\item 
+\mbox{\hyperlink{struct_a_a_b_b}{AABB}} \mbox{\hyperlink{collison_8h_a34509fadcd13cee7f4edd2316807fd18}{Set\+AABB}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 centerposition, float width, int height, int depth)
+\item 
+float \mbox{\hyperlink{collison_8h_ae645d13560c490fe56b8e545e8af19d1}{calc\+Point\+Line\+Dist}} (const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&point, const \mbox{\hyperlink{struct_segment}{Segment}} \&segment, Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&intersectionpoint, float \&t)
+\item 
+void \mbox{\hyperlink{collison_8h_a67317c568899b6752f556c1e0e3f0746}{Calc\+Quad\+Oriented\+Line}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 startpos, Direct\+X\+::\+Simple\+Math\+::\+Vector3 endpos, Direct\+X\+::\+Simple\+Math\+::\+Vector3 \texorpdfstring{$\ast$}{*}v, float width)
+\item 
+float \mbox{\hyperlink{collison_8h_a6363629ae2db84c619228cccea397b76}{calc\+Point\+Segment\+Dist}} (const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&p, const \mbox{\hyperlink{struct_segment}{Segment}} \&segment, Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&intersectionpoint, float \&t)
+\item 
+bool \mbox{\hyperlink{collison_8h_a2fb86292ad62557e3548567cd9c4bc52}{Collision\+Sphere\+Oriented\+Quad}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Start\+Pos, Direct\+X\+::\+Simple\+Math\+::\+Vector3 End\+Pos, float width, float radius, Direct\+X\+::\+Simple\+Math\+::\+Vector3 Circle\+Pos, Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&intersectionpoint)
+\item 
+bool \mbox{\hyperlink{collison_8h_a5e1690cadbead6417bf1b180717c98a5}{Collision\+Sphere\+Cylinder}} (\mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}} sphere, \mbox{\hyperlink{struct_bounding_cylinder}{Bounding\+Cylinder}} cylinder)
+\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{collison_8h_aa0847e83a78a1a667de146c9e251f337}{Get\+Closest\+Veretex}} (const std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \&vertices, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 point)
+\item 
+float \mbox{\hyperlink{collison_8h_a66497fab07a7895ce17ad092a8a80564}{Calculate\+Distance}} (const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&v1, const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&v2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{collison_8h_ae645d13560c490fe56b8e545e8af19d1}\label{collison_8h_ae645d13560c490fe56b8e545e8af19d1} 
+\index{collison.h@{collison.h}!calcPointLineDist@{calcPointLineDist}}
+\index{calcPointLineDist@{calcPointLineDist}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{calcPointLineDist()}{calcPointLineDist()}}
+{\footnotesize\ttfamily float calc\+Point\+Line\+Dist (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{point,  }\item[{const \mbox{\hyperlink{struct_segment}{Segment}} \&}]{segment,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{intersectionpoint,  }\item[{float \&}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{collison_8h_a6363629ae2db84c619228cccea397b76}\label{collison_8h_a6363629ae2db84c619228cccea397b76} 
+\index{collison.h@{collison.h}!calcPointSegmentDist@{calcPointSegmentDist}}
+\index{calcPointSegmentDist@{calcPointSegmentDist}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{calcPointSegmentDist()}{calcPointSegmentDist()}}
+{\footnotesize\ttfamily float calc\+Point\+Segment\+Dist (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{p,  }\item[{const \mbox{\hyperlink{struct_segment}{Segment}} \&}]{segment,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{intersectionpoint,  }\item[{float \&}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{collison_8h_a67317c568899b6752f556c1e0e3f0746}\label{collison_8h_a67317c568899b6752f556c1e0e3f0746} 
+\index{collison.h@{collison.h}!CalcQuadOrientedLine@{CalcQuadOrientedLine}}
+\index{CalcQuadOrientedLine@{CalcQuadOrientedLine}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CalcQuadOrientedLine()}{CalcQuadOrientedLine()}}
+{\footnotesize\ttfamily void Calc\+Quad\+Oriented\+Line (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{startpos,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{endpos,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3 \texorpdfstring{$\ast$}{*}}]{v,  }\item[{float}]{width }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{collison_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{collison_8cpp_source}{collison.\+cpp}}.
+
+\Hypertarget{collison_8h_a66497fab07a7895ce17ad092a8a80564}\label{collison_8h_a66497fab07a7895ce17ad092a8a80564} 
+\index{collison.h@{collison.h}!CalculateDistance@{CalculateDistance}}
+\index{CalculateDistance@{CalculateDistance}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CalculateDistance()}{CalculateDistance()}}
+{\footnotesize\ttfamily float Calculate\+Distance (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{v1,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{v2 }\end{DoxyParamCaption})}
+
+\Hypertarget{collison_8h_afd81191fc18d494c30fe16172118491f}\label{collison_8h_afd81191fc18d494c30fe16172118491f} 
+\index{collison.h@{collison.h}!CollisionAABB@{CollisionAABB}}
+\index{CollisionAABB@{CollisionAABB}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CollisionAABB()}{CollisionAABB()}}
+{\footnotesize\ttfamily bool Collision\+AABB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_a_b_b}{AABB}}}]{p1,  }\item[{\mbox{\hyperlink{struct_a_a_b_b}{AABB}}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{collison_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{collison_8cpp_source}{collison.\+cpp}}.
+
+\Hypertarget{collison_8h_aa483afc6020ade149373cec67756fa38}\label{collison_8h_aa483afc6020ade149373cec67756fa38} 
+\index{collison.h@{collison.h}!CollisionSphere@{CollisionSphere}}
+\index{CollisionSphere@{CollisionSphere}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CollisionSphere()}{CollisionSphere()}}
+{\footnotesize\ttfamily bool Collision\+Sphere (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}}}]{p1,  }\item[{\mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{collison_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{collison_8cpp_source}{collison.\+cpp}}.
+
+\Hypertarget{collison_8h_a5e1690cadbead6417bf1b180717c98a5}\label{collison_8h_a5e1690cadbead6417bf1b180717c98a5} 
+\index{collison.h@{collison.h}!CollisionSphereCylinder@{CollisionSphereCylinder}}
+\index{CollisionSphereCylinder@{CollisionSphereCylinder}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CollisionSphereCylinder()}{CollisionSphereCylinder()}}
+{\footnotesize\ttfamily bool Collision\+Sphere\+Cylinder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bounding_sphere}{Bounding\+Sphere}}}]{sphere,  }\item[{\mbox{\hyperlink{struct_bounding_cylinder}{Bounding\+Cylinder}}}]{cylinder }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{collison_8cpp_source_l00225}{225}} of file \mbox{\hyperlink{collison_8cpp_source}{collison.\+cpp}}.
+
+\Hypertarget{collison_8h_a2fb86292ad62557e3548567cd9c4bc52}\label{collison_8h_a2fb86292ad62557e3548567cd9c4bc52} 
+\index{collison.h@{collison.h}!CollisionSphereOrientedQuad@{CollisionSphereOrientedQuad}}
+\index{CollisionSphereOrientedQuad@{CollisionSphereOrientedQuad}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{CollisionSphereOrientedQuad()}{CollisionSphereOrientedQuad()}}
+{\footnotesize\ttfamily bool Collision\+Sphere\+Oriented\+Quad (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{Start\+Pos,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{End\+Pos,  }\item[{float}]{width,  }\item[{float}]{radius,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{Circle\+Pos,  }\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3 \&}]{intersectionpoint }\end{DoxyParamCaption})}
+
+\Hypertarget{collison_8h_aa0847e83a78a1a667de146c9e251f337}\label{collison_8h_aa0847e83a78a1a667de146c9e251f337} 
+\index{collison.h@{collison.h}!GetClosestVeretex@{GetClosestVeretex}}
+\index{GetClosestVeretex@{GetClosestVeretex}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{GetClosestVeretex()}{GetClosestVeretex()}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Get\+Closest\+Veretex (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \&}]{vertices,  }\item[{const Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{collison_8h_a34509fadcd13cee7f4edd2316807fd18}\label{collison_8h_a34509fadcd13cee7f4edd2316807fd18} 
+\index{collison.h@{collison.h}!SetAABB@{SetAABB}}
+\index{SetAABB@{SetAABB}!collison.h@{collison.h}}
+\doxysubsubsection{\texorpdfstring{SetAABB()}{SetAABB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_a_a_b_b}{AABB}} Set\+AABB (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{centerposition,  }\item[{float}]{width,  }\item[{int}]{height,  }\item[{int}]{depth }\end{DoxyParamCaption})}
+

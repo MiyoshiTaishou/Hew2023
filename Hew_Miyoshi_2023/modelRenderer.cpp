@@ -16,28 +16,28 @@ std::unordered_map<std::string, MODEL*> ModelRenderer::m_ModelPool;
 void ModelRenderer::Draw()
 {
 
-	// 頂点バッファ設定
+	//! 頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_Model->VertexBuffer, &stride, &offset);
 
-	// インデックスバッファ設定
+	//! インデックスバッファ設定
 	Renderer::GetDeviceContext()->IASetIndexBuffer(m_Model->IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	// プリミティブトポロジ設定
+	//! プリミティブトポロジ設定
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 
 	for( unsigned int i = 0; i < m_Model->SubsetNum; i++ )
 	{
-		// マテリアル設定
+		//! マテリアル設定
 		Renderer::SetMaterial(m_Model->SubsetArray[i].Material.Material );
 
-		// テクスチャ設定
+		//! テクスチャ設定
 		if(m_Model->SubsetArray[i].Material.Texture)
 			Renderer::GetDeviceContext()->PSSetShaderResources( 0, 1, &m_Model->SubsetArray[i].Material.Texture );
 
-		// ポリゴン描画
+		//1 ポリゴン描画
 		Renderer::GetDeviceContext()->DrawIndexed(m_Model->SubsetArray[i].IndexNum, m_Model->SubsetArray[i].StartIndex, 0 );
 	}
 
@@ -147,7 +147,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 
 
 
-	//要素数カウント
+	//!要素数カウント
 	while (true)
 	{
 		fscanf(file, "%s", str);
@@ -183,7 +183,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 				c = fgetc(file);
 			} while (c != '\n' && c != '\r');
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if (in == 4)
 				in = 6;
 
@@ -192,7 +192,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 	}
 
 
-	//メモリ確保
+	//!メモリ確保
 	positionArray = new Vector3[positionNum];
 	normalArray = new Vector3[normalNum];
 	texcoordArray = new Vector2[texcoordNum];
@@ -210,7 +210,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 
 
 
-	//要素読込
+	//!要素読込
 	Vector3* position = positionArray;
 	Vector3* normal = normalArray;
 	Vector2* texcoord = texcoordArray;
@@ -330,7 +330,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 				c = fgetc(file);
 			} while (c != '\n' && c != '\r');
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if (in == 4)
 			{
 				ModelObj.IndexArray[ic] = vc - 4;
@@ -371,7 +371,7 @@ void ModelRenderer::LoadModel( const char *FileName, MODEL *Model)
 	MODEL_OBJ modelObj;
 	LoadObj( FileName, &modelObj );
 	
-	// 頂点バッファ生成
+	//! 頂点バッファ生成
 	{
 		D3D11_BUFFER_DESC bd;
 		ZeroMemory( &bd, sizeof(bd) );
@@ -388,7 +388,7 @@ void ModelRenderer::LoadModel( const char *FileName, MODEL *Model)
 	}
 
 
-	// インデックスバッファ生成
+	//! インデックスバッファ生成
 	{
 		D3D11_BUFFER_DESC bd;
 		ZeroMemory( &bd, sizeof(bd) );
@@ -404,7 +404,7 @@ void ModelRenderer::LoadModel( const char *FileName, MODEL *Model)
 		Renderer::GetDevice()->CreateBuffer( &bd, &sd, &Model->IndexBuffer );
 	}
 
-	// サブセット設定
+	//! サブセット設定
 	{
 		Model->SubsetArray = new SUBSET[ modelObj.SubsetNum ];
 		Model->SubsetNum = modelObj.SubsetNum;
@@ -418,10 +418,10 @@ void ModelRenderer::LoadModel( const char *FileName, MODEL *Model)
 
 			Model->SubsetArray[i].Material.Texture = nullptr;
 
-			// s-jisをワイド文字に
+			//! s-jisをワイド文字に
 			std::wstring ws = sjis_to_wide_winapi(modelObj.SubsetArray[i].Material.TextureName);
 
-			// テクスチャ読み込み
+			//! テクスチャ読み込み
 			DirectX::CreateWICTextureFromFile(
 				Renderer::GetDevice(),
 				//				modelObj.SubsetArray[i].Material.TextureName,
@@ -450,7 +450,7 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 
 
 
-	// 頂点バッファ生成
+	//! 頂点バッファ生成
 	{
 		D3D11_BUFFER_DESC bd;
 		ZeroMemory(&bd, sizeof(bd));
@@ -467,7 +467,7 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 	}
 
 
-	// インデックスバッファ生成
+	//! インデックスバッファ生成
 	{
 		D3D11_BUFFER_DESC bd;
 		ZeroMemory(&bd, sizeof(bd));
@@ -483,7 +483,7 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 		Renderer::GetDevice()->CreateBuffer(&bd, &sd, &Model->IndexBuffer);
 	}
 
-	// サブセット設定
+	//! サブセット設定
 	{
 		Model->SubsetArray = new SUBSET[modelObj.SubsetNum];
 		Model->SubsetNum = modelObj.SubsetNum;
@@ -497,10 +497,10 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 
 			Model->SubsetArray[i].Material.Texture = nullptr;
 
-			// s-jisをワイド文字に
+			//! s-jisをワイド文字に
 			std::wstring ws = sjis_to_wide_winapi(modelObj.SubsetArray[i].Material.TextureName);
 
-			// テクスチャ読み込み
+			//! テクスチャ読み込み
 			DirectX::CreateWICTextureFromFile(
 				Renderer::GetDevice(),
 				//				modelObj.SubsetArray[i].Material.TextureName,
@@ -529,6 +529,12 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 
 
 //モデル読込////////////////////////////////////////////
+/**
+ * @fn
+ * モデル読込
+ * @param (引数名) モデルの名前
+ * @param (引数名) モデル情報
+ */
 void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 {
 
@@ -566,7 +572,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 
 
 
-	//要素数カウント
+	//!要素数カウント
 	while( true )
 	{
 		fscanf( file, "%s", str );
@@ -603,7 +609,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 			}
 			while( c != '\n' && c!= '\r' );
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if( in == 4 )
 				in = 6;
 
@@ -612,7 +618,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 	}
 
 
-	//メモリ確保
+	//!メモリ確保
 	positionArray = new Vector3[ positionNum ];
 	normalArray = new Vector3[ normalNum ];
 	texcoordArray = new Vector2[ texcoordNum ];
@@ -630,7 +636,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 
 
 
-	//要素読込
+	//!要素読込
 	Vector3 *position = positionArray;
 	Vector3	*normal = normalArray;
 	Vector2	*texcoord = texcoordArray;	
@@ -651,7 +657,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 
 		if( strcmp( str, "mtllib" ) == 0 )
 		{
-			//マテリアルファイル
+			//!マテリアルファイル
 			fscanf( file, "%s", str );
 
 			char path[256];
@@ -663,12 +669,12 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 		}
 		else if( strcmp( str, "o" ) == 0 )
 		{
-			//オブジェクト名
+			//!オブジェクト名
 			fscanf( file, "%s", str );
 		}
 		else if( strcmp( str, "v" ) == 0 )
 		{
-			//頂点座標
+			//!頂点座標
 			fscanf( file, "%f", &position->x );
 			fscanf( file, "%f", &position->y );
 			fscanf( file, "%f", &position->z );
@@ -677,7 +683,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 		}
 		else if( strcmp( str, "vn" ) == 0 )
 		{
-			//法線
+			//!法線
 			fscanf( file, "%f", &normal->x );
 			fscanf( file, "%f", &normal->y );
 			fscanf( file, "%f", &normal->z );
@@ -685,7 +691,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 		}
 		else if( strcmp( str, "vt" ) == 0 )
 		{
-			//テクスチャ座標
+			//!テクスチャ座標
 			fscanf( file, "%f", &texcoord->x );
 			fscanf( file, "%f", &texcoord->y );
 			texcoord->x = 1.0f - texcoord->x;
@@ -694,7 +700,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 		}
 		else if( strcmp( str, "usemtl" ) == 0 )
 		{
-			//マテリアル
+			//!マテリアル
 			fscanf( file, "%s", str );
 
 			if( sc != 0 )
@@ -720,7 +726,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 		}
 		else if( strcmp( str, "f" ) == 0 )
 		{
-			//面
+			//!面
 			in = 0;
 
 			do
@@ -731,7 +737,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 				ModelObj->VertexArray[vc].Position = positionArray[ atoi( s ) - 1 ];
 				if( s[ strlen( s ) + 1 ] != '/' )
 				{
-					//テクスチャ座標が存在しない場合もある
+					//!テクスチャ座標が存在しない場合もある
 					s = strtok( nullptr, "/" );
 					ModelObj->VertexArray[vc].TexCoord = texcoordArray[ atoi( s ) - 1 ];
 				}
@@ -749,7 +755,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 			}
 			while( c != '\n' && c != '\r' );
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if( in == 4 )
 			{
 				ModelObj->IndexArray[ic] = vc - 4;
@@ -810,7 +816,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 
 
 
-	//要素数カウント
+	//!要素数カウント
 	while (true)
 	{
 		fscanf(file, "%s", str);
@@ -846,7 +852,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 				c = fgetc(file);
 			} while (c != '\n' && c != '\r');
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if (in == 4)
 				in = 6;
 
@@ -855,7 +861,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 	}
 
 
-	//メモリ確保
+	//!メモリ確保
 	positionArray = new Vector3[positionNum];
 	normalArray = new Vector3[normalNum];
 	texcoordArray = new Vector2[texcoordNum];
@@ -873,7 +879,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 
 
 
-	//要素読込
+	//!要素読込
 	Vector3* position = positionArray;
 	Vector3* normal = normalArray;
 	Vector2* texcoord = texcoordArray;
@@ -896,7 +902,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 
 		if (strcmp(str, "mtllib") == 0)
 		{
-			//マテリアルファイル
+			//!マテリアルファイル
 			fscanf(file, "%s", str);
 
 			char path[256];
@@ -908,12 +914,12 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 		}
 		else if (strcmp(str, "o") == 0)
 		{
-			//オブジェクト名
+			//!オブジェクト名
 			fscanf(file, "%s", str);
 		}
 		else if (strcmp(str, "v") == 0)
 		{
-			//頂点座標
+			//!頂点座標
 			fscanf(file, "%f", &position->x);
 			fscanf(file, "%f", &position->y);
 			fscanf(file, "%f", &position->z);
@@ -922,7 +928,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 		}
 		else if (strcmp(str, "vn") == 0)
 		{
-			//法線
+			//!法線
 			fscanf(file, "%f", &normal->x);
 			fscanf(file, "%f", &normal->y);
 			fscanf(file, "%f", &normal->z);
@@ -930,7 +936,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 		}
 		else if (strcmp(str, "vt") == 0)
 		{
-			//テクスチャ座標
+			//!テクスチャ座標
 			fscanf(file, "%f", &texcoord->x);
 			fscanf(file, "%f", &texcoord->y);
 			texcoord->x = 1.0f - texcoord->x;
@@ -939,7 +945,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 		}
 		else if (strcmp(str, "usemtl") == 0)
 		{
-			//マテリアル
+			//!マテリアル
 			fscanf(file, "%s", str);
 
 			if (sc != 0)
@@ -965,7 +971,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 		}
 		else if (strcmp(str, "f") == 0)
 		{
-			//面
+			//!面
 			in = 0;
 
 			do
@@ -976,7 +982,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 				ModelObj->VertexArray[vc].Position = positionArray[atoi(s) - 1];
 				if (s[strlen(s) + 1] != '/')
 				{
-					//テクスチャ座標が存在しない場合もある
+					//!テクスチャ座標が存在しない場合もある
 					s = strtok(nullptr, "/");
 					ModelObj->VertexArray[vc].TexCoord = texcoordArray[atoi(s) - 1];
 				}
@@ -993,7 +999,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 				c = fgetc(file);
 			} while (c != '\n' && c != '\r');
 
-			//四角は三角に分割
+			//!四角は三角に分割
 			if (in == 4)
 			{
 				ModelObj->IndexArray[ic] = vc - 4;
@@ -1019,7 +1025,13 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 	return vertices;
 }
 
-//マテリアル読み込み///////////////////////////////////////////////////////////////////
+/**
+ * @fn
+ * マテリアル読み込み
+ * @param (引数名) マテリアル名
+ * @param (引数名) マテリアル情報
+ * @param (引数名) 要素数
+ */
 void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **MaterialArray, unsigned int *MaterialNum )
 {
 
@@ -1038,7 +1050,7 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 	MODEL_MATERIAL *materialArray;
 	unsigned int materialNum = 0;
 
-	//要素数カウント
+	//!要素数カウント
 	while( true )
 	{
 		fscanf( file, "%s", str );
@@ -1054,11 +1066,11 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 	}
 
 
-	//メモリ確保
+	//!メモリ確保
 	materialArray = new MODEL_MATERIAL[ materialNum ];
 
 
-	//要素読込
+	//!要素読込
 	int mc = -1;
 
 	fseek( file, 0, SEEK_SET );
@@ -1073,7 +1085,7 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 
 		if( strcmp( str, "newmtl" ) == 0 )
 		{
-			//マテリアル名
+			//!マテリアル名
 			mc++;
 			fscanf( file, "%s", materialArray[ mc ].Name );
 			strcpy( materialArray[ mc ].TextureName, "" );
@@ -1085,7 +1097,7 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 		}
 		else if( strcmp( str, "Ka" ) == 0 )
 		{
-			//アンビエント
+			//!アンビエント
 			fscanf( file, "%f", &materialArray[ mc ].Material.Ambient.x );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Ambient.y );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Ambient.z );
@@ -1093,7 +1105,7 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 		}
 		else if( strcmp( str, "Kd" ) == 0 )
 		{
-			//ディフューズ
+			//!ディフューズ
 			fscanf( file, "%f", &materialArray[ mc ].Material.Diffuse.x );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Diffuse.y );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Diffuse.z );
@@ -1101,7 +1113,7 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 		}
 		else if( strcmp( str, "Ks" ) == 0 )
 		{
-			//スペキュラ
+			//!スペキュラ
 			fscanf( file, "%f", &materialArray[ mc ].Material.Specular.x );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Specular.y );
 			fscanf( file, "%f", &materialArray[ mc ].Material.Specular.z );
@@ -1109,17 +1121,17 @@ void ModelRenderer::LoadMaterial( const char *FileName, MODEL_MATERIAL **Materia
 		}
 		else if( strcmp( str, "Ns" ) == 0 )
 		{
-			//スペキュラ強度
+			//!スペキュラ強度
 			fscanf( file, "%f", &materialArray[ mc ].Material.Shininess );
 		}
 		else if( strcmp( str, "d" ) == 0 )
 		{
-			//アルファ
+			//!アルファ
 			fscanf( file, "%f", &materialArray[ mc ].Material.Diffuse.w );
 		}
 		else if( strcmp( str, "map_Kd" ) == 0 )
 		{
-			//テクスチャ
+			//!テクスチャ
 			fscanf( file, "%s", str );
 
 			char path[256];

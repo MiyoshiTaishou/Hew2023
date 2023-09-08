@@ -1,19 +1,27 @@
 #pragma once
 #include "gameObject.h"
 
-//上に乗ると跳ねるオブジェクト
-class Trampoline :  public GameObject
+/**
+ * @brief 上に乗ると跳ねるオブジェクト Trampoline クラス
+ */
+class Trampoline : public GameObject
 {
 public:
-	void Init() override;
-	void Update()override;
+ 
+    void Init() override;
 
-	void SetPower(float _power);
+    /**
+     * @brief 跳ねる強さを設定する
+     * @param _power 跳ねる強さ
+     */
+    void SetPower(float _power);
 
-	//跳ねる
-	void Action(GameObject* obj);
+    /**
+     * @brief オブジェクトを跳ねさせる
+     * @param obj 跳ねさせる対象の GameObject
+     */
+    void Action(GameObject* obj);
+
 private:
-	//跳ねる強さ
-	float power = 300.0f;
+    float power = 300.0f; /**< 跳ねる強さ */
 };
-
