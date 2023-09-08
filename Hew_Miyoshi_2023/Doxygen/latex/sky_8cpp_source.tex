@@ -1,0 +1,67 @@
+\doxysection{sky.\+cpp}
+\hypertarget{sky_8cpp_source}{}\label{sky_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sky.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sky.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}manager.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00003}00003\ \textcolor{comment}{//\#include\ "{}input.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}scene.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}modelRenderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}sky.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}shader.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include"{}ImGuiManager.h"{}}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00012}00012\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00014}\mbox{\hyperlink{class_sky_a43f9853aab618ecd8bd205c036515e17}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sky_a43f9853aab618ecd8bd205c036515e17}{Sky::Init}}()}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_game_object_abc54d2b61538f86f8d5106ab9292b16e}{m\_Scale}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}(100.0f,\ 100.0f,\ 100.0f);}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//AddComponent<Shader>()-\/>Load("{}shader\(\backslash\)\(\backslash\)unlitTextureVS.cso"{},\ "{}shader\(\backslash\)\(\backslash\)PS\_PolarCoordinates.cso"{});}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//AddComponent<Shader>()-\/>Load("{}shader\(\backslash\)\(\backslash\)unlitTextureVS.cso"{},\ "{}shader\(\backslash\)\(\backslash\)PS\_OrangeScale.cso"{});}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{AddComponent<Shader>}}()-\/>Load(\textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)unlitTextureVS.cso"{}},\ \textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)PS\_BloomBlur.cso"{}});}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//AddComponent<Shader>()-\/>Load("{}shader\(\backslash\)\(\backslash\)VS\_Rotation.cso"{},\ "{}shader\(\backslash\)\(\backslash\)PS\_BloomBlur.cso"{});}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//AddComponent<Shader>()-\/>Load("{}shader\(\backslash\)\(\backslash\)VS\_Scale.cso"{},\ "{}shader\(\backslash\)\(\backslash\)PS\_Circle.cso"{});}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{AddComponent<ModelRenderer>}}()-\/>Load(\textcolor{stringliteral}{"{}asset\(\backslash\)\(\backslash\)model\(\backslash\)\(\backslash\)sky.obj"{}});}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00025}00025\ \ \ \ \ bloom.\mbox{\hyperlink{struct_bloom_a46de468e3ff6d28901ca2d227d305890}{bloom}}\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00026}00026\ \ \ \ \ bloom.\mbox{\hyperlink{struct_bloom_a81166e6e72dc4259a8a84d9ba5c228aa}{power}}\ =\ 5.0f;}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{Renderer::SetBloom}}(bloom);\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00031}\mbox{\hyperlink{class_sky_a7a3bf849e18ca78de47e24c8e7587edb}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sky_a7a3bf849e18ca78de47e24c8e7587edb}{Sky::Update}}()}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{scene}}\ =\ \mbox{\hyperlink{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}{Manager::GetScene}}();}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}*\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{camera}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{scene}}-\/>GetGameObject<\mbox{\hyperlink{class_camera}{Camera}}>();}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//カメラが存在するなら}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{camera}})}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{cameraPosition}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{camera}}-\/>\mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{GetPosition}}();}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\_Position}}\ =\ \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{cameraPosition}};}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00043}00043\ \ \ \ \ rot.\mbox{\hyperlink{struct_rotation_angle_a4c555a84d116c72f2d67661c80c854b5}{rotationAngle}}.x\ +=\ 0.0005f;}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (rot.\mbox{\hyperlink{struct_rotation_angle_a4c555a84d116c72f2d67661c80c854b5}{rotationAngle}}.x\ >\ 90.0f)}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ rot.\mbox{\hyperlink{struct_rotation_angle_a4c555a84d116c72f2d67661c80c854b5}{rotationAngle}}\ .x=\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{Renderer::SetRotationAngle}}(rot);}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00051}\mbox{\hyperlink{class_sky_a68025985ac16918ba5d599e38a190822}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sky_a68025985ac16918ba5d599e38a190822}{Sky::Draw}}()}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00053}00053\ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Sky\ Bloom"{}});}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00054}00054\ \ \ \ \ ImGui::SliderFloat(\textcolor{stringliteral}{"{}power"{}},\ \&bloom.\mbox{\hyperlink{struct_bloom_a81166e6e72dc4259a8a84d9ba5c228aa}{power}},\ 0.0f,\ 5.0f);}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00055}00055\ \ \ \ \ ImGui::SliderFloat(\textcolor{stringliteral}{"{}bloom"{}},\ \&bloom.\mbox{\hyperlink{struct_bloom_a46de468e3ff6d28901ca2d227d305890}{bloom}},\ 0.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00056}00056\ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{Renderer::SetBloom}}(bloom);}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{sky_8cpp_source_l00061}00061\ }
+
+\end{DoxyCode}

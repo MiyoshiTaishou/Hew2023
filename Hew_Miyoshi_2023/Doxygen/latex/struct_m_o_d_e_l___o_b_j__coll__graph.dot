@@ -1,0 +1,16 @@
+digraph "MODEL_OBJ"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="MODEL_OBJ",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [id="edge5_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" VertexArray",fontcolor="grey" ];
+  Node2 [id="Node000002",label="VERTEX_3D",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$struct_v_e_r_t_e_x__3_d.html",tooltip="３Ｄ頂点データの構造体"];
+  Node3 -> Node1 [id="edge6_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" SubsetArray",fontcolor="grey" ];
+  Node3 [id="Node000003",label="SUBSET",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$struct_s_u_b_s_e_t.html",tooltip=" "];
+  Node4 -> Node3 [id="edge7_Node000003_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" Material",fontcolor="grey" ];
+  Node4 [id="Node000004",label="MODEL_MATERIAL",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$struct_m_o_d_e_l___m_a_t_e_r_i_a_l.html",tooltip=" "];
+  Node5 -> Node4 [id="edge8_Node000004_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" Material",fontcolor="grey" ];
+  Node5 [id="Node000005",label="MATERIAL",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$struct_m_a_t_e_r_i_a_l.html",tooltip="マテリアルの構造体"];
+}

@@ -1,0 +1,184 @@
+\doxysection{Field クラス}
+\hypertarget{class_field}{}\label{class_field}\index{Field@{Field}}
+
+
+Field の継承関係図
+% FIG 0
+
+
+Field 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_field_adee4de163152ac14681d36d57f966975}{Init}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの初期化を行います。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_field_a7667634f271fc00d9887ed0c5fefe156}{Uninit}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの終了処理を行います。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_field_a90e0b607ceff98e9b7e6c02e592e9fb9}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの描画処理を行います。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_game_object}{Game\+Object}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Game\+Objectクラスのコンストラクタ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{virtual}} \mbox{\hyperlink{class_game_object_a224d4f6d9dd75c8a6f9d022eaf586fd9}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Game\+Objectクラスのデストラクタ \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{Get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの位置を取得します。 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_aac28192140fdafe1c72199f36ee18564}{Get\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの回転を取得します。 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a7e8fa426991ab42fae1aa1a2a3f02c91}{Get\+Scale}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトのスケールを取得します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_abeb8d6fd3767e1cde1a0a56cd61a0e5a}{Set\+Position}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Position)
+\begin{DoxyCompactList}\small\item\em オブジェクトの位置を設定します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a4afa611d4b2aef1d7086fab891ac24d8}{Set\+Rotation}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Rotation}})
+\begin{DoxyCompactList}\small\item\em オブジェクトの回転を設定します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a7261f9641ecda37ac0b399940e479f19}{Set\+Scale}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Scale)
+\begin{DoxyCompactList}\small\item\em オブジェクトのスケールを設定します。 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_ad53689a12682ef210b47aed77ea82309}{Get\+Forward}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの前方ベクトルを取得します。 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a9e7d25ffc3c93a20006820945b735c88}{Get\+Side}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの横方向ベクトルを取得します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a8fcb288a78c8ee8cdbb2ebf873a59369}{Set\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの破棄フラグを設定します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{bool}} \mbox{\hyperlink{class_game_object_a4b7b2c5fbbe53feb8fcbb6eab7d214ea}{Destroy}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトを破棄します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{virtual}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_ac7ecc123dacaba955077420caabf5e64}{Update}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトの更新処理を行います。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Add\+Component}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトに新しいコンポーネントを追加します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{typename}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} $>$ }\\\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a5ba3b458e6bee6ea5aedd5c8cdeabf18}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトから指定された型のコンポーネントを取得します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{typename}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} $>$ }\\\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_ae34e6d76cdb584eb97abd5b1e94d0c83}{Add\+Child}} ()
+\begin{DoxyCompactList}\small\item\em 子オブジェクトを追加します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a4fc378e5dbb4c06b034138a46e3bce29}{Init\+Base}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトとその子オブジェクト、コンポーネントを初期化します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a33d6c63352286b44eabcff91dc5fa4ff}{Uninit\+Base}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトとその子オブジェクト、コンポーネントを終了処理します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_af72b2c7b64912b3b91f69cf16ba62643}{Update\+Base}} ()
+\begin{DoxyCompactList}\small\item\em オブジェクトとその子オブジェクト、コンポーネントを更新します。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a7540ba7129a1e4ea5e2a728feaf7bccf}{Draw\+Base}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Parent\+Matrix}})
+\begin{DoxyCompactList}\small\item\em オブジェクトとその子オブジェクト、コンポーネントを描画します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{ID3\+D11\+Buffer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_field_ab4a6c68148902fcd29279f44d35ecf3e}{m\+\_\+\+Vertex\+Buffer}} \{\}
+\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{ID3\+D11\+Shader\+Resource\+View}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_field_a6b804c627da4b9710eea699d9225b424}{m\+\_\+\+Texture}} \{\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_game_object}{Game\+Object}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{bool}} \mbox{\hyperlink{class_game_object_ad884ea676c7e8a4058a651db3fa46092}{m\+\_\+\+Destroy}} = \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{false}}
+\begin{DoxyCompactList}\small\item\em オブジェクトの破棄フラグ \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\+\_\+\+Position}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em オブジェクトの位置 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_aaf6a3cb0c8158651037477a2ce1af6f5}{m\+\_\+\+Rotation}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em オブジェクトの回転 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_abc54d2b61538f86f8d5106ab9292b16e}{m\+\_\+\+Scale}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(1.\+0f, 1.\+0f, 1.\+0f)
+\begin{DoxyCompactList}\small\item\em オブジェクトのスケール \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_component}{Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_object_ab519c45cfb08cac0ce2f45973abd705e}{m\+\_\+\+Component}}
+\begin{DoxyCompactList}\small\item\em オブジェクトにアタッチされたコンポーネントのリスト \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_object_a43ebecda03159e3acb64143c84446219}{m\+\_\+\+Child\+Game\+Object}}
+\begin{DoxyCompactList}\small\item\em 子オブジェクトのリスト \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{field_8h_source}{field.\+h}} の \mbox{\hyperlink{field_8h_source_l00007}{7}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_field_a90e0b607ceff98e9b7e6c02e592e9fb9}\label{class_field_a90e0b607ceff98e9b7e6c02e592e9fb9} 
+\index{Field@{Field}!Draw@{Draw}}
+\index{Draw@{Draw}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Field\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+オブジェクトの描画処理を行います。 
+
+
+
+\mbox{\hyperlink{class_game_object_a54f25ff4076e03a40309085bcf826e53}{Game\+Object}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{field_8cpp_source}{field.\+cpp}} の \mbox{\hyperlink{field_8cpp_source_l00071}{71}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 2
+\Hypertarget{class_field_adee4de163152ac14681d36d57f966975}\label{class_field_adee4de163152ac14681d36d57f966975} 
+\index{Field@{Field}!Init@{Init}}
+\index{Init@{Init}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Field\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+オブジェクトの初期化を行います。 
+
+
+
+\mbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Game\+Object}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{field_8cpp_source}{field.\+cpp}} の \mbox{\hyperlink{field_8cpp_source_l00008}{8}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 3
+\Hypertarget{class_field_a7667634f271fc00d9887ed0c5fefe156}\label{class_field_a7667634f271fc00d9887ed0c5fefe156} 
+\index{Field@{Field}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Field\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+オブジェクトの終了処理を行います。 
+
+
+
+\mbox{\hyperlink{class_game_object_a9d1ca7014b11b3f0dcca5bb05b922d44}{Game\+Object}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{field_8cpp_source}{field.\+cpp}} の \mbox{\hyperlink{field_8cpp_source_l00058}{58}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 4
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_field_a6b804c627da4b9710eea699d9225b424}\label{class_field_a6b804c627da4b9710eea699d9225b424} 
+\index{Field@{Field}!m\_Texture@{m\_Texture}}
+\index{m\_Texture@{m\_Texture}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{m\_Texture}{m\_Texture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{ID3\+D11\+Shader\+Resource\+View}}\texorpdfstring{$\ast$}{*} Field\+::m\+\_\+\+Texture \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{field_8h_source}{field.\+h}} の \mbox{\hyperlink{field_8h_source_l00011}{11}} 行目に定義があります。
+
+\Hypertarget{class_field_ab4a6c68148902fcd29279f44d35ecf3e}\label{class_field_ab4a6c68148902fcd29279f44d35ecf3e} 
+\index{Field@{Field}!m\_VertexBuffer@{m\_VertexBuffer}}
+\index{m\_VertexBuffer@{m\_VertexBuffer}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{m\_VertexBuffer}{m\_VertexBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{ID3\+D11\+Buffer}}\texorpdfstring{$\ast$}{*} Field\+::m\+\_\+\+Vertex\+Buffer \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{field_8h_source}{field.\+h}} の \mbox{\hyperlink{field_8h_source_l00010}{10}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/field.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/field.\+cpp\end{DoxyCompactItemize}

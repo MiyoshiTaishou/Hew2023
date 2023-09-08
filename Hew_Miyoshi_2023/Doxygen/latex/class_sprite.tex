@@ -1,0 +1,157 @@
+\doxysection{Sprite クラス}
+\hypertarget{class_sprite}{}\label{class_sprite}\index{Sprite@{Sprite}}
+
+
+Sprite の継承関係図
+% FIG 0
+
+
+Sprite 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_sprite_a148acc21821e6850887b484a3be6413c}{Init}} (int x, int y, int Width, int Height, const char \texorpdfstring{$\ast$}{*}Texture\+Name)
+\item 
+void \mbox{\hyperlink{class_sprite_a20cb721df165b2769bbf96fc95e521a5}{Uninit}} () override
+\item 
+void \mbox{\hyperlink{class_sprite_a19dae127e873faf0adf984210bb5edad}{Draw}} () override
+\item 
+void \mbox{\hyperlink{class_sprite_aa47726c683a5607147e681b036619cca}{Set\+Material}} (\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} Material)
+\item 
+\Hypertarget{class_sprite_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_sprite_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+{\bfseries Component} ()=delete
+\item 
+\mbox{\hyperlink{class_sprite_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sprite_a556953a59fdde427d1dd6e9343cabc34}{m\+\_\+\+Vertex\+Buffer}} \{\}
+\item 
+ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sprite_a4751551492fb7e059382b7772f05184f}{m\+\_\+\+Texture}} \{\}
+\item 
+\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} \mbox{\hyperlink{class_sprite_ad619aee2a393f636309473c9a025169e}{m\+\_\+\+Material}} \{\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}} の \mbox{\hyperlink{sprite_8h_source_l00008}{8}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_sprite_aaa874f1577ba8f36a03983918ee3501f}\label{class_sprite_aaa874f1577ba8f36a03983918ee3501f} 
+\index{Sprite@{Sprite}!Component@{Component}}
+\index{Component@{Component}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_sprite_a19dae127e873faf0adf984210bb5edad}\label{class_sprite_a19dae127e873faf0adf984210bb5edad} 
+\index{Sprite@{Sprite}!Draw@{Draw}}
+\index{Draw@{Draw}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Sprite\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}} の \mbox{\hyperlink{sprite_8cpp_source_l00072}{72}} 行目に定義があります。
+
+\Hypertarget{class_sprite_a148acc21821e6850887b484a3be6413c}\label{class_sprite_a148acc21821e6850887b484a3be6413c} 
+\index{Sprite@{Sprite}!Init@{Init}}
+\index{Init@{Init}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Sprite\+::\+Init (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{Width,  }\item[{int}]{Height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Texture\+Name }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}} の \mbox{\hyperlink{sprite_8cpp_source_l00008}{8}} 行目に定義があります。
+
+\Hypertarget{class_sprite_aa47726c683a5607147e681b036619cca}\label{class_sprite_aa47726c683a5607147e681b036619cca} 
+\index{Sprite@{Sprite}!SetMaterial@{SetMaterial}}
+\index{SetMaterial@{SetMaterial}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{SetMaterial()}{SetMaterial()}}
+{\footnotesize\ttfamily void Sprite\+::\+Set\+Material (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}}]{Material }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}} の \mbox{\hyperlink{sprite_8h_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{class_sprite_a20cb721df165b2769bbf96fc95e521a5}\label{class_sprite_a20cb721df165b2769bbf96fc95e521a5} 
+\index{Sprite@{Sprite}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily void Sprite\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{sprite_8cpp_source}{sprite.\+cpp}} の \mbox{\hyperlink{sprite_8cpp_source_l00063}{63}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_sprite_ad619aee2a393f636309473c9a025169e}\label{class_sprite_ad619aee2a393f636309473c9a025169e} 
+\index{Sprite@{Sprite}!m\_Material@{m\_Material}}
+\index{m\_Material@{m\_Material}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_Material}{m\_Material}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} Sprite\+::m\+\_\+\+Material \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}} の \mbox{\hyperlink{sprite_8h_source_l00015}{15}} 行目に定義があります。
+
+\Hypertarget{class_sprite_a4751551492fb7e059382b7772f05184f}\label{class_sprite_a4751551492fb7e059382b7772f05184f} 
+\index{Sprite@{Sprite}!m\_Texture@{m\_Texture}}
+\index{m\_Texture@{m\_Texture}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_Texture}{m\_Texture}}
+{\footnotesize\ttfamily ID3\+D11\+Shader\+Resource\+View\texorpdfstring{$\ast$}{*} Sprite\+::m\+\_\+\+Texture \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}} の \mbox{\hyperlink{sprite_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_sprite_a556953a59fdde427d1dd6e9343cabc34}\label{class_sprite_a556953a59fdde427d1dd6e9343cabc34} 
+\index{Sprite@{Sprite}!m\_VertexBuffer@{m\_VertexBuffer}}
+\index{m\_VertexBuffer@{m\_VertexBuffer}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_VertexBuffer}{m\_VertexBuffer}}
+{\footnotesize\ttfamily ID3\+D11\+Buffer\texorpdfstring{$\ast$}{*} Sprite\+::m\+\_\+\+Vertex\+Buffer \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{sprite_8h_source}{sprite.\+h}} の \mbox{\hyperlink{sprite_8h_source_l00012}{12}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/sprite.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/sprite.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,666 @@
+\doxysection{Im\+Font\+Atlas 構造体}
+\hypertarget{struct_im_font_atlas}{}\label{struct_im_font_atlas}\index{ImFontAtlas@{ImFontAtlas}}
+
+
+Im\+Font\+Atlas 連携図
+% FIG 0
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625}{Add\+Font}} (const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd}{Add\+Font\+Default}} (const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562}{Add\+Font\+From\+File\+TTF}} (const char \texorpdfstring{$\ast$}{*}filename, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg=NULL, const Im\+Wchar \texorpdfstring{$\ast$}{*}glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7}{Add\+Font\+From\+Memory\+TTF}} (void \texorpdfstring{$\ast$}{*}font\+\_\+data, int font\+\_\+size, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg=NULL, const Im\+Wchar \texorpdfstring{$\ast$}{*}glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb}{Add\+Font\+From\+Memory\+Compressed\+TTF}} (const void \texorpdfstring{$\ast$}{*}compressed\+\_\+font\+\_\+data, int compressed\+\_\+font\+\_\+size, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg=NULL, const Im\+Wchar \texorpdfstring{$\ast$}{*}glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956}{Add\+Font\+From\+Memory\+Compressed\+Base85\+TTF}} (const char \texorpdfstring{$\ast$}{*}compressed\+\_\+font\+\_\+data\+\_\+base85, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}font\+\_\+cfg=NULL, const Im\+Wchar \texorpdfstring{$\ast$}{*}glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662}{Clear\+Input\+Data}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86}{Clear\+Tex\+Data}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055}{Clear\+Fonts}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77}{Clear}} ()
+\item 
+IMGUI\+\_\+\+API bool \mbox{\hyperlink{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27}{Build}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44}{Get\+Tex\+Data\+As\+Alpha8}} (unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}out\+\_\+pixels, int \texorpdfstring{$\ast$}{*}out\+\_\+width, int \texorpdfstring{$\ast$}{*}out\+\_\+height, int \texorpdfstring{$\ast$}{*}out\+\_\+bytes\+\_\+per\+\_\+pixel=NULL)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec}{Get\+Tex\+Data\+As\+RGBA32}} (unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}out\+\_\+pixels, int \texorpdfstring{$\ast$}{*}out\+\_\+width, int \texorpdfstring{$\ast$}{*}out\+\_\+height, int \texorpdfstring{$\ast$}{*}out\+\_\+bytes\+\_\+per\+\_\+pixel=NULL)
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475}{Is\+Built}} () const
+\item 
+void \mbox{\hyperlink{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445}{Set\+Tex\+ID}} (Im\+Texture\+ID id)
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820}{Get\+Glyph\+Ranges\+Default}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee}{Get\+Glyph\+Ranges\+Greek}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969}{Get\+Glyph\+Ranges\+Korean}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96}{Get\+Glyph\+Ranges\+Japanese}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57}{Get\+Glyph\+Ranges\+Chinese\+Full}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625}{Get\+Glyph\+Ranges\+Chinese\+Simplified\+Common}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e}{Get\+Glyph\+Ranges\+Cyrillic}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371}{Get\+Glyph\+Ranges\+Thai}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60}{Get\+Glyph\+Ranges\+Vietnamese}} ()
+\item 
+IMGUI\+\_\+\+API int \mbox{\hyperlink{struct_im_font_atlas_af048760e2d58ec93446e345deb887259}{Add\+Custom\+Rect\+Regular}} (int width, int height)
+\item 
+IMGUI\+\_\+\+API int \mbox{\hyperlink{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c}{Add\+Custom\+Rect\+Font\+Glyph}} (\mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*}font, Im\+Wchar id, int width, int height, float advance\+\_\+x, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&offset=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0, 0))
+\item 
+\mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481}{Get\+Custom\+Rect\+By\+Index}} (int index)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882}{Calc\+Custom\+Rect\+UV}} (const \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} \texorpdfstring{$\ast$}{*}rect, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}out\+\_\+uv\+\_\+min, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}out\+\_\+uv\+\_\+max) const
+\item 
+IMGUI\+\_\+\+API bool \mbox{\hyperlink{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3}{Get\+Mouse\+Cursor\+Tex\+Data}} (Im\+Gui\+Mouse\+Cursor cursor, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}out\+\_\+offset, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}out\+\_\+size, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} out\+\_\+uv\+\_\+border\mbox{[}2\mbox{]}, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} out\+\_\+uv\+\_\+fill\mbox{[}2\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Font\+Atlas\+Flags \mbox{\hyperlink{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11}{Flags}}
+\item 
+Im\+Texture\+ID \mbox{\hyperlink{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e}{Tex\+ID}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c}{Tex\+Desired\+Width}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62}{Tex\+Glyph\+Padding}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b}{Locked}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e}{User\+Data}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299}{Tex\+Ready}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff}{Tex\+Pixels\+Use\+Colors}}
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3}{Tex\+Pixels\+Alpha8}}
+\item 
+unsigned int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5}{Tex\+Pixels\+RGBA32}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3}{Tex\+Width}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3}{Tex\+Height}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664}{Tex\+Uv\+Scale}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e}{Tex\+Uv\+White\+Pixel}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f}{Fonts}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $>$ \mbox{\hyperlink{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c}{Custom\+Rects}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $>$ \mbox{\hyperlink{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823}{Config\+Data}}
+\item 
+\mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} \mbox{\hyperlink{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048}{Tex\+Uv\+Lines}} \mbox{[}IM\+\_\+\+DRAWLIST\+\_\+\+TEX\+\_\+\+LINES\+\_\+\+WIDTH\+\_\+\+MAX+1\mbox{]}
+\item 
+const \mbox{\hyperlink{struct_im_font_builder_i_o}{Im\+Font\+Builder\+IO}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09}{Font\+Builder\+IO}}
+\item 
+unsigned int \mbox{\hyperlink{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3}{Font\+Builder\+Flags}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652}{Pack\+Id\+Mouse\+Cursors}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b}{Pack\+Id\+Lines}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02781}{2781}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{struct_im_font_atlas_aa34e7909d30440d5c35aaef990ac741e}\label{struct_im_font_atlas_aa34e7909d30440d5c35aaef990ac741e} 
+\index{ImFontAtlas@{ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\index{ImFontAtlas@{ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ImFontAtlas()}{ImFontAtlas()}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+::\+Im\+Font\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l01968}{1968}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a950b4f7586ad7786ae251b957d67a268}\label{struct_im_font_atlas_a950b4f7586ad7786ae251b957d67a268} 
+\index{ImFontAtlas@{ImFontAtlas}!````~ImFontAtlas@{\texorpdfstring{$\sim$}{\string~}ImFontAtlas}}
+\index{````~ImFontAtlas@{\texorpdfstring{$\sim$}{\string~}ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ImFontAtlas()}{\string~ImFontAtlas()}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+::\texorpdfstring{$\sim$}{\string~}\+Im\+Font\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l01975}{1975}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c}\label{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c} 
+\index{ImFontAtlas@{ImFontAtlas}!AddCustomRectFontGlyph@{AddCustomRectFontGlyph}}
+\index{AddCustomRectFontGlyph@{AddCustomRectFontGlyph}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddCustomRectFontGlyph()}{AddCustomRectFontGlyph()}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Add\+Custom\+Rect\+Font\+Glyph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{Im\+Wchar}]{id,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{advance\+\_\+x,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{offset = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0,~0)} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02205}{2205}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_af048760e2d58ec93446e345deb887259}\label{struct_im_font_atlas_af048760e2d58ec93446e345deb887259} 
+\index{ImFontAtlas@{ImFontAtlas}!AddCustomRectRegular@{AddCustomRectRegular}}
+\index{AddCustomRectRegular@{AddCustomRectRegular}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddCustomRectRegular()}{AddCustomRectRegular()}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Add\+Custom\+Rect\+Regular (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02194}{2194}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625}\label{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFont@{AddFont}}
+\index{AddFont@{AddFont}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFont()}{AddFont()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02067}{2067}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd}\label{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontDefault@{AddFontDefault}}
+\index{AddFontDefault@{AddFontDefault}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontDefault()}{AddFontDefault()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font\+Default (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02116}{2116}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562}\label{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromFileTTF@{AddFontFromFileTTF}}
+\index{AddFontFromFileTTF@{AddFontFromFileTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromFileTTF()}{AddFontFromFileTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font\+From\+File\+TTF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar \texorpdfstring{$\ast$}{*}}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02137}{2137}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956}\label{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryCompressedBase85TTF@{AddFontFromMemoryCompressedBase85TTF}}
+\index{AddFontFromMemoryCompressedBase85TTF@{AddFontFromMemoryCompressedBase85TTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryCompressedBase85TTF()}{AddFontFromMemoryCompressedBase85TTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+Compressed\+Base85\+TTF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{compressed\+\_\+font\+\_\+data\+\_\+base85,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar \texorpdfstring{$\ast$}{*}}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02184}{2184}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb}\label{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryCompressedTTF@{AddFontFromMemoryCompressedTTF}}
+\index{AddFontFromMemoryCompressedTTF@{AddFontFromMemoryCompressedTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryCompressedTTF()}{AddFontFromMemoryCompressedTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+Compressed\+TTF (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{compressed\+\_\+font\+\_\+data,  }\item[{int}]{compressed\+\_\+font\+\_\+size,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar \texorpdfstring{$\ast$}{*}}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02172}{2172}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7}\label{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryTTF@{AddFontFromMemoryTTF}}
+\index{AddFontFromMemoryTTF@{AddFontFromMemoryTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryTTF()}{AddFontFromMemoryTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+TTF (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{font\+\_\+data,  }\item[{int}]{font\+\_\+size,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} \texorpdfstring{$\ast$}{*}}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar \texorpdfstring{$\ast$}{*}}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02159}{2159}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27}\label{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27} 
+\index{ImFontAtlas@{ImFontAtlas}!Build@{Build}}
+\index{Build@{Build}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Build()}{Build()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02253}{2253}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882}\label{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882} 
+\index{ImFontAtlas@{ImFontAtlas}!CalcCustomRectUV@{CalcCustomRectUV}}
+\index{CalcCustomRectUV@{CalcCustomRectUV}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{CalcCustomRectUV()}{CalcCustomRectUV()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Calc\+Custom\+Rect\+UV (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} \texorpdfstring{$\ast$}{*}}]{rect,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+uv\+\_\+min,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+uv\+\_\+max }\end{DoxyParamCaption}) const}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02224}{2224}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77}\label{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77} 
+\index{ImFontAtlas@{ImFontAtlas}!Clear@{Clear}}
+\index{Clear@{Clear}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02024}{2024}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055}\label{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearFonts@{ClearFonts}}
+\index{ClearFonts@{ClearFonts}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearFonts()}{ClearFonts()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Fonts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02017}{2017}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662}\label{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearInputData@{ClearInputData}}
+\index{ClearInputData@{ClearInputData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearInputData()}{ClearInputData()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Input\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l01981}{1981}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86}\label{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearTexData@{ClearTexData}}
+\index{ClearTexData@{ClearTexData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearTexData()}{ClearTexData()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Tex\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02004}{2004}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481}\label{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481} 
+\index{ImFontAtlas@{ImFontAtlas}!GetCustomRectByIndex@{GetCustomRectByIndex}}
+\index{GetCustomRectByIndex@{GetCustomRectByIndex}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetCustomRectByIndex()}{GetCustomRectByIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Custom\+Rect\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02837}{2837}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57}\label{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesChineseFull@{GetGlyphRangesChineseFull}}
+\index{GetGlyphRangesChineseFull@{GetGlyphRangesChineseFull}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesChineseFull()}{GetGlyphRangesChineseFull()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Chinese\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02843}{2843}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625}\label{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesChineseSimplifiedCommon@{GetGlyphRangesChineseSimplifiedCommon}}
+\index{GetGlyphRangesChineseSimplifiedCommon@{GetGlyphRangesChineseSimplifiedCommon}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesChineseSimplifiedCommon()}{GetGlyphRangesChineseSimplifiedCommon()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Chinese\+Simplified\+Common (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02873}{2873}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e}\label{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesCyrillic@{GetGlyphRangesCyrillic}}
+\index{GetGlyphRangesCyrillic@{GetGlyphRangesCyrillic}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesCyrillic()}{GetGlyphRangesCyrillic()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Cyrillic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03031}{3031}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820}\label{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesDefault@{GetGlyphRangesDefault}}
+\index{GetGlyphRangesDefault@{GetGlyphRangesDefault}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesDefault()}{GetGlyphRangesDefault()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02809}{2809}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee}\label{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesGreek@{GetGlyphRangesGreek}}
+\index{GetGlyphRangesGreek@{GetGlyphRangesGreek}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesGreek()}{GetGlyphRangesGreek()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Greek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02819}{2819}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96}\label{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesJapanese@{GetGlyphRangesJapanese}}
+\index{GetGlyphRangesJapanese@{GetGlyphRangesJapanese}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesJapanese()}{GetGlyphRangesJapanese()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Japanese (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02941}{2941}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969}\label{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesKorean@{GetGlyphRangesKorean}}
+\index{GetGlyphRangesKorean@{GetGlyphRangesKorean}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesKorean()}{GetGlyphRangesKorean()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Korean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02830}{2830}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371}\label{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesThai@{GetGlyphRangesThai}}
+\index{GetGlyphRangesThai@{GetGlyphRangesThai}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesThai()}{GetGlyphRangesThai()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Thai (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03044}{3044}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60}\label{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesVietnamese@{GetGlyphRangesVietnamese}}
+\index{GetGlyphRangesVietnamese@{GetGlyphRangesVietnamese}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesVietnamese()}{GetGlyphRangesVietnamese()}}
+{\footnotesize\ttfamily const Im\+Wchar \texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Vietnamese (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03056}{3056}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3}\label{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3} 
+\index{ImFontAtlas@{ImFontAtlas}!GetMouseCursorTexData@{GetMouseCursorTexData}}
+\index{GetMouseCursorTexData@{GetMouseCursorTexData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetMouseCursorTexData()}{GetMouseCursorTexData()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Get\+Mouse\+Cursor\+Tex\+Data (\begin{DoxyParamCaption}\item[{Im\+Gui\+Mouse\+Cursor}]{cursor,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+offset,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+size,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{out\+\_\+uv\+\_\+border\mbox{[}2\mbox{]},  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{out\+\_\+uv\+\_\+fill\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02232}{2232}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44}\label{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44} 
+\index{ImFontAtlas@{ImFontAtlas}!GetTexDataAsAlpha8@{GetTexDataAsAlpha8}}
+\index{GetTexDataAsAlpha8@{GetTexDataAsAlpha8}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetTexDataAsAlpha8()}{GetTexDataAsAlpha8()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Get\+Tex\+Data\+As\+Alpha8 (\begin{DoxyParamCaption}\item[{unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{out\+\_\+pixels,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+width,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+height,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+bytes\+\_\+per\+\_\+pixel = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02031}{2031}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec}\label{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec} 
+\index{ImFontAtlas@{ImFontAtlas}!GetTexDataAsRGBA32@{GetTexDataAsRGBA32}}
+\index{GetTexDataAsRGBA32@{GetTexDataAsRGBA32}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetTexDataAsRGBA32()}{GetTexDataAsRGBA32()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Get\+Tex\+Data\+As\+RGBA32 (\begin{DoxyParamCaption}\item[{unsigned char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{out\+\_\+pixels,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+width,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+height,  }\item[{int \texorpdfstring{$\ast$}{*}}]{out\+\_\+bytes\+\_\+per\+\_\+pixel = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l02043}{2043}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475}\label{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475} 
+\index{ImFontAtlas@{ImFontAtlas}!IsBuilt@{IsBuilt}}
+\index{IsBuilt@{IsBuilt}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{IsBuilt()}{IsBuilt()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Is\+Built (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02804}{2804}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445}\label{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445} 
+\index{ImFontAtlas@{ImFontAtlas}!SetTexID@{SetTexID}}
+\index{SetTexID@{SetTexID}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{SetTexID()}{SetTexID()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Set\+Tex\+ID (\begin{DoxyParamCaption}\item[{Im\+Texture\+ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02805}{2805}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823}\label{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823} 
+\index{ImFontAtlas@{ImFontAtlas}!ConfigData@{ConfigData}}
+\index{ConfigData@{ConfigData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ConfigData}{ConfigData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}}$>$ Im\+Font\+Atlas\+::\+Config\+Data}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02866}{2866}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c}\label{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c} 
+\index{ImFontAtlas@{ImFontAtlas}!CustomRects@{CustomRects}}
+\index{CustomRects@{CustomRects}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{CustomRects}{CustomRects}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}}$>$ Im\+Font\+Atlas\+::\+Custom\+Rects}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02865}{2865}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11}\label{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11} 
+\index{ImFontAtlas@{ImFontAtlas}!Flags@{Flags}}
+\index{Flags@{Flags}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+Flags Im\+Font\+Atlas\+::\+Flags}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02847}{2847}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3}\label{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3} 
+\index{ImFontAtlas@{ImFontAtlas}!FontBuilderFlags@{FontBuilderFlags}}
+\index{FontBuilderFlags@{FontBuilderFlags}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{FontBuilderFlags}{FontBuilderFlags}}
+{\footnotesize\ttfamily unsigned int Im\+Font\+Atlas\+::\+Font\+Builder\+Flags}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02871}{2871}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09}\label{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09} 
+\index{ImFontAtlas@{ImFontAtlas}!FontBuilderIO@{FontBuilderIO}}
+\index{FontBuilderIO@{FontBuilderIO}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{FontBuilderIO}{FontBuilderIO}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_im_font_builder_i_o}{Im\+Font\+Builder\+IO}}\texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Font\+Builder\+IO}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02870}{2870}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f}\label{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f} 
+\index{ImFontAtlas@{ImFontAtlas}!Fonts@{Fonts}}
+\index{Fonts@{Fonts}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Fonts}{Fonts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font}{Im\+Font}}\texorpdfstring{$\ast$}{*}$>$ Im\+Font\+Atlas\+::\+Fonts}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02864}{2864}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b}\label{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b} 
+\index{ImFontAtlas@{ImFontAtlas}!Locked@{Locked}}
+\index{Locked@{Locked}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Locked}{Locked}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Locked}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02851}{2851}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b}\label{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b} 
+\index{ImFontAtlas@{ImFontAtlas}!PackIdLines@{PackIdLines}}
+\index{PackIdLines@{PackIdLines}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{PackIdLines}{PackIdLines}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Pack\+Id\+Lines}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02875}{2875}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652}\label{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652} 
+\index{ImFontAtlas@{ImFontAtlas}!PackIdMouseCursors@{PackIdMouseCursors}}
+\index{PackIdMouseCursors@{PackIdMouseCursors}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{PackIdMouseCursors}{PackIdMouseCursors}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Pack\+Id\+Mouse\+Cursors}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02874}{2874}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c}\label{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c} 
+\index{ImFontAtlas@{ImFontAtlas}!TexDesiredWidth@{TexDesiredWidth}}
+\index{TexDesiredWidth@{TexDesiredWidth}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexDesiredWidth}{TexDesiredWidth}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Desired\+Width}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02849}{2849}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62}\label{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62} 
+\index{ImFontAtlas@{ImFontAtlas}!TexGlyphPadding@{TexGlyphPadding}}
+\index{TexGlyphPadding@{TexGlyphPadding}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexGlyphPadding}{TexGlyphPadding}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Glyph\+Padding}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02850}{2850}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3}\label{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3} 
+\index{ImFontAtlas@{ImFontAtlas}!TexHeight@{TexHeight}}
+\index{TexHeight@{TexHeight}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexHeight}{TexHeight}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Height}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02861}{2861}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e}\label{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e} 
+\index{ImFontAtlas@{ImFontAtlas}!TexID@{TexID}}
+\index{TexID@{TexID}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexID}{TexID}}
+{\footnotesize\ttfamily Im\+Texture\+ID Im\+Font\+Atlas\+::\+Tex\+ID}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02848}{2848}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3}\label{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsAlpha8@{TexPixelsAlpha8}}
+\index{TexPixelsAlpha8@{TexPixelsAlpha8}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsAlpha8}{TexPixelsAlpha8}}
+{\footnotesize\ttfamily unsigned char\texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Tex\+Pixels\+Alpha8}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02858}{2858}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5}\label{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsRGBA32@{TexPixelsRGBA32}}
+\index{TexPixelsRGBA32@{TexPixelsRGBA32}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsRGBA32}{TexPixelsRGBA32}}
+{\footnotesize\ttfamily unsigned int\texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+Tex\+Pixels\+RGBA32}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02859}{2859}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff}\label{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsUseColors@{TexPixelsUseColors}}
+\index{TexPixelsUseColors@{TexPixelsUseColors}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsUseColors}{TexPixelsUseColors}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Tex\+Pixels\+Use\+Colors}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02857}{2857}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299}\label{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299} 
+\index{ImFontAtlas@{ImFontAtlas}!TexReady@{TexReady}}
+\index{TexReady@{TexReady}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexReady}{TexReady}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Tex\+Ready}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02856}{2856}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048}\label{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvLines@{TexUvLines}}
+\index{TexUvLines@{TexUvLines}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvLines}{TexUvLines}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} Im\+Font\+Atlas\+::\+Tex\+Uv\+Lines\mbox{[}IM\+\_\+\+DRAWLIST\+\_\+\+TEX\+\_\+\+LINES\+\_\+\+WIDTH\+\_\+\+MAX+1\mbox{]}}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02867}{2867}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664}\label{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvScale@{TexUvScale}}
+\index{TexUvScale@{TexUvScale}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvScale}{TexUvScale}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Font\+Atlas\+::\+Tex\+Uv\+Scale}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02862}{2862}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e}\label{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvWhitePixel@{TexUvWhitePixel}}
+\index{TexUvWhitePixel@{TexUvWhitePixel}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvWhitePixel}{TexUvWhitePixel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Font\+Atlas\+::\+Tex\+Uv\+White\+Pixel}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02863}{2863}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3}\label{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3} 
+\index{ImFontAtlas@{ImFontAtlas}!TexWidth@{TexWidth}}
+\index{TexWidth@{TexWidth}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexWidth}{TexWidth}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Width}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02860}{2860}} 行目に定義があります。
+
+\Hypertarget{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e}\label{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e} 
+\index{ImFontAtlas@{ImFontAtlas}!UserData@{UserData}}
+\index{UserData@{UserData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{UserData}{UserData}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} Im\+Font\+Atlas\+::\+User\+Data}
+
+
+
+ \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02852}{2852}} 行目に定義があります。
+
+
+
+この構造体詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

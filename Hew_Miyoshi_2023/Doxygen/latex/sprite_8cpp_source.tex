@@ -1,0 +1,100 @@
+\doxysection{sprite.\+cpp}
+\hypertarget{sprite_8cpp_source}{}\label{sprite_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sprite.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sprite.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}manager.h"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}sprite.h"{}}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00006}00006\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00008}00008\ \textcolor{keywordtype}{void}\ Sprite::Init(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ Width,\ \textcolor{keywordtype}{int}\ Height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ TextureName)}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}}\ vertex[4];}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00013}00013\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3((\textcolor{keywordtype}{float})x,\ (\textcolor{keywordtype}{float})y,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00014}00014\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00015}00015\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00016}00016\ \ \ \ \ vertex[0].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00018}00018\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3((\textcolor{keywordtype}{float})(x\ +\ Width),\ (\textcolor{keywordtype}{float})y,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00019}00019\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00020}00020\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00021}00021\ \ \ \ \ vertex[1].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(1.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00023}00023\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3((\textcolor{keywordtype}{float})x,\ (\textcolor{keywordtype}{float})(y\ +\ Height),\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00024}00024\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00025}00025\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00026}00026\ \ \ \ \ vertex[2].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(0.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00028}00028\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_aafe2112d3893ee63f0a77759f8df63e8}{Position}}\ =\ Vector3((\textcolor{keywordtype}{float})(x\ +\ Width),\ (\textcolor{keywordtype}{float})(y\ +\ Height),\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00029}00029\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a0e55c0bdb68abbc44653eb8d441d2283}{Normal}}\ =\ Vector3(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00030}00030\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_a663fd79ced5dc7898fd0cd8a0b5dd949}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00031}00031\ \ \ \ \ vertex[3].\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d_ab7bc6e9d08359fc46e6db38d288728ae}{TexCoord}}\ =\ Vector2(1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ 頂点バッファ生成}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00035}00035\ \ \ \ \ D3D11\_BUFFER\_DESC\ bd\{\};}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00036}00036\ \ \ \ \ bd.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00037}00037\ \ \ \ \ bd.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}})\ *\ 4;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00038}00038\ \ \ \ \ bd.BindFlags\ =\ D3D11\_BIND\_VERTEX\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00039}00039\ \ \ \ \ bd.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00041}00041\ \ \ \ \ D3D11\_SUBRESOURCE\_DATA\ sd\{\};}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00042}00042\ \ \ \ \ sd.pSysMem\ =\ vertex;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateBuffer(\&bd,\ \&sd,\ \&m\_VertexBuffer);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00046}00046\ \ \ \ \ std::wstring\ ws\ =\ sjis\_to\_wide\_winapi(TextureName);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ テクスチャ読み込み}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00049}00049\ \ \ \ \ DirectX::CreateWICTextureFromFile(}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}(),}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ ws.c\_str(),}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00053}00053\ \textcolor{comment}{//\ \ \ \ \ \ \&m\_TextureResource,}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \&m\_Texture);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00056}00056\ \ \ \ \ assert(m\_Texture);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00058}00058\ \ \ \ \ m\_Material.\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l_a8c87e0476708aa06c2f4725c962a75a6}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00059}00059\ \ \ \ \ m\_Material.\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l_affc171132d68102dc9d82733e493eadb}{TextureEnable}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00063}00063\ \textcolor{keywordtype}{void}\ Sprite::Uninit()}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00065}00065\ \ \ \ \ m\_VertexBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00066}00066\ \ \ \ \ m\_Texture-\/>Release();}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00067}00067\ \textcolor{comment}{//\ \ m\_TextureResource-\/>Release();}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00072}00072\ \textcolor{keywordtype}{void}\ Sprite::Draw()}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ マトリクス設定}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}{Renderer::SetWorldViewProjection2D}}();}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ 頂点バッファ設定}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00078}00078\ \ \ \ \ UINT\ stride\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}});}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00079}00079\ \ \ \ \ UINT\ offset\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetVertexBuffers(0,\ 1,\ \&m\_VertexBuffer,\ \&stride,\ \&offset);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ テクスチャ設定}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>PSSetShaderResources(0,\ 1,\ \&m\_Texture);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ プリミティブトポロジ設定}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetPrimitiveTopology(D3D11\_PRIMITIVE\_TOPOLOGY\_TRIANGLESTRIP);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//\ マテリアル設定}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{Renderer::SetMaterial}}(m\_Material);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ ポリゴン描画}}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>Draw(4,\ 0);}
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{sprite_8cpp_source_l00094}00094\ \}}
+
+\end{DoxyCode}

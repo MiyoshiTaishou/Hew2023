@@ -1,0 +1,1610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen_20230908: Renderer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen_20230908
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-static-attribs">静的非公開変数類</a> &#124;
+<a href="class_renderer-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Renderer クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>レンダラクラス  
+ <a href="class_renderer.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="renderer_8h_source.html">renderer.h</a>&gt;</code></p>
+<div class="dynheader">
+Renderer 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer__coll__graph.png" border="0" usemap="#a_renderer_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:adba8ec90ad83ef63fdbec75fb6617962" id="r_adba8ec90ad83ef63fdbec75fb6617962"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#adba8ec90ad83ef63fdbec75fb6617962">Init</a> (<a class="el" href="class_application.html">Application</a> *ap)</td></tr>
+<tr class="memdesc:adba8ec90ad83ef63fdbec75fb6617962"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダラの初期化  <br /></td></tr>
+<tr class="separator:adba8ec90ad83ef63fdbec75fb6617962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae865246d6a04d467ac22458f6f5f69d4" id="r_ae865246d6a04d467ac22458f6f5f69d4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ae865246d6a04d467ac22458f6f5f69d4">Uninit</a> ()</td></tr>
+<tr class="memdesc:ae865246d6a04d467ac22458f6f5f69d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダラの終了処理  <br /></td></tr>
+<tr class="separator:ae865246d6a04d467ac22458f6f5f69d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9917266f1a9d4ef41eaa3bafc589fefc" id="r_a9917266f1a9d4ef41eaa3bafc589fefc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a9917266f1a9d4ef41eaa3bafc589fefc">Begin</a> ()</td></tr>
+<tr class="memdesc:a9917266f1a9d4ef41eaa3bafc589fefc"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダリングの開始  <br /></td></tr>
+<tr class="separator:a9917266f1a9d4ef41eaa3bafc589fefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461d6f05d979b22d5dcba447c525b4b0" id="r_a461d6f05d979b22d5dcba447c525b4b0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a461d6f05d979b22d5dcba447c525b4b0">End</a> ()</td></tr>
+<tr class="memdesc:a461d6f05d979b22d5dcba447c525b4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">レンダリングの終了  <br /></td></tr>
+<tr class="separator:a461d6f05d979b22d5dcba447c525b4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e50ae298b4cfbbe7df0e138eca9ce1" id="r_a60e50ae298b4cfbbe7df0e138eca9ce1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a60e50ae298b4cfbbe7df0e138eca9ce1">SetDepthEnable</a> (bool Enable)</td></tr>
+<tr class="memdesc:a60e50ae298b4cfbbe7df0e138eca9ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">デプステストの有効/無効を設定  <br /></td></tr>
+<tr class="separator:a60e50ae298b4cfbbe7df0e138eca9ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c8fb2187b774d9451af8e5a100960d9" id="r_a1c8fb2187b774d9451af8e5a100960d9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a1c8fb2187b774d9451af8e5a100960d9">SetATCEnable</a> (bool Enable)</td></tr>
+<tr class="memdesc:a1c8fb2187b774d9451af8e5a100960d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ATC (Alpha to Coverage) の有効/無効を設定  <br /></td></tr>
+<tr class="separator:a1c8fb2187b774d9451af8e5a100960d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92044b276e11eb2d15b33bca4932fdcb" id="r_a92044b276e11eb2d15b33bca4932fdcb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a92044b276e11eb2d15b33bca4932fdcb">SetWorldViewProjection2D</a> ()</td></tr>
+<tr class="memdesc:a92044b276e11eb2d15b33bca4932fdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D描画用のワールド、ビュー、プロジェクション行列を設定  <br /></td></tr>
+<tr class="separator:a92044b276e11eb2d15b33bca4932fdcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1db215718af048709c7f0ed9412b81" id="r_a9c1db215718af048709c7f0ed9412b81"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a9c1db215718af048709c7f0ed9412b81">SetWorldMatrix</a> (DirectX::SimpleMath::Matrix *WorldMatrix)</td></tr>
+<tr class="memdesc:a9c1db215718af048709c7f0ed9412b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">ワールド行列を設定  <br /></td></tr>
+<tr class="separator:a9c1db215718af048709c7f0ed9412b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f539cc63a6bed2694490af38806ec9a" id="r_a4f539cc63a6bed2694490af38806ec9a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a4f539cc63a6bed2694490af38806ec9a">SetViewMatrix</a> (DirectX::SimpleMath::Matrix *ViewMatrix)</td></tr>
+<tr class="memdesc:a4f539cc63a6bed2694490af38806ec9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ビュー行列を設定  <br /></td></tr>
+<tr class="separator:a4f539cc63a6bed2694490af38806ec9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad69c19abd3719199a7412972f40391bf" id="r_ad69c19abd3719199a7412972f40391bf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ad69c19abd3719199a7412972f40391bf">SetProjectionMatrix</a> (DirectX::SimpleMath::Matrix *ProjectionMatrix)</td></tr>
+<tr class="memdesc:ad69c19abd3719199a7412972f40391bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">プロジェクション行列を設定  <br /></td></tr>
+<tr class="separator:ad69c19abd3719199a7412972f40391bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31420e0b83fe3ae5106c68c00a7bc1a7" id="r_a31420e0b83fe3ae5106c68c00a7bc1a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a31420e0b83fe3ae5106c68c00a7bc1a7">SetMaterial</a> (<a class="el" href="struct_m_a_t_e_r_i_a_l.html">MATERIAL</a> Material)</td></tr>
+<tr class="memdesc:a31420e0b83fe3ae5106c68c00a7bc1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">マテリアルを設定  <br /></td></tr>
+<tr class="separator:a31420e0b83fe3ae5106c68c00a7bc1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5280947836485d67cab32e71ce274296" id="r_a5280947836485d67cab32e71ce274296"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a5280947836485d67cab32e71ce274296">SetLight</a> (<a class="el" href="struct_l_i_g_h_t.html">LIGHT</a> Light)</td></tr>
+<tr class="memdesc:a5280947836485d67cab32e71ce274296"><td class="mdescLeft">&#160;</td><td class="mdescRight">光源情報を設定  <br /></td></tr>
+<tr class="separator:a5280947836485d67cab32e71ce274296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37bf91b44a6ed121ce66a8530532ada3" id="r_a37bf91b44a6ed121ce66a8530532ada3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a37bf91b44a6ed121ce66a8530532ada3">SetPollar</a> (<a class="el" href="struct_pollar.html">Pollar</a> pol)</td></tr>
+<tr class="memdesc:a37bf91b44a6ed121ce66a8530532ada3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pollar（円環ゲージ）情報を設定  <br /></td></tr>
+<tr class="separator:a37bf91b44a6ed121ce66a8530532ada3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a851b0f5b65140e5a14486444442a5ae1" id="r_a851b0f5b65140e5a14486444442a5ae1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a851b0f5b65140e5a14486444442a5ae1">SetFade</a> (<a class="el" href="struct_fade.html">Fade</a> fade)</td></tr>
+<tr class="memdesc:a851b0f5b65140e5a14486444442a5ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">フェード情報を設定  <br /></td></tr>
+<tr class="separator:a851b0f5b65140e5a14486444442a5ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a552e50362ba52ba2458fbef7b371059b" id="r_a552e50362ba52ba2458fbef7b371059b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a552e50362ba52ba2458fbef7b371059b">SetBloom</a> (<a class="el" href="struct_bloom.html">Bloom</a> bloom)</td></tr>
+<tr class="memdesc:a552e50362ba52ba2458fbef7b371059b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ブルーム情報を設定  <br /></td></tr>
+<tr class="separator:a552e50362ba52ba2458fbef7b371059b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b88173e3a9931860dd95ebabbe0c3b" id="r_a38b88173e3a9931860dd95ebabbe0c3b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a38b88173e3a9931860dd95ebabbe0c3b">SetRotationAngle</a> (<a class="el" href="struct_rotation_angle.html">RotationAngle</a> rot)</td></tr>
+<tr class="memdesc:a38b88173e3a9931860dd95ebabbe0c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転角度情報を設定  <br /></td></tr>
+<tr class="separator:a38b88173e3a9931860dd95ebabbe0c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f22e7a2c0a799ee751372a5aba5c397" id="r_a5f22e7a2c0a799ee751372a5aba5c397"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a5f22e7a2c0a799ee751372a5aba5c397">SetScaleShader</a> (<a class="el" href="struct_scale_shader.html">ScaleShader</a> scale)</td></tr>
+<tr class="memdesc:a5f22e7a2c0a799ee751372a5aba5c397"><td class="mdescLeft">&#160;</td><td class="mdescRight">スケールシェーダ情報を設定  <br /></td></tr>
+<tr class="separator:a5f22e7a2c0a799ee751372a5aba5c397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4db5c7c4741070e75fe73fbd5a97fc" id="r_a8a4db5c7c4741070e75fe73fbd5a97fc"><td class="memItemLeft" align="right" valign="top">static ID3D11Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a8a4db5c7c4741070e75fe73fbd5a97fc">GetDevice</a> (void)</td></tr>
+<tr class="memdesc:a8a4db5c7c4741070e75fe73fbd5a97fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバイスオブジェクトを取得  <br /></td></tr>
+<tr class="separator:a8a4db5c7c4741070e75fe73fbd5a97fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac642f0314dfa500d60c0fe6eae9ef4ef" id="r_ac642f0314dfa500d60c0fe6eae9ef4ef"><td class="memItemLeft" align="right" valign="top">static ID3D11DeviceContext *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">GetDeviceContext</a> (void)</td></tr>
+<tr class="memdesc:ac642f0314dfa500d60c0fe6eae9ef4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">デバイスコンテキストオブジェクトを取得  <br /></td></tr>
+<tr class="separator:ac642f0314dfa500d60c0fe6eae9ef4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666f866cd6fa6c32b9e70406be8bd10c" id="r_a666f866cd6fa6c32b9e70406be8bd10c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a666f866cd6fa6c32b9e70406be8bd10c">CreateVertexShader</a> (ID3D11VertexShader **VertexShader, ID3D11InputLayout **VertexLayout, const char *FileName)</td></tr>
+<tr class="memdesc:a666f866cd6fa6c32b9e70406be8bd10c"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点シェーダを生成  <br /></td></tr>
+<tr class="separator:a666f866cd6fa6c32b9e70406be8bd10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08eee6ff7e96f132296b59b36510b658" id="r_a08eee6ff7e96f132296b59b36510b658"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a08eee6ff7e96f132296b59b36510b658">CreatePixelShader</a> (ID3D11PixelShader **PixelShader, const char *FileName)</td></tr>
+<tr class="memdesc:a08eee6ff7e96f132296b59b36510b658"><td class="mdescLeft">&#160;</td><td class="mdescRight">ピクセルシェーダを生成  <br /></td></tr>
+<tr class="separator:a08eee6ff7e96f132296b59b36510b658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4dc0d4899a1130b97cb9f2d68362069" id="r_ab4dc0d4899a1130b97cb9f2d68362069"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab4dc0d4899a1130b97cb9f2d68362069">PostProcess</a> ()</td></tr>
+<tr class="memdesc:ab4dc0d4899a1130b97cb9f2d68362069"><td class="mdescLeft">&#160;</td><td class="mdescRight">ポストプロセスを実行  <br /></td></tr>
+<tr class="separator:ab4dc0d4899a1130b97cb9f2d68362069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+静的非公開変数類</h2></td></tr>
+<tr class="memitem:af111cc44c6ef2c9209f5102675090acf" id="r_af111cc44c6ef2c9209f5102675090acf"><td class="memItemLeft" align="right" valign="top">static D3D_FEATURE_LEVEL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#af111cc44c6ef2c9209f5102675090acf">m_FeatureLevel</a> = D3D_FEATURE_LEVEL_11_0</td></tr>
+<tr class="separator:af111cc44c6ef2c9209f5102675090acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b4fd567db7406ba8752e13e23a2de8" id="r_a21b4fd567db7406ba8752e13e23a2de8"><td class="memItemLeft" align="right" valign="top">static ID3D11Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a21b4fd567db7406ba8752e13e23a2de8">m_Device</a> {}</td></tr>
+<tr class="separator:a21b4fd567db7406ba8752e13e23a2de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ce7ec6be678f9a707db5fce100ce09" id="r_a46ce7ec6be678f9a707db5fce100ce09"><td class="memItemLeft" align="right" valign="top">static ID3D11DeviceContext *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a46ce7ec6be678f9a707db5fce100ce09">m_DeviceContext</a> {}</td></tr>
+<tr class="separator:a46ce7ec6be678f9a707db5fce100ce09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6691bb9fab8105ca059242fbf61e90bc" id="r_a6691bb9fab8105ca059242fbf61e90bc"><td class="memItemLeft" align="right" valign="top">static IDXGISwapChain *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a6691bb9fab8105ca059242fbf61e90bc">m_SwapChain</a> {}</td></tr>
+<tr class="separator:a6691bb9fab8105ca059242fbf61e90bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3affd775e990ec26b568f28b0fd932bf" id="r_a3affd775e990ec26b568f28b0fd932bf"><td class="memItemLeft" align="right" valign="top">static ID3D11RenderTargetView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3affd775e990ec26b568f28b0fd932bf">m_RenderTargetView</a> {}</td></tr>
+<tr class="separator:a3affd775e990ec26b568f28b0fd932bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ac78b8cddb014784a1c5f5f9f310dc" id="r_a20ac78b8cddb014784a1c5f5f9f310dc"><td class="memItemLeft" align="right" valign="top">static ID3D11DepthStencilView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a20ac78b8cddb014784a1c5f5f9f310dc">m_DepthStencilView</a> {}</td></tr>
+<tr class="separator:a20ac78b8cddb014784a1c5f5f9f310dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f649d6187ae18083b80c649166b41b" id="r_a01f649d6187ae18083b80c649166b41b"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a01f649d6187ae18083b80c649166b41b">m_WorldBuffer</a> {}</td></tr>
+<tr class="separator:a01f649d6187ae18083b80c649166b41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c89737846666dd1da5ff99bf8e37d5b" id="r_a1c89737846666dd1da5ff99bf8e37d5b"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a1c89737846666dd1da5ff99bf8e37d5b">m_ViewBuffer</a> {}</td></tr>
+<tr class="separator:a1c89737846666dd1da5ff99bf8e37d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e02b6dca69d0e47ffbf379146071241" id="r_a7e02b6dca69d0e47ffbf379146071241"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7e02b6dca69d0e47ffbf379146071241">m_ProjectionBuffer</a> {}</td></tr>
+<tr class="separator:a7e02b6dca69d0e47ffbf379146071241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121965f7c6c02fe425c2c16c18f86f41" id="r_a121965f7c6c02fe425c2c16c18f86f41"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a121965f7c6c02fe425c2c16c18f86f41">m_MaterialBuffer</a> {}</td></tr>
+<tr class="separator:a121965f7c6c02fe425c2c16c18f86f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c950072346162d7e452799bc833fb74" id="r_a7c950072346162d7e452799bc833fb74"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7c950072346162d7e452799bc833fb74">m_LightBuffer</a> {}</td></tr>
+<tr class="separator:a7c950072346162d7e452799bc833fb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d125f80bbd8fb865cab8beb20daf2d" id="r_a87d125f80bbd8fb865cab8beb20daf2d"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a87d125f80bbd8fb865cab8beb20daf2d">m_PollarBuffer</a> {}</td></tr>
+<tr class="separator:a87d125f80bbd8fb865cab8beb20daf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abca1a8240668287293ea5226029a9044" id="r_abca1a8240668287293ea5226029a9044"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#abca1a8240668287293ea5226029a9044">m_FadeBuffer</a> {}</td></tr>
+<tr class="separator:abca1a8240668287293ea5226029a9044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddd45699d66317a12d074f5f2704d18" id="r_a3ddd45699d66317a12d074f5f2704d18"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3ddd45699d66317a12d074f5f2704d18">m_BloomBuffer</a> {}</td></tr>
+<tr class="separator:a3ddd45699d66317a12d074f5f2704d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013e20b649659b5aa37608ebea5d9c9f" id="r_a013e20b649659b5aa37608ebea5d9c9f"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a013e20b649659b5aa37608ebea5d9c9f">m_RotationBuffer</a> {}</td></tr>
+<tr class="separator:a013e20b649659b5aa37608ebea5d9c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191ae07fdaee88d81dc355c3a64fe4fd" id="r_a191ae07fdaee88d81dc355c3a64fe4fd"><td class="memItemLeft" align="right" valign="top">static ID3D11Buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a191ae07fdaee88d81dc355c3a64fe4fd">m_ScaleBuffer</a> {}</td></tr>
+<tr class="separator:a191ae07fdaee88d81dc355c3a64fe4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae573457db72732149638ede8c777068c" id="r_ae573457db72732149638ede8c777068c"><td class="memItemLeft" align="right" valign="top">static ID3D11DepthStencilState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ae573457db72732149638ede8c777068c">m_DepthStateEnable</a> {}</td></tr>
+<tr class="separator:ae573457db72732149638ede8c777068c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf3c7f9e0867a66ca6efd3016326ea1" id="r_a7bf3c7f9e0867a66ca6efd3016326ea1"><td class="memItemLeft" align="right" valign="top">static ID3D11DepthStencilState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7bf3c7f9e0867a66ca6efd3016326ea1">m_DepthStateDisable</a> {}</td></tr>
+<tr class="separator:a7bf3c7f9e0867a66ca6efd3016326ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87fefd03362d0fa713f6304a840a358" id="r_ad87fefd03362d0fa713f6304a840a358"><td class="memItemLeft" align="right" valign="top">static ID3D11BlendState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ad87fefd03362d0fa713f6304a840a358">m_BlendState</a> {}</td></tr>
+<tr class="separator:ad87fefd03362d0fa713f6304a840a358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf017dfc054e4f6cc3bc50afe8b6a89" id="r_a3bf017dfc054e4f6cc3bc50afe8b6a89"><td class="memItemLeft" align="right" valign="top">static ID3D11BlendState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3bf017dfc054e4f6cc3bc50afe8b6a89">m_BlendStateATC</a> {}</td></tr>
+<tr class="separator:a3bf017dfc054e4f6cc3bc50afe8b6a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b64935e72317814f493ed6027a32a97" id="r_a2b64935e72317814f493ed6027a32a97"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_application.html">Application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a2b64935e72317814f493ed6027a32a97">m_Application</a></td></tr>
+<tr class="separator:a2b64935e72317814f493ed6027a32a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>レンダラクラス </p>
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00113">113</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a9917266f1a9d4ef41eaa3bafc589fefc" name="a9917266f1a9d4ef41eaa3bafc589fefc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9917266f1a9d4ef41eaa3bafc589fefc">&#9670;&#160;</a></span>Begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::Begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダリングの開始 </p>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00344">344</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc_icgraph.png" border="0" usemap="#aclass_renderer_a9917266f1a9d4ef41eaa3bafc589fefc_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a08eee6ff7e96f132296b59b36510b658" name="a08eee6ff7e96f132296b59b36510b658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08eee6ff7e96f132296b59b36510b658">&#9670;&#160;</a></span>CreatePixelShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::CreatePixelShader </td>
+          <td>(</td>
+          <td class="paramtype">ID3D11PixelShader **&#160;</td>
+          <td class="paramname"><em>PixelShader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>FileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ピクセルシェーダを生成 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">PixelShader</td><td>生成されたピクセルシェーダへのポインタを格納する変数へのポインタ </td></tr>
+    <tr><td class="paramname">FileName</td><td>シェーダファイルの名前 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00536">536</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a08eee6ff7e96f132296b59b36510b658_icgraph.png" border="0" usemap="#aclass_renderer_a08eee6ff7e96f132296b59b36510b658_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a666f866cd6fa6c32b9e70406be8bd10c" name="a666f866cd6fa6c32b9e70406be8bd10c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666f866cd6fa6c32b9e70406be8bd10c">&#9670;&#160;</a></span>CreateVertexShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::CreateVertexShader </td>
+          <td>(</td>
+          <td class="paramtype">ID3D11VertexShader **&#160;</td>
+          <td class="paramname"><em>VertexShader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D11InputLayout **&#160;</td>
+          <td class="paramname"><em>VertexLayout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>FileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>頂点シェーダを生成 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">VertexShader</td><td>生成された頂点シェーダへのポインタを格納する変数へのポインタ </td></tr>
+    <tr><td class="paramname">VertexLayout</td><td>頂点レイアウトへのポインタを格納する変数へのポインタ </td></tr>
+    <tr><td class="paramname">FileName</td><td>シェーダファイルの名前 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00499">499</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a666f866cd6fa6c32b9e70406be8bd10c_icgraph.png" border="0" usemap="#aclass_renderer_a666f866cd6fa6c32b9e70406be8bd10c_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a461d6f05d979b22d5dcba447c525b4b0" name="a461d6f05d979b22d5dcba447c525b4b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461d6f05d979b22d5dcba447c525b4b0">&#9670;&#160;</a></span>End()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::End </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダリングの終了 </p>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00353">353</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a461d6f05d979b22d5dcba447c525b4b0_icgraph.png" border="0" usemap="#aclass_renderer_a461d6f05d979b22d5dcba447c525b4b0_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a8a4db5c7c4741070e75fe73fbd5a97fc" name="a8a4db5c7c4741070e75fe73fbd5a97fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4db5c7c4741070e75fe73fbd5a97fc">&#9670;&#160;</a></span>GetDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ID3D11Device * Renderer::GetDevice </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デバイスオブジェクトを取得 </p>
+<dl class="section return"><dt>戻り値</dt><dd>ID3D11Deviceオブジェクトへのポインタ </dd></dl>
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00241">241</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc_icgraph.png" border="0" usemap="#aclass_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ac642f0314dfa500d60c0fe6eae9ef4ef" name="ac642f0314dfa500d60c0fe6eae9ef4ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac642f0314dfa500d60c0fe6eae9ef4ef">&#9670;&#160;</a></span>GetDeviceContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ID3D11DeviceContext * Renderer::GetDeviceContext </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デバイスコンテキストオブジェクトを取得 </p>
+<dl class="section return"><dt>戻り値</dt><dd>ID3D11DeviceContextオブジェクトへのポインタ </dd></dl>
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00247">247</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef_icgraph.png" border="0" usemap="#aclass_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="adba8ec90ad83ef63fdbec75fb6617962" name="adba8ec90ad83ef63fdbec75fb6617962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba8ec90ad83ef63fdbec75fb6617962">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_application.html">Application</a> *&#160;</td>
+          <td class="paramname"><em>ap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダラの初期化 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ap</td><td>Applicationクラスへのポインタ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00038">38</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_adba8ec90ad83ef63fdbec75fb6617962_cgraph.png" border="0" usemap="#aclass_renderer_adba8ec90ad83ef63fdbec75fb6617962_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_adba8ec90ad83ef63fdbec75fb6617962_icgraph.png" border="0" usemap="#aclass_renderer_adba8ec90ad83ef63fdbec75fb6617962_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab4dc0d4899a1130b97cb9f2d68362069" name="ab4dc0d4899a1130b97cb9f2d68362069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4dc0d4899a1130b97cb9f2d68362069">&#9670;&#160;</a></span>PostProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::PostProcess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ポストプロセスを実行 </p>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00554">554</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_ab4dc0d4899a1130b97cb9f2d68362069_cgraph.png" border="0" usemap="#aclass_renderer_ab4dc0d4899a1130b97cb9f2d68362069_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_ab4dc0d4899a1130b97cb9f2d68362069_icgraph.png" border="0" usemap="#aclass_renderer_ab4dc0d4899a1130b97cb9f2d68362069_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a1c8fb2187b774d9451af8e5a100960d9" name="a1c8fb2187b774d9451af8e5a100960d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c8fb2187b774d9451af8e5a100960d9">&#9670;&#160;</a></span>SetATCEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetATCEnable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>Enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ATC (Alpha to Coverage) の有効/無効を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Enable</td><td>有効にする場合はtrue、無効にする場合はfalse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00372">372</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a552e50362ba52ba2458fbef7b371059b" name="a552e50362ba52ba2458fbef7b371059b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a552e50362ba52ba2458fbef7b371059b">&#9670;&#160;</a></span>SetBloom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetBloom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_bloom.html">Bloom</a>&#160;</td>
+          <td class="paramname"><em>bloom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ブルーム情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bloom</td><td>ブルーム情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00480">480</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a552e50362ba52ba2458fbef7b371059b_icgraph.png" border="0" usemap="#aclass_renderer_a552e50362ba52ba2458fbef7b371059b_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a60e50ae298b4cfbbe7df0e138eca9ce1" name="a60e50ae298b4cfbbe7df0e138eca9ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e50ae298b4cfbbe7df0e138eca9ce1">&#9670;&#160;</a></span>SetDepthEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetDepthEnable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>Enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デプステストの有効/無効を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Enable</td><td>有効にする場合はtrue、無効にする場合はfalse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00361">361</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a851b0f5b65140e5a14486444442a5ae1" name="a851b0f5b65140e5a14486444442a5ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a851b0f5b65140e5a14486444442a5ae1">&#9670;&#160;</a></span>SetFade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetFade </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_fade.html">Fade</a>&#160;</td>
+          <td class="paramname"><em>fade</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>フェード情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fade</td><td>フェード情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00475">475</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a851b0f5b65140e5a14486444442a5ae1_icgraph.png" border="0" usemap="#aclass_renderer_a851b0f5b65140e5a14486444442a5ae1_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a5280947836485d67cab32e71ce274296" name="a5280947836485d67cab32e71ce274296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5280947836485d67cab32e71ce274296">&#9670;&#160;</a></span>SetLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetLight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_l_i_g_h_t.html">LIGHT</a>&#160;</td>
+          <td class="paramname"><em>Light</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>光源情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Light</td><td>光源情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00465">465</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a5280947836485d67cab32e71ce274296_icgraph.png" border="0" usemap="#aclass_renderer_a5280947836485d67cab32e71ce274296_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a31420e0b83fe3ae5106c68c00a7bc1a7" name="a31420e0b83fe3ae5106c68c00a7bc1a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31420e0b83fe3ae5106c68c00a7bc1a7">&#9670;&#160;</a></span>SetMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetMaterial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_m_a_t_e_r_i_a_l.html">MATERIAL</a>&#160;</td>
+          <td class="paramname"><em>Material</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>マテリアルを設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Material</td><td>マテリアル情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00460">460</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7_icgraph.png" border="0" usemap="#aclass_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a37bf91b44a6ed121ce66a8530532ada3" name="a37bf91b44a6ed121ce66a8530532ada3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37bf91b44a6ed121ce66a8530532ada3">&#9670;&#160;</a></span>SetPollar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetPollar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pollar.html">Pollar</a>&#160;</td>
+          <td class="paramname"><em>pol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pollar（円環ゲージ）情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pol</td><td>Pollar情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00470">470</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a37bf91b44a6ed121ce66a8530532ada3_icgraph.png" border="0" usemap="#aclass_renderer_a37bf91b44a6ed121ce66a8530532ada3_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ad69c19abd3719199a7412972f40391bf" name="ad69c19abd3719199a7412972f40391bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad69c19abd3719199a7412972f40391bf">&#9670;&#160;</a></span>SetProjectionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramtype">DirectX::SimpleMath::Matrix *&#160;</td>
+          <td class="paramname"><em>ProjectionMatrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>プロジェクション行列を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ProjectionMatrix</td><td>プロジェクション行列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00450">450</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_ad69c19abd3719199a7412972f40391bf_icgraph.png" border="0" usemap="#aclass_renderer_ad69c19abd3719199a7412972f40391bf_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a38b88173e3a9931860dd95ebabbe0c3b" name="a38b88173e3a9931860dd95ebabbe0c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b88173e3a9931860dd95ebabbe0c3b">&#9670;&#160;</a></span>SetRotationAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetRotationAngle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_rotation_angle.html">RotationAngle</a>&#160;</td>
+          <td class="paramname"><em>rot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>回転角度情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rot</td><td>回転角度情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00485">485</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a38b88173e3a9931860dd95ebabbe0c3b_icgraph.png" border="0" usemap="#aclass_renderer_a38b88173e3a9931860dd95ebabbe0c3b_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a5f22e7a2c0a799ee751372a5aba5c397" name="a5f22e7a2c0a799ee751372a5aba5c397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f22e7a2c0a799ee751372a5aba5c397">&#9670;&#160;</a></span>SetScaleShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetScaleShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_scale_shader.html">ScaleShader</a>&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>スケールシェーダ情報を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>スケールシェーダ情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00490">490</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a5f22e7a2c0a799ee751372a5aba5c397_icgraph.png" border="0" usemap="#aclass_renderer_a5f22e7a2c0a799ee751372a5aba5c397_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a4f539cc63a6bed2694490af38806ec9a" name="a4f539cc63a6bed2694490af38806ec9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f539cc63a6bed2694490af38806ec9a">&#9670;&#160;</a></span>SetViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetViewMatrix </td>
+          <td>(</td>
+          <td class="paramtype">DirectX::SimpleMath::Matrix *&#160;</td>
+          <td class="paramname"><em>ViewMatrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ビュー行列を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ViewMatrix</td><td>ビュー行列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00442">442</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a4f539cc63a6bed2694490af38806ec9a_icgraph.png" border="0" usemap="#aclass_renderer_a4f539cc63a6bed2694490af38806ec9a_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a9c1db215718af048709c7f0ed9412b81" name="a9c1db215718af048709c7f0ed9412b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1db215718af048709c7f0ed9412b81">&#9670;&#160;</a></span>SetWorldMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetWorldMatrix </td>
+          <td>(</td>
+          <td class="paramtype">DirectX::SimpleMath::Matrix *&#160;</td>
+          <td class="paramname"><em>WorldMatrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ワールド行列を設定 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">WorldMatrix</td><td>ワールド行列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00434">434</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a9c1db215718af048709c7f0ed9412b81_icgraph.png" border="0" usemap="#aclass_renderer_a9c1db215718af048709c7f0ed9412b81_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a92044b276e11eb2d15b33bca4932fdcb" name="a92044b276e11eb2d15b33bca4932fdcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92044b276e11eb2d15b33bca4932fdcb">&#9670;&#160;</a></span>SetWorldViewProjection2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::SetWorldViewProjection2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>2D描画用のワールド、ビュー、プロジェクション行列を設定 </p>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00383">383</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a92044b276e11eb2d15b33bca4932fdcb_cgraph.png" border="0" usemap="#aclass_renderer_a92044b276e11eb2d15b33bca4932fdcb_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_renderer_a92044b276e11eb2d15b33bca4932fdcb_icgraph.png" border="0" usemap="#aclass_renderer_a92044b276e11eb2d15b33bca4932fdcb_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ae865246d6a04d467ac22458f6f5f69d4" name="ae865246d6a04d467ac22458f6f5f69d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae865246d6a04d467ac22458f6f5f69d4">&#9670;&#160;</a></span>Uninit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::Uninit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>レンダラの終了処理 </p>
+
+<p class="definition"> <a class="el" href="renderer_8cpp_source.html">renderer.cpp</a> の <a class="el" href="renderer_8cpp_source.html#l00320">320</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a2b64935e72317814f493ed6027a32a97" name="a2b64935e72317814f493ed6027a32a97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b64935e72317814f493ed6027a32a97">&#9670;&#160;</a></span>m_Application</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_application.html">Application</a> * Renderer::m_Application</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00136">136</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad87fefd03362d0fa713f6304a840a358" name="ad87fefd03362d0fa713f6304a840a358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad87fefd03362d0fa713f6304a840a358">&#9670;&#160;</a></span>m_BlendState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11BlendState * Renderer::m_BlendState {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00032">32</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3bf017dfc054e4f6cc3bc50afe8b6a89" name="a3bf017dfc054e4f6cc3bc50afe8b6a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf017dfc054e4f6cc3bc50afe8b6a89">&#9670;&#160;</a></span>m_BlendStateATC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11BlendState * Renderer::m_BlendStateATC {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00033">33</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3ddd45699d66317a12d074f5f2704d18" name="a3ddd45699d66317a12d074f5f2704d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ddd45699d66317a12d074f5f2704d18">&#9670;&#160;</a></span>m_BloomBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_BloomBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00023">23</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7bf3c7f9e0867a66ca6efd3016326ea1" name="a7bf3c7f9e0867a66ca6efd3016326ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf3c7f9e0867a66ca6efd3016326ea1">&#9670;&#160;</a></span>m_DepthStateDisable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11DepthStencilState * Renderer::m_DepthStateDisable {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00029">29</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae573457db72732149638ede8c777068c" name="ae573457db72732149638ede8c777068c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae573457db72732149638ede8c777068c">&#9670;&#160;</a></span>m_DepthStateEnable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11DepthStencilState * Renderer::m_DepthStateEnable {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00028">28</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a20ac78b8cddb014784a1c5f5f9f310dc" name="a20ac78b8cddb014784a1c5f5f9f310dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ac78b8cddb014784a1c5f5f9f310dc">&#9670;&#160;</a></span>m_DepthStencilView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11DepthStencilView * Renderer::m_DepthStencilView {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00014">14</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a21b4fd567db7406ba8752e13e23a2de8" name="a21b4fd567db7406ba8752e13e23a2de8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b4fd567db7406ba8752e13e23a2de8">&#9670;&#160;</a></span>m_Device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Device * Renderer::m_Device {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00010">10</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a46ce7ec6be678f9a707db5fce100ce09" name="a46ce7ec6be678f9a707db5fce100ce09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ce7ec6be678f9a707db5fce100ce09">&#9670;&#160;</a></span>m_DeviceContext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11DeviceContext * Renderer::m_DeviceContext {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00011">11</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abca1a8240668287293ea5226029a9044" name="abca1a8240668287293ea5226029a9044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abca1a8240668287293ea5226029a9044">&#9670;&#160;</a></span>m_FadeBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_FadeBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00022">22</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af111cc44c6ef2c9209f5102675090acf" name="af111cc44c6ef2c9209f5102675090acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af111cc44c6ef2c9209f5102675090acf">&#9670;&#160;</a></span>m_FeatureLevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D_FEATURE_LEVEL Renderer::m_FeatureLevel = D3D_FEATURE_LEVEL_11_0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00116">116</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7c950072346162d7e452799bc833fb74" name="a7c950072346162d7e452799bc833fb74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c950072346162d7e452799bc833fb74">&#9670;&#160;</a></span>m_LightBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_LightBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00020">20</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a121965f7c6c02fe425c2c16c18f86f41" name="a121965f7c6c02fe425c2c16c18f86f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121965f7c6c02fe425c2c16c18f86f41">&#9670;&#160;</a></span>m_MaterialBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_MaterialBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00019">19</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a87d125f80bbd8fb865cab8beb20daf2d" name="a87d125f80bbd8fb865cab8beb20daf2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d125f80bbd8fb865cab8beb20daf2d">&#9670;&#160;</a></span>m_PollarBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_PollarBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00021">21</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7e02b6dca69d0e47ffbf379146071241" name="a7e02b6dca69d0e47ffbf379146071241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e02b6dca69d0e47ffbf379146071241">&#9670;&#160;</a></span>m_ProjectionBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_ProjectionBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00018">18</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3affd775e990ec26b568f28b0fd932bf" name="a3affd775e990ec26b568f28b0fd932bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3affd775e990ec26b568f28b0fd932bf">&#9670;&#160;</a></span>m_RenderTargetView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11RenderTargetView * Renderer::m_RenderTargetView {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00013">13</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a013e20b649659b5aa37608ebea5d9c9f" name="a013e20b649659b5aa37608ebea5d9c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013e20b649659b5aa37608ebea5d9c9f">&#9670;&#160;</a></span>m_RotationBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_RotationBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00024">24</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a191ae07fdaee88d81dc355c3a64fe4fd" name="a191ae07fdaee88d81dc355c3a64fe4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a191ae07fdaee88d81dc355c3a64fe4fd">&#9670;&#160;</a></span>m_ScaleBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_ScaleBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00025">25</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6691bb9fab8105ca059242fbf61e90bc" name="a6691bb9fab8105ca059242fbf61e90bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6691bb9fab8105ca059242fbf61e90bc">&#9670;&#160;</a></span>m_SwapChain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IDXGISwapChain * Renderer::m_SwapChain {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00012">12</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1c89737846666dd1da5ff99bf8e37d5b" name="a1c89737846666dd1da5ff99bf8e37d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c89737846666dd1da5ff99bf8e37d5b">&#9670;&#160;</a></span>m_ViewBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_ViewBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00017">17</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a01f649d6187ae18083b80c649166b41b" name="a01f649d6187ae18083b80c649166b41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01f649d6187ae18083b80c649166b41b">&#9670;&#160;</a></span>m_WorldBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D11Buffer * Renderer::m_WorldBuffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="renderer_8h_source.html">renderer.h</a> の <a class="el" href="renderer_8h_source.html#l00016">16</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/<a class="el" href="renderer_8h_source.html">renderer.h</a></li>
+<li>C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/<a class="el" href="renderer_8cpp_source.html">renderer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

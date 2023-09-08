@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen_20230908: C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/Fade.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen_20230908
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b09d1d5e6ff69a107c29d6e4fb03a01e.html">Hew2023</a></li><li class="navelem"><a class="el" href="dir_fe73dba3fb75d9fb575972b1f2271699.html">Hew_Miyoshi_2023</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Fade.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;Fade.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include&quot;shader.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include&quot;sprite.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="}">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_fade_u_i.html#ae89bb7870d5a55b4bca54430762ca3ac">    5</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_fade_u_i.html#ae89bb7870d5a55b4bca54430762ca3ac">FadeUI::Init</a>()</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">AddComponent&lt;Shader&gt;</a>()-&gt;Load(<span class="stringliteral">&quot;shader\\unlitTextureVS.cso&quot;</span>, <span class="stringliteral">&quot;shader\\PS_FadeShader.cso&quot;</span>);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">AddComponent&lt;Sprite&gt;</a>()-&gt;Init(0, 0, 1280, 720, <span class="stringliteral">&quot;asset\\texture\\field.jpg&quot;</span>);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    fade.<a class="code hl_variable" href="struct_fade.html#aee749b8ad6a93bb65c96f68b6499096e">alpha</a> = m_Alpha;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
+</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_fade_u_i.html#a21caf192d27b38366f57e9ba407736d2">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_fade_u_i.html#a21caf192d27b38366f57e9ba407736d2">FadeUI::Update</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{   </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">switch</span> (m_State)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">case</span> State::Stop:<span class="comment">//フェードイン終了</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">case</span> State::In:<span class="comment">//フェードイン中（透明度を下げていく）</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        m_Alpha -= 2.0f / 60.0f;<span class="comment">//1秒間に2ずつ透明</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">if</span> (m_Alpha &lt; 0.0f)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            m_State = State::Stop;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">case</span> State::Out:<span class="comment">//フェードアウト中（透明度を挙げていく）</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        m_Alpha += 2.0f / 60.0f;<span class="comment">//1秒間に2ずつ透明</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">//完全に不透明ならFINISH状態へ</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (m_Alpha &gt; 1.0f)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            m_State = State::Finish;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">case</span> State::Finish:<span class="comment">//フェードアウト終了</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    fade.<a class="code hl_variable" href="struct_fade.html#aee749b8ad6a93bb65c96f68b6499096e">alpha</a> = m_Alpha;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="class_renderer.html#a851b0f5b65140e5a14486444442a5ae1">Renderer::SetFade</a>(fade);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="ttc" id="aclass_fade_u_i_html_a21caf192d27b38366f57e9ba407736d2"><div class="ttname"><a href="class_fade_u_i.html#a21caf192d27b38366f57e9ba407736d2">FadeUI::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">オブジェクトの更新処理を行います。</div><div class="ttdef"><b>Definition</b> <a href="_fade_8cpp_source.html#l00013">Fade.cpp:13</a></div></div>
+<div class="ttc" id="aclass_fade_u_i_html_ae89bb7870d5a55b4bca54430762ca3ac"><div class="ttname"><a href="class_fade_u_i.html#ae89bb7870d5a55b4bca54430762ca3ac">FadeUI::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdoc">オブジェクトの初期化を行います。</div><div class="ttdef"><b>Definition</b> <a href="_fade_8cpp_source.html#l00005">Fade.cpp:5</a></div></div>
+<div class="ttc" id="aclass_game_object_html_a811dc08b79009b3af153721df972e761"><div class="ttname"><a href="class_game_object.html#a811dc08b79009b3af153721df972e761">GameObject::AddComponent</a></div><div class="ttdeci">T * AddComponent()</div><div class="ttdoc">オブジェクトに新しいコンポーネントを追加します。</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00154">gameObject.h:154</a></div></div>
+<div class="ttc" id="aclass_renderer_html_a851b0f5b65140e5a14486444442a5ae1"><div class="ttname"><a href="class_renderer.html#a851b0f5b65140e5a14486444442a5ae1">Renderer::SetFade</a></div><div class="ttdeci">static void SetFade(Fade fade)</div><div class="ttdoc">フェード情報を設定</div><div class="ttdef"><b>Definition</b> <a href="renderer_8cpp_source.html#l00475">renderer.cpp:475</a></div></div>
+<div class="ttc" id="astruct_fade_html_aee749b8ad6a93bb65c96f68b6499096e"><div class="ttname"><a href="struct_fade.html#aee749b8ad6a93bb65c96f68b6499096e">Fade::alpha</a></div><div class="ttdeci">float alpha</div><div class="ttdoc">アルファ値</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00067">renderer.h:67</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

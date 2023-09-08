@@ -1,0 +1,51 @@
+\doxysection{input.\+h}
+\hypertarget{input_8h_source}{}\label{input_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/input.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/input.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <GamePad.h>}}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00007}00007\ \textcolor{keyword}{enum}\ BUTTON}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00009}00009\ \ \ \ \ LUP,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00010}00010\ \ \ \ \ LDOWN,\ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00011}00011\ \ \ \ \ LLEFT,\ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00012}00012\ \ \ \ \ LRIGHT,\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00013}00013\ \ \ \ \ RUP,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00014}00014\ \ \ \ \ RDOWN,\ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00015}00015\ \ \ \ \ RLEFT,\ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00016}00016\ \ \ \ \ RRIGHT,\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00017}00017\ \};}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00022}00022\ \textcolor{keyword}{enum}\ STATE}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00024}00024\ \ \ \ \ UP\ =\ 0,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00025}00025\ \ \ \ \ HELD\ =\ 1,\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00026}00026\ \ \ \ \ RELEASED\ =\ 2,\ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00027}00027\ \ \ \ \ PRESSED\ =\ 3,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00028}00028\ \};}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00033}\mbox{\hyperlink{class_input}{00033}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input}{Input}}}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00035}00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00036}\mbox{\hyperlink{class_input_a371d43377d1a42bbd8a9bea723982d69}{00036}}\ \ \ \ \ \textcolor{keyword}{static}\ BYTE\ \mbox{\hyperlink{class_input_a371d43377d1a42bbd8a9bea723982d69}{m\_OldKeyState}}[256];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00037}\mbox{\hyperlink{class_input_a6991012c7d4718050a0dbe7c11b1a8a1}{00037}}\ \ \ \ \ \textcolor{keyword}{static}\ BYTE\ \mbox{\hyperlink{class_input_a6991012c7d4718050a0dbe7c11b1a8a1}{m\_KeyState}}[256];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ ゲームパッドの判定}}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00040}\mbox{\hyperlink{class_input_a14e4ae9771ca5b4c5d4e2156b8ce8a7c}{00040}}\ \ \ \ \ \textcolor{keyword}{static}\ DirectX::GamePad\ \mbox{\hyperlink{class_input_a14e4ae9771ca5b4c5d4e2156b8ce8a7c}{m\_GamePad}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00041}\mbox{\hyperlink{class_input_ad7db7f45caa9b500e20531218251c9a1}{00041}}\ \ \ \ \ \textcolor{keyword}{static}\ DirectX::GamePad::State\ \mbox{\hyperlink{class_input_ad7db7f45caa9b500e20531218251c9a1}{m\_State}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00042}\mbox{\hyperlink{class_input_a16f71fae57da65c557657a4fab7c8808}{00042}}\ \ \ \ \ \textcolor{keyword}{static}\ DirectX::GamePad::ButtonStateTracker\ \mbox{\hyperlink{class_input_a16f71fae57da65c557657a4fab7c8808}{m\_StateTracker}};\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00044}00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_a5197114da7299198826ff7277ee12bff}{Init}}();}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_a45d0296612518611e8722ea34fc1361e}{Uninit}}();}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00058}00058\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}{Update}}();}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_ae1d9201a8eccd85d48f1ebeb184fc55a}{GetKeyPress}}(BYTE\ KeyCode);}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_a4b7fc68a93e7fcd2aa30a66d79fcaef9}{GetKeyTrigger}}(BYTE\ KeyCode);}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_a65aecf385262e9aabc5559291e0baaa5}{GetGamePad}}(BUTTON\ button,\ STATE\ \_buttonState);}
+\DoxyCodeLine{\Hypertarget{input_8h_source_l00081}00081\ \};}
+
+\end{DoxyCode}

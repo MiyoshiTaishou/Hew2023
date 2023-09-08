@@ -1,0 +1,710 @@
+\doxysection{renderer.\+cpp}
+\hypertarget{renderer_8cpp_source}{}\label{renderer_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/renderer.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/renderer.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Application.h"{}}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <io.h>}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00006}00006\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00008}00008\ D3D\_FEATURE\_LEVEL\ \ \ \ \ \ \ Renderer::m\_FeatureLevel\ =\ D3D\_FEATURE\_LEVEL\_11\_0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00010}00010\ ID3D11Device*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_Device\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00011}00011\ ID3D11DeviceContext*\ \ \ \ Renderer::m\_DeviceContext\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00012}00012\ IDXGISwapChain*\ \ \ \ \ \ \ \ \ Renderer::m\_SwapChain\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00013}00013\ ID3D11RenderTargetView*\ Renderer::m\_RenderTargetView\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00014}00014\ ID3D11DepthStencilView*\ Renderer::m\_DepthStencilView\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00016}00016\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_WorldBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00017}00017\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_ViewBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00018}00018\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_ProjectionBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00019}00019\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_MaterialBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00020}00020\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_LightBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00021}00021\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_PollarBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00022}00022\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_FadeBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00023}00023\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_BloomBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00024}00024\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_RotationBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00025}00025\ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ Renderer::m\_ScaleBuffer\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00028}00028\ ID3D11DepthStencilState*\ Renderer::m\_DepthStateEnable\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00029}00029\ ID3D11DepthStencilState*\ Renderer::m\_DepthStateDisable\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00032}00032\ ID3D11BlendState*\ \ \ \ \ \ \ Renderer::m\_BlendState\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00033}00033\ ID3D11BlendState*\ \ \ \ \ \ \ Renderer::m\_BlendStateATC\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00035}00035\ \mbox{\hyperlink{class_application}{Application}}*\ \ \ \ \ \ \ \ \ Renderer::m\_Application;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00038}\mbox{\hyperlink{class_renderer_adba8ec90ad83ef63fdbec75fb6617962}{00038}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_adba8ec90ad83ef63fdbec75fb6617962}{Renderer::Init}}(\mbox{\hyperlink{class_application}{Application}}*\ ap)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00040}00040\ \ \ \ \ HRESULT\ hr\ =\ S\_OK;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ 持ち主オブジェクトのアドレスをセット}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00043}00043\ \ \ \ \ m\_Application\ =\ ap;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ デバイス、スワップチェーン作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00046}00046\ \ \ \ \ DXGI\_SWAP\_CHAIN\_DESC\ swapChainDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00047}00047\ \ \ \ \ swapChainDesc.BufferCount\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00048}00048\ \ \ \ \ swapChainDesc.BufferDesc.Width\ =\ m\_Application-\/>\mbox{\hyperlink{class_application_ab2494802d94ddf0a8b1d06a87fa978be}{GetWidth}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00049}00049\ \ \ \ \ swapChainDesc.BufferDesc.Height\ =\ m\_Application-\/>\mbox{\hyperlink{class_application_ae085a9a312a31aef1a977278990d5b75}{GetHeight}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00050}00050\ \ \ \ \ swapChainDesc.BufferDesc.Format\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00051}00051\ \ \ \ \ swapChainDesc.BufferDesc.RefreshRate.Numerator\ =\ 60;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00052}00052\ \ \ \ \ swapChainDesc.BufferDesc.RefreshRate.Denominator\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00053}00053\ \ \ \ \ swapChainDesc.BufferUsage\ =\ DXGI\_USAGE\_RENDER\_TARGET\_OUTPUT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00054}00054\ \ \ \ \ swapChainDesc.OutputWindow\ =\ m\_Application-\/>\mbox{\hyperlink{class_application_a4405615fab25f11b885965f9da10e67c}{GetWindow}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00055}00055\ \ \ \ \ swapChainDesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00056}00056\ \ \ \ \ swapChainDesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00057}00057\ \ \ \ \ swapChainDesc.Windowed\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00059}00059\ \ \ \ \ hr\ =\ D3D11CreateDeviceAndSwapChain(\ NULL,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D\_DRIVER\_TYPE\_HARDWARE,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NULL,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NULL,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D11\_SDK\_VERSION,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&swapChainDesc,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&m\_SwapChain,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&m\_Device,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&m\_FeatureLevel,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&m\_DeviceContext\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ レンダーターゲットビュー作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00078}00078\ \ \ \ \ ID3D11Texture2D*\ renderTarget\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00079}00079\ \ \ \ \ m\_SwapChain-\/>GetBuffer(\ 0,\ \_\_uuidof(\ ID3D11Texture2D\ ),\ (\ LPVOID*\ )\&renderTarget\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00080}00080\ \ \ \ \ m\_Device-\/>CreateRenderTargetView(\ renderTarget,\ NULL,\ \&m\_RenderTargetView\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00081}00081\ \ \ \ \ renderTarget-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ デプスステンシルバッファ作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00085}00085\ \ \ \ \ ID3D11Texture2D*\ depthStencile\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00086}00086\ \ \ \ \ D3D11\_TEXTURE2D\_DESC\ textureDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00087}00087\ \ \ \ \ textureDesc.Width\ =\ swapChainDesc.BufferDesc.Width;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00088}00088\ \ \ \ \ textureDesc.Height\ =\ swapChainDesc.BufferDesc.Height;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00089}00089\ \ \ \ \ textureDesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00090}00090\ \ \ \ \ textureDesc.ArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00091}00091\ \ \ \ \ textureDesc.Format\ =\ DXGI\_FORMAT\_D16\_UNORM;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00092}00092\ \ \ \ \ textureDesc.SampleDesc\ =\ swapChainDesc.SampleDesc;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00093}00093\ \ \ \ \ textureDesc.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00094}00094\ \ \ \ \ textureDesc.BindFlags\ =\ D3D11\_BIND\_DEPTH\_STENCIL;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00095}00095\ \ \ \ \ textureDesc.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00096}00096\ \ \ \ \ textureDesc.MiscFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00097}00097\ \ \ \ \ m\_Device-\/>CreateTexture2D(\&textureDesc,\ NULL,\ \&depthStencile);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ デプスステンシルビュー作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00100}00100\ \ \ \ \ D3D11\_DEPTH\_STENCIL\_VIEW\_DESC\ depthStencilViewDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00101}00101\ \ \ \ \ depthStencilViewDesc.Format\ =\ textureDesc.Format;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00102}00102\ \ \ \ \ depthStencilViewDesc.ViewDimension\ =\ D3D11\_DSV\_DIMENSION\_TEXTURE2D;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00103}00103\ \ \ \ \ depthStencilViewDesc.Flags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00104}00104\ \ \ \ \ m\_Device-\/>CreateDepthStencilView(depthStencile,\ \&depthStencilViewDesc,\ \&m\_DepthStencilView);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00105}00105\ \ \ \ \ depthStencile-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00108}00108\ \ \ \ \ m\_DeviceContext-\/>OMSetRenderTargets(1,\ \&m\_RenderTargetView,\ m\_DepthStencilView);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ ビューポート設定}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00112}00112\ \ \ \ \ D3D11\_VIEWPORT\ viewport;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00113}00113\ \ \ \ \ viewport.Width\ =\ (FLOAT)m\_Application-\/>\mbox{\hyperlink{class_application_ab2494802d94ddf0a8b1d06a87fa978be}{GetWidth}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00114}00114\ \ \ \ \ viewport.Height\ =\ (FLOAT)m\_Application-\/>\mbox{\hyperlink{class_application_ae085a9a312a31aef1a977278990d5b75}{GetHeight}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00115}00115\ \ \ \ \ viewport.MinDepth\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00116}00116\ \ \ \ \ viewport.MaxDepth\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00117}00117\ \ \ \ \ viewport.TopLeftX\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00118}00118\ \ \ \ \ viewport.TopLeftY\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00119}00119\ \ \ \ \ m\_DeviceContext-\/>RSSetViewports(\ 1,\ \&viewport\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{comment}{//\ ラスタライザステート設定}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00124}00124\ \ \ \ \ D3D11\_RASTERIZER\_DESC\ rasterizerDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00125}00125\ \ \ \ \ rasterizerDesc.FillMode\ =\ D3D11\_FILL\_SOLID;\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00126}00126\ \ \ \ \ rasterizerDesc.CullMode\ =\ D3D11\_CULL\_BACK;\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00127}00127\ \textcolor{comment}{//\ \ rasterizerDesc.CullMode\ =\ D3D11\_CULL\_NONE;}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00128}00128\ \textcolor{comment}{//\ \ rasterizerDesc.CullMode\ =\ D3D11\_CULL\_FRONT;}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00129}00129\ \ \ \ \ rasterizerDesc.DepthClipEnable\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00130}00130\ \ \ \ \ rasterizerDesc.MultisampleEnable\ =\ FALSE;\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00132}00132\ \ \ \ \ ID3D11RasterizerState\ *rs;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00133}00133\ \ \ \ \ m\_Device-\/>CreateRasterizerState(\ \&rasterizerDesc,\ \&rs\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00135}00135\ \ \ \ \ m\_DeviceContext-\/>RSSetState(\ rs\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ ブレンドステート設定}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00141}00141\ \ \ \ \ D3D11\_BLEND\_DESC\ blendDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00142}00142\ \ \ \ \ blendDesc.AlphaToCoverageEnable\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00143}00143\ \ \ \ \ blendDesc.IndependentBlendEnable\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00144}00144\ \ \ \ \ blendDesc.RenderTarget[0].BlendEnable\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00145}00145\ \ \ \ \ blendDesc.RenderTarget[0].SrcBlend\ =\ D3D11\_BLEND\_SRC\_ALPHA;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00146}00146\ \ \ \ \ blendDesc.RenderTarget[0].DestBlend\ =\ D3D11\_BLEND\_INV\_SRC\_ALPHA;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00147}00147\ \ \ \ \ blendDesc.RenderTarget[0].BlendOp\ =\ D3D11\_BLEND\_OP\_ADD;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00148}00148\ \ \ \ \ blendDesc.RenderTarget[0].SrcBlendAlpha\ =\ D3D11\_BLEND\_ONE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00149}00149\ \ \ \ \ blendDesc.RenderTarget[0].DestBlendAlpha\ =\ D3D11\_BLEND\_ZERO;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00150}00150\ \ \ \ \ blendDesc.RenderTarget[0].BlendOpAlpha\ =\ D3D11\_BLEND\_OP\_ADD;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00151}00151\ \ \ \ \ blendDesc.RenderTarget[0].RenderTargetWriteMask\ =\ D3D11\_COLOR\_WRITE\_ENABLE\_ALL;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00153}00153\ \ \ \ \ m\_Device-\/>CreateBlendState(\ \&blendDesc,\ \&m\_BlendState\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00155}00155\ \ \ \ \ blendDesc.AlphaToCoverageEnable\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00156}00156\ \ \ \ \ m\_Device-\/>CreateBlendState(\ \&blendDesc,\ \&m\_BlendStateATC\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{float}\ blendFactor[4]\ =\ \{0.0f,\ 0.0f,\ 0.0f,\ 0.0f\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00159}00159\ \ \ \ \ m\_DeviceContext-\/>OMSetBlendState(m\_BlendState,\ blendFactor,\ 0xffffffff\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00165}00165\ \ \ \ \ \textcolor{comment}{//\ デプスステンシルステート設定}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00166}00166\ \ \ \ \ D3D11\_DEPTH\_STENCIL\_DESC\ depthStencilDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00167}00167\ \ \ \ \ depthStencilDesc.DepthEnable\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00168}00168\ \ \ \ \ depthStencilDesc.DepthWriteMask\ =\ D3D11\_DEPTH\_WRITE\_MASK\_ALL;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00169}00169\ \ \ \ \ depthStencilDesc.DepthFunc\ =\ D3D11\_COMPARISON\_LESS\_EQUAL;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00170}00170\ \ \ \ \ depthStencilDesc.StencilEnable\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00172}00172\ \ \ \ \ m\_Device-\/>CreateDepthStencilState(\ \&depthStencilDesc,\ \&m\_DepthStateEnable\ );\textcolor{comment}{//深度有効ステート}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//depthStencilDesc.DepthEnable\ =\ FALSE;}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00175}00175\ \ \ \ \ depthStencilDesc.DepthWriteMask\ =\ D3D11\_DEPTH\_WRITE\_MASK\_ZERO;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00176}00176\ \ \ \ \ m\_Device-\/>CreateDepthStencilState(\ \&depthStencilDesc,\ \&m\_DepthStateDisable\ );\textcolor{comment}{//深度無効ステート}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00178}00178\ \ \ \ \ m\_DeviceContext-\/>OMSetDepthStencilState(\ m\_DepthStateEnable,\ NULL\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{comment}{//\ サンプラーステート設定}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00184}00184\ \ \ \ \ D3D11\_SAMPLER\_DESC\ samplerDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00185}00185\ \ \ \ \ samplerDesc.Filter\ =\ D3D11\_FILTER\_ANISOTROPIC;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00186}00186\ \ \ \ \ samplerDesc.AddressU\ =\ D3D11\_TEXTURE\_ADDRESS\_WRAP;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00187}00187\ \ \ \ \ samplerDesc.AddressV\ =\ D3D11\_TEXTURE\_ADDRESS\_WRAP;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00188}00188\ \ \ \ \ samplerDesc.AddressW\ =\ D3D11\_TEXTURE\_ADDRESS\_WRAP;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00189}00189\ \ \ \ \ samplerDesc.MaxAnisotropy\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00190}00190\ \ \ \ \ samplerDesc.MaxLOD\ =\ D3D11\_FLOAT32\_MAX;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00192}00192\ \ \ \ \ ID3D11SamplerState*\ samplerState\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00193}00193\ \ \ \ \ m\_Device-\/>CreateSamplerState(\ \&samplerDesc,\ \&samplerState\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00195}00195\ \ \ \ \ m\_DeviceContext-\/>PSSetSamplers(\ 0,\ 1,\ \&samplerState\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00199}00199\ \ \ \ \ \textcolor{comment}{//\ 定数バッファ生成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00200}00200\ \ \ \ \ D3D11\_BUFFER\_DESC\ bufferDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00201}00201\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(Matrix);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00202}00202\ \ \ \ \ bufferDesc.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00203}00203\ \ \ \ \ bufferDesc.BindFlags\ =\ D3D11\_BIND\_CONSTANT\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00204}00204\ \ \ \ \ bufferDesc.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00205}00205\ \ \ \ \ bufferDesc.MiscFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00206}00206\ \ \ \ \ bufferDesc.StructureByteStride\ =\ \textcolor{keyword}{sizeof}(float);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00208}00208\ \ \ \ \ m\_Device-\/>CreateBuffer(\ \&bufferDesc,\ NULL,\ \&m\_WorldBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00209}00209\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(\ 0,\ 1,\ \&m\_WorldBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00211}00211\ \ \ \ \ m\_Device-\/>CreateBuffer(\ \&bufferDesc,\ NULL,\ \&m\_ViewBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00212}00212\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(\ 1,\ 1,\ \&m\_ViewBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00214}00214\ \ \ \ \ m\_Device-\/>CreateBuffer(\ \&bufferDesc,\ NULL,\ \&m\_ProjectionBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00215}00215\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(\ 2,\ 1,\ \&m\_ProjectionBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00218}00218\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00220}00220\ \ \ \ \ m\_Device-\/>CreateBuffer(\ \&bufferDesc,\ NULL,\ \&m\_MaterialBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00221}00221\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(\ 3,\ 1,\ \&m\_MaterialBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00222}00222\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(\ 3,\ 1,\ \&m\_MaterialBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00225}00225\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_l_i_g_h_t}{LIGHT}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00227}00227\ \ \ \ \ m\_Device-\/>CreateBuffer(\ \&bufferDesc,\ NULL,\ \&m\_LightBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00228}00228\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(\ 4,\ 1,\ \&m\_LightBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00229}00229\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(\ 4,\ 1,\ \&m\_LightBuffer\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00231}00231\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pollar}{Pollar}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00233}00233\ \ \ \ \ m\_Device-\/>CreateBuffer(\&bufferDesc,\ NULL,\ \&m\_PollarBuffer);\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00234}00234\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(5,\ 1,\ \&m\_PollarBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00235}00235\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(5,\ 1,\ \&m\_PollarBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00237}00237\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_fade}{Fade}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00239}00239\ \ \ \ \ m\_Device-\/>CreateBuffer(\&bufferDesc,\ NULL,\ \&m\_FadeBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00240}00240\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(6,\ 1,\ \&m\_FadeBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00241}00241\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(6,\ 1,\ \&m\_FadeBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00243}00243\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_bloom}{Bloom}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00245}00245\ \ \ \ \ m\_Device-\/>CreateBuffer(\&bufferDesc,\ NULL,\ \&m\_BloomBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00246}00246\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(7,\ 1,\ \&m\_BloomBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00247}00247\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(7,\ 1,\ \&m\_BloomBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00249}00249\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_rotation_angle}{RotationAngle}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00251}00251\ \ \ \ \ m\_Device-\/>CreateBuffer(\&bufferDesc,\ NULL,\ \&m\_RotationBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00252}00252\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(8,\ 1,\ \&m\_RotationBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00253}00253\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(8,\ 1,\ \&m\_RotationBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00255}00255\ \ \ \ \ bufferDesc.ByteWidth\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_scale_shader}{ScaleShader}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00257}00257\ \ \ \ \ m\_Device-\/>CreateBuffer(\&bufferDesc,\ NULL,\ \&m\_ScaleBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00258}00258\ \ \ \ \ m\_DeviceContext-\/>VSSetConstantBuffers(9,\ 1,\ \&m\_ScaleBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00259}00259\ \ \ \ \ m\_DeviceContext-\/>PSSetConstantBuffers(9,\ 1,\ \&m\_ScaleBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//\ ライト初期化}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00262}00262\ \ \ \ \ \mbox{\hyperlink{struct_l_i_g_h_t}{LIGHT}}\ light\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00263}00263\ \ \ \ \ light.\mbox{\hyperlink{struct_l_i_g_h_t_a6045a550374529870d02709bd2eaf646}{Enable}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00264}00264\ \ \ \ \ light.Direction\ =\ Vector4(0.5f,\ -\/1.0f,\ 0.8f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00265}00265\ \ \ \ \ light.Direction.Normalize();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00266}00266\ \ \ \ \ light.Ambient\ =\ Color(0.2f,\ 0.2f,\ 0.2f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00267}00267\ \ \ \ \ light.Diffuse\ =\ Color(1.5f,\ 1.5f,\ 1.5f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00268}00268\ \ \ \ \ \mbox{\hyperlink{class_renderer_a5280947836485d67cab32e71ce274296}{SetLight}}(light);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ マテリアル初期化}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00273}00273\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ material\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00274}00274\ \ \ \ \ material.\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l_a8c87e0476708aa06c2f4725c962a75a6}{Diffuse}}\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00275}00275\ \ \ \ \ material.Ambient\ =\ Color(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00276}00276\ \ \ \ \ \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{SetMaterial}}(material);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{comment}{//ポーラ初期化}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00279}00279\ \ \ \ \ \mbox{\hyperlink{struct_pollar}{Pollar}}\ pollar\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00280}00280\ \ \ \ \ pollar.\mbox{\hyperlink{struct_pollar_ac2c4ecf38d4c9a243f5739e85f2ec65b}{baseColor}}\ =\ \{\ 0.0f,1.0f,0.0f,1.0f\ \};\textcolor{comment}{//ベースカラー}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00281}00281\ \ \ \ \ pollar.diffColor\ =\ \{\ 1.0f,0.4f,0.0f,1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00282}00282\ \ \ \ \ pollar.lostColor\ =\ \{\ 0.2f,0.2f,0.2f,1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00283}00283\ \ \ \ \ pollar.outer\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00284}00284\ \ \ \ \ pollar.inner\ =\ 0.3f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00285}00285\ \ \ \ \ pollar.gauge1\ =\ 1.0f\ -\/\ ((int)fmod(1,\ 7.0f)\ +\ 1)\ /\ 7.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00286}00286\ \ \ \ \ pollar.gauge2\ =\ 1.0f\ -\/\ fmodf(0.5,\ 7.0f)\ /\ 7.0f;\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00288}00288\ \ \ \ \ \mbox{\hyperlink{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}{SetPollar}}(pollar);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00290}00290\ \ \ \ \ \textcolor{comment}{//フェード初期化}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00291}00291\ \ \ \ \ \mbox{\hyperlink{struct_fade}{Fade}}\ fade\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00292}00292\ \ \ \ \ fade.\mbox{\hyperlink{struct_fade_aee749b8ad6a93bb65c96f68b6499096e}{alpha}}\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00294}00294\ \ \ \ \ \mbox{\hyperlink{class_renderer_a851b0f5b65140e5a14486444442a5ae1}{SetFade}}(fade);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00296}00296\ \ \ \ \ \textcolor{comment}{//ブルーム}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{struct_bloom}{Bloom}}\ bloom\{\};\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00298}00298\ \ \ \ \ bloom.\mbox{\hyperlink{struct_bloom_a46de468e3ff6d28901ca2d227d305890}{bloom}}\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00299}00299\ \ \ \ \ bloom.power\ =\ 5.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00301}00301\ \ \ \ \ \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{SetBloom}}(bloom);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00303}00303\ \ \ \ \ \textcolor{comment}{//回転}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00304}00304\ \ \ \ \ \mbox{\hyperlink{struct_rotation_angle}{RotationAngle}}\ rot\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00305}00305\ \ \ \ \ rot.\mbox{\hyperlink{struct_rotation_angle_a4c555a84d116c72f2d67661c80c854b5}{rotationAngle}}\ =\ \{\ 0.0f,0.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00307}00307\ \ \ \ \ \mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{SetRotationAngle}}(rot);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00309}00309\ \ \ \ \ \textcolor{comment}{//サイズ変更}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00310}00310\ \ \ \ \ \mbox{\hyperlink{struct_scale_shader}{ScaleShader}}\ scale\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00311}00311\ \ \ \ \ scale.\mbox{\hyperlink{struct_scale_shader_ab5dfa272c6c18499efc51621480e47d3}{circlePosition}}\ =\ \{\ 0.0f,0.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00312}00312\ \ \ \ \ scale.circleRadius\ =\ 10.0f;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00313}00313\ \ \ \ \ scale.screenSize\ =\ \{\ 1.0f,1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00315}00315\ \ \ \ \ \mbox{\hyperlink{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}{SetScaleShader}}(scale);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00316}00316\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00320}\mbox{\hyperlink{class_renderer_ae865246d6a04d467ac22458f6f5f69d4}{00320}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_ae865246d6a04d467ac22458f6f5f69d4}{Renderer::Uninit}}()}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00321}00321\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00323}00323\ \ \ \ \ m\_WorldBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00324}00324\ \ \ \ \ m\_ViewBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00325}00325\ \ \ \ \ m\_ProjectionBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00326}00326\ \ \ \ \ m\_LightBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00327}00327\ \ \ \ \ m\_MaterialBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00328}00328\ \ \ \ \ m\_PollarBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00329}00329\ \ \ \ \ m\_FadeBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00330}00330\ \ \ \ \ m\_RotationBuffer-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00331}00331\ \ \ \ \ m\_ScaleBuffer-\/>Release();\ \ \ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00333}00333\ \ \ \ \ m\_DeviceContext-\/>ClearState();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00334}00334\ \ \ \ \ m\_RenderTargetView-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00335}00335\ \ \ \ \ m\_SwapChain-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00336}00336\ \ \ \ \ m\_DeviceContext-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00337}00337\ \ \ \ \ m\_Device-\/>Release();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00339}00339\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00344}\mbox{\hyperlink{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc}{00344}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc}{Renderer::Begin}}()}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00345}00345\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00346}00346\ \ \ \ \ \textcolor{keywordtype}{float}\ clearColor[4]\ =\ \{\ 1.0f,\ 0.0f,\ 0.0f,\ 1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00347}00347\ \ \ \ \ m\_DeviceContext-\/>ClearRenderTargetView(\ m\_RenderTargetView,\ clearColor\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00348}00348\ \ \ \ \ m\_DeviceContext-\/>ClearDepthStencilView(\ m\_DepthStencilView,\ D3D11\_CLEAR\_DEPTH,\ 1.0f,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00349}00349\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00353}\mbox{\hyperlink{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}{00353}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}{Renderer::End}}()}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00354}00354\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00355}00355\ \ \ \ \ m\_SwapChain-\/>Present(\ 1,\ 0\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00356}00356\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00361}\mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{00361}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{Renderer::SetDepthEnable}}(\ \textcolor{keywordtype}{bool}\ Enable\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00362}00362\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00363}00363\ \ \ \ \ \textcolor{keywordflow}{if}(\ Enable\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ m\_DeviceContext-\/>OMSetDepthStencilState(\ m\_DepthStateEnable,\ NULL\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00365}00365\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ m\_DeviceContext-\/>OMSetDepthStencilState(\ m\_DepthStateDisable,\ NULL\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00368}00368\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00372}\mbox{\hyperlink{class_renderer_a1c8fb2187b774d9451af8e5a100960d9}{00372}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a1c8fb2187b774d9451af8e5a100960d9}{Renderer::SetATCEnable}}(\ \textcolor{keywordtype}{bool}\ Enable\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00373}00373\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00374}00374\ \ \ \ \ \textcolor{keywordtype}{float}\ blendFactor[4]\ =\ \{\ 0.0f,\ 0.0f,\ 0.0f,\ 0.0f\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00376}00376\ \ \ \ \ \textcolor{keywordflow}{if}\ (Enable)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ m\_DeviceContext-\/>OMSetBlendState(m\_BlendStateATC,\ blendFactor,\ 0xffffffff);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00378}00378\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ m\_DeviceContext-\/>OMSetBlendState(m\_BlendState,\ blendFactor,\ 0xffffffff);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00381}00381\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00383}\mbox{\hyperlink{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}{00383}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}{Renderer::SetWorldViewProjection2D}}()}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00384}00384\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00385}00385\ \ \ \ \ Matrix\ world;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00386}00386\ \ \ \ \ world\ =\ Matrix::Identity;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 単位行列にする}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00387}00387\ \ \ \ \ world\ =\ world.Transpose();\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 転置}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00388}00388\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_WorldBuffer,\ 0,\ NULL,\ \&world,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00390}00390\ \ \ \ \ Matrix\ view;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00391}00391\ \ \ \ \ view\ =\ Matrix::Identity;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00392}00392\ \ \ \ \ view\ =\ view.Transpose();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00393}00393\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_ViewBuffer,\ 0,\ NULL,\ \&view,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00395}00395\ \ \ \ \ Matrix\ projection;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00396}00396\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00397}00397\ \textcolor{comment}{//\ update\ 右手系＝＝＝＞左手系\ \ （DIRECTXTKのメソッドは右手系だった）\ 20230511\ update\ by\ tomoki.suzuki　}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00398}00398\ \textcolor{comment}{\ \ \ \ projection\ =\ projection.CreateOrthographicOffCenter(}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00399}00399\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetWidth()\ *\ -\/0.5f),\ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最小Ｘ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00400}00400\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetWidth()\ *\ 0.5f),\ \ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最大Ｘ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00401}00401\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetHeight()\ *\ 0.5f),\ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最小Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00402}00402\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetHeight()\ *\ -\/0.5f),\ \ \ \ \ \ \ \ \ //\ ビューボリュームの最大Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00403}00403\ \textcolor{comment}{\ \ \ \ \ \ \ \ 0.0f,}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00404}00404\ \textcolor{comment}{\ \ \ \ \ \ \ \ 1000.0f);}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00405}00405\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00407}00407\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00408}00408\ \textcolor{comment}{\ \ \ \ //\ update\ 右手系＝＝＝＞左手系\ \ （DIRECTXTKのメソッドは右手系だった）\ 20230511\ update\ by\ tomoki.suzuki　}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00409}00409\ \textcolor{comment}{\ \ \ \ projection\ =\ DirectX::XMMatrixOrthographicOffCenterLH(}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00410}00410\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetWidth()\ *\ -\/0.5f),\ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最小Ｘ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00411}00411\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetWidth()\ *\ 0.5f),\ \ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最大Ｘ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00412}00412\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetHeight()\ *\ 0.5f),\ \ \ \ \ \ \ \ \ \ //\ ビューボリュームの最小Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00413}00413\ \textcolor{comment}{\ \ \ \ \ \ \ \ static\_cast<float>(m\_Application-\/>GetHeight()\ *\ -\/0.5f),\ \ \ \ \ \ \ \ \ //\ ビューボリュームの最大Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00414}00414\ \textcolor{comment}{\ \ \ \ \ \ \ \ 0.0f,}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00415}00415\ \textcolor{comment}{\ \ \ \ \ \ \ \ 1000.0f);}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00416}00416\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00418}00418\ \ \ \ \ \textcolor{comment}{//\ 2D描画を左上原点にする\ \ (20230512\ update\ by\ tomoki.suzuki　}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00419}00419\ \ \ \ \ projection\ =\ DirectX::XMMatrixOrthographicOffCenterLH(}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ 0.0f,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(m\_Application-\/>\mbox{\hyperlink{class_application_ab2494802d94ddf0a8b1d06a87fa978be}{GetWidth}}()),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ビューボリュームの最小Ｘ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(m\_Application-\/>\mbox{\hyperlink{class_application_ae085a9a312a31aef1a977278990d5b75}{GetHeight}}()),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ビューボリュームの最小Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ 0.0f,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ビューボリュームの最大Ｙ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ 0.0f,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ 1.0f);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00428}00428\ \ \ \ \ projection\ =\ projection.Transpose();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00430}00430\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(\ m\_ProjectionBuffer,\ 0,\ NULL,\ \&projection,\ 0,\ 0\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00431}00431\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00434}\mbox{\hyperlink{class_renderer_a9c1db215718af048709c7f0ed9412b81}{00434}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a9c1db215718af048709c7f0ed9412b81}{Renderer::SetWorldMatrix}}(\ Matrix*\ WorldMatrix\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00435}00435\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00436}00436\ \ \ \ \ Matrix\ world;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00437}00437\ \ \ \ \ world\ =\ WorldMatrix-\/>Transpose();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 転置}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00439}00439\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_WorldBuffer,\ 0,\ NULL,\ \&world,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00440}00440\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00442}\mbox{\hyperlink{class_renderer_a4f539cc63a6bed2694490af38806ec9a}{00442}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a4f539cc63a6bed2694490af38806ec9a}{Renderer::SetViewMatrix}}(Matrix*\ ViewMatrix\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00443}00443\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00444}00444\ \ \ \ \ Matrix\ view;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00445}00445\ \ \ \ \ view\ =\ ViewMatrix-\/>Transpose();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 転置}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00447}00447\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_ViewBuffer,\ 0,\ NULL,\ \&view,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00448}00448\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00450}\mbox{\hyperlink{class_renderer_ad69c19abd3719199a7412972f40391bf}{00450}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_ad69c19abd3719199a7412972f40391bf}{Renderer::SetProjectionMatrix}}(\ Matrix*\ ProjectionMatrix\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00451}00451\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00452}00452\ \ \ \ \ Matrix\ projection;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00453}00453\ \ \ \ \ projection\ =\ ProjectionMatrix-\/>Transpose();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00455}00455\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_ProjectionBuffer,\ 0,\ NULL,\ \&projection,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00456}00456\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00459}00459\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00460}\mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{00460}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{Renderer::SetMaterial}}(\ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ Material\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00461}00461\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00462}00462\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(\ m\_MaterialBuffer,\ 0,\ NULL,\ \&Material,\ 0,\ 0\ );}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00463}00463\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00465}\mbox{\hyperlink{class_renderer_a5280947836485d67cab32e71ce274296}{00465}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a5280947836485d67cab32e71ce274296}{Renderer::SetLight}}(\ \mbox{\hyperlink{struct_l_i_g_h_t}{LIGHT}}\ Light\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00466}00466\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00467}00467\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_LightBuffer,\ 0,\ NULL,\ \&Light,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00468}00468\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00470}\mbox{\hyperlink{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}{00470}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}{Renderer::SetPollar}}(\mbox{\hyperlink{struct_pollar}{Pollar}}\ pol)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00471}00471\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00472}00472\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_PollarBuffer,\ 0,\ NULL,\ \&pol,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00473}00473\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00475}\mbox{\hyperlink{class_renderer_a851b0f5b65140e5a14486444442a5ae1}{00475}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a851b0f5b65140e5a14486444442a5ae1}{Renderer::SetFade}}(\mbox{\hyperlink{struct_fade}{Fade}}\ fade)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00476}00476\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00477}00477\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_FadeBuffer,\ 0,\ NULL,\ \&fade,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00478}00478\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00480}\mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{00480}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{Renderer::SetBloom}}(\mbox{\hyperlink{struct_bloom}{Bloom}}\ bloom)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00481}00481\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00482}00482\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_BloomBuffer,\ 0,\ NULL,\ \&bloom,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00483}00483\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00485}\mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{00485}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{Renderer::SetRotationAngle}}(\mbox{\hyperlink{struct_rotation_angle}{RotationAngle}}\ rot)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00486}00486\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00487}00487\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_RotationBuffer,\ 0,\ NULL,\ \&rot,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00488}00488\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00489}00489\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00490}\mbox{\hyperlink{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}{00490}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}{Renderer::SetScaleShader}}(\mbox{\hyperlink{struct_scale_shader}{ScaleShader}}\ scale)}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00491}00491\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00492}00492\ \ \ \ \ m\_DeviceContext-\/>UpdateSubresource(m\_ScaleBuffer,\ 0,\ NULL,\ \&scale,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00493}00493\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00499}\mbox{\hyperlink{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}{00499}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}{Renderer::CreateVertexShader}}(\ ID3D11VertexShader**\ VertexShader,\ ID3D11InputLayout**\ VertexLayout,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00500}00500\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00502}00502\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00503}00503\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ fsize;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00505}00505\ \ \ \ \ fopen\_s(\&file,FileName,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00506}00506\ \ \ \ \ assert(file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00508}00508\ \ \ \ \ fsize\ =\ \_filelength(\_fileno(file));}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00509}00509\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[fsize];}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00510}00510\ \ \ \ \ fread(buffer,\ fsize,\ 1,\ file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00511}00511\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00513}00513\ \ \ \ \ m\_Device-\/>CreateVertexShader(buffer,\ fsize,\ NULL,\ VertexShader);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00516}00516\ \ \ \ \ D3D11\_INPUT\_ELEMENT\_DESC\ layout[]\ =}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00517}00517\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}POSITION"{}},\ 0,\ DXGI\_FORMAT\_R32G32B32\_FLOAT,\ \ \ \ \ \ \ 0,\ \ 0,\ \ \ \ \ \ D3D11\_INPUT\_PER\_VERTEX\_DATA,\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}NORMAL"{}},\ \ \ 0,\ DXGI\_FORMAT\_R32G32B32\_FLOAT,\ \ \ \ \ \ \ 0,\ \ 4\ *\ 3,\ \ D3D11\_INPUT\_PER\_VERTEX\_DATA,\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}COLOR"{}},\ \ \ \ 0,\ DXGI\_FORMAT\_R32G32B32A32\_FLOAT,\ \ \ \ 0,\ \ 4\ *\ 6,\ \ D3D11\_INPUT\_PER\_VERTEX\_DATA,\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}TEXCOORD"{}},\ 0,\ DXGI\_FORMAT\_R32G32\_FLOAT,\ \ \ \ \ \ \ \ \ \ 0,\ \ 4\ *\ 10,\ D3D11\_INPUT\_PER\_VERTEX\_DATA,\ 0\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00522}00522\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00523}00523\ \ \ \ \ UINT\ numElements\ =\ ARRAYSIZE(layout);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00525}00525\ \ \ \ \ m\_Device-\/>CreateInputLayout(layout,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ numElements,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ buffer,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ fsize,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ VertexLayout);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00531}00531\ \ \ \ \ \textcolor{keyword}{delete}[]\ buffer;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00532}00532\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00533}00533\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00536}\mbox{\hyperlink{class_renderer_a08eee6ff7e96f132296b59b36510b658}{00536}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_a08eee6ff7e96f132296b59b36510b658}{Renderer::CreatePixelShader}}(\ ID3D11PixelShader**\ PixelShader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName\ )}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00537}00537\ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00538}00538\ \ \ \ \ FILE*\ file;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00539}00539\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ fsize;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00541}00541\ \ \ \ \ fopen\_s(\&file,\ FileName,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00542}00542\ \ \ \ \ assert(file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00543}00543\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00544}00544\ \ \ \ \ fsize\ =\ \_filelength(\_fileno(file));}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00545}00545\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[fsize];}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00546}00546\ \ \ \ \ fread(buffer,\ fsize,\ 1,\ file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00547}00547\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00548}00548\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00549}00549\ \ \ \ \ m\_Device-\/>CreatePixelShader(buffer,\ fsize,\ NULL,\ PixelShader);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00551}00551\ \ \ \ \ \textcolor{keyword}{delete}[]\ buffer;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00552}00552\ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00554}\mbox{\hyperlink{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}{00554}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}{Renderer::PostProcess}}()}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00555}00555\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00556}00556\ \ \ \ \ \textcolor{comment}{//\ テクスチャの作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00557}00557\ \ \ \ \ ID3D11Texture2D*\ m\_PostProcessTexture;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00558}00558\ \ \ \ \ D3D11\_TEXTURE2D\_DESC\ textureDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00559}00559\ \ \ \ \ textureDesc.Width\ =\ m\_Application-\/>\mbox{\hyperlink{class_application_ab2494802d94ddf0a8b1d06a87fa978be}{GetWidth}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00560}00560\ \ \ \ \ textureDesc.Height\ =\ m\_Application-\/>\mbox{\hyperlink{class_application_ae085a9a312a31aef1a977278990d5b75}{GetHeight}}();}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00561}00561\ \ \ \ \ textureDesc.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00562}00562\ \ \ \ \ textureDesc.ArraySize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00563}00563\ \ \ \ \ textureDesc.Format\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00564}00564\ \ \ \ \ textureDesc.SampleDesc.Count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00565}00565\ \ \ \ \ textureDesc.SampleDesc.Quality\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00566}00566\ \ \ \ \ textureDesc.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00567}00567\ \ \ \ \ textureDesc.BindFlags\ =\ D3D11\_BIND\_RENDER\_TARGET\ |\ D3D11\_BIND\_SHADER\_RESOURCE;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00568}00568\ \ \ \ \ textureDesc.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00569}00569\ \ \ \ \ textureDesc.MiscFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00570}00570\ \ \ \ \ HRESULT\ hr\ =\ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateTexture2D(\&textureDesc,\ \textcolor{keyword}{nullptr},\ \&m\_PostProcessTexture);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00571}00571\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(hr))}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00572}00572\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ エラーハンドリング}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00575}00575\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00577}00577\ \ \ \ \ \textcolor{comment}{//\ フレームバッファのレンダーターゲットビューを作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00578}00578\ \ \ \ \ ID3D11RenderTargetView*\ m\_PostProcessRenderTargetView;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00579}00579\ \ \ \ \ D3D11\_RENDER\_TARGET\_VIEW\_DESC\ rtvDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00580}00580\ \ \ \ \ rtvDesc.Format\ =\ textureDesc.Format;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00581}00581\ \ \ \ \ rtvDesc.ViewDimension\ =\ D3D11\_RTV\_DIMENSION\_TEXTURE2D;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00582}00582\ \ \ \ \ rtvDesc.Texture2D.MipSlice\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00583}00583\ \ \ \ \ hr\ =\ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateRenderTargetView(m\_PostProcessTexture,\ \&rtvDesc,\ \&m\_PostProcessRenderTargetView);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00584}00584\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(hr))}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00585}00585\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ エラーハンドリング}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00588}00588\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00590}00590\ \ \ \ \ \textcolor{comment}{//\ 頂点データの作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00591}00591\ \ \ \ \ \mbox{\hyperlink{struct_vertex_position_texture}{VertexPositionTexture}}\ vertices[]\ =}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00592}00592\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \{\ Vector3(-\/1.0f,\ \ 1.0f,\ 0.5f),\ Vector2(0.0f,\ 0.0f)\ \},\ \textcolor{comment}{//\ 左上}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \{\ Vector3(1.0f,\ \ 1.0f,\ 0.5f),\ Vector2(1.0f,\ 0.0f)\ \},\ \ \textcolor{comment}{//\ 右上}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \{\ Vector3(-\/1.0f,\ -\/1.0f,\ 0.5f),\ Vector2(0.0f,\ 1.0f)\ \},\ \textcolor{comment}{//\ 左下}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \{\ Vector3(1.0f,\ -\/1.0f,\ 0.5f),\ Vector2(1.0f,\ 1.0f)\ \}\ \ \ \textcolor{comment}{//\ 右下}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00597}00597\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00599}00599\ \ \ \ \ \textcolor{comment}{//\ 頂点バッファの作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00600}00600\ \ \ \ \ ID3D11Buffer*\ m\_VertexBuffer;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00601}00601\ \ \ \ \ D3D11\_BUFFER\_DESC\ vbd\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00602}00602\ \ \ \ \ vbd.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00603}00603\ \ \ \ \ vbd.ByteWidth\ =\ \textcolor{keyword}{sizeof}(vertices);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00604}00604\ \ \ \ \ vbd.BindFlags\ =\ D3D11\_BIND\_VERTEX\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00605}00605\ \ \ \ \ vbd.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00606}00606\ \ \ \ \ vbd.MiscFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00607}00607\ \ \ \ \ D3D11\_SUBRESOURCE\_DATA\ vinitData\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00608}00608\ \ \ \ \ vinitData.pSysMem\ =\ vertices;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00609}00609\ \ \ \ \ hr\ =\ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateBuffer(\&vbd,\ \&vinitData,\ \&m\_VertexBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00610}00610\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(hr))}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00611}00611\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ エラーハンドリング}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00614}00614\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00616}00616\ \ \ \ \ \textcolor{comment}{//\ インデックスバッファの作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00617}00617\ \ \ \ \ ID3D11Buffer*\ m\_IndexBuffer;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00618}00618\ \ \ \ \ uint16\_t\ indices[]\ =}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00619}00619\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00620}00620\ \ \ \ \ \ \ \ \ 0,\ 1,\ 2,}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00621}00621\ \ \ \ \ \ \ \ \ 2,\ 1,\ 3}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00622}00622\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00623}00623\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00624}00624\ \ \ \ \ D3D11\_BUFFER\_DESC\ ibd\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00625}00625\ \ \ \ \ ibd.Usage\ =\ D3D11\_USAGE\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00626}00626\ \ \ \ \ ibd.ByteWidth\ =\ \textcolor{keyword}{sizeof}(indices);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00627}00627\ \ \ \ \ ibd.BindFlags\ =\ D3D11\_BIND\_INDEX\_BUFFER;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00628}00628\ \ \ \ \ ibd.CPUAccessFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00629}00629\ \ \ \ \ ibd.MiscFlags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00630}00630\ \ \ \ \ D3D11\_SUBRESOURCE\_DATA\ iinitData\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00631}00631\ \ \ \ \ iinitData.pSysMem\ =\ indices;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00632}00632\ \ \ \ \ hr\ =\ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateBuffer(\&ibd,\ \&iinitData,\ \&m\_IndexBuffer);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00633}00633\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(hr))}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00634}00634\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00635}00635\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ エラーハンドリング}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00636}00636\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00637}00637\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00639}00639\ \ \ \ \ \textcolor{comment}{//\ 通常のレンダリングターゲットテクスチャをSRVにバインドする}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00640}00640\ \ \ \ \ ID3D11Texture2D*\ pBackBufferTexture\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00641}00641\ \ \ \ \ IDXGISwapChain*\ pSwapChain\ =\ m\_SwapChain;\ \textcolor{comment}{//\ スワップチェーンへのポインタ}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00642}00642\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00643}00643\ \ \ \ \ \textcolor{comment}{//\ バックバッファの取得}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00644}00644\ \ \ \ \ pSwapChain-\/>GetBuffer(0,\ \_\_uuidof(ID3D11Texture2D),\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&pBackBufferTexture));}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00645}00645\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00646}00646\ \ \ \ \ \textcolor{comment}{//\ テクスチャとして使用するためのキャスト}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00647}00647\ \ \ \ \ ID3D11Texture2D*\ pBackBufferTexture2D\ =\ \textcolor{keyword}{static\_cast<}ID3D11Texture2D*\textcolor{keyword}{>}(pBackBufferTexture);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00649}00649\ \ \ \ \ ID3D11ShaderResourceView*\ m\_ShaderResourceView;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00650}00650\ \ \ \ \ D3D11\_SHADER\_RESOURCE\_VIEW\_DESC\ srvDesc\{\};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00651}00651\ \ \ \ \ srvDesc.Format\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00652}00652\ \ \ \ \ srvDesc.ViewDimension\ =\ D3D11\_SRV\_DIMENSION\_TEXTURE2D;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00653}00653\ \ \ \ \ srvDesc.Texture2D.MostDetailedMip\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00654}00654\ \ \ \ \ srvDesc.Texture2D.MipLevels\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00655}00655\ \ \ \ \ hr\ =\ \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Renderer::GetDevice}}()-\/>CreateShaderResourceView(pBackBufferTexture2D,\ \&srvDesc,\ \&m\_ShaderResourceView);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00656}00656\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(hr))}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00657}00657\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00658}00658\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ エラーハンドリング}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00659}00659\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00660}00660\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00661}00661\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00662}00662\ \ \ \ \ \textcolor{comment}{//シェーダー}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00663}00663\ \ \ \ \ ID3D11VertexShader*\ m\_VertexShader\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 頂点シェーダー}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00664}00664\ \ \ \ \ ID3D11PixelShader*\ m\_PixelShader\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ピクセルシェーダー}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00665}00665\ \ \ \ \ ID3D11InputLayout*\ m\_InputLayout\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ インプットレイアウト}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00667}00667\ \ \ \ \ \mbox{\hyperlink{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}{CreateVertexShader}}(\&m\_VertexShader,\ \&m\_InputLayout,\ \textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)vertexLightingVS.cso"{}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00668}00668\ \ \ \ \ \mbox{\hyperlink{class_renderer_a08eee6ff7e96f132296b59b36510b658}{CreatePixelShader}}(\&m\_PixelShader,\ \textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)PS\_RGBSplit.cso"{}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00670}00670\ \ \ \ \ \textcolor{comment}{//\ バックバッファの取得}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00671}00671\ \ \ \ \ ID3D11Texture2D*\ backBuffer;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00672}00672\ \ \ \ \ m\_SwapChain-\/>GetBuffer(0,\ \_\_uuidof(ID3D11Texture2D),\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&backBuffer));}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00674}00674\ \ \ \ \ \textcolor{comment}{//\ バックバッファにアクセスするためのレンダーターゲットビューの作成}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00675}00675\ \ \ \ \ ID3D11RenderTargetView*\ backBufferRenderTargetView;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00676}00676\ \ \ \ \ m\_Device-\/>CreateRenderTargetView(backBuffer,\ \textcolor{keyword}{nullptr},\ \&backBufferRenderTargetView);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00677}00677\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00678}00678\ \ \ \ \ \textcolor{comment}{//\ ポストプロセスのシェーダーをセット}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00679}00679\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>VSSetShader(m\_VertexShader,\ \textcolor{keyword}{nullptr},\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00680}00680\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>PSSetShader(m\_PixelShader,\ \textcolor{keyword}{nullptr},\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00681}00681\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetInputLayout(m\_InputLayout);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00682}00682\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00683}00683\ \ \ \ \ \textcolor{comment}{//\ ポストプロセス用のフレームバッファをレンダーターゲットにセット}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00684}00684\ \ \ \ \ ID3D11RenderTargetView*\ renderTargets[]\ =\ \{\ m\_RenderTargetView\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00685}00685\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>OMSetRenderTargets(1,\ renderTargets,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00686}00686\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00687}00687\ \ \ \ \ \textcolor{comment}{//\ ポストプロセス用のシェーダーリソースビューをセット}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00688}00688\ \ \ \ \ ID3D11ShaderResourceView*\ shaderResourceViews[]\ =\ \{\ m\_ShaderResourceView\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00689}00689\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>PSSetShaderResources(0,\ 1,\ shaderResourceViews);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00690}00690\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00691}00691\ \ \ \ \ \textcolor{comment}{//\ 頂点バッファとインデックスバッファをセット}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00692}00692\ \ \ \ \ UINT\ stride\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertex_position_texture}{VertexPositionTexture}});}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00693}00693\ \ \ \ \ UINT\ offset\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00694}00694\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetVertexBuffers(0,\ 1,\ \&m\_VertexBuffer,\ \&stride,\ \&offset);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00695}00695\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetIndexBuffer(m\_IndexBuffer,\ DXGI\_FORMAT\_R16\_UINT,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00696}00696\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>IASetPrimitiveTopology(D3D11\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00697}00697\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00698}00698\ \ \ \ \ \textcolor{comment}{//\ フルスクリーンの四角形を描画}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00699}00699\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>DrawIndexed(6,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00700}00700\ }
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00701}00701\ \ \ \ \ \textcolor{comment}{//\ シェーダーリソースビューをアンバインド}}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00702}00702\ \ \ \ \ ID3D11ShaderResourceView*\ nullSRV[]\ =\ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00703}00703\ \ \ \ \ \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Renderer::GetDeviceContext}}()-\/>PSSetShaderResources(0,\ 1,\ nullSRV);}
+\DoxyCodeLine{\Hypertarget{renderer_8cpp_source_l00704}00704\ \}}
+
+\end{DoxyCode}

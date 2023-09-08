@@ -1,0 +1,79 @@
+\doxysection{model\+Renderer.\+h}
+\hypertarget{model_renderer_8h_source}{}\label{model_renderer_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/modelRenderer.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/modelRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}component.h"{}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}utftosjisconv.h"{}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00008}00008\ \textcolor{comment}{//\ マテリアル構造体}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00009}\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{00009}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{char}\ Name[256];}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ Material;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{char}\ TextureName[256];}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00014}00014\ \ \ \ \ ID3D11ShaderResourceView*\ Texture;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00015}00015\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00017}00017\ \textcolor{comment}{//\ 描画サブセット構造体}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00018}\mbox{\hyperlink{struct_s_u_b_s_e_t}{00018}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ StartIndex;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ IndexNum;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}\ Material;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00023}00023\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00025}00025\ \textcolor{comment}{//\ モデル構造体}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00026}\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{00026}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\_3D}}*\ VertexArray;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ VertexNum;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ IndexArray;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ IndexNum;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}*\ SubsetArray;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ SubsetNum;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00036}00036\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00038}\mbox{\hyperlink{struct_m_o_d_e_l}{00038}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00040}00040\ \ \ \ \ ID3D11Buffer*\ VertexBuffer;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00041}00041\ \ \ \ \ ID3D11Buffer*\ IndexBuffer;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{struct_s_u_b_s_e_t}{SUBSET}}*\ SubsetArray;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ SubsetNum;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00045}00045\ \};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00048}\mbox{\hyperlink{class_model_renderer}{00048}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_model_renderer}{ModelRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00050}00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ MODEL*>\ m\_ModelPool;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadModel(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}*\ Model);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<DirectX::SimpleMath::Vector3>\ LoadModelVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}*\ Model);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadObj(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}*\ ModelObj);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<DirectX::SimpleMath::Vector3>\ LoadObjVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\_OBJ}}*\ ModelObj);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LoadMaterial(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\_MATERIAL}}**\ MaterialArray,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ MaterialNum);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}*\ m\_Model\{\};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00061}00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Preload(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UnloadAll();}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00068}00068\ \ \ \ \ std::vector<DirectX::SimpleMath::Vector3>\ LoadVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00070}00070\ \ \ \ \ std::vector<VERTEX\_3D>\ GetVertex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{int}\ GetIndexNum();}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{model_renderer_8h_source_l00075}00075\ \};}
+
+\end{DoxyCode}

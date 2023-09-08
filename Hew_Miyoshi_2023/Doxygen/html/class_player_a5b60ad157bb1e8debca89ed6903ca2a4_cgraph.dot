@@ -1,0 +1,21 @@
+digraph "Player::Draw"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Player::Draw",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="プレイヤーオブジェクトの描画処理を行います。"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GameObject::AddComponent",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_game_object.html#a811dc08b79009b3af153721df972e761",tooltip="オブジェクトに新しいコンポーネントを追加します。"];
+  Node2 -> Node2 [id="edge2_Node000002_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node3 [id="edge3_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GameObject::GetForward",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_game_object.html#ad53689a12682ef210b47aed77ea82309",tooltip="オブジェクトの前方ベクトルを取得します。"];
+  Node3 -> Node2 [id="edge4_Node000003_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node4 [id="edge5_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="GameObject::GetPosition",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_game_object.html#a3aa811424f7b7b499d9dc25bff77b9c7",tooltip="オブジェクトの位置を取得します。"];
+  Node1 -> Node5 [id="edge6_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="GameObject::GetRotation",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_game_object.html#aac28192140fdafe1c72199f36ee18564",tooltip="オブジェクトの回転を取得します。"];
+  Node1 -> Node6 [id="edge7_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="GameObject::GetScale",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_game_object.html#a7e8fa426991ab42fae1aa1a2a3f02c91",tooltip="オブジェクトのスケールを取得します。"];
+}

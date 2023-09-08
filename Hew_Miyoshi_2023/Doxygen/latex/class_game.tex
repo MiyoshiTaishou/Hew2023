@@ -1,0 +1,160 @@
+\doxysection{Game クラス}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+Game の継承関係図
+% FIG 0
+
+
+Game 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a76d586857ee6851adaf5f5fb8f9917ac}{Init}} () override
+\begin{DoxyCompactList}\small\item\em シーンの初期化を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a7279736cde09902a139247810bc76d4b}{Update}} () override
+\begin{DoxyCompactList}\small\item\em シーンの更新処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aeb8a54c5962a6dc907e1b708d94d0ac3}{Loadposition\+To\+File}} (const std\+::string \&filename)
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
+\begin{DoxyCompactList}\small\item\em Sceneクラスのコンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\texorpdfstring{$\sim$}{\string~}\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Sceneクラスのデストラクタ \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}{Uninit}} ()
+\begin{DoxyCompactList}\small\item\em シーンの終了処理を行います。 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_ad0000891418e47223a01172bebb031a0}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーンの描画処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_af44173c6837208188f6852de556a2d7b}{Init\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本初期化処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{Uninit\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本終了処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{Update\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本更新処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{Draw\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本描画処理を行います。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_aad19cad10b834eafe848c74cae9ca22a}{Add\+Game\+Object}} (int Layer)
+\begin{DoxyCompactList}\small\item\em 指定したレイヤーに新しい\+Game\+Objectを追加します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}{Get\+Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em 指定した型の\+Game\+Objectを取得します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{Get\+Game\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em 指定した型のすべての\+Game\+Objectを取得します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_transition}{Transition}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_a927ce840579f3fe203157fc995f256a7}{m\+\_\+\+Transition}} \{\}
+\item 
+class \mbox{\hyperlink{class_fade_u_i}{Fade\+UI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_adb62b98b25d71176c45a744c49e73f3c}{m\+\_\+\+Fade}} \{\}
+\item 
+bool \mbox{\hyperlink{class_game_ae99decce6db03a609127ca48de7dbdc3}{m\+\_\+\+Goal}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ \mbox{\hyperlink{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}{m\+\_\+\+Game\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{_game_8h_source}{Game.\+h}} の \mbox{\hyperlink{_game_8h_source_l00005}{5}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_game_a76d586857ee6851adaf5f5fb8f9917ac}\label{class_game_a76d586857ee6851adaf5f5fb8f9917ac} 
+\index{Game@{Game}!Init@{Init}}
+\index{Init@{Init}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Game\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+シーンの初期化を行います。 
+
+
+
+\mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Scene}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}} の \mbox{\hyperlink{_game_8cpp_source_l00041}{41}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 2
+被呼び出し関係図\+:
+% FIG 3
+\Hypertarget{class_game_aeb8a54c5962a6dc907e1b708d94d0ac3}\label{class_game_aeb8a54c5962a6dc907e1b708d94d0ac3} 
+\index{Game@{Game}!LoadpositionToFile@{LoadpositionToFile}}
+\index{LoadpositionToFile@{LoadpositionToFile}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{LoadpositionToFile()}{LoadpositionToFile()}}
+{\footnotesize\ttfamily void Game\+::\+Loadposition\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}} の \mbox{\hyperlink{_game_8cpp_source_l00165}{165}} 行目に定義があります。
+
+\Hypertarget{class_game_a7279736cde09902a139247810bc76d4b}\label{class_game_a7279736cde09902a139247810bc76d4b} 
+\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+シーンの更新処理を行います。 
+
+
+
+\mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Scene}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_game_8cpp_source}{Game.\+cpp}} の \mbox{\hyperlink{_game_8cpp_source_l00138}{138}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 4
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_game_adb62b98b25d71176c45a744c49e73f3c}\label{class_game_adb62b98b25d71176c45a744c49e73f3c} 
+\index{Game@{Game}!m\_Fade@{m\_Fade}}
+\index{m\_Fade@{m\_Fade}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{m\_Fade}{m\_Fade}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{class_fade_u_i}{Fade\+UI}}\texorpdfstring{$\ast$}{*} Game\+::m\+\_\+\+Fade \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_game_8h_source}{Game.\+h}} の \mbox{\hyperlink{_game_8h_source_l00009}{9}} 行目に定義があります。
+
+\Hypertarget{class_game_ae99decce6db03a609127ca48de7dbdc3}\label{class_game_ae99decce6db03a609127ca48de7dbdc3} 
+\index{Game@{Game}!m\_Goal@{m\_Goal}}
+\index{m\_Goal@{m\_Goal}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{m\_Goal}{m\_Goal}}
+{\footnotesize\ttfamily bool Game\+::m\+\_\+\+Goal = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_game_8h_source}{Game.\+h}} の \mbox{\hyperlink{_game_8h_source_l00010}{10}} 行目に定義があります。
+
+\Hypertarget{class_game_a927ce840579f3fe203157fc995f256a7}\label{class_game_a927ce840579f3fe203157fc995f256a7} 
+\index{Game@{Game}!m\_Transition@{m\_Transition}}
+\index{m\_Transition@{m\_Transition}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{m\_Transition}{m\_Transition}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{class_transition}{Transition}}\texorpdfstring{$\ast$}{*} Game\+::m\+\_\+\+Transition \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_game_8h_source}{Game.\+h}} の \mbox{\hyperlink{_game_8h_source_l00008}{8}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Game.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Game.\+cpp\end{DoxyCompactItemize}
