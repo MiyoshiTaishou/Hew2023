@@ -1,46 +1,104 @@
 #pragma once
-#include "gameObject.h"
-#include<SimpleMath.h>
-#include<vector>
-#include"GamePad.h"
 
-//操作するキャラ
-class Player :  public GameObject
+#include "gameObject.h"
+#include <SimpleMath.h>
+#include <vector>
+#include "GamePad.h"
+
+/**
+ * @brief 操作するキャラクターのクラスです。
+ */
+class Player : public GameObject
 {
 public:
-	void Init()override;	
-	void Update()override;
-	void Draw()override;		
+    /**
+     * @brief プレイヤーオブジェクトの初期化を行います。
+     */
+    void Init() override;
 
-	DirectX::GamePad::State buttonState;
+    /**
+     * @brief プレイヤーオブジェクトの更新処理を行います。
+     */
+    void Update() override;
+
+    /**
+     * @brief プレイヤーオブジェクトの描画処理を行います。
+     */
+    void Draw() override;
+
+    /**
+     * @brief ゲームパッドのボタン状態を表す変数です。
+     */
+    DirectX::GamePad::State buttonState;
 
 private:
+    /**
+     * @brief プレイヤーの速度ベクトルです。
+     */
+    DirectX::SimpleMath::Vector3 m_Velocity{};
 
-	DirectX::SimpleMath::Vector3		m_Velocity{};
+    /**
+     * @brief SE（効果音）を再生するためのオブジェクトです。
+     */
+    class Audio* m_SE{};
 
-	//SE
-	class Audio* m_SE{};	
-	class Audio* m_MeatSE{};	
-	class Audio* m_MeatSE2{};	
+    /**
+     * @brief 肉のSE（効果音）を再生するためのオブジェクトです。
+     */
+    class Audio* m_MeatSE{};
 
-	//子オブジェクト
-	std::list<GameObject*> m_Children;
-	GameObject* mchild;
+    /**
+     * @brief もう一つの肉のSE（効果音）を再生するためのオブジェクトです。
+     */
+    class Audio* m_MeatSE2{};
 
-	//塊の大きさ
-	float m_Size;	
+    /**
+     * @brief 子オブジェクトのリストです。
+     */
+    std::list<GameObject*> m_Children;
 
-	//ダッシュ用変数
-	int loopCount = 0;
-	int reception = 60;
-	int actionCount = 0;
-	int actionDashu = 5;
-	bool actionCheck = false;
+    /**
+     * @brief 子オブジェクトの一つです。
+     */
+    GameObject* mchild;
 
-	//壁登り用変数
-	bool wallUp = false;
-	
-	//頂点座標
-	std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;		
+    /**
+     * @brief 塊の大きさです。
+     */
+    float m_Size;
+
+    /**
+     * @brief ダッシュ用のカウント変数です。
+     */
+    int loopCount = 0;
+
+    /**
+     * @brief ダッシュの受付時間を表す変数です。
+     */
+    int reception = 60;
+
+    /**
+     * @brief アクションのカウント変数です。
+     */
+    int actionCount = 0;
+
+    /**
+     * @brief ダッシュアクション用のカウント変数です。
+     */
+    int actionDashu = 5;
+
+    /**
+     * @brief アクションの有効性を示すフラグです。
+     */
+    bool actionCheck = false;
+
+    /**
+     * @brief 壁を登るためのフラグです。
+     */
+    bool wallUp = false;
+
+    /**
+     * @brief 頂点座標のリストです。
+     */
+    std::vector<DirectX::SimpleMath::Vector3> m_VertexPos;
 };
-

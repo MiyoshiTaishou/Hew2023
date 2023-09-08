@@ -3,78 +3,73 @@
 #include <unordered_map>
 #include "component.h"
 #include "utftosjisconv.h"
-#include<SimpleMath.h>
-
+#include <SimpleMath.h>
 
 // マテリアル構造体
 struct MODEL_MATERIAL
 {
-	char						Name[256];
-	MATERIAL					Material;
-	char						TextureName[256];
-	ID3D11ShaderResourceView*	Texture;
-
+    char Name[256];
+    MATERIAL Material;
+    char TextureName[256];
+    ID3D11ShaderResourceView* Texture;
 };
-
 
 // 描画サブセット構造体
 struct SUBSET
 {
-	unsigned int	StartIndex;
-	unsigned int	IndexNum;
-	MODEL_MATERIAL	Material;
+    unsigned int StartIndex;
+    unsigned int IndexNum;
+    MODEL_MATERIAL Material;
 };
-
 
 // モデル構造体
 struct MODEL_OBJ
 {
-	VERTEX_3D		*VertexArray;
-	unsigned int	VertexNum;
+    VERTEX_3D* VertexArray;
+    unsigned int VertexNum;
 
-	unsigned int	*IndexArray;
-	unsigned int	IndexNum;
+    unsigned int* IndexArray;
+    unsigned int IndexNum;
 
-	SUBSET			*SubsetArray;
-	unsigned int	SubsetNum;
+    SUBSET* SubsetArray;
+    unsigned int SubsetNum;
 };
 
 struct MODEL
 {
-	ID3D11Buffer*	VertexBuffer;
-	ID3D11Buffer*	IndexBuffer;
+    ID3D11Buffer* VertexBuffer;
+    ID3D11Buffer* IndexBuffer;
 
-	SUBSET*			SubsetArray;
-	unsigned int	SubsetNum;
+    SUBSET* SubsetArray;
+    unsigned int SubsetNum;
 };
 
+/// モデルの描画コンポーネント
 class ModelRenderer : public Component
 {
 private:
+    static std::unordered_map<std::string, MODEL*> m_ModelPool;
 
-	static std::unordered_map<std::string, MODEL*> m_ModelPool;
+    static void LoadModel(const char* FileName, MODEL* Model);
+    static std::vector<DirectX::SimpleMath::Vector3> LoadModelVertex(const char* FileName, MODEL* Model);
+    static void LoadObj(const char* FileName, MODEL_OBJ* ModelObj);
+    static std::vector<DirectX::SimpleMath::Vector3> LoadObjVertex(const char* FileName, MODEL_OBJ* ModelObj);
+    static void LoadMaterial(const char* FileName, MODEL_MATERIAL** MaterialArray, unsigned int* MaterialNum);
 
-	static void LoadModel(const char *FileName, MODEL *Model);
-	static std::vector<DirectX::SimpleMath::Vector3> LoadModelVertex(const char *FileName, MODEL *Model);
-	static void LoadObj( const char *FileName, MODEL_OBJ *ModelObj );	
-	static std::vector<DirectX::SimpleMath::Vector3> LoadObjVertex(const char* FileName, MODEL_OBJ* ModelObj);
-	static void LoadMaterial( const char *FileName, MODEL_MATERIAL **MaterialArray, unsigned int *MaterialNum );	
-
-	MODEL* m_Model{};	
+    MODEL* m_Model{};
 
 public:
+    static void Preload(const char* FileName);
+    static void UnloadAll();
 
-	static void Preload( const char *FileName );
-	static void UnloadAll();
+    using Component::Component;
 
+    void Load(const char* FileName);
+    std::vector<DirectX::SimpleMath::Vector3> LoadVertex(const char* FileName);
 
-	using Component::Component;
+    std::vector<VERTEX_3D> GetVertex(const char* FileName);
+    int GetIndexNum();
 
-	void Load( const char *FileName );		
-	std::vector<DirectX::SimpleMath::Vector3> LoadVertex( const char *FileName );
-
-	std::vector<VERTEX_3D> GetVertex(const char* FileName);
-	int GetIndexNum();
-
-	void Draw() override;
+    /// 描画関数（オーバーライド）
+    void Draw() override;
 };

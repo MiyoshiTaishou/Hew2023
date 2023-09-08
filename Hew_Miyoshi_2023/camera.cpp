@@ -2,7 +2,6 @@
 #include "manager.h"
 #include "renderer.h"
 #include "camera.h"
-#include"BackCameraComponent.h"
 #include"Player.h"
 
 #include"ImGuiManager.h"
