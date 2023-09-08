@@ -1,31 +1,32 @@
 #pragma once
 #include "component.h"
-#include<SimpleMath.h>
+#include <SimpleMath.h>
 
-//前方宣言
+// 前方宣言
 class GameObject;
 
-//ジャンプできるようにするコンポーネント
-class JumpComponent :  public Component
+/// ジャンプできるようにするコンポーネント
+class JumpComponent : public Component
 {
 public:
-	using Component::Component;
+    using Component::Component;
 
-	void Update();
-	void Draw()override;
+    /// 更新関数
+    void Update() override;
+
+    /// 描画関数（オーバーライド）
+    void Draw() override;
 
 private:
+    /// 重力加速度
+    float accGravity = 20.0f;
 
-	//重力加速度
-	float accGravity = 20.0f;
+    /// 経過時間
+    float time = 0;
 
-	//時間
-	float time = 0;
+    /// ジャンプの強さ
+    float jumpPower = 20.0f;
 
-	//ジャンプの強さ
-	float jumpPower = 20.0f;
-
-	//ジャンプできるか
-	bool jumpCheck = true;
+    /// ジャンプできるかどうか
+    bool jumpCheck = true;
 };
-

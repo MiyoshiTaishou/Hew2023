@@ -60,7 +60,7 @@ void Rigidbody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMod
 	case ForceMode::Force:
 		force = force + _force;
 		break;
-	case ForceMode::Impuluse:
+	case ForceMode::Impulse:
 		force = force + (_force / deltaTime);
 		break;
 	}

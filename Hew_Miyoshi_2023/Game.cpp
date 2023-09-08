@@ -7,7 +7,6 @@
 #include"shader.h"
 #include"Transition.h"
 #include"BoxCollider.h"
-#include"BackCameraComponent.h"
 
 #include"polygon2D.h"
 #include"field.h"

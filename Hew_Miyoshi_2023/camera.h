@@ -1,27 +1,45 @@
 #pragma once
+#include <SimpleMath.h>
+#include "gameObject.h"
 
-#include	<SimpleMath.h>
-#include	"gameObject.h"
-
-//カメラオブジェクトコンポーネントで切り替えれるようになっている
+/**
+ * @brief カメラオブジェクトコンポーネントで切り替え可能なカメラのクラスです。
+ */
 class Camera : public GameObject
 {
 private:
-
-	DirectX::SimpleMath::Vector3	m_Target{};
-	DirectX::SimpleMath::Matrix		m_ViewMatrix{};
-
-	DirectX::SimpleMath::Vector3 m_Foward{};
+    DirectX::SimpleMath::Vector3 m_Target{}; ///< カメラのターゲット座標
+    DirectX::SimpleMath::Matrix m_ViewMatrix{}; ///< カメラのビュー行列
+    DirectX::SimpleMath::Vector3 m_Foward{}; ///< カメラの前方ベクトル
 
 public:
-	void Init();	
-	void Update();
-	void Draw();
+    /**
+     * @brief Cameraクラスの初期化を行います。
+     */
+    void Init();
 
-	void SetTarget(DirectX::SimpleMath::Vector3 target);
+    /**
+     * @brief Cameraクラスの更新処理を行います。
+     */
+    void Update();
 
-	DirectX::SimpleMath::Matrix GetViewMatrix()
-	{
-		return m_ViewMatrix;
-	}
+    /**
+     * @brief Cameraクラスの描画処理を行います。
+     */
+    void Draw();
+
+    /**
+     * @brief カメラのターゲット座標を設定します。
+     * @param target ターゲット座標
+     */
+    void SetTarget(DirectX::SimpleMath::Vector3 target);
+
+    /**
+     * @brief カメラのビュー行列を取得します。
+     * @return カメラのビュー行列
+     */
+    DirectX::SimpleMath::Matrix GetViewMatrix()
+    {
+        return m_ViewMatrix;
+    }
 };

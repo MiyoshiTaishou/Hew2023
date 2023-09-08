@@ -6,10 +6,9 @@
 #include <Windows.h>
 #include <cstdint>
 
-
-///////////////////////////////////////////////////////////////////////////////
-// App class
-///////////////////////////////////////////////////////////////////////////////
+/**
+ * @brief アプリケーションクラス
+ */
 class Application
 {
     //=========================================================================
@@ -26,21 +25,44 @@ public:
     //=========================================================================
     // public methods.
     //=========================================================================
+
+    /**
+     * @brief アプリケーションクラスのコンストラクタ
+     * @param width ウィンドウの横幅
+     * @param height ウィンドウの縦幅
+     */
     Application(uint32_t width, uint32_t height);
+
+    /**
+     * @brief アプリケーションクラスのデストラクタ
+     */
     ~Application();
+
+    /**
+     * @brief アプリケーションを実行します。
+     */
     void Run();
 
-    // 幅を取得
+    /**
+     * @brief ウィンドウの横幅を取得します。
+     * @return ウィンドウの横幅
+     */
     uint32_t GetWidth() {
         return m_Width;
     }
 
-    // 高さを取得
+    /**
+     * @brief ウィンドウの縦幅を取得します。
+     * @return ウィンドウの縦幅
+     */
     uint32_t GetHeight() {
         return m_Height;
     }
 
-    // ウインドウハンドルを返す
+    /**
+     * @brief ウィンドウハンドルを取得します。
+     * @return ウィンドウハンドル
+     */
     HWND GetWindow() {
         return m_hWnd;
     }
@@ -57,11 +79,41 @@ private:
     //=========================================================================
     // private methods.
     //=========================================================================
+
+    /**
+     * @brief アプリケーションの初期化を行います。
+     * @return 初期化が成功した場合はtrue、それ以外はfalse
+     */
     bool InitApp();
+
+    /**
+     * @brief アプリケーションの終了処理を行います。
+     */
     void TermApp();
+
+    /**
+     * @brief ウィンドウの初期化を行います。
+     * @return 初期化が成功した場合はtrue、それ以外はfalse
+     */
     bool InitWnd();
+
+    /**
+     * @brief ウィンドウの終了処理を行います。
+     */
     void TermWnd();
+
+    /**
+     * @brief メインループを実行します。
+     */
     void MainLoop();
 
+    /**
+     * @brief ウィンドウプロシージャのコールバック関数です。
+     * @param hWnd ウィンドウハンドル
+     * @param msg メッセージ
+     * @param wp メッセージのwParam
+     * @param lp メッセージのlParam
+     * @return メッセージの処理結果
+     */
     static LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp);
 };

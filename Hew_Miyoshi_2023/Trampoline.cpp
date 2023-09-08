@@ -32,5 +32,5 @@ void Trampoline::Action(GameObject* obj)
 	//vec.x *= -2;
 	//vec.z *= -2;
 
-	obj->GetComponent<Rigidbody>()->AddForce(vec, ForceMode::Impuluse);
+	obj->GetComponent<Rigidbody>()->AddForce(vec, ForceMode::Impulse);
 }

@@ -278,7 +278,7 @@ void Player::Update()
 					if (speed > 10.0f)
 					{
 						Vector3 force = -vel * 5.0f;
-						body->AddForce(force, ForceMode::Impuluse);
+						body->AddForce(force, ForceMode::Impulse);
 
 						m_MeatSE2->Play();
 					}
@@ -495,7 +495,7 @@ void Player::Update()
 	if (Input::GetKeyTrigger('J'))
 	{
 		Vector3 force = { 0,100,0 };
-		body->AddForce(force, ForceMode::Impuluse);
+		body->AddForce(force, ForceMode::Impulse);
 	}
 
 
@@ -516,7 +516,7 @@ void Player::Update()
 			if (actionDashu < actionCount)
 			{
 				Vector3 force = forward * 100.0f;
-				body->AddForce(force, ForceMode::Impuluse);
+				body->AddForce(force, ForceMode::Impulse);
 				actionCheck = false;
 				actionDashu = 0;
 				loopCount = 0;
