@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen_20230908: C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/field.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen_20230908
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b09d1d5e6ff69a107c29d6e4fb03a01e.html">Hew2023</a></li><li class="navelem"><a class="el" href="dir_fe73dba3fb75d9fb575972b1f2271699.html">Hew_Miyoshi_2023</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">field.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;WICTextureLoader.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;renderer.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;field.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;shader.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using namespace </span>DirectX::SimpleMath;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_field.html#adee4de163152ac14681d36d57f966975">    8</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_field.html#adee4de163152ac14681d36d57f966975">Field::Init</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">AddComponent&lt;Shader&gt;</a>()-&gt;Load(<span class="stringliteral">&quot;shader\\vertexLightingVS.cso&quot;</span>, <span class="stringliteral">&quot;shader\\PS_OrangeScale.cso&quot;</span>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_struct" href="struct_v_e_r_t_e_x__3_d.html">VERTEX_3D</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[4];</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[0].<a class="code hl_variable" href="struct_v_e_r_t_e_x__3_d.html#aafe2112d3893ee63f0a77759f8df63e8">Position</a> = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(-500.0f, 0.0f, 500.0f);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[0].Normal = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(0.0f, 1.0f, 0.0f);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[0].Diffuse = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector4</a>(1.0f, 1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[0].TexCoord = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector2</a>(0.0f, 0.0f);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[1].Position = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(500.0f, 0.0f, 500.0f);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[1].Normal = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(0.0f, 1.0f, 0.0f);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[1].Diffuse = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector4</a>(1.0f, 1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[1].TexCoord = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector2</a>(20.0f, 0.0f);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[2].Position = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(-500.0f, 0.0f, -500.0f);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[2].Normal = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(0.0f, 1.0f, 0.0f);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[2].Diffuse = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector4</a>(1.0f, 1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[2].TexCoord = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector2</a>(0.0f, 20.0f);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[3].Position = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(500.0f, 0.0f, -500.0f);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[3].Normal = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector3</a>(0.0f, 1.0f, 0.0f);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[3].Diffuse = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector4</a>(1.0f, 1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>[3].TexCoord = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Vector2</a>(20.0f, 20.0f);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// 頂点バッファ生成</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">D3D11_BUFFER_DESC</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">ZeroMemory</a>(&amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>, <span class="keyword">sizeof</span>(<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>.Usage = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">D3D11_USAGE_DEFAULT</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>.ByteWidth = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_v_e_r_t_e_x__3_d.html">VERTEX_3D</a>) * 4;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>.BindFlags = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">D3D11_BIND_VERTEX_BUFFER</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>.CPUAccessFlags = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">D3D11_SUBRESOURCE_DATA</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">sd</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">ZeroMemory</a>(&amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">sd</a>, <span class="keyword">sizeof</span>(<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">sd</a>));</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">sd</a>.pSysMem = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">vertex</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="class_renderer.html#a8a4db5c7c4741070e75fe73fbd5a97fc">Renderer::GetDevice</a>()-&gt;CreateBuffer(&amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">bd</a>, &amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">sd</a>, &amp;m_VertexBuffer);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// テクスチャ読み込み</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    DirectX::CreateWICTextureFromFile(</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_function" href="class_renderer.html#a8a4db5c7c4741070e75fe73fbd5a97fc">Renderer::GetDevice</a>(),</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">L</a><span class="stringliteral">&quot;asset/texture/field.jpg&quot;</span>,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        &amp;m_Texture);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">assert</a>(m_Texture);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_field.html#a7667634f271fc00d9887ed0c5fefe156">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_field.html#a7667634f271fc00d9887ed0c5fefe156">Field::Uninit</a>()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">com</a> : <a class="code hl_variable" href="class_game_object.html#ab519c45cfb08cac0ce2f45973abd705e">m_Component</a>) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">com</a>-&gt;Uninit();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">delete</span> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">com</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_variable" href="class_game_object.html#ab519c45cfb08cac0ce2f45973abd705e">m_Component</a>.clear();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    m_VertexBuffer-&gt;Release();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    m_Texture-&gt;Release();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_field.html#a90e0b607ceff98e9b7e6c02e592e9fb9">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_field.html#a90e0b607ceff98e9b7e6c02e592e9fb9">Field::Draw</a>()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">GetComponent&lt;Shader&gt;</a>()-&gt;Draw();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// 入力レイアウト設定</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//  Renderer::GetDeviceContext()-&gt;IASetInputLayout(m_VertexLayout);</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// シェーダ設定</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//  Renderer::GetDeviceContext()-&gt;VSSetShader(m_VertexShader, NULL, 0);</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">//  Renderer::GetDeviceContext()-&gt;PSSetShader(m_PixelShader, NULL, 0);</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// ワールドマトリクス設定</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Matrix</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">world</a>, scale, rot, <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">trans</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    scale = Matrix::CreateScale(<a class="code hl_variable" href="class_game_object.html#abc54d2b61538f86f8d5106ab9292b16e">m_Scale</a>.x);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    rot = Matrix::CreateFromYawPitchRoll(<a class="code hl_variable" href="class_game_object.html#aaf6a3cb0c8158651037477a2ce1af6f5">m_Rotation</a>.y, <a class="code hl_variable" href="class_game_object.html#aaf6a3cb0c8158651037477a2ce1af6f5">m_Rotation</a>.x, <a class="code hl_variable" href="class_game_object.html#aaf6a3cb0c8158651037477a2ce1af6f5">m_Rotation</a>.z);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">trans</a> = Matrix::CreateTranslation(<a class="code hl_variable" href="class_game_object.html#a5d58b0a38bfaf0cfdbc3c0c1098943a0">m_Position</a>.x, <a class="code hl_variable" href="class_game_object.html#a5d58b0a38bfaf0cfdbc3c0c1098943a0">m_Position</a>.y, <a class="code hl_variable" href="class_game_object.html#a5d58b0a38bfaf0cfdbc3c0c1098943a0">m_Position</a>.z);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">world</a> = scale * rot * <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">trans</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="class_renderer.html#a9c1db215718af048709c7f0ed9412b81">Renderer::SetWorldMatrix</a>(&amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">world</a>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// 頂点バッファ設定</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">UINT</a> stride = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_v_e_r_t_e_x__3_d.html">VERTEX_3D</a>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">UINT</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">offset</a> = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_function" href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">Renderer::GetDeviceContext</a>()-&gt;IASetVertexBuffers(0, 1, &amp;m_VertexBuffer, &amp;stride, &amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">offset</a>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// マテリアル設定</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_struct" href="struct_m_a_t_e_r_i_a_l.html">MATERIAL</a> <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">ZeroMemory</a>(&amp;<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>, <span class="keyword">sizeof</span>(<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>.Diffuse = <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">Color</a>(1.0f, 1.0f, 1.0f, 1.0f);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>.TextureEnable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_function" href="class_renderer.html#a31420e0b83fe3ae5106c68c00a7bc1a7">Renderer::SetMaterial</a>(<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">material</a>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// テクスチャ設定</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_function" href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">Renderer::GetDeviceContext</a>()-&gt;PSSetShaderResources(0, 1, &amp;m_Texture);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// プリミティブトポロジ設定</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">Renderer::GetDeviceContext</a>()-&gt;IASetPrimitiveTopology(<a class="code hl_function" href="class_game_object.html#a811dc08b79009b3af153721df972e761">D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP</a>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// ポリゴン描画</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">Renderer::GetDeviceContext</a>()-&gt;Draw(4, 0);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="ttc" id="aclass_field_html_a7667634f271fc00d9887ed0c5fefe156"><div class="ttname"><a href="class_field.html#a7667634f271fc00d9887ed0c5fefe156">Field::Uninit</a></div><div class="ttdeci">void Uninit()</div><div class="ttdoc">オブジェクトの終了処理を行います。</div><div class="ttdef"><b>Definition</b> <a href="field_8cpp_source.html#l00058">field.cpp:58</a></div></div>
+<div class="ttc" id="aclass_field_html_a90e0b607ceff98e9b7e6c02e592e9fb9"><div class="ttname"><a href="class_field.html#a90e0b607ceff98e9b7e6c02e592e9fb9">Field::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdoc">オブジェクトの描画処理を行います。</div><div class="ttdef"><b>Definition</b> <a href="field_8cpp_source.html#l00071">field.cpp:71</a></div></div>
+<div class="ttc" id="aclass_field_html_adee4de163152ac14681d36d57f966975"><div class="ttname"><a href="class_field.html#adee4de163152ac14681d36d57f966975">Field::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdoc">オブジェクトの初期化を行います。</div><div class="ttdef"><b>Definition</b> <a href="field_8cpp_source.html#l00008">field.cpp:8</a></div></div>
+<div class="ttc" id="aclass_game_object_html_a5d58b0a38bfaf0cfdbc3c0c1098943a0"><div class="ttname"><a href="class_game_object.html#a5d58b0a38bfaf0cfdbc3c0c1098943a0">GameObject::m_Position</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 m_Position</div><div class="ttdoc">オブジェクトの位置</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00015">gameObject.h:15</a></div></div>
+<div class="ttc" id="aclass_game_object_html_a811dc08b79009b3af153721df972e761"><div class="ttname"><a href="class_game_object.html#a811dc08b79009b3af153721df972e761">GameObject::AddComponent</a></div><div class="ttdeci">T * AddComponent()</div><div class="ttdoc">オブジェクトに新しいコンポーネントを追加します。</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00154">gameObject.h:154</a></div></div>
+<div class="ttc" id="aclass_game_object_html_aaf6a3cb0c8158651037477a2ce1af6f5"><div class="ttname"><a href="class_game_object.html#aaf6a3cb0c8158651037477a2ce1af6f5">GameObject::m_Rotation</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 m_Rotation</div><div class="ttdoc">オブジェクトの回転</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00016">gameObject.h:16</a></div></div>
+<div class="ttc" id="aclass_game_object_html_ab519c45cfb08cac0ce2f45973abd705e"><div class="ttname"><a href="class_game_object.html#ab519c45cfb08cac0ce2f45973abd705e">GameObject::m_Component</a></div><div class="ttdeci">std::list&lt; Component * &gt; m_Component</div><div class="ttdoc">オブジェクトにアタッチされたコンポーネントのリスト</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00019">gameObject.h:19</a></div></div>
+<div class="ttc" id="aclass_game_object_html_abc54d2b61538f86f8d5106ab9292b16e"><div class="ttname"><a href="class_game_object.html#abc54d2b61538f86f8d5106ab9292b16e">GameObject::m_Scale</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 m_Scale</div><div class="ttdoc">オブジェクトのスケール</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00017">gameObject.h:17</a></div></div>
+<div class="ttc" id="aclass_renderer_html_a31420e0b83fe3ae5106c68c00a7bc1a7"><div class="ttname"><a href="class_renderer.html#a31420e0b83fe3ae5106c68c00a7bc1a7">Renderer::SetMaterial</a></div><div class="ttdeci">static void SetMaterial(MATERIAL Material)</div><div class="ttdoc">マテリアルを設定</div><div class="ttdef"><b>Definition</b> <a href="renderer_8cpp_source.html#l00460">renderer.cpp:460</a></div></div>
+<div class="ttc" id="aclass_renderer_html_a8a4db5c7c4741070e75fe73fbd5a97fc"><div class="ttname"><a href="class_renderer.html#a8a4db5c7c4741070e75fe73fbd5a97fc">Renderer::GetDevice</a></div><div class="ttdeci">static ID3D11Device * GetDevice(void)</div><div class="ttdoc">デバイスオブジェクトを取得</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00241">renderer.h:241</a></div></div>
+<div class="ttc" id="aclass_renderer_html_a9c1db215718af048709c7f0ed9412b81"><div class="ttname"><a href="class_renderer.html#a9c1db215718af048709c7f0ed9412b81">Renderer::SetWorldMatrix</a></div><div class="ttdeci">static void SetWorldMatrix(DirectX::SimpleMath::Matrix *WorldMatrix)</div><div class="ttdoc">ワールド行列を設定</div><div class="ttdef"><b>Definition</b> <a href="renderer_8cpp_source.html#l00434">renderer.cpp:434</a></div></div>
+<div class="ttc" id="aclass_renderer_html_ac642f0314dfa500d60c0fe6eae9ef4ef"><div class="ttname"><a href="class_renderer.html#ac642f0314dfa500d60c0fe6eae9ef4ef">Renderer::GetDeviceContext</a></div><div class="ttdeci">static ID3D11DeviceContext * GetDeviceContext(void)</div><div class="ttdoc">デバイスコンテキストオブジェクトを取得</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00247">renderer.h:247</a></div></div>
+<div class="ttc" id="astruct_m_a_t_e_r_i_a_l_html"><div class="ttname"><a href="struct_m_a_t_e_r_i_a_l.html">MATERIAL</a></div><div class="ttdoc">マテリアルの構造体</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00025">renderer.h:26</a></div></div>
+<div class="ttc" id="astruct_v_e_r_t_e_x__3_d_html"><div class="ttname"><a href="struct_v_e_r_t_e_x__3_d.html">VERTEX_3D</a></div><div class="ttdoc">３Ｄ頂点データの構造体</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00014">renderer.h:15</a></div></div>
+<div class="ttc" id="astruct_v_e_r_t_e_x__3_d_html_aafe2112d3893ee63f0a77759f8df63e8"><div class="ttname"><a href="struct_v_e_r_t_e_x__3_d.html#aafe2112d3893ee63f0a77759f8df63e8">VERTEX_3D::Position</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 Position</div><div class="ttdoc">頂点の位置</div><div class="ttdef"><b>Definition</b> <a href="renderer_8h_source.html#l00016">renderer.h:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

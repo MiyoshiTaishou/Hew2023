@@ -1,0 +1,209 @@
+\doxysection{Audio クラス}
+\hypertarget{class_audio}{}\label{class_audio}\index{Audio@{Audio}}
+
+
+Audio の継承関係図
+% FIG 0
+
+
+Audio 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_audio_aedf56c072f6cabe7bc39282e1f1085b1}{Uninit}} ()
+\item 
+void \mbox{\hyperlink{class_audio_a20012212e1892319f8a3b7c79e04500d}{Load}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+void \mbox{\hyperlink{class_audio_a1911ef8f952ea46ca519fda73c818825}{Play}} (bool Loop=false)
+\item 
+\Hypertarget{class_audio_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_audio_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+{\bfseries Component} ()=delete
+\item 
+\mbox{\hyperlink{class_audio_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Draw}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_audio_ac6c527111f116bce0a4be14c6226853b}{Init\+Master}} ()
+\item 
+static void \mbox{\hyperlink{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce}{Uninit\+Master}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+IXAudio2\+Source\+Voice \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_audio_a207b893bf853fe91cf6184a407f172d7}{m\+\_\+\+Source\+Voice}} \{\}
+\item 
+BYTE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_audio_a89438a674bcfcdcb2ca5e84315e1751d}{m\+\_\+\+Sound\+Data}} \{\}
+\item 
+int \mbox{\hyperlink{class_audio_a0864b150f99836b9480d32f25fa68cf0}{m\+\_\+\+Length}} \{\}
+\item 
+int \mbox{\hyperlink{class_audio_aa10d8a12f2410245a71e67559291fb11}{m\+\_\+\+Play\+Length}} \{\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静的非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+static IXAudio2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_audio_a2808e01be6a33b884e3c9a086300464f}{m\+\_\+\+Xaudio}} = NULL
+\item 
+static IXAudio2\+Mastering\+Voice \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_audio_aae2d230475d0c51901b5e19365991252}{m\+\_\+\+Mastering\+Voice}} = NULL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00007}{7}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_audio_aaa874f1577ba8f36a03983918ee3501f}\label{class_audio_aaa874f1577ba8f36a03983918ee3501f} 
+\index{Audio@{Audio}!Component@{Component}}
+\index{Component@{Component}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_audio_ac6c527111f116bce0a4be14c6226853b}\label{class_audio_ac6c527111f116bce0a4be14c6226853b} 
+\index{Audio@{Audio}!InitMaster@{InitMaster}}
+\index{InitMaster@{InitMaster}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{InitMaster()}{InitMaster()}}
+{\footnotesize\ttfamily void Audio\+::\+Init\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+ \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}} の \mbox{\hyperlink{audio_8cpp_source_l00007}{7}} 行目に定義があります。
+
+\Hypertarget{class_audio_a20012212e1892319f8a3b7c79e04500d}\label{class_audio_a20012212e1892319f8a3b7c79e04500d} 
+\index{Audio@{Audio}!Load@{Load}}
+\index{Load@{Load}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Audio\+::\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}} の \mbox{\hyperlink{audio_8cpp_source_l00027}{27}} 行目に定義があります。
+
+\Hypertarget{class_audio_a1911ef8f952ea46ca519fda73c818825}\label{class_audio_a1911ef8f952ea46ca519fda73c818825} 
+\index{Audio@{Audio}!Play@{Play}}
+\index{Play@{Play}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Audio\+::\+Play (\begin{DoxyParamCaption}\item[{bool}]{Loop = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}} の \mbox{\hyperlink{audio_8cpp_source_l00097}{97}} 行目に定義があります。
+
+\Hypertarget{class_audio_aedf56c072f6cabe7bc39282e1f1085b1}\label{class_audio_aedf56c072f6cabe7bc39282e1f1085b1} 
+\index{Audio@{Audio}!Uninit@{Uninit}}
+\index{Uninit@{Uninit}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
+{\footnotesize\ttfamily void Audio\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}} の \mbox{\hyperlink{audio_8cpp_source_l00089}{89}} 行目に定義があります。
+
+\Hypertarget{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce}\label{class_audio_ac058785e0bd28e2dbee9eb5e9300dfce} 
+\index{Audio@{Audio}!UninitMaster@{UninitMaster}}
+\index{UninitMaster@{UninitMaster}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{UninitMaster()}{UninitMaster()}}
+{\footnotesize\ttfamily void Audio\+::\+Uninit\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+ \mbox{\hyperlink{audio_8cpp_source}{audio.\+cpp}} の \mbox{\hyperlink{audio_8cpp_source_l00020}{20}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_audio_a0864b150f99836b9480d32f25fa68cf0}\label{class_audio_a0864b150f99836b9480d32f25fa68cf0} 
+\index{Audio@{Audio}!m\_Length@{m\_Length}}
+\index{m\_Length@{m\_Length}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_Length}{m\_Length}}
+{\footnotesize\ttfamily int Audio\+::m\+\_\+\+Length \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00016}{16}} 行目に定義があります。
+
+\Hypertarget{class_audio_aae2d230475d0c51901b5e19365991252}\label{class_audio_aae2d230475d0c51901b5e19365991252} 
+\index{Audio@{Audio}!m\_MasteringVoice@{m\_MasteringVoice}}
+\index{m\_MasteringVoice@{m\_MasteringVoice}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_MasteringVoice}{m\_MasteringVoice}}
+{\footnotesize\ttfamily IXAudio2\+Mastering\+Voice \texorpdfstring{$\ast$}{*} Audio\+::m\+\_\+\+Mastering\+Voice = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00011}{11}} 行目に定義があります。
+
+\Hypertarget{class_audio_aa10d8a12f2410245a71e67559291fb11}\label{class_audio_aa10d8a12f2410245a71e67559291fb11} 
+\index{Audio@{Audio}!m\_PlayLength@{m\_PlayLength}}
+\index{m\_PlayLength@{m\_PlayLength}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_PlayLength}{m\_PlayLength}}
+{\footnotesize\ttfamily int Audio\+::m\+\_\+\+Play\+Length \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00017}{17}} 行目に定義があります。
+
+\Hypertarget{class_audio_a89438a674bcfcdcb2ca5e84315e1751d}\label{class_audio_a89438a674bcfcdcb2ca5e84315e1751d} 
+\index{Audio@{Audio}!m\_SoundData@{m\_SoundData}}
+\index{m\_SoundData@{m\_SoundData}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_SoundData}{m\_SoundData}}
+{\footnotesize\ttfamily BYTE\texorpdfstring{$\ast$}{*} Audio\+::m\+\_\+\+Sound\+Data \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00014}{14}} 行目に定義があります。
+
+\Hypertarget{class_audio_a207b893bf853fe91cf6184a407f172d7}\label{class_audio_a207b893bf853fe91cf6184a407f172d7} 
+\index{Audio@{Audio}!m\_SourceVoice@{m\_SourceVoice}}
+\index{m\_SourceVoice@{m\_SourceVoice}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_SourceVoice}{m\_SourceVoice}}
+{\footnotesize\ttfamily IXAudio2\+Source\+Voice\texorpdfstring{$\ast$}{*} Audio\+::m\+\_\+\+Source\+Voice \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_audio_a2808e01be6a33b884e3c9a086300464f}\label{class_audio_a2808e01be6a33b884e3c9a086300464f} 
+\index{Audio@{Audio}!m\_Xaudio@{m\_Xaudio}}
+\index{m\_Xaudio@{m\_Xaudio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{m\_Xaudio}{m\_Xaudio}}
+{\footnotesize\ttfamily IXAudio2 \texorpdfstring{$\ast$}{*} Audio\+::m\+\_\+\+Xaudio = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{audio_8h_source}{audio.\+h}} の \mbox{\hyperlink{audio_8h_source_l00010}{10}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/audio.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/audio.\+cpp\end{DoxyCompactItemize}

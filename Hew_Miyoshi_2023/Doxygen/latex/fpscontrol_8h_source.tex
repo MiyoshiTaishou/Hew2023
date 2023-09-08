@@ -1,0 +1,46 @@
+\doxysection{fpscontrol.\+h}
+\hypertarget{fpscontrol_8h_source}{}\label{fpscontrol_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/fpscontrol.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/fpscontrol.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ \ \ \ <thread>}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ \ \ \ <iostream>}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ \ \ \ <windows.h>}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ \ \ \ <timeapi.h>}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00006}\mbox{\hyperlink{class_f_p_s}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_p_s}{FPS}}\ \{}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00007}00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{class_f_p_s}{FPS}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_f_p_s}{FPS}}(uint64\_t\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00010}00010\ \ \ \ \ \ \ \ \ m\_MicrosecondsPerFrame\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}((1000.0f\ *\ 1000.0f)\ /\ f);}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_f_p_s}{\string~FPS}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00014}00014\ \ \ \ \ uint64\_t\ \ CalcDelta()\ \{}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ m\_current\_time\ =\ timeGetTime();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 現在時刻取得}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ m\_delta\_time\ =\ m\_current\_time\ -\/\ m\_last\_time;\ \ \ \ \textcolor{comment}{//\ 前回実行時からに経過時間を取得}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ m\_last\_time\ =\ m\_current\_time;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_delta\_time;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Wait()\ \{}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ int64\_t\ sleep\_time\ =\ m\_MicrosecondsPerFrame\ -\/\ m\_delta\_time;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sleep\_time\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ tt\ =\ sleep\_time\ /\ 1000.0f;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00026}00026\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#if\ defined(DEBUG)\ ||\ defined(\_DEBUG)}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}sleep\ time(ms):"{}}\ <<\ tt\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00028}00028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(std::chrono::milliseconds(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(tt)));}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//指定した相対時間だけ現スレッドをブロックする\ (function\ template)}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00033}00033\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00035}00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00036}00036\ \ \ \ \ uint64\_t\ m\_MicrosecondsPerFrame\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ micro\ second}}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00037}00037\ \ \ \ \ uint64\_t\ m\_current\_time\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00038}00038\ \ \ \ \ uint64\_t\ m\_last\_time\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00039}00039\ \ \ \ \ uint64\_t\ m\_delta\_time\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fpscontrol_8h_source_l00040}00040\ \};}
+
+\end{DoxyCode}

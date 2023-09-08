@@ -1,0 +1,20 @@
+\doxysection{Goal.\+cpp}
+\hypertarget{_goal_8cpp_source}{}\label{_goal_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Goal.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Goal.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Goal.h"{}}}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include"{}modelRenderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include"{}shader.h"{}}}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00004}00004\ \textcolor{comment}{//\#include"{}BoxCollider.h"{}}}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00007}00007\ \textcolor{keyword}{using\ namespace\ }DirectX::SimpleMath;}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00009}\mbox{\hyperlink{class_goal_a28c6a049bfc5f263be99814a596d044e}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_goal_a28c6a049bfc5f263be99814a596d044e}{Goal::Init}}()}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00011}00011\ \ \ \ \ this-\/>\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{AddComponent<Shader>}}()-\/>Load(\textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)vertexLightingVS.cso"{}},\ \textcolor{stringliteral}{"{}shader\(\backslash\)\(\backslash\)vertexLightingPS.cso"{}});}
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00012}00012\ \ \ \ \ this-\/>\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{AddComponent<ModelRenderer>}}()-\/>Load(\textcolor{stringliteral}{"{}asset\(\backslash\)\(\backslash\)model\(\backslash\)\(\backslash\)goal.obj"{}});\ }
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00013}00013\ \ \ \ \ this-\/>\mbox{\hyperlink{class_game_object_abeb8d6fd3767e1cde1a0a56cd61a0e5a}{SetPosition}}(\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Vector3}}(-\/11.0f,\ 10.0f,\ 20.0f));\ }
+\DoxyCodeLine{\Hypertarget{_goal_8cpp_source_l00014}00014\ \}}
+
+\end{DoxyCode}

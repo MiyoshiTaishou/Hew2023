@@ -1,0 +1,171 @@
+\doxysection{OBBCollison.\+h}
+\hypertarget{_o_b_b_collison_8h_source}{}\label{_o_b_b_collison_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/OBBCollison.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/OBBCollison.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}component.h"{}}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00005}00005\ \textcolor{comment}{//OBB用構造体}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00006}\mbox{\hyperlink{struct_o_b_binfo}{00006}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_binfo}{OBBinfo}}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00008}00008\ \ \ \ \ DirectX::SimpleMath::Vector3\ vecAxisX;\textcolor{comment}{//X軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00009}00009\ \ \ \ \ DirectX::SimpleMath::Vector3\ vecAxisY;\textcolor{comment}{//Y軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00010}00010\ \ \ \ \ DirectX::SimpleMath::Vector3\ vecAxisZ;\textcolor{comment}{//Z軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00011}00011\ \ \ \ \ DirectX::SimpleMath::Vector3\ center;\textcolor{comment}{//中心座標(ローカル座標系)}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00012}00012\ \ \ \ \ DirectX::SimpleMath::Vector3\ currentcenter;\textcolor{comment}{//BBOXの現在位置}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{float}\ fLengthX;\textcolor{comment}{//BBOX\ Xサイズ}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{float}\ fLengthY;\textcolor{comment}{//BBOX\ Yサイズ}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{float}\ fLengthZ;\textcolor{comment}{//BBOX\ Zサイズ}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00016}00016\ \};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00018}00018\ \textcolor{keywordtype}{bool}\ CompareLength(}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_o_b_binfo}{OBBinfo}}\&\ pboxA,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_o_b_binfo}{OBBinfo}}\&\ pboxB,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ pvecSeparate,\textcolor{comment}{//\ 分離軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ pvecDistance)}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{float}\ fDistance;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ 分離軸に射影した中心間を結ぶベクトル}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00027}00027\ \ \ \ \ fDistance\ =\ pvecDistance.Dot(pvecSeparate);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ 内積を計算}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00029}00029\ \ \ \ \ fDistance\ =\ fabsf(fDistance);\ \ \ \textcolor{comment}{//\ 絶対値}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00030}00030\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//分離軸上にボックスAを射影した影の長さ}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowA\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//分離軸上にボックスＢを射影した影の長さ}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowB\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//ボックスAの”影”を算出}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowAx;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowAy;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowAz;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ X軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00040}00040\ \ \ \ \ fShadowAx\ =\ pvecSeparate.Dot(pboxA.vecAxisX);\ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00041}00041\ \ \ \ \ fShadowAx\ =\ fabsf(fShadowAx\ *\ (pboxA.fLengthX\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ Y軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00043}00043\ \ \ \ \ fShadowAy\ =\ pvecSeparate.Dot(pboxA.vecAxisY);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00044}00044\ \ \ \ \ fShadowAy\ =\ fabsf(fShadowAy\ *\ (pboxA.fLengthY\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00045}00045\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Z軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00047}00047\ \ \ \ \ fShadowAz\ =\ pvecSeparate.Dot(pboxA.vecAxisZ);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00048}00048\ \ \ \ \ fShadowAz\ =\ fabsf(fShadowAz\ *\ (pboxA.fLengthZ\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00049}00049\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00050}00050\ \ \ \ \ fShadowA\ =\ fShadowAx\ +\ fShadowAy\ +\ fShadowAz;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00052}00052\ \ \ \ \ \textcolor{comment}{//ボックスBの”影”を算出}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowBx;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowBy;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{float}\ fShadowBz;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00056}00056\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//\ X軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00058}00058\ \ \ \ \ fShadowBx\ =\ pvecSeparate.Dot(pboxB.vecAxisX);\ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00059}00059\ \ \ \ \ fShadowBx\ =\ fabsf(fShadowBx\ *\ (pboxB.fLengthX\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ Y軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00062}00062\ \ \ \ \ fShadowBy\ =\ pvecSeparate.Dot(pboxB.vecAxisY);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00063}00063\ \ \ \ \ fShadowBy\ =\ fabsf(fShadowBy\ *\ (pboxB.fLengthY\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//\ Z軸を分離軸に射影}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00066}00066\ \ \ \ \ fShadowBz\ =\ pvecSeparate.Dot(pboxB.vecAxisZ);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00067}00067\ \ \ \ \ fShadowBz\ =\ fabsf(fShadowBz\ *\ (pboxB.fLengthZ\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00069}00069\ \ \ \ \ fShadowB\ =\ fShadowBx\ +\ fShadowBy\ +\ fShadowBz;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (fDistance\ >\ fShadowA\ +\ fShadowB)\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00077}00077\ \textcolor{keywordtype}{bool}\ Collisom(\mbox{\hyperlink{struct_o_b_binfo}{OBBinfo}}\&\ obbA,\ \mbox{\hyperlink{struct_o_b_binfo}{OBBinfo}}\&\ obbB)}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//分離軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00080}00080\ \ \ \ \ DirectX::SimpleMath::Vector3\ vecSeparate;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ 2つのオブジェクトを結んだベクトルを計算}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00083}00083\ \ \ \ \ DirectX::SimpleMath::Vector3\ vecDistance;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00085}00085\ \ \ \ \ DirectX::SimpleMath::Vector3\ obbposA\ =\ obbA.currentcenter;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00086}00086\ \ \ \ \ DirectX::SimpleMath::Vector3\ obbposB\ =\ obbB.currentcenter;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00088}00088\ \ \ \ \ vecDistance.x\ =\ obbposA.x\ -\/\ obbposB.x;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00089}00089\ \ \ \ \ vecDistance.y\ =\ obbposA.y\ -\/\ obbposB.y;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00090}00090\ \ \ \ \ vecDistance.z\ =\ obbposA.z\ -\/\ obbposB.z;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ sts;\textcolor{comment}{//\ 戻り値}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ OBB-\/A軸リスト}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00095}00095\ \ \ \ \ DirectX::SimpleMath::Vector3*\ OBB\_A\_Axis[3]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \&obbA.vecAxisX,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \&obbA.vecAxisY,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \&obbA.vecAxisZ,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00099}00099\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//\ OBB-\/B軸リスト}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00102}00102\ \ \ \ \ DirectX::SimpleMath::Vector3*\ OBB\_B\_Axis[3]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \&obbB.vecAxisX,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \&obbB.vecAxisY,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \&obbB.vecAxisZ,}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00106}00106\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ OBB-\/Aの３軸を分離軸にしてチェック}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ vecSeparate.x\ =\ OBB\_A\_Axis[i]-\/>x;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ vecSeparate.y\ =\ OBB\_A\_Axis[i]-\/>y;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ vecSeparate.z\ =\ OBB\_A\_Axis[i]-\/>z;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ vecSeparate.Normalize();\textcolor{comment}{//正規化}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ sts\ =\ CompareLength(obbA,\textcolor{comment}{//\ OBB-\/A}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ obbA,\textcolor{comment}{//\ OBB-\/B}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ vecSeparate,\textcolor{comment}{//\ 分離軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ vecDistance);\textcolor{comment}{//\ ２つのオブジェクトの中心を結ぶベクトル}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sts\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//\ OBB-\/Bの３軸を分離軸にしてチェック}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ vecSeparate.x\ =\ OBB\_B\_Axis[i]-\/>x;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ vecSeparate.y\ =\ OBB\_B\_Axis[i]-\/>y;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ vecSeparate.z\ =\ OBB\_B\_Axis[i]-\/>z;}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ vecSeparate.Normalize();\textcolor{comment}{//正規化}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ sts\ =\ CompareLength(obbA,\textcolor{comment}{//\ OBB-\/A}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ obbA,\textcolor{comment}{//\ OBB-\/B}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ vecSeparate,\textcolor{comment}{//\ 分離軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ vecDistance);\textcolor{comment}{//\ ２つのオブジェクトの中心を結ぶベクトル}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sts\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//\ 外積を分離軸として計算}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p1\ =\ 0;\ p1\ <\ 3;\ p1++)\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p2\ =\ 0;\ p2\ <\ 3;\ p2++)\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ crossseparate;\textcolor{comment}{//\ 外積ベクトル}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 外積を計算する}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ crossseparate\ =\ OBB\_A\_Axis[p1]-\/>Cross(*OBB\_B\_Axis[p2]);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 正規化}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ crossseparate.Normalize();}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ sts\ =\ CompareLength(}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obbA,\textcolor{comment}{//\ OBB-\/A}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obbB,\textcolor{comment}{//\ OBB-\/B}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ crossseparate,\textcolor{comment}{//\ 分離軸}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecDistance);}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ２つのオブジェクトを結ぶベクトル}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sts\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_o_b_b_collison_8h_source_l00165}00165\ \}}
+
+\end{DoxyCode}

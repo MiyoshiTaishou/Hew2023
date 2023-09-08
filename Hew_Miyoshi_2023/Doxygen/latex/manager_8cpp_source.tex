@@ -1,0 +1,120 @@
+\doxysection{manager.\+cpp}
+\hypertarget{manager_8cpp_source}{}\label{manager_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/manager.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/manager.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ \ \ \ <list>}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ \ \ \ "{}main.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ \ \ \ "{}renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ \ \ \ "{}manager.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ \ \ \ "{}shader.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ \ \ \ "{}modelRenderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ \ \ \ "{}input.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ \ \ \ "{}audio.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ \ \ \ "{}Game.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ \ \ \ "{}Title.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ \ \ \ "{}Result.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ \ \ \ "{}StageEditor.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ \ \ \ "{}fpscontrol.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include"{}ImGuiManager.h"{}}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00017}00017\ \textcolor{comment}{//\ シーンマネージャ内メンバ変数の実体}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00018}00018\ \mbox{\hyperlink{class_scene}{Scene}}*\ Manager::m\_Scene\{\};\textcolor{comment}{//\ 現在シーン}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00020}00020\ \textcolor{comment}{//\ グローバル変数}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00021}00021\ std::list<GameObject*>\ g\_gameobjectlist;}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00023}\mbox{\hyperlink{class_manager_a6795b28faee7354e5fd14fbf451f1972}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a6795b28faee7354e5fd14fbf451f1972}{Manager::Init}}(\mbox{\hyperlink{class_application}{Application}}*\ ap)}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ タイマ解像度を１ミリ秒にする}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00028}00028\ \ \ \ \ timeBeginPeriod(1);}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ レンダラーを初期化}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_renderer_adba8ec90ad83ef63fdbec75fb6617962}{Renderer::Init}}(ap);}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//ImGui初期化}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00034}00034\ \ \ \ \ ImGuiManager::ImGuiInit(ap);}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//音初期化}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00038}00038\ \ \ \ \ Audio::InitMaster();\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//入力初期化}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{class_input_a5197114da7299198826ff7277ee12bff}{Input::Init}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Titleを初期シーンに登録}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//SetScene<StageEditor>();}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00045}00045\ \ \ \ \ SetScene<Title>();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00048}\mbox{\hyperlink{class_manager_a970ac333358a47086c4a019ff254899b}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a970ac333358a47086c4a019ff254899b}{Manager::Uninit}}()}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00049}00049\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00050}00050\ \ \ \ \ m\_Scene-\/>\mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{UninitBase}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{delete}\ m\_Scene;}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//ImGui解放}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00054}00054\ \ \ \ \ ImGuiManager::ImGuiUnInit();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ ３Ｄモデルを全て解放}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00057}00057\ \ \ \ \ ModelRenderer::UnloadAll();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//インプット終了処理}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{class_input_a45d0296612518611e8722ea34fc1361e}{Input::Uninit}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//オーディオ終了}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00063}00063\ \ \ \ \ Audio::UninitMaster();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//\ タイマ解像度を元に戻す}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00066}00066\ \ \ \ \ timeEndPeriod(1);}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00069}\mbox{\hyperlink{class_manager_a3df4922c763aeebe6918a00154ec0354}{00069}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a3df4922c763aeebe6918a00154ec0354}{Manager::Update}}(uint64\_t\ d)}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}{Input::Update}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00072}00072\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00073}00073\ \ \ \ \ m\_Scene-\/>\mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{UpdateBase}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00076}\mbox{\hyperlink{class_manager_a5c1472a79057fbadc61c11bc68d008d4}{00076}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manager_a5c1472a79057fbadc61c11bc68d008d4}{Manager::Draw}}(uint64\_t\ d)}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc}{Renderer::Begin}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00079}00079\ \ \ \ \ ImGuiManager::Begin();\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00081}00081\ \ \ \ \ m\_Scene-\/>\mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{DrawBase}}();\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}{Renderer::PostProcess}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{float}\ fps\ =\ 1000.0f\ /\ d;}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00087}00087\ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}FPS"{}});}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00088}00088\ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}\%fFPS"{}},fps);}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00089}00089\ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00091}00091\ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}SceneChange"{}});}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::TreeNode((\textcolor{stringliteral}{"{}Create\ Object\ "{}})))}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00094}00094\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}TiTle"{}}))}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ SetScene<Title>();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Game"{}}))}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ SetScene<Game>();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Result"{}}))}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ SetScene<Result>();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}StageEditor"{}}))}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ SetScene<StageEditor>();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ ImGui::TreePop();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00110}00110\ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00112}00112\ \ \ \ \ ImGuiManager::End();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}{Renderer::End}}();}
+\DoxyCodeLine{\Hypertarget{manager_8cpp_source_l00114}00114\ \}}
+
+\end{DoxyCode}

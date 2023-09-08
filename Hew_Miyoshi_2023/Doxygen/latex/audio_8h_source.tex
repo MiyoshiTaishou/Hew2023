@@ -1,0 +1,39 @@
+\doxysection{audio.\+h}
+\hypertarget{audio_8h_source}{}\label{audio_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/audio.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/audio.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <xaudio2.h>}}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00006}00006\ \textcolor{comment}{//SE,BGMを入れるコンポーネント}}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00007}\mbox{\hyperlink{class_audio}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00009}00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{static}\ IXAudio2*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Xaudio;}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{static}\ IXAudio2MasteringVoice*\ \ m\_MasteringVoice;}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00013}00013\ \ \ \ \ IXAudio2SourceVoice*\ \ \ \ m\_SourceVoice\{\};}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00014}00014\ \ \ \ \ BYTE*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_SoundData\{\};}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Length\{\};}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_PlayLength\{\};}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ InitMaster();}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UninitMaster();}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ Uninit();}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FileName);}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ Play(\textcolor{keywordtype}{bool}\ Loop\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00032}00032\ \};}
+\DoxyCodeLine{\Hypertarget{audio_8h_source_l00033}00033\ }
+
+\end{DoxyCode}

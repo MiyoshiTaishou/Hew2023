@@ -1,0 +1,180 @@
+\doxysection{Jump\+Component クラス}
+\hypertarget{class_jump_component}{}\label{class_jump_component}\index{JumpComponent@{JumpComponent}}
+
+
+ジャンプできるようにするコンポーネント  
+
+
+
+
+{\ttfamily \#include $<$Jump\+Component.\+h$>$}
+
+
+
+Jump\+Component の継承関係図
+% FIG 0
+
+
+Jump\+Component 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_jump_component_a2c49f52d398b6b306e3e58e7d7b9d696}{Update}} () override
+\begin{DoxyCompactList}\small\item\em 更新関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jump_component_a239efb4f8342c1733f942293e5919f9a}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em 描画関数（オーバーライド） \end{DoxyCompactList}\item 
+\Hypertarget{class_jump_component_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_jump_component_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+{\bfseries Component} ()=delete
+\item 
+\mbox{\hyperlink{class_jump_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_jump_component_a1cb179b781c8657a10706c852af1b044}{acc\+Gravity}} = 20.\+0f
+\begin{DoxyCompactList}\small\item\em 重力加速度 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_jump_component_a21d7add60070b268562fe9e4c29639db}{time}} = 0
+\begin{DoxyCompactList}\small\item\em 経過時間 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_jump_component_a4f10840776c2da83cdbf21d5682979de}{jump\+Power}} = 20.\+0f
+\begin{DoxyCompactList}\small\item\em ジャンプの強さ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jump_component_a4c5435e286dec9444c61ee6e4f004309}{jump\+Check}} = true
+\begin{DoxyCompactList}\small\item\em ジャンプできるかどうか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+ジャンプできるようにするコンポーネント 
+
+ \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}} の \mbox{\hyperlink{_jump_component_8h_source_l00009}{9}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_jump_component_aaa874f1577ba8f36a03983918ee3501f}\label{class_jump_component_aaa874f1577ba8f36a03983918ee3501f} 
+\index{JumpComponent@{JumpComponent}!Component@{Component}}
+\index{Component@{Component}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_jump_component_a239efb4f8342c1733f942293e5919f9a}\label{class_jump_component_a239efb4f8342c1733f942293e5919f9a} 
+\index{JumpComponent@{JumpComponent}!Draw@{Draw}}
+\index{Draw@{Draw}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Jump\+Component\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+描画関数（オーバーライド） 
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_jump_component_8cpp_source}{Jump\+Component.\+cpp}} の \mbox{\hyperlink{_jump_component_8cpp_source_l00037}{37}} 行目に定義があります。
+
+\Hypertarget{class_jump_component_a2c49f52d398b6b306e3e58e7d7b9d696}\label{class_jump_component_a2c49f52d398b6b306e3e58e7d7b9d696} 
+\index{JumpComponent@{JumpComponent}!Update@{Update}}
+\index{Update@{Update}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Jump\+Component\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+更新関数 
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_jump_component_8cpp_source}{Jump\+Component.\+cpp}} の \mbox{\hyperlink{_jump_component_8cpp_source_l00008}{8}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 2
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_jump_component_a1cb179b781c8657a10706c852af1b044}\label{class_jump_component_a1cb179b781c8657a10706c852af1b044} 
+\index{JumpComponent@{JumpComponent}!accGravity@{accGravity}}
+\index{accGravity@{accGravity}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{accGravity}{accGravity}}
+{\footnotesize\ttfamily float Jump\+Component\+::acc\+Gravity = 20.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+重力加速度 
+
+
+
+ \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}} の \mbox{\hyperlink{_jump_component_8h_source_l00022}{22}} 行目に定義があります。
+
+\Hypertarget{class_jump_component_a4c5435e286dec9444c61ee6e4f004309}\label{class_jump_component_a4c5435e286dec9444c61ee6e4f004309} 
+\index{JumpComponent@{JumpComponent}!jumpCheck@{jumpCheck}}
+\index{jumpCheck@{jumpCheck}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{jumpCheck}{jumpCheck}}
+{\footnotesize\ttfamily bool Jump\+Component\+::jump\+Check = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ジャンプできるかどうか 
+
+
+
+ \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}} の \mbox{\hyperlink{_jump_component_8h_source_l00031}{31}} 行目に定義があります。
+
+\Hypertarget{class_jump_component_a4f10840776c2da83cdbf21d5682979de}\label{class_jump_component_a4f10840776c2da83cdbf21d5682979de} 
+\index{JumpComponent@{JumpComponent}!jumpPower@{jumpPower}}
+\index{jumpPower@{jumpPower}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{jumpPower}{jumpPower}}
+{\footnotesize\ttfamily float Jump\+Component\+::jump\+Power = 20.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ジャンプの強さ 
+
+
+
+ \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}} の \mbox{\hyperlink{_jump_component_8h_source_l00028}{28}} 行目に定義があります。
+
+\Hypertarget{class_jump_component_a21d7add60070b268562fe9e4c29639db}\label{class_jump_component_a21d7add60070b268562fe9e4c29639db} 
+\index{JumpComponent@{JumpComponent}!time@{time}}
+\index{time@{time}!JumpComponent@{JumpComponent}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily float Jump\+Component\+::time = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+経過時間 
+
+
+
+ \mbox{\hyperlink{_jump_component_8h_source}{Jump\+Component.\+h}} の \mbox{\hyperlink{_jump_component_8h_source_l00025}{25}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Jump\+Component.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Jump\+Component.\+cpp\end{DoxyCompactItemize}

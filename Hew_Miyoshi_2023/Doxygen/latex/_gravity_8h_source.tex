@@ -1,0 +1,27 @@
+\doxysection{Gravity.\+h}
+\hypertarget{_gravity_8h_source}{}\label{_gravity_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Gravity.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Gravity.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}component.h"{}}}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SimpleMath.h>}}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00005}00005\ \textcolor{comment}{//\ 前方宣言}}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00006}00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00009}\mbox{\hyperlink{class_gravity}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gravity}{Gravity}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00011}00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gravity_a52bd23d2918e05f44239e2ff97dadd02}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00017}00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00019}\mbox{\hyperlink{class_gravity_abc853d523dbad94fc4a3c2861a237078}{00019}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_gravity_abc853d523dbad94fc4a3c2861a237078}{gravityPower}}\ =\ \{\ 0,\ 1,\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00022}\mbox{\hyperlink{class_gravity_a3d28e4793adfd44deefb79d82ed9d1c9}{00022}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_gravity_a3d28e4793adfd44deefb79d82ed9d1c9}{accGravity}}\ =\ 0.0098f;}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00025}\mbox{\hyperlink{class_gravity_aa1335f1b72217db6870b606dd209903e}{00025}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_gravity_aa1335f1b72217db6870b606dd209903e}{time}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_gravity_8h_source_l00026}00026\ \};}
+
+\end{DoxyCode}

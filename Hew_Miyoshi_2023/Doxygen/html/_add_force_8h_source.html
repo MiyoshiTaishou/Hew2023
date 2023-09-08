@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen_20230908: C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/AddForce.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen_20230908
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b09d1d5e6ff69a107c29d6e4fb03a01e.html">Hew2023</a></li><li class="navelem"><a class="el" href="dir_fe73dba3fb75d9fb575972b1f2271699.html">Hew_Miyoshi_2023</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">AddForce.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include&lt;SimpleMath.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;component.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//物理挙動コンポーネント</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// どの計算式を使うか</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">enum class</span> ForceMode</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    Force,           </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Acceleration,    </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Impulse,         </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    VelocityChange   </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// 固定にする箇所</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">enum class</span> Freeze</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Xpos,  </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    YPos,  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    ZPos,  </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    XRot,  </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    YRot,  </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    ZRot   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_rigidbody.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="class_rigidbody.html">Rigidbody</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_component.html">Component</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">using </span>Component::Component;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a6600d8b4badb6a4ae24934ccf172565b">Init</a>(<span class="keywordtype">float</span> _mass, <span class="keywordtype">float</span> _drag, <span class="keywordtype">float</span> _gravityScale);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a3882dbd531e2c74718cdbfbf1b88df89">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a16be2c66365c05c2a119bd94329e78b6">Draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a788474bdff809f176489df1694379968">AddForce</a>(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    DirectX::SimpleMath::Vector3 <a class="code hl_function" href="class_rigidbody.html#a01d6d0beff08f66703e4f84fdd23bab3">GetVelocity</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a39549aa790a30675f1d223e130d50f4a">SetVelocity</a>(DirectX::SimpleMath::Vector3 _vel);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a3589ffe60d7a57311d02af5934e07339">SetForce</a>(DirectX::SimpleMath::Vector3 _force);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a4444bc4d94207f7436a88cda2bd480de">SetFreeze</a>(Freeze freez, <span class="keywordtype">bool</span> _b);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_rigidbody.html#af55dae5a902f24a7f95630f169797f06">GetFreeze</a>(Freeze freez);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a3f3461aeb7b5a78839efdca3a4ca14aa">SetDrag</a>(<span class="keywordtype">float</span> _drag);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_rigidbody.html#a51d69480d42679ba8a50cfc4b0b45d5d">InitDrag</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a0ff47d17bcd8629f60b5b36de8a5357c">  104</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_rigidbody.html#a0ff47d17bcd8629f60b5b36de8a5357c">mass</a>;                       </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a4698fce8f96262da9016222f96c1ae2a">  105</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_rigidbody.html#a4698fce8f96262da9016222f96c1ae2a">drag</a>;                       </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_rigidbody.html#ad46c8162e99290d48e90aac2db263f04">  106</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_rigidbody.html#ad46c8162e99290d48e90aac2db263f04">saveDrag</a>;                   </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a258caa3707f50201ba6b30923384fa43">  107</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_rigidbody.html#a258caa3707f50201ba6b30923384fa43">gravityScale</a>;               </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="class_rigidbody.html#ac55d9e1b97af3828f204e9c4febb81dd">  108</a></span>    DirectX::SimpleMath::Vector3 <a class="code hl_variable" href="class_rigidbody.html#ac55d9e1b97af3828f204e9c4febb81dd">velocity</a>; </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_rigidbody.html#ab98d8e07a4a00c80cafa2953124db8d7">  109</a></span>    DirectX::SimpleMath::Vector3 <a class="code hl_variable" href="class_rigidbody.html#ab98d8e07a4a00c80cafa2953124db8d7">force</a>;    </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a4e4031746d60dd22bf16920c863cba7b">  111</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a4e4031746d60dd22bf16920c863cba7b">mXPos</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a5267aecb2cc5e102b154f46ccd111f7d">  112</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a5267aecb2cc5e102b154f46ccd111f7d">mYPos</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a497353eb05a0d935048bf9a58e075890">  113</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a497353eb05a0d935048bf9a58e075890">mZPos</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a2cf2f4626a8ed633f18109d413c3a3be">  114</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a2cf2f4626a8ed633f18109d413c3a3be">mXRot</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a0c96a1107212d8f39afc0f72673b0b63">  115</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a0c96a1107212d8f39afc0f72673b0b63">mYRot</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_rigidbody.html#a0b535fdbe3234a0138c73ad26f800cca">  116</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_rigidbody.html#a0b535fdbe3234a0138c73ad26f800cca">mZRot</a> = <span class="keyword">false</span>;   </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+</div>
+<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdef"><b>Definition</b> <a href="component_8h_source.html#l00004">component.h:5</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html"><div class="ttname"><a href="class_rigidbody.html">Rigidbody</a></div><div class="ttdoc">物理挙動コンポーネント</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00030">AddForce.h:31</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a01d6d0beff08f66703e4f84fdd23bab3"><div class="ttname"><a href="class_rigidbody.html#a01d6d0beff08f66703e4f84fdd23bab3">Rigidbody::GetVelocity</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 GetVelocity()</div><div class="ttdoc">現在の速度を取得</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00069">AddForce.cpp:69</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a0b535fdbe3234a0138c73ad26f800cca"><div class="ttname"><a href="class_rigidbody.html#a0b535fdbe3234a0138c73ad26f800cca">Rigidbody::mZRot</a></div><div class="ttdeci">bool mZRot</div><div class="ttdoc">Z軸の回転を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00116">AddForce.h:116</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a0c96a1107212d8f39afc0f72673b0b63"><div class="ttname"><a href="class_rigidbody.html#a0c96a1107212d8f39afc0f72673b0b63">Rigidbody::mYRot</a></div><div class="ttdeci">bool mYRot</div><div class="ttdoc">Y軸の回転を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00115">AddForce.h:115</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a0ff47d17bcd8629f60b5b36de8a5357c"><div class="ttname"><a href="class_rigidbody.html#a0ff47d17bcd8629f60b5b36de8a5357c">Rigidbody::mass</a></div><div class="ttdeci">float mass</div><div class="ttdoc">オブジェクトの質量</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00104">AddForce.h:104</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a16be2c66365c05c2a119bd94329e78b6"><div class="ttname"><a href="class_rigidbody.html#a16be2c66365c05c2a119bd94329e78b6">Rigidbody::Draw</a></div><div class="ttdeci">void Draw() override</div><div class="ttdoc">コンポーネントの描画</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00047">AddForce.cpp:47</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a258caa3707f50201ba6b30923384fa43"><div class="ttname"><a href="class_rigidbody.html#a258caa3707f50201ba6b30923384fa43">Rigidbody::gravityScale</a></div><div class="ttdeci">float gravityScale</div><div class="ttdoc">重力の強さ</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00107">AddForce.h:107</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a2cf2f4626a8ed633f18109d413c3a3be"><div class="ttname"><a href="class_rigidbody.html#a2cf2f4626a8ed633f18109d413c3a3be">Rigidbody::mXRot</a></div><div class="ttdeci">bool mXRot</div><div class="ttdoc">X軸の回転を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00114">AddForce.h:114</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a3589ffe60d7a57311d02af5934e07339"><div class="ttname"><a href="class_rigidbody.html#a3589ffe60d7a57311d02af5934e07339">Rigidbody::SetForce</a></div><div class="ttdeci">void SetForce(DirectX::SimpleMath::Vector3 _force)</div><div class="ttdoc">力を設定</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00079">AddForce.cpp:79</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a3882dbd531e2c74718cdbfbf1b88df89"><div class="ttname"><a href="class_rigidbody.html#a3882dbd531e2c74718cdbfbf1b88df89">Rigidbody::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">コンポーネントの更新</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00017">AddForce.cpp:17</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a39549aa790a30675f1d223e130d50f4a"><div class="ttname"><a href="class_rigidbody.html#a39549aa790a30675f1d223e130d50f4a">Rigidbody::SetVelocity</a></div><div class="ttdeci">void SetVelocity(DirectX::SimpleMath::Vector3 _vel)</div><div class="ttdoc">速度を設定</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00074">AddForce.cpp:74</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a3f3461aeb7b5a78839efdca3a4ca14aa"><div class="ttname"><a href="class_rigidbody.html#a3f3461aeb7b5a78839efdca3a4ca14aa">Rigidbody::SetDrag</a></div><div class="ttdeci">void SetDrag(float _drag)</div><div class="ttdoc">摩擦係数を設定</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00140">AddForce.cpp:140</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a4444bc4d94207f7436a88cda2bd480de"><div class="ttname"><a href="class_rigidbody.html#a4444bc4d94207f7436a88cda2bd480de">Rigidbody::SetFreeze</a></div><div class="ttdeci">void SetFreeze(Freeze freez, bool _b)</div><div class="ttdoc">特定の軸の固定を設定</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00084">AddForce.cpp:84</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a4698fce8f96262da9016222f96c1ae2a"><div class="ttname"><a href="class_rigidbody.html#a4698fce8f96262da9016222f96c1ae2a">Rigidbody::drag</a></div><div class="ttdeci">float drag</div><div class="ttdoc">摩擦係数</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00105">AddForce.h:105</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a497353eb05a0d935048bf9a58e075890"><div class="ttname"><a href="class_rigidbody.html#a497353eb05a0d935048bf9a58e075890">Rigidbody::mZPos</a></div><div class="ttdeci">bool mZPos</div><div class="ttdoc">Z軸の位置を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00113">AddForce.h:113</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a4e4031746d60dd22bf16920c863cba7b"><div class="ttname"><a href="class_rigidbody.html#a4e4031746d60dd22bf16920c863cba7b">Rigidbody::mXPos</a></div><div class="ttdeci">bool mXPos</div><div class="ttdoc">X軸の位置を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00111">AddForce.h:111</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a51d69480d42679ba8a50cfc4b0b45d5d"><div class="ttname"><a href="class_rigidbody.html#a51d69480d42679ba8a50cfc4b0b45d5d">Rigidbody::InitDrag</a></div><div class="ttdeci">void InitDrag()</div><div class="ttdoc">摩擦係数を初期化</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00145">AddForce.cpp:145</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a5267aecb2cc5e102b154f46ccd111f7d"><div class="ttname"><a href="class_rigidbody.html#a5267aecb2cc5e102b154f46ccd111f7d">Rigidbody::mYPos</a></div><div class="ttdeci">bool mYPos</div><div class="ttdoc">Y軸の位置を固定するか</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00112">AddForce.h:112</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a6600d8b4badb6a4ae24934ccf172565b"><div class="ttname"><a href="class_rigidbody.html#a6600d8b4badb6a4ae24934ccf172565b">Rigidbody::Init</a></div><div class="ttdeci">void Init(float _mass, float _drag, float _gravityScale)</div><div class="ttdoc">コンポーネントの初期化</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00007">AddForce.cpp:7</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_a788474bdff809f176489df1694379968"><div class="ttname"><a href="class_rigidbody.html#a788474bdff809f176489df1694379968">Rigidbody::AddForce</a></div><div class="ttdeci">void AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)</div><div class="ttdoc">力を加える</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00055">AddForce.cpp:55</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_ab98d8e07a4a00c80cafa2953124db8d7"><div class="ttname"><a href="class_rigidbody.html#ab98d8e07a4a00c80cafa2953124db8d7">Rigidbody::force</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 force</div><div class="ttdoc">オブジェクトに現在加えられている力</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00109">AddForce.h:109</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_ac55d9e1b97af3828f204e9c4febb81dd"><div class="ttname"><a href="class_rigidbody.html#ac55d9e1b97af3828f204e9c4febb81dd">Rigidbody::velocity</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 velocity</div><div class="ttdoc">オブジェクトの現在の速度</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00108">AddForce.h:108</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_ad46c8162e99290d48e90aac2db263f04"><div class="ttname"><a href="class_rigidbody.html#ad46c8162e99290d48e90aac2db263f04">Rigidbody::saveDrag</a></div><div class="ttdeci">float saveDrag</div><div class="ttdoc">摩擦係数の保存用</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8h_source.html#l00106">AddForce.h:106</a></div></div>
+<div class="ttc" id="aclass_rigidbody_html_af55dae5a902f24a7f95630f169797f06"><div class="ttname"><a href="class_rigidbody.html#af55dae5a902f24a7f95630f169797f06">Rigidbody::GetFreeze</a></div><div class="ttdeci">bool GetFreeze(Freeze freez)</div><div class="ttdoc">特定の軸が固定されているか取得</div><div class="ttdef"><b>Definition</b> <a href="_add_force_8cpp_source.html#l00111">AddForce.cpp:111</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

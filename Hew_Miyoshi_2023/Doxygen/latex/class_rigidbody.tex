@@ -1,0 +1,505 @@
+\doxysection{Rigidbody クラス}
+\hypertarget{class_rigidbody}{}\label{class_rigidbody}\index{Rigidbody@{Rigidbody}}
+
+
+物理挙動コンポーネント  
+
+
+
+
+{\ttfamily \#include $<$Add\+Force.\+h$>$}
+
+
+
+Rigidbody の継承関係図
+% FIG 0
+
+
+Rigidbody 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_rigidbody_a6600d8b4badb6a4ae24934ccf172565b}{Init}} (float \+\_\+mass, float \+\_\+drag, float \+\_\+gravity\+Scale)
+\begin{DoxyCompactList}\small\item\em コンポーネントの初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a3882dbd531e2c74718cdbfbf1b88df89}{Update}} () override
+\begin{DoxyCompactList}\small\item\em コンポーネントの更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a16be2c66365c05c2a119bd94329e78b6}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em コンポーネントの描画 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a788474bdff809f176489df1694379968}{Add\+Force}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \+\_\+force, Force\+Mode force\+Mode)
+\begin{DoxyCompactList}\small\item\em 力を加える \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_rigidbody_a01d6d0beff08f66703e4f84fdd23bab3}{Get\+Velocity}} ()
+\begin{DoxyCompactList}\small\item\em 現在の速度を取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a39549aa790a30675f1d223e130d50f4a}{Set\+Velocity}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \+\_\+vel)
+\begin{DoxyCompactList}\small\item\em 速度を設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a3589ffe60d7a57311d02af5934e07339}{Set\+Force}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \+\_\+force)
+\begin{DoxyCompactList}\small\item\em 力を設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a4444bc4d94207f7436a88cda2bd480de}{Set\+Freeze}} (Freeze freez, bool \+\_\+b)
+\begin{DoxyCompactList}\small\item\em 特定の軸の固定を設定 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_af55dae5a902f24a7f95630f169797f06}{Get\+Freeze}} (Freeze freez)
+\begin{DoxyCompactList}\small\item\em 特定の軸が固定されているか取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a3f3461aeb7b5a78839efdca3a4ca14aa}{Set\+Drag}} (float \+\_\+drag)
+\begin{DoxyCompactList}\small\item\em 摩擦係数を設定 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rigidbody_a51d69480d42679ba8a50cfc4b0b45d5d}{Init\+Drag}} ()
+\begin{DoxyCompactList}\small\item\em 摩擦係数を初期化 \end{DoxyCompactList}\item 
+\Hypertarget{class_rigidbody_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_rigidbody_a2a7f4303a0d29316167e3aa7f1e5f90a} 
+{\bfseries Component} ()=delete
+\item 
+\mbox{\hyperlink{class_rigidbody_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+\item 
+virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_rigidbody_a0ff47d17bcd8629f60b5b36de8a5357c}{mass}}
+\begin{DoxyCompactList}\small\item\em オブジェクトの質量 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rigidbody_a4698fce8f96262da9016222f96c1ae2a}{drag}}
+\begin{DoxyCompactList}\small\item\em 摩擦係数 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rigidbody_ad46c8162e99290d48e90aac2db263f04}{save\+Drag}}
+\begin{DoxyCompactList}\small\item\em 摩擦係数の保存用 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_rigidbody_a258caa3707f50201ba6b30923384fa43}{gravity\+Scale}}
+\begin{DoxyCompactList}\small\item\em 重力の強さ \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_rigidbody_ac55d9e1b97af3828f204e9c4febb81dd}{velocity}}
+\begin{DoxyCompactList}\small\item\em オブジェクトの現在の速度 \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_rigidbody_ab98d8e07a4a00c80cafa2953124db8d7}{force}}
+\begin{DoxyCompactList}\small\item\em オブジェクトに現在加えられている力 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a4e4031746d60dd22bf16920c863cba7b}{m\+XPos}} = false
+\begin{DoxyCompactList}\small\item\em X軸の位置を固定するか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a5267aecb2cc5e102b154f46ccd111f7d}{m\+YPos}} = false
+\begin{DoxyCompactList}\small\item\em Y軸の位置を固定するか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a497353eb05a0d935048bf9a58e075890}{m\+ZPos}} = false
+\begin{DoxyCompactList}\small\item\em Z軸の位置を固定するか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a2cf2f4626a8ed633f18109d413c3a3be}{m\+XRot}} = false
+\begin{DoxyCompactList}\small\item\em X軸の回転を固定するか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a0c96a1107212d8f39afc0f72673b0b63}{m\+YRot}} = false
+\begin{DoxyCompactList}\small\item\em Y軸の回転を固定するか \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_rigidbody_a0b535fdbe3234a0138c73ad26f800cca}{m\+ZRot}} = false
+\begin{DoxyCompactList}\small\item\em Z軸の回転を固定するか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+物理挙動コンポーネント 
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00030}{30}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_rigidbody_a788474bdff809f176489df1694379968}\label{class_rigidbody_a788474bdff809f176489df1694379968} 
+\index{Rigidbody@{Rigidbody}!AddForce@{AddForce}}
+\index{AddForce@{AddForce}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{AddForce()}{AddForce()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Add\+Force (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{\+\_\+force,  }\item[{Force\+Mode}]{force\+Mode }\end{DoxyParamCaption})}
+
+
+
+力を加える 
+
+
+\begin{DoxyParams}{引数}
+{\em \+\_\+force} & 力のベクトル \\
+\hline
+{\em force\+Mode} & 力の計算モード \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00055}{55}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_aaa874f1577ba8f36a03983918ee3501f}\label{class_rigidbody_aaa874f1577ba8f36a03983918ee3501f} 
+\index{Rigidbody@{Rigidbody}!Component@{Component}}
+\index{Component@{Component}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a16be2c66365c05c2a119bd94329e78b6}\label{class_rigidbody_a16be2c66365c05c2a119bd94329e78b6} 
+\index{Rigidbody@{Rigidbody}!Draw@{Draw}}
+\index{Draw@{Draw}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+コンポーネントの描画 
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00047}{47}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_af55dae5a902f24a7f95630f169797f06}\label{class_rigidbody_af55dae5a902f24a7f95630f169797f06} 
+\index{Rigidbody@{Rigidbody}!GetFreeze@{GetFreeze}}
+\index{GetFreeze@{GetFreeze}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{GetFreeze()}{GetFreeze()}}
+{\footnotesize\ttfamily bool Rigidbody\+::\+Get\+Freeze (\begin{DoxyParamCaption}\item[{Freeze}]{freez }\end{DoxyParamCaption})}
+
+
+
+特定の軸が固定されているか取得 
+
+
+\begin{DoxyParams}{引数}
+{\em freez} & 軸 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+trueなら固定、falseなら固定されていない 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00111}{111}} 行目に定義があります。
+
+被呼び出し関係図\+:
+% FIG 2
+\Hypertarget{class_rigidbody_a01d6d0beff08f66703e4f84fdd23bab3}\label{class_rigidbody_a01d6d0beff08f66703e4f84fdd23bab3} 
+\index{Rigidbody@{Rigidbody}!GetVelocity@{GetVelocity}}
+\index{GetVelocity@{GetVelocity}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{GetVelocity()}{GetVelocity()}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Rigidbody\+::\+Get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+現在の速度を取得 
+
+\begin{DoxyReturn}{戻り値}
+速度のベクトル 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00069}{69}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a6600d8b4badb6a4ae24934ccf172565b}\label{class_rigidbody_a6600d8b4badb6a4ae24934ccf172565b} 
+\index{Rigidbody@{Rigidbody}!Init@{Init}}
+\index{Init@{Init}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Init (\begin{DoxyParamCaption}\item[{float}]{\+\_\+mass,  }\item[{float}]{\+\_\+drag,  }\item[{float}]{\+\_\+gravity\+Scale }\end{DoxyParamCaption})}
+
+
+
+コンポーネントの初期化 
+
+
+\begin{DoxyParams}{引数}
+{\em \+\_\+mass} & 質量 \\
+\hline
+{\em \+\_\+drag} & 摩擦 \\
+\hline
+{\em \+\_\+gravity\+Scale} & 重力の強さ \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00007}{7}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 3
+被呼び出し関係図\+:
+% FIG 4
+\Hypertarget{class_rigidbody_a51d69480d42679ba8a50cfc4b0b45d5d}\label{class_rigidbody_a51d69480d42679ba8a50cfc4b0b45d5d} 
+\index{Rigidbody@{Rigidbody}!InitDrag@{InitDrag}}
+\index{InitDrag@{InitDrag}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{InitDrag()}{InitDrag()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Init\+Drag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+摩擦係数を初期化 
+
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00145}{145}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a3f3461aeb7b5a78839efdca3a4ca14aa}\label{class_rigidbody_a3f3461aeb7b5a78839efdca3a4ca14aa} 
+\index{Rigidbody@{Rigidbody}!SetDrag@{SetDrag}}
+\index{SetDrag@{SetDrag}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{SetDrag()}{SetDrag()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Set\+Drag (\begin{DoxyParamCaption}\item[{float}]{\+\_\+drag }\end{DoxyParamCaption})}
+
+
+
+摩擦係数を設定 
+
+
+\begin{DoxyParams}{引数}
+{\em \+\_\+drag} & 摩擦係数 \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00140}{140}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a3589ffe60d7a57311d02af5934e07339}\label{class_rigidbody_a3589ffe60d7a57311d02af5934e07339} 
+\index{Rigidbody@{Rigidbody}!SetForce@{SetForce}}
+\index{SetForce@{SetForce}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{SetForce()}{SetForce()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Set\+Force (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{\+\_\+force }\end{DoxyParamCaption})}
+
+
+
+力を設定 
+
+
+\begin{DoxyParams}{引数}
+{\em \+\_\+force} & 力のベクトル \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00079}{79}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a4444bc4d94207f7436a88cda2bd480de}\label{class_rigidbody_a4444bc4d94207f7436a88cda2bd480de} 
+\index{Rigidbody@{Rigidbody}!SetFreeze@{SetFreeze}}
+\index{SetFreeze@{SetFreeze}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{SetFreeze()}{SetFreeze()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Set\+Freeze (\begin{DoxyParamCaption}\item[{Freeze}]{freez,  }\item[{bool}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+特定の軸の固定を設定 
+
+
+\begin{DoxyParams}{引数}
+{\em freez} & 固定する軸 \\
+\hline
+{\em \+\_\+b} & trueなら固定、falseなら固定解除 \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00084}{84}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a39549aa790a30675f1d223e130d50f4a}\label{class_rigidbody_a39549aa790a30675f1d223e130d50f4a} 
+\index{Rigidbody@{Rigidbody}!SetVelocity@{SetVelocity}}
+\index{SetVelocity@{SetVelocity}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{SetVelocity()}{SetVelocity()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Set\+Velocity (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{\+\_\+vel }\end{DoxyParamCaption})}
+
+
+
+速度を設定 
+
+
+\begin{DoxyParams}{引数}
+{\em \+\_\+vel} & 速度のベクトル \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00074}{74}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a3882dbd531e2c74718cdbfbf1b88df89}\label{class_rigidbody_a3882dbd531e2c74718cdbfbf1b88df89} 
+\index{Rigidbody@{Rigidbody}!Update@{Update}}
+\index{Update@{Update}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Rigidbody\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+コンポーネントの更新 
+
+
+
+\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_add_force_8cpp_source}{Add\+Force.\+cpp}} の \mbox{\hyperlink{_add_force_8cpp_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_rigidbody_a4698fce8f96262da9016222f96c1ae2a}\label{class_rigidbody_a4698fce8f96262da9016222f96c1ae2a} 
+\index{Rigidbody@{Rigidbody}!drag@{drag}}
+\index{drag@{drag}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{drag}{drag}}
+{\footnotesize\ttfamily float Rigidbody\+::drag\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+摩擦係数 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00105}{105}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_ab98d8e07a4a00c80cafa2953124db8d7}\label{class_rigidbody_ab98d8e07a4a00c80cafa2953124db8d7} 
+\index{Rigidbody@{Rigidbody}!force@{force}}
+\index{force@{force}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{force}{force}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Rigidbody\+::force\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+オブジェクトに現在加えられている力 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00109}{109}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a258caa3707f50201ba6b30923384fa43}\label{class_rigidbody_a258caa3707f50201ba6b30923384fa43} 
+\index{Rigidbody@{Rigidbody}!gravityScale@{gravityScale}}
+\index{gravityScale@{gravityScale}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{gravityScale}{gravityScale}}
+{\footnotesize\ttfamily float Rigidbody\+::gravity\+Scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+重力の強さ 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00107}{107}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a0ff47d17bcd8629f60b5b36de8a5357c}\label{class_rigidbody_a0ff47d17bcd8629f60b5b36de8a5357c} 
+\index{Rigidbody@{Rigidbody}!mass@{mass}}
+\index{mass@{mass}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily float Rigidbody\+::mass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+オブジェクトの質量 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00104}{104}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a4e4031746d60dd22bf16920c863cba7b}\label{class_rigidbody_a4e4031746d60dd22bf16920c863cba7b} 
+\index{Rigidbody@{Rigidbody}!mXPos@{mXPos}}
+\index{mXPos@{mXPos}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mXPos}{mXPos}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+XPos = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+X軸の位置を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00111}{111}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a2cf2f4626a8ed633f18109d413c3a3be}\label{class_rigidbody_a2cf2f4626a8ed633f18109d413c3a3be} 
+\index{Rigidbody@{Rigidbody}!mXRot@{mXRot}}
+\index{mXRot@{mXRot}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mXRot}{mXRot}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+XRot = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+X軸の回転を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00114}{114}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a5267aecb2cc5e102b154f46ccd111f7d}\label{class_rigidbody_a5267aecb2cc5e102b154f46ccd111f7d} 
+\index{Rigidbody@{Rigidbody}!mYPos@{mYPos}}
+\index{mYPos@{mYPos}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mYPos}{mYPos}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+YPos = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Y軸の位置を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00112}{112}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a0c96a1107212d8f39afc0f72673b0b63}\label{class_rigidbody_a0c96a1107212d8f39afc0f72673b0b63} 
+\index{Rigidbody@{Rigidbody}!mYRot@{mYRot}}
+\index{mYRot@{mYRot}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mYRot}{mYRot}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+YRot = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Y軸の回転を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00115}{115}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a497353eb05a0d935048bf9a58e075890}\label{class_rigidbody_a497353eb05a0d935048bf9a58e075890} 
+\index{Rigidbody@{Rigidbody}!mZPos@{mZPos}}
+\index{mZPos@{mZPos}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mZPos}{mZPos}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+ZPos = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Z軸の位置を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00113}{113}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_a0b535fdbe3234a0138c73ad26f800cca}\label{class_rigidbody_a0b535fdbe3234a0138c73ad26f800cca} 
+\index{Rigidbody@{Rigidbody}!mZRot@{mZRot}}
+\index{mZRot@{mZRot}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{mZRot}{mZRot}}
+{\footnotesize\ttfamily bool Rigidbody\+::m\+ZRot = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Z軸の回転を固定するか 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00116}{116}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_ad46c8162e99290d48e90aac2db263f04}\label{class_rigidbody_ad46c8162e99290d48e90aac2db263f04} 
+\index{Rigidbody@{Rigidbody}!saveDrag@{saveDrag}}
+\index{saveDrag@{saveDrag}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{saveDrag}{saveDrag}}
+{\footnotesize\ttfamily float Rigidbody\+::save\+Drag\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+摩擦係数の保存用 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00106}{106}} 行目に定義があります。
+
+\Hypertarget{class_rigidbody_ac55d9e1b97af3828f204e9c4febb81dd}\label{class_rigidbody_ac55d9e1b97af3828f204e9c4febb81dd} 
+\index{Rigidbody@{Rigidbody}!velocity@{velocity}}
+\index{velocity@{velocity}!Rigidbody@{Rigidbody}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Rigidbody\+::velocity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+オブジェクトの現在の速度 
+
+
+
+ \mbox{\hyperlink{_add_force_8h_source}{Add\+Force.\+h}} の \mbox{\hyperlink{_add_force_8h_source_l00108}{108}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Add\+Force.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Add\+Force.\+cpp\end{DoxyCompactItemize}

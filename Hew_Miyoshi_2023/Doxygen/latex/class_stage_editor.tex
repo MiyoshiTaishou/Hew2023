@@ -1,0 +1,246 @@
+\doxysection{Stage\+Editor クラス}
+\hypertarget{class_stage_editor}{}\label{class_stage_editor}\index{StageEditor@{StageEditor}}
+
+
+Stage\+Editor の継承関係図
+% FIG 0
+
+
+Stage\+Editor 連携図
+% FIG 1
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}{Init}} () override
+\begin{DoxyCompactList}\small\item\em シーンの初期化を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}{Update}} () override
+\begin{DoxyCompactList}\small\item\em シーンの更新処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}{Draw}} () override
+\begin{DoxyCompactList}\small\item\em シーンの描画処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stage_editor_a949332ecb00d92b2f9ee66a909b3fc9e}{Saveposition\+To\+File}} (const std\+::string \&filename)
+\item 
+void \mbox{\hyperlink{class_stage_editor_ac733a612f7433af75f518e7ea1618688}{Loadposition\+To\+File}} (const std\+::string \&filename)
+\item 
+void \mbox{\hyperlink{class_stage_editor_aa88354b2858047291b6d42be27048fd3}{Create\+Object}} ()
+\item 
+void \mbox{\hyperlink{class_stage_editor_a4641d15a187538d450b4814b41ca802a}{Add\+To\+History}} ()
+\item 
+void \mbox{\hyperlink{class_stage_editor_aaaa3a0363f84dca17c4a0d0c7596a41d}{Undo}} ()
+\item 
+void \mbox{\hyperlink{class_stage_editor_a96b1eea07372ef800e4ab0e6fb07fe2a}{Redo}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
+\begin{DoxyCompactList}\small\item\em Sceneクラスのコンストラクタ \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\texorpdfstring{$\sim$}{\string~}\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Sceneクラスのデストラクタ \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}{Uninit}} ()
+\begin{DoxyCompactList}\small\item\em シーンの終了処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_af44173c6837208188f6852de556a2d7b}{Init\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本初期化処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{Uninit\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本終了処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{Update\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本更新処理を行います。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{Draw\+Base}} ()
+\begin{DoxyCompactList}\small\item\em シーンの基本描画処理を行います。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_aad19cad10b834eafe848c74cae9ca22a}{Add\+Game\+Object}} (int Layer)
+\begin{DoxyCompactList}\small\item\em 指定したレイヤーに新しい\+Game\+Objectを追加します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}{Get\+Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em 指定した型の\+Game\+Objectを取得します。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{Get\+Game\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em 指定した型のすべての\+Game\+Objectを取得します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{struct_info_obj_data}{Info\+Obj\+Data}} $>$, 4 $>$ \mbox{\hyperlink{class_stage_editor_a0b8f30e9286391c4bfad8eb5dd22b846}{history}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_info_obj_data}{Info\+Obj\+Data}} $>$ \mbox{\hyperlink{class_stage_editor_a349eadfde704fe1404e6c5691c36fb3e}{position}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_stage_editor_a8c3f631870815f006afb4ede6198871b}{obj\+List}}
+\item 
+int \mbox{\hyperlink{class_stage_editor_a38bec48f74c22bdb1a0cb24c003dc6d2}{history\+Index}} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ \mbox{\hyperlink{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}{m\+\_\+\+Game\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+
+
+ \mbox{\hyperlink{_stage_editor_8h_source}{Stage\+Editor.\+h}} の \mbox{\hyperlink{_stage_editor_8h_source_l00020}{20}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{class_stage_editor_a4641d15a187538d450b4814b41ca802a}\label{class_stage_editor_a4641d15a187538d450b4814b41ca802a} 
+\index{StageEditor@{StageEditor}!AddToHistory@{AddToHistory}}
+\index{AddToHistory@{AddToHistory}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{AddToHistory()}{AddToHistory()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Add\+To\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00244}{244}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_aa88354b2858047291b6d42be27048fd3}\label{class_stage_editor_aa88354b2858047291b6d42be27048fd3} 
+\index{StageEditor@{StageEditor}!CreateObject@{CreateObject}}
+\index{CreateObject@{CreateObject}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{CreateObject()}{CreateObject()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Create\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00209}{209}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}\label{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23} 
+\index{StageEditor@{StageEditor}!Draw@{Draw}}
+\index{Draw@{Draw}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+シーンの描画処理を行います。 
+
+
+
+\mbox{\hyperlink{class_scene_ad0000891418e47223a01172bebb031a0}{Scene}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00028}{28}} 行目に定義があります。
+
+呼び出し関係図\+:
+% FIG 2
+\Hypertarget{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}\label{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3} 
+\index{StageEditor@{StageEditor}!Init@{Init}}
+\index{Init@{Init}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+シーンの初期化を行います。 
+
+
+
+\mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Scene}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00015}{15}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_ac733a612f7433af75f518e7ea1618688}\label{class_stage_editor_ac733a612f7433af75f518e7ea1618688} 
+\index{StageEditor@{StageEditor}!LoadpositionToFile@{LoadpositionToFile}}
+\index{LoadpositionToFile@{LoadpositionToFile}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{LoadpositionToFile()}{LoadpositionToFile()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Loadposition\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00165}{165}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a96b1eea07372ef800e4ab0e6fb07fe2a}\label{class_stage_editor_a96b1eea07372ef800e4ab0e6fb07fe2a} 
+\index{StageEditor@{StageEditor}!Redo@{Redo}}
+\index{Redo@{Redo}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{Redo()}{Redo()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Redo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00293}{293}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a949332ecb00d92b2f9ee66a909b3fc9e}\label{class_stage_editor_a949332ecb00d92b2f9ee66a909b3fc9e} 
+\index{StageEditor@{StageEditor}!SavepositionToFile@{SavepositionToFile}}
+\index{SavepositionToFile@{SavepositionToFile}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{SavepositionToFile()}{SavepositionToFile()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Saveposition\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00144}{144}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_aaaa3a0363f84dca17c4a0d0c7596a41d}\label{class_stage_editor_aaaa3a0363f84dca17c4a0d0c7596a41d} 
+\index{StageEditor@{StageEditor}!Undo@{Undo}}
+\index{Undo@{Undo}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{Undo()}{Undo()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Undo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00256}{256}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}\label{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625} 
+\index{StageEditor@{StageEditor}!Update@{Update}}
+\index{Update@{Update}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Stage\+Editor\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+シーンの更新処理を行います。 
+
+
+
+\mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Scene}}を再実装しています。
+
+
+
+ \mbox{\hyperlink{_stage_editor_8cpp_source}{Stage\+Editor.\+cpp}} の \mbox{\hyperlink{_stage_editor_8cpp_source_l00024}{24}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_stage_editor_a0b8f30e9286391c4bfad8eb5dd22b846}\label{class_stage_editor_a0b8f30e9286391c4bfad8eb5dd22b846} 
+\index{StageEditor@{StageEditor}!history@{history}}
+\index{history@{history}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{history}{history}}
+{\footnotesize\ttfamily std\+::array$<$std\+::list$<$\mbox{\hyperlink{struct_info_obj_data}{Info\+Obj\+Data}}$>$, 4$>$ Stage\+Editor\+::history\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8h_source}{Stage\+Editor.\+h}} の \mbox{\hyperlink{_stage_editor_8h_source_l00038}{38}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a38bec48f74c22bdb1a0cb24c003dc6d2}\label{class_stage_editor_a38bec48f74c22bdb1a0cb24c003dc6d2} 
+\index{StageEditor@{StageEditor}!historyIndex@{historyIndex}}
+\index{historyIndex@{historyIndex}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{historyIndex}{historyIndex}}
+{\footnotesize\ttfamily int Stage\+Editor\+::history\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8h_source}{Stage\+Editor.\+h}} の \mbox{\hyperlink{_stage_editor_8h_source_l00042}{42}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a8c3f631870815f006afb4ede6198871b}\label{class_stage_editor_a8c3f631870815f006afb4ede6198871b} 
+\index{StageEditor@{StageEditor}!objList@{objList}}
+\index{objList@{objList}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{objList}{objList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}\texorpdfstring{$\ast$}{*}$>$ Stage\+Editor\+::obj\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8h_source}{Stage\+Editor.\+h}} の \mbox{\hyperlink{_stage_editor_8h_source_l00040}{40}} 行目に定義があります。
+
+\Hypertarget{class_stage_editor_a349eadfde704fe1404e6c5691c36fb3e}\label{class_stage_editor_a349eadfde704fe1404e6c5691c36fb3e} 
+\index{StageEditor@{StageEditor}!position@{position}}
+\index{position@{position}!StageEditor@{StageEditor}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_info_obj_data}{Info\+Obj\+Data}}$>$ Stage\+Editor\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ \mbox{\hyperlink{_stage_editor_8h_source}{Stage\+Editor.\+h}} の \mbox{\hyperlink{_stage_editor_8h_source_l00039}{39}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Stage\+Editor.\+h\item 
+C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Stage\+Editor.\+cpp\end{DoxyCompactItemize}

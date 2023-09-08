@@ -1,0 +1,21 @@
+digraph "Renderer::GetDevice"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Renderer::GetDevice",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="デバイスオブジェクトを取得"];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Field::Init",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_field.html#adee4de163152ac14681d36d57f966975",tooltip="オブジェクトの初期化を行います。"];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Score::Init",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_score.html#ac076e7bc2a16f8651ed88f6a49d27317",tooltip="オブジェクトの初期化を行います。"];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="Renderer::PostProcess",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_renderer.html#ab4dc0d4899a1130b97cb9f2d68362069",tooltip="ポストプロセスを実行"];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="Manager::Draw",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_manager.html#a5c1472a79057fbadc61c11bc68d008d4",tooltip="Managerクラスの描画"];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Application::MainLoop",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_application.html#aa2fb4766fcbc345920bbf26cdc5df15b",tooltip="メインループを実行します。"];
+  Node6 -> Node7 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="Application::Run",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_application.html#aaf09cd6cb412086dc039e28cdb059f0d",tooltip="アプリケーションを実行します。"];
+}

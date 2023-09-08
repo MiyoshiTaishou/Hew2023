@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen_20230908: C:/Users/Taish/Documents/GitHub/Hew2023/Hew_Miyoshi_2023/JumpComponent.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen_20230908
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b09d1d5e6ff69a107c29d6e4fb03a01e.html">Hew2023</a></li><li class="navelem"><a class="el" href="dir_fe73dba3fb75d9fb575972b1f2271699.html">Hew_Miyoshi_2023</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">JumpComponent.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;JumpComponent.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include&quot;gameObject.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include&quot;input.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include&quot;ImGuiManager.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using namespace </span>DirectX::SimpleMath;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_jump_component.html#a2c49f52d398b6b306e3e58e7d7b9d696">    8</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_jump_component.html#a2c49f52d398b6b306e3e58e7d7b9d696">JumpComponent::Update</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    Vector3 vec = m_GameObject-&gt;<a class="code hl_function" href="class_game_object.html#a3aa811424f7b7b499d9dc25bff77b9c7">GetPosition</a>();      </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> y = <a class="code hl_variable" href="class_jump_component.html#a4f10840776c2da83cdbf21d5682979de">jumpPower</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_input.html#ae1d9201a8eccd85d48f1ebeb184fc55a">Input::GetKeyPress</a>(<span class="charliteral">&#39; &#39;</span>) &amp;&amp; <a class="code hl_variable" href="class_jump_component.html#a4c5435e286dec9444c61ee6e4f004309">jumpCheck</a>)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_variable" href="class_jump_component.html#a4c5435e286dec9444c61ee6e4f004309">jumpCheck</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//ジャンプの計算（鉛直投げ上げ）   </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    vec.y = ((y * <a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a>) - ((<a class="code hl_variable" href="class_jump_component.html#a1cb179b781c8657a10706c852af1b044">accGravity</a> * (<a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a> * <a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a>)) / 2) + 2.0f);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//時間計測</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_jump_component.html#a4c5435e286dec9444c61ee6e4f004309">jumpCheck</a>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a> += 1.0f / 60.0f;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    m_GameObject-&gt;<a class="code hl_function" href="class_game_object.html#abeb8d6fd3767e1cde1a0a56cd61a0e5a">SetPosition</a>(vec);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (m_GameObject-&gt;<a class="code hl_function" href="class_game_object.html#a3aa811424f7b7b499d9dc25bff77b9c7">GetPosition</a>().y &gt;= 2.0f)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_variable" href="class_jump_component.html#a4c5435e286dec9444c61ee6e4f004309">jumpCheck</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a> = 0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//vec.y = -1.0f;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">//obj.SetPosition(vec);</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_jump_component.html#a239efb4f8342c1733f942293e5919f9a">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_jump_component.html#a239efb4f8342c1733f942293e5919f9a">JumpComponent::Draw</a>()</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ImGui::Begin(<span class="stringliteral">&quot;Jump&quot;</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    ImGui::Text(<span class="stringliteral">&quot;%d&quot;</span>, <a class="code hl_variable" href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">time</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    ImGui::End();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="ttc" id="aclass_game_object_html_a3aa811424f7b7b499d9dc25bff77b9c7"><div class="ttname"><a href="class_game_object.html#a3aa811424f7b7b499d9dc25bff77b9c7">GameObject::GetPosition</a></div><div class="ttdeci">DirectX::SimpleMath::Vector3 GetPosition()</div><div class="ttdoc">オブジェクトの位置を取得します。</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00037">gameObject.h:37</a></div></div>
+<div class="ttc" id="aclass_game_object_html_abeb8d6fd3767e1cde1a0a56cd61a0e5a"><div class="ttname"><a href="class_game_object.html#abeb8d6fd3767e1cde1a0a56cd61a0e5a">GameObject::SetPosition</a></div><div class="ttdeci">void SetPosition(DirectX::SimpleMath::Vector3 Position)</div><div class="ttdoc">オブジェクトの位置を設定します。</div><div class="ttdef"><b>Definition</b> <a href="game_object_8h_source.html#l00055">gameObject.h:55</a></div></div>
+<div class="ttc" id="aclass_input_html_ae1d9201a8eccd85d48f1ebeb184fc55a"><div class="ttname"><a href="class_input.html#ae1d9201a8eccd85d48f1ebeb184fc55a">Input::GetKeyPress</a></div><div class="ttdeci">static bool GetKeyPress(BYTE KeyCode)</div><div class="ttdoc">指定したキーコードのキーが押されているかを取得します。</div><div class="ttdef"><b>Definition</b> <a href="input_8cpp_source.html#l00038">input.cpp:38</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a1cb179b781c8657a10706c852af1b044"><div class="ttname"><a href="class_jump_component.html#a1cb179b781c8657a10706c852af1b044">JumpComponent::accGravity</a></div><div class="ttdeci">float accGravity</div><div class="ttdoc">重力加速度</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8h_source.html#l00022">JumpComponent.h:22</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a21d7add60070b268562fe9e4c29639db"><div class="ttname"><a href="class_jump_component.html#a21d7add60070b268562fe9e4c29639db">JumpComponent::time</a></div><div class="ttdeci">float time</div><div class="ttdoc">経過時間</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8h_source.html#l00025">JumpComponent.h:25</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a239efb4f8342c1733f942293e5919f9a"><div class="ttname"><a href="class_jump_component.html#a239efb4f8342c1733f942293e5919f9a">JumpComponent::Draw</a></div><div class="ttdeci">void Draw() override</div><div class="ttdoc">描画関数（オーバーライド）</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8cpp_source.html#l00037">JumpComponent.cpp:37</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a2c49f52d398b6b306e3e58e7d7b9d696"><div class="ttname"><a href="class_jump_component.html#a2c49f52d398b6b306e3e58e7d7b9d696">JumpComponent::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">更新関数</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8cpp_source.html#l00008">JumpComponent.cpp:8</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a4c5435e286dec9444c61ee6e4f004309"><div class="ttname"><a href="class_jump_component.html#a4c5435e286dec9444c61ee6e4f004309">JumpComponent::jumpCheck</a></div><div class="ttdeci">bool jumpCheck</div><div class="ttdoc">ジャンプできるかどうか</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8h_source.html#l00031">JumpComponent.h:31</a></div></div>
+<div class="ttc" id="aclass_jump_component_html_a4f10840776c2da83cdbf21d5682979de"><div class="ttname"><a href="class_jump_component.html#a4f10840776c2da83cdbf21d5682979de">JumpComponent::jumpPower</a></div><div class="ttdeci">float jumpPower</div><div class="ttdoc">ジャンプの強さ</div><div class="ttdef"><b>Definition</b> <a href="_jump_component_8h_source.html#l00028">JumpComponent.h:28</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

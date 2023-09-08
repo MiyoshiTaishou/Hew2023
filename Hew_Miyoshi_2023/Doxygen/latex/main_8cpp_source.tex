@@ -1,0 +1,22 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/main.cpp@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/main.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ \ \ \ "{}main.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ \ \ \ "{}Application.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ \textcolor{keywordtype}{int}\ wmain(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{wchar\_t}**\ argv,\ \textcolor{keywordtype}{wchar\_t}**\ evnp)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#if\ defined(DEBUG)\ ||\ defined(\_DEBUG)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \ \ \ \ \_CrtSetDbgFlag(\_CRTDBG\_ALLOC\_MEM\_DF\ |\ \_CRTDBG\_LEAK\_CHECK\_DF);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{//defined(DEBUG)\ ||\ defined(\_DEBUG)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//\ アプリケーション実行}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}\ app(SCREEN\_WIDTH,\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ \ \ \ \ app.Run();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ \}}
+
+\end{DoxyCode}
