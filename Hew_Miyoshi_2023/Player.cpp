@@ -20,6 +20,7 @@
 #include"Trampoline.h"
 #include"DragFloor.h"
 
+
 #include"ImGuiManager.h"
 
 using namespace DirectX::SimpleMath;
@@ -76,49 +77,9 @@ void Player::Update()
 	//抵抗
 	m_Velocity.y -= m_Velocity.y * 0.01f;
 
-	//コントローラーの入力を取る	
-	{
-		if (wallUp)
-		{
-			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-			{
-				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);				
-				body->AddForce(Up, ForceMode::Force);
-			}
-		}
-		else
-		{
-			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-			{
-				Vector3 force = forward * 100.0f;
-				body->AddForce(force, ForceMode::Force);
-				m_Rotation.x += 0.1f;
-			}
-			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-			{
-				Vector3 force = forward * -100.0f;
-				body->AddForce(force, ForceMode::Force);
-				m_Rotation.x -= 0.1f;
-			}
-			if (Input::GetGamePad(BUTTON::LLEFT, STATE::HELD))
-				m_Rotation.y -= 1.0f / 60.0f;
-			if (Input::GetGamePad(BUTTON::LRIGHT, STATE::HELD))
-				m_Rotation.y += 1.0f / 60.0f;
+	//コントローラーの入力
+	ConInput();
 
-
-			//ダッシュ
-			if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
-			{
-				actionCheck = true;
-				actionCount++;
-			}
-			if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
-			{
-				actionCheck = true;
-				actionCount++;
-			}
-		}		
-	}
 
 	// ゴールとの当たり判定
 	{
@@ -278,8 +239,8 @@ void Player::Update()
 					if (speed > 10.0f)
 					{
 						Vector3 force = -vel * 5.0f;
-						body->AddForce(force, ForceMode::Impulse);
-
+						body->AddForce(force, ForceMode::Impulse);						
+						Input::Vibration(0, 1.0f, 1.0f, 1.0f, 1.0f);
 						m_MeatSE2->Play();
 					}
 					else
@@ -560,4 +521,67 @@ void Player::Draw()
 		ImGui::Text("Rot\nX %f\nY %f\nZ %f", mchild->GetRotation().x, mchild->GetRotation().y, mchild->GetRotation().z);
 		ImGui::End();
 	}
+}
+
+void Player::ConInput()
+{
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+
+	Camera* cameraObj = scene->GetGameObject<Camera>();
+
+	Vector3 forward = Vector3(0, 0, 0);
+
+	//カメラの前向きベクトル
+	if (cameraObj)
+		forward = cameraObj->GetForward();
+
+	Rigidbody* body = GetComponent<Rigidbody>();
+
+	//コントローラーの入力を取る	
+	{
+		if (wallUp)
+		{
+			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+			{
+				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
+				body->AddForce(Up, ForceMode::Force);
+			}
+		}
+		else
+		{
+			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+			{
+				Vector3 force = forward * 100.0f;
+				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x += 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+			{
+				Vector3 force = forward * -100.0f;
+				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x -= 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+				m_Rotation.y -= 1.0f / 60.0f;
+			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+				m_Rotation.y += 1.0f / 60.0f;
+
+
+			//ダッシュ
+			if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
+			{
+				actionCheck = true;
+				actionCount++;
+				m_Rotation.x += 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
+			{
+				actionCheck = true;
+				actionCount++;
+				m_Rotation.x += 0.1f;
+			}
+		}
+	}
+
 }

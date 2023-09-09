@@ -57,7 +57,7 @@ void Manager::Uninit()
 	ModelRenderer::UnloadAll();
 
 	//インプット終了処理
-	Input::Uninit();
+	//Input::Uninit();
 
 	//オーディオ終了
 	Audio::UninitMaster();
