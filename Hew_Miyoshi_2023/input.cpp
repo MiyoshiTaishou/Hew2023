@@ -18,11 +18,6 @@ void Input::Init()
 	
 }
 
-void Input::Uninit()
-{
-
-
-}
 
 void Input::Update()
 {
@@ -85,4 +80,9 @@ bool Input::GetGamePad(BUTTON button, STATE _buttonState)
 		break;
 	}
 	return false;
+}
+
+void Input::Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger)
+{
+	m_GamePad.SetVibration(player, leftMotor, rightMotor, leftTrigger, rightTrigger);
 }

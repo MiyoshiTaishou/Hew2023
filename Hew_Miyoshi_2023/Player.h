@@ -27,6 +27,11 @@ public:
     void Draw() override;
 
     /**
+    * @brief プレイヤーオブジェクトのコントローラー処理を行います。
+    */
+    void ConInput();
+
+    /**
      * @brief ゲームパッドのボタン状態を表す変数です。
      */
     DirectX::GamePad::State buttonState;

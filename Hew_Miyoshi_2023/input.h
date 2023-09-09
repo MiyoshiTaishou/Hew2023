@@ -78,4 +78,6 @@ public:
      * @return ボタンの状態が指定した状態である場合はtrue、それ以外はfalse
      */
     static bool GetGamePad(BUTTON button, STATE _buttonState);
+
+    static void Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger);
 };
