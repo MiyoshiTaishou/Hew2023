@@ -31,6 +31,10 @@ public:
 	void AddToHistory();
 	void Undo();
 	void Redo();
+
+	//オブジェクト値調整関数
+	void ObjListManger();
+
 private:
 	//std::vector<InfoObjData> position;
 

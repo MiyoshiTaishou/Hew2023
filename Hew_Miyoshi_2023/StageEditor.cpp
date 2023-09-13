@@ -88,36 +88,7 @@ void StageEditor::Draw()
             objList.clear();
         }
 
-    std::vector<GameObject*> objects;
-
-    // 各オブジェクトごとの座標設定
-    for (int i = 0; i < position.size(); i++)
-        if (ImGui::TreeNode(("Object " + std::to_string(i)).c_str()))
-        {
-            ImGui::SliderFloat("posX", &position[i].pos.x, -100.0f, 100.0f);
-            ImGui::SliderFloat("posY", &position[i].pos.y, -100.0f, 100.0f);
-            ImGui::SliderFloat("posZ", &position[i].pos.z, -100.0f, 100.0f);
-
-            ImGui::SliderFloat("scaleX", &position[i].scale.x, -100.0f, 100.0f);
-            ImGui::SliderFloat("scaleY", &position[i].scale.y, -100.0f, 100.0f);
-            ImGui::SliderFloat("scaleZ", &position[i].scale.z, -100.0f, 100.0f);
-
-            ImGui::SliderFloat("rotX", &position[i].rot.x, -100.0f, 100.0f);
-            ImGui::SliderFloat("rotY", &position[i].rot.y, -100.0f, 100.0f);
-            ImGui::SliderFloat("rotZ", &position[i].rot.z, -100.0f, 100.0f);
-
-            if (ImGui::Button("DeleteObject"))
-            {
-                objList[i]->SetDestroy();
-
-                auto first = position.begin() + i;  // 削除を開始する位置
-                auto last = position.begin() + i + 1;   // 削除を終了する位置（この位置の要素は含まれません）
-
-                position.erase(first, last);
-            }
-
-            ImGui::TreePop();
-        }
+    std::vector<GameObject*> objects;    
 
     // 座標代入
     int iterat = 0;
@@ -129,16 +100,9 @@ void StageEditor::Draw()
             iterat++;
         }
 
-    ImGui::End();
+    ImGui::End();  
 
-    ImGui::Begin("History");
-    ImGui::Text("Index %d", historyIndex);
-    ImGui::Text("Size %d", history.size());
-    for (int i = 0; i < 4; i++)
-    {
-        ImGui::Text("Size %d", history[i].size());
-    }
-    ImGui::End();
+    ObjListManger();
 }
 
 void StageEditor::SavepositionToFile(const std::string& filename)
@@ -326,4 +290,172 @@ void StageEditor::Redo()
 
         position.push_back(info);
     }
+}
+
+void StageEditor::ObjListManger()
+{
+    ImGui::Begin("ObjList");
+    /*   ImGui::Text("Index %d", historyIndex);
+       ImGui::Text("Size %d", history.size());
+       for (int i = 0; i < 4; i++)
+       {
+           ImGui::Text("Size %d", history[i].size());
+       }*/
+
+       // 各オブジェクトごとの座標設定
+    for (int i = 0; i < position.size(); i++)
+        if (ImGui::TreeNode(("Object " + std::to_string(i)).c_str()))
+        {
+            float sliderStep = 1.0f;//値の加入量
+
+            // 減少ボタン
+            if (ImGui::Button("-##PosX"))
+            {
+                position[i].pos.x -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // スライダー
+            ImGui::SliderFloat(("posX##" + std::to_string(i)).c_str(), &position[i].pos.x, -100.0f, 100.0f);
+
+            // 増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##PosX"))
+            {
+                position[i].pos.x += sliderStep;
+            }
+
+            if (ImGui::Button("-##PosY")) {
+                position[i].pos.y -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Y座標のスライダー
+            ImGui::SliderFloat(("posY##" + std::to_string(i)).c_str(), &position[i].pos.y, -100.0f, 100.0f);
+
+            // Y座標の増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##PosY")) {
+                position[i].pos.y += sliderStep;
+            }
+
+            // Z座標の減少ボタン
+            if (ImGui::Button("-##PosZ")) {
+                position[i].pos.z -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Z座標のスライダー
+            ImGui::SliderFloat(("posZ##" + std::to_string(i)).c_str(), &position[i].pos.z, -100.0f, 100.0f);
+
+            // Z座標の増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##PosZ")) {
+                position[i].pos.z += sliderStep;
+            }
+
+            // Xスケールの減少ボタン
+            if (ImGui::Button("-##ScaleX")) {
+                position[i].scale.x -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Xスケールのスライダー
+            ImGui::SliderFloat(("scaleX##" + std::to_string(i)).c_str(), &position[i].scale.x, -100.0f, 100.0f);
+
+            // Xスケールの増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##ScaleX")) {
+                position[i].scale.x += sliderStep;
+            }
+
+            // Yスケールの減少ボタン
+            if (ImGui::Button("-##ScaleY")) {
+                position[i].scale.y -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Yスケールのスライダー
+            ImGui::SliderFloat(("scaleY##" + std::to_string(i)).c_str(), &position[i].scale.y, -100.0f, 100.0f);
+
+            // Yスケールの増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##ScaleY")) {
+                position[i].scale.y += sliderStep;
+            }
+
+            // Zスケールの減少ボタン
+            if (ImGui::Button("-##ScaleZ")) {
+                position[i].scale.z -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Zスケールのスライダー
+            ImGui::SliderFloat(("scaleZ##" + std::to_string(i)).c_str(), &position[i].scale.z, -100.0f, 100.0f);
+
+            // Zスケールの増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##ScaleZ")) {
+                position[i].scale.z += sliderStep;
+            }
+
+            // X回転の減少ボタン
+            if (ImGui::Button("-##RotX")) {
+                position[i].rot.x -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // X回転のスライダー
+            ImGui::SliderFloat(("rotX##" + std::to_string(i)).c_str(), &position[i].rot.x, -100.0f, 100.0f);
+
+            // X回転の増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##RotX")) {
+                position[i].rot.x += sliderStep;
+            }
+
+            // Y回転の減少ボタン
+            if (ImGui::Button("-##RotY")) {
+                position[i].rot.y -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Y回転のスライダー
+            ImGui::SliderFloat(("rotY##" + std::to_string(i)).c_str(), &position[i].rot.y, -100.0f, 100.0f);
+
+            // Y回転の増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##RotY")) {
+                position[i].rot.y += sliderStep;
+            }
+
+            // Z回転の減少ボタン
+            if (ImGui::Button("-##RotZ")) {
+                position[i].rot.z -= sliderStep;
+            }
+            ImGui::SameLine(); // 同じ行にスライダーを配置
+
+            // Z回転のスライダー
+            ImGui::SliderFloat(("rotZ##" + std::to_string(i)).c_str(), &position[i].rot.z, -100.0f, 100.0f);
+
+            // Z回転の増加ボタン
+            ImGui::SameLine();
+            if (ImGui::Button("+##RotZ")) {
+                position[i].rot.z += sliderStep;
+            }
+
+            if (ImGui::Button("DeleteObject"))
+            {
+                objList[i]->SetDestroy();
+
+                auto first = position.begin() + i;  // 削除を開始する位置
+                auto last = position.begin() + i + 1;   // 削除を終了する位置（この位置の要素は含まれません）
+
+                position.erase(first, last);
+            }
+
+            ImGui::TreePop();
+        }
+
+    ImGui::End();
 }
