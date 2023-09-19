@@ -145,6 +145,8 @@ public:
      */
     virtual void Draw() {}
 
+    virtual void PreDraw() {}
+
     /**
      * @brief オブジェクトに新しいコンポーネントを追加します。
      * @tparam T 追加するコンポーネントの型
@@ -253,6 +255,8 @@ public:
         rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
         trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
         world = scale * rot * trans * ParentMatrix;
+
+        PreDraw();
 
         for (GameObject* child : m_ChildGameObject)
         {
