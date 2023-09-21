@@ -44,5 +44,6 @@ private:
 	std::vector<GameObject*> objList;
 
 	int historyIndex = 0;
+	int selectedObjectIndex = -1;
 };
 
