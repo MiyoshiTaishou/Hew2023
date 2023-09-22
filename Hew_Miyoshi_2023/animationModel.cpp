@@ -2,6 +2,7 @@
 #include "main.h"
 #include "renderer.h"
 #include "animationModel.h"
+#include"utility.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -18,6 +19,9 @@ void AnimationModel::Draw()
 	material.Ambient = Color(1.0f, 1.0f, 1.0f, 1.0f);
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
+
+	//レジスタ10番にセット
+	Renderer::GetDeviceContext()->VSSetConstantBuffers(10, 1, &m_BoneCombMtxCBuffer);
 
 	for (unsigned int m = 0; m < m_AiScene->mNumMeshes; m++)
 	{
@@ -184,7 +188,45 @@ void AnimationModel::Load( const char *FileName )
 		}
 	}
 
+	// 頂点バッファにボーンインデックスと重み値をセットする　	20230910-01
+	// deformvertexにセットされているデータを頂点バッファにセットする
+	//頂点変換（CPUスキニング）
+	for (unsigned int m = 0; m < m_AiScene->mNumMeshes; m++)
+	{
+		aiMesh* mesh = m_AiScene->mMeshes[m];
 
+		// 頂点バッファロック
+		D3D11_MAPPED_SUBRESOURCE ms;
+		HRESULT hr = Renderer::GetDeviceContext()->Map(m_VertexBuffer[m], 0, D3D11_MAP_WRITE_DISCARD, 0, &ms);
+		if (SUCCEEDED(hr)) {
+			VERTEX_3D* vertex = (VERTEX_3D*)ms.pData;
+
+			for (unsigned int v = 0; v < mesh->mNumVertices; v++)
+			{
+				DEFORM_VERTEX* deformVertex = &m_DeformVertex[m][v];
+
+				vertex->Position = Vector3(mesh->mVertices[v].x, mesh->mVertices[v].y, mesh->mVertices[v].z);
+				vertex->Normal = Vector3(mesh->mNormals[v].x, mesh->mNormals[v].y, mesh->mNormals[v].z);
+				vertex->TexCoord = Vector2(mesh->mTextureCoords[0][v].x, mesh->mTextureCoords[0][v].y);
+				vertex->Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+				vertex->BoneIndex[0] = deformVertex->BoneIdx[0];
+				vertex->BoneIndex[1] = deformVertex->BoneIdx[1];
+				vertex->BoneIndex[2] = deformVertex->BoneIdx[2];
+				vertex->BoneIndex[3] = deformVertex->BoneIdx[3];
+
+				vertex->BoneWeight[0] = deformVertex->BoneWeight[0];
+				vertex->BoneWeight[1] = deformVertex->BoneWeight[1];
+				vertex->BoneWeight[2] = deformVertex->BoneWeight[2];
+				vertex->BoneWeight[3] = deformVertex->BoneWeight[3];
+
+				vertex++;
+			}
+
+			// 頂点バッファを更新
+			Renderer::GetDeviceContext()->Unmap(m_VertexBuffer[m], 0);  // 20230909-02
+		}
+	}
 
 	//テクスチャ読み込み
 	for(int i = 0; i < m_AiScene->mNumTextures; i++)
@@ -209,6 +251,13 @@ void AnimationModel::Load( const char *FileName )
 		m_Texture[aitexture->mFilename.data] = texture;
 	}
 
+	// 定数バッファ生成　20230909-02
+	bool sts = CreateConstantBufferWrite(											// 20230909 - 02
+		Renderer::GetDevice(),					    // デバイスオブジェクト			// 20230909 - 02
+		sizeof(CBBoneCombMatrx),					// コンスタントバッファサイズ	// 20230909 - 02
+		&m_BoneCombMtxCBuffer);						// コンスタントバッファ			// 20230909 - 02
+
+	assert(m_BoneCombMtxCBuffer);
 }
 
 
@@ -254,6 +303,7 @@ void AnimationModel::Uninit()
 		pair.second->Release();
 	}
 
+	m_BoneCombMtxCBuffer->Release();
 
 	aiReleaseImport(m_AiScene);
 
@@ -304,10 +354,55 @@ void AnimationModel::Update(
 		f = Frame1 % nodeAnim->mNumPositionKeys;//簡易実装
 		aiVector3D pos = nodeAnim->mPositionKeys[f].mValue;
 
-		bone->AnimationMatrix = 
+		/*bone->AnimationMatrix = 
 			aiMatrix4x4(aiVector3D(1.0f, 1.0f, 1.0f), 
 				rot, 
-				pos);
+				pos);*/
+
+		bone->BlendPosFrom = pos;
+		bone->BlendRFrom = rot;
+	}
+
+	// 現在のアニメーション2について関連するボーンを全て更新
+	for (unsigned int c = 0; c < animation2->mNumChannels; c++)
+	{
+		aiNodeAnim* nodeAnim = animation2->mChannels[c];
+
+		BONE* bone = &m_Bone[nodeAnim->mNodeName.C_Str()];
+
+		int f;
+
+		f = Frame1 % nodeAnim->mNumRotationKeys;//簡易実装
+		aiQuaternion rot = nodeAnim->mRotationKeys[f].mValue;
+
+		f = Frame1 % nodeAnim->mNumPositionKeys;//簡易実装
+		aiVector3D pos = nodeAnim->mPositionKeys[f].mValue;
+
+		bone->BlendPosTo = pos;
+		bone->BlendRTo = rot;
+	}
+
+	// ブレンド
+	for (unsigned int c = 0; c < animation2->mNumChannels; c++)
+	{
+		aiNodeAnim* nodeAnim = animation2->mChannels[c];
+
+		BONE* bone = &m_Bone[nodeAnim->mNodeName.C_Str()];
+
+		// 位置のブレンド
+		aiVector3D pos1 = bone->BlendPosFrom;
+		aiVector3D pos2 = bone->BlendPosTo;
+
+		aiVector3D pos = pos1 * (1.0f - BlendRate) + pos2 * BlendRate;//線形補間
+
+		// 姿勢のブレンド
+		aiQuaternion rot1 = bone->BlendRFrom;
+		aiQuaternion rot2 = bone->BlendRTo;
+
+		aiQuaternion rot;
+		aiQuaternion::Interpolate(rot, rot1, rot2, BlendRate);//球面線形補間
+
+		bone->AnimationMatrix = aiMatrix4x4(aiVector3D(1.0f, 1.0f, 1.0f), rot, pos);
 	}
 
 	//再帰的にボーンマトリクスを更新
@@ -326,171 +421,196 @@ void AnimationModel::Update(
 		bonecombmtxcontainer[data.second.idx] = data.second.Matrix;	// 20230909
 	}																// 20230909
 
-	//頂点変換（CPUスキニング）
-	for (unsigned int m = 0; m < m_AiScene->mNumMeshes; m++)
+	for (auto& bcmtx : bonecombmtxcontainer)
 	{
-		aiMesh* mesh = m_AiScene->mMeshes[m];
-
-		D3D11_MAPPED_SUBRESOURCE ms;
-		Renderer::GetDeviceContext()->Map(m_VertexBuffer[m], 0,
-			D3D11_MAP_WRITE_DISCARD, 0, &ms);
-
-		VERTEX_3D *vertex = (VERTEX_3D*)ms.pData;
-
-
-		for (unsigned int v = 0; v < mesh->mNumVertices; v++)
-		{
-			DEFORM_VERTEX *deformVertex = &m_DeformVertex[m][v];
-
-			int bonematrixindex[4];
-
-			// 追加 20230909 
-			bonematrixindex[0] = deformVertex->BoneIdx[0];
-			bonematrixindex[1] = deformVertex->BoneIdx[1];
-			bonematrixindex[2] = deformVertex->BoneIdx[2];
-			bonematrixindex[3] = deformVertex->BoneIdx[3];
-
-			aiMatrix4x4 matrix[4];
-			aiMatrix4x4 outMatrix;
-
-//	20230909			matrix[0] = m_Bone[deformVertex->BoneName[0]].Matrix;
-//	20230909			matrix[1] = m_Bone[deformVertex->BoneName[1]].Matrix;
-//	20230909			matrix[2] = m_Bone[deformVertex->BoneName[2]].Matrix;
-//	20230909			matrix[3] = m_Bone[deformVertex->BoneName[3]].Matrix;
-
-			aiMatrix4x4 zeromatrix = {					//	20230909
-				0.0f,0.0f,0.0f,0.0f,					//	20230909
-				0.0f,0.0f,0.0f,0.0f,					//	20230909
-				0.0f,0.0f,0.0f,0.0f,					//	20230909
-				0.0f,0.0f,0.0f,0.0f						//	20230909
-			};											//	20230909
-
-			for (int i = 0; i < 4; i++) {				//	20230909
-				matrix[i] = zeromatrix;					//	20230909
-			}											//	20230909
-
-			for (int i = 0; i < deformVertex->BoneNum; i++) {				//	20230909
-				matrix[i] = bonecombmtxcontainer[bonematrixindex[i]];		//	20230909
-			}																//	20230909
-
-			{
-				outMatrix.a1 = matrix[0].a1 * deformVertex->BoneWeight[0]
-							+ matrix[1].a1 * deformVertex->BoneWeight[1]
-							+ matrix[2].a1 * deformVertex->BoneWeight[2]
-							+ matrix[3].a1 * deformVertex->BoneWeight[3];
-
-				outMatrix.a2 = matrix[0].a2 * deformVertex->BoneWeight[0]
-							+ matrix[1].a2 * deformVertex->BoneWeight[1]
-							+ matrix[2].a2 * deformVertex->BoneWeight[2]
-							+ matrix[3].a2 * deformVertex->BoneWeight[3];
-
-				outMatrix.a3 = matrix[0].a3 * deformVertex->BoneWeight[0]
-							+ matrix[1].a3 * deformVertex->BoneWeight[1]
-							+ matrix[2].a3 * deformVertex->BoneWeight[2]
-							+ matrix[3].a3 * deformVertex->BoneWeight[3];
-
-				outMatrix.a4 = matrix[0].a4 * deformVertex->BoneWeight[0]
-							+ matrix[1].a4 * deformVertex->BoneWeight[1]
-							+ matrix[2].a4 * deformVertex->BoneWeight[2]
-							+ matrix[3].a4 * deformVertex->BoneWeight[3];
-
-
-
-				outMatrix.b1 = matrix[0].b1 * deformVertex->BoneWeight[0]
-							+ matrix[1].b1 * deformVertex->BoneWeight[1]
-							+ matrix[2].b1 * deformVertex->BoneWeight[2]
-							+ matrix[3].b1 * deformVertex->BoneWeight[3];
-
-				outMatrix.b2 = matrix[0].b2 * deformVertex->BoneWeight[0]
-					+ matrix[1].b2 * deformVertex->BoneWeight[1]
-					+ matrix[2].b2 * deformVertex->BoneWeight[2]
-					+ matrix[3].b2 * deformVertex->BoneWeight[3];
-
-				outMatrix.b3 = matrix[0].b3 * deformVertex->BoneWeight[0]
-					+ matrix[1].b3 * deformVertex->BoneWeight[1]
-					+ matrix[2].b3 * deformVertex->BoneWeight[2]
-					+ matrix[3].b3 * deformVertex->BoneWeight[3];
-
-				outMatrix.b4 = matrix[0].b4 * deformVertex->BoneWeight[0]
-					+ matrix[1].b4 * deformVertex->BoneWeight[1]
-					+ matrix[2].b4 * deformVertex->BoneWeight[2]
-					+ matrix[3].b4 * deformVertex->BoneWeight[3];
-
-
-
-				outMatrix.c1 = matrix[0].c1 * deformVertex->BoneWeight[0]
-					+ matrix[1].c1 * deformVertex->BoneWeight[1]
-					+ matrix[2].c1 * deformVertex->BoneWeight[2]
-					+ matrix[3].c1 * deformVertex->BoneWeight[3];
-
-				outMatrix.c2 = matrix[0].c2 * deformVertex->BoneWeight[0]
-					+ matrix[1].c2 * deformVertex->BoneWeight[1]
-					+ matrix[2].c2 * deformVertex->BoneWeight[2]
-					+ matrix[3].c2 * deformVertex->BoneWeight[3];
-
-				outMatrix.c3 = matrix[0].c3 * deformVertex->BoneWeight[0]
-					+ matrix[1].c3 * deformVertex->BoneWeight[1]
-					+ matrix[2].c3 * deformVertex->BoneWeight[2]
-					+ matrix[3].c3 * deformVertex->BoneWeight[3];
-
-				outMatrix.c4 = matrix[0].c4 * deformVertex->BoneWeight[0]
-					+ matrix[1].c4 * deformVertex->BoneWeight[1]
-					+ matrix[2].c4 * deformVertex->BoneWeight[2]
-					+ matrix[3].c4 * deformVertex->BoneWeight[3];
-
-
-
-				outMatrix.d1 = matrix[0].d1 * deformVertex->BoneWeight[0]
-					+ matrix[1].d1 * deformVertex->BoneWeight[1]
-					+ matrix[2].d1 * deformVertex->BoneWeight[2]
-					+ matrix[3].d1 * deformVertex->BoneWeight[3];
-
-				outMatrix.d2 = matrix[0].d2 * deformVertex->BoneWeight[0]
-					+ matrix[1].d2 * deformVertex->BoneWeight[1]
-					+ matrix[2].d2 * deformVertex->BoneWeight[2]
-					+ matrix[3].d2 * deformVertex->BoneWeight[3];
-
-				outMatrix.d3 = matrix[0].d3 * deformVertex->BoneWeight[0]
-					+ matrix[1].d3 * deformVertex->BoneWeight[1]
-					+ matrix[2].d3 * deformVertex->BoneWeight[2]
-					+ matrix[3].d3 * deformVertex->BoneWeight[3];
-
-				outMatrix.d4 = matrix[0].d4 * deformVertex->BoneWeight[0]
-					+ matrix[1].d4 * deformVertex->BoneWeight[1]
-					+ matrix[2].d4 * deformVertex->BoneWeight[2]
-					+ matrix[3].d4 * deformVertex->BoneWeight[3];
-
-			}
-
-			deformVertex->Position = mesh->mVertices[v];
-			deformVertex->Position *= outMatrix;						// 頂点座標×行列
-
-
-			//法線変換用に移動成分を削除
-			outMatrix.a4 = 0.0f;
-			outMatrix.b4 = 0.0f;
-			outMatrix.c4 = 0.0f;
-
-			deformVertex->Normal = mesh->mNormals[v];
-			deformVertex->Normal *= outMatrix;
-
-
-			//頂点バッファへ書き込み
-			vertex[v].Position.x = deformVertex->Position.x;
-			vertex[v].Position.y = deformVertex->Position.y;
-			vertex[v].Position.z = deformVertex->Position.z;
-
-			vertex[v].Normal.x = deformVertex->Normal.x;
-			vertex[v].Normal.y = deformVertex->Normal.y;
-			vertex[v].Normal.z = deformVertex->Normal.z;
-
-			vertex[v].TexCoord.x = mesh->mTextureCoords[0][v].x;
-			vertex[v].TexCoord.y = mesh->mTextureCoords[0][v].y;
-
-			vertex[v].Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
-		}
-		Renderer::GetDeviceContext()->Unmap(m_VertexBuffer[m], 0);
+		// 転置する
+		bcmtx.Transpose();
 	}
+
+	// 20230909-02 定数バッファに反映させる
+	D3D11_MAPPED_SUBRESOURCE MappedResource;
+	CBBoneCombMatrx* pData = nullptr;
+
+	HRESULT hr = Renderer::GetDeviceContext()->Map(
+		m_BoneCombMtxCBuffer,
+		0,
+		D3D11_MAP_WRITE_DISCARD,
+		0,
+		&MappedResource);
+
+	if (SUCCEEDED(hr)) {
+		pData = (CBBoneCombMatrx*)MappedResource.pData;
+		memcpy(pData->BoneCombMtx,
+			bonecombmtxcontainer.data(),
+			sizeof(aiMatrix4x4) * bonecombmtxcontainer.size());
+		Renderer::GetDeviceContext()->Unmap(m_BoneCombMtxCBuffer, 0);
+	}
+
+//	//頂点変換（CPUスキニング）
+//	for (unsigned int m = 0; m < m_AiScene->mNumMeshes; m++)
+//	{
+//		aiMesh* mesh = m_AiScene->mMeshes[m];
+//
+//		D3D11_MAPPED_SUBRESOURCE ms;
+//		Renderer::GetDeviceContext()->Map(m_VertexBuffer[m], 0,
+//			D3D11_MAP_WRITE_DISCARD, 0, &ms);
+//
+//		VERTEX_3D *vertex = (VERTEX_3D*)ms.pData;
+//
+//
+//		for (unsigned int v = 0; v < mesh->mNumVertices; v++)
+//		{
+//			DEFORM_VERTEX *deformVertex = &m_DeformVertex[m][v];
+//
+//			int bonematrixindex[4];
+//
+//			// 追加 20230909 
+//			bonematrixindex[0] = deformVertex->BoneIdx[0];
+//			bonematrixindex[1] = deformVertex->BoneIdx[1];
+//			bonematrixindex[2] = deformVertex->BoneIdx[2];
+//			bonematrixindex[3] = deformVertex->BoneIdx[3];
+//
+//			aiMatrix4x4 matrix[4];
+//			aiMatrix4x4 outMatrix;
+//
+////	20230909			matrix[0] = m_Bone[deformVertex->BoneName[0]].Matrix;
+////	20230909			matrix[1] = m_Bone[deformVertex->BoneName[1]].Matrix;
+////	20230909			matrix[2] = m_Bone[deformVertex->BoneName[2]].Matrix;
+////	20230909			matrix[3] = m_Bone[deformVertex->BoneName[3]].Matrix;
+//
+//			aiMatrix4x4 zeromatrix = {					//	20230909
+//				0.0f,0.0f,0.0f,0.0f,					//	20230909
+//				0.0f,0.0f,0.0f,0.0f,					//	20230909
+//				0.0f,0.0f,0.0f,0.0f,					//	20230909
+//				0.0f,0.0f,0.0f,0.0f						//	20230909
+//			};											//	20230909
+//
+//			for (int i = 0; i < 4; i++) {				//	20230909
+//				matrix[i] = zeromatrix;					//	20230909
+//			}											//	20230909
+//
+//			for (int i = 0; i < deformVertex->BoneNum; i++) {				//	20230909
+//				matrix[i] = bonecombmtxcontainer[bonematrixindex[i]];		//	20230909
+//			}																//	20230909
+//
+//			{
+//				outMatrix.a1 = matrix[0].a1 * deformVertex->BoneWeight[0]
+//							+ matrix[1].a1 * deformVertex->BoneWeight[1]
+//							+ matrix[2].a1 * deformVertex->BoneWeight[2]
+//							+ matrix[3].a1 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.a2 = matrix[0].a2 * deformVertex->BoneWeight[0]
+//							+ matrix[1].a2 * deformVertex->BoneWeight[1]
+//							+ matrix[2].a2 * deformVertex->BoneWeight[2]
+//							+ matrix[3].a2 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.a3 = matrix[0].a3 * deformVertex->BoneWeight[0]
+//							+ matrix[1].a3 * deformVertex->BoneWeight[1]
+//							+ matrix[2].a3 * deformVertex->BoneWeight[2]
+//							+ matrix[3].a3 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.a4 = matrix[0].a4 * deformVertex->BoneWeight[0]
+//							+ matrix[1].a4 * deformVertex->BoneWeight[1]
+//							+ matrix[2].a4 * deformVertex->BoneWeight[2]
+//							+ matrix[3].a4 * deformVertex->BoneWeight[3];
+//
+//
+//
+//				outMatrix.b1 = matrix[0].b1 * deformVertex->BoneWeight[0]
+//							+ matrix[1].b1 * deformVertex->BoneWeight[1]
+//							+ matrix[2].b1 * deformVertex->BoneWeight[2]
+//							+ matrix[3].b1 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.b2 = matrix[0].b2 * deformVertex->BoneWeight[0]
+//					+ matrix[1].b2 * deformVertex->BoneWeight[1]
+//					+ matrix[2].b2 * deformVertex->BoneWeight[2]
+//					+ matrix[3].b2 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.b3 = matrix[0].b3 * deformVertex->BoneWeight[0]
+//					+ matrix[1].b3 * deformVertex->BoneWeight[1]
+//					+ matrix[2].b3 * deformVertex->BoneWeight[2]
+//					+ matrix[3].b3 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.b4 = matrix[0].b4 * deformVertex->BoneWeight[0]
+//					+ matrix[1].b4 * deformVertex->BoneWeight[1]
+//					+ matrix[2].b4 * deformVertex->BoneWeight[2]
+//					+ matrix[3].b4 * deformVertex->BoneWeight[3];
+//
+//
+//
+//				outMatrix.c1 = matrix[0].c1 * deformVertex->BoneWeight[0]
+//					+ matrix[1].c1 * deformVertex->BoneWeight[1]
+//					+ matrix[2].c1 * deformVertex->BoneWeight[2]
+//					+ matrix[3].c1 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.c2 = matrix[0].c2 * deformVertex->BoneWeight[0]
+//					+ matrix[1].c2 * deformVertex->BoneWeight[1]
+//					+ matrix[2].c2 * deformVertex->BoneWeight[2]
+//					+ matrix[3].c2 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.c3 = matrix[0].c3 * deformVertex->BoneWeight[0]
+//					+ matrix[1].c3 * deformVertex->BoneWeight[1]
+//					+ matrix[2].c3 * deformVertex->BoneWeight[2]
+//					+ matrix[3].c3 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.c4 = matrix[0].c4 * deformVertex->BoneWeight[0]
+//					+ matrix[1].c4 * deformVertex->BoneWeight[1]
+//					+ matrix[2].c4 * deformVertex->BoneWeight[2]
+//					+ matrix[3].c4 * deformVertex->BoneWeight[3];
+//
+//
+//
+//				outMatrix.d1 = matrix[0].d1 * deformVertex->BoneWeight[0]
+//					+ matrix[1].d1 * deformVertex->BoneWeight[1]
+//					+ matrix[2].d1 * deformVertex->BoneWeight[2]
+//					+ matrix[3].d1 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.d2 = matrix[0].d2 * deformVertex->BoneWeight[0]
+//					+ matrix[1].d2 * deformVertex->BoneWeight[1]
+//					+ matrix[2].d2 * deformVertex->BoneWeight[2]
+//					+ matrix[3].d2 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.d3 = matrix[0].d3 * deformVertex->BoneWeight[0]
+//					+ matrix[1].d3 * deformVertex->BoneWeight[1]
+//					+ matrix[2].d3 * deformVertex->BoneWeight[2]
+//					+ matrix[3].d3 * deformVertex->BoneWeight[3];
+//
+//				outMatrix.d4 = matrix[0].d4 * deformVertex->BoneWeight[0]
+//					+ matrix[1].d4 * deformVertex->BoneWeight[1]
+//					+ matrix[2].d4 * deformVertex->BoneWeight[2]
+//					+ matrix[3].d4 * deformVertex->BoneWeight[3];
+//
+//			}
+//
+//			deformVertex->Position = mesh->mVertices[v];
+//			deformVertex->Position *= outMatrix;						// 頂点座標×行列
+//
+//
+//			//法線変換用に移動成分を削除
+//			outMatrix.a4 = 0.0f;
+//			outMatrix.b4 = 0.0f;
+//			outMatrix.c4 = 0.0f;
+//
+//			deformVertex->Normal = mesh->mNormals[v];
+//			deformVertex->Normal *= outMatrix;
+//
+//
+//			//頂点バッファへ書き込み
+//			vertex[v].Position.x = deformVertex->Position.x;
+//			vertex[v].Position.y = deformVertex->Position.y;
+//			vertex[v].Position.z = deformVertex->Position.z;
+//
+//			vertex[v].Normal.x = deformVertex->Normal.x;
+//			vertex[v].Normal.y = deformVertex->Normal.y;
+//			vertex[v].Normal.z = deformVertex->Normal.z;
+//
+//			vertex[v].TexCoord.x = mesh->mTextureCoords[0][v].x;
+//			vertex[v].TexCoord.y = mesh->mTextureCoords[0][v].y;
+//
+//			vertex[v].Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+//		}
+//		Renderer::GetDeviceContext()->Unmap(m_VertexBuffer[m], 0);
+//	}
 }
 
 void AnimationModel::UpdateBoneMatrix(aiNode* node, aiMatrix4x4 matrix)

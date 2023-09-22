@@ -1,6 +1,3 @@
-
-
-
 cbuffer WorldBuffer : register(b0)
 {
 	matrix World;
@@ -13,9 +10,6 @@ cbuffer ProjectionBuffer : register(b2)
 {
 	matrix Projection;
 }
-
-
-
 
 struct MATERIAL
 {
@@ -50,9 +44,10 @@ cbuffer LightBuffer : register(b4)
 	LIGHT Light;
 }
 
-
-
-
+cbuffer BoneMatrixBuffer : register(b10)
+{
+    matrix BoneMatrix[400];
+}
 
 struct VS_IN
 {
@@ -62,6 +57,15 @@ struct VS_IN
 	float2 TexCoord		: TEXCOORD0;
 };
 
+struct VSONESKIN_IN
+{
+    float4 Position		: POSITION0;
+    float4 Normal		: NORMAL0;
+    float4 Diffuse		: COLOR0;
+    float2 TexCoord		: TEXCOORD0;
+    int4 BoneIndex		: BONEINDEX;
+    float4 BoneWeight	: BONEWEIGHT;
+};
 
 struct PS_IN
 {

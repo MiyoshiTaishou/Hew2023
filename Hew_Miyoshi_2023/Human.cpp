@@ -7,7 +7,8 @@ using namespace DirectX::SimpleMath;
 
 void Human::Init()
 {
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("shader\\VS_LightingOneSkin.cso", "shader\\vertexLightingPS.cso"); //20230909-02
 
 	//アニメーションロードする
 	m_Model = AddComponent<AnimationModel>();
