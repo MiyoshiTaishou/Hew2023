@@ -26,12 +26,18 @@ struct DEFORM_VERTEX
 //ボーン構造体
 struct BONE
 {
-	aiMatrix4x4 Matrix;
-	aiMatrix4x4 AnimationMatrix;
-	aiMatrix4x4 AnimationMatrix1;
-	aiMatrix4x4 AnimationMatrix2;
-	aiMatrix4x4 OffsetMatrix;
+	aiMatrix4x4 Matrix;						// 座標変換に使用する行列
+	aiMatrix4x4 AnimationMatrix;			// 自分の事だけ考えた行列
+	aiMatrix4x4 OffsetMatrix;				// ボーンオフセット行列
+	aiQuaternion BlendRFrom;				// モーションブレンドする際のFROM側
+	aiQuaternion BlendRTo;					// モーションブレンドする際のTO側
+	aiVector3D	BlendPosFrom;				// モーションブレンドする際のFROM側
+	aiVector3D	BlendPosTo;					// モーションブレンドする際のTO側
 	int			idx;						// 20230909
+};
+
+struct CBBoneCombMatrx {
+	DirectX::XMFLOAT4X4 BoneCombMtx[400];			// ボーンコンビネーション行列
 };
 
 class AnimationModel : public Component
@@ -50,6 +56,8 @@ private:
 
 	void CreateBone(aiNode* Node);
 	void UpdateBoneMatrix(aiNode* Node, aiMatrix4x4 Matrix);
+
+	ID3D11Buffer* m_BoneCombMtxCBuffer;//定数バッファ
 
 public:
 	using Component::Component;

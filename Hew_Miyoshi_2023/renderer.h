@@ -17,6 +17,8 @@ struct VERTEX_3D
     DirectX::SimpleMath::Vector3 Normal;   ///< 頂点の法線
     DirectX::SimpleMath::Color Diffuse;    ///< 頂点のディフューズカラー
     DirectX::SimpleMath::Vector2 TexCoord; ///< テクスチャ座標
+    int     BoneIndex[4];
+    float   BoneWeight[4];
 };
 
 /**
