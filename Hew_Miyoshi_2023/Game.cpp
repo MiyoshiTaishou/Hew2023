@@ -25,6 +25,7 @@
 #include"Trampoline.h"
 #include"DragFloor.h"
 #include"Human.h"
+#include"Octopus.h"
 
 #include"score.h"
 #include"Timer.h"
@@ -47,6 +48,7 @@ void Game::Init()
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
 	AddGameObject<Human>(1);
+	AddGameObject<Octopus>(1);
 	//AddGameObject<ScaleUI>(3);
 
 	AddGameObject<Camera>(0);
