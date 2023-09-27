@@ -11,7 +11,10 @@ ID3D11Device*           Renderer::m_Device{};
 ID3D11DeviceContext*    Renderer::m_DeviceContext{};
 IDXGISwapChain*         Renderer::m_SwapChain{};
 ID3D11RenderTargetView* Renderer::m_RenderTargetView{};
+ID3D11RenderTargetView* Renderer::m_DepthRenderTargetView{};
 ID3D11DepthStencilView* Renderer::m_DepthStencilView{};
+ID3D11DepthStencilView* Renderer::m_DepthWriteStencilView{};
+ID3D11ShaderResourceView* Renderer::m_ShaderResourceView{};
 
 ID3D11Buffer*			Renderer::m_WorldBuffer{};
 ID3D11Buffer*			Renderer::m_ViewBuffer{};
@@ -23,6 +26,7 @@ ID3D11Buffer*			Renderer::m_FadeBuffer{};
 ID3D11Buffer*			Renderer::m_BloomBuffer{};
 ID3D11Buffer*			Renderer::m_RotationBuffer{};
 ID3D11Buffer*			Renderer::m_ScaleBuffer{};
+ID3D11Buffer*			Renderer::m_LightShadowBuffer{};
 
 
 ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
@@ -80,6 +84,45 @@ void Renderer::Init(Application* ap)
 	m_Device->CreateRenderTargetView( renderTarget, NULL, &m_RenderTargetView );
 	renderTarget->Release();
 
+	// 影用のテクスチャとRTVを作成
+	ID3D11Texture2D* shadowMapTexture;
+	D3D11_TEXTURE2D_DESC shadowMapDesc;
+	ZeroMemory(&shadowMapDesc, sizeof(shadowMapDesc));
+	shadowMapDesc.Width = swapChainDesc.BufferDesc.Width;  // 影用テクスチャの幅
+	shadowMapDesc.Height = swapChainDesc.BufferDesc.Height; // 影用テクスチャの高さ
+	shadowMapDesc.MipLevels = 1;
+	shadowMapDesc.ArraySize = 1;
+	shadowMapDesc.Format = DXGI_FORMAT_R32_TYPELESS; // 影用テクスチャのフォーマットを設定
+	shadowMapDesc.SampleDesc.Count = 1;
+	shadowMapDesc.SampleDesc.Quality = 0;
+	shadowMapDesc.Usage = D3D11_USAGE_DEFAULT;
+	shadowMapDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL | D3D11_BIND_SHADER_RESOURCE; // 影用テクスチャを深度ステンシルとしてバインド
+	shadowMapDesc.CPUAccessFlags = 0;
+	shadowMapDesc.MiscFlags = 0;
+
+	m_Device->CreateTexture2D(&shadowMapDesc, nullptr, &shadowMapTexture);
+
+	// 影用のDSVを作成
+	D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc;
+	ZeroMemory(&dsvDesc, sizeof(dsvDesc));
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT; // 影用DSVのフォーマットを設定
+	dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	dsvDesc.Texture2D.MipSlice = 0;
+
+	//ID3D11DepthStencilView* shadowDSV;
+	m_Device->CreateDepthStencilView(shadowMapTexture, &dsvDesc, &m_DepthWriteStencilView);
+
+	// 影用のSRV (シェーダーリソースビュー) を作成（必要に応じて）
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+	ZeroMemory(&srvDesc, sizeof(srvDesc));
+	srvDesc.Format = DXGI_FORMAT_R32_FLOAT; // 影用SRVのフォーマットを設定
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.Texture2D.MostDetailedMip = 0;
+	srvDesc.Texture2D.MipLevels = 1;
+
+	//ID3D11ShaderResourceView* shadowSRV;
+	m_Device->CreateShaderResourceView(shadowMapTexture, &srvDesc, &m_ShaderResourceView);
+
 
 	// デプスステンシルバッファ作成
 	ID3D11Texture2D* depthStencile{};
@@ -102,11 +145,9 @@ void Renderer::Init(Application* ap)
 	depthStencilViewDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
 	depthStencilViewDesc.Flags = 0;
 	m_Device->CreateDepthStencilView(depthStencile, &depthStencilViewDesc, &m_DepthStencilView);
-	depthStencile->Release();
-
+	depthStencile->Release();	
 
 	m_DeviceContext->OMSetRenderTargets(1, &m_RenderTargetView, m_DepthStencilView);
-
 
 	// ビューポート設定
 	D3D11_VIEWPORT viewport;
@@ -177,7 +218,7 @@ void Renderer::Init(Application* ap)
 
 	m_DeviceContext->OMSetDepthStencilState( m_DepthStateEnable, NULL );
 
-
+	m_DeviceContext->PSSetShaderResources(0, 1, &m_ShaderResourceView);
 
 
 	// サンプラーステート設定
@@ -258,6 +299,12 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->VSSetConstantBuffers(9, 1, &m_ScaleBuffer);
 	m_DeviceContext->PSSetConstantBuffers(9, 1, &m_ScaleBuffer);
 
+	bufferDesc.ByteWidth = sizeof(LIGHT_SHADOW);
+
+	m_Device->CreateBuffer(&bufferDesc, NULL, &m_LightShadowBuffer);
+	m_DeviceContext->VSSetConstantBuffers(11, 1, &m_LightShadowBuffer);
+	m_DeviceContext->PSSetConstantBuffers(11, 1, &m_LightShadowBuffer);
+
 	// ライト初期化
 	LIGHT light{};
 	light.Enable = true;
@@ -267,7 +314,17 @@ void Renderer::Init(Application* ap)
 	light.Diffuse = Color(1.5f, 1.5f, 1.5f, 1.0f);
 	SetLight(light);
 
+	//影用ライト
+	LIGHT_SHADOW ls{};
+	DirectX::XMStoreFloat4x4(&ls.lightMat, DirectX::XMMatrixTranspose(
+		DirectX::XMMatrixLookAtLH(
+			DirectX::XMVectorSet(3, 2, 1, 0.0f),
+			DirectX::XMVectorSet(3 + 3, 2 + 2, 1 + 1, 0.0f),
+			DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f)
+		)
+	));
 
+	m_DeviceContext->UpdateSubresource(m_LightShadowBuffer, 0, NULL, &ls, 0,1);
 
 	// マテリアル初期化
 	MATERIAL material{};
@@ -332,6 +389,7 @@ void Renderer::Uninit()
 
 	m_DeviceContext->ClearState();
 	m_RenderTargetView->Release();
+	m_DepthRenderTargetView->Release();
 	m_SwapChain->Release();
 	m_DeviceContext->Release();
 	m_Device->Release();
@@ -344,6 +402,8 @@ void Renderer::Uninit()
 void Renderer::Begin()
 {
 	float clearColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+
+	m_DeviceContext->OMSetRenderTargets(1, &m_RenderTargetView, m_DepthStencilView);
 	m_DeviceContext->ClearRenderTargetView( m_RenderTargetView, clearColor );
 	m_DeviceContext->ClearDepthStencilView( m_DepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
@@ -355,8 +415,17 @@ void Renderer::End()
 	m_SwapChain->Present( 1, 0 );
 }
 
+void Renderer::ChangeRenderTarget()
+{
+	float clearColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
 
+	m_DeviceContext->PSSetShaderResources(0, 1, &m_ShaderResourceView);
 
+	m_DeviceContext->OMSetRenderTargets(1, &m_RenderTargetView, m_DepthWriteStencilView);
+	m_DeviceContext->ClearRenderTargetView(m_RenderTargetView, clearColor);
+	m_DeviceContext->ClearDepthStencilView(m_DepthWriteStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+	//m_DeviceContext->OMSetRenderTargets(1, &m_RenderTargetView, m_DepthWriteStencilView);
+}
 
 void Renderer::SetDepthEnable( bool Enable )
 {

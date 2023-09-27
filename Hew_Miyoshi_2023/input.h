@@ -1,5 +1,6 @@
 #pragma once
-#include <GamePad.h>
+#include    <windows.h>
+#include    <GamePad.h>
 
 /**
  * @brief ƒ{ƒ^ƒ“‚Ì—ñ‹“Œ^

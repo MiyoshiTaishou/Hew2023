@@ -15,7 +15,7 @@ struct MODEL_MATERIAL
 };
 
 // 描画サブセット構造体
-struct SUBSET
+struct SUBSET_OBJ
 {
     unsigned int StartIndex;
     unsigned int IndexNum;
@@ -31,7 +31,7 @@ struct MODEL_OBJ
     unsigned int* IndexArray;
     unsigned int IndexNum;
 
-    SUBSET* SubsetArray;
+    SUBSET_OBJ* SubsetArray;
     unsigned int SubsetNum;
 };
 
@@ -40,7 +40,7 @@ struct MODEL
     ID3D11Buffer* VertexBuffer;
     ID3D11Buffer* IndexBuffer;
 
-    SUBSET* SubsetArray;
+    SUBSET_OBJ* SubsetArray;
     unsigned int SubsetNum;
 };
 

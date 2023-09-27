@@ -204,7 +204,7 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 	ModelObj.IndexArray = new unsigned int[indexNum];
 	ModelObj.IndexNum = indexNum;
 
-	ModelObj.SubsetArray = new SUBSET[subsetNum];
+	ModelObj.SubsetArray = new SUBSET_OBJ[subsetNum];
 	ModelObj.SubsetNum = subsetNum;
 
 
@@ -406,7 +406,7 @@ void ModelRenderer::LoadModel( const char *FileName, MODEL *Model)
 
 	// サブセット設定
 	{
-		Model->SubsetArray = new SUBSET[ modelObj.SubsetNum ];
+		Model->SubsetArray = new SUBSET_OBJ[ modelObj.SubsetNum ];
 		Model->SubsetNum = modelObj.SubsetNum;
 
 		for( unsigned int i = 0; i < modelObj.SubsetNum; i++ )
@@ -485,7 +485,7 @@ std::vector<DirectX::SimpleMath::Vector3> ModelRenderer::LoadModelVertex(const c
 
 	// サブセット設定
 	{
-		Model->SubsetArray = new SUBSET[modelObj.SubsetNum];
+		Model->SubsetArray = new SUBSET_OBJ[modelObj.SubsetNum];
 		Model->SubsetNum = modelObj.SubsetNum;
 
 		for (unsigned int i = 0; i < modelObj.SubsetNum; i++)
@@ -624,7 +624,7 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 	ModelObj->IndexArray = new unsigned int[ indexNum ];
 	ModelObj->IndexNum = indexNum;
 
-	ModelObj->SubsetArray = new SUBSET[ subsetNum ];
+	ModelObj->SubsetArray = new SUBSET_OBJ[ subsetNum ];
 	ModelObj->SubsetNum = subsetNum;
 
 
@@ -867,7 +867,7 @@ std::vector<Vector3> ModelRenderer::LoadObjVertex(const char* FileName, MODEL_OB
 	ModelObj->IndexArray = new unsigned int[indexNum];
 	ModelObj->IndexNum = indexNum;
 
-	ModelObj->SubsetArray = new SUBSET[subsetNum];
+	ModelObj->SubsetArray = new SUBSET_OBJ[subsetNum];
 	ModelObj->SubsetNum = subsetNum;
 
 
