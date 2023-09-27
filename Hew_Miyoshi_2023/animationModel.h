@@ -8,6 +8,8 @@
 #include "assimp/matrix4x4.h"
 
 #pragma comment (lib, "assimp-vc142-mtd.lib")
+#pragma comment(lib,"directxtex.lib")
+
 
 #include "component.h"
 

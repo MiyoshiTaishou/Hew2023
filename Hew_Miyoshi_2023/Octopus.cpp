@@ -4,7 +4,8 @@
 
 void Octopus::Init()
 {
-	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("shader\\VS_Shadow.cso", "shader\\PS_Shadow.cso");
 	AddComponent<ModelRenderer>()->Load("asset\\model\\Octopus.obj");
 
 	m_Position.z = 20.0f;

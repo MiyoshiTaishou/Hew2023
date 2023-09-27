@@ -6,9 +6,13 @@ C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\box.cpp;C:\Users\Taish\
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\BoxCollider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\BoxCollider.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\camera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\camera.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\collison.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\collison.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\CShader.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\CShader.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\CStaticMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\CStaticMesh.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\CStaticMeshRenderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\CStaticMeshRenderer.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\cylinder.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\cylinder.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\DebugCamera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\DebugCamera.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\DragFloor.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\DragFloor.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\dx11mathuntil.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\dx11mathuntil.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Enemy.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Enemy.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Fade.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Fade.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\field.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\field.obj
@@ -38,6 +42,7 @@ C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\ScaleUI.cpp;C:\Users\Ta
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\score.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\score.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shader.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\shader.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\shadow.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\shadow.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\SkeletalMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\SkeletalMesh.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\sky.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\sky.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\sprite.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\sprite.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Stage.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\Stage.obj

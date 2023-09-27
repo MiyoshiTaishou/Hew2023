@@ -240,7 +240,7 @@ void Player::Update()
 					{
 						Vector3 force = -vel * 5.0f;
 						body->AddForce(force, ForceMode::Impulse);						
-						Input::Vibration(0, 1.0f, 1.0f, 1.0f, 1.0f);
+						//Input::Vibration(0, 1.0f, 1.0f, 1.0f, 1.0f);
 						m_MeatSE2->Play();
 					}
 					else
@@ -539,49 +539,49 @@ void Player::ConInput()
 	Rigidbody* body = GetComponent<Rigidbody>();
 
 	//コントローラーの入力を取る	
-	{
-		if (wallUp)
-		{
-			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-			{
-				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
-				body->AddForce(Up, ForceMode::Force);
-			}
-		}
-		else
-		{
-			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-			{
-				Vector3 force = forward * 100.0f;
-				body->AddForce(force, ForceMode::Force);
-				m_Rotation.x += 0.1f;
-			}
-			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-			{
-				Vector3 force = forward * -100.0f;
-				body->AddForce(force, ForceMode::Force);
-				m_Rotation.x -= 0.1f;
-			}
-			if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-				m_Rotation.y -= 1.0f / 60.0f;
-			if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-				m_Rotation.y += 1.0f / 60.0f;
+	//{
+	//	if (wallUp)
+	//	{
+	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+	//		{
+	//			Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
+	//			body->AddForce(Up, ForceMode::Force);
+	//		}
+	//	}
+	//	else
+	//	{
+	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+	//		{
+	//			Vector3 force = forward * 100.0f;
+	//			body->AddForce(force, ForceMode::Force);
+	//			m_Rotation.x += 0.1f;
+	//		}
+	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+	//		{
+	//			Vector3 force = forward * -100.0f;
+	//			body->AddForce(force, ForceMode::Force);
+	//			m_Rotation.x -= 0.1f;
+	//		}
+	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
+	//			m_Rotation.y -= 1.0f / 60.0f;
+	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
+	//			m_Rotation.y += 1.0f / 60.0f;
 
 
-			//ダッシュ
-			if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
-			{
-				actionCheck = true;
-				actionCount++;
-				m_Rotation.x += 0.1f;
-			}
-			if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
-			{
-				actionCheck = true;
-				actionCount++;
-				m_Rotation.x += 0.1f;
-			}
-		}
-	}
+	//		//ダッシュ
+	//		if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
+	//		{
+	//			actionCheck = true;
+	//			actionCount++;
+	//			m_Rotation.x += 0.1f;
+	//		}
+	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
+	//		{
+	//			actionCheck = true;
+	//			actionCount++;
+	//			m_Rotation.x += 0.1f;
+	//		}
+	//	}
+	//}
 
 }
