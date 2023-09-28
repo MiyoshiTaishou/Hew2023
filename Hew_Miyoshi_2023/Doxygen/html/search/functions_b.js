@@ -1,27 +1,7 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../class_scene.html#ad10176d75a9cc0da56626f682d083507',1,'Scene']]],
-  ['setatcenable_1',['SetATCEnable',['../class_renderer.html#a1c8fb2187b774d9451af8e5a100960d9',1,'Renderer']]],
-  ['setbloom_2',['SetBloom',['../class_renderer.html#a552e50362ba52ba2458fbef7b371059b',1,'Renderer']]],
-  ['setdepthenable_3',['SetDepthEnable',['../class_renderer.html#a60e50ae298b4cfbbe7df0e138eca9ce1',1,'Renderer']]],
-  ['setdestroy_4',['SetDestroy',['../class_game_object.html#a8fcb288a78c8ee8cdbb2ebf873a59369',1,'GameObject']]],
-  ['setdrag_5',['SetDrag',['../class_rigidbody.html#a3f3461aeb7b5a78839efdca3a4ca14aa',1,'Rigidbody']]],
-  ['setfade_6',['SetFade',['../class_renderer.html#a851b0f5b65140e5a14486444442a5ae1',1,'Renderer']]],
-  ['setforce_7',['SetForce',['../class_rigidbody.html#a3589ffe60d7a57311d02af5934e07339',1,'Rigidbody']]],
-  ['setfreeze_8',['SetFreeze',['../class_rigidbody.html#a4444bc4d94207f7436a88cda2bd480de',1,'Rigidbody']]],
-  ['setlight_9',['SetLight',['../class_renderer.html#a5280947836485d67cab32e71ce274296',1,'Renderer']]],
-  ['setmaterial_10',['SetMaterial',['../class_renderer.html#a31420e0b83fe3ae5106c68c00a7bc1a7',1,'Renderer']]],
-  ['setpollar_11',['SetPollar',['../class_renderer.html#a37bf91b44a6ed121ce66a8530532ada3',1,'Renderer']]],
-  ['setposition_12',['SetPosition',['../class_game_object.html#abeb8d6fd3767e1cde1a0a56cd61a0e5a',1,'GameObject']]],
-  ['setprojectionmatrix_13',['SetProjectionMatrix',['../class_renderer.html#ad69c19abd3719199a7412972f40391bf',1,'Renderer']]],
-  ['setrotation_14',['SetRotation',['../class_game_object.html#a4afa611d4b2aef1d7086fab891ac24d8',1,'GameObject']]],
-  ['setrotationangle_15',['SetRotationAngle',['../class_renderer.html#a38b88173e3a9931860dd95ebabbe0c3b',1,'Renderer']]],
-  ['setscale_16',['SetScale',['../class_game_object.html#a7261f9641ecda37ac0b399940e479f19',1,'GameObject']]],
-  ['setscaleshader_17',['SetScaleShader',['../class_renderer.html#a5f22e7a2c0a799ee751372a5aba5c397',1,'Renderer']]],
-  ['setscene_18',['SetScene',['../class_manager.html#a20d56cefa4ca57aa690b64e9e564fad9',1,'Manager']]],
-  ['settarget_19',['settarget',['../class_camera.html#a4ab405d973c24462d2d6cc16b54ec971',1,'Camera::SetTarget()'],['../class_debug_camera.html#aa24cc7c251d5382be5ba863e7fd78110',1,'DebugCamera::SetTarget()']]],
-  ['setvelocity_20',['SetVelocity',['../class_rigidbody.html#a39549aa790a30675f1d223e130d50f4a',1,'Rigidbody']]],
-  ['setviewmatrix_21',['SetViewMatrix',['../class_renderer.html#a4f539cc63a6bed2694490af38806ec9a',1,'Renderer']]],
-  ['setworldmatrix_22',['SetWorldMatrix',['../class_renderer.html#a9c1db215718af048709c7f0ed9412b81',1,'Renderer']]],
-  ['setworldviewprojection2d_23',['SetWorldViewProjection2D',['../class_renderer.html#a92044b276e11eb2d15b33bca4932fdcb',1,'Renderer']]]
+  ['uninit_0',['uninit',['../class_field.html#a7667634f271fc00d9887ed0c5fefe156',1,'Field::Uninit()'],['../class_game_object.html#a9d1ca7014b11b3f0dcca5bb05b922d44',1,'GameObject::Uninit()'],['../class_human.html#a04d95260812e895f8cd0e77fccaa2a80',1,'Human::Uninit()'],['../class_input.html#a0749f3f0f368de56192fc20e4e37cdfe',1,'Input::Uninit()'],['../class_manager.html#a970ac333358a47086c4a019ff254899b',1,'Manager::Uninit()'],['../class_polygon2_d.html#a5f0db14e601e43ab288eec54ae41ace0',1,'Polygon2D::Uninit()'],['../class_renderer.html#ae865246d6a04d467ac22458f6f5f69d4',1,'Renderer::Uninit()'],['../class_scene.html#a0c2c93ca2ad7c1ed76466ece9fb1ec45',1,'Scene::Uninit()'],['../class_score.html#af072934ac18df28fadfbc8470ba4465a',1,'Score::Uninit()'],['../class_stage.html#a2e3e610faec631a3948d2f938b30aec6',1,'Stage::Uninit()'],['../class_timer.html#aa0c731a59307adf5d2038c88dd37aee8',1,'Timer::Uninit()']]],
+  ['uninitbase_1',['uninitbase',['../class_game_object.html#a33d6c63352286b44eabcff91dc5fa4ff',1,'GameObject::UninitBase()'],['../class_scene.html#a985ff778b088ce97ef2d75645e191ae8',1,'Scene::UninitBase()']]],
+  ['update_2',['update',['../class_rigidbody.html#a3882dbd531e2c74718cdbfbf1b88df89',1,'Rigidbody::Update()'],['../class_camera.html#a4a596a3ea1fdc7d244ba4268031a360b',1,'Camera::Update()'],['../class_debug_camera.html#ad8da0ebc2bb13cf9a277cda83666d5f4',1,'DebugCamera::Update()'],['../class_enemy.html#a614ad271f07ecf63cb3e665155b7e258',1,'Enemy::Update()'],['../class_fade_u_i.html#a21caf192d27b38366f57e9ba407736d2',1,'FadeUI::Update()'],['../class_game.html#a7279736cde09902a139247810bc76d4b',1,'Game::Update()'],['../class_game_object.html#ac7ecc123dacaba955077420caabf5e64',1,'GameObject::Update()'],['../class_gravity.html#a52bd23d2918e05f44239e2ff97dadd02',1,'Gravity::Update()'],['../class_human.html#a6b5d38b2ab2747be1ce7f41fe6534c75',1,'Human::Update()'],['../class_input.html#af80dcfde6dbfe39bf3bc0345c75595ce',1,'Input::Update()'],['../class_jump_component.html#a2c49f52d398b6b306e3e58e7d7b9d696',1,'JumpComponent::Update()'],['../class_manager.html#a3df4922c763aeebe6918a00154ec0354',1,'Manager::Update()'],['../class_player.html#a5e17be3418fa0ac0192c05efaf3dc8bd',1,'Player::Update()'],['../class_polygon2_d.html#a6fe253e08a8b8cfa4c737cd97976d4d8',1,'Polygon2D::Update()'],['../class_result.html#a7f74bf5f230b8fde7f4331d91e3d9372',1,'Result::Update()'],['../class_scale_u_i.html#a6094354f03dc2f228bcefc1e670c72f5',1,'ScaleUI::Update()'],['../class_scene.html#a59cd50b7a567af365fd6ecb108896988',1,'Scene::Update()'],['../class_score.html#a99c354a9f20e44df888b73c6120caab8',1,'Score::Update()'],['../class_sky.html#a7a3bf849e18ca78de47e24c8e7587edb',1,'Sky::Update()'],['../class_stage_editor.html#a9bb226d4d6ab73a6e90c39fb7ac5e625',1,'StageEditor::Update()'],['../class_timer.html#a77a6595649759e7236d1b43c2c10e16b',1,'Timer::Update()'],['../class_title.html#a970d881556ef55c5af039041bac27d46',1,'Title::Update()'],['../class_trampoline.html#a5318181045134140205762ca3d6a4758',1,'Trampoline::Update()'],['../class_transition.html#a70b04f1d15eca2bdef794883b4076cd3',1,'Transition::Update()']]],
+  ['updatebase_3',['updatebase',['../class_game_object.html#af72b2c7b64912b3b91f69cf16ba62643',1,'GameObject::UpdateBase()'],['../class_scene.html#ab0de5feb8f80786173dbc24d6e783e18',1,'Scene::UpdateBase()']]]
 ];

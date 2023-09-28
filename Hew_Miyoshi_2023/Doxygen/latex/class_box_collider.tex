@@ -1,14 +1,12 @@
-\doxysection{Box\+Collider クラス}
+\doxysection{Box\+Collider Class Reference}
 \hypertarget{class_box_collider}{}\label{class_box_collider}\index{BoxCollider@{BoxCollider}}
-
-
-Box\+Collider の継承関係図
-% FIG 0
-
-
-Box\+Collider 連携図
-% FIG 1
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Box\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_box_collider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_box_collider_a612652af26c0a26dd9a46528dfffa729}{Init}} () override
@@ -17,57 +15,37 @@ void \mbox{\hyperlink{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}{Upda
 \item 
 void \mbox{\hyperlink{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}{Draw}} () override
 \item 
-bool \mbox{\hyperlink{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}{Hit\+Check}} (\mbox{\hyperlink{class_box_collider}{Box\+Collider}} other)
+\Hypertarget{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}\label{class_box_collider_ac355398ea5f91401ca26aba88ac1180a} 
+bool {\bfseries Hit\+Check} (\mbox{\hyperlink{class_box_collider}{Box\+Collider}} other)
 \item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}{Get\+Hit\+Box}} ()
+\Hypertarget{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}\label{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries Get\+Hit\+Box} ()
 \item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}{Get\+Scale}} ()
+\Hypertarget{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}\label{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries Get\+Scale} ()
 \item 
 \Hypertarget{class_box_collider_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_box_collider_a2a7f4303a0d29316167e3aa7f1e5f90a} 
 {\bfseries Component} ()=delete
 \item 
-\mbox{\hyperlink{class_box_collider_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
-\end{DoxyCompactItemize}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
-\item 
-virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_a76a9fe76cfc3eda721f4ef34e45dc01a}{m\+Hit\+Box}} = \{ 0,0,0 \}
-\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_box_collider_ab931dd527cd304cf484127691fb5af90}{m\+Scale}} = \{ 1.\+0f,1.\+0f,1.\+0f \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{その他の継承メンバ}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{_box_collider_8h_source}{Box\+Collider.\+h}} の \mbox{\hyperlink{_box_collider_8h_source_l00007}{7}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
 \Hypertarget{class_box_collider_aaa874f1577ba8f36a03983918ee3501f}\label{class_box_collider_aaa874f1577ba8f36a03983918ee3501f} 
-\index{BoxCollider@{BoxCollider}!Component@{Component}}
-\index{Component@{Component}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
-{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\item 
+virtual void {\bfseries Uninit} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Game\+Object} = nullptr
+\end{DoxyCompactItemize}
 
 
-
- \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
-
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f}\label{class_box_collider_acfdbdf5fcf030e4d155aa25d74e0bd2f} 
 \index{BoxCollider@{BoxCollider}!Draw@{Draw}}
 \index{Draw@{Draw}!BoxCollider@{BoxCollider}}
@@ -76,41 +54,7 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
-
-
-
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00020}{20}} 行目に定義があります。
-
-\Hypertarget{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2}\label{class_box_collider_a8ead41706fc86b3f6e978e4d73d854f2} 
-\index{BoxCollider@{BoxCollider}!GetHitBox@{GetHitBox}}
-\index{GetHitBox@{GetHitBox}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{GetHitBox()}{GetHitBox()}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::\+Get\+Hit\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00069}{69}} 行目に定義があります。
-
-\Hypertarget{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2}\label{class_box_collider_ad6b1426823f94bf8d5e96e26f8e72ea2} 
-\index{BoxCollider@{BoxCollider}!GetScale@{GetScale}}
-\index{GetScale@{GetScale}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{GetScale()}{GetScale()}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00074}{74}} 行目に定義があります。
-
-\Hypertarget{class_box_collider_ac355398ea5f91401ca26aba88ac1180a}\label{class_box_collider_ac355398ea5f91401ca26aba88ac1180a} 
-\index{BoxCollider@{BoxCollider}!HitCheck@{HitCheck}}
-\index{HitCheck@{HitCheck}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{HitCheck()}{HitCheck()}}
-{\footnotesize\ttfamily bool Box\+Collider\+::\+Hit\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_box_collider}{Box\+Collider}}}]{other }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00024}{24}} 行目に定義があります。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 \Hypertarget{class_box_collider_a612652af26c0a26dd9a46528dfffa729}\label{class_box_collider_a612652af26c0a26dd9a46528dfffa729} 
 \index{BoxCollider@{BoxCollider}!Init@{Init}}
@@ -120,11 +64,7 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
-
-
-
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00008}{8}} 行目に定義があります。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 \Hypertarget{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9}\label{class_box_collider_a0b04b6b39343fe23050acf2e25c479f9} 
 \index{BoxCollider@{BoxCollider}!Update@{Update}}
@@ -134,38 +74,11 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 
 
- \mbox{\hyperlink{_box_collider_8cpp_source}{Box\+Collider.\+cpp}} の \mbox{\hyperlink{_box_collider_8cpp_source_l00014}{14}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_box_collider_a76a9fe76cfc3eda721f4ef34e45dc01a}\label{class_box_collider_a76a9fe76cfc3eda721f4ef34e45dc01a} 
-\index{BoxCollider@{BoxCollider}!mHitBox@{mHitBox}}
-\index{mHitBox@{mHitBox}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{mHitBox}{mHitBox}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::m\+Hit\+Box = \{ 0,0,0 \}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{_box_collider_8h_source}{Box\+Collider.\+h}} の \mbox{\hyperlink{_box_collider_8h_source_l00024}{24}} 行目に定義があります。
-
-\Hypertarget{class_box_collider_ab931dd527cd304cf484127691fb5af90}\label{class_box_collider_ab931dd527cd304cf484127691fb5af90} 
-\index{BoxCollider@{BoxCollider}!mScale@{mScale}}
-\index{mScale@{mScale}!BoxCollider@{BoxCollider}}
-\doxysubsubsection{\texorpdfstring{mScale}{mScale}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Box\+Collider\+::m\+Scale = \{ 1.\+0f,1.\+0f,1.\+0f \}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{_box_collider_8h_source}{Box\+Collider.\+h}} の \mbox{\hyperlink{_box_collider_8h_source_l00027}{27}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Box\+Collider.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Box\+Collider.\+cpp\end{DoxyCompactItemize}

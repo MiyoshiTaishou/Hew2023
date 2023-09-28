@@ -1,78 +1,54 @@
-\doxysection{Gravity クラス}
+\doxysection{Gravity Class Reference}
 \hypertarget{class_gravity}{}\label{class_gravity}\index{Gravity@{Gravity}}
 
 
-重力をつけるコンポーネント  
+�d�͂�����\+R���\texorpdfstring{$\vert$}{|}�\mbox{[}�l���g  
 
 
 
 
 {\ttfamily \#include $<$Gravity.\+h$>$}
 
-
-
-Gravity の継承関係図
-% FIG 0
-
-
-Gravity 連携図
-% FIG 1
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Gravity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gravity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_gravity_a52bd23d2918e05f44239e2ff97dadd02}{Update}} () override
-\begin{DoxyCompactList}\small\item\em 重力の影響を更新する関数 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �d�͂̉e�����\+X�\+V����֐� \end{DoxyCompactList}\item 
 \Hypertarget{class_gravity_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_gravity_a2a7f4303a0d29316167e3aa7f1e5f90a} 
 {\bfseries Component} ()=delete
 \item 
-\mbox{\hyperlink{class_gravity_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\Hypertarget{class_gravity_aaa874f1577ba8f36a03983918ee3501f}\label{class_gravity_aaa874f1577ba8f36a03983918ee3501f} 
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \end{DoxyCompactItemize}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \item 
-virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+virtual void {\bfseries Init} ()
 \item 
-virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+virtual void {\bfseries Uninit} ()
 \item 
 virtual void \mbox{\hyperlink{class_component_a8622ccd5f24035d48e33292717299313}{Draw}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{非公開変数類}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_gravity_abc853d523dbad94fc4a3c2861a237078}{gravity\+Power}} = \{ 0, 1, 0 \}
-\begin{DoxyCompactList}\small\item\em 重力の強さ \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_gravity_a3d28e4793adfd44deefb79d82ed9d1c9}{acc\+Gravity}} = 0.\+0098f
-\begin{DoxyCompactList}\small\item\em 重力加速度 \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_gravity_aa1335f1b72217db6870b606dd209903e}{time}} = 0
-\begin{DoxyCompactList}\small\item\em 経過時間 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{その他の継承メンバ}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Game\+Object} = nullptr
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-重力をつけるコンポーネント 
+\doxysubsection{Detailed Description}
+�d�͂�����\+R���\texorpdfstring{$\vert$}{|}�\mbox{[}�l���g 
 
- \mbox{\hyperlink{_gravity_8h_source}{Gravity.\+h}} の \mbox{\hyperlink{_gravity_8h_source_l00009}{9}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{class_gravity_aaa874f1577ba8f36a03983918ee3501f}\label{class_gravity_aaa874f1577ba8f36a03983918ee3501f} 
-\index{Gravity@{Gravity}!Component@{Component}}
-\index{Component@{Component}!Gravity@{Gravity}}
-\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
-{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
-
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_gravity_a52bd23d2918e05f44239e2ff97dadd02}\label{class_gravity_a52bd23d2918e05f44239e2ff97dadd02} 
 \index{Gravity@{Gravity}!Update@{Update}}
 \index{Update@{Update}!Gravity@{Gravity}}
@@ -81,66 +57,15 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-重力の影響を更新する関数 
+�d�͂̉e�����\+X�\+V����֐� 
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 
 
- \mbox{\hyperlink{_gravity_8cpp_source}{Gravity.\+cpp}} の \mbox{\hyperlink{_gravity_8cpp_source_l00006}{6}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 2
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_gravity_a3d28e4793adfd44deefb79d82ed9d1c9}\label{class_gravity_a3d28e4793adfd44deefb79d82ed9d1c9} 
-\index{Gravity@{Gravity}!accGravity@{accGravity}}
-\index{accGravity@{accGravity}!Gravity@{Gravity}}
-\doxysubsubsection{\texorpdfstring{accGravity}{accGravity}}
-{\footnotesize\ttfamily float Gravity\+::acc\+Gravity = 0.\+0098f\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-重力加速度 
-
-
-
- \mbox{\hyperlink{_gravity_8h_source}{Gravity.\+h}} の \mbox{\hyperlink{_gravity_8h_source_l00022}{22}} 行目に定義があります。
-
-\Hypertarget{class_gravity_abc853d523dbad94fc4a3c2861a237078}\label{class_gravity_abc853d523dbad94fc4a3c2861a237078} 
-\index{Gravity@{Gravity}!gravityPower@{gravityPower}}
-\index{gravityPower@{gravityPower}!Gravity@{Gravity}}
-\doxysubsubsection{\texorpdfstring{gravityPower}{gravityPower}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Gravity\+::gravity\+Power = \{ 0, 1, 0 \}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-重力の強さ 
-
-
-
- \mbox{\hyperlink{_gravity_8h_source}{Gravity.\+h}} の \mbox{\hyperlink{_gravity_8h_source_l00019}{19}} 行目に定義があります。
-
-\Hypertarget{class_gravity_aa1335f1b72217db6870b606dd209903e}\label{class_gravity_aa1335f1b72217db6870b606dd209903e} 
-\index{Gravity@{Gravity}!time@{time}}
-\index{time@{time}!Gravity@{Gravity}}
-\doxysubsubsection{\texorpdfstring{time}{time}}
-{\footnotesize\ttfamily int Gravity\+::time = 0\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-経過時間 
-
-
-
- \mbox{\hyperlink{_gravity_8h_source}{Gravity.\+h}} の \mbox{\hyperlink{_gravity_8h_source_l00025}{25}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Gravity.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Gravity.\+cpp\end{DoxyCompactItemize}

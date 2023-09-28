@@ -2,25 +2,25 @@
 \hypertarget{_stage_hit_8h_source}{}\label{_stage_hit_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageHit.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/StageHit.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include<vector>}}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00006}00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}};}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00008}00008\ \textcolor{comment}{//\ 蝨ｰ蠖｢繝�繝ｼ繧ｿ縺ｮ髱｢縺ｮ譁ｹ遞句ｼ乗ュ蝣ｱ}}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00009}\mbox{\hyperlink{struct_p_l_a_n_e_i_n_f_o}{00009}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_p_l_a_n_e_i_n_f_o}{PLANEINFO}}\ \{}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00010}00010\ \ \ \ \ DirectX::SimpleMath::Plane\ \ \ \ \ \ plane;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//蟷ｳ髱｢縺ｮ譁ｹ遞句ｼ殉}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00011}00011\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ p0,\ p1,\ p2;\ \ \ \ \ \textcolor{comment}{//鬆らせ蠎ｧ讓凩}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00012}00012\ \};}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00013}00013\ }
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00014}00014\ \textcolor{keywordtype}{void}\ StageHitInit(\mbox{\hyperlink{class_game_object}{GameObject}}*\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00015}00015\ \textcolor{keywordtype}{void}\ StageHitExit();}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00016}00016\ \textcolor{keywordtype}{void}\ CreateStagePlaneInfoAll(std::vector<DirectX::SimpleMath::Vector3>\&\ v,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00017}00017\ \textcolor{keywordtype}{bool}\ SearchAllSurface(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ z,\ DirectX::SimpleMath::Vector3\&\ ans);}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00018}00018\ \textcolor{keywordtype}{void}\ CreatePlaneInfo(\textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p1,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p2,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p3,\ DirectX::SimpleMath::Plane\&\ plane);}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00019}00019\ \textcolor{keywordtype}{bool}\ LinetoPlaneCross(\textcolor{keyword}{const}\ DirectX::SimpleMath::Plane\&\ plane,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p0,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ wv,\ DirectX::SimpleMath::Vector3\ ans);}
-\DoxyCodeLine{\Hypertarget{_stage_hit_8h_source_l00020}00020\ \textcolor{keywordtype}{bool}\ CheckInTriangle(\textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ a,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ b,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ c,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p);}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include<SimpleMath.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ 地形デーソstring^の面の方程式情報}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_p_l_a_n_e_i_n_f_o}{PLANEINFO}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ DirectX::SimpleMath::Plane\ \ \ \ \ \ plane;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//平面の方程式}}
+\DoxyCodeLine{00011\ \ \ \ \ DirectX::SimpleMath::Vector3\ \ \ \ p0,\ p1,\ p2;\ \ \ \ \ \textcolor{comment}{//頂貼_座標}}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ StageHitInit(\mbox{\hyperlink{class_game_object}{GameObject}}*\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ StageHitExit();}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ CreateStagePlaneInfoAll(std::vector<DirectX::SimpleMath::Vector3>\&\ v,\ \textcolor{keywordtype}{int}\ idx);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{bool}\ SearchAllSurface(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ z,\ DirectX::SimpleMath::Vector3\&\ ans);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ CreatePlaneInfo(\textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p1,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p2,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p3,\ DirectX::SimpleMath::Plane\&\ plane);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{bool}\ LinetoPlaneCross(\textcolor{keyword}{const}\ DirectX::SimpleMath::Plane\&\ plane,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p0,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ wv,\ DirectX::SimpleMath::Vector3\ ans);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{bool}\ CheckInTriangle(\textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ a,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ b,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ c,\ \textcolor{keyword}{const}\ DirectX::SimpleMath::Vector3\&\ p);}
 
 \end{DoxyCode}

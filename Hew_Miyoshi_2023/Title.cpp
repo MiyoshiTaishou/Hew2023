@@ -23,8 +23,8 @@ void Title::Init()
 {
 	//オブジェクト生成
 	AddGameObject<Sky>(1);
-	AddGameObject<Player>(1);
-	AddGameObject<Field>(1);
+	Player* player = AddGameObject<Player>(1);
+	AddGameObject<Field>(1);	
 
 	AddGameObject<Camera>(0);
 

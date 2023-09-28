@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pos_0',['pos',['../struct_vertex_position_texture.html#a7e10b9ce26950124f2b2751018a4cee8',1,'VertexPositionTexture']]],
-  ['position_1',['Position',['../struct_v_e_r_t_e_x__3_d.html#aafe2112d3893ee63f0a77759f8df63e8',1,'VERTEX_3D']]],
-  ['power_2',['power',['../struct_bloom.html#a81166e6e72dc4259a8a84d9ba5c228aa',1,'Bloom']]]
+  ['screensize_0',['screenSize',['../struct_scale_shader.html#a6cbea5dbfdf7816b864a41b7b27579e9',1,'ScaleShader']]],
+  ['shininess_1',['Shininess',['../struct_m_a_t_e_r_i_a_l.html#a30ee4b27511527dc0aa3e1a3591f6032',1,'MATERIAL']]],
+  ['specular_2',['Specular',['../struct_m_a_t_e_r_i_a_l.html#a65cd554eceae8adbad163a309c993d0b',1,'MATERIAL']]]
 ];

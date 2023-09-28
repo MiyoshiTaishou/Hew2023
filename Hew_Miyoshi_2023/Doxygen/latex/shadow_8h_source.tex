@@ -2,32 +2,38 @@
 \hypertarget{shadow_8h_source}{}\label{shadow_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shadow.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/shadow.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}component.h"{}}}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00007}\mbox{\hyperlink{class_shadow}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shadow}{Shadow}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00008}00008\ \{}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00010}00010\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00011}00011\ \ \ \ \ ID3D11Buffer*\ m\_VertexBuffer;}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00012}00012\ \ \ \ \ ID3D11ShaderResourceView*\ m\_Texture;}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00013}00013\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00014}00014\ \ \ \ \ DirectX::SimpleMath::Vector3\ m\_Position\{\};}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ m\_Size\ =\ 1.0f;}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{void}\ Init()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Uninit()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ SetSize(\textcolor{keywordtype}{float}\ Size)\ \{\ m\_Size\ =\ Size;\ \}}
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{shadow_8h_source_l00027}00027\ \};}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}component.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\#include"{}shader.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shadow}{Shadow}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ ID3D11Buffer*\ m\_VertexBuffer;}
+\DoxyCodeLine{00013\ \ \ \ \ ID3D11ShaderResourceView*\ m\_Texture;}
+\DoxyCodeLine{00014\ \ \ \ \ ID3D11PixelShader*\ m\_PixelShader\{\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ DirectX::SimpleMath::Vector3\ m\_Position\{\};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ m\_Size\ =\ 1.0f;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Alpha\ =\ 1.0f;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_MaxDistance\ =\ 100.0f;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{struct_fade}{Fade}}\ pollar;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ Init()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ Uninit()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ SetSize(\textcolor{keywordtype}{float}\ Size)\ \{\ m\_Size\ =\ Size;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
 
 \end{DoxyCode}

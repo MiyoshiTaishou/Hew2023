@@ -2,629 +2,629 @@
 \hypertarget{imstb__rectpack_8h_source}{}\label{imstb__rectpack_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/imstb\_rectpack.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/imstb\_rectpack.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00001}00001\ \textcolor{comment}{//\ [DEAR\ IMGUI]}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00002}00002\ \textcolor{comment}{//\ This\ is\ a\ slightly\ modified\ version\ of\ stb\_rect\_pack.h\ 1.01.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00003}00003\ \textcolor{comment}{//\ Grep\ for\ [DEAR\ IMGUI]\ to\ find\ the\ changes.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00004}00004\ \textcolor{comment}{//\ }}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00005}00005\ \textcolor{comment}{//\ stb\_rect\_pack.h\ -\/\ v1.01\ -\/\ public\ domain\ -\/\ rectangle\ packing}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00006}00006\ \textcolor{comment}{//\ Sean\ Barrett\ 2014}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00007}00007\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00008}00008\ \textcolor{comment}{//\ Useful\ for\ e.g.\ packing\ rectangular\ textures\ into\ an\ atlas.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00009}00009\ \textcolor{comment}{//\ Does\ not\ do\ rotation.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00010}00010\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00011}00011\ \textcolor{comment}{//\ Before\ \#including,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00012}00012\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00013}00013\ \textcolor{comment}{//\ \ \ \ \#define\ STB\_RECT\_PACK\_IMPLEMENTATION}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00014}00014\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00015}00015\ \textcolor{comment}{//\ in\ the\ file\ that\ you\ want\ to\ have\ the\ implementation.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00016}00016\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00017}00017\ \textcolor{comment}{//\ Not\ necessarily\ the\ awesomest\ packing\ method,\ but\ better\ than}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00018}00018\ \textcolor{comment}{//\ the\ totally\ naive\ one\ in\ stb\_truetype\ (which\ is\ primarily\ what}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00019}00019\ \textcolor{comment}{//\ this\ is\ meant\ to\ replace).}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00020}00020\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00021}00021\ \textcolor{comment}{//\ Has\ only\ had\ a\ few\ tests\ run,\ may\ have\ issues.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00022}00022\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00023}00023\ \textcolor{comment}{//\ More\ docs\ to\ come.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00024}00024\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00025}00025\ \textcolor{comment}{//\ No\ memory\ allocations;\ uses\ qsort()\ and\ assert()\ from\ stdlib.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00026}00026\ \textcolor{comment}{//\ Can\ override\ those\ by\ defining\ STBRP\_SORT\ and\ STBRP\_ASSERT.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00027}00027\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00028}00028\ \textcolor{comment}{//\ This\ library\ currently\ uses\ the\ Skyline\ Bottom-\/Left\ algorithm.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00029}00029\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00030}00030\ \textcolor{comment}{//\ Please\ note:\ better\ rectangle\ packers\ are\ welcome!\ Please}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00031}00031\ \textcolor{comment}{//\ implement\ them\ to\ the\ same\ API,\ but\ with\ a\ different\ init}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00032}00032\ \textcolor{comment}{//\ function.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00033}00033\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00034}00034\ \textcolor{comment}{//\ Credits}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00035}00035\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00036}00036\ \textcolor{comment}{//\ \ Library}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00037}00037\ \textcolor{comment}{//\ \ \ \ Sean\ Barrett}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00038}00038\ \textcolor{comment}{//\ \ Minor\ features}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00039}00039\ \textcolor{comment}{//\ \ \ \ Martins\ Mozeiko}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00040}00040\ \textcolor{comment}{//\ \ \ \ github:IntellectualKitty}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00041}00041\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00042}00042\ \textcolor{comment}{//\ \ Bugfixes\ /\ warning\ fixes}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00043}00043\ \textcolor{comment}{//\ \ \ \ Jeremy\ Jaussaud}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00044}00044\ \textcolor{comment}{//\ \ \ \ Fabian\ Giesen}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00045}00045\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00046}00046\ \textcolor{comment}{//\ Version\ history:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00047}00047\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00048}00048\ \textcolor{comment}{//\ \ \ \ \ 1.01\ \ (2021-\/07-\/11)\ \ always\ use\ large\ rect\ mode,\ expose\ STBRP\_\_MAXVAL\ in\ public\ section}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00049}00049\ \textcolor{comment}{//\ \ \ \ \ 1.00\ \ (2019-\/02-\/25)\ \ avoid\ small\ space\ waste;\ gracefully\ fail\ too-\/wide\ rectangles}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00050}00050\ \textcolor{comment}{//\ \ \ \ \ 0.99\ \ (2019-\/02-\/07)\ \ warning\ fixes}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00051}00051\ \textcolor{comment}{//\ \ \ \ \ 0.11\ \ (2017-\/03-\/03)\ \ return\ packing\ success/fail\ result}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00052}00052\ \textcolor{comment}{//\ \ \ \ \ 0.10\ \ (2016-\/10-\/25)\ \ remove\ cast-\/away-\/const\ to\ avoid\ warnings}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00053}00053\ \textcolor{comment}{//\ \ \ \ \ 0.09\ \ (2016-\/08-\/27)\ \ fix\ compiler\ warnings}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00054}00054\ \textcolor{comment}{//\ \ \ \ \ 0.08\ \ (2015-\/09-\/13)\ \ really\ fix\ bug\ with\ empty\ rects\ (w=0\ or\ h=0)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00055}00055\ \textcolor{comment}{//\ \ \ \ \ 0.07\ \ (2015-\/09-\/13)\ \ fix\ bug\ with\ empty\ rects\ (w=0\ or\ h=0)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00056}00056\ \textcolor{comment}{//\ \ \ \ \ 0.06\ \ (2015-\/04-\/15)\ \ added\ STBRP\_SORT\ to\ allow\ replacing\ qsort}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00057}00057\ \textcolor{comment}{//\ \ \ \ \ 0.05:\ \ added\ STBRP\_ASSERT\ to\ allow\ replacing\ assert}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00058}00058\ \textcolor{comment}{//\ \ \ \ \ 0.04:\ \ fixed\ minor\ bug\ in\ STBRP\_LARGE\_RECTS\ support}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00059}00059\ \textcolor{comment}{//\ \ \ \ \ 0.01:\ \ initial\ release}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00060}00060\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00061}00061\ \textcolor{comment}{//\ LICENSE}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00062}00062\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00063}00063\ \textcolor{comment}{//\ \ \ See\ end\ of\ file\ for\ license\ information.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00066}00066\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00067}00067\ \textcolor{comment}{//\ \ \ \ \ \ \ INCLUDE\ SECTION}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00068}00068\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00070}00070\ \textcolor{preprocessor}{\#ifndef\ STB\_INCLUDE\_STB\_RECT\_PACK\_H}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00071}00071\ \textcolor{preprocessor}{\#define\ STB\_INCLUDE\_STB\_RECT\_PACK\_H}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00072}00072\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ STB\_RECT\_PACK\_VERSION\ \ 1}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00075}00075\ \textcolor{preprocessor}{\#ifdef\ STBRP\_STATIC}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00076}00076\ \textcolor{preprocessor}{\#define\ STBRP\_DEF\ static}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00077}00077\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00078}00078\ \textcolor{preprocessor}{\#define\ STBRP\_DEF\ extern}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00079}00079\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00080}00080\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00081}00081\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00082}00082\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00083}00083\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00085}00085\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ \mbox{\hyperlink{structstbrp__context}{stbrp\_context}};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00086}00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00087}00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ \ \ \ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00089}00089\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ stbrp\_coord;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00090}00090\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00091}00091\ \textcolor{preprocessor}{\#define\ STBRP\_\_MAXVAL\ \ 0x7fffffff}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00092}00092\ \textcolor{comment}{//\ Mostly\ for\ internal\ use,\ but\ this\ is\ the\ maximum\ supported\ coordinate\ value.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00093}00093\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00094}00094\ STBRP\_DEF\ \textcolor{keywordtype}{int}\ stbrp\_pack\_rects\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *rects,\ \textcolor{keywordtype}{int}\ num\_rects);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00095}00095\ \textcolor{comment}{//\ Assign\ packed\ locations\ to\ rectangles.\ The\ rectangles\ are\ of\ type}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00096}00096\ \textcolor{comment}{//\ 'stbrp\_rect'\ defined\ below,\ stored\ in\ the\ array\ 'rects',\ and\ there}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00097}00097\ \textcolor{comment}{//\ are\ 'num\_rects'\ many\ of\ them.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00098}00098\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00099}00099\ \textcolor{comment}{//\ Rectangles\ which\ are\ successfully\ packed\ have\ the\ 'was\_packed'\ flag}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00100}00100\ \textcolor{comment}{//\ set\ to\ a\ non-\/zero\ value\ and\ 'x'\ and\ 'y'\ store\ the\ minimum\ location}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00101}00101\ \textcolor{comment}{//\ on\ each\ axis\ (i.e.\ bottom-\/left\ in\ cartesian\ coordinates,\ top-\/left}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00102}00102\ \textcolor{comment}{//\ if\ you\ imagine\ y\ increasing\ downwards).\ Rectangles\ which\ do\ not\ fit}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00103}00103\ \textcolor{comment}{//\ have\ the\ 'was\_packed'\ flag\ set\ to\ 0.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00104}00104\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00105}00105\ \textcolor{comment}{//\ You\ should\ not\ try\ to\ access\ the\ 'rects'\ array\ from\ another\ thread}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00106}00106\ \textcolor{comment}{//\ while\ this\ function\ is\ running,\ as\ the\ function\ temporarily\ reorders}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00107}00107\ \textcolor{comment}{//\ the\ array\ while\ it\ executes.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00108}00108\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00109}00109\ \textcolor{comment}{//\ To\ pack\ into\ another\ rectangle,\ you\ need\ to\ call\ stbrp\_init\_target}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00110}00110\ \textcolor{comment}{//\ again.\ To\ continue\ packing\ into\ the\ same\ rectangle,\ you\ can\ call}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00111}00111\ \textcolor{comment}{//\ this\ function\ again.\ Calling\ this\ multiple\ times\ with\ multiple\ rect}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00112}00112\ \textcolor{comment}{//\ arrays\ will\ probably\ produce\ worse\ packing\ results\ than\ calling\ it}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00113}00113\ \textcolor{comment}{//\ a\ single\ time\ with\ the\ full\ rectangle\ array,\ but\ the\ option\ is}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00114}00114\ \textcolor{comment}{//\ available.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00115}00115\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00116}00116\ \textcolor{comment}{//\ The\ function\ returns\ 1\ if\ all\ of\ the\ rectangles\ were\ successfully}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00117}00117\ \textcolor{comment}{//\ packed\ and\ 0\ otherwise.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00118}00118\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00119}\mbox{\hyperlink{structstbrp__rect}{00119}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00120}00120\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00121}00121\ \ \ \ \textcolor{comment}{//\ reserved\ for\ your\ use:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00122}00122\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ id;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00123}00123\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00124}00124\ \ \ \ \textcolor{comment}{//\ input:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00125}00125\ \ \ \ stbrp\_coord\ \ \ \ w,\ h;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00126}00126\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00127}00127\ \ \ \ \textcolor{comment}{//\ output:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00128}00128\ \ \ \ stbrp\_coord\ \ \ \ x,\ y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00129}00129\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ was\_packed;\ \ \textcolor{comment}{//\ non-\/zero\ if\ valid\ packing}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00130}00130\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00131}00131\ \};\ \textcolor{comment}{//\ 16\ bytes,\ nominally}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00132}00132\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00134}00134\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_init\_target\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *nodes,\ \textcolor{keywordtype}{int}\ num\_nodes);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00135}00135\ \textcolor{comment}{//\ Initialize\ a\ rectangle\ packer\ to:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00136}00136\ \textcolor{comment}{//\ \ \ \ pack\ a\ rectangle\ that\ is\ 'width'\ by\ 'height'\ in\ dimensions}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00137}00137\ \textcolor{comment}{//\ \ \ \ using\ temporary\ storage\ provided\ by\ the\ array\ 'nodes',\ which\ is\ 'num\_nodes'\ long}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00138}00138\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00139}00139\ \textcolor{comment}{//\ You\ must\ call\ this\ function\ every\ time\ you\ start\ packing\ into\ a\ new\ target.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00140}00140\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00141}00141\ \textcolor{comment}{//\ There\ is\ no\ "{}shutdown"{}\ function.\ The\ 'nodes'\ memory\ must\ stay\ valid\ for}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00142}00142\ \textcolor{comment}{//\ the\ following\ stbrp\_pack\_rects()\ call\ (or\ calls),\ but\ can\ be\ freed\ after}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00143}00143\ \textcolor{comment}{//\ the\ call\ (or\ calls)\ finish.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00144}00144\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00145}00145\ \textcolor{comment}{//\ Note:\ to\ guarantee\ best\ results,\ either:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00146}00146\ \textcolor{comment}{//\ \ \ \ \ \ \ 1.\ make\ sure\ 'num\_nodes'\ >=\ 'width'}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00147}00147\ \textcolor{comment}{//\ \ \ or\ \ 2.\ call\ stbrp\_allow\_out\_of\_mem()\ defined\ below\ with\ 'allow\_out\_of\_mem\ =\ 1'}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00148}00148\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00149}00149\ \textcolor{comment}{//\ If\ you\ don't\ do\ either\ of\ the\ above\ things,\ widths\ will\ be\ quantized\ to\ multiples}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00150}00150\ \textcolor{comment}{//\ of\ small\ integers\ to\ guarantee\ the\ algorithm\ doesn't\ run\ out\ of\ temporary\ storage.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00151}00151\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00152}00152\ \textcolor{comment}{//\ If\ you\ do\ \#2,\ then\ the\ non-\/quantized\ algorithm\ will\ be\ used,\ but\ the\ algorithm}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00153}00153\ \textcolor{comment}{//\ may\ run\ out\ of\ temporary\ storage\ and\ be\ unable\ to\ pack\ some\ rectangles.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00154}00154\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00155}00155\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_allow\_out\_of\_mem\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ allow\_out\_of\_mem);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00156}00156\ \textcolor{comment}{//\ Optionally\ call\ this\ function\ after\ init\ but\ before\ doing\ any\ packing\ to}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00157}00157\ \textcolor{comment}{//\ change\ the\ handling\ of\ the\ out-\/of-\/temp-\/memory\ scenario,\ described\ above.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00158}00158\ \textcolor{comment}{//\ If\ you\ call\ init\ again,\ this\ will\ be\ reset\ to\ the\ default\ (false).}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00159}00159\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00160}00160\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00161}00161\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_heuristic\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ heuristic);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00162}00162\ \textcolor{comment}{//\ Optionally\ select\ which\ packing\ heuristic\ the\ library\ should\ use.\ Different}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00163}00163\ \textcolor{comment}{//\ heuristics\ will\ produce\ better/worse\ results\ for\ different\ data\ sets.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00164}00164\ \textcolor{comment}{//\ If\ you\ call\ init\ again,\ this\ will\ be\ reset\ to\ the\ default.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00165}00165\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00166}00166\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00167}00167\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00168}00168\ \ \ \ STBRP\_HEURISTIC\_Skyline\_default=0,}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00169}00169\ \ \ \ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight\ =\ STBRP\_HEURISTIC\_Skyline\_default,}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00170}00170\ \ \ \ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00171}00171\ \};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00172}00172\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00173}00173\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00175}00175\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00176}00176\ \textcolor{comment}{//\ the\ details\ of\ the\ following\ structures\ don't\ matter\ to\ you,\ but\ they\ must}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00177}00177\ \textcolor{comment}{//\ be\ visible\ so\ you\ can\ handle\ the\ memory\ allocations\ for\ them}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00178}00178\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00179}\mbox{\hyperlink{structstbrp__node}{00179}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__node}{stbrp\_node}}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00180}00180\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00181}00181\ \ \ \ stbrp\_coord\ \ x,y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00182}00182\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ \ *next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00183}00183\ \};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00184}00184\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00185}\mbox{\hyperlink{structstbrp__context}{00185}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00186}00186\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00187}00187\ \ \ \ \textcolor{keywordtype}{int}\ width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00188}00188\ \ \ \ \textcolor{keywordtype}{int}\ height;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00189}00189\ \ \ \ \textcolor{keywordtype}{int}\ align;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00190}00190\ \ \ \ \textcolor{keywordtype}{int}\ init\_mode;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00191}00191\ \ \ \ \textcolor{keywordtype}{int}\ heuristic;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00192}00192\ \ \ \ \textcolor{keywordtype}{int}\ num\_nodes;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00193}00193\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00194}00194\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *free\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00195}00195\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ extra[2];\ \textcolor{comment}{//\ we\ allocate\ two\ extra\ nodes\ so\ optimal\ user-\/node-\/count\ is\ 'width'\ not\ 'width+2'}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00196}00196\ \};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00197}00197\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00198}00198\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00199}00199\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00200}00200\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00201}00201\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00202}00202\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00203}00203\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00205}00205\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00206}00206\ \textcolor{comment}{//\ \ \ \ \ IMPLEMENTATION\ SECTION}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00207}00207\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00208}00208\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00209}00209\ \textcolor{preprocessor}{\#ifdef\ STB\_RECT\_PACK\_IMPLEMENTATION}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00210}00210\ \textcolor{preprocessor}{\#ifndef\ STBRP\_SORT}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00211}00211\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00212}00212\ \textcolor{preprocessor}{\#define\ STBRP\_SORT\ qsort}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00213}00213\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00214}00214\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00215}00215\ \textcolor{preprocessor}{\#ifndef\ STBRP\_ASSERT}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00216}00216\ \textcolor{preprocessor}{\#include\ <assert.h>}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00217}00217\ \textcolor{preprocessor}{\#define\ STBRP\_ASSERT\ assert}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00218}00218\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00219}00219\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00220}00220\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00221}00221\ \textcolor{preprocessor}{\#define\ STBRP\_\_NOTUSED(v)\ \ (void)(v)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00222}00222\ \textcolor{preprocessor}{\#define\ STBRP\_\_CDECL\ \ \ \ \ \ \ \_\_cdecl}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00223}00223\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00224}00224\ \textcolor{preprocessor}{\#define\ STBRP\_\_NOTUSED(v)\ \ (void)sizeof(v)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00225}00225\ \textcolor{preprocessor}{\#define\ STBRP\_\_CDECL}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00226}00226\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00227}00227\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00228}00228\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00229}00229\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00230}00230\ \ \ \ STBRP\_\_INIT\_skyline\ =\ 1}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00231}00231\ \};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00232}00232\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00233}00233\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_heuristic(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ heuristic)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00234}00234\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00235}00235\ \ \ \ \textcolor{keywordflow}{switch}\ (context-\/>init\_mode)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00236}00236\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STBRP\_\_INIT\_skyline:}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight\ ||\ heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \ context-\/>heuristic\ =\ heuristic;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00240}00240\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00242}00242\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00243}00243\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00244}00244\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00245}00245\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_allow\_out\_of\_mem(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ allow\_out\_of\_mem)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00246}00246\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00247}00247\ \ \ \ \textcolor{keywordflow}{if}\ (allow\_out\_of\_mem)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00248}00248\ \ \ \ \ \ \ \textcolor{comment}{//\ if\ it's\ ok\ to\ run\ out\ of\ memory,\ then\ don't\ bother\ aligning\ them;}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00249}00249\ \ \ \ \ \ \ \textcolor{comment}{//\ this\ gives\ better\ packing,\ but\ may\ fail\ due\ to\ OOM\ (even\ though}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00250}00250\ \ \ \ \ \ \ \textcolor{comment}{//\ the\ rectangles\ easily\ fit).\ @TODO\ a\ smarter\ approach\ would\ be\ to\ only}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00251}00251\ \ \ \ \ \ \ \textcolor{comment}{//\ quantize\ once\ we've\ hit\ OOM,\ then\ we\ could\ get\ rid\ of\ this\ parameter.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00252}00252\ \ \ \ \ \ \ context-\/>align\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00253}00253\ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00254}00254\ \ \ \ \ \ \ \textcolor{comment}{//\ if\ it's\ not\ ok\ to\ run\ out\ of\ memory,\ then\ quantize\ the\ widths}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00255}00255\ \ \ \ \ \ \ \textcolor{comment}{//\ so\ that\ num\_nodes\ is\ always\ enough\ nodes.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00256}00256\ \ \ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00257}00257\ \ \ \ \ \ \ \textcolor{comment}{//\ I.e.\ num\_nodes\ *\ align\ >=\ width}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00258}00258\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ align\ >=\ width\ /\ num\_nodes}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00259}00259\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ align\ =\ ceil(width/num\_nodes)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00260}00260\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00261}00261\ \ \ \ \ \ \ context-\/>align\ =\ (context-\/>width\ +\ context-\/>num\_nodes-\/1)\ /\ context-\/>num\_nodes;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00262}00262\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00263}00263\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00264}00264\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00265}00265\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_init\_target(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *nodes,\ \textcolor{keywordtype}{int}\ num\_nodes)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00266}00266\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00267}00267\ \ \ \ \textcolor{keywordtype}{int}\ i;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00268}00268\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00269}00269\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_nodes-\/1;\ ++i)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00270}00270\ \ \ \ \ \ \ nodes[i].next\ =\ \&nodes[i+1];}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00271}00271\ \ \ \ nodes[i].next\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00272}00272\ \ \ \ context-\/>init\_mode\ =\ STBRP\_\_INIT\_skyline;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00273}00273\ \ \ \ context-\/>heuristic\ =\ STBRP\_HEURISTIC\_Skyline\_default;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00274}00274\ \ \ \ context-\/>free\_head\ =\ \&nodes[0];}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00275}00275\ \ \ \ context-\/>active\_head\ =\ \&context-\/>extra[0];}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00276}00276\ \ \ \ context-\/>width\ =\ width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00277}00277\ \ \ \ context-\/>height\ =\ height;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00278}00278\ \ \ \ context-\/>num\_nodes\ =\ num\_nodes;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00279}00279\ \ \ \ stbrp\_setup\_allow\_out\_of\_mem(context,\ 0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00280}00280\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00281}00281\ \ \ \ \textcolor{comment}{//\ node\ 0\ is\ the\ full\ width,\ node\ 1\ is\ the\ sentinel\ (lets\ us\ not\ store\ width\ explicitly)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00282}00282\ \ \ \ context-\/>extra[0].x\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00283}00283\ \ \ \ context-\/>extra[0].y\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00284}00284\ \ \ \ context-\/>extra[0].next\ =\ \&context-\/>extra[1];}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00285}00285\ \ \ \ context-\/>extra[1].x\ =\ (stbrp\_coord)\ width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00286}00286\ \ \ \ context-\/>extra[1].y\ =\ (1<<30);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00287}00287\ \ \ \ context-\/>extra[1].next\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00288}00288\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00289}00289\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00290}00290\ \textcolor{comment}{//\ find\ minimum\ y\ position\ if\ it\ starts\ at\ x1}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00291}00291\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ stbrp\_\_skyline\_find\_min\_y(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *c,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *first,\ \textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ *pwaste)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00292}00292\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00293}00293\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *node\ =\ first;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00294}00294\ \ \ \ \textcolor{keywordtype}{int}\ x1\ =\ x0\ +\ width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00295}00295\ \ \ \ \textcolor{keywordtype}{int}\ min\_y,\ visited\_width,\ waste\_area;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00296}00296\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00297}00297\ \ \ \ STBRP\_\_NOTUSED(c);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00298}00298\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00299}00299\ \ \ \ STBRP\_ASSERT(first-\/>x\ <=\ x0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00300}00300\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00301}00301\ \textcolor{preprocessor}{\ \ \ \#if\ 0}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00302}00302\ \ \ \ \textcolor{comment}{//\ skip\ in\ case\ we're\ past\ the\ node}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00303}00303\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>next-\/>x\ <=\ x0)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00304}00304\ \ \ \ \ \ \ ++node;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00305}00305\ \textcolor{preprocessor}{\ \ \ \#else}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00306}00306\ \ \ \ STBRP\_ASSERT(node-\/>next-\/>x\ >\ x0);\ \textcolor{comment}{//\ we\ ended\ up\ handling\ this\ in\ the\ caller\ for\ efficiency}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00307}00307\ \textcolor{preprocessor}{\ \ \ \#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00308}00308\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00309}00309\ \ \ \ STBRP\_ASSERT(node-\/>x\ <=\ x0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00310}00310\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00311}00311\ \ \ \ min\_y\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00312}00312\ \ \ \ waste\_area\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00313}00313\ \ \ \ visited\_width\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00314}00314\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>x\ <\ x1)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00315}00315\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>y\ >\ min\_y)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ raise\ min\_y\ higher.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we've\ accounted\ for\ all\ waste\ up\ to\ min\_y,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ we'll\ now\ add\ more\ waste\ for\ everything\ we've\ visted}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \ waste\_area\ +=\ visited\_width\ *\ (node-\/>y\ -\/\ min\_y);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00320}00320\ \ \ \ \ \ \ \ \ \ min\_y\ =\ node-\/>y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ first\ time\ through,\ visited\_width\ might\ be\ reduced}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>x\ <\ x0)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ node-\/>next-\/>x\ -\/\ x0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ node-\/>next-\/>x\ -\/\ node-\/>x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00326}00326\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ waste\ area}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ under\_width\ =\ node-\/>next-\/>x\ -\/\ node-\/>x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (under\_width\ +\ visited\_width\ >\ width)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ under\_width\ =\ width\ -\/\ visited\_width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00331}00331\ \ \ \ \ \ \ \ \ \ waste\_area\ +=\ under\_width\ *\ (min\_y\ -\/\ node-\/>y);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00332}00332\ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ under\_width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00333}00333\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00334}00334\ \ \ \ \ \ \ node\ =\ node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00335}00335\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00336}00336\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00337}00337\ \ \ \ *pwaste\ =\ waste\_area;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00338}00338\ \ \ \ \textcolor{keywordflow}{return}\ min\_y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00339}00339\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00340}00340\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00341}00341\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00342}00342\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00343}00343\ \ \ \ \textcolor{keywordtype}{int}\ x,y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00344}00344\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ **prev\_link;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00345}00345\ \}\ stbrp\_\_findresult;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00346}00346\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00347}00347\ \textcolor{keyword}{static}\ stbrp\_\_findresult\ stbrp\_\_skyline\_find\_best\_pos(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *c,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00348}00348\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00349}00349\ \ \ \ \textcolor{keywordtype}{int}\ best\_waste\ =\ (1<<30),\ best\_x,\ best\_y\ =\ (1\ <<\ 30);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00350}00350\ \ \ \ stbrp\_\_findresult\ fr;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00351}00351\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ **prev,\ *node,\ *tail,\ **best\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00352}00352\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00353}00353\ \ \ \ \textcolor{comment}{//\ align\ to\ multiple\ of\ c-\/>align}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00354}00354\ \ \ \ width\ =\ (width\ +\ c-\/>align\ -\/\ 1);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00355}00355\ \ \ \ width\ -\/=\ width\ \%\ c-\/>align;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00356}00356\ \ \ \ STBRP\_ASSERT(width\ \%\ c-\/>align\ ==\ 0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00357}00357\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00358}00358\ \ \ \ \textcolor{comment}{//\ if\ it\ can't\ possibly\ fit,\ bail\ immediately}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00359}00359\ \ \ \ \textcolor{keywordflow}{if}\ (width\ >\ c-\/>width\ ||\ height\ >\ c-\/>height)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00360}00360\ \ \ \ \ \ \ fr.prev\_link\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00361}00361\ \ \ \ \ \ \ fr.x\ =\ fr.y\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00362}00362\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fr;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00363}00363\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00364}00364\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00365}00365\ \ \ \ node\ =\ c-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00366}00366\ \ \ \ prev\ =\ \&c-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00367}00367\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>x\ +\ width\ <=\ c-\/>width)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00368}00368\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y,waste;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00369}00369\ \ \ \ \ \ \ y\ =\ stbrp\_\_skyline\_find\_min\_y(c,\ node,\ node-\/>x,\ width,\ \&waste);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00370}00370\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c-\/>heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight)\ \{\ \textcolor{comment}{//\ actually\ just\ want\ to\ test\ BL}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bottom\ left}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00376}00376\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ best-\/fit}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ +\ height\ <=\ c-\/>height)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ can\ only\ use\ it\ if\ it\ first\ vertically}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y\ ||\ (y\ ==\ best\_y\ \&\&\ waste\ <\ best\_waste))\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_waste\ =\ waste;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00386}00386\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00387}00387\ \ \ \ \ \ \ prev\ =\ \&node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00388}00388\ \ \ \ \ \ \ node\ =\ node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00389}00389\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00390}00390\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00391}00391\ \ \ \ best\_x\ =\ (best\ ==\ NULL)\ ?\ 0\ :\ (*best)-\/>x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00392}00392\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00393}00393\ \ \ \ \textcolor{comment}{//\ if\ doing\ best-\/fit\ (BF),\ we\ also\ have\ to\ try\ aligning\ right\ edge\ to\ each\ node\ position}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00394}00394\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00395}00395\ \ \ \ \textcolor{comment}{//\ e.g,\ if\ fitting}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00396}00396\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00397}00397\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00398}00398\ \ \ \ \textcolor{comment}{//\ \ \ \ |\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_|}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00399}00399\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00400}00400\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ into}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00401}00401\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00402}00402\ \ \ \ \textcolor{comment}{//\ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00403}00403\ \ \ \ \textcolor{comment}{//\ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_|}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00404}00404\ \ \ \ \textcolor{comment}{//\ \ \ |\_\_\_\_\_\_\_\_\_\_\_\_|}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00405}00405\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00406}00406\ \ \ \ \textcolor{comment}{//\ then\ right-\/aligned\ reduces\ waste,\ but\ bottom-\/left\ BL\ is\ always\ chooses\ left-\/aligned}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00407}00407\ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00408}00408\ \ \ \ \textcolor{comment}{//\ This\ makes\ BF\ take\ about\ 2x\ the\ time}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00409}00409\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00410}00410\ \ \ \ \textcolor{keywordflow}{if}\ (c-\/>heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00411}00411\ \ \ \ \ \ \ tail\ =\ c-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00412}00412\ \ \ \ \ \ \ node\ =\ c-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00413}00413\ \ \ \ \ \ \ prev\ =\ \&c-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00414}00414\ \ \ \ \ \ \ \textcolor{comment}{//\ find\ first\ node\ that's\ admissible}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00415}00415\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (tail-\/>x\ <\ width)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ \ tail\ =\ tail-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00417}00417\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (tail)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xpos\ =\ tail-\/>x\ -\/\ width;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y,waste;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00420}00420\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(xpos\ >=\ 0);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ the\ left\ position\ that\ matches\ this}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>next-\/>x\ <=\ xpos)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ \&node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00426}00426\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(node-\/>next-\/>x\ >\ xpos\ \&\&\ node-\/>x\ <=\ xpos);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00427}00427\ \ \ \ \ \ \ \ \ \ y\ =\ stbrp\_\_skyline\_find\_min\_y(c,\ node,\ xpos,\ width,\ \&waste);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ +\ height\ <=\ c-\/>height)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <=\ best\_y)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y\ ||\ waste\ <\ best\_waste\ ||\ (waste==best\_waste\ \&\&\ xpos\ <\ best\_x))\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_x\ =\ xpos;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//STBRP\_ASSERT(y\ <=\ best\_y);\ [DEAR\ IMGUI]}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_waste\ =\ waste;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00439}00439\ \ \ \ \ \ \ \ \ \ tail\ =\ tail-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00440}00440\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00441}00441\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00442}00442\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00443}00443\ \ \ \ fr.prev\_link\ =\ best;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00444}00444\ \ \ \ fr.x\ =\ best\_x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00445}00445\ \ \ \ fr.y\ =\ best\_y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00446}00446\ \ \ \ \textcolor{keywordflow}{return}\ fr;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00447}00447\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00448}00448\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00449}00449\ \textcolor{keyword}{static}\ stbrp\_\_findresult\ stbrp\_\_skyline\_pack\_rectangle(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00450}00450\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00451}00451\ \ \ \ \textcolor{comment}{//\ find\ best\ position\ according\ to\ heuristic}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00452}00452\ \ \ \ stbrp\_\_findresult\ res\ =\ stbrp\_\_skyline\_find\_best\_pos(context,\ width,\ height);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00453}00453\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *node,\ *cur;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00454}00454\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00455}00455\ \ \ \ \textcolor{comment}{//\ bail\ if:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00456}00456\ \ \ \ \textcolor{comment}{//\ \ \ \ 1.\ it\ failed}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00457}00457\ \ \ \ \textcolor{comment}{//\ \ \ \ 2.\ the\ best\ node\ doesn't\ fit\ (we\ don't\ always\ check\ this)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00458}00458\ \ \ \ \textcolor{comment}{//\ \ \ \ 3.\ we're\ out\ of\ memory}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00459}00459\ \ \ \ \textcolor{keywordflow}{if}\ (res.prev\_link\ ==\ NULL\ ||\ res.y\ +\ height\ >\ context-\/>height\ ||\ context-\/>free\_head\ ==\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00460}00460\ \ \ \ \ \ \ res.prev\_link\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00461}00461\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00462}00462\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00463}00463\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00464}00464\ \ \ \ \textcolor{comment}{//\ on\ success,\ create\ new\ node}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00465}00465\ \ \ \ node\ =\ context-\/>free\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00466}00466\ \ \ \ node-\/>x\ =\ (stbrp\_coord)\ res.x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00467}00467\ \ \ \ node-\/>y\ =\ (stbrp\_coord)\ (res.y\ +\ height);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00468}00468\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00469}00469\ \ \ \ context-\/>free\_head\ =\ node-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00470}00470\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00471}00471\ \ \ \ \textcolor{comment}{//\ insert\ the\ new\ node\ into\ the\ right\ starting\ point,\ and}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00472}00472\ \ \ \ \textcolor{comment}{//\ let\ 'cur'\ point\ to\ the\ remaining\ nodes\ needing\ to\ be}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00473}00473\ \ \ \ \textcolor{comment}{//\ stiched\ back\ in}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00474}00474\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00475}00475\ \ \ \ cur\ =\ *res.prev\_link;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00476}00476\ \ \ \ \textcolor{keywordflow}{if}\ (cur-\/>x\ <\ res.x)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00477}00477\ \ \ \ \ \ \ \textcolor{comment}{//\ preserve\ the\ existing\ one,\ so\ start\ testing\ with\ the\ next\ one}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00478}00478\ \ \ \ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *next\ =\ cur-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00479}00479\ \ \ \ \ \ \ cur-\/>next\ =\ node;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00480}00480\ \ \ \ \ \ \ cur\ =\ next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00481}00481\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00482}00482\ \ \ \ \ \ \ *res.prev\_link\ =\ node;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00483}00483\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00484}00484\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00485}00485\ \ \ \ \textcolor{comment}{//\ from\ here,\ traverse\ cur\ and\ free\ the\ nodes,\ until\ we\ get\ to\ one}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00486}00486\ \ \ \ \textcolor{comment}{//\ that\ shouldn't\ be\ freed}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00487}00487\ \ \ \ \textcolor{keywordflow}{while}\ (cur-\/>next\ \&\&\ cur-\/>next-\/>x\ <=\ res.x\ +\ width)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00488}00488\ \ \ \ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *next\ =\ cur-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00489}00489\ \ \ \ \ \ \ \textcolor{comment}{//\ move\ the\ current\ node\ to\ the\ free\ list}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00490}00490\ \ \ \ \ \ \ cur-\/>next\ =\ context-\/>free\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00491}00491\ \ \ \ \ \ \ context-\/>free\_head\ =\ cur;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00492}00492\ \ \ \ \ \ \ cur\ =\ next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00493}00493\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00494}00494\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00495}00495\ \ \ \ \textcolor{comment}{//\ stitch\ the\ list\ back\ in}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00496}00496\ \ \ \ node-\/>next\ =\ cur;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00497}00497\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00498}00498\ \ \ \ \textcolor{keywordflow}{if}\ (cur-\/>x\ <\ res.x\ +\ width)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00499}00499\ \ \ \ \ \ \ cur-\/>x\ =\ (stbrp\_coord)\ (res.x\ +\ width);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00500}00500\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00501}00501\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00502}00502\ \ \ \ cur\ =\ context-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00503}00503\ \ \ \ \textcolor{keywordflow}{while}\ (cur-\/>x\ <\ context-\/>width)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00504}00504\ \ \ \ \ \ \ STBRP\_ASSERT(cur-\/>x\ <\ cur-\/>next-\/>x);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00505}00505\ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00506}00506\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00507}00507\ \ \ \ STBRP\_ASSERT(cur-\/>next\ ==\ NULL);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00508}00508\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00509}00509\ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00510}00510\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count=0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00511}00511\ \ \ \ \ \ \ cur\ =\ context-\/>active\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00512}00512\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ \ ++count;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00515}00515\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00516}00516\ \ \ \ \ \ \ cur\ =\ context-\/>free\_head;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00517}00517\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00518}00518\ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00519}00519\ \ \ \ \ \ \ \ \ \ ++count;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00520}00520\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00521}00521\ \ \ \ \ \ \ STBRP\_ASSERT(count\ ==\ context-\/>num\_nodes+2);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00522}00522\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00523}00523\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00524}00524\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00525}00525\ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00526}00526\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00527}00527\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00528}00528\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ STBRP\_\_CDECL\ rect\_height\_compare(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *b)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00529}00529\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00530}00530\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *p\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ a;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00531}00531\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *q\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ b;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00532}00532\ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>h\ >\ q-\/>h)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00533}00533\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00534}00534\ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>h\ <\ q-\/>h)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00535}00535\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ 1;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00536}00536\ \ \ \ \textcolor{keywordflow}{return}\ (p-\/>w\ >\ q-\/>w)\ ?\ -\/1\ :\ (p-\/>w\ <\ q-\/>w);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00537}00537\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00538}00538\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00539}00539\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ STBRP\_\_CDECL\ rect\_original\_order(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *b)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00540}00540\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00541}00541\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *p\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ a;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00542}00542\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *q\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ b;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00543}00543\ \ \ \ \textcolor{keywordflow}{return}\ (p-\/>was\_packed\ <\ q-\/>was\_packed)\ ?\ -\/1\ :\ (p-\/>was\_packed\ >\ q-\/>was\_packed);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00544}00544\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00545}00545\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00546}00546\ STBRP\_DEF\ \textcolor{keywordtype}{int}\ stbrp\_pack\_rects(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *rects,\ \textcolor{keywordtype}{int}\ num\_rects)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00547}00547\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00548}00548\ \ \ \ \textcolor{keywordtype}{int}\ i,\ all\_rects\_packed\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00549}00549\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00550}00550\ \ \ \ \textcolor{comment}{//\ we\ use\ the\ 'was\_packed'\ field\ internally\ to\ allow\ sorting/unsorting}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00551}00551\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00552}00552\ \ \ \ \ \ \ rects[i].was\_packed\ =\ i;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00553}00553\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00554}00554\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00555}00555\ \ \ \ \textcolor{comment}{//\ sort\ according\ to\ heuristic}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00556}00556\ \ \ \ STBRP\_SORT(rects,\ num\_rects,\ \textcolor{keyword}{sizeof}(rects[0]),\ rect\_height\_compare);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00557}00557\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00558}00558\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00559}00559\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rects[i].w\ ==\ 0\ ||\ rects[i].h\ ==\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00560}00560\ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ rects[i].y\ =\ 0;\ \ \textcolor{comment}{//\ empty\ rect\ needs\ no\ space}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00561}00561\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00562}00562\ \ \ \ \ \ \ \ \ \ stbrp\_\_findresult\ fr\ =\ stbrp\_\_skyline\_pack\_rectangle(context,\ rects[i].w,\ rects[i].h);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fr.prev\_link)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ (stbrp\_coord)\ fr.x;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].y\ =\ (stbrp\_coord)\ fr.y;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ rects[i].y\ =\ STBRP\_\_MAXVAL;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00569}00569\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00570}00570\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00571}00571\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00572}00572\ \ \ \ \textcolor{comment}{//\ unsort}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00573}00573\ \ \ \ STBRP\_SORT(rects,\ num\_rects,\ \textcolor{keyword}{sizeof}(rects[0]),\ rect\_original\_order);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00574}00574\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00575}00575\ \ \ \ \textcolor{comment}{//\ set\ was\_packed\ flags\ and\ all\_rects\_packed\ status}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00576}00576\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00577}00577\ \ \ \ \ \ \ rects[i].was\_packed\ =\ !(rects[i].x\ ==\ STBRP\_\_MAXVAL\ \&\&\ rects[i].y\ ==\ STBRP\_\_MAXVAL);}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00578}00578\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rects[i].was\_packed)}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00579}00579\ \ \ \ \ \ \ \ \ \ all\_rects\_packed\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00580}00580\ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00581}00581\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00582}00582\ \ \ \ \textcolor{comment}{//\ return\ the\ all\_rects\_packed\ status}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00583}00583\ \ \ \ \textcolor{keywordflow}{return}\ all\_rects\_packed;}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00584}00584\ \}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00585}00585\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00586}00586\ }
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00587}00587\ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00588}00588\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00589}00589\ \textcolor{comment}{This\ software\ is\ available\ under\ 2\ licenses\ -\/-\/\ choose\ whichever\ you\ prefer.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00590}00590\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00591}00591\ \textcolor{comment}{ALTERNATIVE\ A\ -\/\ MIT\ License}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00592}00592\ \textcolor{comment}{Copyright\ (c)\ 2017\ Sean\ Barrett}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00593}00593\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00594}00594\ \textcolor{comment}{this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00595}00595\ \textcolor{comment}{the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00596}00596\ \textcolor{comment}{use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00597}00597\ \textcolor{comment}{of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00598}00598\ \textcolor{comment}{so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00599}00599\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00600}00600\ \textcolor{comment}{copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00601}00601\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00602}00602\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00603}00603\ \textcolor{comment}{FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00604}00604\ \textcolor{comment}{AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00605}00605\ \textcolor{comment}{LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00606}00606\ \textcolor{comment}{OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00607}00607\ \textcolor{comment}{SOFTWARE.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00608}00608\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00609}00609\ \textcolor{comment}{ALTERNATIVE\ B\ -\/\ Public\ Domain\ (www.unlicense.org)}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00610}00610\ \textcolor{comment}{This\ is\ free\ and\ unencumbered\ software\ released\ into\ the\ public\ domain.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00611}00611\ \textcolor{comment}{Anyone\ is\ free\ to\ copy,\ modify,\ publish,\ use,\ compile,\ sell,\ or\ distribute\ this}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00612}00612\ \textcolor{comment}{software,\ either\ in\ source\ code\ form\ or\ as\ a\ compiled\ binary,\ for\ any\ purpose,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00613}00613\ \textcolor{comment}{commercial\ or\ non-\/commercial,\ and\ by\ any\ means.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00614}00614\ \textcolor{comment}{In\ jurisdictions\ that\ recognize\ copyright\ laws,\ the\ author\ or\ authors\ of\ this}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00615}00615\ \textcolor{comment}{software\ dedicate\ any\ and\ all\ copyright\ interest\ in\ the\ software\ to\ the\ public}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00616}00616\ \textcolor{comment}{domain.\ We\ make\ this\ dedication\ for\ the\ benefit\ of\ the\ public\ at\ large\ and\ to}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00617}00617\ \textcolor{comment}{the\ detriment\ of\ our\ heirs\ and\ successors.\ We\ intend\ this\ dedication\ to\ be\ an}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00618}00618\ \textcolor{comment}{overt\ act\ of\ relinquishment\ in\ perpetuity\ of\ all\ present\ and\ future\ rights\ to}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00619}00619\ \textcolor{comment}{this\ software\ under\ copyright\ law.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00620}00620\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00621}00621\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00622}00622\ \textcolor{comment}{FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00623}00623\ \textcolor{comment}{AUTHORS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00624}00624\ \textcolor{comment}{ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00625}00625\ \textcolor{comment}{WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00626}00626\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{imstb__rectpack_8h_source_l00627}00627\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ [DEAR\ IMGUI]}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ This\ is\ a\ slightly\ modified\ version\ of\ stb\_rect\_pack.h\ 1.01.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Grep\ for\ [DEAR\ IMGUI]\ to\ find\ the\ changes.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ stb\_rect\_pack.h\ -\/\ v1.01\ -\/\ public\ domain\ -\/\ rectangle\ packing}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Sean\ Barrett\ 2014}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Useful\ for\ e.g.\ packing\ rectangular\ textures\ into\ an\ atlas.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Does\ not\ do\ rotation.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Before\ \#including,}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ \#define\ STB\_RECT\_PACK\_IMPLEMENTATION}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ in\ the\ file\ that\ you\ want\ to\ have\ the\ implementation.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Not\ necessarily\ the\ awesomest\ packing\ method,\ but\ better\ than}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ the\ totally\ naive\ one\ in\ stb\_truetype\ (which\ is\ primarily\ what}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ this\ is\ meant\ to\ replace).}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Has\ only\ had\ a\ few\ tests\ run,\ may\ have\ issues.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ More\ docs\ to\ come.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ No\ memory\ allocations;\ uses\ qsort()\ and\ assert()\ from\ stdlib.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Can\ override\ those\ by\ defining\ STBRP\_SORT\ and\ STBRP\_ASSERT.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ This\ library\ currently\ uses\ the\ Skyline\ Bottom-\/Left\ algorithm.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Please\ note:\ better\ rectangle\ packers\ are\ welcome!\ Please}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ implement\ them\ to\ the\ same\ API,\ but\ with\ a\ different\ init}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ function.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Credits}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ Library}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ Sean\ Barrett}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ Minor\ features}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \ Martins\ Mozeiko}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ github:IntellectualKitty}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ Bugfixes\ /\ warning\ fixes}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ \ \ \ Jeremy\ Jaussaud}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ \ \ \ Fabian\ Giesen}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Version\ history:}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ \ \ \ \ 1.01\ \ (2021-\/07-\/11)\ \ always\ use\ large\ rect\ mode,\ expose\ STBRP\_\_MAXVAL\ in\ public\ section}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ \ \ 1.00\ \ (2019-\/02-\/25)\ \ avoid\ small\ space\ waste;\ gracefully\ fail\ too-\/wide\ rectangles}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ \ \ \ \ 0.99\ \ (2019-\/02-\/07)\ \ warning\ fixes}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ \ \ 0.11\ \ (2017-\/03-\/03)\ \ return\ packing\ success/fail\ result}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ \ \ \ \ 0.10\ \ (2016-\/10-\/25)\ \ remove\ cast-\/away-\/const\ to\ avoid\ warnings}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ \ \ \ 0.09\ \ (2016-\/08-\/27)\ \ fix\ compiler\ warnings}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ \ \ \ 0.08\ \ (2015-\/09-\/13)\ \ really\ fix\ bug\ with\ empty\ rects\ (w=0\ or\ h=0)}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ \ 0.07\ \ (2015-\/09-\/13)\ \ fix\ bug\ with\ empty\ rects\ (w=0\ or\ h=0)}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ 0.06\ \ (2015-\/04-\/15)\ \ added\ STBRP\_SORT\ to\ allow\ replacing\ qsort}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ \ \ 0.05:\ \ added\ STBRP\_ASSERT\ to\ allow\ replacing\ assert}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ \ \ \ 0.04:\ \ fixed\ minor\ bug\ in\ STBRP\_LARGE\_RECTS\ support}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ \ \ \ 0.01:\ \ initial\ release}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ LICENSE}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ \ \ See\ end\ of\ file\ for\ license\ information.}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ \ \ \ \ \ \ INCLUDE\ SECTION}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#ifndef\ STB\_INCLUDE\_STB\_RECT\_PACK\_H}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ STB\_INCLUDE\_STB\_RECT\_PACK\_H}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ STB\_RECT\_PACK\_VERSION\ \ 1}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifdef\ STBRP\_STATIC}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ STBRP\_DEF\ static}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ STBRP\_DEF\ extern}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ \mbox{\hyperlink{structstbrp__context}{stbrp\_context}};}
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}};}
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ \ \ \ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ stbrp\_coord;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ STBRP\_\_MAXVAL\ \ 0x7fffffff}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ Mostly\ for\ internal\ use,\ but\ this\ is\ the\ maximum\ supported\ coordinate\ value.}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ STBRP\_DEF\ \textcolor{keywordtype}{int}\ stbrp\_pack\_rects\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *rects,\ \textcolor{keywordtype}{int}\ num\_rects);}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ Assign\ packed\ locations\ to\ rectangles.\ The\ rectangles\ are\ of\ type}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ 'stbrp\_rect'\ defined\ below,\ stored\ in\ the\ array\ 'rects',\ and\ there}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ are\ 'num\_rects'\ many\ of\ them.}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ Rectangles\ which\ are\ successfully\ packed\ have\ the\ 'was\_packed'\ flag}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ set\ to\ a\ non-\/zero\ value\ and\ 'x'\ and\ 'y'\ store\ the\ minimum\ location}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ on\ each\ axis\ (i.e.\ bottom-\/left\ in\ cartesian\ coordinates,\ top-\/left}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ if\ you\ imagine\ y\ increasing\ downwards).\ Rectangles\ which\ do\ not\ fit}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ have\ the\ 'was\_packed'\ flag\ set\ to\ 0.}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//}}
+\DoxyCodeLine{00105\ \textcolor{comment}{//\ You\ should\ not\ try\ to\ access\ the\ 'rects'\ array\ from\ another\ thread}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ while\ this\ function\ is\ running,\ as\ the\ function\ temporarily\ reorders}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ the\ array\ while\ it\ executes.}}
+\DoxyCodeLine{00108\ \textcolor{comment}{//}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ To\ pack\ into\ another\ rectangle,\ you\ need\ to\ call\ stbrp\_init\_target}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ again.\ To\ continue\ packing\ into\ the\ same\ rectangle,\ you\ can\ call}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ this\ function\ again.\ Calling\ this\ multiple\ times\ with\ multiple\ rect}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//\ arrays\ will\ probably\ produce\ worse\ packing\ results\ than\ calling\ it}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ a\ single\ time\ with\ the\ full\ rectangle\ array,\ but\ the\ option\ is}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ available.}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ The\ function\ returns\ 1\ if\ all\ of\ the\ rectangles\ were\ successfully}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ packed\ and\ 0\ otherwise.}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \textcolor{comment}{//\ reserved\ for\ your\ use:}}
+\DoxyCodeLine{00122\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ id;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \textcolor{comment}{//\ input:}}
+\DoxyCodeLine{00125\ \ \ \ stbrp\_coord\ \ \ \ w,\ h;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \textcolor{comment}{//\ output:}}
+\DoxyCodeLine{00128\ \ \ \ stbrp\_coord\ \ \ \ x,\ y;}
+\DoxyCodeLine{00129\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ was\_packed;\ \ \textcolor{comment}{//\ non-\/zero\ if\ valid\ packing}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \};\ \textcolor{comment}{//\ 16\ bytes,\ nominally}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_init\_target\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *nodes,\ \textcolor{keywordtype}{int}\ num\_nodes);}
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ Initialize\ a\ rectangle\ packer\ to:}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ \ \ \ pack\ a\ rectangle\ that\ is\ 'width'\ by\ 'height'\ in\ dimensions}}
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ \ \ \ using\ temporary\ storage\ provided\ by\ the\ array\ 'nodes',\ which\ is\ 'num\_nodes'\ long}}
+\DoxyCodeLine{00138\ \textcolor{comment}{//}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ You\ must\ call\ this\ function\ every\ time\ you\ start\ packing\ into\ a\ new\ target.}}
+\DoxyCodeLine{00140\ \textcolor{comment}{//}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ There\ is\ no\ "{}shutdown"{}\ function.\ The\ 'nodes'\ memory\ must\ stay\ valid\ for}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ the\ following\ stbrp\_pack\_rects()\ call\ (or\ calls),\ but\ can\ be\ freed\ after}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ the\ call\ (or\ calls)\ finish.}}
+\DoxyCodeLine{00144\ \textcolor{comment}{//}}
+\DoxyCodeLine{00145\ \textcolor{comment}{//\ Note:\ to\ guarantee\ best\ results,\ either:}}
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ \ \ \ \ \ \ 1.\ make\ sure\ 'num\_nodes'\ >=\ 'width'}}
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ \ \ or\ \ 2.\ call\ stbrp\_allow\_out\_of\_mem()\ defined\ below\ with\ 'allow\_out\_of\_mem\ =\ 1'}}
+\DoxyCodeLine{00148\ \textcolor{comment}{//}}
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ If\ you\ don't\ do\ either\ of\ the\ above\ things,\ widths\ will\ be\ quantized\ to\ multiples}}
+\DoxyCodeLine{00150\ \textcolor{comment}{//\ of\ small\ integers\ to\ guarantee\ the\ algorithm\ doesn't\ run\ out\ of\ temporary\ storage.}}
+\DoxyCodeLine{00151\ \textcolor{comment}{//}}
+\DoxyCodeLine{00152\ \textcolor{comment}{//\ If\ you\ do\ \#2,\ then\ the\ non-\/quantized\ algorithm\ will\ be\ used,\ but\ the\ algorithm}}
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ may\ run\ out\ of\ temporary\ storage\ and\ be\ unable\ to\ pack\ some\ rectangles.}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_allow\_out\_of\_mem\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ allow\_out\_of\_mem);}
+\DoxyCodeLine{00156\ \textcolor{comment}{//\ Optionally\ call\ this\ function\ after\ init\ but\ before\ doing\ any\ packing\ to}}
+\DoxyCodeLine{00157\ \textcolor{comment}{//\ change\ the\ handling\ of\ the\ out-\/of-\/temp-\/memory\ scenario,\ described\ above.}}
+\DoxyCodeLine{00158\ \textcolor{comment}{//\ If\ you\ call\ init\ again,\ this\ will\ be\ reset\ to\ the\ default\ (false).}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_heuristic\ (\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ heuristic);}
+\DoxyCodeLine{00162\ \textcolor{comment}{//\ Optionally\ select\ which\ packing\ heuristic\ the\ library\ should\ use.\ Different}}
+\DoxyCodeLine{00163\ \textcolor{comment}{//\ heuristics\ will\ produce\ better/worse\ results\ for\ different\ data\ sets.}}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ If\ you\ call\ init\ again,\ this\ will\ be\ reset\ to\ the\ default.}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00167\ \{}
+\DoxyCodeLine{00168\ \ \ \ STBRP\_HEURISTIC\_Skyline\_default=0,}
+\DoxyCodeLine{00169\ \ \ \ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight\ =\ STBRP\_HEURISTIC\_Skyline\_default,}
+\DoxyCodeLine{00170\ \ \ \ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00175\ \textcolor{comment}{//}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ the\ details\ of\ the\ following\ structures\ don't\ matter\ to\ you,\ but\ they\ must}}
+\DoxyCodeLine{00177\ \textcolor{comment}{//\ be\ visible\ so\ you\ can\ handle\ the\ memory\ allocations\ for\ them}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__node}{stbrp\_node}}}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \ \ \ stbrp\_coord\ \ x,y;}
+\DoxyCodeLine{00182\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ \ *next;}
+\DoxyCodeLine{00183\ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \ \textcolor{keywordtype}{int}\ width;}
+\DoxyCodeLine{00188\ \ \ \ \textcolor{keywordtype}{int}\ height;}
+\DoxyCodeLine{00189\ \ \ \ \textcolor{keywordtype}{int}\ align;}
+\DoxyCodeLine{00190\ \ \ \ \textcolor{keywordtype}{int}\ init\_mode;}
+\DoxyCodeLine{00191\ \ \ \ \textcolor{keywordtype}{int}\ heuristic;}
+\DoxyCodeLine{00192\ \ \ \ \textcolor{keywordtype}{int}\ num\_nodes;}
+\DoxyCodeLine{00193\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *active\_head;}
+\DoxyCodeLine{00194\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *free\_head;}
+\DoxyCodeLine{00195\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ extra[2];\ \textcolor{comment}{//\ we\ allocate\ two\ extra\ nodes\ so\ optimal\ user-\/node-\/count\ is\ 'width'\ not\ 'width+2'}}
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{//}}
+\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ \ \ IMPLEMENTATION\ SECTION}}
+\DoxyCodeLine{00207\ \textcolor{comment}{//}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#ifdef\ STB\_RECT\_PACK\_IMPLEMENTATION}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#ifndef\ STBRP\_SORT}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ STBRP\_SORT\ qsort}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#ifndef\ STBRP\_ASSERT}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ STBRP\_ASSERT\ assert}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ STBRP\_\_NOTUSED(v)\ \ (void)(v)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ STBRP\_\_CDECL\ \ \ \ \ \ \ \_\_cdecl}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ STBRP\_\_NOTUSED(v)\ \ (void)sizeof(v)}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ STBRP\_\_CDECL}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00229\ \{}
+\DoxyCodeLine{00230\ \ \ \ STBRP\_\_INIT\_skyline\ =\ 1}
+\DoxyCodeLine{00231\ \};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_heuristic(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ heuristic)}
+\DoxyCodeLine{00234\ \{}
+\DoxyCodeLine{00235\ \ \ \ \textcolor{keywordflow}{switch}\ (context-\/>init\_mode)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STBRP\_\_INIT\_skyline:}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight\ ||\ heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ context-\/>heuristic\ =\ heuristic;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(0);}
+\DoxyCodeLine{00242\ \ \ \ \}}
+\DoxyCodeLine{00243\ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_setup\_allow\_out\_of\_mem(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ allow\_out\_of\_mem)}
+\DoxyCodeLine{00246\ \{}
+\DoxyCodeLine{00247\ \ \ \ \textcolor{keywordflow}{if}\ (allow\_out\_of\_mem)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \textcolor{comment}{//\ if\ it's\ ok\ to\ run\ out\ of\ memory,\ then\ don't\ bother\ aligning\ them;}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \textcolor{comment}{//\ this\ gives\ better\ packing,\ but\ may\ fail\ due\ to\ OOM\ (even\ though}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \textcolor{comment}{//\ the\ rectangles\ easily\ fit).\ @TODO\ a\ smarter\ approach\ would\ be\ to\ only}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \textcolor{comment}{//\ quantize\ once\ we've\ hit\ OOM,\ then\ we\ could\ get\ rid\ of\ this\ parameter.}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ context-\/>align\ =\ 1;}
+\DoxyCodeLine{00253\ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \textcolor{comment}{//\ if\ it's\ not\ ok\ to\ run\ out\ of\ memory,\ then\ quantize\ the\ widths}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \textcolor{comment}{//\ so\ that\ num\_nodes\ is\ always\ enough\ nodes.}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \textcolor{comment}{//\ I.e.\ num\_nodes\ *\ align\ >=\ width}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ align\ >=\ width\ /\ num\_nodes}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ align\ =\ ceil(width/num\_nodes)}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ context-\/>align\ =\ (context-\/>width\ +\ context-\/>num\_nodes-\/1)\ /\ context-\/>num\_nodes;}
+\DoxyCodeLine{00262\ \ \ \ \}}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ STBRP\_DEF\ \textcolor{keywordtype}{void}\ stbrp\_init\_target(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *nodes,\ \textcolor{keywordtype}{int}\ num\_nodes)}
+\DoxyCodeLine{00266\ \{}
+\DoxyCodeLine{00267\ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_nodes-\/1;\ ++i)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ nodes[i].next\ =\ \&nodes[i+1];}
+\DoxyCodeLine{00271\ \ \ \ nodes[i].next\ =\ NULL;}
+\DoxyCodeLine{00272\ \ \ \ context-\/>init\_mode\ =\ STBRP\_\_INIT\_skyline;}
+\DoxyCodeLine{00273\ \ \ \ context-\/>heuristic\ =\ STBRP\_HEURISTIC\_Skyline\_default;}
+\DoxyCodeLine{00274\ \ \ \ context-\/>free\_head\ =\ \&nodes[0];}
+\DoxyCodeLine{00275\ \ \ \ context-\/>active\_head\ =\ \&context-\/>extra[0];}
+\DoxyCodeLine{00276\ \ \ \ context-\/>width\ =\ width;}
+\DoxyCodeLine{00277\ \ \ \ context-\/>height\ =\ height;}
+\DoxyCodeLine{00278\ \ \ \ context-\/>num\_nodes\ =\ num\_nodes;}
+\DoxyCodeLine{00279\ \ \ \ stbrp\_setup\_allow\_out\_of\_mem(context,\ 0);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \textcolor{comment}{//\ node\ 0\ is\ the\ full\ width,\ node\ 1\ is\ the\ sentinel\ (lets\ us\ not\ store\ width\ explicitly)}}
+\DoxyCodeLine{00282\ \ \ \ context-\/>extra[0].x\ =\ 0;}
+\DoxyCodeLine{00283\ \ \ \ context-\/>extra[0].y\ =\ 0;}
+\DoxyCodeLine{00284\ \ \ \ context-\/>extra[0].next\ =\ \&context-\/>extra[1];}
+\DoxyCodeLine{00285\ \ \ \ context-\/>extra[1].x\ =\ (stbrp\_coord)\ width;}
+\DoxyCodeLine{00286\ \ \ \ context-\/>extra[1].y\ =\ (1<<30);}
+\DoxyCodeLine{00287\ \ \ \ context-\/>extra[1].next\ =\ NULL;}
+\DoxyCodeLine{00288\ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{comment}{//\ find\ minimum\ y\ position\ if\ it\ starts\ at\ x1}}
+\DoxyCodeLine{00291\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ stbrp\_\_skyline\_find\_min\_y(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *c,\ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *first,\ \textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ *pwaste)}
+\DoxyCodeLine{00292\ \{}
+\DoxyCodeLine{00293\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *node\ =\ first;}
+\DoxyCodeLine{00294\ \ \ \ \textcolor{keywordtype}{int}\ x1\ =\ x0\ +\ width;}
+\DoxyCodeLine{00295\ \ \ \ \textcolor{keywordtype}{int}\ min\_y,\ visited\_width,\ waste\_area;}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ STBRP\_\_NOTUSED(c);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ STBRP\_ASSERT(first-\/>x\ <=\ x0);}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ \ \#if\ 0}}
+\DoxyCodeLine{00302\ \ \ \ \textcolor{comment}{//\ skip\ in\ case\ we're\ past\ the\ node}}
+\DoxyCodeLine{00303\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>next-\/>x\ <=\ x0)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ ++node;}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \#else}}
+\DoxyCodeLine{00306\ \ \ \ STBRP\_ASSERT(node-\/>next-\/>x\ >\ x0);\ \textcolor{comment}{//\ we\ ended\ up\ handling\ this\ in\ the\ caller\ for\ efficiency}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \#endif}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ STBRP\_ASSERT(node-\/>x\ <=\ x0);}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ min\_y\ =\ 0;}
+\DoxyCodeLine{00312\ \ \ \ waste\_area\ =\ 0;}
+\DoxyCodeLine{00313\ \ \ \ visited\_width\ =\ 0;}
+\DoxyCodeLine{00314\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>x\ <\ x1)\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>y\ >\ min\_y)\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ raise\ min\_y\ higher.}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we've\ accounted\ for\ all\ waste\ up\ to\ min\_y,}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ we'll\ now\ add\ more\ waste\ for\ everything\ we've\ visted}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ waste\_area\ +=\ visited\_width\ *\ (node-\/>y\ -\/\ min\_y);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ min\_y\ =\ node-\/>y;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ first\ time\ through,\ visited\_width\ might\ be\ reduced}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>x\ <\ x0)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ node-\/>next-\/>x\ -\/\ x0;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ node-\/>next-\/>x\ -\/\ node-\/>x;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ waste\ area}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ under\_width\ =\ node-\/>next-\/>x\ -\/\ node-\/>x;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (under\_width\ +\ visited\_width\ >\ width)}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ under\_width\ =\ width\ -\/\ visited\_width;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ waste\_area\ +=\ under\_width\ *\ (min\_y\ -\/\ node-\/>y);}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ visited\_width\ +=\ under\_width;}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ node\ =\ node-\/>next;}
+\DoxyCodeLine{00335\ \ \ \ \}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ *pwaste\ =\ waste\_area;}
+\DoxyCodeLine{00338\ \ \ \ \textcolor{keywordflow}{return}\ min\_y;}
+\DoxyCodeLine{00339\ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00342\ \{}
+\DoxyCodeLine{00343\ \ \ \ \textcolor{keywordtype}{int}\ x,y;}
+\DoxyCodeLine{00344\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ **prev\_link;}
+\DoxyCodeLine{00345\ \}\ stbrp\_\_findresult;}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \textcolor{keyword}{static}\ stbrp\_\_findresult\ stbrp\_\_skyline\_find\_best\_pos(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *c,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
+\DoxyCodeLine{00348\ \{}
+\DoxyCodeLine{00349\ \ \ \ \textcolor{keywordtype}{int}\ best\_waste\ =\ (1<<30),\ best\_x,\ best\_y\ =\ (1\ <<\ 30);}
+\DoxyCodeLine{00350\ \ \ \ stbrp\_\_findresult\ fr;}
+\DoxyCodeLine{00351\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ **prev,\ *node,\ *tail,\ **best\ =\ NULL;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \textcolor{comment}{//\ align\ to\ multiple\ of\ c-\/>align}}
+\DoxyCodeLine{00354\ \ \ \ width\ =\ (width\ +\ c-\/>align\ -\/\ 1);}
+\DoxyCodeLine{00355\ \ \ \ width\ -\/=\ width\ \%\ c-\/>align;}
+\DoxyCodeLine{00356\ \ \ \ STBRP\_ASSERT(width\ \%\ c-\/>align\ ==\ 0);}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \textcolor{comment}{//\ if\ it\ can't\ possibly\ fit,\ bail\ immediately}}
+\DoxyCodeLine{00359\ \ \ \ \textcolor{keywordflow}{if}\ (width\ >\ c-\/>width\ ||\ height\ >\ c-\/>height)\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ fr.prev\_link\ =\ NULL;}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ fr.x\ =\ fr.y\ =\ 0;}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fr;}
+\DoxyCodeLine{00363\ \ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ node\ =\ c-\/>active\_head;}
+\DoxyCodeLine{00366\ \ \ \ prev\ =\ \&c-\/>active\_head;}
+\DoxyCodeLine{00367\ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>x\ +\ width\ <=\ c-\/>width)\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y,waste;}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ y\ =\ stbrp\_\_skyline\_find\_min\_y(c,\ node,\ node-\/>x,\ width,\ \&waste);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c-\/>heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BL\_sortHeight)\ \{\ \textcolor{comment}{//\ actually\ just\ want\ to\ test\ BL}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bottom\ left}}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y)\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ best-\/fit}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ +\ height\ <=\ c-\/>height)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ can\ only\ use\ it\ if\ it\ first\ vertically}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y\ ||\ (y\ ==\ best\_y\ \&\&\ waste\ <\ best\_waste))\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_waste\ =\ waste;}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ prev\ =\ \&node-\/>next;}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ node\ =\ node-\/>next;}
+\DoxyCodeLine{00389\ \ \ \ \}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ best\_x\ =\ (best\ ==\ NULL)\ ?\ 0\ :\ (*best)-\/>x;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \textcolor{comment}{//\ if\ doing\ best-\/fit\ (BF),\ we\ also\ have\ to\ try\ aligning\ right\ edge\ to\ each\ node\ position}}
+\DoxyCodeLine{00394\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00395\ \ \ \ \textcolor{comment}{//\ e.g,\ if\ fitting}}
+\DoxyCodeLine{00396\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00397\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00398\ \ \ \ \textcolor{comment}{//\ \ \ \ |\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_|}}
+\DoxyCodeLine{00399\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00400\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ into}}
+\DoxyCodeLine{00401\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00402\ \ \ \ \textcolor{comment}{//\ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{00403\ \ \ \ \textcolor{comment}{//\ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_|}}
+\DoxyCodeLine{00404\ \ \ \ \textcolor{comment}{//\ \ \ |\_\_\_\_\_\_\_\_\_\_\_\_|}}
+\DoxyCodeLine{00405\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00406\ \ \ \ \textcolor{comment}{//\ then\ right-\/aligned\ reduces\ waste,\ but\ bottom-\/left\ BL\ is\ always\ chooses\ left-\/aligned}}
+\DoxyCodeLine{00407\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00408\ \ \ \ \textcolor{comment}{//\ This\ makes\ BF\ take\ about\ 2x\ the\ time}}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \textcolor{keywordflow}{if}\ (c-\/>heuristic\ ==\ STBRP\_HEURISTIC\_Skyline\_BF\_sortHeight)\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ tail\ =\ c-\/>active\_head;}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ node\ =\ c-\/>active\_head;}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ prev\ =\ \&c-\/>active\_head;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \textcolor{comment}{//\ find\ first\ node\ that's\ admissible}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (tail-\/>x\ <\ width)}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ tail\ =\ tail-\/>next;}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (tail)\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xpos\ =\ tail-\/>x\ -\/\ width;}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y,waste;}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(xpos\ >=\ 0);}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ the\ left\ position\ that\ matches\ this}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>next-\/>x\ <=\ xpos)\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ \&node-\/>next;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ node-\/>next;}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ STBRP\_ASSERT(node-\/>next-\/>x\ >\ xpos\ \&\&\ node-\/>x\ <=\ xpos);}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ y\ =\ stbrp\_\_skyline\_find\_min\_y(c,\ node,\ xpos,\ width,\ \&waste);}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ +\ height\ <=\ c-\/>height)\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <=\ best\_y)\ \{}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\ <\ best\_y\ ||\ waste\ <\ best\_waste\ ||\ (waste==best\_waste\ \&\&\ xpos\ <\ best\_x))\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_x\ =\ xpos;}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//STBRP\_ASSERT(y\ <=\ best\_y);\ [DEAR\ IMGUI]}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_y\ =\ y;}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\_waste\ =\ waste;}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ best\ =\ prev;}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ tail\ =\ tail-\/>next;}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \ \}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ fr.prev\_link\ =\ best;}
+\DoxyCodeLine{00444\ \ \ \ fr.x\ =\ best\_x;}
+\DoxyCodeLine{00445\ \ \ \ fr.y\ =\ best\_y;}
+\DoxyCodeLine{00446\ \ \ \ \textcolor{keywordflow}{return}\ fr;}
+\DoxyCodeLine{00447\ \}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{keyword}{static}\ stbrp\_\_findresult\ stbrp\_\_skyline\_pack\_rectangle(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
+\DoxyCodeLine{00450\ \{}
+\DoxyCodeLine{00451\ \ \ \ \textcolor{comment}{//\ find\ best\ position\ according\ to\ heuristic}}
+\DoxyCodeLine{00452\ \ \ \ stbrp\_\_findresult\ res\ =\ stbrp\_\_skyline\_find\_best\_pos(context,\ width,\ height);}
+\DoxyCodeLine{00453\ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *node,\ *cur;}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \textcolor{comment}{//\ bail\ if:}}
+\DoxyCodeLine{00456\ \ \ \ \textcolor{comment}{//\ \ \ \ 1.\ it\ failed}}
+\DoxyCodeLine{00457\ \ \ \ \textcolor{comment}{//\ \ \ \ 2.\ the\ best\ node\ doesn't\ fit\ (we\ don't\ always\ check\ this)}}
+\DoxyCodeLine{00458\ \ \ \ \textcolor{comment}{//\ \ \ \ 3.\ we're\ out\ of\ memory}}
+\DoxyCodeLine{00459\ \ \ \ \textcolor{keywordflow}{if}\ (res.prev\_link\ ==\ NULL\ ||\ res.y\ +\ height\ >\ context-\/>height\ ||\ context-\/>free\_head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ res.prev\_link\ =\ NULL;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00462\ \ \ \ \}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \textcolor{comment}{//\ on\ success,\ create\ new\ node}}
+\DoxyCodeLine{00465\ \ \ \ node\ =\ context-\/>free\_head;}
+\DoxyCodeLine{00466\ \ \ \ node-\/>x\ =\ (stbrp\_coord)\ res.x;}
+\DoxyCodeLine{00467\ \ \ \ node-\/>y\ =\ (stbrp\_coord)\ (res.y\ +\ height);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ context-\/>free\_head\ =\ node-\/>next;}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \textcolor{comment}{//\ insert\ the\ new\ node\ into\ the\ right\ starting\ point,\ and}}
+\DoxyCodeLine{00472\ \ \ \ \textcolor{comment}{//\ let\ 'cur'\ point\ to\ the\ remaining\ nodes\ needing\ to\ be}}
+\DoxyCodeLine{00473\ \ \ \ \textcolor{comment}{//\ stiched\ back\ in}}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ cur\ =\ *res.prev\_link;}
+\DoxyCodeLine{00476\ \ \ \ \textcolor{keywordflow}{if}\ (cur-\/>x\ <\ res.x)\ \{}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \textcolor{comment}{//\ preserve\ the\ existing\ one,\ so\ start\ testing\ with\ the\ next\ one}}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *next\ =\ cur-\/>next;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ cur-\/>next\ =\ node;}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ cur\ =\ next;}
+\DoxyCodeLine{00481\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ *res.prev\_link\ =\ node;}
+\DoxyCodeLine{00483\ \ \ \ \}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \textcolor{comment}{//\ from\ here,\ traverse\ cur\ and\ free\ the\ nodes,\ until\ we\ get\ to\ one}}
+\DoxyCodeLine{00486\ \ \ \ \textcolor{comment}{//\ that\ shouldn't\ be\ freed}}
+\DoxyCodeLine{00487\ \ \ \ \textcolor{keywordflow}{while}\ (cur-\/>next\ \&\&\ cur-\/>next-\/>x\ <=\ res.x\ +\ width)\ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \mbox{\hyperlink{structstbrp__node}{stbrp\_node}}\ *next\ =\ cur-\/>next;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \textcolor{comment}{//\ move\ the\ current\ node\ to\ the\ free\ list}}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ cur-\/>next\ =\ context-\/>free\_head;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ context-\/>free\_head\ =\ cur;}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ cur\ =\ next;}
+\DoxyCodeLine{00493\ \ \ \ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \textcolor{comment}{//\ stitch\ the\ list\ back\ in}}
+\DoxyCodeLine{00496\ \ \ \ node-\/>next\ =\ cur;}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \ \ \ \textcolor{keywordflow}{if}\ (cur-\/>x\ <\ res.x\ +\ width)}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ cur-\/>x\ =\ (stbrp\_coord)\ (res.x\ +\ width);}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{00502\ \ \ \ cur\ =\ context-\/>active\_head;}
+\DoxyCodeLine{00503\ \ \ \ \textcolor{keywordflow}{while}\ (cur-\/>x\ <\ context-\/>width)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ STBRP\_ASSERT(cur-\/>x\ <\ cur-\/>next-\/>x);}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
+\DoxyCodeLine{00506\ \ \ \ \}}
+\DoxyCodeLine{00507\ \ \ \ STBRP\_ASSERT(cur-\/>next\ ==\ NULL);}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \ \ \ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count=0;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ cur\ =\ context-\/>active\_head;}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ ++count;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ cur\ =\ context-\/>free\_head;}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>next;}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ ++count;}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ STBRP\_ASSERT(count\ ==\ context-\/>num\_nodes+2);}
+\DoxyCodeLine{00522\ \ \ \ \}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00526\ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ STBRP\_\_CDECL\ rect\_height\_compare(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *b)}
+\DoxyCodeLine{00529\ \{}
+\DoxyCodeLine{00530\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *p\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ a;}
+\DoxyCodeLine{00531\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *q\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ b;}
+\DoxyCodeLine{00532\ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>h\ >\ q-\/>h)}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00534\ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>h\ <\ q-\/>h)}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ 1;}
+\DoxyCodeLine{00536\ \ \ \ \textcolor{keywordflow}{return}\ (p-\/>w\ >\ q-\/>w)\ ?\ -\/1\ :\ (p-\/>w\ <\ q-\/>w);}
+\DoxyCodeLine{00537\ \}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ STBRP\_\_CDECL\ rect\_original\_order(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *b)}
+\DoxyCodeLine{00540\ \{}
+\DoxyCodeLine{00541\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *p\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ a;}
+\DoxyCodeLine{00542\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *q\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *)\ b;}
+\DoxyCodeLine{00543\ \ \ \ \textcolor{keywordflow}{return}\ (p-\/>was\_packed\ <\ q-\/>was\_packed)\ ?\ -\/1\ :\ (p-\/>was\_packed\ >\ q-\/>was\_packed);}
+\DoxyCodeLine{00544\ \}}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ STBRP\_DEF\ \textcolor{keywordtype}{int}\ stbrp\_pack\_rects(\mbox{\hyperlink{structstbrp__context}{stbrp\_context}}\ *context,\ \mbox{\hyperlink{structstbrp__rect}{stbrp\_rect}}\ *rects,\ \textcolor{keywordtype}{int}\ num\_rects)}
+\DoxyCodeLine{00547\ \{}
+\DoxyCodeLine{00548\ \ \ \ \textcolor{keywordtype}{int}\ i,\ all\_rects\_packed\ =\ 1;}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \textcolor{comment}{//\ we\ use\ the\ 'was\_packed'\ field\ internally\ to\ allow\ sorting/unsorting}}
+\DoxyCodeLine{00551\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ rects[i].was\_packed\ =\ i;}
+\DoxyCodeLine{00553\ \ \ \ \}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \ \ \ \textcolor{comment}{//\ sort\ according\ to\ heuristic}}
+\DoxyCodeLine{00556\ \ \ \ STBRP\_SORT(rects,\ num\_rects,\ \textcolor{keyword}{sizeof}(rects[0]),\ rect\_height\_compare);}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rects[i].w\ ==\ 0\ ||\ rects[i].h\ ==\ 0)\ \{}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ rects[i].y\ =\ 0;\ \ \textcolor{comment}{//\ empty\ rect\ needs\ no\ space}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ stbrp\_\_findresult\ fr\ =\ stbrp\_\_skyline\_pack\_rectangle(context,\ rects[i].w,\ rects[i].h);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fr.prev\_link)\ \{}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ (stbrp\_coord)\ fr.x;}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].y\ =\ (stbrp\_coord)\ fr.y;}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ rects[i].x\ =\ rects[i].y\ =\ STBRP\_\_MAXVAL;}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00570\ \ \ \ \}}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \ \ \ \textcolor{comment}{//\ unsort}}
+\DoxyCodeLine{00573\ \ \ \ STBRP\_SORT(rects,\ num\_rects,\ \textcolor{keyword}{sizeof}(rects[0]),\ rect\_original\_order);}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \ \ \ \textcolor{comment}{//\ set\ was\_packed\ flags\ and\ all\_rects\_packed\ status}}
+\DoxyCodeLine{00576\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ num\_rects;\ ++i)\ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ rects[i].was\_packed\ =\ !(rects[i].x\ ==\ STBRP\_\_MAXVAL\ \&\&\ rects[i].y\ ==\ STBRP\_\_MAXVAL);}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rects[i].was\_packed)}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ all\_rects\_packed\ =\ 0;}
+\DoxyCodeLine{00580\ \ \ \ \}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \ \textcolor{comment}{//\ return\ the\ all\_rects\_packed\ status}}
+\DoxyCodeLine{00583\ \ \ \ \textcolor{keywordflow}{return}\ all\_rects\_packed;}
+\DoxyCodeLine{00584\ \}}
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00588\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00589\ \textcolor{comment}{This\ software\ is\ available\ under\ 2\ licenses\ -\/-\/\ choose\ whichever\ you\ prefer.}}
+\DoxyCodeLine{00590\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00591\ \textcolor{comment}{ALTERNATIVE\ A\ -\/\ MIT\ License}}
+\DoxyCodeLine{00592\ \textcolor{comment}{Copyright\ (c)\ 2017\ Sean\ Barrett}}
+\DoxyCodeLine{00593\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
+\DoxyCodeLine{00594\ \textcolor{comment}{this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
+\DoxyCodeLine{00595\ \textcolor{comment}{the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to}}
+\DoxyCodeLine{00596\ \textcolor{comment}{use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies}}
+\DoxyCodeLine{00597\ \textcolor{comment}{of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do}}
+\DoxyCodeLine{00598\ \textcolor{comment}{so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00599\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00600\ \textcolor{comment}{copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00601\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00602\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00603\ \textcolor{comment}{FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00604\ \textcolor{comment}{AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00605\ \textcolor{comment}{LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00606\ \textcolor{comment}{OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00607\ \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{00608\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00609\ \textcolor{comment}{ALTERNATIVE\ B\ -\/\ Public\ Domain\ (www.unlicense.org)}}
+\DoxyCodeLine{00610\ \textcolor{comment}{This\ is\ free\ and\ unencumbered\ software\ released\ into\ the\ public\ domain.}}
+\DoxyCodeLine{00611\ \textcolor{comment}{Anyone\ is\ free\ to\ copy,\ modify,\ publish,\ use,\ compile,\ sell,\ or\ distribute\ this}}
+\DoxyCodeLine{00612\ \textcolor{comment}{software,\ either\ in\ source\ code\ form\ or\ as\ a\ compiled\ binary,\ for\ any\ purpose,}}
+\DoxyCodeLine{00613\ \textcolor{comment}{commercial\ or\ non-\/commercial,\ and\ by\ any\ means.}}
+\DoxyCodeLine{00614\ \textcolor{comment}{In\ jurisdictions\ that\ recognize\ copyright\ laws,\ the\ author\ or\ authors\ of\ this}}
+\DoxyCodeLine{00615\ \textcolor{comment}{software\ dedicate\ any\ and\ all\ copyright\ interest\ in\ the\ software\ to\ the\ public}}
+\DoxyCodeLine{00616\ \textcolor{comment}{domain.\ We\ make\ this\ dedication\ for\ the\ benefit\ of\ the\ public\ at\ large\ and\ to}}
+\DoxyCodeLine{00617\ \textcolor{comment}{the\ detriment\ of\ our\ heirs\ and\ successors.\ We\ intend\ this\ dedication\ to\ be\ an}}
+\DoxyCodeLine{00618\ \textcolor{comment}{overt\ act\ of\ relinquishment\ in\ perpetuity\ of\ all\ present\ and\ future\ rights\ to}}
+\DoxyCodeLine{00619\ \textcolor{comment}{this\ software\ under\ copyright\ law.}}
+\DoxyCodeLine{00620\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00621\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00622\ \textcolor{comment}{FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00623\ \textcolor{comment}{AUTHORS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN}}
+\DoxyCodeLine{00624\ \textcolor{comment}{ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00625\ \textcolor{comment}{WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00626\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00627\ \textcolor{comment}{*/}}
 
 \end{DoxyCode}

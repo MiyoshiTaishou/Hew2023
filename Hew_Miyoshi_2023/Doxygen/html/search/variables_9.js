@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['loopcount_0',['loopCount',['../class_player.html#abb93a2460ca509dfc9cac9913726c65a',1,'Player']]],
-  ['lostcolor_1',['lostColor',['../struct_pollar.html#a8213d35c2ffce2d5717c675ee077c399',1,'Pollar']]]
+  ['normal_0',['Normal',['../struct_v_e_r_t_e_x__3_d.html#a0e55c0bdb68abbc44653eb8d441d2283',1,'VERTEX_3D']]]
 ];

@@ -1,70 +1,52 @@
-\doxysection{Title クラス}
+\doxysection{Title Class Reference}
 \hypertarget{class_title}{}\label{class_title}\index{Title@{Title}}
-
-
-Title の継承関係図
-% FIG 0
-
-
-Title 連携図
-% FIG 1
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Title\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_title}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_title_afd467560e61d6492400f1f531fdd1ccd}{Init}} () override
-\begin{DoxyCompactList}\small\item\em シーンの初期化を行います。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̏��������s���܂��B \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_title_a970d881556ef55c5af039041bac27d46}{Update}} () override
-\begin{DoxyCompactList}\small\item\em シーンの更新処理を行います。 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承公開メンバ関数}
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̍\+X�\+V�������s���܂��B \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_scene}{Scene}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
-\begin{DoxyCompactList}\small\item\em Sceneクラスのコンストラクタ \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\texorpdfstring{$\sim$}{\string~}\+Scene}} ()
-\begin{DoxyCompactList}\small\item\em Sceneクラスのデストラクタ \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em シーンの終了処理を行います。 \end{DoxyCompactList}\item 
+{\bfseries Scene} ()
+\begin{DoxyCompactList}\small\item\em Scene�\+N���\+X�̃\+R���\+X�g���\+N�\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Scene�\+N���\+X�̃f�\+X�g���\+N�\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
+virtual void {\bfseries Uninit} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̏\+I���������s���܂��B \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_scene_ad0000891418e47223a01172bebb031a0}{Draw}} ()
-\begin{DoxyCompactList}\small\item\em シーンの描画処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_af44173c6837208188f6852de556a2d7b}{Init\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本初期化処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{Uninit\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本終了処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{Update\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本更新処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{Draw\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本描画処理を行います。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̕\`{}�揈�����s���܂��B \end{DoxyCompactList}\item 
+void {\bfseries Init\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�������������s���܂��B \end{DoxyCompactList}\item 
+void {\bfseries Uninit\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\+I���������s���܂��B \end{DoxyCompactList}\item 
+void {\bfseries Update\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\+X�\+V�������s���܂��B \end{DoxyCompactList}\item 
+void {\bfseries Draw\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\`{}�揈�����s���܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_aad19cad10b834eafe848c74cae9ca22a}{Add\+Game\+Object}} (int Layer)
-\begin{DoxyCompactList}\small\item\em 指定したレイヤーに新しい\+Game\+Objectを追加します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �w�肵�����\+C���\mbox{[}�ɐ\+V����\+Game\+Object��ǉ����܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}{Get\+Game\+Object}} ()
-\begin{DoxyCompactList}\small\item\em 指定した型の\+Game\+Objectを取得します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �w�肵���\texorpdfstring{$^\wedge$}{\string^}��\+Game\+Object���擾���܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{Get\+Game\+Objects}} ()
-\begin{DoxyCompactList}\small\item\em 指定した型のすべての\+Game\+Objectを取得します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{非公開変数類}
+\begin{DoxyCompactList}\small\item\em �w�肵���\texorpdfstring{$^\wedge$}{\string^}�̂��ׂĂ�\+Game\+Object���擾���܂��B \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_scene}{Scene}}}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_transition}{Transition}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_a2b356d6b3ae0afee6c8f9284251cb0fc}{m\+\_\+\+Transition}} \{\}
-\item 
-class \mbox{\hyperlink{class_fade_u_i}{Fade\+UI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_a267f49d3f118813a77b76e332e76b9a7}{m\+\_\+\+Fade}} \{\}
-\item 
-bool \mbox{\hyperlink{class_title_aefc0bc33f60aff6c5ccd07fe88ccba43}{m\+\_\+\+Goal}} = false
-\end{DoxyCompactItemize}
-\doxysubsubsection*{その他の継承メンバ}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene}{Scene}} に属する継承限定公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ \mbox{\hyperlink{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}{m\+\_\+\+Game\+Object}}
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ {\bfseries m\+\_\+\+Game\+Object}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{_title_8h_source}{Title.\+h}} の \mbox{\hyperlink{_title_8h_source_l00003}{3}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_title_afd467560e61d6492400f1f531fdd1ccd}\label{class_title_afd467560e61d6492400f1f531fdd1ccd} 
 \index{Title@{Title}!Init@{Init}}
 \index{Init@{Init}!Title@{Title}}
@@ -73,20 +55,12 @@ std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}
 
 
 
-シーンの初期化を行います。 
+�\+V�\mbox{[}���̏��������s���܂��B 
 
 
 
-\mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Scene}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Scene}}.
 
-
-
- \mbox{\hyperlink{_title_8cpp_source}{Title.\+cpp}} の \mbox{\hyperlink{_title_8cpp_source_l00022}{22}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 2
-被呼び出し関係図\+:
-% FIG 3
 \Hypertarget{class_title_a970d881556ef55c5af039041bac27d46}\label{class_title_a970d881556ef55c5af039041bac27d46} 
 \index{Title@{Title}!Update@{Update}}
 \index{Update@{Update}!Title@{Title}}
@@ -95,54 +69,15 @@ std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}
 
 
 
-シーンの更新処理を行います。 
+�\+V�\mbox{[}���̍\+X�\+V�������s���܂��B 
 
 
 
-\mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Scene}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Scene}}.
 
 
 
- \mbox{\hyperlink{_title_8cpp_source}{Title.\+cpp}} の \mbox{\hyperlink{_title_8cpp_source_l00055}{55}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 4
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_title_a267f49d3f118813a77b76e332e76b9a7}\label{class_title_a267f49d3f118813a77b76e332e76b9a7} 
-\index{Title@{Title}!m\_Fade@{m\_Fade}}
-\index{m\_Fade@{m\_Fade}!Title@{Title}}
-\doxysubsubsection{\texorpdfstring{m\_Fade}{m\_Fade}}
-{\footnotesize\ttfamily class \mbox{\hyperlink{class_fade_u_i}{Fade\+UI}}\texorpdfstring{$\ast$}{*} Title\+::m\+\_\+\+Fade \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{_title_8h_source}{Title.\+h}} の \mbox{\hyperlink{_title_8h_source_l00007}{7}} 行目に定義があります。
-
-\Hypertarget{class_title_aefc0bc33f60aff6c5ccd07fe88ccba43}\label{class_title_aefc0bc33f60aff6c5ccd07fe88ccba43} 
-\index{Title@{Title}!m\_Goal@{m\_Goal}}
-\index{m\_Goal@{m\_Goal}!Title@{Title}}
-\doxysubsubsection{\texorpdfstring{m\_Goal}{m\_Goal}}
-{\footnotesize\ttfamily bool Title\+::m\+\_\+\+Goal = false\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{_title_8h_source}{Title.\+h}} の \mbox{\hyperlink{_title_8h_source_l00010}{10}} 行目に定義があります。
-
-\Hypertarget{class_title_a2b356d6b3ae0afee6c8f9284251cb0fc}\label{class_title_a2b356d6b3ae0afee6c8f9284251cb0fc} 
-\index{Title@{Title}!m\_Transition@{m\_Transition}}
-\index{m\_Transition@{m\_Transition}!Title@{Title}}
-\doxysubsubsection{\texorpdfstring{m\_Transition}{m\_Transition}}
-{\footnotesize\ttfamily class \mbox{\hyperlink{class_transition}{Transition}}\texorpdfstring{$\ast$}{*} Title\+::m\+\_\+\+Transition \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{_title_8h_source}{Title.\+h}} の \mbox{\hyperlink{_title_8h_source_l00006}{6}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Title.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/Title.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainloop_0',['MainLoop',['../class_application.html#aa2fb4766fcbc345920bbf26cdc5df15b',1,'Application']]]
+  ['postprocess_0',['PostProcess',['../class_renderer.html#ab4dc0d4899a1130b97cb9f2d68362069',1,'Renderer']]]
 ];

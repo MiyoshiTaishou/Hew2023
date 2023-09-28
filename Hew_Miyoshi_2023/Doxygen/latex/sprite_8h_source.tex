@@ -2,32 +2,32 @@
 \hypertarget{sprite_8h_source}{}\label{sprite_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sprite.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/sprite.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ \ \ \ "{}renderer.h"{}}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ \ \ \ "{}component.h"{}}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ \ \ \ "{}utftosjisconv.h"{}}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00007}00007\ \textcolor{comment}{//2D„Éù„É™„Ç¥„É≥„ÅÆÁîªÂÉèË°®Á§∫}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00008}\mbox{\hyperlink{class_sprite}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00009}00009\ \{}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00011}00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00012}00012\ \ \ \ \ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_VertexBuffer\{\};}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00013}00013\ \ \ \ \ ID3D11ShaderResourceView*\ \ \ m\_Texture\{\};}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Material\{\};}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Init(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ Width,\ \textcolor{keywordtype}{int}\ Height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ TextureName);}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ Uninit()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ SetMaterial(\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ Material)\ \{\ m\_Material\ =\ Material;\ \}}
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{sprite_8h_source_l00027}00027\ \};}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ \ \ \ "{}renderer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ \ \ \ "{}component.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ \ \ \ "{}utftosjisconv.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//2DÉ|ÉäÉSÉìÇÃâÊëúï\(\backslash\)é¶}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ ID3D11Buffer*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_VertexBuffer\{\};}
+\DoxyCodeLine{00013\ \ \ \ \ ID3D11ShaderResourceView*\ \ \ m\_Texture\{\};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Material\{\};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{using\ }Component::Component;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Init(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ Width,\ \textcolor{keywordtype}{int}\ Height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ TextureName);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ Uninit()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ SetMaterial(\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}}\ Material)\ \{\ m\_Material\ =\ Material;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \};}
 
 \end{DoxyCode}

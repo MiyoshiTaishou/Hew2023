@@ -1,133 +1,114 @@
-\doxysection{Camera ã‚¯ãƒ©ã‚¹}
+\doxysection{Camera Class Reference}
 \hypertarget{class_camera}{}\label{class_camera}\index{Camera@{Camera}}
 
 
-ã‚«ãƒ¡ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã§åˆ‡ã‚Šæ›¿ãˆå¯èƒ½ãªã‚«ãƒ¡ãƒ©ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚  
+ƒ\+Jƒƒ‰ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒgƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ÅØ‚è‘Ö‚¦‰Â”\textbackslash{}‚Èƒ\+Jƒƒ‰‚Ìƒ\+Nƒ‰ƒ\+X‚Å‚·B  
 
 
 
 
 {\ttfamily \#include $<$camera.\+h$>$}
 
-
-
-Camera ã®ç¶™æ‰¿é–¢ä¿‚å›³
-% FIG 0
-
-
-Camera é€£æºå›³
-% FIG 1
-\doxysubsubsection*{å…¬é–‹ãƒ¡ãƒ³ãƒé–¢æ•°}
+Inheritance diagram for Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_camera_a1543c3415858fa4773f8a69ef903366c}{Init}} ()
-\begin{DoxyCompactList}\small\item\em Cameraã‚¯ãƒ©ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã„ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_camera_a4a596a3ea1fdc7d244ba4268031a360b}{Update}} ()
-\begin{DoxyCompactList}\small\item\em Cameraã‚¯ãƒ©ã‚¹ã®æ›´æ–°å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_camera_a0d80a44404b91bc03be2c117d1f8185b}{Draw}} ()
-\begin{DoxyCompactList}\small\item\em Cameraã‚¯ãƒ©ã‚¹ã®æç”»å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_camera_a4ab405d973c24462d2d6cc16b54ec971}{Set\+Target}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{target}})
-\begin{DoxyCompactList}\small\item\em ã‚«ãƒ¡ãƒ©ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ã‚’è¨­å®šã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a1543c3415858fa4773f8a69ef903366c}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Cameraƒ\+Nƒ‰ƒ\+X‚Ì‰Šú‰»‚ğs‚¢‚Ü‚·B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a4a596a3ea1fdc7d244ba4268031a360b}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Cameraƒ\+Nƒ‰ƒ\+X‚Ì\+X\+Vˆ—‚ğs‚¢‚Ü‚·B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a0d80a44404b91bc03be2c117d1f8185b}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Cameraƒ\+Nƒ‰ƒ\+X‚Ì•\`{}‰æˆ—‚ğs‚¢‚Ü‚·B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a4ab405d973c24462d2d6cc16b54ec971}{Set\+Target}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 target)
+\begin{DoxyCompactList}\small\item\em ƒ\+Jƒƒ‰‚Ìƒ\texorpdfstring{$^\wedge$}{\string^}\mbox{[}ƒ\+QƒbƒgÀ•\+W‚ğİ’è‚µ‚Ü‚·B \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Matrix \mbox{\hyperlink{class_camera_a5c9fcc9af925f492033005bc3705054f}{Get\+View\+Matrix}} ()
-\begin{DoxyCompactList}\small\item\em ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{åŸºåº•ã‚¯ãƒ©ã‚¹ \mbox{\hyperlink{class_game_object}{Game\+Object}} ã«å±ã™ã‚‹ç¶™æ‰¿å…¬é–‹ãƒ¡ãƒ³ãƒé–¢æ•°}
+\begin{DoxyCompactList}\small\item\em ƒ\+Jƒƒ‰‚Ìƒrƒ…\mbox{[}s—ñ‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
-\begin{DoxyCompactList}\small\item\em Game\+Objectã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{virtual}} \mbox{\hyperlink{class_game_object_a224d4f6d9dd75c8a6f9d022eaf586fd9}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
-\begin{DoxyCompactList}\small\item\em Game\+Objectã‚¯ãƒ©ã‚¹ã®ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ \end{DoxyCompactList}\item 
+{\bfseries Game\+Object} ()
+\begin{DoxyCompactList}\small\item\em Game\+Objectƒ\+Nƒ‰ƒ\+X‚Ìƒ\+Rƒ“ƒ\+Xƒgƒ‰ƒ\+Nƒ\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+Object} ()
+\begin{DoxyCompactList}\small\item\em Game\+Objectƒ\+Nƒ‰ƒ\+X‚Ìƒfƒ\+Xƒgƒ‰ƒ\+Nƒ\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a3aa811424f7b7b499d9dc25bff77b9c7}{Get\+Position}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½®ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ÌˆÊ’u‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_aac28192140fdafe1c72199f36ee18564}{Get\+Rotation}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å›è»¢ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì‰ñ“\mbox{]}‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a7e8fa426991ab42fae1aa1a2a3f02c91}{Get\+Scale}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚±ãƒ¼ãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_abeb8d6fd3767e1cde1a0a56cd61a0e5a}{Set\+Position}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Position)
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½®ã‚’è¨­å®šã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a4afa611d4b2aef1d7086fab891ac24d8}{Set\+Rotation}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Rotation}})
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å›è»¢ã‚’è¨­å®šã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a7261f9641ecda37ac0b399940e479f19}{Set\+Scale}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Scale)
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚±ãƒ¼ãƒ«ã‚’è¨­å®šã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ìƒ\+Xƒ\+P\mbox{[}ƒ‹‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_abeb8d6fd3767e1cde1a0a56cd61a0e5a}{Set\+Position}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Position)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ÌˆÊ’u‚ğİ’è‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a4afa611d4b2aef1d7086fab891ac24d8}{Set\+Rotation}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Rotation)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì‰ñ“\mbox{]}‚ğİ’è‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7261f9641ecda37ac0b399940e479f19}{Set\+Scale}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 Scale)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ìƒ\+Xƒ\+P\mbox{[}ƒ‹‚ğİ’è‚µ‚Ü‚·B \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_ad53689a12682ef210b47aed77ea82309}{Get\+Forward}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‰æ–¹ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì‘\+O•ûƒxƒ\+Nƒgƒ‹‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
 Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a9e7d25ffc3c93a20006820945b735c88}{Get\+Side}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ¨ªæ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a8fcb288a78c8ee8cdbb2ebf873a59369}{Set\+Destroy}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç ´æ£„ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{bool}} \mbox{\hyperlink{class_game_object_a4b7b2c5fbbe53feb8fcbb6eab7d214ea}{Destroy}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç ´æ£„ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{virtual}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a9d1ca7014b11b3f0dcca5bb05b922d44}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®çµ‚äº†å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì‰¡•ûŒüƒxƒ\+Nƒgƒ‹‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void {\bfseries Set\+Destroy} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì”jŠüƒtƒ‰ƒ\+O‚ğİ’è‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_a4b7b2c5fbbe53feb8fcbb6eab7d214ea}{Destroy}} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ğ”jŠü‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a9d1ca7014b11b3f0dcca5bb05b922d44}{Uninit}} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì\+I—¹ˆ—‚ğs‚¢‚Ü‚·B \end{DoxyCompactList}\item 
+virtual void {\bfseries Pre\+Draw} ()
+\item 
 {\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Add\+Component}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ–°ã—ã„ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’è¿½åŠ ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{typename}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} $>$ }\\\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a5ba3b458e6bee6ea5aedd5c8cdeabf18}{Get\+Component}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸå‹ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{typename}} \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} $>$ }\\\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{T}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_ae34e6d76cdb584eb97abd5b1e94d0c83}{Add\+Child}} ()
-\begin{DoxyCompactList}\small\item\em å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿½åŠ ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a4fc378e5dbb4c06b034138a46e3bce29}{Init\+Base}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’åˆæœŸåŒ–ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a33d6c63352286b44eabcff91dc5fa4ff}{Uninit\+Base}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’çµ‚äº†å‡¦ç†ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_af72b2c7b64912b3b91f69cf16ba62643}{Update\+Base}} ()
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’æ›´æ–°ã—ã¾ã™ã€‚ \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} \mbox{\hyperlink{class_game_object_a7540ba7129a1e4ea5e2a728feaf7bccf}{Draw\+Base}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{Parent\+Matrix}})
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’æç”»ã—ã¾ã™ã€‚ \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{éå…¬é–‹å¤‰æ•°é¡}
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚É\+V‚µ‚¢ƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğ’Ç‰Á‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a5ba3b458e6bee6ea5aedd5c8cdeabf18}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚©‚çw’è‚³‚ê‚½Œ\texorpdfstring{$^\wedge$}{\string^}‚Ìƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğæ“¾‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_ae34e6d76cdb584eb97abd5b1e94d0c83}{Add\+Child}} ()
+\begin{DoxyCompactList}\small\item\em qƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ğ’Ç‰Á‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void {\bfseries Init\+Base} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Æ‚»‚Ìqƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg\+Aƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğ‰Šú‰»‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void {\bfseries Uninit\+Base} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Æ‚»‚Ìqƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg\+Aƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğ\+I—¹ˆ—‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void {\bfseries Update\+Base} ()
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Æ‚»‚Ìqƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg\+Aƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğ\+X\+V‚µ‚Ü‚·B \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_a7540ba7129a1e4ea5e2a728feaf7bccf}{Draw\+Base}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix Parent\+Matrix)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Æ‚»‚Ìqƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg\+Aƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ğ•\`{}‰æ‚µ‚Ü‚·B \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
 \begin{DoxyCompactItemize}
 \item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_camera_adc00a8062a7765445c06e285344a32fd}{m\+\_\+\+Target}} \{\}
-\begin{DoxyCompactList}\small\item\em ã‚«ãƒ¡ãƒ©ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ \end{DoxyCompactList}\item 
-Direct\+X\+::\+Simple\+Math\+::\+Matrix \mbox{\hyperlink{class_camera_a1d2ecd74dec9a1c0577f9566455d1493}{m\+\_\+\+View\+Matrix}} \{\}
-\begin{DoxyCompactList}\small\item\em ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¡Œåˆ— \end{DoxyCompactList}\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_camera_a6be3b90e895642d3a60a68a022d5aac3}{m\+\_\+\+Foward}} \{\}
-\begin{DoxyCompactList}\small\item\em ã‚«ãƒ¡ãƒ©ã®å‰æ–¹ãƒ™ã‚¯ãƒˆãƒ« \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{ãã®ä»–ã®ç¶™æ‰¿ãƒ¡ãƒ³ãƒ}
-\doxysubsection*{åŸºåº•ã‚¯ãƒ©ã‚¹ \mbox{\hyperlink{class_game_object}{Game\+Object}} ã«å±ã™ã‚‹ç¶™æ‰¿é™å®šå…¬é–‹å¤‰æ•°é¡}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{bool}} \mbox{\hyperlink{class_game_object_ad884ea676c7e8a4058a651db3fa46092}{m\+\_\+\+Destroy}} = \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{false}}
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç ´æ£„ãƒ•ãƒ©ã‚° \end{DoxyCompactList}\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_a5d58b0a38bfaf0cfdbc3c0c1098943a0}{m\+\_\+\+Position}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½® \end{DoxyCompactList}\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_aaf6a3cb0c8158651037477a2ce1af6f5}{m\+\_\+\+Rotation}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å›è»¢ \end{DoxyCompactList}\item 
-Direct\+X\+::\+Simple\+Math\+::\+Vector3 \mbox{\hyperlink{class_game_object_abc54d2b61538f86f8d5106ab9292b16e}{m\+\_\+\+Scale}} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(1.\+0f, 1.\+0f, 1.\+0f)
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚±ãƒ¼ãƒ« \end{DoxyCompactList}\item 
-std\+::list$<$ \mbox{\hyperlink{class_component}{Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_object_ab519c45cfb08cac0ce2f45973abd705e}{m\+\_\+\+Component}}
-\begin{DoxyCompactList}\small\item\em ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ã‚¿ãƒƒãƒã•ã‚ŒãŸã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ãƒªã‚¹ãƒˆ \end{DoxyCompactList}\item 
-std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_object_a43ebecda03159e3acb64143c84446219}{m\+\_\+\+Child\+Game\+Object}}
-\begin{DoxyCompactList}\small\item\em å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆ \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool {\bfseries m\+\_\+\+Destroy} = false
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì”jŠüƒtƒ‰ƒO \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+\+Position} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ÌˆÊ’u \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+\+Rotation} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(0.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ì‰ñ“\mbox{]} \end{DoxyCompactList}\item 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+\+Scale} = Direct\+X\+::\+Simple\+Math\+::\+Vector3(1.\+0f, 1.\+0f, 1.\+0f)
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Ìƒ\+Xƒ\+P\mbox{[}ƒ‹ \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_component}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+\+Component}
+\begin{DoxyCompactList}\small\item\em ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚Éƒ\+Aƒ\texorpdfstring{$^\wedge$}{\string^}ƒbƒ\`{}‚³‚ê‚½ƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ÌƒŠƒ\+Xƒg \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+\+Child\+Game\+Object}
+\begin{DoxyCompactList}\small\item\em qƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒg‚ÌƒŠƒ\+Xƒg \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{è©³è§£}
-ã‚«ãƒ¡ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã§åˆ‡ã‚Šæ›¿ãˆå¯èƒ½ãªã‚«ãƒ¡ãƒ©ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚ 
+\doxysubsection{Detailed Description}
+ƒ\+Jƒƒ‰ƒ\+Iƒuƒ\+Wƒ\+Fƒ\+Nƒgƒ\+Rƒ“ƒ\texorpdfstring{$\vert$}{|}\mbox{[}ƒlƒ“ƒg‚ÅØ‚è‘Ö‚¦‰Â”\textbackslash{}‚Èƒ\+Jƒƒ‰‚Ìƒ\+Nƒ‰ƒ\+X‚Å‚·B 
 
- \mbox{\hyperlink{camera_8h_source}{camera.\+h}} ã® \mbox{\hyperlink{camera_8h_source_l00008}{8}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-
-
-\doxysubsection{é–¢æ•°è©³è§£}
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_camera_a0d80a44404b91bc03be2c117d1f8185b}\label{class_camera_a0d80a44404b91bc03be2c117d1f8185b} 
 \index{Camera@{Camera}!Draw@{Draw}}
 \index{Draw@{Draw}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Camera\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Camera\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Cameraã‚¯ãƒ©ã‚¹ã®æç”»å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ 
+Cameraƒ\+Nƒ‰ƒ\+X‚Ì•\`{}‰æˆ—‚ğs‚¢‚Ü‚·B. 
 
 
 
-\mbox{\hyperlink{class_game_object_a54f25ff4076e03a40309085bcf826e53}{Game\+Object}}ã‚’å†å®Ÿè£…ã—ã¦ã„ã¾ã™ã€‚
+Reimplemented from \mbox{\hyperlink{class_game_object_a54f25ff4076e03a40309085bcf826e53}{Game\+Object}}.
 
-
-
- \mbox{\hyperlink{camera_8cpp_source}{camera.\+cpp}} ã® \mbox{\hyperlink{camera_8cpp_source_l00049}{49}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-å‘¼ã³å‡ºã—é–¢ä¿‚å›³\+:
-% FIG 2
 \Hypertarget{class_camera_a5c9fcc9af925f492033005bc3705054f}\label{class_camera_a5c9fcc9af925f492033005bc3705054f} 
 \index{Camera@{Camera}!GetViewMatrix@{GetViewMatrix}}
 \index{GetViewMatrix@{GetViewMatrix}!Camera@{Camera}}
@@ -136,124 +117,57 @@ Cameraã‚¯ãƒ©ã‚¹ã®æç”»å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
 
 
 
-ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚ 
+ƒ\+Jƒƒ‰‚Ìƒrƒ…\mbox{[}s—ñ‚ğæ“¾‚µ‚Ü‚·B 
 
-\begin{DoxyReturn}{æˆ»ã‚Šå€¤}
-ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¡Œåˆ— 
+\begin{DoxyReturn}{Returns}
+ƒ\+Jƒƒ‰‚Ìƒrƒ…\mbox{[}s—ñ 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{camera_8h_source}{camera.\+h}} ã® \mbox{\hyperlink{camera_8h_source_l00041}{41}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
 \Hypertarget{class_camera_a1543c3415858fa4773f8a69ef903366c}\label{class_camera_a1543c3415858fa4773f8a69ef903366c} 
 \index{Camera@{Camera}!Init@{Init}}
 \index{Init@{Init}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Camera\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Camera\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Cameraã‚¯ãƒ©ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã„ã¾ã™ã€‚ 
+Cameraƒ\+Nƒ‰ƒ\+X‚Ì‰Šú‰»‚ğs‚¢‚Ü‚·B. 
 
 
 
-\mbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Game\+Object}}ã‚’å†å®Ÿè£…ã—ã¦ã„ã¾ã™ã€‚
+Reimplemented from \mbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Game\+Object}}.
 
-
-
- \mbox{\hyperlink{camera_8cpp_source}{camera.\+cpp}} ã® \mbox{\hyperlink{camera_8cpp_source_l00011}{11}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-å‘¼ã³å‡ºã—é–¢ä¿‚å›³\+:
-% FIG 3
 \Hypertarget{class_camera_a4ab405d973c24462d2d6cc16b54ec971}\label{class_camera_a4ab405d973c24462d2d6cc16b54ec971} 
 \index{Camera@{Camera}!SetTarget@{SetTarget}}
 \index{SetTarget@{SetTarget}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Camera\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{target }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Camera\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{target }\end{DoxyParamCaption})}
 
 
 
-ã‚«ãƒ¡ãƒ©ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ã‚’è¨­å®šã—ã¾ã™ã€‚ 
+ƒ\+Jƒƒ‰‚Ìƒ\texorpdfstring{$^\wedge$}{\string^}\mbox{[}ƒ\+QƒbƒgÀ•\+W‚ğİ’è‚µ‚Ü‚·B 
 
 
-\begin{DoxyParams}{å¼•æ•°}
-{\em target} & ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ \\
+\begin{DoxyParams}{Parameters}
+{\em target} & ƒ\texorpdfstring{$^\wedge$}{\string^}\mbox{[}ƒ\+QƒbƒgÀ•W \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{camera_8cpp_source}{camera.\+cpp}} ã® \mbox{\hyperlink{camera_8cpp_source_l00081}{81}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-å‘¼ã³å‡ºã—é–¢ä¿‚å›³\+:
-% FIG 4
 \Hypertarget{class_camera_a4a596a3ea1fdc7d244ba4268031a360b}\label{class_camera_a4a596a3ea1fdc7d244ba4268031a360b} 
 \index{Camera@{Camera}!Update@{Update}}
 \index{Update@{Update}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object_a811dc08b79009b3af153721df972e761}{void}} Camera\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Camera\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Cameraã‚¯ãƒ©ã‚¹ã®æ›´æ–°å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ 
+Cameraƒ\+Nƒ‰ƒ\+X‚Ì\+X\+Vˆ—‚ğs‚¢‚Ü‚·B. 
 
 
 
-\mbox{\hyperlink{class_game_object_ac7ecc123dacaba955077420caabf5e64}{Game\+Object}}ã‚’å†å®Ÿè£…ã—ã¦ã„ã¾ã™ã€‚
+Reimplemented from \mbox{\hyperlink{class_game_object_ac7ecc123dacaba955077420caabf5e64}{Game\+Object}}.
 
 
 
- \mbox{\hyperlink{camera_8cpp_source}{camera.\+cpp}} ã® \mbox{\hyperlink{camera_8cpp_source_l00021}{21}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-å‘¼ã³å‡ºã—é–¢ä¿‚å›³\+:
-% FIG 5
-
-
-\doxysubsection{ãƒ¡ãƒ³ãƒè©³è§£}
-\Hypertarget{class_camera_a6be3b90e895642d3a60a68a022d5aac3}\label{class_camera_a6be3b90e895642d3a60a68a022d5aac3} 
-\index{Camera@{Camera}!m\_Foward@{m\_Foward}}
-\index{m\_Foward@{m\_Foward}!Camera@{Camera}}
-\doxysubsubsection{\texorpdfstring{m\_Foward}{m\_Foward}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Camera\+::m\+\_\+\+Foward \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-ã‚«ãƒ¡ãƒ©ã®å‰æ–¹ãƒ™ã‚¯ãƒˆãƒ« 
-
-
-
- \mbox{\hyperlink{camera_8h_source}{camera.\+h}} ã® \mbox{\hyperlink{camera_8h_source_l00013}{13}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-\Hypertarget{class_camera_adc00a8062a7765445c06e285344a32fd}\label{class_camera_adc00a8062a7765445c06e285344a32fd} 
-\index{Camera@{Camera}!m\_Target@{m\_Target}}
-\index{m\_Target@{m\_Target}!Camera@{Camera}}
-\doxysubsubsection{\texorpdfstring{m\_Target}{m\_Target}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Vector3 Camera\+::m\+\_\+\+Target \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-ã‚«ãƒ¡ãƒ©ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆåº§æ¨™ 
-
-
-
- \mbox{\hyperlink{camera_8h_source}{camera.\+h}} ã® \mbox{\hyperlink{camera_8h_source_l00011}{11}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-\Hypertarget{class_camera_a1d2ecd74dec9a1c0577f9566455d1493}\label{class_camera_a1d2ecd74dec9a1c0577f9566455d1493} 
-\index{Camera@{Camera}!m\_ViewMatrix@{m\_ViewMatrix}}
-\index{m\_ViewMatrix@{m\_ViewMatrix}!Camera@{Camera}}
-\doxysubsubsection{\texorpdfstring{m\_ViewMatrix}{m\_ViewMatrix}}
-{\footnotesize\ttfamily Direct\+X\+::\+Simple\+Math\+::\+Matrix Camera\+::m\+\_\+\+View\+Matrix \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-ã‚«ãƒ¡ãƒ©ã®ãƒ“ãƒ¥ãƒ¼è¡Œåˆ— 
-
-
-
- \mbox{\hyperlink{camera_8h_source}{camera.\+h}} ã® \mbox{\hyperlink{camera_8h_source_l00012}{12}} è¡Œç›®ã«å®šç¾©ãŒã‚ã‚Šã¾ã™ã€‚
-
-
-
-ã“ã®ã‚¯ãƒ©ã‚¹è©³è§£ã¯æ¬¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰æŠ½å‡ºã•ã‚Œã¾ã—ãŸ\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/camera.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/camera.\+cpp\end{DoxyCompactItemize}

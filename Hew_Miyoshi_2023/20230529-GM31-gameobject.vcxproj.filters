@@ -469,5 +469,8 @@
     <FxCompile Include="shader\PS_DepthWrite.hlsl">
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
+    <FxCompile Include="shader\PS_DistanceAlhpa.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

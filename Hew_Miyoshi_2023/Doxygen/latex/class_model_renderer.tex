@@ -1,107 +1,75 @@
-\doxysection{Model\+Renderer クラス}
+\doxysection{Model\+Renderer Class Reference}
 \hypertarget{class_model_renderer}{}\label{class_model_renderer}\index{ModelRenderer@{ModelRenderer}}
 
 
-モデルの描画コンポーネント  
+���f���̕\`{}��\+R���\texorpdfstring{$\vert$}{|}�\mbox{[}�l���g  
 
 
 
 
 {\ttfamily \#include $<$model\+Renderer.\+h$>$}
 
-
-
-Model\+Renderer の継承関係図
-% FIG 0
-
-
-Model\+Renderer 連携図
-% FIG 1
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Model\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}{Load}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\Hypertarget{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}\label{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04} 
+void {\bfseries Load} (const char \texorpdfstring{$\ast$}{*}File\+Name)
 \item 
-std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \mbox{\hyperlink{class_model_renderer_ad2986f451698e957af973dbecb0ed154}{Load\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\Hypertarget{class_model_renderer_ad2986f451698e957af973dbecb0ed154}\label{class_model_renderer_ad2986f451698e957af973dbecb0ed154} 
+std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ {\bfseries Load\+Vertex} (const char \texorpdfstring{$\ast$}{*}File\+Name)
 \item 
-std\+::vector$<$ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\+\_\+3D}} $>$ \mbox{\hyperlink{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}{Get\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\Hypertarget{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}\label{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b} 
+std\+::vector$<$ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\+\_\+3D}} $>$ {\bfseries Get\+Vertex} (const char \texorpdfstring{$\ast$}{*}File\+Name)
 \item 
-int \mbox{\hyperlink{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}{Get\+Index\+Num}} ()
+\Hypertarget{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}\label{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0} 
+int {\bfseries Get\+Index\+Num} ()
 \item 
 void \mbox{\hyperlink{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}{Draw}} () override
-\begin{DoxyCompactList}\small\item\em 描画関数（オーバーライド） \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\`{}��֐��i�\+I�\mbox{[}�o�\mbox{[}���\+C�h�j \end{DoxyCompactList}\item 
 \Hypertarget{class_model_renderer_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_model_renderer_a2a7f4303a0d29316167e3aa7f1e5f90a} 
 {\bfseries Component} ()=delete
 \item 
-\mbox{\hyperlink{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\Hypertarget{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f}\label{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f} 
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \end{DoxyCompactItemize}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \item 
-virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+virtual void {\bfseries Init} ()
 \item 
-virtual void \mbox{\hyperlink{class_component_ae29dc875bf4f968b80bd14ddf403717c}{Uninit}} ()
+virtual void {\bfseries Uninit} ()
 \item 
 virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{静的公開メンバ関数}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}{Preload}} (const char \texorpdfstring{$\ast$}{*}File\+Name)
+\Hypertarget{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}\label{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026} 
+static void {\bfseries Preload} (const char \texorpdfstring{$\ast$}{*}File\+Name)
 \item 
-static void \mbox{\hyperlink{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}{Unload\+All}} ()
+\Hypertarget{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}\label{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19} 
+static void {\bfseries Unload\+All} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{静的非公開メンバ関数}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_model_renderer_a466eccc102f2ed2dc3d48ea07c748788}{Load\+Model}} (const char \texorpdfstring{$\ast$}{*}File\+Name, \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*}Model)
-\item 
-static std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \mbox{\hyperlink{class_model_renderer_a3336c1d41622879aef0fa5191457f562}{Load\+Model\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name, \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*}Model)
-\item 
-static void \mbox{\hyperlink{class_model_renderer_a089610f8927176d091388cd61716371f}{Load\+Obj}} (const char \texorpdfstring{$\ast$}{*}File\+Name, \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\+\_\+\+OBJ}} \texorpdfstring{$\ast$}{*}Model\+Obj)
-\item 
-static std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ \mbox{\hyperlink{class_model_renderer_a75a4cebdb9f281d504103c1ad09f6996}{Load\+Obj\+Vertex}} (const char \texorpdfstring{$\ast$}{*}File\+Name, \mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\+\_\+\+OBJ}} \texorpdfstring{$\ast$}{*}Model\+Obj)
-\item 
-static void \mbox{\hyperlink{class_model_renderer_a2013f364a926ada17ff2964e907221d4}{Load\+Material}} (const char \texorpdfstring{$\ast$}{*}File\+Name, \mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\+\_\+\+MATERIAL}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Material\+Array, unsigned int \texorpdfstring{$\ast$}{*}Material\+Num)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_model_renderer_a31f9dc4b9fe45d11d57c031439ec4933}{m\+\_\+\+Model}} \{\}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{静的非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_model_renderer_a2ca56d36edbc02a4856639c849cb3b68}{m\+\_\+\+Model\+Pool}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{その他の継承メンバ}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Game\+Object} = nullptr
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-モデルの描画コンポーネント 
+\doxysubsection{Detailed Description}
+���f���̕\`{}��\+R���\texorpdfstring{$\vert$}{|}�\mbox{[}�l���g 
 
- \mbox{\hyperlink{model_renderer_8h_source}{model\+Renderer.\+h}} の \mbox{\hyperlink{model_renderer_8h_source_l00048}{48}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f}\label{class_model_renderer_aaa874f1577ba8f36a03983918ee3501f} 
-\index{ModelRenderer@{ModelRenderer}!Component@{Component}}
-\index{Component@{Component}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
-{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
-
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8}\label{class_model_renderer_a7f243164a2935cbfa52aab88d828b8d8} 
 \index{ModelRenderer@{ModelRenderer}!Draw@{Draw}}
 \index{Draw@{Draw}!ModelRenderer@{ModelRenderer}}
@@ -110,154 +78,15 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-描画関数（オーバーライド） 
+�\`{}��֐��i�\+I�\mbox{[}�o�\mbox{[}���\+C�h�j 
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 
 
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00016}{16}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 2
-\Hypertarget{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0}\label{class_model_renderer_a8bfa0a32a834655a0abe4355689be7b0} 
-\index{ModelRenderer@{ModelRenderer}!GetIndexNum@{GetIndexNum}}
-\index{GetIndexNum@{GetIndexNum}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{GetIndexNum()}{GetIndexNum()}}
-{\footnotesize\ttfamily int Model\+Renderer\+::\+Get\+Index\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00363}{363}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b}\label{class_model_renderer_a7cb6b60df52a3310824dab4931acb02b} 
-\index{ModelRenderer@{ModelRenderer}!GetVertex@{GetVertex}}
-\index{GetVertex@{GetVertex}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{GetVertex()}{GetVertex()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_v_e_r_t_e_x__3_d}{VERTEX\+\_\+3D}} $>$ Model\+Renderer\+::\+Get\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00113}{113}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04}\label{class_model_renderer_a46cee1ef75b44b9b9e832872523f8e04} 
-\index{ModelRenderer@{ModelRenderer}!Load@{Load}}
-\index{Load@{Load}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00082}{82}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a2013f364a926ada17ff2964e907221d4}\label{class_model_renderer_a2013f364a926ada17ff2964e907221d4} 
-\index{ModelRenderer@{ModelRenderer}!LoadMaterial@{LoadMaterial}}
-\index{LoadMaterial@{LoadMaterial}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadMaterial()}{LoadMaterial()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Load\+Material (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{\mbox{\hyperlink{struct_m_o_d_e_l___m_a_t_e_r_i_a_l}{MODEL\+\_\+\+MATERIAL}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Material\+Array,  }\item[{unsigned int \texorpdfstring{$\ast$}{*}}]{Material\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l01023}{1023}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a466eccc102f2ed2dc3d48ea07c748788}\label{class_model_renderer_a466eccc102f2ed2dc3d48ea07c748788} 
-\index{ModelRenderer@{ModelRenderer}!LoadModel@{LoadModel}}
-\index{LoadModel@{LoadModel}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadModel()}{LoadModel()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Load\+Model (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{\mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*}}]{Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00368}{368}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a3336c1d41622879aef0fa5191457f562}\label{class_model_renderer_a3336c1d41622879aef0fa5191457f562} 
-\index{ModelRenderer@{ModelRenderer}!LoadModelVertex@{LoadModelVertex}}
-\index{LoadModelVertex@{LoadModelVertex}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadModelVertex()}{LoadModelVertex()}}
-{\footnotesize\ttfamily std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ Model\+Renderer\+::\+Load\+Model\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{\mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*}}]{Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00445}{445}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a089610f8927176d091388cd61716371f}\label{class_model_renderer_a089610f8927176d091388cd61716371f} 
-\index{ModelRenderer@{ModelRenderer}!LoadObj@{LoadObj}}
-\index{LoadObj@{LoadObj}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadObj()}{LoadObj()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Load\+Obj (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\+\_\+\+OBJ}} \texorpdfstring{$\ast$}{*}}]{Model\+Obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00532}{532}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a75a4cebdb9f281d504103c1ad09f6996}\label{class_model_renderer_a75a4cebdb9f281d504103c1ad09f6996} 
-\index{ModelRenderer@{ModelRenderer}!LoadObjVertex@{LoadObjVertex}}
-\index{LoadObjVertex@{LoadObjVertex}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadObjVertex()}{LoadObjVertex()}}
-{\footnotesize\ttfamily std\+::vector$<$ Vector3 $>$ Model\+Renderer\+::\+Load\+Obj\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{\mbox{\hyperlink{struct_m_o_d_e_l___o_b_j}{MODEL\+\_\+\+OBJ}} \texorpdfstring{$\ast$}{*}}]{Model\+Obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00777}{777}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_ad2986f451698e957af973dbecb0ed154}\label{class_model_renderer_ad2986f451698e957af973dbecb0ed154} 
-\index{ModelRenderer@{ModelRenderer}!LoadVertex@{LoadVertex}}
-\index{LoadVertex@{LoadVertex}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{LoadVertex()}{LoadVertex()}}
-{\footnotesize\ttfamily std\+::vector$<$ Direct\+X\+::\+Simple\+Math\+::\+Vector3 $>$ Model\+Renderer\+::\+Load\+Vertex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00097}{97}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026}\label{class_model_renderer_a3931f0b2e449aa3d7103a2238ca4b026} 
-\index{ModelRenderer@{ModelRenderer}!Preload@{Preload}}
-\index{Preload@{Preload}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{Preload()}{Preload()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Preload (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00046}{46}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19}\label{class_model_renderer_a5b078e1d5075e126f85df9fb848eed19} 
-\index{ModelRenderer@{ModelRenderer}!UnloadAll@{UnloadAll}}
-\index{UnloadAll@{UnloadAll}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{UnloadAll()}{UnloadAll()}}
-{\footnotesize\ttfamily void Model\+Renderer\+::\+Unload\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8cpp_source}{model\+Renderer.\+cpp}} の \mbox{\hyperlink{model_renderer_8cpp_source_l00060}{60}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_model_renderer_a31f9dc4b9fe45d11d57c031439ec4933}\label{class_model_renderer_a31f9dc4b9fe45d11d57c031439ec4933} 
-\index{ModelRenderer@{ModelRenderer}!m\_Model@{m\_Model}}
-\index{m\_Model@{m\_Model}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{m\_Model}{m\_Model}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}}\texorpdfstring{$\ast$}{*} Model\+Renderer\+::m\+\_\+\+Model \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8h_source}{model\+Renderer.\+h}} の \mbox{\hyperlink{model_renderer_8h_source_l00059}{59}} 行目に定義があります。
-
-\Hypertarget{class_model_renderer_a2ca56d36edbc02a4856639c849cb3b68}\label{class_model_renderer_a2ca56d36edbc02a4856639c849cb3b68} 
-\index{ModelRenderer@{ModelRenderer}!m\_ModelPool@{m\_ModelPool}}
-\index{m\_ModelPool@{m\_ModelPool}!ModelRenderer@{ModelRenderer}}
-\doxysubsubsection{\texorpdfstring{m\_ModelPool}{m\_ModelPool}}
-{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{struct_m_o_d_e_l}{MODEL}} \texorpdfstring{$\ast$}{*} $>$ Model\+Renderer\+::m\+\_\+\+Model\+Pool\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{model_renderer_8h_source}{model\+Renderer.\+h}} の \mbox{\hyperlink{model_renderer_8h_source_l00051}{51}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/model\+Renderer.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/model\+Renderer.\+cpp\end{DoxyCompactItemize}

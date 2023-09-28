@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outer_0',['outer',['../struct_pollar.html#aef439b3369dee6e281665555daf4a638',1,'Pollar']]]
+  ['rotationangle_0',['rotationAngle',['../struct_rotation_angle.html#a4c555a84d116c72f2d67661c80c854b5',1,'RotationAngle']]]
 ];

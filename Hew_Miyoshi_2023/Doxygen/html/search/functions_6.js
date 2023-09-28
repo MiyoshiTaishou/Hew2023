@@ -8,7 +8,7 @@ var searchData=
   ['getfreeze_5',['GetFreeze',['../class_rigidbody.html#af55dae5a902f24a7f95630f169797f06',1,'Rigidbody']]],
   ['getgameobject_6',['GetGameObject',['../class_scene.html#a2aa01b36b8f6d2f6e788eac8ad4e68f5',1,'Scene']]],
   ['getgameobjects_7',['GetGameObjects',['../class_scene.html#ab4781c644abb72a230e97732dc0cfe60',1,'Scene']]],
-  ['getgamepad_8',['GetGamePad',['../class_input.html#a65aecf385262e9aabc5559291e0baaa5',1,'Input']]],
+  ['getgamepad_8',['GetGamePad',['../class_input.html#a6b27c38b9fe9364472cf91503b5f9ea1',1,'Input']]],
   ['getheight_9',['GetHeight',['../class_application.html#ae085a9a312a31aef1a977278990d5b75',1,'Application']]],
   ['getkeypress_10',['GetKeyPress',['../class_input.html#ae1d9201a8eccd85d48f1ebeb184fc55a',1,'Input']]],
   ['getkeytrigger_11',['GetKeyTrigger',['../class_input.html#a4b7fc68a93e7fcd2aa30a66d79fcaef9',1,'Input']]],

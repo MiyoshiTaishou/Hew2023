@@ -1,136 +1,75 @@
-\doxysection{Renderer クラス}
+\doxysection{Renderer Class Reference}
 \hypertarget{class_renderer}{}\label{class_renderer}\index{Renderer@{Renderer}}
 
 
-レンダラクラス  
+�����\+\_\+���\+N���X  
 
 
 
 
 {\ttfamily \#include $<$renderer.\+h$>$}
 
-
-
-Renderer 連携図
-% FIG 0
-\doxysubsubsection*{静的公開メンバ関数}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{class_renderer_adba8ec90ad83ef63fdbec75fb6617962}{Init}} (\mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}{*}ap)
-\begin{DoxyCompactList}\small\item\em レンダラの初期化 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_ae865246d6a04d467ac22458f6f5f69d4}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em レンダラの終了処理 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc}{Begin}} ()
-\begin{DoxyCompactList}\small\item\em レンダリングの開始 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}{End}} ()
-\begin{DoxyCompactList}\small\item\em レンダリングの終了 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{Set\+Depth\+Enable}} (bool Enable)
-\begin{DoxyCompactList}\small\item\em デプステストの有効/無効を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a1c8fb2187b774d9451af8e5a100960d9}{Set\+ATCEnable}} (bool Enable)
-\begin{DoxyCompactList}\small\item\em ATC (Alpha to Coverage) の有効/無効を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}{Set\+World\+View\+Projection2D}} ()
-\begin{DoxyCompactList}\small\item\em 2D描画用のワールド、ビュー、プロジェクション行列を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a9c1db215718af048709c7f0ed9412b81}{Set\+World\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}World\+Matrix)
-\begin{DoxyCompactList}\small\item\em ワールド行列を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a4f539cc63a6bed2694490af38806ec9a}{Set\+View\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}View\+Matrix)
-\begin{DoxyCompactList}\small\item\em ビュー行列を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_ad69c19abd3719199a7412972f40391bf}{Set\+Projection\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}Projection\+Matrix)
-\begin{DoxyCompactList}\small\item\em プロジェクション行列を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{Set\+Material}} (\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} Material)
-\begin{DoxyCompactList}\small\item\em マテリアルを設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a5280947836485d67cab32e71ce274296}{Set\+Light}} (\mbox{\hyperlink{struct_l_i_g_h_t}{LIGHT}} Light)
-\begin{DoxyCompactList}\small\item\em 光源情報を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}{Set\+Pollar}} (\mbox{\hyperlink{struct_pollar}{Pollar}} pol)
-\begin{DoxyCompactList}\small\item\em Pollar（円環ゲージ）情報を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a851b0f5b65140e5a14486444442a5ae1}{Set\+Fade}} (\mbox{\hyperlink{struct_fade}{Fade}} fade)
-\begin{DoxyCompactList}\small\item\em フェード情報を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{Set\+Bloom}} (\mbox{\hyperlink{struct_bloom}{Bloom}} bloom)
-\begin{DoxyCompactList}\small\item\em ブルーム情報を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{Set\+Rotation\+Angle}} (\mbox{\hyperlink{struct_rotation_angle}{Rotation\+Angle}} rot)
-\begin{DoxyCompactList}\small\item\em 回転角度情報を設定 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}{Set\+Scale\+Shader}} (\mbox{\hyperlink{struct_scale_shader}{Scale\+Shader}} scale)
-\begin{DoxyCompactList}\small\item\em スケールシェーダ情報を設定 \end{DoxyCompactList}\item 
-static ID3\+D11\+Device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Get\+Device}} (void)
-\begin{DoxyCompactList}\small\item\em デバイスオブジェクトを取得 \end{DoxyCompactList}\item 
-static ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Get\+Device\+Context}} (void)
-\begin{DoxyCompactList}\small\item\em デバイスコンテキストオブジェクトを取得 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}{Create\+Vertex\+Shader}} (ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Vertex\+Shader, ID3\+D11\+Input\+Layout \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Vertex\+Layout, const char \texorpdfstring{$\ast$}{*}File\+Name)
-\begin{DoxyCompactList}\small\item\em 頂点シェーダを生成 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_a08eee6ff7e96f132296b59b36510b658}{Create\+Pixel\+Shader}} (ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Pixel\+Shader, const char \texorpdfstring{$\ast$}{*}File\+Name)
-\begin{DoxyCompactList}\small\item\em ピクセルシェーダを生成 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}{Post\+Process}} ()
-\begin{DoxyCompactList}\small\item\em ポストプロセスを実行 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{静的非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-static D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL \mbox{\hyperlink{class_renderer_af111cc44c6ef2c9209f5102675090acf}{m\+\_\+\+Feature\+Level}} = D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL\+\_\+11\+\_\+0
-\item 
-static ID3\+D11\+Device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a21b4fd567db7406ba8752e13e23a2de8}{m\+\_\+\+Device}} \{\}
-\item 
-static ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a46ce7ec6be678f9a707db5fce100ce09}{m\+\_\+\+Device\+Context}} \{\}
-\item 
-static IDXGISwap\+Chain \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a6691bb9fab8105ca059242fbf61e90bc}{m\+\_\+\+Swap\+Chain}} \{\}
-\item 
-static ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a3affd775e990ec26b568f28b0fd932bf}{m\+\_\+\+Render\+Target\+View}} \{\}
-\item 
-static ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a20ac78b8cddb014784a1c5f5f9f310dc}{m\+\_\+\+Depth\+Stencil\+View}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a01f649d6187ae18083b80c649166b41b}{m\+\_\+\+World\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a1c89737846666dd1da5ff99bf8e37d5b}{m\+\_\+\+View\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a7e02b6dca69d0e47ffbf379146071241}{m\+\_\+\+Projection\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a121965f7c6c02fe425c2c16c18f86f41}{m\+\_\+\+Material\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a7c950072346162d7e452799bc833fb74}{m\+\_\+\+Light\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a87d125f80bbd8fb865cab8beb20daf2d}{m\+\_\+\+Pollar\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_abca1a8240668287293ea5226029a9044}{m\+\_\+\+Fade\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a3ddd45699d66317a12d074f5f2704d18}{m\+\_\+\+Bloom\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a013e20b649659b5aa37608ebea5d9c9f}{m\+\_\+\+Rotation\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a191ae07fdaee88d81dc355c3a64fe4fd}{m\+\_\+\+Scale\+Buffer}} \{\}
-\item 
-static ID3\+D11\+Depth\+Stencil\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_ae573457db72732149638ede8c777068c}{m\+\_\+\+Depth\+State\+Enable}} \{\}
-\item 
-static ID3\+D11\+Depth\+Stencil\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a7bf3c7f9e0867a66ca6efd3016326ea1}{m\+\_\+\+Depth\+State\+Disable}} \{\}
-\item 
-static ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_ad87fefd03362d0fa713f6304a840a358}{m\+\_\+\+Blend\+State}} \{\}
-\item 
-static ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a3bf017dfc054e4f6cc3bc50afe8b6a89}{m\+\_\+\+Blend\+State\+ATC}} \{\}
-\item 
-static \mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a2b64935e72317814f493ed6027a32a97}{m\+\_\+\+Application}}
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{詳解}
-レンダラクラス 
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00113}{113}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
+\begin{DoxyCompactList}\small\item\em �����\+\_\+���̏����� \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_ae865246d6a04d467ac22458f6f5f69d4}\label{class_renderer_ae865246d6a04d467ac22458f6f5f69d4} 
+static void {\bfseries Uninit} ()
+\begin{DoxyCompactList}\small\item\em �����\+\_\+���̏\+I������ \end{DoxyCompactList}\item 
 \Hypertarget{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc}\label{class_renderer_a9917266f1a9d4ef41eaa3bafc589fefc} 
-\index{Renderer@{Renderer}!Begin@{Begin}}
-\index{Begin@{Begin}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
-{\footnotesize\ttfamily void Renderer\+::\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+static void {\bfseries Begin} ()
+\begin{DoxyCompactList}\small\item\em �����\+\_\+�����\+O�̊\+J�n \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}\label{class_renderer_a461d6f05d979b22d5dcba447c525b4b0} 
+static void {\bfseries End} ()
+\begin{DoxyCompactList}\small\item\em �����\+\_\+�����\+O�̏\+I�� \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a23aedca3505a6454d71fd75e6fb0ad44}\label{class_renderer_a23aedca3505a6454d71fd75e6fb0ad44} 
+static void {\bfseries Change\+Render\+Target} ()
+\item 
+static void \mbox{\hyperlink{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}{Set\+Depth\+Enable}} (bool Enable)
+\begin{DoxyCompactList}\small\item\em �f�v�\+X�e�\+X�g�̗\+L��/������ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a1c8fb2187b774d9451af8e5a100960d9}{Set\+ATCEnable}} (bool Enable)
+\begin{DoxyCompactList}\small\item\em ATC (Alpha to Coverage) �̗\+L��/������ݒ�. \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}\label{class_renderer_a92044b276e11eb2d15b33bca4932fdcb} 
+static void {\bfseries Set\+World\+View\+Projection2D} ()
+\begin{DoxyCompactList}\small\item\em 2D�\`{}��p�̃��\mbox{[}���h�\+A�r���\mbox{[}�\+A�v���\+W�\+F�\+N�\+V�����s���ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a9c1db215718af048709c7f0ed9412b81}{Set\+World\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}World\+Matrix)
+\begin{DoxyCompactList}\small\item\em ���\mbox{[}���h�s���ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a4f539cc63a6bed2694490af38806ec9a}{Set\+View\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}View\+Matrix)
+\begin{DoxyCompactList}\small\item\em �r���\mbox{[}�s���ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_ad69c19abd3719199a7412972f40391bf}{Set\+Projection\+Matrix}} (Direct\+X\+::\+Simple\+Math\+::\+Matrix \texorpdfstring{$\ast$}{*}Projection\+Matrix)
+\begin{DoxyCompactList}\small\item\em �v���\+W�\+F�\+N�\+V�����s���ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}{Set\+Material}} (\mbox{\hyperlink{struct_m_a_t_e_r_i_a_l}{MATERIAL}} Material)
+\begin{DoxyCompactList}\small\item\em �\}�e���\+A����ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a5280947836485d67cab32e71ce274296}{Set\+Light}} (\mbox{\hyperlink{struct_l_i_g_h_t}{LIGHT}} Light)
+\begin{DoxyCompactList}\small\item\em ��������ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}{Set\+Pollar}} (\mbox{\hyperlink{struct_pollar}{Pollar}} pol)
+\begin{DoxyCompactList}\small\item\em Pollar�i�\texorpdfstring{$\sim$}{\string~}�\+Q�\mbox{[}�\+W�j����ݒ�. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a851b0f5b65140e5a14486444442a5ae1}{Set\+Fade}} (\mbox{\hyperlink{struct_fade}{Fade}} fade)
+\begin{DoxyCompactList}\small\item\em �t�\+F�\mbox{[}�h����ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a552e50362ba52ba2458fbef7b371059b}{Set\+Bloom}} (\mbox{\hyperlink{struct_bloom}{Bloom}} bloom)
+\begin{DoxyCompactList}\small\item\em �u���\mbox{[}������ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}{Set\+Rotation\+Angle}} (\mbox{\hyperlink{struct_rotation_angle}{Rotation\+Angle}} rot)
+\begin{DoxyCompactList}\small\item\em ��\mbox{]}�p�x����ݒ� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}{Set\+Scale\+Shader}} (\mbox{\hyperlink{struct_scale_shader}{Scale\+Shader}} scale)
+\begin{DoxyCompactList}\small\item\em �\+X�\+P�\mbox{[}���\+V�\+F�\mbox{[}�\+\_\+����ݒ� \end{DoxyCompactList}\item 
+static ID3\+D11\+Device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}{Get\+Device}} (void)
+\begin{DoxyCompactList}\small\item\em �f�o�\+C�\+X�\+I�u�\+W�\+F�\+N�g���擾 \end{DoxyCompactList}\item 
+static ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}{Get\+Device\+Context}} (void)
+\begin{DoxyCompactList}\small\item\em �f�o�\+C�\+X�\+R���e�\+L�\+X�g�\+I�u�\+W�\+F�\+N�g���擾 \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}{Create\+Vertex\+Shader}} (ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Vertex\+Shader, ID3\+D11\+Input\+Layout \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Vertex\+Layout, const char \texorpdfstring{$\ast$}{*}File\+Name)
+\begin{DoxyCompactList}\small\item\em ���\+\_\+�\+V�\+F�\mbox{[}�\+\_\+�𐶐� \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_renderer_a08eee6ff7e96f132296b59b36510b658}{Create\+Pixel\+Shader}} (ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Pixel\+Shader, const char \texorpdfstring{$\ast$}{*}File\+Name)
+\begin{DoxyCompactList}\small\item\em �s�\+N�\+Z���\+V�\+F�\mbox{[}�\+\_\+�𐶐� \end{DoxyCompactList}\item 
+\Hypertarget{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}\label{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069} 
+static void {\bfseries Post\+Process} ()
+\begin{DoxyCompactList}\small\item\em �\texorpdfstring{$\vert$}{|}�\+X�g�v���\+Z�\+X�����s \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+�����\+\_\+���\+N���X 
 
-レンダリングの開始 
-
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00344}{344}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 1
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_renderer_a08eee6ff7e96f132296b59b36510b658}\label{class_renderer_a08eee6ff7e96f132296b59b36510b658} 
 \index{Renderer@{Renderer}!CreatePixelShader@{CreatePixelShader}}
 \index{CreatePixelShader@{CreatePixelShader}!Renderer@{Renderer}}
@@ -139,21 +78,15 @@ static \mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}
 
 
 
-ピクセルシェーダを生成 
+�s�\+N�\+Z���\+V�\+F�\mbox{[}�\+\_\+�𐶐� 
 
 
-\begin{DoxyParams}{引数}
-{\em Pixel\+Shader} & 生成されたピクセルシェーダへのポインタを格納する変数へのポインタ \\
+\begin{DoxyParams}{Parameters}
+{\em Pixel\+Shader} & �������ꂽ�s�\+N�\+Z���\+V�\+F�\mbox{[}�\+\_\+�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^}���i�\mbox{[}����ϐ��ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
-{\em File\+Name} & シェーダファイルの名前 \\
+{\em File\+Name} & �\+V�\+F�\mbox{[}�\+\_\+�t�@�\+C���̖��O \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00536}{536}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 2
 \Hypertarget{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c}\label{class_renderer_a666f866cd6fa6c32b9e70406be8bd10c} 
 \index{Renderer@{Renderer}!CreateVertexShader@{CreateVertexShader}}
 \index{CreateVertexShader@{CreateVertexShader}!Renderer@{Renderer}}
@@ -162,39 +95,17 @@ static \mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}
 
 
 
-頂点シェーダを生成 
+���\+\_\+�\+V�\+F�\mbox{[}�\+\_\+�𐶐� 
 
 
-\begin{DoxyParams}{引数}
-{\em Vertex\+Shader} & 生成された頂点シェーダへのポインタを格納する変数へのポインタ \\
+\begin{DoxyParams}{Parameters}
+{\em Vertex\+Shader} & �������ꂽ���\+\_\+�\+V�\+F�\mbox{[}�\+\_\+�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^}���i�\mbox{[}����ϐ��ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
-{\em Vertex\+Layout} & 頂点レイアウトへのポインタを格納する変数へのポインタ \\
+{\em Vertex\+Layout} & ���\+\_\+���\+C�\+A�\+E�g�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^}���i�\mbox{[}����ϐ��ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
-{\em File\+Name} & シェーダファイルの名前 \\
+{\em File\+Name} & �\+V�\+F�\mbox{[}�\+\_\+�t�@�\+C���̖��O \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00499}{499}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 3
-\Hypertarget{class_renderer_a461d6f05d979b22d5dcba447c525b4b0}\label{class_renderer_a461d6f05d979b22d5dcba447c525b4b0} 
-\index{Renderer@{Renderer}!End@{End}}
-\index{End@{End}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{End()}{End()}}
-{\footnotesize\ttfamily void Renderer\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-レンダリングの終了 
-
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00353}{353}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 4
 \Hypertarget{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc}\label{class_renderer_a8a4db5c7c4741070e75fe73fbd5a97fc} 
 \index{Renderer@{Renderer}!GetDevice@{GetDevice}}
 \index{GetDevice@{GetDevice}!Renderer@{Renderer}}
@@ -203,17 +114,11 @@ static \mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}
 
 
 
-デバイスオブジェクトを取得 
+�f�o�\+C�\+X�\+I�u�\+W�\+F�\+N�g���擾 
 
-\begin{DoxyReturn}{戻り値}
-ID3\+D11\+Deviceオブジェクトへのポインタ 
+\begin{DoxyReturn}{Returns}
+ID3\+D11\+Device�\+I�u�\+W�\+F�\+N�g�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00241}{241}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 5
 \Hypertarget{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef}\label{class_renderer_ac642f0314dfa500d60c0fe6eae9ef4ef} 
 \index{Renderer@{Renderer}!GetDeviceContext@{GetDeviceContext}}
 \index{GetDeviceContext@{GetDeviceContext}!Renderer@{Renderer}}
@@ -222,17 +127,11 @@ ID3\+D11\+Deviceオブジェクトへのポインタ
 
 
 
-デバイスコンテキストオブジェクトを取得 
+�f�o�\+C�\+X�\+R���e�\+L�\+X�g�\+I�u�\+W�\+F�\+N�g���擾 
 
-\begin{DoxyReturn}{戻り値}
-ID3\+D11\+Device\+Contextオブジェクトへのポインタ 
+\begin{DoxyReturn}{Returns}
+ID3\+D11\+Device\+Context�\+I�u�\+W�\+F�\+N�g�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00247}{247}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 6
 \Hypertarget{class_renderer_adba8ec90ad83ef63fdbec75fb6617962}\label{class_renderer_adba8ec90ad83ef63fdbec75fb6617962} 
 \index{Renderer@{Renderer}!Init@{Init}}
 \index{Init@{Init}!Renderer@{Renderer}}
@@ -241,39 +140,13 @@ ID3\+D11\+Device\+Contextオブジェクトへのポインタ
 
 
 
-レンダラの初期化 
+�����\+\_\+���̏����� 
 
 
-\begin{DoxyParams}{引数}
-{\em ap} & Applicationクラスへのポインタ \\
+\begin{DoxyParams}{Parameters}
+{\em ap} & Application�\+N���\+X�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00038}{38}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 7
-被呼び出し関係図\+:
-% FIG 8
-\Hypertarget{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069}\label{class_renderer_ab4dc0d4899a1130b97cb9f2d68362069} 
-\index{Renderer@{Renderer}!PostProcess@{PostProcess}}
-\index{PostProcess@{PostProcess}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{PostProcess()}{PostProcess()}}
-{\footnotesize\ttfamily void Renderer\+::\+Post\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-ポストプロセスを実行 
-
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00554}{554}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 9
-被呼び出し関係図\+:
-% FIG 10
 \Hypertarget{class_renderer_a1c8fb2187b774d9451af8e5a100960d9}\label{class_renderer_a1c8fb2187b774d9451af8e5a100960d9} 
 \index{Renderer@{Renderer}!SetATCEnable@{SetATCEnable}}
 \index{SetATCEnable@{SetATCEnable}!Renderer@{Renderer}}
@@ -282,17 +155,13 @@ ID3\+D11\+Device\+Contextオブジェクトへのポインタ
 
 
 
-ATC (Alpha to Coverage) の有効/無効を設定 
+ATC (Alpha to Coverage) �̗\+L��/������ݒ�. 
 
 
-\begin{DoxyParams}{引数}
-{\em Enable} & 有効にする場合はtrue、無効にする場合はfalse \\
+\begin{DoxyParams}{Parameters}
+{\em Enable} & �\+L���ɂ���ꍇ��true�\+A�����ɂ���ꍇ��false \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00372}{372}} 行目に定義があります。
-
 \Hypertarget{class_renderer_a552e50362ba52ba2458fbef7b371059b}\label{class_renderer_a552e50362ba52ba2458fbef7b371059b} 
 \index{Renderer@{Renderer}!SetBloom@{SetBloom}}
 \index{SetBloom@{SetBloom}!Renderer@{Renderer}}
@@ -301,19 +170,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-ブルーム情報を設定 
+�u���\mbox{[}������ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em bloom} & ブルーム情報 \\
+\begin{DoxyParams}{Parameters}
+{\em bloom} & �u���\mbox{[}����� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00480}{480}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 11
 \Hypertarget{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1}\label{class_renderer_a60e50ae298b4cfbbe7df0e138eca9ce1} 
 \index{Renderer@{Renderer}!SetDepthEnable@{SetDepthEnable}}
 \index{SetDepthEnable@{SetDepthEnable}!Renderer@{Renderer}}
@@ -322,17 +185,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-デプステストの有効/無効を設定 
+�f�v�\+X�e�\+X�g�̗\+L��/������ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em Enable} & 有効にする場合はtrue、無効にする場合はfalse \\
+\begin{DoxyParams}{Parameters}
+{\em Enable} & �\+L���ɂ���ꍇ��true�\+A�����ɂ���ꍇ��false \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00361}{361}} 行目に定義があります。
-
 \Hypertarget{class_renderer_a851b0f5b65140e5a14486444442a5ae1}\label{class_renderer_a851b0f5b65140e5a14486444442a5ae1} 
 \index{Renderer@{Renderer}!SetFade@{SetFade}}
 \index{SetFade@{SetFade}!Renderer@{Renderer}}
@@ -341,19 +200,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-フェード情報を設定 
+�t�\+F�\mbox{[}�h����ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em fade} & フェード情報 \\
+\begin{DoxyParams}{Parameters}
+{\em fade} & �t�\+F�\mbox{[}�h��� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00475}{475}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 12
 \Hypertarget{class_renderer_a5280947836485d67cab32e71ce274296}\label{class_renderer_a5280947836485d67cab32e71ce274296} 
 \index{Renderer@{Renderer}!SetLight@{SetLight}}
 \index{SetLight@{SetLight}!Renderer@{Renderer}}
@@ -362,19 +215,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-光源情報を設定 
+��������ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em Light} & 光源情報 \\
+\begin{DoxyParams}{Parameters}
+{\em Light} & ������� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00465}{465}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 13
 \Hypertarget{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7}\label{class_renderer_a31420e0b83fe3ae5106c68c00a7bc1a7} 
 \index{Renderer@{Renderer}!SetMaterial@{SetMaterial}}
 \index{SetMaterial@{SetMaterial}!Renderer@{Renderer}}
@@ -383,19 +230,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-マテリアルを設定 
+�\}�e���\+A����ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em Material} & マテリアル情報 \\
+\begin{DoxyParams}{Parameters}
+{\em Material} & �\}�e���\+A����� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00460}{460}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 14
 \Hypertarget{class_renderer_a37bf91b44a6ed121ce66a8530532ada3}\label{class_renderer_a37bf91b44a6ed121ce66a8530532ada3} 
 \index{Renderer@{Renderer}!SetPollar@{SetPollar}}
 \index{SetPollar@{SetPollar}!Renderer@{Renderer}}
@@ -404,19 +245,13 @@ ATC (Alpha to Coverage) の有効/無効を設定
 
 
 
-Pollar（円環ゲージ）情報を設定 
+Pollar�i�\texorpdfstring{$\sim$}{\string~}�\+Q�\mbox{[}�\+W�j����ݒ�. 
 
 
-\begin{DoxyParams}{引数}
-{\em pol} & Pollar情報 \\
+\begin{DoxyParams}{Parameters}
+{\em pol} & Pollar��� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00470}{470}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 15
 \Hypertarget{class_renderer_ad69c19abd3719199a7412972f40391bf}\label{class_renderer_ad69c19abd3719199a7412972f40391bf} 
 \index{Renderer@{Renderer}!SetProjectionMatrix@{SetProjectionMatrix}}
 \index{SetProjectionMatrix@{SetProjectionMatrix}!Renderer@{Renderer}}
@@ -425,19 +260,13 @@ Pollar（円環ゲージ）情報を設定
 
 
 
-プロジェクション行列を設定 
+�v���\+W�\+F�\+N�\+V�����s���ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em Projection\+Matrix} & プロジェクション行列 \\
+\begin{DoxyParams}{Parameters}
+{\em Projection\+Matrix} & �v���\+W�\+F�\+N�\+V�����s�� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00450}{450}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 16
 \Hypertarget{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b}\label{class_renderer_a38b88173e3a9931860dd95ebabbe0c3b} 
 \index{Renderer@{Renderer}!SetRotationAngle@{SetRotationAngle}}
 \index{SetRotationAngle@{SetRotationAngle}!Renderer@{Renderer}}
@@ -446,19 +275,13 @@ Pollar（円環ゲージ）情報を設定
 
 
 
-回転角度情報を設定 
+��\mbox{]}�p�x����ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em rot} & 回転角度情報 \\
+\begin{DoxyParams}{Parameters}
+{\em rot} & ��\mbox{]}�p�x��� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00485}{485}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 17
 \Hypertarget{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397}\label{class_renderer_a5f22e7a2c0a799ee751372a5aba5c397} 
 \index{Renderer@{Renderer}!SetScaleShader@{SetScaleShader}}
 \index{SetScaleShader@{SetScaleShader}!Renderer@{Renderer}}
@@ -467,19 +290,13 @@ Pollar（円環ゲージ）情報を設定
 
 
 
-スケールシェーダ情報を設定 
+�\+X�\+P�\mbox{[}���\+V�\+F�\mbox{[}�\+\_\+����ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em scale} & スケールシェーダ情報 \\
+\begin{DoxyParams}{Parameters}
+{\em scale} & �\+X�\+P�\mbox{[}���\+V�\+F�\mbox{[}�\+\_\+��� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00490}{490}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 18
 \Hypertarget{class_renderer_a4f539cc63a6bed2694490af38806ec9a}\label{class_renderer_a4f539cc63a6bed2694490af38806ec9a} 
 \index{Renderer@{Renderer}!SetViewMatrix@{SetViewMatrix}}
 \index{SetViewMatrix@{SetViewMatrix}!Renderer@{Renderer}}
@@ -488,19 +305,13 @@ Pollar（円環ゲージ）情報を設定
 
 
 
-ビュー行列を設定 
+�r���\mbox{[}�s���ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em View\+Matrix} & ビュー行列 \\
+\begin{DoxyParams}{Parameters}
+{\em View\+Matrix} & �r���\mbox{[}�s�� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00442}{442}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 19
 \Hypertarget{class_renderer_a9c1db215718af048709c7f0ed9412b81}\label{class_renderer_a9c1db215718af048709c7f0ed9412b81} 
 \index{Renderer@{Renderer}!SetWorldMatrix@{SetWorldMatrix}}
 \index{SetWorldMatrix@{SetWorldMatrix}!Renderer@{Renderer}}
@@ -509,267 +320,16 @@ Pollar（円環ゲージ）情報を設定
 
 
 
-ワールド行列を設定 
+���\mbox{[}���h�s���ݒ� 
 
 
-\begin{DoxyParams}{引数}
-{\em World\+Matrix} & ワールド行列 \\
+\begin{DoxyParams}{Parameters}
+{\em World\+Matrix} & ���\mbox{[}���h�s�� \\
 \hline
 \end{DoxyParams}
 
 
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00434}{434}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 20
-\Hypertarget{class_renderer_a92044b276e11eb2d15b33bca4932fdcb}\label{class_renderer_a92044b276e11eb2d15b33bca4932fdcb} 
-\index{Renderer@{Renderer}!SetWorldViewProjection2D@{SetWorldViewProjection2D}}
-\index{SetWorldViewProjection2D@{SetWorldViewProjection2D}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{SetWorldViewProjection2D()}{SetWorldViewProjection2D()}}
-{\footnotesize\ttfamily void Renderer\+::\+Set\+World\+View\+Projection2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-2D描画用のワールド、ビュー、プロジェクション行列を設定 
-
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00383}{383}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 21
-被呼び出し関係図\+:
-% FIG 22
-\Hypertarget{class_renderer_ae865246d6a04d467ac22458f6f5f69d4}\label{class_renderer_ae865246d6a04d467ac22458f6f5f69d4} 
-\index{Renderer@{Renderer}!Uninit@{Uninit}}
-\index{Uninit@{Uninit}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
-{\footnotesize\ttfamily void Renderer\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-レンダラの終了処理 
-
-
-
- \mbox{\hyperlink{renderer_8cpp_source}{renderer.\+cpp}} の \mbox{\hyperlink{renderer_8cpp_source_l00320}{320}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_renderer_a2b64935e72317814f493ed6027a32a97}\label{class_renderer_a2b64935e72317814f493ed6027a32a97} 
-\index{Renderer@{Renderer}!m\_Application@{m\_Application}}
-\index{m\_Application@{m\_Application}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_Application}{m\_Application}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Application\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00136}{136}} 行目に定義があります。
-
-\Hypertarget{class_renderer_ad87fefd03362d0fa713f6304a840a358}\label{class_renderer_ad87fefd03362d0fa713f6304a840a358} 
-\index{Renderer@{Renderer}!m\_BlendState@{m\_BlendState}}
-\index{m\_BlendState@{m\_BlendState}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_BlendState}{m\_BlendState}}
-{\footnotesize\ttfamily ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Blend\+State \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00032}{32}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a3bf017dfc054e4f6cc3bc50afe8b6a89}\label{class_renderer_a3bf017dfc054e4f6cc3bc50afe8b6a89} 
-\index{Renderer@{Renderer}!m\_BlendStateATC@{m\_BlendStateATC}}
-\index{m\_BlendStateATC@{m\_BlendStateATC}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_BlendStateATC}{m\_BlendStateATC}}
-{\footnotesize\ttfamily ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Blend\+State\+ATC \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00033}{33}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a3ddd45699d66317a12d074f5f2704d18}\label{class_renderer_a3ddd45699d66317a12d074f5f2704d18} 
-\index{Renderer@{Renderer}!m\_BloomBuffer@{m\_BloomBuffer}}
-\index{m\_BloomBuffer@{m\_BloomBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_BloomBuffer}{m\_BloomBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Bloom\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00023}{23}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a7bf3c7f9e0867a66ca6efd3016326ea1}\label{class_renderer_a7bf3c7f9e0867a66ca6efd3016326ea1} 
-\index{Renderer@{Renderer}!m\_DepthStateDisable@{m\_DepthStateDisable}}
-\index{m\_DepthStateDisable@{m\_DepthStateDisable}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_DepthStateDisable}{m\_DepthStateDisable}}
-{\footnotesize\ttfamily ID3\+D11\+Depth\+Stencil\+State \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Depth\+State\+Disable \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00029}{29}} 行目に定義があります。
-
-\Hypertarget{class_renderer_ae573457db72732149638ede8c777068c}\label{class_renderer_ae573457db72732149638ede8c777068c} 
-\index{Renderer@{Renderer}!m\_DepthStateEnable@{m\_DepthStateEnable}}
-\index{m\_DepthStateEnable@{m\_DepthStateEnable}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_DepthStateEnable}{m\_DepthStateEnable}}
-{\footnotesize\ttfamily ID3\+D11\+Depth\+Stencil\+State \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Depth\+State\+Enable \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00028}{28}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a20ac78b8cddb014784a1c5f5f9f310dc}\label{class_renderer_a20ac78b8cddb014784a1c5f5f9f310dc} 
-\index{Renderer@{Renderer}!m\_DepthStencilView@{m\_DepthStencilView}}
-\index{m\_DepthStencilView@{m\_DepthStencilView}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_DepthStencilView}{m\_DepthStencilView}}
-{\footnotesize\ttfamily ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Depth\+Stencil\+View \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00014}{14}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a21b4fd567db7406ba8752e13e23a2de8}\label{class_renderer_a21b4fd567db7406ba8752e13e23a2de8} 
-\index{Renderer@{Renderer}!m\_Device@{m\_Device}}
-\index{m\_Device@{m\_Device}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_Device}{m\_Device}}
-{\footnotesize\ttfamily ID3\+D11\+Device \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Device \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00010}{10}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a46ce7ec6be678f9a707db5fce100ce09}\label{class_renderer_a46ce7ec6be678f9a707db5fce100ce09} 
-\index{Renderer@{Renderer}!m\_DeviceContext@{m\_DeviceContext}}
-\index{m\_DeviceContext@{m\_DeviceContext}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_DeviceContext}{m\_DeviceContext}}
-{\footnotesize\ttfamily ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Device\+Context \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00011}{11}} 行目に定義があります。
-
-\Hypertarget{class_renderer_abca1a8240668287293ea5226029a9044}\label{class_renderer_abca1a8240668287293ea5226029a9044} 
-\index{Renderer@{Renderer}!m\_FadeBuffer@{m\_FadeBuffer}}
-\index{m\_FadeBuffer@{m\_FadeBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_FadeBuffer}{m\_FadeBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Fade\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00022}{22}} 行目に定義があります。
-
-\Hypertarget{class_renderer_af111cc44c6ef2c9209f5102675090acf}\label{class_renderer_af111cc44c6ef2c9209f5102675090acf} 
-\index{Renderer@{Renderer}!m\_FeatureLevel@{m\_FeatureLevel}}
-\index{m\_FeatureLevel@{m\_FeatureLevel}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_FeatureLevel}{m\_FeatureLevel}}
-{\footnotesize\ttfamily D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL Renderer\+::m\+\_\+\+Feature\+Level = D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL\+\_\+11\+\_\+0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00116}{116}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a7c950072346162d7e452799bc833fb74}\label{class_renderer_a7c950072346162d7e452799bc833fb74} 
-\index{Renderer@{Renderer}!m\_LightBuffer@{m\_LightBuffer}}
-\index{m\_LightBuffer@{m\_LightBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_LightBuffer}{m\_LightBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Light\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00020}{20}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a121965f7c6c02fe425c2c16c18f86f41}\label{class_renderer_a121965f7c6c02fe425c2c16c18f86f41} 
-\index{Renderer@{Renderer}!m\_MaterialBuffer@{m\_MaterialBuffer}}
-\index{m\_MaterialBuffer@{m\_MaterialBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_MaterialBuffer}{m\_MaterialBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Material\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00019}{19}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a87d125f80bbd8fb865cab8beb20daf2d}\label{class_renderer_a87d125f80bbd8fb865cab8beb20daf2d} 
-\index{Renderer@{Renderer}!m\_PollarBuffer@{m\_PollarBuffer}}
-\index{m\_PollarBuffer@{m\_PollarBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_PollarBuffer}{m\_PollarBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Pollar\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00021}{21}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a7e02b6dca69d0e47ffbf379146071241}\label{class_renderer_a7e02b6dca69d0e47ffbf379146071241} 
-\index{Renderer@{Renderer}!m\_ProjectionBuffer@{m\_ProjectionBuffer}}
-\index{m\_ProjectionBuffer@{m\_ProjectionBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_ProjectionBuffer}{m\_ProjectionBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Projection\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00018}{18}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a3affd775e990ec26b568f28b0fd932bf}\label{class_renderer_a3affd775e990ec26b568f28b0fd932bf} 
-\index{Renderer@{Renderer}!m\_RenderTargetView@{m\_RenderTargetView}}
-\index{m\_RenderTargetView@{m\_RenderTargetView}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_RenderTargetView}{m\_RenderTargetView}}
-{\footnotesize\ttfamily ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Render\+Target\+View \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00013}{13}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a013e20b649659b5aa37608ebea5d9c9f}\label{class_renderer_a013e20b649659b5aa37608ebea5d9c9f} 
-\index{Renderer@{Renderer}!m\_RotationBuffer@{m\_RotationBuffer}}
-\index{m\_RotationBuffer@{m\_RotationBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_RotationBuffer}{m\_RotationBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Rotation\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00024}{24}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a191ae07fdaee88d81dc355c3a64fe4fd}\label{class_renderer_a191ae07fdaee88d81dc355c3a64fe4fd} 
-\index{Renderer@{Renderer}!m\_ScaleBuffer@{m\_ScaleBuffer}}
-\index{m\_ScaleBuffer@{m\_ScaleBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_ScaleBuffer}{m\_ScaleBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Scale\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00025}{25}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a6691bb9fab8105ca059242fbf61e90bc}\label{class_renderer_a6691bb9fab8105ca059242fbf61e90bc} 
-\index{Renderer@{Renderer}!m\_SwapChain@{m\_SwapChain}}
-\index{m\_SwapChain@{m\_SwapChain}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_SwapChain}{m\_SwapChain}}
-{\footnotesize\ttfamily IDXGISwap\+Chain \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+Swap\+Chain \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00012}{12}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a1c89737846666dd1da5ff99bf8e37d5b}\label{class_renderer_a1c89737846666dd1da5ff99bf8e37d5b} 
-\index{Renderer@{Renderer}!m\_ViewBuffer@{m\_ViewBuffer}}
-\index{m\_ViewBuffer@{m\_ViewBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_ViewBuffer}{m\_ViewBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+View\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00017}{17}} 行目に定義があります。
-
-\Hypertarget{class_renderer_a01f649d6187ae18083b80c649166b41b}\label{class_renderer_a01f649d6187ae18083b80c649166b41b} 
-\index{Renderer@{Renderer}!m\_WorldBuffer@{m\_WorldBuffer}}
-\index{m\_WorldBuffer@{m\_WorldBuffer}!Renderer@{Renderer}}
-\doxysubsubsection{\texorpdfstring{m\_WorldBuffer}{m\_WorldBuffer}}
-{\footnotesize\ttfamily ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} Renderer\+::m\+\_\+\+World\+Buffer \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{renderer_8h_source}{renderer.\+h}} の \mbox{\hyperlink{renderer_8h_source_l00016}{16}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/renderer.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/renderer.\+cpp\end{DoxyCompactItemize}

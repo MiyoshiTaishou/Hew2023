@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefgijlmnoprstuvw~",
-  1: "abcdefgijlmoprstv",
-  2: "abcdefgimprstuw~",
-  3: "abcdefgijlmnoprstvw",
+  0: "abcdefghijlmnoprstuv~",
+  1: "abcdefghijlmoprstv",
+  2: "abcdefgiprsu~",
+  3: "abcdegilmnoprst",
   4: "s",
   5: "fios"
 };
@@ -20,11 +20,11 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "全て",
-  1: "クラス",
-  2: "関数",
-  3: "変数",
-  4: "列挙型",
-  5: "列挙値"
+  0: "All",
+  1: "Classes",
+  2: "Functions",
+  3: "Variables",
+  4: "Enumerations",
+  5: "Enumerator"
 };
 
