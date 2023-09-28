@@ -2,52 +2,54 @@
 \hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Player.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Player.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SimpleMath.h>}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}GamePad.h"{}}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00011}\mbox{\hyperlink{class_player}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00012}00012\ \{}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a4eaaeb9d0967fef59baac319b9cc8d60}{Init}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}{Draw}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00032}\mbox{\hyperlink{class_player_a8f8192dc84502ed7913ef41eb0b6136b}{00032}}\ \ \ \ \ DirectX::GamePad::State\ \mbox{\hyperlink{class_player_a8f8192dc84502ed7913ef41eb0b6136b}{buttonState}};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00034}00034\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00038}\mbox{\hyperlink{class_player_af0a8e24853f0961f2d1d1a9d3acfd140}{00038}}\ \ \ \ \ DirectX::SimpleMath::Vector3\ \mbox{\hyperlink{class_player_af0a8e24853f0961f2d1d1a9d3acfd140}{m\_Velocity}}\{\};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00043}\mbox{\hyperlink{class_player_a76594a5e55e2a7ffe6abdbaedd721cfd}{00043}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ \mbox{\hyperlink{class_player_a76594a5e55e2a7ffe6abdbaedd721cfd}{m\_SE}}\{\};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00048}\mbox{\hyperlink{class_player_a6d110d9a223989610f9c72ec5016af0b}{00048}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ \mbox{\hyperlink{class_player_a6d110d9a223989610f9c72ec5016af0b}{m\_MeatSE}}\{\};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00049}00049\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00053}\mbox{\hyperlink{class_player_ad482cb9f89d44cb47f93d72594aab2ea}{00053}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ \mbox{\hyperlink{class_player_ad482cb9f89d44cb47f93d72594aab2ea}{m\_MeatSE2}}\{\};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00058}\mbox{\hyperlink{class_player_a6311f6ae33fec7b2e2f988efa89c4f07}{00058}}\ \ \ \ \ std::list<GameObject*>\ \mbox{\hyperlink{class_player_a6311f6ae33fec7b2e2f988efa89c4f07}{m\_Children}};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00063}\mbox{\hyperlink{class_player_aaa96939b28d707d36e37e7913aa71679}{00063}}\ \ \ \ \ \mbox{\hyperlink{class_game_object}{GameObject}}*\ \mbox{\hyperlink{class_player_aaa96939b28d707d36e37e7913aa71679}{mchild}};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00068}\mbox{\hyperlink{class_player_a025ba1cbee14dbfa1aadf6f3b93b7829}{00068}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a025ba1cbee14dbfa1aadf6f3b93b7829}{m\_Size}};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00073}\mbox{\hyperlink{class_player_abb93a2460ca509dfc9cac9913726c65a}{00073}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_abb93a2460ca509dfc9cac9913726c65a}{loopCount}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00078}\mbox{\hyperlink{class_player_aef49b88352ac25d9db9d3dd9e0e74233}{00078}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_aef49b88352ac25d9db9d3dd9e0e74233}{reception}}\ =\ 60;}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00083}\mbox{\hyperlink{class_player_a3a7bbc17ba957f2e3dabdc921e7db6c8}{00083}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_a3a7bbc17ba957f2e3dabdc921e7db6c8}{actionCount}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00088}\mbox{\hyperlink{class_player_acc51994162712b7a3d6962048d6f0a5f}{00088}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_acc51994162712b7a3d6962048d6f0a5f}{actionDashu}}\ =\ 5;}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00093}\mbox{\hyperlink{class_player_a6e98059e063e807ef0813d8f6941dbfe}{00093}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a6e98059e063e807ef0813d8f6941dbfe}{actionCheck}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00094}00094\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00098}\mbox{\hyperlink{class_player_a81ea8d4f4b997bee0e2a5d118977f914}{00098}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a81ea8d4f4b997bee0e2a5d118977f914}{wallUp}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00099}00099\ }
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00103}\mbox{\hyperlink{class_player_a0a9078c163ddc74cfe2139b8a6e55945}{00103}}\ \ \ \ \ std::vector<DirectX::SimpleMath::Vector3>\ \mbox{\hyperlink{class_player_a0a9078c163ddc74cfe2139b8a6e55945}{m\_VertexPos}};}
-\DoxyCodeLine{\Hypertarget{_player_8h_source_l00104}00104\ \};}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SimpleMath.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GamePad.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a4eaaeb9d0967fef59baac319b9cc8d60}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}{Draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a5bf06ae74b8a95b65fc5e85731059c77}{ConInput}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ DirectX::GamePad::State\ \mbox{\hyperlink{class_player_a8f8192dc84502ed7913ef41eb0b6136b}{buttonState}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ DirectX::SimpleMath::Vector3\ m\_Velocity\{\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_SE\{\};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_MeatSE\{\};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio}{Audio}}*\ m\_MeatSE2\{\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::list<GameObject*>\ m\_Children;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_game_object}{GameObject}}*\ mchild;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Size;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ loopCount\ =\ 0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ reception\ =\ 60;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ actionCount\ =\ 0;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ actionDashu\ =\ 5;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ actionCheck\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{bool}\ wallUp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<DirectX::SimpleMath::Vector3>\ m\_VertexPos;}
+\DoxyCodeLine{00109\ \};}
 
 \end{DoxyCode}

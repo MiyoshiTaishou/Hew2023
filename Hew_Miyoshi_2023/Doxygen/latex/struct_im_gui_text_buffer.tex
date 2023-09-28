@@ -1,203 +1,56 @@
-\doxysection{Im\+Gui\+Text\+Buffer 構造体}
+\doxysection{Im\+Gui\+Text\+Buffer Struct Reference}
 \hypertarget{struct_im_gui_text_buffer}{}\label{struct_im_gui_text_buffer}\index{ImGuiTextBuffer@{ImGuiTextBuffer}}
-
-
-Im\+Gui\+Text\+Buffer 連携図
-% FIG 0
-\doxysubsubsection*{公開メンバ関数}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-char \mbox{\hyperlink{struct_im_gui_text_buffer_a13748a5db12eb77d716d0347a552b310}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
-\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_gui_text_buffer_ad971435d81bc0b957cdb59f5d58eaacd}{begin}} () const
-\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_gui_text_buffer_a5c911f7c2374237b1befb2bf6ba74565}{end}} () const
-\item 
-int \mbox{\hyperlink{struct_im_gui_text_buffer_a2811fcd43e0224eb3bd0f3464b634289}{size}} () const
-\item 
-bool \mbox{\hyperlink{struct_im_gui_text_buffer_affd606443a661cd0fcce0d381bc8cf98}{empty}} () const
-\item 
-void \mbox{\hyperlink{struct_im_gui_text_buffer_a9e4edc9f950bc9e35d5c3b3071dbc0df}{clear}} ()
-\item 
-void \mbox{\hyperlink{struct_im_gui_text_buffer_a3271f361e0f1997f4c3eb77665fdf161}{reserve}} (int capacity)
-\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_im_gui_text_buffer_ac78a076eb21b9c4ec532eb5109c84a64}{c\+\_\+str}} () const
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_text_buffer_a9101840866a9e5408ea1e25a779a40dc}{append}} (const char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}str\+\_\+end=NULL)
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_text_buffer_a1c5892db030c5364823793f472754c9e}{appendf}} (const char \texorpdfstring{$\ast$}{*}fmt,...) IM\+\_\+\+FMTARGS(2)
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_text_buffer_ac8a6b11834c4cee8113bf6950e66112e}{appendfv}} (const char \texorpdfstring{$\ast$}{*}fmt, va\+\_\+list args) IM\+\_\+\+FMTLIST(2)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ char $>$ \mbox{\hyperlink{struct_im_gui_text_buffer_aa6de034b1920cdae5505cc58abf14240}{Buf}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{静的公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-static IMGUI\+\_\+\+API char \mbox{\hyperlink{struct_im_gui_text_buffer_a471f810a368ec5f4a8ee12c407330c35}{Empty\+String}} \mbox{[}1\mbox{]} = \{ 0 \}
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02215}{2215}} 行目に定義があります。
-
-
-
-\doxysubsection{構築子と解体子}
-\Hypertarget{struct_im_gui_text_buffer_a4c4369c5e65f591554428b947c498d0d}\label{struct_im_gui_text_buffer_a4c4369c5e65f591554428b947c498d0d} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{ImGuiTextBuffer()}{ImGuiTextBuffer()}}
-{\footnotesize\ttfamily Im\+Gui\+Text\+Buffer\+::\+Im\+Gui\+Text\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02220}{2220}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{struct_im_gui_text_buffer_a9101840866a9e5408ea1e25a779a40dc}\label{struct_im_gui_text_buffer_a9101840866a9e5408ea1e25a779a40dc} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!append@{append}}
-\index{append@{append}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{append()}{append()}}
-{\footnotesize\ttfamily void Im\+Gui\+Text\+Buffer\+::append (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str\+\_\+end = {\ttfamily NULL} }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}} の \mbox{\hyperlink{imgui_8cpp_source_l02531}{2531}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_a1c5892db030c5364823793f472754c9e}\label{struct_im_gui_text_buffer_a1c5892db030c5364823793f472754c9e} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!appendf@{appendf}}
-\index{appendf@{appendf}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{appendf()}{appendf()}}
-{\footnotesize\ttfamily void Im\+Gui\+Text\+Buffer\+::appendf (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}} の \mbox{\hyperlink{imgui_8cpp_source_l02549}{2549}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_ac8a6b11834c4cee8113bf6950e66112e}\label{struct_im_gui_text_buffer_ac8a6b11834c4cee8113bf6950e66112e} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!appendfv@{appendfv}}
-\index{appendfv@{appendfv}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{appendfv()}{appendfv()}}
-{\footnotesize\ttfamily void Im\+Gui\+Text\+Buffer\+::appendfv (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}} の \mbox{\hyperlink{imgui_8cpp_source_l02558}{2558}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_ad971435d81bc0b957cdb59f5d58eaacd}\label{struct_im_gui_text_buffer_ad971435d81bc0b957cdb59f5d58eaacd} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!begin@{begin}}
-\index{begin@{begin}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} Im\+Gui\+Text\+Buffer\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02222}{2222}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_ac78a076eb21b9c4ec532eb5109c84a64}\label{struct_im_gui_text_buffer_ac78a076eb21b9c4ec532eb5109c84a64} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!c\_str@{c\_str}}
-\index{c\_str@{c\_str}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{c\_str()}{c\_str()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} Im\+Gui\+Text\+Buffer\+::c\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02228}{2228}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_a9e4edc9f950bc9e35d5c3b3071dbc0df}\label{struct_im_gui_text_buffer_a9e4edc9f950bc9e35d5c3b3071dbc0df} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!clear@{clear}}
-\index{clear@{clear}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
-{\footnotesize\ttfamily void Im\+Gui\+Text\+Buffer\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02226}{2226}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_affd606443a661cd0fcce0d381bc8cf98}\label{struct_im_gui_text_buffer_affd606443a661cd0fcce0d381bc8cf98} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!empty@{empty}}
-\index{empty@{empty}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
-{\footnotesize\ttfamily bool Im\+Gui\+Text\+Buffer\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02225}{2225}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_a5c911f7c2374237b1befb2bf6ba74565}\label{struct_im_gui_text_buffer_a5c911f7c2374237b1befb2bf6ba74565} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!end@{end}}
-\index{end@{end}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{end()}{end()}}
-{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} Im\+Gui\+Text\+Buffer\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02223}{2223}} 行目に定義があります。
-
 \Hypertarget{struct_im_gui_text_buffer_a13748a5db12eb77d716d0347a552b310}\label{struct_im_gui_text_buffer_a13748a5db12eb77d716d0347a552b310} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!operator\mbox{[}\mbox{]}@{operator[]}}
-\index{operator\mbox{[}\mbox{]}@{operator[]}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
-{\footnotesize\ttfamily char Im\+Gui\+Text\+Buffer\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02221}{2221}} 行目に定義があります。
-
-\Hypertarget{struct_im_gui_text_buffer_a3271f361e0f1997f4c3eb77665fdf161}\label{struct_im_gui_text_buffer_a3271f361e0f1997f4c3eb77665fdf161} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!reserve@{reserve}}
-\index{reserve@{reserve}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
-{\footnotesize\ttfamily void Im\+Gui\+Text\+Buffer\+::reserve (\begin{DoxyParamCaption}\item[{int}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02227}{2227}} 行目に定義があります。
-
+char {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i) const
+\item 
+\Hypertarget{struct_im_gui_text_buffer_ad971435d81bc0b957cdb59f5d58eaacd}\label{struct_im_gui_text_buffer_ad971435d81bc0b957cdb59f5d58eaacd} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries begin} () const
+\item 
+\Hypertarget{struct_im_gui_text_buffer_a5c911f7c2374237b1befb2bf6ba74565}\label{struct_im_gui_text_buffer_a5c911f7c2374237b1befb2bf6ba74565} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries end} () const
+\item 
 \Hypertarget{struct_im_gui_text_buffer_a2811fcd43e0224eb3bd0f3464b634289}\label{struct_im_gui_text_buffer_a2811fcd43e0224eb3bd0f3464b634289} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!size@{size}}
-\index{size@{size}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{size()}{size()}}
-{\footnotesize\ttfamily int Im\+Gui\+Text\+Buffer\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02224}{2224}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
+int {\bfseries size} () const
+\item 
+\Hypertarget{struct_im_gui_text_buffer_affd606443a661cd0fcce0d381bc8cf98}\label{struct_im_gui_text_buffer_affd606443a661cd0fcce0d381bc8cf98} 
+bool {\bfseries empty} () const
+\item 
+\Hypertarget{struct_im_gui_text_buffer_a9e4edc9f950bc9e35d5c3b3071dbc0df}\label{struct_im_gui_text_buffer_a9e4edc9f950bc9e35d5c3b3071dbc0df} 
+void {\bfseries clear} ()
+\item 
+\Hypertarget{struct_im_gui_text_buffer_a3271f361e0f1997f4c3eb77665fdf161}\label{struct_im_gui_text_buffer_a3271f361e0f1997f4c3eb77665fdf161} 
+void {\bfseries reserve} (int capacity)
+\item 
+\Hypertarget{struct_im_gui_text_buffer_ac78a076eb21b9c4ec532eb5109c84a64}\label{struct_im_gui_text_buffer_ac78a076eb21b9c4ec532eb5109c84a64} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries c\+\_\+str} () const
+\item 
+\Hypertarget{struct_im_gui_text_buffer_a9101840866a9e5408ea1e25a779a40dc}\label{struct_im_gui_text_buffer_a9101840866a9e5408ea1e25a779a40dc} 
+IMGUI\+\_\+\+API void {\bfseries append} (const char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}str\+\_\+end=NULL)
+\item 
+\Hypertarget{struct_im_gui_text_buffer_a1c5892db030c5364823793f472754c9e}\label{struct_im_gui_text_buffer_a1c5892db030c5364823793f472754c9e} 
+IMGUI\+\_\+\+API void {\bfseries appendf} (const char \texorpdfstring{$\ast$}{*}fmt,...) IM\+\_\+\+FMTARGS(2)
+\item 
+\Hypertarget{struct_im_gui_text_buffer_ac8a6b11834c4cee8113bf6950e66112e}\label{struct_im_gui_text_buffer_ac8a6b11834c4cee8113bf6950e66112e} 
+IMGUI\+\_\+\+API void {\bfseries appendfv} (const char \texorpdfstring{$\ast$}{*}fmt, va\+\_\+list args) IM\+\_\+\+FMTLIST(2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
 \Hypertarget{struct_im_gui_text_buffer_aa6de034b1920cdae5505cc58abf14240}\label{struct_im_gui_text_buffer_aa6de034b1920cdae5505cc58abf14240} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!Buf@{Buf}}
-\index{Buf@{Buf}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{Buf}{Buf}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$char$>$ Im\+Gui\+Text\+Buffer\+::\+Buf}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02217}{2217}} 行目に定義があります。
-
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ char $>$ {\bfseries Buf}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
 \Hypertarget{struct_im_gui_text_buffer_a471f810a368ec5f4a8ee12c407330c35}\label{struct_im_gui_text_buffer_a471f810a368ec5f4a8ee12c407330c35} 
-\index{ImGuiTextBuffer@{ImGuiTextBuffer}!EmptyString@{EmptyString}}
-\index{EmptyString@{EmptyString}!ImGuiTextBuffer@{ImGuiTextBuffer}}
-\doxysubsubsection{\texorpdfstring{EmptyString}{EmptyString}}
-{\footnotesize\ttfamily char Im\+Gui\+Text\+Buffer\+::\+Empty\+String = \{ 0 \}\hspace{0.3cm}{\ttfamily [static]}}
+static IMGUI\+\_\+\+API char {\bfseries Empty\+String} \mbox{[}1\mbox{]} = \{ 0 \}
+\end{DoxyCompactItemize}
 
 
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02529}{2529}} 行目に定義があります。
-
-
-
-この構造体詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui.\+cpp\end{DoxyCompactItemize}

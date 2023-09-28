@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inner_0',['inner',['../struct_pollar.html#aeb4951ff4ab892647085824b5eeb25f2',1,'Pollar']]]
+  ['lostcolor_0',['lostColor',['../struct_pollar.html#a8213d35c2ffce2d5717c675ee077c399',1,'Pollar']]]
 ];

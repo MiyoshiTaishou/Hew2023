@@ -11,7 +11,7 @@ var searchData=
   ['getfreeze_8',['GetFreeze',['../class_rigidbody.html#af55dae5a902f24a7f95630f169797f06',1,'Rigidbody']]],
   ['getgameobject_9',['GetGameObject',['../class_scene.html#a2aa01b36b8f6d2f6e788eac8ad4e68f5',1,'Scene']]],
   ['getgameobjects_10',['GetGameObjects',['../class_scene.html#ab4781c644abb72a230e97732dc0cfe60',1,'Scene']]],
-  ['getgamepad_11',['GetGamePad',['../class_input.html#a65aecf385262e9aabc5559291e0baaa5',1,'Input']]],
+  ['getgamepad_11',['GetGamePad',['../class_input.html#a6b27c38b9fe9364472cf91503b5f9ea1',1,'Input']]],
   ['getheight_12',['GetHeight',['../class_application.html#ae085a9a312a31aef1a977278990d5b75',1,'Application']]],
   ['getkeypress_13',['GetKeyPress',['../class_input.html#ae1d9201a8eccd85d48f1ebeb184fc55a',1,'Input']]],
   ['getkeytrigger_14',['GetKeyTrigger',['../class_input.html#a4b7fc68a93e7fcd2aa30a66d79fcaef9',1,'Input']]],
@@ -26,7 +26,5 @@ var searchData=
   ['getwidth_23',['GetWidth',['../class_application.html#ab2494802d94ddf0a8b1d06a87fa978be',1,'Application']]],
   ['getwindow_24',['GetWindow',['../class_application.html#a4405615fab25f11b885965f9da10e67c',1,'Application']]],
   ['goal_25',['Goal',['../class_goal.html',1,'']]],
-  ['gravity_26',['Gravity',['../class_gravity.html',1,'']]],
-  ['gravitypower_27',['gravityPower',['../class_gravity.html#abc853d523dbad94fc4a3c2861a237078',1,'Gravity']]],
-  ['gravityscale_28',['gravityScale',['../class_rigidbody.html#a258caa3707f50201ba6b30923384fa43',1,'Rigidbody']]]
+  ['gravity_26',['Gravity',['../class_gravity.html',1,'']]]
 ];

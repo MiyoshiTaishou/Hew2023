@@ -1,93 +1,68 @@
-\doxysection{Scene クラス}
+\doxysection{Scene Class Reference}
 \hypertarget{class_scene}{}\label{class_scene}\index{Scene@{Scene}}
 
 
-シーン管理クラス  
+�\+V�\mbox{[}���Ǘ��\+N���X  
 
 
 
 
 {\ttfamily \#include $<$scene.\+h$>$}
 
-
-
-Scene の継承関係図
-% FIG 0
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
-\begin{DoxyCompactList}\small\item\em Sceneクラスのコンストラクタ \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\texorpdfstring{$\sim$}{\string~}\+Scene}} ()
-\begin{DoxyCompactList}\small\item\em Sceneクラスのデストラクタ \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507} 
+{\bfseries Scene} ()
+\begin{DoxyCompactList}\small\item\em Scene�\+N���\+X�̃\+R���\+X�g���\+N�\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}\label{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Scene�\+N���\+X�̃f�\+X�g���\+N�\texorpdfstring{$^\wedge$}{\string^}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_scene_afa4f07e2ccd907e9686d51ee0a670619}{Init}} ()
-\begin{DoxyCompactList}\small\item\em シーンの初期化を行います。 \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em シーンの終了処理を行います。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̏��������s���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}\label{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45} 
+virtual void {\bfseries Uninit} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̏\+I���������s���܂��B \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_scene_a59cd50b7a567af365fd6ecb108896988}{Update}} ()
-\begin{DoxyCompactList}\small\item\em シーンの更新処理を行います。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̍\+X�\+V�������s���܂��B \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_scene_ad0000891418e47223a01172bebb031a0}{Draw}} ()
-\begin{DoxyCompactList}\small\item\em シーンの描画処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_af44173c6837208188f6852de556a2d7b}{Init\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本初期化処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_a985ff778b088ce97ef2d75645e191ae8}{Uninit\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本終了処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_ab0de5feb8f80786173dbc24d6e783e18}{Update\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本更新処理を行います。 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}{Draw\+Base}} ()
-\begin{DoxyCompactList}\small\item\em シーンの基本描画処理を行います。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̕\`{}�揈�����s���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_af44173c6837208188f6852de556a2d7b}\label{class_scene_af44173c6837208188f6852de556a2d7b} 
+void {\bfseries Init\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�������������s���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_a985ff778b088ce97ef2d75645e191ae8}\label{class_scene_a985ff778b088ce97ef2d75645e191ae8} 
+void {\bfseries Uninit\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\+I���������s���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_ab0de5feb8f80786173dbc24d6e783e18}\label{class_scene_ab0de5feb8f80786173dbc24d6e783e18} 
+void {\bfseries Update\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\+X�\+V�������s���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}\label{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66} 
+void {\bfseries Draw\+Base} ()
+\begin{DoxyCompactList}\small\item\em �\+V�\mbox{[}���̊�\{�\`{}�揈�����s���܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_aad19cad10b834eafe848c74cae9ca22a}{Add\+Game\+Object}} (int Layer)
-\begin{DoxyCompactList}\small\item\em 指定したレイヤーに新しい\+Game\+Objectを追加します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �w�肵�����\+C���\mbox{[}�ɐ\+V����\+Game\+Object��ǉ����܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}{Get\+Game\+Object}} ()
-\begin{DoxyCompactList}\small\item\em 指定した型の\+Game\+Objectを取得します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �w�肵���\texorpdfstring{$^\wedge$}{\string^}��\+Game\+Object���擾���܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_scene_ab4781c644abb72a230e97732dc0cfe60}{Get\+Game\+Objects}} ()
-\begin{DoxyCompactList}\small\item\em 指定した型のすべての\+Game\+Objectを取得します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactList}\small\item\em �w�肵���\texorpdfstring{$^\wedge$}{\string^}�̂��ׂĂ�\+Game\+Object���擾���܂��B \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ \mbox{\hyperlink{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}{m\+\_\+\+Game\+Object}}
+\Hypertarget{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}\label{class_scene_ac868cc1ae0cc25b5ad03566ceacae017} 
+std\+::array$<$ std\+::list$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} $>$, 4 $>$ {\bfseries m\+\_\+\+Game\+Object}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-シーン管理クラス 
+\doxysubsection{Detailed Description}
+�\+V�\mbox{[}���Ǘ��\+N���X 
 
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00012}{12}} 行目に定義があります。
-
-
-
-\doxysubsection{構築子と解体子}
-\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507} 
-\index{Scene@{Scene}!Scene@{Scene}}
-\index{Scene@{Scene}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
-{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Sceneクラスのコンストラクタ 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00022}{22}} 行目に定義があります。
-
-\Hypertarget{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}\label{class_scene_aa0a5be58e2ee2d1fdafc5fb46b5e661e} 
-\index{Scene@{Scene}!````~Scene@{\texorpdfstring{$\sim$}{\string~}Scene}}
-\index{````~Scene@{\texorpdfstring{$\sim$}{\string~}Scene}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Scene()}{\string~Scene()}}
-{\footnotesize\ttfamily virtual Scene\+::\texorpdfstring{$\sim$}{\string~}\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-
-
-Sceneクラスのデストラクタ 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00027}{27}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_scene_aad19cad10b834eafe848c74cae9ca22a}\label{class_scene_aad19cad10b834eafe848c74cae9ca22a} 
 \index{Scene@{Scene}!AddGameObject@{AddGameObject}}
 \index{AddGameObject@{AddGameObject}!Scene@{Scene}}
@@ -97,25 +72,21 @@ T \texorpdfstring{$\ast$}{*} Scene\+::\+Add\+Game\+Object (\begin{DoxyParamCapti
 
 
 
-指定したレイヤーに新しい\+Game\+Objectを追加します。 
+�w�肵�����\+C���\mbox{[}�ɐ\+V����\+Game\+Object��ǉ����܂��B 
 
 
-\begin{DoxyTemplParams}{テンプレート引数}
-{\em T} & 追加する\+Game\+Objectの型 \\
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & �ǉ�����\+Game\+Object�̌\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyTemplParams}
 
-\begin{DoxyParams}{引数}
-{\em Layer} & レイヤー番号 \\
+\begin{DoxyParams}{Parameters}
+{\em Layer} & ���\+C���\mbox{[}�ԍ� \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{戻り値}
-追加された\+Game\+Objectへのポインタ 
+\begin{DoxyReturn}{Returns}
+�ǉ����ꂽ\+Game\+Object�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00123}{123}} 行目に定義があります。
-
 \Hypertarget{class_scene_ad0000891418e47223a01172bebb031a0}\label{class_scene_ad0000891418e47223a01172bebb031a0} 
 \index{Scene@{Scene}!Draw@{Draw}}
 \index{Draw@{Draw}!Scene@{Scene}}
@@ -124,36 +95,12 @@ T \texorpdfstring{$\ast$}{*} Scene\+::\+Add\+Game\+Object (\begin{DoxyParamCapti
 
 
 
-シーンの描画処理を行います。 
+�\+V�\mbox{[}���̕\`{}�揈�����s���܂��B 
 
 
 
-\mbox{\hyperlink{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}{Stage\+Editor}}で再実装されています。
+Reimplemented in \mbox{\hyperlink{class_stage_editor_a0ad4d32e138b04619af70a78764fdc23}{Stage\+Editor}}.
 
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00047}{47}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 1
-\Hypertarget{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66}\label{class_scene_afe33b77c15ab8cdf3953bd2d782f7e66} 
-\index{Scene@{Scene}!DrawBase@{DrawBase}}
-\index{DrawBase@{DrawBase}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{DrawBase()}{DrawBase()}}
-{\footnotesize\ttfamily void Scene\+::\+Draw\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-シーンの基本描画処理を行います。 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00100}{100}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 2
-被呼び出し関係図\+:
-% FIG 3
 \Hypertarget{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5}\label{class_scene_a2aa01b36b8f6d2f6e788eac8ad4e68f5} 
 \index{Scene@{Scene}!GetGameObject@{GetGameObject}}
 \index{GetGameObject@{GetGameObject}!Scene@{Scene}}
@@ -163,20 +110,16 @@ T \texorpdfstring{$\ast$}{*} Scene\+::\+Get\+Game\+Object (\begin{DoxyParamCapti
 
 
 
-指定した型の\+Game\+Objectを取得します。 
+�w�肵���\texorpdfstring{$^\wedge$}{\string^}��\+Game\+Object���擾���܂��B 
 
 
-\begin{DoxyTemplParams}{テンプレート引数}
-{\em T} & 取得する\+Game\+Objectの型 \\
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & �擾����\+Game\+Object�̌\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyTemplParams}
-\begin{DoxyReturn}{戻り値}
-Game\+Objectへのポインタ 
+\begin{DoxyReturn}{Returns}
+Game\+Object�ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00138}{138}} 行目に定義があります。
-
 \Hypertarget{class_scene_ab4781c644abb72a230e97732dc0cfe60}\label{class_scene_ab4781c644abb72a230e97732dc0cfe60} 
 \index{Scene@{Scene}!GetGameObjects@{GetGameObjects}}
 \index{GetGameObjects@{GetGameObjects}!Scene@{Scene}}
@@ -186,20 +129,16 @@ std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ Scene\+::\+Get\+Game\+Objects 
 
 
 
-指定した型のすべての\+Game\+Objectを取得します。 
+�w�肵���\texorpdfstring{$^\wedge$}{\string^}�̂��ׂĂ�\+Game\+Object���擾���܂��B 
 
 
-\begin{DoxyTemplParams}{テンプレート引数}
-{\em T} & 取得する\+Game\+Objectの型 \\
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & �擾����\+Game\+Object�̌\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyTemplParams}
-\begin{DoxyReturn}{戻り値}
-Game\+Objectのベクター 
+\begin{DoxyReturn}{Returns}
+Game\+Object�̃x�\+N�\texorpdfstring{$^\wedge$}{\string^}�\mbox{[} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00160}{160}} 行目に定義があります。
-
 \Hypertarget{class_scene_afa4f07e2ccd907e9686d51ee0a670619}\label{class_scene_afa4f07e2ccd907e9686d51ee0a670619} 
 \index{Scene@{Scene}!Init@{Init}}
 \index{Init@{Init}!Scene@{Scene}}
@@ -208,70 +147,12 @@ Game\+Objectのベクター
 
 
 
-シーンの初期化を行います。 
+�\+V�\mbox{[}���̏��������s���܂��B 
 
 
 
-\mbox{\hyperlink{class_game_a76d586857ee6851adaf5f5fb8f9917ac}{Game}}, \mbox{\hyperlink{class_result_af5e428da05c1649fe0d00893780f0699}{Result}}, \mbox{\hyperlink{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}{Stage\+Editor}}, \mbox{\hyperlink{class_title_afd467560e61d6492400f1f531fdd1ccd}{Title}}で再実装されています。
+Reimplemented in \mbox{\hyperlink{class_game_a76d586857ee6851adaf5f5fb8f9917ac}{Game}}, \mbox{\hyperlink{class_result_af5e428da05c1649fe0d00893780f0699}{Result}}, \mbox{\hyperlink{class_stage_editor_a7c2cffe0da2cd6979657f67ccad8f3f3}{Stage\+Editor}}, and \mbox{\hyperlink{class_title_afd467560e61d6492400f1f531fdd1ccd}{Title}}.
 
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00032}{32}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 4
-\Hypertarget{class_scene_af44173c6837208188f6852de556a2d7b}\label{class_scene_af44173c6837208188f6852de556a2d7b} 
-\index{Scene@{Scene}!InitBase@{InitBase}}
-\index{InitBase@{InitBase}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{InitBase()}{InitBase()}}
-{\footnotesize\ttfamily void Scene\+::\+Init\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-シーンの基本初期化処理を行います。 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00052}{52}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 5
-被呼び出し関係図\+:
-% FIG 6
-\Hypertarget{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45}\label{class_scene_a0c2c93ca2ad7c1ed76466ece9fb1ec45} 
-\index{Scene@{Scene}!Uninit@{Uninit}}
-\index{Uninit@{Uninit}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
-{\footnotesize\ttfamily virtual void Scene\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-
-
-シーンの終了処理を行います。 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00037}{37}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 7
-\Hypertarget{class_scene_a985ff778b088ce97ef2d75645e191ae8}\label{class_scene_a985ff778b088ce97ef2d75645e191ae8} 
-\index{Scene@{Scene}!UninitBase@{UninitBase}}
-\index{UninitBase@{UninitBase}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{UninitBase()}{UninitBase()}}
-{\footnotesize\ttfamily void Scene\+::\+Uninit\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-シーンの基本終了処理を行います。 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00060}{60}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 8
-被呼び出し関係図\+:
-% FIG 9
 \Hypertarget{class_scene_a59cd50b7a567af365fd6ecb108896988}\label{class_scene_a59cd50b7a567af365fd6ecb108896988} 
 \index{Scene@{Scene}!Update@{Update}}
 \index{Update@{Update}!Scene@{Scene}}
@@ -280,51 +161,14 @@ Game\+Objectのベクター
 
 
 
-シーンの更新処理を行います。 
+�\+V�\mbox{[}���̍\+X�\+V�������s���܂��B 
 
 
 
-\mbox{\hyperlink{class_game_a7279736cde09902a139247810bc76d4b}{Game}}, \mbox{\hyperlink{class_result_a7f74bf5f230b8fde7f4331d91e3d9372}{Result}}, \mbox{\hyperlink{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}{Stage\+Editor}}, \mbox{\hyperlink{class_title_a970d881556ef55c5af039041bac27d46}{Title}}で再実装されています。
+Reimplemented in \mbox{\hyperlink{class_game_a7279736cde09902a139247810bc76d4b}{Game}}, \mbox{\hyperlink{class_result_a7f74bf5f230b8fde7f4331d91e3d9372}{Result}}, \mbox{\hyperlink{class_stage_editor_a9bb226d4d6ab73a6e90c39fb7ac5e625}{Stage\+Editor}}, and \mbox{\hyperlink{class_title_a970d881556ef55c5af039041bac27d46}{Title}}.
 
 
 
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00042}{42}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 10
-\Hypertarget{class_scene_ab0de5feb8f80786173dbc24d6e783e18}\label{class_scene_ab0de5feb8f80786173dbc24d6e783e18} 
-\index{Scene@{Scene}!UpdateBase@{UpdateBase}}
-\index{UpdateBase@{UpdateBase}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{UpdateBase()}{UpdateBase()}}
-{\footnotesize\ttfamily void Scene\+::\+Update\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-シーンの基本更新処理を行います。 
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00081}{81}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 11
-被呼び出し関係図\+:
-% FIG 12
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_scene_ac868cc1ae0cc25b5ad03566ceacae017}\label{class_scene_ac868cc1ae0cc25b5ad03566ceacae017} 
-\index{Scene@{Scene}!m\_GameObject@{m\_GameObject}}
-\index{m\_GameObject@{m\_GameObject}!Scene@{Scene}}
-\doxysubsubsection{\texorpdfstring{m\_GameObject}{m\_GameObject}}
-{\footnotesize\ttfamily std\+::array$<$std\+::list$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}\texorpdfstring{$\ast$}{*}$>$, 4$>$ Scene\+::m\+\_\+\+Game\+Object\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
- \mbox{\hyperlink{scene_8h_source}{scene.\+h}} の \mbox{\hyperlink{scene_8h_source_l00016}{16}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/scene.\+h\end{DoxyCompactItemize}

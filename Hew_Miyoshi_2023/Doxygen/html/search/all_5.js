@@ -6,6 +6,5 @@ var searchData=
   ['fadeui_3',['FadeUI',['../class_fade_u_i.html',1,'']]],
   ['field_4',['Field',['../class_field.html',1,'']]],
   ['finish_5',['Finish',['../class_transition.html#aa053dc4d0be0d607e37890efc44af962aa20ddccbb6f808ec42cd66323e6c6061',1,'Transition']]],
-  ['force_6',['force',['../class_rigidbody.html#ab98d8e07a4a00c80cafa2953124db8d7',1,'Rigidbody']]],
-  ['fps_7',['FPS',['../class_f_p_s.html',1,'']]]
+  ['fps_6',['FPS',['../class_f_p_s.html',1,'']]]
 ];

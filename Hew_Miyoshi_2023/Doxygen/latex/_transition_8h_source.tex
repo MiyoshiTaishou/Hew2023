@@ -2,43 +2,43 @@
 \hypertarget{_transition_8h_source}{}\label{_transition_8h_source}\index{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Transition.h@{C:/Users/Taish/Documents/GitHub/Hew2023/Hew\_Miyoshi\_2023/Transition.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00007}\mbox{\hyperlink{class_transition}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_transition}{Transition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00008}00008\ \{}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00009}00009\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00013}\mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{00013}}\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a11a755d598c0c417f9a36758c3da7481}{Stop}},\ \ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aefeb369cccbd560588a756610865664c}{In}},\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a7c147cda9e49590f6abe83d118b7353b}{Out}},\ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aa20ddccbb6f808ec42cd66323e6c6061}{Finish}}\ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00019}00019\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00021}00021\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00022}\mbox{\hyperlink{class_transition_ab015d7ade51d542edde6020d20498886}{00022}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_transition_ab015d7ade51d542edde6020d20498886}{m\_Alpha}}\ =\ 0.0f;\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00023}\mbox{\hyperlink{class_transition_a1482c934ab02ad3d2a29d16bf6c7e753}{00023}}\ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}\ \mbox{\hyperlink{class_transition_a1482c934ab02ad3d2a29d16bf6c7e753}{m\_State}}\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a11a755d598c0c417f9a36758c3da7481}{State::Stop}};\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00024}\mbox{\hyperlink{class_transition_a6eebe49a0c2fa18fb4ef12c2643835d4}{00024}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sprite}{Sprite}}*\ \mbox{\hyperlink{class_transition_a6eebe49a0c2fa18fb4ef12c2643835d4}{m\_Sprite}}\{\};\ \ \ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00026}00026\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_adf62b8fb7005f53db4456bd74c6fce93}{Init}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_a70b04f1d15eca2bdef794883b4076cd3}{Update}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00041}\mbox{\hyperlink{class_transition_a0ded4f3f4a195af67459877948120ef4}{00041}}\ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}\ \mbox{\hyperlink{class_transition_a0ded4f3f4a195af67459877948120ef4}{GetState}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_transition_a1482c934ab02ad3d2a29d16bf6c7e753}{m\_State}};\ \}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00042}00042\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00046}\mbox{\hyperlink{class_transition_ab0cd99b191aceedd25689acca142fe54}{00046}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_ab0cd99b191aceedd25689acca142fe54}{FadeIn}}()}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00047}00047\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_ab015d7ade51d542edde6020d20498886}{m\_Alpha}}\ =\ 1.0f;}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_a1482c934ab02ad3d2a29d16bf6c7e753}{m\_State}}\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aefeb369cccbd560588a756610865664c}{State::In}};}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00050}00050\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00055}\mbox{\hyperlink{class_transition_af86a66c8323896260afaa863f0a0acec}{00055}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_af86a66c8323896260afaa863f0a0acec}{FadeOut}}()}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00056}00056\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_ab015d7ade51d542edde6020d20498886}{m\_Alpha}}\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_a1482c934ab02ad3d2a29d16bf6c7e753}{m\_State}}\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a7c147cda9e49590f6abe83d118b7353b}{State::Out}};}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00059}00059\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_transition_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}gameObject.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_transition}{Transition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a11a755d598c0c417f9a36758c3da7481}{Stop}},\ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aefeb369cccbd560588a756610865664c}{In}},\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a7c147cda9e49590f6abe83d118b7353b}{Out}},\ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aa20ddccbb6f808ec42cd66323e6c6061}{Finish}}\ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Alpha\ =\ 0.0f;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}\ m\_State\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a11a755d598c0c417f9a36758c3da7481}{State::Stop}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sprite}{Sprite}}*\ m\_Sprite\{\};\ \ \ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_adf62b8fb7005f53db4456bd74c6fce93}{Init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_a70b04f1d15eca2bdef794883b4076cd3}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962}{State}}\ \mbox{\hyperlink{class_transition_a0ded4f3f4a195af67459877948120ef4}{GetState}}()\ \{\ \textcolor{keywordflow}{return}\ m\_State;\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_ab0cd99b191aceedd25689acca142fe54}{FadeIn}}()}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ m\_Alpha\ =\ 1.0f;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ m\_State\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962aefeb369cccbd560588a756610865664c}{State::In}};}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_transition_af86a66c8323896260afaa863f0a0acec}{FadeOut}}()}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ m\_Alpha\ =\ 0.0f;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ m\_State\ =\ \mbox{\hyperlink{class_transition_aa053dc4d0be0d607e37890efc44af962a7c147cda9e49590f6abe83d118b7353b}{State::Out}};}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \};}
 
 \end{DoxyCode}

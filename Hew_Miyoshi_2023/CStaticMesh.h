@@ -20,7 +20,7 @@
 #include	"CMaterial.h"
 
 // assimp 5.2.0 用ライブラリ
-#pragma comment(lib,"assimp-vc142-mtd.lib")
+#pragma comment(lib,"assimp-vc143-mtd.lib")
 
 
 // COMPTRを使えるように

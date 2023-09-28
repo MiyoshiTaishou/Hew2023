@@ -1,140 +1,38 @@
-\doxysection{Im\+Font\+Glyph\+Ranges\+Builder 構造体}
+\doxysection{Im\+Font\+Glyph\+Ranges\+Builder Struct Reference}
 \hypertarget{struct_im_font_glyph_ranges_builder}{}\label{struct_im_font_glyph_ranges_builder}\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-
-
-Im\+Font\+Glyph\+Ranges\+Builder 連携図
-% FIG 0
-\doxysubsubsection*{公開メンバ関数}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f}{Clear}} ()
-\item 
-bool \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47}{Get\+Bit}} (size\+\_\+t n) const
-\item 
-void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6}{Set\+Bit}} (size\+\_\+t n)
-\item 
-void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}{Add\+Char}} (Im\+Wchar c)
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}{Add\+Text}} (const char \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}text\+\_\+end=NULL)
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}{Add\+Ranges}} (const Im\+Wchar \texorpdfstring{$\ast$}{*}ranges)
-\item 
-IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}{Build\+Ranges}} (\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ \texorpdfstring{$\ast$}{*}out\+\_\+ranges)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+U32 $>$ \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4}{Used\+Chars}}
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02728}{2728}} 行目に定義があります。
-
-
-
-\doxysubsection{構築子と解体子}
-\Hypertarget{struct_im_font_glyph_ranges_builder_aaee7673423cb7e29d43ea3901628c870}\label{struct_im_font_glyph_ranges_builder_aaee7673423cb7e29d43ea3901628c870} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{ImFontGlyphRangesBuilder()}{ImFontGlyphRangesBuilder()}}
-{\footnotesize\ttfamily Im\+Font\+Glyph\+Ranges\+Builder\+::\+Im\+Font\+Glyph\+Ranges\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02732}{2732}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}\label{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddChar@{AddChar}}
-\index{AddChar@{AddChar}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{AddChar()}{AddChar()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Char (\begin{DoxyParamCaption}\item[{Im\+Wchar}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02736}{2736}} 行目に定義があります。
-
-\Hypertarget{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}\label{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddRanges@{AddRanges}}
-\index{AddRanges@{AddRanges}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{AddRanges()}{AddRanges()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Ranges (\begin{DoxyParamCaption}\item[{const Im\+Wchar \texorpdfstring{$\ast$}{*}}]{ranges }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03090}{3090}} 行目に定義があります。
-
-\Hypertarget{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}\label{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddText@{AddText}}
-\index{AddText@{AddText}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{AddText()}{AddText()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Text (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text\+\_\+end = {\ttfamily NULL} }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03077}{3077}} 行目に定義があります。
-
-\Hypertarget{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}\label{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!BuildRanges@{BuildRanges}}
-\index{BuildRanges@{BuildRanges}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{BuildRanges()}{BuildRanges()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Build\+Ranges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ \texorpdfstring{$\ast$}{*}}]{out\+\_\+ranges }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}} の \mbox{\hyperlink{imgui__draw_8cpp_source_l03097}{3097}} 行目に定義があります。
-
 \Hypertarget{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f}\label{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!Clear@{Clear}}
-\index{Clear@{Clear}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02733}{2733}} 行目に定義があります。
-
+void {\bfseries Clear} ()
+\item 
 \Hypertarget{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47}\label{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!GetBit@{GetBit}}
-\index{GetBit@{GetBit}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{GetBit()}{GetBit()}}
-{\footnotesize\ttfamily bool Im\+Font\+Glyph\+Ranges\+Builder\+::\+Get\+Bit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02734}{2734}} 行目に定義があります。
-
+bool {\bfseries Get\+Bit} (size\+\_\+t n) const
+\item 
 \Hypertarget{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6}\label{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!SetBit@{SetBit}}
-\index{SetBit@{SetBit}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{SetBit()}{SetBit()}}
-{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Set\+Bit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02735}{2735}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
+void {\bfseries Set\+Bit} (size\+\_\+t n)
+\item 
+\Hypertarget{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}\label{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd} 
+void {\bfseries Add\+Char} (Im\+Wchar c)
+\item 
+\Hypertarget{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}\label{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf} 
+IMGUI\+\_\+\+API void {\bfseries Add\+Text} (const char \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}text\+\_\+end=NULL)
+\item 
+\Hypertarget{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}\label{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71} 
+IMGUI\+\_\+\+API void {\bfseries Add\+Ranges} (const Im\+Wchar \texorpdfstring{$\ast$}{*}ranges)
+\item 
+\Hypertarget{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}\label{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5} 
+IMGUI\+\_\+\+API void {\bfseries Build\+Ranges} (\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ \texorpdfstring{$\ast$}{*}out\+\_\+ranges)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
 \Hypertarget{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4}\label{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4} 
-\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!UsedChars@{UsedChars}}
-\index{UsedChars@{UsedChars}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
-\doxysubsubsection{\texorpdfstring{UsedChars}{UsedChars}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$Im\+U32$>$ Im\+Font\+Glyph\+Ranges\+Builder\+::\+Used\+Chars}
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+U32 $>$ {\bfseries Used\+Chars}
+\end{DoxyCompactItemize}
 
 
-
- \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}} の \mbox{\hyperlink{imgui_8h_source_l02730}{2730}} 行目に定義があります。
-
-
-
-この構造体詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

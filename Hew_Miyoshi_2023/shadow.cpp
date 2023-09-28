@@ -6,6 +6,8 @@
 #include "shadow.h"
 #include "box.h"
 #include "cylinder.h"
+#include"shader.h"
+#include"ImGuiManager.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -47,6 +49,9 @@ void Shadow::Init()
 
 	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
 
+	Renderer::CreatePixelShader(&m_PixelShader, "shader\\vertexLightingPS.cso");
+	//Renderer::CreatePixelShader(&m_PixelShader, "shader\\PS_RGBSplit.cso");
+
 	// テクスチャ読み込み
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
@@ -55,12 +60,16 @@ void Shadow::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	pollar.alpha = 10.0f;
+
+	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\vertexLightingPS.cso");
 }
 
 
 void Shadow::Uninit()
 {
-	m_VertexBuffer->Release();
+	//m_VertexBuffer->Release();
 	m_Texture->Release();
 }
 
@@ -72,6 +81,8 @@ void Shadow::Update()
 {
 	//接地
 	float groundHeight = 0.0f;
+	
+	Renderer::SetFade(pollar);
 
 	Scene* scene = Manager::GetScene();
 
@@ -123,6 +134,12 @@ void Shadow::Update()
 	m_Position = m_GameObject->GetPosition();
 	m_Position.y = groundHeight;
 
+	pollar.dummy = m_GameObject->GetPosition();
+
+	float Distance = m_GameObject->GetPosition().y - m_Position.y;
+	m_Alpha = 1.0f;
+	m_Alpha -= Distance / m_MaxDistance;
+
 }
 
 
@@ -130,7 +147,6 @@ void Shadow::Update()
 
 void Shadow::Draw()
 {
-
 	// マトリクス設定
 	Matrix world, scale, trans;
 	scale = DirectX::SimpleMath::Matrix::CreateScale(m_Size);
@@ -144,15 +160,18 @@ void Shadow::Draw()
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
 
-	// マテリアル設定
+	 //マテリアル設定
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, m_Alpha);
 	material.TextureEnable = true;
+	//material.Ambient = Color(1.0f, 1.0f, 1.0f, 0.0f);
 	Renderer::SetMaterial(material);
 
 	// テクスチャ設定
 	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
+
+	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, nullptr, 0);
 
 	// プリミティブトポロジ設定
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
@@ -164,5 +183,8 @@ void Shadow::Draw()
 
 	Renderer::SetDepthEnable(true);
 
-
+	ImGui::Begin("MaxDistance");
+	// スライダー
+	ImGui::SliderFloat("Distance", &m_MaxDistance, 0.0f, 100.0f);
+	ImGui::End();
 }

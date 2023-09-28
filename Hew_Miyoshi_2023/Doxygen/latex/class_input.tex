@@ -1,78 +1,61 @@
-\doxysection{Input クラス}
+\doxysection{Input Class Reference}
 \hypertarget{class_input}{}\label{class_input}\index{Input@{Input}}
 
 
-入力管理クラス  
+���͊Ǘ��\+N���X  
 
 
 
 
 {\ttfamily \#include $<$input.\+h$>$}
 
-\doxysubsubsection*{静的公開メンバ関数}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_input_a5197114da7299198826ff7277ee12bff}{Init}} ()
-\begin{DoxyCompactList}\small\item\em 入力管理クラスの初期化 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_input_a45d0296612518611e8722ea34fc1361e}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em 入力管理クラスの終了処理 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}{Update}} ()
-\begin{DoxyCompactList}\small\item\em 入力情報の更新 \end{DoxyCompactList}\item 
+\Hypertarget{class_input_a5197114da7299198826ff7277ee12bff}\label{class_input_a5197114da7299198826ff7277ee12bff} 
+static void {\bfseries Init} ()
+\begin{DoxyCompactList}\small\item\em ���͊Ǘ��\+N���\+X�̏����� \end{DoxyCompactList}\item 
+\Hypertarget{class_input_a0749f3f0f368de56192fc20e4e37cdfe}\label{class_input_a0749f3f0f368de56192fc20e4e37cdfe} 
+static void {\bfseries Uninit} ()
+\begin{DoxyCompactList}\small\item\em ���͊Ǘ��\+N���\+X�̏\+I������ \end{DoxyCompactList}\item 
+\Hypertarget{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}\label{class_input_af80dcfde6dbfe39bf3bc0345c75595ce} 
+static void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em ���͏��̍\+X�V \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{class_input_ae1d9201a8eccd85d48f1ebeb184fc55a}{Get\+Key\+Press}} (BYTE Key\+Code)
-\begin{DoxyCompactList}\small\item\em 指定したキーコードのキーが押されているかを取得します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em �w�肵���\+L�\mbox{[}�\+R�\mbox{[}�h�̃\+L�\mbox{[}��������Ă��邩���擾���܂��B \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{class_input_a4b7fc68a93e7fcd2aa30a66d79fcaef9}{Get\+Key\+Trigger}} (BYTE Key\+Code)
-\begin{DoxyCompactList}\small\item\em 指定したキーコードのキーがトリガーされたかを取得します。 \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_input_a65aecf385262e9aabc5559291e0baaa5}{Get\+Game\+Pad}} (BUTTON button, STATE \+\_\+button\+State)
-\begin{DoxyCompactList}\small\item\em 指定したゲームパッドのボタンの状態を取得します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{静的非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-static BYTE \mbox{\hyperlink{class_input_a371d43377d1a42bbd8a9bea723982d69}{m\+\_\+\+Old\+Key\+State}} \mbox{[}256\mbox{]}
-\item 
-static BYTE \mbox{\hyperlink{class_input_a6991012c7d4718050a0dbe7c11b1a8a1}{m\+\_\+\+Key\+State}} \mbox{[}256\mbox{]}
-\item 
-static Direct\+X\+::\+Game\+Pad \mbox{\hyperlink{class_input_a14e4ae9771ca5b4c5d4e2156b8ce8a7c}{m\+\_\+\+Game\+Pad}}
-\item 
-static Direct\+X\+::\+Game\+Pad\+::\+State \mbox{\hyperlink{class_input_ad7db7f45caa9b500e20531218251c9a1}{m\+\_\+\+State}}
-\item 
-static Direct\+X\+::\+Game\+Pad\+::\+Button\+State\+Tracker \mbox{\hyperlink{class_input_a16f71fae57da65c557657a4fab7c8808}{m\+\_\+\+State\+Tracker}}
+\begin{DoxyCompactList}\small\item\em �w�肵���\+L�\mbox{[}�\+R�\mbox{[}�h�̃\+L�\mbox{[}���g���\+K�\mbox{[}���ꂽ�����擾���܂��B \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_input_a6b27c38b9fe9364472cf91503b5f9ea1}{Get\+Game\+Pad}} (BUTTON button, STATE \+\_\+button\+State)
+\begin{DoxyCompactList}\small\item\em �w�肵���\+Q�\mbox{[}���p�b�h�̃\{�\texorpdfstring{$^\wedge$}{\string^}���̏�Ԃ��擾���܂��B \end{DoxyCompactList}\item 
+\Hypertarget{class_input_a5c281a41e9a46268016dc152a2fcd151}\label{class_input_a5c281a41e9a46268016dc152a2fcd151} 
+static void {\bfseries Vibration} (int player, float left\+Motor, float right\+Motor, float left\+Trigger, float right\+Trigger)
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-入力管理クラス 
+\doxysubsection{Detailed Description}
+���͊Ǘ��\+N���X 
 
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00033}{33}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{class_input_a65aecf385262e9aabc5559291e0baaa5}\label{class_input_a65aecf385262e9aabc5559291e0baaa5} 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_a6b27c38b9fe9364472cf91503b5f9ea1}\label{class_input_a6b27c38b9fe9364472cf91503b5f9ea1} 
 \index{Input@{Input}!GetGamePad@{GetGamePad}}
 \index{GetGamePad@{GetGamePad}!Input@{Input}}
 \doxysubsubsection{\texorpdfstring{GetGamePad()}{GetGamePad()}}
-{\footnotesize\ttfamily bool Input\+::\+Get\+Game\+Pad (\begin{DoxyParamCaption}\item[{BUTTON}]{button,  }\item[{STATE}]{\+\_\+button\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static bool Input\+::\+Get\+Game\+Pad (\begin{DoxyParamCaption}\item[{BUTTON}]{button,  }\item[{STATE}]{\+\_\+button\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-指定したゲームパッドのボタンの状態を取得します。 
+�w�肵���\+Q�\mbox{[}���p�b�h�̃\{�\texorpdfstring{$^\wedge$}{\string^}���̏�Ԃ��擾���܂��B 
 
 
-\begin{DoxyParams}{引数}
-{\em button} & ボタン \\
+\begin{DoxyParams}{Parameters}
+{\em button} & �\{�\texorpdfstring{$^\wedge$}{\string^}�� \\
 \hline
-{\em \+\_\+button\+State} & ボタンの状態 \\
+{\em \+\_\+button\+State} & �\{�\texorpdfstring{$^\wedge$}{\string^}���̏�� \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{戻り値}
-ボタンの状態が指定した状態である場合はtrue、それ以外はfalse 
+\begin{DoxyReturn}{Returns}
+�\{�\texorpdfstring{$^\wedge$}{\string^}���̏�Ԃ��w�肵����Ԃł���ꍇ��true�\+A����Ȋ\+O��false 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00048}{48}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 0
 \Hypertarget{class_input_ae1d9201a8eccd85d48f1ebeb184fc55a}\label{class_input_ae1d9201a8eccd85d48f1ebeb184fc55a} 
 \index{Input@{Input}!GetKeyPress@{GetKeyPress}}
 \index{GetKeyPress@{GetKeyPress}!Input@{Input}}
@@ -81,22 +64,16 @@ static Direct\+X\+::\+Game\+Pad\+::\+Button\+State\+Tracker \mbox{\hyperlink{cla
 
 
 
-指定したキーコードのキーが押されているかを取得します。 
+�w�肵���\+L�\mbox{[}�\+R�\mbox{[}�h�̃\+L�\mbox{[}��������Ă��邩���擾���܂��B 
 
 
-\begin{DoxyParams}{引数}
-{\em Key\+Code} & キーコード \\
+\begin{DoxyParams}{Parameters}
+{\em Key\+Code} & �\+L�\mbox{[}�\+R�\mbox{[}�h \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{戻り値}
-キーが押されている場合はtrue、それ以外はfalse 
+\begin{DoxyReturn}{Returns}
+�\+L�\mbox{[}��������Ă���ꍇ��true�\+A����Ȋ\+O��false 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00038}{38}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 1
 \Hypertarget{class_input_a4b7fc68a93e7fcd2aa30a66d79fcaef9}\label{class_input_a4b7fc68a93e7fcd2aa30a66d79fcaef9} 
 \index{Input@{Input}!GetKeyTrigger@{GetKeyTrigger}}
 \index{GetKeyTrigger@{GetKeyTrigger}!Input@{Input}}
@@ -105,126 +82,19 @@ static Direct\+X\+::\+Game\+Pad\+::\+Button\+State\+Tracker \mbox{\hyperlink{cla
 
 
 
-指定したキーコードのキーがトリガーされたかを取得します。 
+�w�肵���\+L�\mbox{[}�\+R�\mbox{[}�h�̃\+L�\mbox{[}���g���\+K�\mbox{[}���ꂽ�����擾���܂��B 
 
 
-\begin{DoxyParams}{引数}
-{\em Key\+Code} & キーコード \\
+\begin{DoxyParams}{Parameters}
+{\em Key\+Code} & �\+L�\mbox{[}�\+R�\mbox{[}�h \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{戻り値}
-キーがトリガーされた場合はtrue、それ以外はfalse 
+\begin{DoxyReturn}{Returns}
+�\+L�\mbox{[}���g���\+K�\mbox{[}���ꂽ�ꍇ��true�\+A����Ȋ\+O��false 
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00043}{43}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 2
-\Hypertarget{class_input_a5197114da7299198826ff7277ee12bff}\label{class_input_a5197114da7299198826ff7277ee12bff} 
-\index{Input@{Input}!Init@{Init}}
-\index{Init@{Init}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void Input\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-入力管理クラスの初期化 
-
-
-
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00013}{13}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 3
-\Hypertarget{class_input_a45d0296612518611e8722ea34fc1361e}\label{class_input_a45d0296612518611e8722ea34fc1361e} 
-\index{Input@{Input}!Uninit@{Uninit}}
-\index{Uninit@{Uninit}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
-{\footnotesize\ttfamily void Input\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-入力管理クラスの終了処理 
-
-
-
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00021}{21}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 4
-\Hypertarget{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}\label{class_input_af80dcfde6dbfe39bf3bc0345c75595ce} 
-\index{Input@{Input}!Update@{Update}}
-\index{Update@{Update}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void Input\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-入力情報の更新 
-
-
-
- \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}} の \mbox{\hyperlink{input_8cpp_source_l00027}{27}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 5
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_input_a14e4ae9771ca5b4c5d4e2156b8ce8a7c}\label{class_input_a14e4ae9771ca5b4c5d4e2156b8ce8a7c} 
-\index{Input@{Input}!m\_GamePad@{m\_GamePad}}
-\index{m\_GamePad@{m\_GamePad}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{m\_GamePad}{m\_GamePad}}
-{\footnotesize\ttfamily Direct\+X\+::\+Game\+Pad Input\+::m\+\_\+\+Game\+Pad\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-ゲームパッドのオブジェクト 
-
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00040}{40}} 行目に定義があります。
-
-\Hypertarget{class_input_a6991012c7d4718050a0dbe7c11b1a8a1}\label{class_input_a6991012c7d4718050a0dbe7c11b1a8a1} 
-\index{Input@{Input}!m\_KeyState@{m\_KeyState}}
-\index{m\_KeyState@{m\_KeyState}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{m\_KeyState}{m\_KeyState}}
-{\footnotesize\ttfamily BYTE Input\+::m\+\_\+\+Key\+State\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-現在のキーボードの状態 
-
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00037}{37}} 行目に定義があります。
-
-\Hypertarget{class_input_a371d43377d1a42bbd8a9bea723982d69}\label{class_input_a371d43377d1a42bbd8a9bea723982d69} 
-\index{Input@{Input}!m\_OldKeyState@{m\_OldKeyState}}
-\index{m\_OldKeyState@{m\_OldKeyState}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{m\_OldKeyState}{m\_OldKeyState}}
-{\footnotesize\ttfamily BYTE Input\+::m\+\_\+\+Old\+Key\+State\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-前回のキーボードの状態 
-
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00036}{36}} 行目に定義があります。
-
-\Hypertarget{class_input_ad7db7f45caa9b500e20531218251c9a1}\label{class_input_ad7db7f45caa9b500e20531218251c9a1} 
-\index{Input@{Input}!m\_State@{m\_State}}
-\index{m\_State@{m\_State}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{m\_State}{m\_State}}
-{\footnotesize\ttfamily Direct\+X\+::\+Game\+Pad\+::\+State Input\+::m\+\_\+\+State\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-ゲームパッドの状態 
-
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00041}{41}} 行目に定義があります。
-
-\Hypertarget{class_input_a16f71fae57da65c557657a4fab7c8808}\label{class_input_a16f71fae57da65c557657a4fab7c8808} 
-\index{Input@{Input}!m\_StateTracker@{m\_StateTracker}}
-\index{m\_StateTracker@{m\_StateTracker}!Input@{Input}}
-\doxysubsubsection{\texorpdfstring{m\_StateTracker}{m\_StateTracker}}
-{\footnotesize\ttfamily Direct\+X\+::\+Game\+Pad\+::\+Button\+State\+Tracker Input\+::m\+\_\+\+State\+Tracker\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-ゲームパッドのボタンの状態を追跡するトラッカー 
-
- \mbox{\hyperlink{input_8h_source}{input.\+h}} の \mbox{\hyperlink{input_8h_source_l00042}{42}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/input.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/input.\+cpp\end{DoxyCompactItemize}

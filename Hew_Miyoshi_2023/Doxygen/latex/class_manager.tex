@@ -1,39 +1,24 @@
-\doxysection{Manager クラス}
+\doxysection{Manager Class Reference}
 \hypertarget{class_manager}{}\label{class_manager}\index{Manager@{Manager}}
-
-
-Manager 連携図
-% FIG 0
-\doxysubsubsection*{静的公開メンバ関数}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{class_manager_a6795b28faee7354e5fd14fbf451f1972}{Init}} (\mbox{\hyperlink{class_application}{Application}} \texorpdfstring{$\ast$}{*}ap)
-\begin{DoxyCompactList}\small\item\em Managerクラスの初期化 \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_manager_a970ac333358a47086c4a019ff254899b}{Uninit}} ()
-\begin{DoxyCompactList}\small\item\em Managerクラスの終了処理 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manager�\+N���\+X�̏����� \end{DoxyCompactList}\item 
+\Hypertarget{class_manager_a970ac333358a47086c4a019ff254899b}\label{class_manager_a970ac333358a47086c4a019ff254899b} 
+static void {\bfseries Uninit} ()
+\begin{DoxyCompactList}\small\item\em Manager�\+N���\+X�̏\+I������ \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_manager_a3df4922c763aeebe6918a00154ec0354}{Update}} (uint64\+\_\+t d)
-\begin{DoxyCompactList}\small\item\em Managerクラスの更新 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manager�\+N���\+X�̍\+X�V. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_manager_a5c1472a79057fbadc61c11bc68d008d4}{Draw}} (uint64\+\_\+t d)
-\begin{DoxyCompactList}\small\item\em Managerクラスの描画 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manager�\+N���\+X�̕\`{}��. \end{DoxyCompactList}\item 
 static class \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}{Get\+Scene}} ()
-\begin{DoxyCompactList}\small\item\em 現在のシーンを取得します。 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em ���݂̃\+V�\mbox{[}�����擾���܂��B \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\static void \mbox{\hyperlink{class_manager_a20d56cefa4ca57aa690b64e9e564fad9}{Set\+Scene}} ()
-\begin{DoxyCompactList}\small\item\em 新しいシーンを設定します。 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{静的非公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-static class \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_manager_af3232fd1bb93acf0dc86721e8ca4f29c}{m\+\_\+\+Scene}} \{\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em �\+V�����\+V�\mbox{[}����ݒ肵�܂��B \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{manager_8h_source}{manager.\+h}} の \mbox{\hyperlink{manager_8h_source_l00008}{8}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_manager_a5c1472a79057fbadc61c11bc68d008d4}\label{class_manager_a5c1472a79057fbadc61c11bc68d008d4} 
 \index{Manager@{Manager}!Draw@{Draw}}
 \index{Draw@{Draw}!Manager@{Manager}}
@@ -42,21 +27,13 @@ static class \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} \m
 
 
 
-Managerクラスの描画 
+Manager�\+N���\+X�̕\`{}��. 
 
 
-\begin{DoxyParams}{引数}
-{\em d} & 経過時間 \\
+\begin{DoxyParams}{Parameters}
+{\em d} & �o�ߎ��� \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{manager_8cpp_source}{manager.\+cpp}} の \mbox{\hyperlink{manager_8cpp_source_l00076}{76}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 1
-被呼び出し関係図\+:
-% FIG 2
 \Hypertarget{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1}\label{class_manager_a5fe30d8e5b49acf271e24df197b4b8d1} 
 \index{Manager@{Manager}!GetScene@{GetScene}}
 \index{GetScene@{GetScene}!Manager@{Manager}}
@@ -65,17 +42,11 @@ Managerクラスの描画
 
 
 
-現在のシーンを取得します。 
+���݂̃\+V�\mbox{[}�����擾���܂��B 
 
-\begin{DoxyReturn}{戻り値}
-現在のシーンへのポインタ 
+\begin{DoxyReturn}{Returns}
+���݂̃\+V�\mbox{[}���ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} 
 \end{DoxyReturn}
-
-
- \mbox{\hyperlink{manager_8h_source}{manager.\+h}} の \mbox{\hyperlink{manager_8h_source_l00041}{41}} 行目に定義があります。
-
-被呼び出し関係図\+:
-% FIG 3
 \Hypertarget{class_manager_a6795b28faee7354e5fd14fbf451f1972}\label{class_manager_a6795b28faee7354e5fd14fbf451f1972} 
 \index{Manager@{Manager}!Init@{Init}}
 \index{Init@{Init}!Manager@{Manager}}
@@ -84,21 +55,13 @@ Managerクラスの描画
 
 
 
-Managerクラスの初期化 
+Manager�\+N���\+X�̏����� 
 
 
-\begin{DoxyParams}{引数}
-{\em ap} & アプリケーションへのポインタ \\
+\begin{DoxyParams}{Parameters}
+{\em ap} & �\+A�v���\+P�\mbox{[}�\+V�����ւ̃\texorpdfstring{$\vert$}{|}�\+C���\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyParams}
-
-
- \mbox{\hyperlink{manager_8cpp_source}{manager.\+cpp}} の \mbox{\hyperlink{manager_8cpp_source_l00023}{23}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 4
-被呼び出し関係図\+:
-% FIG 5
 \Hypertarget{class_manager_a20d56cefa4ca57aa690b64e9e564fad9}\label{class_manager_a20d56cefa4ca57aa690b64e9e564fad9} 
 \index{Manager@{Manager}!SetScene@{SetScene}}
 \index{SetScene@{SetScene}!Manager@{Manager}}
@@ -108,37 +71,13 @@ static void Manager\+::\+Set\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCa
 
 
 
-新しいシーンを設定します。 
+�\+V�����\+V�\mbox{[}����ݒ肵�܂��B 
 
 
-\begin{DoxyTemplParams}{テンプレート引数}
-{\em T} & 設定する新しいシーンのクラス型 \\
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & �ݒ肷��\+V�����\+V�\mbox{[}���̃\+N���\+X�\texorpdfstring{$^\wedge$}{\string^} \\
 \hline
 \end{DoxyTemplParams}
-
-
- \mbox{\hyperlink{manager_8h_source}{manager.\+h}} の \mbox{\hyperlink{manager_8h_source_l00051}{51}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 6
-\Hypertarget{class_manager_a970ac333358a47086c4a019ff254899b}\label{class_manager_a970ac333358a47086c4a019ff254899b} 
-\index{Manager@{Manager}!Uninit@{Uninit}}
-\index{Uninit@{Uninit}!Manager@{Manager}}
-\doxysubsubsection{\texorpdfstring{Uninit()}{Uninit()}}
-{\footnotesize\ttfamily void Manager\+::\+Uninit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Managerクラスの終了処理 
-
-
-
- \mbox{\hyperlink{manager_8cpp_source}{manager.\+cpp}} の \mbox{\hyperlink{manager_8cpp_source_l00048}{48}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 7
-被呼び出し関係図\+:
-% FIG 8
 \Hypertarget{class_manager_a3df4922c763aeebe6918a00154ec0354}\label{class_manager_a3df4922c763aeebe6918a00154ec0354} 
 \index{Manager@{Manager}!Update@{Update}}
 \index{Update@{Update}!Manager@{Manager}}
@@ -147,37 +86,16 @@ Managerクラスの終了処理
 
 
 
-Managerクラスの更新 
+Manager�\+N���\+X�̍\+X�V. 
 
 
-\begin{DoxyParams}{引数}
-{\em d} & 経過時間 \\
+\begin{DoxyParams}{Parameters}
+{\em d} & �o�ߎ��� \\
 \hline
 \end{DoxyParams}
 
 
- \mbox{\hyperlink{manager_8cpp_source}{manager.\+cpp}} の \mbox{\hyperlink{manager_8cpp_source_l00069}{69}} 行目に定義があります。
-
-呼び出し関係図\+:
-% FIG 9
-被呼び出し関係図\+:
-% FIG 10
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_manager_af3232fd1bb93acf0dc86721e8ca4f29c}\label{class_manager_af3232fd1bb93acf0dc86721e8ca4f29c} 
-\index{Manager@{Manager}!m\_Scene@{m\_Scene}}
-\index{m\_Scene@{m\_Scene}!Manager@{Manager}}
-\doxysubsubsection{\texorpdfstring{m\_Scene}{m\_Scene}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_scene}{Scene}} \texorpdfstring{$\ast$}{*} Manager\+::m\+\_\+\+Scene \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{manager_8h_source}{manager.\+h}} の \mbox{\hyperlink{manager_8h_source_l00018}{18}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/manager.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/manager.\+cpp\end{DoxyCompactItemize}

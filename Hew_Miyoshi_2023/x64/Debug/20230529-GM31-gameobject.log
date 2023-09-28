@@ -1,5 +1,1 @@
-﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  Human.cpp
-  Octopus.cpp
-  コードを生成中...
-  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe
+﻿  20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

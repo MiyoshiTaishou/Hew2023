@@ -1,17 +1,16 @@
-\doxysection{Shader クラス}
+\doxysection{Shader Class Reference}
 \hypertarget{class_shader}{}\label{class_shader}\index{Shader@{Shader}}
-
-
-Shader の継承関係図
-% FIG 0
-
-
-Shader 連携図
-% FIG 1
-\doxysubsubsection*{公開メンバ関数}
+Inheritance diagram for Shader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shader}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_shader_a23386693170f673217ce47e3e2a513c9}{Load}} (const char \texorpdfstring{$\ast$}{*}Vertex\+Shader, const char \texorpdfstring{$\ast$}{*}Pixel\+Shader)
+\Hypertarget{class_shader_a23386693170f673217ce47e3e2a513c9}\label{class_shader_a23386693170f673217ce47e3e2a513c9} 
+void {\bfseries Load} (const char \texorpdfstring{$\ast$}{*}Vertex\+Shader, const char \texorpdfstring{$\ast$}{*}Pixel\+Shader)
 \item 
 void \mbox{\hyperlink{class_shader_a361c38fd45e2df2836bb4b2fb9587195}{Uninit}} () override
 \item 
@@ -20,52 +19,27 @@ void \mbox{\hyperlink{class_shader_a55f2d3f820b7dd61003cb0e75d63001d}{Draw}} () 
 \Hypertarget{class_shader_a2a7f4303a0d29316167e3aa7f1e5f90a}\label{class_shader_a2a7f4303a0d29316167e3aa7f1e5f90a} 
 {\bfseries Component} ()=delete
 \item 
-\mbox{\hyperlink{class_shader_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+\Hypertarget{class_shader_aaa874f1577ba8f36a03983918ee3501f}\label{class_shader_aaa874f1577ba8f36a03983918ee3501f} 
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \end{DoxyCompactItemize}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承公開メンバ関数}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_component_aaa874f1577ba8f36a03983918ee3501f}{Component}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
+{\bfseries Component} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}Object)
 \item 
-virtual void \mbox{\hyperlink{class_component_a5a5e595fab62ba757f03becc5b101732}{Init}} ()
+virtual void {\bfseries Init} ()
 \item 
 virtual void \mbox{\hyperlink{class_component_aaf2ce6dc5752072492f790ad4c7955bb}{Update}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{非公開変数類}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shader_a161d816af8a2835a79a400422c082219}{m\+\_\+\+Vertex\+Shader}} \{\}
-\item 
-ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shader_a525766be31b30c6a0123af0c3a74a530}{m\+\_\+\+Pixel\+Shader}} \{\}
-\item 
-ID3\+D11\+Input\+Layout \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shader_a3c70c73810141bb47d4cfb4d381b8fc9}{m\+\_\+\+Vertex\+Layout}} \{\}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{その他の継承メンバ}
-\doxysubsection*{基底クラス \mbox{\hyperlink{class_component}{Component}} に属する継承限定公開変数類}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_component_a0ad9a9dd525549a32a77be5a584ec480}{m\+\_\+\+Game\+Object}} = nullptr
+class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Game\+Object} = nullptr
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{詳解}
-
-
- \mbox{\hyperlink{shader_8h_source}{shader.\+h}} の \mbox{\hyperlink{shader_8h_source_l00006}{6}} 行目に定義があります。
-
-
-
-\doxysubsection{関数詳解}
-\Hypertarget{class_shader_aaa874f1577ba8f36a03983918ee3501f}\label{class_shader_aaa874f1577ba8f36a03983918ee3501f} 
-\index{Shader@{Shader}!Component@{Component}}
-\index{Component@{Component}!Shader@{Shader}}
-\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
-{\footnotesize\ttfamily Component\+::\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
- \mbox{\hyperlink{component_8h_source}{component.\+h}} の \mbox{\hyperlink{component_8h_source_l00013}{13}} 行目に定義があります。
-
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_shader_a55f2d3f820b7dd61003cb0e75d63001d}\label{class_shader_a55f2d3f820b7dd61003cb0e75d63001d} 
 \index{Shader@{Shader}!Draw@{Draw}}
 \index{Draw@{Draw}!Shader@{Shader}}
@@ -74,21 +48,7 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
-
-
-
- \mbox{\hyperlink{shader_8cpp_source}{shader.\+cpp}} の \mbox{\hyperlink{shader_8cpp_source_l00021}{21}} 行目に定義があります。
-
-\Hypertarget{class_shader_a23386693170f673217ce47e3e2a513c9}\label{class_shader_a23386693170f673217ce47e3e2a513c9} 
-\index{Shader@{Shader}!Load@{Load}}
-\index{Load@{Load}!Shader@{Shader}}
-\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
-{\footnotesize\ttfamily void Shader\+::\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{Vertex\+Shader,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Pixel\+Shader }\end{DoxyParamCaption})}
-
-
-
- \mbox{\hyperlink{shader_8cpp_source}{shader.\+cpp}} の \mbox{\hyperlink{shader_8cpp_source_l00005}{5}} 行目に定義があります。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 \Hypertarget{class_shader_a361c38fd45e2df2836bb4b2fb9587195}\label{class_shader_a361c38fd45e2df2836bb4b2fb9587195} 
 \index{Shader@{Shader}!Uninit@{Uninit}}
@@ -98,48 +58,11 @@ class \mbox{\hyperlink{class_game_object}{Game\+Object}} \texorpdfstring{$\ast$}
 
 
 
-\mbox{\hyperlink{class_component}{Component}}を再実装しています。
+Reimplemented from \mbox{\hyperlink{class_component}{Component}}.
 
 
 
- \mbox{\hyperlink{shader_8cpp_source}{shader.\+cpp}} の \mbox{\hyperlink{shader_8cpp_source_l00013}{13}} 行目に定義があります。
-
-
-
-\doxysubsection{メンバ詳解}
-\Hypertarget{class_shader_a525766be31b30c6a0123af0c3a74a530}\label{class_shader_a525766be31b30c6a0123af0c3a74a530} 
-\index{Shader@{Shader}!m\_PixelShader@{m\_PixelShader}}
-\index{m\_PixelShader@{m\_PixelShader}!Shader@{Shader}}
-\doxysubsubsection{\texorpdfstring{m\_PixelShader}{m\_PixelShader}}
-{\footnotesize\ttfamily ID3\+D11\+Pixel\+Shader\texorpdfstring{$\ast$}{*} Shader\+::m\+\_\+\+Pixel\+Shader \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{shader_8h_source}{shader.\+h}} の \mbox{\hyperlink{shader_8h_source_l00011}{11}} 行目に定義があります。
-
-\Hypertarget{class_shader_a3c70c73810141bb47d4cfb4d381b8fc9}\label{class_shader_a3c70c73810141bb47d4cfb4d381b8fc9} 
-\index{Shader@{Shader}!m\_VertexLayout@{m\_VertexLayout}}
-\index{m\_VertexLayout@{m\_VertexLayout}!Shader@{Shader}}
-\doxysubsubsection{\texorpdfstring{m\_VertexLayout}{m\_VertexLayout}}
-{\footnotesize\ttfamily ID3\+D11\+Input\+Layout\texorpdfstring{$\ast$}{*} Shader\+::m\+\_\+\+Vertex\+Layout \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{shader_8h_source}{shader.\+h}} の \mbox{\hyperlink{shader_8h_source_l00012}{12}} 行目に定義があります。
-
-\Hypertarget{class_shader_a161d816af8a2835a79a400422c082219}\label{class_shader_a161d816af8a2835a79a400422c082219} 
-\index{Shader@{Shader}!m\_VertexShader@{m\_VertexShader}}
-\index{m\_VertexShader@{m\_VertexShader}!Shader@{Shader}}
-\doxysubsubsection{\texorpdfstring{m\_VertexShader}{m\_VertexShader}}
-{\footnotesize\ttfamily ID3\+D11\+Vertex\+Shader\texorpdfstring{$\ast$}{*} Shader\+::m\+\_\+\+Vertex\+Shader \{\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
- \mbox{\hyperlink{shader_8h_source}{shader.\+h}} の \mbox{\hyperlink{shader_8h_source_l00010}{10}} 行目に定義があります。
-
-
-
-このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/shader.\+h\item 
 C\+:/\+Users/\+Taish/\+Documents/\+Git\+Hub/\+Hew2023/\+Hew\+\_\+\+Miyoshi\+\_\+2023/shader.\+cpp\end{DoxyCompactItemize}

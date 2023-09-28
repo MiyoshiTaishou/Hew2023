@@ -16,6 +16,12 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_ConcentrationShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_DepthWrite.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_DistanceAlhpa.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_FadeShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -31,6 +37,9 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_RGBSplit.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\PS_Shadow.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\vertexLightingPS.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -40,10 +49,16 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\VS_GouraudShading.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\VS_LightingOneSkin.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\VS_Rotation.cso</FullPath>
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\VS_Scale.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Release\VS_Shadow.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
