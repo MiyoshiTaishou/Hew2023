@@ -61,6 +61,7 @@ void Result::Init()
 
 void Result::Update()
 {
+	//ƒV[ƒ“‘JˆÚ
 	if (m_Fade->GetState() == FadeUI::State::Stop)
 		if (Input::GetKeyTrigger(VK_RETURN))
 			m_Fade->FadeOut();

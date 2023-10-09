@@ -1,2 +1,16 @@
-﻿  Human.cpp
+﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
+  DebugCamera.cpp
+  Game.cpp
+  Player.cpp
+  Result.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Result.cpp(28,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Result.cpp(28,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Result.cpp(28,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  StageEditor.cpp
+  Title.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Title.cpp(34,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Title.cpp(34,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\Title.cpp(34,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  camera.cpp
+  コードを生成中...
   20230529-GM31-gameobject.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe

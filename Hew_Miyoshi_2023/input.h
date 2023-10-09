@@ -1,5 +1,12 @@
 #pragma once
-#include <GamePad.h>
+
+//入力を取るクラス
+
+#include <Windows.h>
+#include <XInput.h>
+
+// XInputライブラリをリンクするライブラリ指示子
+#pragma comment(lib, "XInput.lib")
 
 /**
  * @brief ボタンの列挙型
@@ -36,10 +43,11 @@ private:
     static BYTE m_OldKeyState[256];                 /**< 前回のキーボードの状態 */
     static BYTE m_KeyState[256];                    /**< 現在のキーボードの状態 */
 
-    // ゲームパッドの判定
-    static DirectX::GamePad m_GamePad;              /**< ゲームパッドのオブジェクト */
-    static DirectX::GamePad::State m_State;        /**< ゲームパッドの状態 */
-    static DirectX::GamePad::ButtonStateTracker m_StateTracker; /**< ゲームパッドのボタンの状態を追跡するトラッカー */
+   
+   static  XINPUT_STATE m_ControllerState;
+    //static DirectX::GamePad m_GamePad;              /**< ゲームパッドのオブジェクト */
+    //static DirectX::GamePad::State m_State;        /**< ゲームパッドの状態 */
+    //static DirectX::GamePad::ButtonStateTracker m_StateTracker; /**< ゲームパッドのボタンの状態を追跡するトラッカー */
 
 public:
     /**
@@ -74,10 +82,9 @@ public:
     /**
      * @brief 指定したゲームパッドのボタンの状態を取得します。
      * @param button ボタン
-     * @param _buttonState ボタンの状態
      * @return ボタンの状態が指定した状態である場合はtrue、それ以外はfalse
      */
-    static bool GetGamePad(BUTTON button, STATE _buttonState);
+    static bool GetGamePad(BUTTON button);
 
     static void Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger);
 };

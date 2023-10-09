@@ -3,6 +3,7 @@
 Texture2D g_Texture : register(t0);
 SamplerState g_SamplerState : register(s0);
 
+//RGB‚ğ­‚µ‚¸‚ç‚·
 void main(in PS_IN In, out float4 outDiffuse : SV_Target)
 {
     float4 color = float4(1.0f, 1.0f, 1.0f, 1.0f);

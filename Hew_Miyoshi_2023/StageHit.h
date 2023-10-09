@@ -5,6 +5,7 @@
 
 class GameObject;
 
+//先生から頂いた処理を見ながら実装したがうまくいかなかった
 // 地形データの面の方程式情報
 struct PLANEINFO {
 	DirectX::SimpleMath::Plane		plane;				//平面の方程式

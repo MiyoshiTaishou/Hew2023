@@ -7,6 +7,7 @@ void Gravity::Update()
 {
 
 	//座標が3以下なら処理をしない
+	//現在地面に設定している部分とプレイヤーのサイズからこうなっている
 	if (m_GameObject->GetPosition().y < 3.0f)
 	{
 		time = 0;

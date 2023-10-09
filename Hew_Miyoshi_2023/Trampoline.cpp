@@ -28,6 +28,7 @@ void Trampoline::Action(GameObject* obj)
 	//速度をy方向を0にする
 	//obj->GetComponent<Rigidbody>()->SetVelocity({ 0,0,0 });
 
+	//設定したパワーをy方向の速度に入れる
 	vec.y = power;
 	//vec.x *= -2;
 	//vec.z *= -2;
