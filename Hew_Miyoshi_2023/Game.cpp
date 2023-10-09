@@ -42,6 +42,7 @@ Vector3 afterPos;
 
 void Game::Init()
 {
+	//オブジェクト生成
 	AddGameObject<Sky>(1);
 	AddGameObject<Player>(1);
 	AddGameObject<Field>(1);
@@ -61,56 +62,8 @@ void Game::Init()
 	AddGameObject<Enemy>(1)->SetPosition(Vector3(10.0f, 0.0f, 5.0f));
 	AddGameObject<Enemy>(1)->SetPosition(Vector3(15.0f, 0.0f, 5.0f));
 
+	//エディタで作ったシーンをロード
 	LoadpositionToFile("positions.txt");
-
-	//// チェック完了
-	//{
-	//	Box* box = AddGameObject<Box>(1);
-	//	box->SetPosition(Vector3(-5.0f, 0.0f, 5.0f));
-	//	box->SetScale(Vector3(3.0f, 1.0f, 3.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Box* box = AddGameObject<Box>(1);
-	//	box->SetPosition(Vector3(-11.0f, 0.0f, 5.0f));
-	//	box->SetScale(Vector3(3.0f, 2.0f, 3.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Box* box = AddGameObject<Box>(1);
-	//	box->SetPosition(Vector3(-11.0f, 0.0f, 11.0f));
-	//	box->SetScale(Vector3(3.0f, 3.0f, 3.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Cylinder* cylinder = AddGameObject<Cylinder>(1);
-	//	cylinder->SetPosition(Vector3(-11.0f, 0.0f, 20.0f));
-	//	cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Box* box = AddGameObject<Box>(1);
-	//	box->SetPosition(Vector3(0.0f, 0.0f, 20.0f));
-	//	box->SetScale(Vector3(9.0f, 3.0f, 1.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Cylinder* cylinder = AddGameObject<Cylinder>(1);
-	//	cylinder->SetPosition(Vector3(11.0f, 0.0f, 20.0f));
-	//	cylinder->SetScale(Vector3(3.0f, 6.0f, 3.0f));
-	//}
-
-	//// チェック完了
-	//{
-	//	Goal* goal = AddGameObject<Goal>(1);
-	//	goal->SetPosition(Vector3(0.0f, 0.5f, -10.0f));
-	//	goal->SetScale(Vector3(0.5f, 0.5f, 0.5f));
-	//}
 
 	// チェック完了
 	{
@@ -129,6 +82,7 @@ void Game::Init()
 	//m_Transition = AddGameObject<Transition>(3);
 	//m_Transition->FadeIn();//フェードイン開始	
 
+	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
@@ -141,6 +95,7 @@ void Game::Init()
 
 void Game::Update()
 {
+	//シーン遷移
 	if (m_Fade->GetState() == FadeUI::State::Stop)
 		if (Input::GetKeyTrigger(VK_RETURN))
 			m_Fade->FadeOut();
@@ -166,6 +121,7 @@ void Game::Update()
 	//}
 }
 
+//Gameではなくscene.hに作成した方が良さそう
 void Game::LoadpositionToFile(const std::string& filename)
 {
 	std::ifstream inputFile(filename);

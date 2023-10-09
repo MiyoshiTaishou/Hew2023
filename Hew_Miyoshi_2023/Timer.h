@@ -2,6 +2,7 @@
 #include "gameObject.h"
 #include"renderer.h"
 
+//ステージの制限時間表示
 class Timer : public GameObject
 {
 public:

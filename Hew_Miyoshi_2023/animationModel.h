@@ -7,9 +7,7 @@
 #include "assimp/postprocess.h"
 #include "assimp/matrix4x4.h"
 
-#pragma comment (lib, "assimp-vc143-mtd.lib")
-#pragma comment(lib,"directxtex.lib")
-
+#pragma comment (lib, "assimp-vc142-mtd.lib")
 
 #include "component.h"
 

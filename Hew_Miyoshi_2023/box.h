@@ -5,7 +5,8 @@
 class Box : public GameObject
 {
 
-private:	
+private:
+
 public:
 	void Init() override;	
 };

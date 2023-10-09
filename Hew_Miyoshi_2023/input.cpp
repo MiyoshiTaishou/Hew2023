@@ -4,89 +4,82 @@
 
 using namespace DirectX;
 
-//GamePad Input::m_GamePad;
-
-//GamePad Input::m_GamePad;              /**< ゲームパッドのオブジェクト */
-//GamePad::ButtonStateTracker Input::m_StateTracker;
-//GamePad::State Input::m_State;
-//
-
 BYTE Input::m_OldKeyState[256];
 BYTE Input::m_KeyState[256];
+//DirectX::GamePad Input::m_GamePad;
+//DirectX::GamePad::ButtonStateTracker Input::m_StateTracker;
+//DirectX::GamePad::State Input::m_State;
+
+XINPUT_STATE Input::m_ControllerState; // コントローラーの状態を保持する変数
 
 void Input::Init()
 {
-
-	memset( m_OldKeyState, 0, 256 );
-	memset( m_KeyState, 0, 256 );	
-	
+    memset(m_OldKeyState, 0, 256);
+    memset(m_KeyState, 0, 256);
+    ZeroMemory(&m_ControllerState, sizeof(XINPUT_STATE)); // コントローラーの状態を初期化
 }
-
 
 void Input::Update()
 {
+    memcpy(m_OldKeyState, m_KeyState, 256);
+    GetKeyboardState(m_KeyState);
 
-	memcpy( m_OldKeyState, m_KeyState, 256 );
+    // コントローラーの状態を取得
+    DWORD result = XInputGetState(0, &m_ControllerState);
 
-	GetKeyboardState( m_KeyState );	 
-
-	/*m_State = m_GamePad.GetState(0);
-	m_StateTracker.Update(m_State);	*/
+    // コントローラーが接続されているか確認
+    if (result != ERROR_SUCCESS)
+    {
+        ZeroMemory(&m_ControllerState, sizeof(XINPUT_STATE)); // コントローラーが接続されていない場合、状態をクリア
+    }
 }
 
 bool Input::GetKeyPress(BYTE KeyCode)
 {
-	return (m_KeyState[KeyCode] & 0x80);
+    return (m_KeyState[KeyCode] & 0x80);
 }
 
 bool Input::GetKeyTrigger(BYTE KeyCode)
 {
-	return ((m_KeyState[KeyCode] & 0x80) && !(m_OldKeyState[KeyCode] & 0x80));
+    return ((m_KeyState[KeyCode] & 0x80) && !(m_OldKeyState[KeyCode] & 0x80));
 }
 
-//bool Input::GetGamePad(BUTTON button, STATE _buttonState)
-//{
-//	switch (button)
-//	{
-//	case LUP:
-//		if (m_StateTracker.leftStickUp == _buttonState)
-//			return true;
-//		break;
-//	case LDOWN:
-//		if (m_StateTracker.leftStickDown == _buttonState)
-//			return true;
-//		break;
-//	case LLEFT:
-//		if (m_StateTracker.leftStickLeft == _buttonState)
-//			return true;
-//		break;
-//	case LRIGHT:
-//		if (m_StateTracker.leftStickRight == _buttonState)
-//			return true;
-//		break;
-//	case RUP:
-//		if (m_StateTracker.rightStickUp == _buttonState)
-//			return true;
-//		break;
-//	case RDOWN:
-//		if (m_StateTracker.rightStickDown == _buttonState)
-//			return true;
-//		break;
-//	case RLEFT:
-//		if (m_StateTracker.rightStickLeft == _buttonState)
-//			return true;
-//		break;
-//	case RRIGHT:
-//		if (m_StateTracker.rightStickUp == _buttonState)
-//			return true;
-//		break;
-//	default:
-//		break;
-//	}
-//	return false;
-//}
-//
-//void Input::Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger)
-//{
-//	m_GamePad.SetVibration(player, leftMotor, rightMotor, leftTrigger, rightTrigger);
-//}
+bool Input::GetGamePad(BUTTON button)
+{
+    // コントローラーのボタンの状態をチェック
+    switch (button)
+    {
+    case BUTTON::LUP:
+        return (m_ControllerState.Gamepad.sThumbLY > 0);
+    case BUTTON::LDOWN:
+        return (m_ControllerState.Gamepad.sThumbLY < 0);
+    case BUTTON::LLEFT:
+        return (m_ControllerState.Gamepad.sThumbLX < 0);
+    case BUTTON::LRIGHT:
+        return (m_ControllerState.Gamepad.sThumbLX > 0);
+    case BUTTON::RUP:
+        return (m_ControllerState.Gamepad.sThumbRY > 0);
+    case BUTTON::RDOWN:                                                         
+        return (m_ControllerState.Gamepad.sThumbRY < 0);
+    case BUTTON::RLEFT:                                                         
+        return (m_ControllerState.Gamepad.sThumbRX < 0);
+    case BUTTON::RRIGHT:                                                        
+        return (m_ControllerState.Gamepad.sThumbRX > 0);
+    default:
+        break;
+    }
+    return false;
+}
+
+
+void Input::Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger)
+{
+    // コントローラーの振動を設定
+    XINPUT_VIBRATION vibration;
+    ZeroMemory(&vibration, sizeof(XINPUT_VIBRATION));
+    vibration.wLeftMotorSpeed = static_cast<WORD>(leftMotor * 65535.0f);
+    vibration.wRightMotorSpeed = static_cast<WORD>(rightMotor * 65535.0f);
+   /* vibration.bLeftTrigger = static_cast<BYTE>(leftTrigger * 255);
+    vibration.bRightTrigger = static_cast<BYTE>(rightTrigger * 255);*/
+    XInputSetState(player, &vibration);
+}

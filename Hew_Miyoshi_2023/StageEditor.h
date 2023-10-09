@@ -9,6 +9,7 @@ enum CLASS
 	NONE,
 };
 
+//オブジェクトの種類、transformを保存する
 struct InfoObjData
 {
 	CLASS ClassKind;
