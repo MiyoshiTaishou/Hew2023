@@ -58,7 +58,7 @@ void Player::Update()
 
 	Camera* cameraObj = scene->GetGameObject<Camera>();
 
-	Vector3 oldPosition = m_Position;
+	m_OldPos = m_Position;
 
 	Rigidbody* body = GetComponent<Rigidbody>();
 	
@@ -80,6 +80,155 @@ void Player::Update()
 	//コントローラーの入力
 	ConInput();
 
+	//当たり判定処理
+	Collison();
+
+	// 位置が０以下なら地面位置にセットする
+	if (m_Position.y < groundHeight)
+	{
+		Vector3 vel = body->GetVelocity();
+		m_Position.y = groundHeight;
+		vel.y = 0.0f;
+		body->SetVelocity(vel);
+	}	
+
+	//ダッシュするための処理
+	//入力方法を変えたので一旦コメント
+	//受付時間trueなら計測開始
+	/*if (actionCheck)
+	{
+		if (loopCount < reception)
+			if (actionDashu < actionCount)
+			{
+				Vector3 force = forward * 100.0f;
+				body->AddForce(force, ForceMode::Impulse);
+				actionCheck = false;
+				actionDashu = 0;
+				loopCount = 0;
+			}
+
+		loopCount++;
+	}
+	else
+	{
+		loopCount = 0;
+		actionDashu = 0;
+	}*/
+
+	//コンポーネントのUpdate呼び出し
+	for (auto& cmpt : m_Component) {
+		cmpt->Update();
+	}
+
+	//座標更新
+	m_Position += body->GetVelocity() * (1.0f / 60.0f);	
+}
+
+void Player::Draw()
+{
+	for (auto& cmpt : m_Component) {
+		cmpt->Draw();
+	}
+
+	//プレイヤーの情報を表示する
+	ImGui::Begin("Player");
+	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
+	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
+	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	ImGui::End();
+
+	//子オブジェクトが出たらその情報を追加
+	if (mchild != nullptr)
+	{
+		ImGui::Begin("Child");
+		ImGui::Text("Scale\n %f\nY %f\nZ %f", mchild->GetScale().x, mchild->GetScale().y, mchild->GetScale().z);
+		ImGui::Text("Pos\nX %f\nY %f\nZ %f", mchild->GetPosition().x, mchild->GetPosition().y, mchild->GetPosition().z);
+		ImGui::Text("Rot\nX %f\nY %f\nZ %f", mchild->GetRotation().x, mchild->GetRotation().y, mchild->GetRotation().z);
+		ImGui::End();
+	}
+}
+
+void Player::ConInput()
+{
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+
+	Camera* cameraObj = scene->GetGameObject<Camera>();
+
+	Vector3 forward = Vector3(0, 0, 0);
+
+	//カメラの前向きベクトル
+	if (cameraObj)
+		forward = cameraObj->GetForward();
+
+	Rigidbody* body = GetComponent<Rigidbody>();
+
+	//ジャンプ
+	if (Input::GetKeyTrigger('J'))
+	{
+		Vector3 force = { 0,100,0 };
+		body->AddForce(force, ForceMode::Impulse);
+	}
+
+	//コントローラーの入力を取る	
+	{
+		//壁を上るモードかどうか
+		if (wallUp)
+		{
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP))
+			{
+				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
+				body->AddForce(Up, ForceMode::Force);
+			}
+		}
+		else
+		{
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP))
+			{
+				Vector3 force = forward * 100.0f;
+				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x += 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN))
+			{
+				Vector3 force = forward * -100.0f;
+				body->AddForce(force, ForceMode::Force);
+				m_Rotation.x -= 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RDOWN))
+				m_Rotation.y -= 1.0f / 60.0f;
+			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RUP))
+				m_Rotation.y += 1.0f / 60.0f;
+
+
+			//ダッシュ
+			//入力の取り方を変えたため一旦コメント
+			/*if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RDOWN))
+			{
+				actionCheck = true;
+				actionCount++;
+				m_Rotation.x += 0.1f;
+			}
+			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RUP))
+			{
+				actionCheck = true;
+				actionCount++;
+				m_Rotation.x += 0.1f;
+			}*/
+		}
+	}
+
+}
+
+void Player::Collison()
+{
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+	Rigidbody* body = GetComponent<Rigidbody>();
+
+	//接地
+	float groundHeight = 2.0f;
 
 	// ゴールとの当たり判定
 	{
@@ -146,7 +295,7 @@ void Player::Update()
 		{
 			Vector3 position = enemyObj->GetPosition();
 			Vector3 scale = enemyObj->GetScale();
-			
+
 			//距離を求める
 			Vector3 direction = m_Position - position;
 			float length = direction.Length();
@@ -239,14 +388,14 @@ void Player::Update()
 					if (speed > 10.0f)
 					{
 						Vector3 force = -vel * 5.0f;
-						body->AddForce(force, ForceMode::Impulse);						
-						//Input::Vibration(0, 1.0f, 1.0f, 1.0f, 1.0f);
+						body->AddForce(force, ForceMode::Impulse);
+						Input::Vibration(0, 1.0f, 1.0f, 1.0f, 1.0f);
 						m_MeatSE2->Play();
 					}
 					else
 					{
-						m_Position.x = oldPosition.x;
-						m_Position.z = oldPosition.z;
+						m_Position.x = m_OldPos.x;
+						m_Position.z = m_OldPos.z;
 						Vector3 v = body->GetVelocity();
 						body->SetVelocity({ 0.0f,v.y,0.0f });
 						//body->SetForce(Vector3(0.0f, 0.0f, 0.0f));
@@ -258,7 +407,7 @@ void Player::Update()
 				{
 					groundHeight = position.y + scale.y * 2.0f + 2.0f;
 					wallUp = false;
-				}					
+				}
 			}
 		}
 	}
@@ -400,7 +549,7 @@ void Player::Update()
 				}
 				else if (position.y + scale.y * 2.0f + 1.0f < m_Position.y && position.y + scale.y * 2.0f + 3.0f > m_Position.y)
 				{
-					groundHeight = position.y + scale.y * 2.0f + 2.0f;	
+					groundHeight = position.y + scale.y * 2.0f + 2.0f;
 					body->SetDrag(1);
 				}
 			}
@@ -411,55 +560,6 @@ void Player::Update()
 		}
 	}
 
-	// 位置が０以下なら地面位置にセットする
-	if (m_Position.y < groundHeight)
-	{
-		Vector3 vel = body->GetVelocity();
-		m_Position.y = groundHeight;
-		vel.y = 0.0f;
-		body->SetVelocity(vel);
-	}
-	
-	//現在の位置を更新	
-	if (Input::GetKeyPress('A'))
-	{
-		m_Rotation.y -= buttonState.thumbSticks.leftX / 60.0f;
-		m_Rotation.y -= 1.0f / 60.0f;
-	}
-
-	if (Input::GetKeyPress('D'))
-	{
-		m_Rotation.y += 1.0f / 60.0f;
-	}	
-
-	if (Input::GetKeyPress('W') || this->buttonState.IsLeftStickPressed())
-	{
-		if (body->GetFreeze(Freeze::Xpos))
-		{
-			Vector3 force = { 0,500,0 };
-			body->AddForce(force, ForceMode::Force);
-		}
-		else
-		{
-			Vector3 force = forward * 100.0f;
-			body->AddForce(force, ForceMode::Force);
-		}
-	}
-
-	if (Input::GetKeyPress('S'))
-	{
-		Vector3 force = forward * -100.0f;
-		body->AddForce(force, ForceMode::Force);
-	}
-
-	//ジャンプ
-	if (Input::GetKeyTrigger('J'))
-	{
-		Vector3 force = { 0,100,0 };
-		body->AddForce(force, ForceMode::Impulse);
-	}
-
-
 	//地面との当たり判定
 	Vector3 ans;
 	bool sts = SearchAllSurface(m_Position.x, m_Position.z, ans);
@@ -469,119 +569,5 @@ void Player::Update()
 	else {
 		m_Position.y = m_Position.y;
 	}
-
-	//受付時間trueなら計測開始
-	if (actionCheck)
-	{
-		if (loopCount < reception)
-			if (actionDashu < actionCount)
-			{
-				Vector3 force = forward * 100.0f;
-				body->AddForce(force, ForceMode::Impulse);
-				actionCheck = false;
-				actionDashu = 0;
-				loopCount = 0;
-			}
-
-		loopCount++;
-	}
-	else
-	{
-		loopCount = 0;
-		actionDashu = 0;
-	}
-
-	for (auto& cmpt : m_Component) {
-		cmpt->Update();
-	}
-
-	//座標更新
-	m_Position += body->GetVelocity() * (1.0f / 60.0f);	
-}
-
-void Player::Draw()
-{
-	for (auto& cmpt : m_Component) {
-		cmpt->Draw();
-	}
-
-	//プレイヤーの情報を表示する
-	ImGui::Begin("Player");
-	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
-	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
-	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
-	ImGui::End();
-
-	if (mchild != nullptr)
-	{
-		ImGui::Begin("Child");
-		ImGui::Text("Scale\n %f\nY %f\nZ %f", mchild->GetScale().x, mchild->GetScale().y, mchild->GetScale().z);
-		ImGui::Text("Pos\nX %f\nY %f\nZ %f", mchild->GetPosition().x, mchild->GetPosition().y, mchild->GetPosition().z);
-		ImGui::Text("Rot\nX %f\nY %f\nZ %f", mchild->GetRotation().x, mchild->GetRotation().y, mchild->GetRotation().z);
-		ImGui::End();
-	}
-}
-
-void Player::ConInput()
-{
-	// 現在シーンを取得
-	Scene* scene = Manager::GetScene();
-
-	Camera* cameraObj = scene->GetGameObject<Camera>();
-
-	Vector3 forward = Vector3(0, 0, 0);
-
-	//カメラの前向きベクトル
-	if (cameraObj)
-		forward = cameraObj->GetForward();
-
-	Rigidbody* body = GetComponent<Rigidbody>();
-
-	//コントローラーの入力を取る	
-	//{
-	//	if (wallUp)
-	//	{
-	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-	//		{
-	//			Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
-	//			body->AddForce(Up, ForceMode::Force);
-	//		}
-	//	}
-	//	else
-	//	{
-	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-	//		{
-	//			Vector3 force = forward * 100.0f;
-	//			body->AddForce(force, ForceMode::Force);
-	//			m_Rotation.x += 0.1f;
-	//		}
-	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-	//		{
-	//			Vector3 force = forward * -100.0f;
-	//			body->AddForce(force, ForceMode::Force);
-	//			m_Rotation.x -= 0.1f;
-	//		}
-	//		if (Input::GetGamePad(BUTTON::LUP, STATE::HELD) && Input::GetGamePad(BUTTON::RDOWN, STATE::HELD))
-	//			m_Rotation.y -= 1.0f / 60.0f;
-	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::HELD) && Input::GetGamePad(BUTTON::RUP, STATE::HELD))
-	//			m_Rotation.y += 1.0f / 60.0f;
-
-
-	//		//ダッシュ
-	//		if (Input::GetGamePad(BUTTON::LUP, STATE::PRESSED) && Input::GetGamePad(BUTTON::RDOWN, STATE::PRESSED))
-	//		{
-	//			actionCheck = true;
-	//			actionCount++;
-	//			m_Rotation.x += 0.1f;
-	//		}
-	//		if (Input::GetGamePad(BUTTON::LDOWN, STATE::PRESSED) && Input::GetGamePad(BUTTON::RUP, STATE::PRESSED))
-	//		{
-	//			actionCheck = true;
-	//			actionCount++;
-	//			m_Rotation.x += 0.1f;
-	//		}
-	//	}
-	//}
 
 }

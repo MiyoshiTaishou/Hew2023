@@ -32,9 +32,9 @@ public:
     void ConInput();
 
     /**
-     * @brief ゲームパッドのボタン状態を表す変数です。
-     */
-    DirectX::GamePad::State buttonState;
+    * @brief プレイヤーオブジェクトの当たり判定処理を行います。
+    */
+    void Collison();
 
 private:
     /**
@@ -101,6 +101,11 @@ private:
      * @brief 壁を登るためのフラグです。
      */
     bool wallUp = false;
+
+    /**
+     * @brief前回の座標を保存する変数
+     */
+    DirectX::SimpleMath::Vector3 m_OldPos;
 
     /**
      * @brief 頂点座標のリストです。

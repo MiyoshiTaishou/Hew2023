@@ -47,19 +47,6 @@ struct LIGHT
     DirectX::SimpleMath::Color Ambient;      ///< 光源のアンビエントカラー
 };
 
-struct LIGHT_SHADOW
-{
-    DirectX::XMFLOAT4X4 lightMat;
-};
-// メッシュ（マテリアル毎にサブセットが存在する）
-struct SUBSET {
-    unsigned int	IndexNum = 0;					// インデックス数
-    unsigned int	VertexNum = 0;					// 頂点数
-    unsigned int	IndexBase = 0;					// 開始インデックス
-    unsigned int	VertexBase = 0;					// 頂点ベース
-    unsigned int	MaterialIdx = 0;				// マテリアルインデックス
-};
-
 /**
  * @brief Pollar（円環ゲージ）の構造体
  */
@@ -129,16 +116,11 @@ class Renderer
 {
 private:
     static D3D_FEATURE_LEVEL       m_FeatureLevel;
-
     static ID3D11Device* m_Device;
     static ID3D11DeviceContext* m_DeviceContext;
     static IDXGISwapChain* m_SwapChain;
-    static ID3D11ShaderResourceView* m_ShaderResourceView;
     static ID3D11RenderTargetView* m_RenderTargetView;
-    static ID3D11RenderTargetView* m_DepthRenderTargetView;
     static ID3D11DepthStencilView* m_DepthStencilView;
-    static ID3D11DepthStencilView* m_DepthWriteStencilView;
-
     static ID3D11Buffer* m_WorldBuffer;
     static ID3D11Buffer* m_ViewBuffer;
     static ID3D11Buffer* m_ProjectionBuffer;
@@ -149,11 +131,8 @@ private:
     static ID3D11Buffer* m_BloomBuffer;
     static ID3D11Buffer* m_RotationBuffer;
     static ID3D11Buffer* m_ScaleBuffer;
-    static ID3D11Buffer* m_LightShadowBuffer;
-
     static ID3D11DepthStencilState* m_DepthStateEnable;
     static ID3D11DepthStencilState* m_DepthStateDisable;
-
     static ID3D11BlendState* m_BlendState;
     static ID3D11BlendState* m_BlendStateATC;
     static Application* m_Application;
@@ -179,8 +158,6 @@ public:
      * @brief レンダリングの終了
      */
     static void End();
-
-    static void ChangeRenderTarget();
 
     /**
      * @brief デプステストの有効/無効を設定

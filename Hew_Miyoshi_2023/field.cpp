@@ -7,10 +7,7 @@ using namespace DirectX::SimpleMath;
 
 void Field::Init()
 {
-	//AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_OrangeScale.cso");
-	Shader* shader = AddComponent<Shader>();
-
-	shader->Load("shader\\VS_Shadow.cso", "shader\\PS_Shadow.cso");
+	AddComponent<Shader>()->Load("shader\\vertexLightingVS.cso", "shader\\PS_OrangeScale.cso");
 
 	VERTEX_3D vertex[4];
 
@@ -75,7 +72,6 @@ void Field::Draw()
 {
 	GetComponent<Shader>()->Draw();
 
-	//Renderer::GetDevice()->
 	// 入力レイアウト設定
 //	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
 

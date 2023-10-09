@@ -32,6 +32,7 @@ void Rigidbody::Update()
 	if (mZPos)
 		velocity.z = 0.0f;
 
+	//よりリアルに回転させたいが角度の計算などが分からないため一旦コメント
 	//Vector3 pos = (this->m_GameObject->GetPosition() + velocity * deltaTime); // オブジェクトの位置を更新	
 	//Vector3 rot = (this->m_GameObject->GetRotation() + velocity * deltaTime); // オブジェクトの回転を更新	
 	//
@@ -46,6 +47,7 @@ void Rigidbody::Update()
 
 void Rigidbody::Draw()
 {
+	//値確認用
 	ImGui::Begin("Rigidbody");
 	ImGui::Text("Velocity %f,%f,%f\n", velocity.x, velocity.y, velocity.z);
 	ImGui::Text("Force %f,%f,%f\n", force.x, force.y, force.z);
@@ -55,6 +57,8 @@ void Rigidbody::Draw()
 void Rigidbody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)
 {
 	const float deltaTime = 1.f / 60.f; // 経過時間
+
+	//後々他のモードも追加
 	switch (forceMode)
 	{
 	case ForceMode::Force:

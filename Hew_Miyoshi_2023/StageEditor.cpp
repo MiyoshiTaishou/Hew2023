@@ -76,8 +76,10 @@ void StageEditor::Draw()
         Redo();
     }
 
+    //オブジェクト生成処理
     CreateObject();
 
+    //オブジェクト削除
     if (ImGui::Button("Deleteobject"))
         for (GameObject* object : objList)
         {
@@ -102,9 +104,11 @@ void StageEditor::Draw()
 
     ImGui::End();  
 
+    //オブジェクト情報を管理
     ObjListManger();
 }
 
+//scene.hに入れる方が良さそう
 void StageEditor::SavepositionToFile(const std::string& filename)
 {
     std::ofstream outputFile(filename);
@@ -126,6 +130,7 @@ void StageEditor::SavepositionToFile(const std::string& filename)
     }
 }
 
+//scene.hに入れる方が良さそう
 void StageEditor::LoadpositionToFile(const std::string& filename)
 {
     std::ifstream inputFile(filename);
@@ -217,6 +222,7 @@ void StageEditor::AddToHistory()
     historyIndex++;
 }
 
+//Undo,Redoは現在の処理だと間違っているので修正をする
 void StageEditor::Undo()
 {
     if (historyIndex <= 0)return;
@@ -309,13 +315,7 @@ void StageEditor::ObjListManger()
     ImGui::End();
 
     ImGui::Begin("ObjList");
-    /*   ImGui::Text("Index %d", historyIndex);
-       ImGui::Text("Size %d", history.size());
-       for (int i = 0; i < 4; i++)
-       {
-           ImGui::Text("Size %d", history[i].size());
-       }*/
-
+   
        // オブジェクトリストを表示   
 
        // 各オブジェクトごとの座標設定

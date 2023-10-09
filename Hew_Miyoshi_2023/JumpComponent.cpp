@@ -24,6 +24,7 @@ void JumpComponent::Update()
 	
 	m_GameObject->SetPosition(vec);
 
+	//地面に付いたらジャンプできるようにする
 	if (m_GameObject->GetPosition().y >= 2.0f)
 		return;
 	
@@ -36,6 +37,7 @@ void JumpComponent::Update()
 
 void JumpComponent::Draw()
 {
+	//時間計測用
 	ImGui::Begin("Jump");
 
 	ImGui::Text("%d", time);

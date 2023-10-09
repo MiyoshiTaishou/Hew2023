@@ -41,8 +41,8 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
-	SetScene<StageEditor>();
-	//SetScene<Title>();
+	//SetScene<StageEditor>();
+	SetScene<Title>();
 }
 
 void Manager::Uninit()
@@ -88,9 +88,11 @@ void Manager::Draw(uint64_t d)
 	ImGui::Text("%fFPS",fps);
 	ImGui::End();
 
+
+	//Debug‚æ‚¤ƒV[ƒ“‘JˆÚ
 	ImGui::Begin("SceneChange");
 
-	if (ImGui::TreeNode(("Create Object ")))
+	if (ImGui::TreeNode(("Scene")))
 	{
 		if (ImGui::Button("TiTle"))
 			SetScene<Title>();
