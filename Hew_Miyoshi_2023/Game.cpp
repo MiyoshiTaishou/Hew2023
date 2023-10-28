@@ -48,7 +48,7 @@ void Game::Init()
 	AddGameObject<Field>(1);
 	AddGameObject<Score>(3);
 	AddGameObject<Timer>(3);
-	AddGameObject<Human>(1);
+	//AddGameObject<Human>(1);
 	AddGameObject<Octopus>(1);
 	//AddGameObject<ScaleUI>(3);
 

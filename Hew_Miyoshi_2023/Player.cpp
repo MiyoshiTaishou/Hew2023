@@ -176,7 +176,7 @@ void Player::ConInput()
 		//•Ç‚ðã‚éƒ‚[ƒh‚©‚Ç‚¤‚©
 		if (wallUp)
 		{
-			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP))
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP) || Input::GetKeyPress('W'))
 			{
 				Vector3 Up = Vector3(0.0f, 1000.0f, 0.0f);
 				body->AddForce(Up, ForceMode::Force);
@@ -184,21 +184,21 @@ void Player::ConInput()
 		}
 		else
 		{
-			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP))
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RUP) || Input::GetKeyPress('W'))
 			{
 				Vector3 force = forward * 100.0f;
 				body->AddForce(force, ForceMode::Force);
 				m_Rotation.x += 0.1f;
 			}
-			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN))
+			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN) || Input::GetKeyPress('S'))
 			{
 				Vector3 force = forward * -100.0f;
 				body->AddForce(force, ForceMode::Force);
 				m_Rotation.x -= 0.1f;
 			}
-			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RDOWN))
+			if (Input::GetGamePad(BUTTON::LUP) && Input::GetGamePad(BUTTON::RDOWN) || Input::GetKeyPress('A'))
 				m_Rotation.y -= 1.0f / 60.0f;
-			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RUP))
+			if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RUP) || Input::GetKeyPress('D'))
 				m_Rotation.y += 1.0f / 60.0f;
 
 
@@ -318,7 +318,12 @@ void Player::Collison()
 				Vector3 pos = GetClosestVeretex(m_VertexPos, enemyObj->GetPosition());
 				pos *= this->GetForward() * 1.8f;
 
-				child->SetPosition(pos);
+				Vector3 vecPos = m_Position - enemyObj->GetPosition();
+				vecPos.Normalize();
+				vecPos *= 0.2;
+
+				//child->SetPosition(pos);
+				child->SetPosition(vecPos);
 
 				m_Children.push_back(child);
 				mchild = child;
