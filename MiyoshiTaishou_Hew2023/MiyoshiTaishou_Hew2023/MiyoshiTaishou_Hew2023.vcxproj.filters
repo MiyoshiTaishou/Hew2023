@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Objcet">
+      <UniqueIdentifier>{81f065ae-b76e-4a71-b22b-3c02ecc12560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Componet">
+      <UniqueIdentifier>{9b49ee99-a673-429b-bf82-006a6ccabb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ImGui">
+      <UniqueIdentifier>{8c8bbbbb-b57f-4c1f-9be8-68c55cd03892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{5b54c35f-532d-4552-93d8-999a6d6fe97a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{fca58447-4862-428b-8e56-0c5a8e869d9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\PS">
+      <UniqueIdentifier>{b9c2263d-f71f-470b-b735-aa392f7f4caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\VS">
+      <UniqueIdentifier>{7f2615f6-7974-45e5-89a7-a521f11c87c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Render">
+      <UniqueIdentifier>{cb9c22f1-53ea-4afd-a8fa-7f7d5c73c9db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Script\Sysytem\main.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\Application.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Render\renderer.cpp">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\manager.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Render\modelRenderer.cpp">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\utftosjisconv.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\utility.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\input.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\ImGuiManager.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\audio.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui_widgets.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui_draw.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui_impl_dx11.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui_impl_win32.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\ImGui\imgui_tables.cpp">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Scene\Transition.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Scene\GameScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\field.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\sky.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\shader.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\camera.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\audio.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\sprite.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Script\Sysytem\main.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\Application.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\fpscontrol.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Render\renderer.h">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\manager.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\scene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Render\modelRenderer.h">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\component.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\utftosjisconv.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\utility.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\gameObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\input.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\ImGuiManager.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\audio.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imstb_rectpack.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imstb_textedit.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imstb_truetype.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imconfig.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imgui.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imgui_impl_dx11.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imgui_impl_win32.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\ImGui\imgui_internal.h">
+      <Filter>ソース ファイル\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\GameScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\Transition.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\sky.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\field.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\shader.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\component.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\camera.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\audio.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\sprite.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
