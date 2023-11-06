@@ -1,4 +1,6 @@
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\audio.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\audio.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoxCollider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoxCollider.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\Collider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Collider.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\shader.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\shader.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\sprite.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\sprite.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui.obj
@@ -8,8 +10,10 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgu
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui_impl_win32.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui_impl_win32.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui_tables.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui_tables.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui_widgets.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui_widgets.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\BoxObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoxObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\camera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\camera.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\field.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Player.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Player.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\sky.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\sky.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Render\modelRenderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\modelRenderer.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Render\renderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\renderer.obj

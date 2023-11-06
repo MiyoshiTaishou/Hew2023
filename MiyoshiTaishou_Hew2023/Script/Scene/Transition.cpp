@@ -9,10 +9,10 @@ using namespace DirectX::SimpleMath;
 
 void Transition::Init()
 {
-	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\unlitTexturePS.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 
 	m_Sprite = AddComponent<Sprite>();
-	m_Sprite->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT, "asset\\texture\\title.jpg");
+	m_Sprite->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT, "../asset\\texture\\title.jpg");
 
 	// ƒ}ƒeƒŠƒAƒ‹‚Ìİ’è
 	MATERIAL material{};

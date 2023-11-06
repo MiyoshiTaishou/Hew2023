@@ -18,6 +18,8 @@ public:
 
 	using Component::Component;
 
+	Sprite();
+
 	void Init(int x, int y, int Width, int Height, const char* TextureName);
 	void Uninit() override;
 	void Draw() override;

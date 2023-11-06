@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Script\Component\audio.cpp" />
+    <ClCompile Include="..\Script\Component\BoxCollider.cpp" />
+    <ClCompile Include="..\Script\Component\Collider.cpp" />
     <ClCompile Include="..\Script\Component\shader.cpp" />
     <ClCompile Include="..\Script\Component\sprite.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui.cpp" />
@@ -149,8 +151,10 @@
     <ClCompile Include="..\Script\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui_tables.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="..\Script\Object\BoxObject.cpp" />
     <ClCompile Include="..\Script\Object\camera.cpp" />
     <ClCompile Include="..\Script\Object\field.cpp" />
+    <ClCompile Include="..\Script\Object\Player.cpp" />
     <ClCompile Include="..\Script\Object\sky.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
     <ClCompile Include="..\Script\Render\renderer.cpp" />
@@ -166,6 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Component\audio.h" />
+    <ClInclude Include="..\Script\Component\BoxCollider.h" />
+    <ClInclude Include="..\Script\Component\Collider.h" />
     <ClInclude Include="..\Script\Component\component.h" />
     <ClInclude Include="..\Script\Component\shader.h" />
     <ClInclude Include="..\Script\Component\sprite.h" />
@@ -178,9 +184,11 @@
     <ClInclude Include="..\Script\ImGui\imstb_rectpack.h" />
     <ClInclude Include="..\Script\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\Script\ImGui\imstb_truetype.h" />
+    <ClInclude Include="..\Script\Object\BoxObject.h" />
     <ClInclude Include="..\Script\Object\camera.h" />
     <ClInclude Include="..\Script\Object\field.h" />
     <ClInclude Include="..\Script\Object\gameObject.h" />
+    <ClInclude Include="..\Script\Object\Player.h" />
     <ClInclude Include="..\Script\Object\sky.h" />
     <ClInclude Include="..\Script\Render\modelRenderer.h" />
     <ClInclude Include="..\Script\Render\renderer.h" />
@@ -196,6 +204,95 @@
     <ClInclude Include="..\Script\Sysytem\manager.h" />
     <ClInclude Include="..\Script\Sysytem\utftosjisconv.h" />
     <ClInclude Include="..\Script\Sysytem\utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\shader\common.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_BloomBlur.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_Circle.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_ConcentrationShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_DepthWrite.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_DistanceAlhpa.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_FadeShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_GouraudShading.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_OrangeScale.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_PolarCoordinates.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_RGBSplit.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_Shadow.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\unlitTexturePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\unlitTextureVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_GouraudShading.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_LightingOneSkin.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Rotation.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Scale.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Shadow.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
