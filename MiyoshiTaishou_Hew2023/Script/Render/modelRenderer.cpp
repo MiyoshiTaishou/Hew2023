@@ -12,6 +12,8 @@ using namespace DirectX::SimpleMath;
 
 std::unordered_map<std::string, MODEL*> ModelRenderer::m_ModelPool;
 
+DirectX::SimpleMath::Vector3 ModelRenderer::Max;
+DirectX::SimpleMath::Vector3 ModelRenderer::Min;
 
 void ModelRenderer::Draw()
 {
@@ -247,11 +249,11 @@ std::vector<VERTEX_3D> ModelRenderer::GetVertex(const char* FileName)
 			fscanf(file, "%s", str);
 		}
 		else if (strcmp(str, "v") == 0)
-		{
+		{			
 			//頂点座標
 			fscanf(file, "%f", &position->x);
 			fscanf(file, "%f", &position->y);
-			fscanf(file, "%f", &position->z);
+			fscanf(file, "%f", &position->z);		
 
 			position++;
 		}
@@ -635,6 +637,9 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 	Vector3	*normal = normalArray;
 	Vector2	*texcoord = texcoordArray;	
 
+	Max = Vector3(0.0f, 0.0f, 0.0f);
+	Min = Vector3(0.0f, 0.0f, 0.0f);
+
 	unsigned int vc = 0;
 	unsigned int ic = 0;
 	unsigned int sc = 0;
@@ -667,12 +672,43 @@ void ModelRenderer::LoadObj( const char *FileName, MODEL_OBJ *ModelObj )
 			fscanf( file, "%s", str );
 		}
 		else if( strcmp( str, "v" ) == 0 )
-		{
+		{			
 			//頂点座標
 			fscanf( file, "%f", &position->x );
 			fscanf( file, "%f", &position->y );
 			fscanf( file, "%f", &position->z );
-			
+
+			if (Max.x < position->x)
+			{
+				Max.x = position->x;
+			}
+
+			if (Max.y < position->y)
+			{
+				Max.y = position->y;
+			}
+
+			if (Max.z < position->z)
+			{
+				Max.z = position->z;
+			}
+
+			if (Min.x > position->x)
+			{
+				Min.x = position->x;
+			}
+
+			if (Min.y > position->y)
+			{
+				Min.y = position->y;
+			}
+
+			if (Min.z > position->z)
+			{
+				Min.z = position->z;
+			}
+
+
 			position++;
 		}
 		else if( strcmp( str, "vn" ) == 0 )

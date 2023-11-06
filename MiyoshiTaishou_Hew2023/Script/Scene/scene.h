@@ -6,6 +6,13 @@
 #include "../Object/gameObject.h"
 #include "../Render/modelRenderer.h"
 
+enum Layer
+{
+    Layer0,
+    Layer1,
+    Layer2,
+    Layer3,
+};
 /**
  * @brief シーン管理クラス
  */

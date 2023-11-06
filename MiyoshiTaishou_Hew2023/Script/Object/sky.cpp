@@ -17,10 +17,10 @@ void Sky::Init()
 
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_OrangeScale.cso");
-	AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_BloomBlur.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_Rotation.cso", "shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_Scale.cso", "shader\\PS_Circle.cso");
-	AddComponent<ModelRenderer>()->Load("asset\\model\\sky.obj");
+	AddComponent<ModelRenderer>()->Load("../asset\\model\\sky.obj");
 
 	bloom.bloom = 1.0f;
 	bloom.power = 5.0f;

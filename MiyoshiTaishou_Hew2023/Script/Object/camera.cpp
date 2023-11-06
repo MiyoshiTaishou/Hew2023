@@ -2,7 +2,7 @@
 #include "../Sysytem/manager.h"
 #include "../Render/renderer.h"
 #include "camera.h"
-//#include"Player.h"
+#include"Player.h"
 
 #include"../ImGui/ImGuiManager.h"
 
@@ -14,19 +14,19 @@ void Camera::Init()
 	m_Target = Vector3(0.0f, 0.0f, 0.0f);
 
 	Scene* nowscene = Manager::GetScene();
-	//Player* playerobj = nowscene->GetGameObject<Player>();
-	//m_Foward = playerobj->GetForward();
+	Player* playerobj = nowscene->GetGameObject<Player>();
+	m_Foward = playerobj->GetForward();
 }
 
 void Camera::Update()
 {
 	Scene* nowscene = Manager::GetScene();
-	//Player* playerobj = nowscene->GetGameObject<Player>();
+	Player* playerobj = nowscene->GetGameObject<Player>();
 
 	m_Foward = this->GetForward();
 
-	//m_Position = playerobj->GetPosition() - m_Foward * 50.0f;
-	//this->m_Target = playerobj->GetPosition() + m_Foward * 3.0f;
+	m_Position = playerobj->GetPosition() - m_Foward * 50.0f;
+	this->m_Target = playerobj->GetPosition() + m_Foward * 3.0f;
 
 	// 緩やかカメラ処理
 	// 1フレーム前のカメラ位置保存変数
@@ -43,7 +43,7 @@ void Camera::Update()
 
 	this->m_Position.y += 10.0f;
 
-	//this->m_Rotation.y = playerobj->GetRotation().y;	
+	this->m_Rotation.y = playerobj->GetRotation().y;	
 }
 
 void Camera::Draw()

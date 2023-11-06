@@ -111,6 +111,18 @@
     <ClCompile Include="..\Script\Component\sprite.cpp">
       <Filter>ソース ファイル\Componet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Object\BoxObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\BoxCollider.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\Collider.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\Player.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -206,5 +218,82 @@
     <ClInclude Include="..\Script\Component\sprite.h">
       <Filter>ソース ファイル\Componet</Filter>
     </ClInclude>
+    <ClInclude Include="..\Script\Object\BoxObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\BoxCollider.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\Collider.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\Player.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\shader\common.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_BloomBlur.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_Circle.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_ConcentrationShader.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_DistanceAlhpa.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_DepthWrite.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_FadeShader.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_GouraudShading.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_OrangeScale.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_PolarCoordinates.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_RGBSplit.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_Shadow.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\unlitTexturePS.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingPS.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\unlitTextureVS.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingVS.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_GouraudShading.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_LightingOneSkin.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Rotation.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Scale.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Shadow.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -1059,7 +1059,7 @@ void ImGuiManager::ImGuiInit(Application* ap)
 	//fontConfig.OversampleH = 2;
 	//fontConfig.OversampleV = 2;
 	//fontConfig.PixelSnapH = true;
-	//ImFont* font = io.Fonts->AddFontFromFileTTF("../../asset/font/ProggyTiny.ttf", 14.0f, nullptr,glyphRangesJapanese);
+	//ImFont* font = io.Fonts->AddFontFromFileTTF("../asset/font/ProggyTiny.ttf", 14.0f, nullptr,glyphRangesJapanese);
 }
 
 void ImGuiManager::ImGuiUnInit()

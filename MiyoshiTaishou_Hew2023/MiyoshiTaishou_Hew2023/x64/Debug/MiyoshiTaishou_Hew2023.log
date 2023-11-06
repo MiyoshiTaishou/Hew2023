@@ -1,33 +1,7 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: audio.cpp という名前の複数のファイルでは、同じ場所に出力が生成されます。これにより、不適切なビルド結果が生じる可能性があります。関連するファイルは ..\Script\Component\audio.cpp, ..\Script\Sysytem\audio.cpp です。
 cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  audio.cpp
-  shader.cpp
-  sprite.cpp
-  imgui.cpp
-  ImGuiManager.cpp
-  imgui_draw.cpp
-  imgui_impl_dx11.cpp
-  imgui_impl_win32.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  camera.cpp
-  field.cpp
-  sky.cpp
-  modelRenderer.cpp
-  renderer.cpp
-  GameScene.cpp
-  Transition.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,17): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Application.cpp
-  audio.cpp
-  input.cpp
+  BoxCollider.cpp
+  BoxObject.cpp
+  Player.cpp
   コードを生成中...
-  コンパイル中...
-  main.cpp
-  manager.cpp
-  utftosjisconv.cpp
-  utility.cpp
-  コードを生成中...
-x64\Debug\audio.obj : warning LNK4042: オブジェクトの指定が重複しています。余分なものは無視されます。
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe

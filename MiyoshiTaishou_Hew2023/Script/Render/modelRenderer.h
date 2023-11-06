@@ -73,4 +73,8 @@ public:
 
     /// 描画関数（オーバーライド）
     void Draw() override;
+
+    //オブジェクトの最大サイズと最小を取る
+    static DirectX::SimpleMath::Vector3 Max;
+    static DirectX::SimpleMath::Vector3 Min;
 };
