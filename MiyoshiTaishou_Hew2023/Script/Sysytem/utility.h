@@ -102,5 +102,13 @@ bool CreateConstantBufferWrite(
     ID3D11Buffer** pConstantBuffer			// コンスタントバッファ
 );
 
+/*------------------------
+インデックスバッファを作成
+--------------------------*/
+bool CreateIndexBuffer(
+    ID3D11Device* device,						// デバイスオブジェクト
+    unsigned int indexnum,						// インデックス数
+    void* indexdata,							// インデックスデータ格納メモリ先頭アドレス
+    ID3D11Buffer** pIndexBuffer);    			// インデックスバッファ
 
 void Invoke(std::function<void()> Function, int Time);

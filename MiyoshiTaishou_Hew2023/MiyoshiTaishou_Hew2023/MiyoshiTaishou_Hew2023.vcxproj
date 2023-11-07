@@ -151,6 +151,9 @@
     <ClCompile Include="..\Script\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui_tables.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="..\Script\Mesh\CPlane.cpp" />
+    <ClCompile Include="..\Script\Mesh\CPlaneMesh.cpp" />
+    <ClCompile Include="..\Script\Mesh\CUndulationPlaneMesh.cpp" />
     <ClCompile Include="..\Script\Object\BoxObject.cpp" />
     <ClCompile Include="..\Script\Object\camera.cpp" />
     <ClCompile Include="..\Script\Object\field.cpp" />
@@ -162,6 +165,7 @@
     <ClCompile Include="..\Script\Scene\Transition.cpp" />
     <ClCompile Include="..\Script\Sysytem\Application.cpp" />
     <ClCompile Include="..\Script\Sysytem\audio.cpp" />
+    <ClCompile Include="..\Script\Sysytem\dx11mathuntil.cpp" />
     <ClCompile Include="..\Script\Sysytem\input.cpp" />
     <ClCompile Include="..\Script\Sysytem\main.cpp" />
     <ClCompile Include="..\Script\Sysytem\manager.cpp" />
@@ -184,12 +188,19 @@
     <ClInclude Include="..\Script\ImGui\imstb_rectpack.h" />
     <ClInclude Include="..\Script\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\Script\ImGui\imstb_truetype.h" />
+    <ClInclude Include="..\Script\Mesh\CMesh.h" />
+    <ClInclude Include="..\Script\Mesh\CMeshRenderer.h" />
+    <ClInclude Include="..\Script\Mesh\CPlane.h" />
+    <ClInclude Include="..\Script\Mesh\CPlaneMesh.h" />
+    <ClInclude Include="..\Script\Mesh\CUndulationPlaneMesh.h" />
     <ClInclude Include="..\Script\Object\BoxObject.h" />
     <ClInclude Include="..\Script\Object\camera.h" />
     <ClInclude Include="..\Script\Object\field.h" />
     <ClInclude Include="..\Script\Object\gameObject.h" />
     <ClInclude Include="..\Script\Object\Player.h" />
     <ClInclude Include="..\Script\Object\sky.h" />
+    <ClInclude Include="..\Script\Render\CIndexBuffer.h" />
+    <ClInclude Include="..\Script\Render\CVertexBuffer.h" />
     <ClInclude Include="..\Script\Render\modelRenderer.h" />
     <ClInclude Include="..\Script\Render\renderer.h" />
     <ClInclude Include="..\Script\Scene\GameScene.h" />
@@ -198,6 +209,7 @@
     <ClInclude Include="..\Script\Sysytem\Application.h" />
     <ClInclude Include="..\Script\Sysytem\audio.h" />
     <ClInclude Include="..\Script\Sysytem\component.h" />
+    <ClInclude Include="..\Script\Sysytem\dx11mathuntil.h" />
     <ClInclude Include="..\Script\Sysytem\fpscontrol.h" />
     <ClInclude Include="..\Script\Sysytem\input.h" />
     <ClInclude Include="..\Script\Sysytem\main.h" />

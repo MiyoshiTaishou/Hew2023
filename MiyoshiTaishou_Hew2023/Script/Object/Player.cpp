@@ -38,7 +38,7 @@ void Player::Init()
 	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	//model->Load("../asset\\model\\bullet.obj");
-	model->Load("../asset\\model\\goal.obj");
+	model->Load("../asset\\model\\bullet.obj");
 
 	//当たり判定の大きさをオブジェクトに合わせる
 	Vector3 absModelScale;
@@ -88,7 +88,7 @@ void Player::Collision()
 
 		for (const auto& boxobj : boxlist)
 		{			
-			if (this->GetComponent<BoxCollider>()->Collision(*boxobj->GetComponent<BoxCollider>()))
+			if (this->GetComponent<BoxCollider>()->Hit(boxobj->GetComponent<BoxCollider>()))
 			{
 				state = HIT;
 			}
