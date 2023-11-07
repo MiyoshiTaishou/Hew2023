@@ -37,6 +37,9 @@
     <Filter Include="ソース ファイル\Render">
       <UniqueIdentifier>{cb9c22f1-53ea-4afd-a8fa-7f7d5c73c9db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Mesh">
+      <UniqueIdentifier>{3c825537-1cb8-4e50-8634-5e9b6bd40e81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Script\Sysytem\main.cpp">
@@ -122,6 +125,18 @@
     </ClCompile>
     <ClCompile Include="..\Script\Object\Player.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Mesh\CPlaneMesh.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Mesh\CUndulationPlaneMesh.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Mesh\CPlane.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\dx11mathuntil.cpp">
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +244,30 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\Player.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CMesh.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CPlaneMesh.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CMeshRenderer.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Render\CIndexBuffer.h">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Render\CVertexBuffer.h">
+      <Filter>ソース ファイル\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CUndulationPlaneMesh.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CPlane.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\dx11mathuntil.h">
+      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

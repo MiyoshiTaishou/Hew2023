@@ -3,6 +3,30 @@
 #pragma comment(lib,"d3d11.lib")
 #pragma comment(lib,"d3dcompiler.lib")
 
+bool CreateIndexBuffer(ID3D11Device* device, unsigned int indexnum, void* indexdata, ID3D11Buffer** pIndexBuffer)
+{
+    // インデックスバッファ生成
+    D3D11_BUFFER_DESC bd;
+    D3D11_SUBRESOURCE_DATA InitData;
+
+    ZeroMemory(&bd, sizeof(bd));
+    bd.Usage = D3D11_USAGE_DEFAULT;								// バッファ使用方
+    bd.ByteWidth = sizeof(unsigned int) * indexnum;				// バッファの大き
+    bd.BindFlags = D3D11_BIND_INDEX_BUFFER;						// インデックスバッファ
+    bd.CPUAccessFlags = 0;										// CPUアクセス不要
+
+    ZeroMemory(&InitData, sizeof(InitData));
+    InitData.pSysMem = indexdata;
+
+    HRESULT hr = device->CreateBuffer(&bd, &InitData, pIndexBuffer);
+    if (FAILED(hr)) {
+        MessageBox(nullptr, "CreateBuffer(index buffer) error", "Error", MB_OK);
+        return false;
+    }
+
+    return true;
+}
+
 // 指定時間後にスレッドを起動
 void Invoke(std::function<void()> Function, int Time)
 {

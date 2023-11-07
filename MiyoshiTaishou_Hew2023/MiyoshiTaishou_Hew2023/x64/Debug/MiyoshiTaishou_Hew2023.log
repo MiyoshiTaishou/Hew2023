@@ -1,7 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: audio.cpp という名前の複数のファイルでは、同じ場所に出力が生成されます。これにより、不適切なビルド結果が生じる可能性があります。関連するファイルは ..\Script\Component\audio.cpp, ..\Script\Sysytem\audio.cpp です。
 cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  BoxCollider.cpp
-  BoxObject.cpp
-  Player.cpp
-  コードを生成中...
+  field.cpp
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe
