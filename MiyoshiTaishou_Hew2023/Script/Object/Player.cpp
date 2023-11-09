@@ -14,6 +14,8 @@
 //コンポーネント
 #include"../Component/shader.h"
 #include"../Component/BoxCollider.h"
+#include"../Component/RigidBody.h"
+#include"../Component/shadow.h"
 
 //描画
 #include"../Render/modelRenderer.h"
@@ -22,7 +24,9 @@
 #include"../ImGui/ImGuiManager.h"
 
 //オブジェクト
-#include"../Object/BoxObject.h"
+#include"BoxObject.h"
+#include"camera.h"
+#include"field.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -36,9 +40,17 @@ void Player::Init()
 	//コンポーネント
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
+	
+
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	//model->Load("../asset\\model\\bullet.obj");
 	model->Load("../asset\\model\\bullet.obj");
+
+	Shadow* shadow = AddComponent<Shadow>();
+	shadow->Init();
+	shadow->SetSize(10.0f);
+
+	AddComponent<RigidBody>()->Init();
 
 	//当たり判定の大きさをオブジェクトに合わせる
 	Vector3 absModelScale;
@@ -52,12 +64,12 @@ void Player::Init()
 }
 
 void Player::Update()
-{
-	//コントローラー入力
-	ConInput();
-
+{	
 	//当たり判定処理
 	Collision();
+
+	//コントローラー入力
+	ConInput();
 
 	//コンポーネントのUpdate呼び出し
 	for (auto& cmpt : m_Component) {
@@ -98,27 +110,57 @@ void Player::Collision()
 			}
 		}
 	}
+	
+	//高さを取得	
+	float Height = scene->GetGameObject<Field>()->GetFieldHeight(m_Position);
+	
+	if (Height != 0.0f)
+	{
+		//pos.y = Height;
+		m_Position.y = Height + 2;
+	}	
 }
 
 //入力処理
 void Player::ConInput()
 {
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+
+	Camera* cameraObj = scene->GetGameObject<Camera>();
+
+	RigidBody* body = GetComponent<RigidBody>();
+
+	//カメラの前向きベクトル
+	Vector3 forward = Vector3(0, 0, 0);	
+	if (cameraObj)
+	{
+		forward = cameraObj->GetForward();
+	}
+
 	if (Input::GetGamePad(BUTTON::LUP))
 	{
-		m_Position.z += 0.1f;
+		Vector3 force = forward * 100.0f;
+		Vector3 forceRot = forward * 10.0f;
+
+		body->AddForce(force, ForceMode::Force);
+		body->AddTorque(forceRot, ForceMode::Force,false);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
-		m_Position.z -= 0.1f;
+		Vector3 force = forward * -100.0f;
+		Vector3 forceRot = forward * -10.0f;
+		body->AddForce(force, ForceMode::Force);
+		body->AddTorque(forceRot, ForceMode::Force,true);
 	}
-	if (Input::GetGamePad(BUTTON::LLEFT))
+	/*if (Input::GetGamePad(BUTTON::LLEFT))
 	{
 		m_Position.x -= 0.1f;
 	}
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{
 		m_Position.x += 0.1f;
-	}
+	}*/
 
 	if (Input::GetGamePad(BUTTON::RRIGHT))
 	{
@@ -126,6 +168,12 @@ void Player::ConInput()
 	}
 	if (Input::GetGamePad(BUTTON::RLEFT))
 	{
-		m_Rotation.y += 0.05f;
+		m_Rotation.y -= 0.05f;
+	}
+
+	if (Input::GetKeyTrigger('J'))
+	{
+		Vector3 force = { 0,100,0 };
+		body->AddForce(force, ForceMode::Impulse);
 	}
 }

@@ -76,6 +76,10 @@ void Camera::Draw()
 //	projectionMatrix = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearPlane, farPlane);
 
 	Renderer::SetProjectionMatrix(&projectionMatrix);
+
+	ImGui::Begin("Camera");
+	ImGui::Text("Fowrad\n %f	%f	%f", m_Foward.x, m_Foward.y, m_Foward.z);
+	ImGui::End();
 }
 
 void Camera::SetTarget(DirectX::SimpleMath::Vector3 target)
