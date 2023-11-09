@@ -334,5 +334,11 @@
     <FxCompile Include="..\shader\VS_Shadow.hlsl">
       <Filter>リソース ファイル\VS</Filter>
     </FxCompile>
+    <FxCompile Include="..\shader\PS_Toon.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\VS_Object.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

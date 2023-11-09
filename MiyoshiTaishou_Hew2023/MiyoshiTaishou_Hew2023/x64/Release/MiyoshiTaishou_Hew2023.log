@@ -1,0 +1,77 @@
+﻿  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_BloomBlur.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_Circle.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_ConcentrationShader.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_DepthWrite.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_DistanceAlhpa.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_FadeShader.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_GouraudShading.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_OrangeScale.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_PolarCoordinates.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_RGBSplit.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\PS_Shadow.hlsl(21,11-56): warning X3206: implicit truncation of vector type
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_Shadow.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_Toon.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\unlitTexturePS.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\unlitTextureVS.hlsl(5,34-36): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\unlitTextureVS.cso
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\vertexLightingPS.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\vertexLightingVS.hlsl(5,34-36): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\vertexLightingVS.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\VS_GouraudShading.hlsl(4,34-36): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_GouraudShading.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\VS_LightingOneSkin.hlsl(3,41-43): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_LightingOneSkin.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\VS_Rotation.hlsl(9,34-36): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_Rotation.cso
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\shader\VS_Shadow.hlsl(10,41-43): warning X3578: Output value 'Out' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_Shadow.cso
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: audio.cpp という名前の複数のファイルでは、同じ場所に出力が生成されます。これにより、不適切なビルド結果が生じる可能性があります。関連するファイルは ..\Script\Component\audio.cpp, ..\Script\Sysytem\audio.cpp です。
+cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
+  audio.cpp
+  BoxCollider.cpp
+  Collider.cpp
+  shader.cpp
+  sprite.cpp
+  imgui.cpp
+  ImGuiManager.cpp
+  imgui_draw.cpp
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  CPlane.cpp
+  CPlaneMesh.cpp
+  CUndulationPlaneMesh.cpp
+  BoxObject.cpp
+  camera.cpp
+  field.cpp
+  Player.cpp
+  sky.cpp
+  コンパイル中...
+  modelRenderer.cpp
+  renderer.cpp
+  GameScene.cpp
+  Transition.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,17): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Application.cpp
+  audio.cpp
+  dx11mathuntil.cpp
+  input.cpp
+  main.cpp
+  manager.cpp
+  utftosjisconv.cpp
+  utility.cpp
+x64\Release\audio.obj : warning LNK4042: オブジェクトの指定が重複しています。余分なものは無視されます。
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 2257 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\MiyoshiTaishou_Hew2023.exe
