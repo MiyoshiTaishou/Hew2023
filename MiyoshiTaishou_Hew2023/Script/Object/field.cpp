@@ -14,6 +14,7 @@
 #include"../Mesh/CMeshRenderer.h"
 #include"../Mesh/CUndulationPlaneMesh.h"
 #include"../Mesh/CPlane.h"
+#include"../Mesh/CPlaneMeshTexture.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -36,7 +37,7 @@ void Field::Init()
 	// テクスチャ読み込み
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
-		L"asset/texture/field.jpg",
+		L"../asset/texture/field.jpg",
 		nullptr,
 		&m_Texture);
 
@@ -93,6 +94,7 @@ void Field::Draw()
 	Renderer::SetWorldMatrix(&mtx);
 
 	// 床描画
+	g_planemesh.Draw();
 	g_meshrenderer.Draw();
 
 	// 入力レイアウト設定

@@ -1,7 +1,9 @@
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\audio.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\audio.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoxCollider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoxCollider.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\Collider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Collider.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\RigidBody.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\RigidBody.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\shader.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\shader.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\shadow.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\shadow.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\sprite.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\sprite.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\ImGuiManager.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\ImGuiManager.obj
@@ -12,6 +14,7 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgu
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgui_widgets.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\imgui_widgets.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlane.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlane.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlaneMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlaneMesh.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlaneMeshTexture.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlaneMeshTexture.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CUndulationPlaneMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CUndulationPlaneMesh.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\BoxObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoxObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\camera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\camera.obj
