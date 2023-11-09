@@ -17,7 +17,7 @@ void GameScene::Init()
 	AddGameObject<Sky>(Layer1);
 	AddGameObject<BoxObject>(Layer1);
 	AddGameObject<Player>(Layer1);
-	AddGameObject<Field>(Layer1);
+	//AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
 }
@@ -27,10 +27,10 @@ void GameScene::Update()
 	Player* player = GetGameObject<Player>();
 
 	//‚‚³‚ğæ“¾
-	float Height = GetGameObject<Field>()->GetFieldHeight(player->GetPosition());
+	//float Height = GetGameObject<Field>()->GetFieldHeight(player->GetPosition());
 
 	Vector3 pos = player->GetPosition();
-	pos.y = Height + (player->GetScale().y / 2);
+	//pos.y = Height + (player->GetScale().y / 2);
 
 	player->SetPosition(pos);
 }
