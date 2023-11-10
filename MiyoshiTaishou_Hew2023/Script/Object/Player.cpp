@@ -93,9 +93,9 @@ void Player::Draw()
 void Player::Collision()
 {
 	// 現在シーンを取得
-	Scene* scene = Manager::GetScene();
+	Scene* scene = Manager::GetScene();	
 
-	//ボックスとの当たり判定
+	//くっつくオブジェクト当たり判定
 	{
 		std::vector<BoxObject*> boxlist = scene->GetGameObjects<BoxObject>();
 
@@ -103,6 +103,13 @@ void Player::Collision()
 		{			
 			if (this->GetComponent<BoxCollider>()->Hit(boxobj->GetComponent<BoxCollider>()))
 			{
+				//くっつく処理
+				StickObject* child = AddChild<BoxObject>();				
+				child->Stick();						
+
+				//オブジェクト削除
+				boxobj->SetDestroy();
+
 				state = HIT;
 			}
 			else

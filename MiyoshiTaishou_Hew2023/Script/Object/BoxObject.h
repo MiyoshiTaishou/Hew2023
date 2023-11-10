@@ -1,12 +1,12 @@
 #pragma once
-#include"gameObject.h"
+#include"StickObject.h"
 
 
-class BoxObject : public GameObject
+class BoxObject : public StickObject
 {
 public:
 
-	void Init();
+	void Init();	
 
 private:
 
