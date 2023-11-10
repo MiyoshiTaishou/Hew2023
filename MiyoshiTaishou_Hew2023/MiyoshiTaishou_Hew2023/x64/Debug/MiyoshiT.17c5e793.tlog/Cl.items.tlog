@@ -25,9 +25,10 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Sti
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Render\modelRenderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\modelRenderer.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Render\renderer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\renderer.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\GameScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\GameScene.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\ResultScene.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\TitleScene.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Transition.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\Application.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Application.obj
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\audio.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\audio.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\dx11mathuntil.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\dx11mathuntil.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\input.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\input.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\main.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\main.obj
