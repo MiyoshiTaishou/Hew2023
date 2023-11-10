@@ -28,6 +28,9 @@
 #include"camera.h"
 #include"field.h"
 
+//UI
+#include"../UI/score.h"
+
 using namespace DirectX::SimpleMath;
 
 void Player::Init()
@@ -109,6 +112,10 @@ void Player::Collision()
 
 				//オブジェクト削除
 				boxobj->SetDestroy();
+
+				//スコア加算
+				Score* score = scene->GetGameObject<Score>();
+				score->AddCount(1);
 
 				state = HIT;
 			}

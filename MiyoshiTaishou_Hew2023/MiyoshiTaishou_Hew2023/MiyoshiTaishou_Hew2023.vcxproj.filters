@@ -153,6 +153,9 @@
     <ClCompile Include="..\Script\Object\StickObject.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\UI\score.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -295,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\StickObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\UI\score.h">
+      <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

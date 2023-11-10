@@ -9,6 +9,9 @@
 #include"../Object/sky.h"
 #include"../Object/field.h"
 
+//UIŠÖŒWƒwƒbƒ_
+#include"../UI/score.h"
+
 using namespace DirectX::SimpleMath;
 
 #define MAX_BOX 10
@@ -22,6 +25,8 @@ void GameScene::Init()
 	AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
+
+	AddGameObject<Score>(Layer3);
 
 	for (int i = 0; i < MAX_BOX; i++)
 	{

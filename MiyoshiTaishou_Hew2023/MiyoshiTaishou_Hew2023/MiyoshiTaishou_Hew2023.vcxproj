@@ -177,6 +177,7 @@
     <ClCompile Include="..\Script\Sysytem\manager.cpp" />
     <ClCompile Include="..\Script\Sysytem\utftosjisconv.cpp" />
     <ClCompile Include="..\Script\Sysytem\utility.cpp" />
+    <ClCompile Include="..\Script\UI\score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Component\audio.h" />
@@ -226,6 +227,7 @@
     <ClInclude Include="..\Script\Sysytem\manager.h" />
     <ClInclude Include="..\Script\Sysytem\utftosjisconv.h" />
     <ClInclude Include="..\Script\Sysytem\utility.h" />
+    <ClInclude Include="..\Script\UI\score.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\shader\common.hlsl">
