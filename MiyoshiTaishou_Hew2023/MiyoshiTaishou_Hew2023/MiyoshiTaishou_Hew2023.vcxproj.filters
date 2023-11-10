@@ -72,9 +72,6 @@
     <ClCompile Include="..\Script\ImGui\ImGuiManager.cpp">
       <Filter>ソース ファイル\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\Script\Sysytem\audio.cpp">
-      <Filter>ソース ファイル\System</Filter>
-    </ClCompile>
     <ClCompile Include="..\Script\ImGui\imgui_widgets.cpp">
       <Filter>ソース ファイル\ImGui</Filter>
     </ClCompile>
@@ -147,14 +144,20 @@
     <ClCompile Include="..\Script\Component\RigidBody.cpp">
       <Filter>ソース ファイル\Componet</Filter>
     </ClCompile>
-    <ClCompile Include="..\Script\Mesh\CPlaneMeshTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\Script\Object\StickObject.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
     <ClCompile Include="..\Script\UI\score.cpp">
       <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Scene\TitleScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Mesh\CPlaneMeshTexture.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Scene\ResultScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,9 +199,6 @@
     </ClInclude>
     <ClInclude Include="..\Script\ImGui\ImGuiManager.h">
       <Filter>ソース ファイル\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Script\Sysytem\audio.h">
-      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="..\Script\ImGui\imstb_rectpack.h">
       <Filter>ソース ファイル\ImGui</Filter>
@@ -301,6 +301,12 @@
     </ClInclude>
     <ClInclude Include="..\Script\UI\score.h">
       <Filter>ソース ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\TitleScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\ResultScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

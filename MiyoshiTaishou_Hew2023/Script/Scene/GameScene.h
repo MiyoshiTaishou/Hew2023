@@ -15,7 +15,7 @@ public:
 private:
 
 	//ƒV[ƒ“‘JˆÚ
-	//class Transition* m_Transition[];
+	class Transition* m_Transition{};
 
 	//ƒS[ƒ‹”»’è
 	bool m_Goal = false;

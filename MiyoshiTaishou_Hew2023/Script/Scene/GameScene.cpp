@@ -1,6 +1,9 @@
 #include "GameScene.h"
+
 #include"../Sysytem/main.h"
 #include"../Sysytem/utility.h"
+#include"../Sysytem/input.h"
+#include"../Sysytem/manager.h"
 
 //オブジェクト関係ヘッダ
 #include"../Object/BoxObject.h"
@@ -9,8 +12,15 @@
 #include"../Object/sky.h"
 #include"../Object/field.h"
 
+//シーン関係
+#include"ResultScene.h"
+#include"Transition.h"
+
 //UI関係ヘッダ
 #include"../UI/score.h"
+
+//コンポーネント
+#include"../Component/audio.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -34,9 +44,33 @@ void GameScene::Init()
 		Vector3 pos = Vector3(5.0f * i, 1.0f, 1.0f);
 		box->SetPosition(pos);
 	}
+
+	//BGMobj
+	GameObject* bgm = AddGameObject<GameObject>(3);
+	bgm->AddComponent<Audio>()->Init();
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
+	bgm->GetComponent<Audio>()->Play();
+
+	m_Transition = AddGameObject<Transition>(Layer3);
+	m_Transition->FadeIn();//フェードイン開始	
 }
 
 void GameScene::Update()
 {
-	
+	//シーン遷移
+	if (m_Transition->GetState() == Transition::State::Stop)
+	{
+		if (Input::GetKeyTrigger(VK_RETURN))
+		{
+			m_Transition->FadeOut();
+		}			
+	}	
+
+	//画面遷移が終了しているか
+	if (m_Transition->GetState() == Transition::State::Finish)
+	{
+		Manager::SetScene<ResultScene>();
+
+		return;
+	}
 }

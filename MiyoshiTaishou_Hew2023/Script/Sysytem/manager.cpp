@@ -10,10 +10,11 @@
 #include	"input.h"
 
 //SE,BGM
-#include	"audio.h"
+#include	"../Component/audio.h"
 
 //シーン
 #include"../Scene/GameScene.h"
+#include"../Scene/TitleScene.h"
 
 // シーンマネージャ内メンバ変数の実体
 Scene* Manager::m_Scene{};// 現在シーン
@@ -43,8 +44,8 @@ void Manager::Init(Application* ap)
 
 	// Titleを初期シーンに登録
 	//SetScene<StageEditor>();
-	//SetScene<Title>();
-	SetScene<GameScene>();
+	SetScene<TitleScene>();
+	//SetScene<GameScene>();
 }
 
 void Manager::Uninit()
