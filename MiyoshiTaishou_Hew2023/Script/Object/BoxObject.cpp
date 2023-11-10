@@ -1,7 +1,20 @@
 #include "BoxObject.h"
+
+//管理
+#include"../Sysytem/manager.h"
+
+//コンポーネント
 #include"../Component/shader.h"
 #include"../Component/BoxCollider.h"
+
+//レンダラ
 #include"../Render/modelRenderer.h"
+
+//シーン
+#include"../Scene/scene.h"
+
+//オブジェクト
+#include"field.h"
 
 using namespace DirectX::SimpleMath;
 

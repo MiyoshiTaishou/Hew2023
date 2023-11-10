@@ -40,6 +40,9 @@
     <Filter Include="ソース ファイル\Mesh">
       <UniqueIdentifier>{3c825537-1cb8-4e50-8634-5e9b6bd40e81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\UI">
+      <UniqueIdentifier>{599b918b-4e5a-4c0b-88aa-b8d0b607286d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Script\Sysytem\main.cpp">
@@ -146,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="..\Script\Mesh\CPlaneMeshTexture.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\StickObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +292,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Mesh\CPlaneMeshTexture.h">
       <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\StickObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
