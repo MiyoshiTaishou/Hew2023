@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\x64\Debug\20230529-GM31-gameobject(ちょっとcomponent化).exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_BloomBlur.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_Circle.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_ConcentrationShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_DepthWrite.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_DistanceAlhpa.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_FadeShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_GouraudShading.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_OrangeScale.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_PolarCoordinates.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_RGBSplit.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\PS_Shadow.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\vertexLightingPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\vertexLightingVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\VS_GouraudShading.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\VS_LightingOneSkin.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\VS_Rotation.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\VS_Scale.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\OneDrive\デスクトップ\Hew_Miyoshi_2023\shader\VS_Shadow.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
