@@ -159,6 +159,12 @@
     <ClCompile Include="..\Script\Scene\ResultScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Object\DebugCamera.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Scene\StageEditor.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -307,6 +313,12 @@
     </ClInclude>
     <ClInclude Include="..\Script\Scene\ResultScene.h">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\StageEditor.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\DebugCamera.h">
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -24,6 +24,11 @@ void StickObject::Update()
 
 	Field* filed = scene->GetGameObject<Field>();
 
+	if (!filed)
+	{
+		return;
+	}
+
 	float Height = filed->GetFieldHeight(m_Position);
 
 	m_Position.y = Height;
