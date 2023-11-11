@@ -45,19 +45,19 @@ void TitleScene::Init()
 
 void TitleScene::Update()
 {
-	if (m_Transition->GetState() == Transition::State::Stop)
-	{
-		if (Input::GetKeyTrigger(VK_RETURN))
-		{
-			m_Transition->FadeOut();
-		}
-	}	
+	//if (m_Transition->GetState() == Transition::State::Stop)
+	//{
+	//	if (Input::GetKeyTrigger(VK_RETURN))
+	//	{
+	//		m_Transition->FadeOut();
+	//	}
+	//}	
 
-	//‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
-	if (m_Transition->GetState() == Transition::State::Finish)
-	{
-		Manager::SetScene<GameScene>();
+	////‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
+	//if (m_Transition->GetState() == Transition::State::Finish)
+	//{
+	//	Manager::SetScene<GameScene>();
 
-		return;
-	}
+	//	return;
+	//}
 }

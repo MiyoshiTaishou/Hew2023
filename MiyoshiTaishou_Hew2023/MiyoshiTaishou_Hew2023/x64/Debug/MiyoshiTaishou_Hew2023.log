@@ -1,24 +1,6 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  shadow.cpp
-  sprite.cpp
-  BoxObject.cpp
-  DebugCamera.cpp
-  Player.cpp
-  StickObject.cpp
-  camera.cpp
-  sky.cpp
-  GameScene.cpp
-  ResultScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,62): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  StageEditor.cpp
   TitleScene.cpp
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(34,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(34,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(34,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Application.cpp
-  manager.cpp
-  score.cpp
-  コードを生成中...
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe

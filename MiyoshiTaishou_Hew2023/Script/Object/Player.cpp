@@ -90,6 +90,9 @@ void Player::Draw()
 	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
 	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
 	ImGui::Text("PlayerState\n %d", this->state);
+	//ˆÚ“®‘¬“x
+	ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
+	ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
 	ImGui::End();
 }
 
@@ -133,7 +136,7 @@ void Player::Collision()
 	{
 		//pos.y = Height;
 		m_Position.y = Height + 2;
-	}	
+	}		
 }
 
 //“ü—Íˆ—
@@ -153,18 +156,18 @@ void Player::ConInput()
 		forward = cameraObj->GetForward();
 	}
 
-	if (Input::GetGamePad(BUTTON::LUP))
+	if (Input::GetGamePad(BUTTON::LUP)  && Input::GetGamePad(BUTTON::RUP))
 	{
-		Vector3 force = forward * 100.0f;
-		Vector3 forceRot = forward * 10.0f;
+		Vector3 force = forward * m_Speed;
+		Vector3 forceRot = forward * m_RotSpeed;
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force,false);
 	}
-	if (Input::GetGamePad(BUTTON::LDOWN))
+	if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN))
 	{
-		Vector3 force = forward * -100.0f;
-		Vector3 forceRot = forward * -10.0f;
+		Vector3 force = forward * -m_Speed;
+		Vector3 forceRot = forward * -m_RotSpeed;
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force,true);
 	}
@@ -177,11 +180,11 @@ void Player::ConInput()
 		m_Position.x += 0.1f;
 	}*/
 
-	if (Input::GetGamePad(BUTTON::RRIGHT))
+	if (Input::GetGamePad(BUTTON::RDOWN) && Input::GetGamePad(BUTTON::LUP))
 	{
 		m_Rotation.y += 0.05f;
 	}
-	if (Input::GetGamePad(BUTTON::RLEFT))
+	if (Input::GetGamePad(BUTTON::RUP) && Input::GetGamePad(BUTTON::LDOWN))
 	{
 		m_Rotation.y -= 0.05f;
 	}
