@@ -10,6 +10,6 @@ private:
 
 public:
     void Init()override;
-    void Update()override;
+    void Update()override;   
 };
 

@@ -22,6 +22,8 @@
 //コンポーネント
 #include"../Component/audio.h"
 
+#include"../ImGui/ImGuiManager.h"
+
 using namespace DirectX::SimpleMath;
 
 #define MAX_BOX 10
@@ -29,6 +31,7 @@ using namespace DirectX::SimpleMath;
 void GameScene::Init()
 {
 	//オブジェクト生成
+	LoadObjectData("Obj.csv");
 	AddGameObject<Sky>(Layer1);
 	AddGameObject<BoxObject>(Layer1);
 	AddGameObject<Player>(Layer1);
@@ -38,12 +41,12 @@ void GameScene::Init()
 
 	AddGameObject<Score>(Layer3);
 
-	for (int i = 0; i < MAX_BOX; i++)
+	/*for (int i = 0; i < MAX_BOX; i++)
 	{
 		BoxObject* box = AddGameObject<BoxObject>(Layer1);
 		Vector3 pos = Vector3(5.0f * i, 1.0f, 1.0f);
 		box->SetPosition(pos);
-	}
+	}*/
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -52,7 +55,7 @@ void GameScene::Init()
 	bgm->GetComponent<Audio>()->Play();
 
 	m_Transition = AddGameObject<Transition>(Layer3);
-	m_Transition->FadeIn();//フェードイン開始	
+	m_Transition->FadeIn();//フェードイン開始		
 }
 
 void GameScene::Update()

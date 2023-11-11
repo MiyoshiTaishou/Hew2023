@@ -16,6 +16,7 @@
 #include"../Scene/GameScene.h"
 #include"../Scene/TitleScene.h"
 #include"../Scene/StageEditor.h"
+#include"../Scene/ResultScene.h"
 
 // シーンマネージャ内メンバ変数の実体
 Scene* Manager::m_Scene{};// 現在シーン
@@ -44,8 +45,8 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Titleを初期シーンに登録
-	SetScene<StageEditor>();
-	//SetScene<TitleScene>();
+	//SetScene<StageEditor>();
+	SetScene<TitleScene>();
 	//SetScene<GameScene>();
 }
 
@@ -84,7 +85,7 @@ void Manager::Draw(uint64_t d)
 
 	m_Scene->DrawBase();	
 
-	Renderer::PostProcess();
+	//Renderer::PostProcess();
 
 	float fps = 1000.0f / d;
 
@@ -94,26 +95,26 @@ void Manager::Draw(uint64_t d)
 
 
 	//Debugようシーン遷移
-	//ImGui::Begin("SceneChange");
+	ImGui::Begin("SceneChange");
 
-	//if (ImGui::TreeNode(("Scene")))
-	//{
-	//	if (ImGui::Button("TiTle"))
-	//		SetScene<Title>();
+	if (ImGui::TreeNode(("Scene")))
+	{
+		if (ImGui::Button("TiTle"))
+			SetScene<TitleScene>();
 
-	//	if (ImGui::Button("Game"))
-	//		SetScene<Game>();
+		if (ImGui::Button("Game"))
+			SetScene<GameScene>();
 
-	//	if (ImGui::Button("Result"))
-	//		SetScene<Result>();
+		if (ImGui::Button("Result"))
+			SetScene<ResultScene>();
 
-	//	if (ImGui::Button("StageEditor"))
-	//		SetScene<StageEditor>();
+		if (ImGui::Button("StageEditor"))
+			SetScene<StageEditor>();
 
-	//	ImGui::TreePop();
-	//}
+		ImGui::TreePop();
+	}
 
-	//ImGui::End();
+	ImGui::End();
 
 	ImGuiManager::End();
 	Renderer::End();

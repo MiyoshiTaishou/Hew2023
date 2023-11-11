@@ -25,4 +25,10 @@ public:
 private:
 
 	PLAYERSTATE state = IDLE;
+
+	//ˆÚ“®‘¬“x
+	float m_Speed = 100.0f;
+
+	//‰ñ“]‘¬“x
+	float m_RotSpeed = 15.0f;
 };

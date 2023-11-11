@@ -12,6 +12,8 @@
 //UI
 #include"../UI/score.h"
 
+#define NOTSELECTED -1
+
 void StageEditor::Init()
 {
 	AddGameObject<DebugCamera>(Layer0);
@@ -41,15 +43,17 @@ void StageEditor::Draw()
         {
             camera->SetDestroy();
             player->SetDestroy();
-            AddGameObject<DebugCamera>(0);
+            AddGameObject<DebugCamera>(Layer0);
         }
         else if (dbCamera)
         {
             dbCamera->SetDestroy();
-            AddGameObject<Player>(1);
-            AddGameObject<Camera>(0);
+            AddGameObject<Player>(Layer1);
+            AddGameObject<Camera>(Layer0);
         }
 
+        //選択していない
+        selectedObjectIndex = NOTSELECTED;
     }
 
     // 保存ボタン
@@ -139,7 +143,7 @@ void StageEditor::ObjListManger()
     }
 
     //選択していないなら通さない
-    if (selectedObjectIndex == -1)
+    if (selectedObjectIndex == NOTSELECTED)
     {
         ImGui::End();
         return;
@@ -296,7 +300,7 @@ void StageEditor::ObjListManger()
         IndexObj->SetDestroy();
 
         //選択していない
-        selectedObjectIndex = -1;
+        selectedObjectIndex = NOTSELECTED;
     }
 
     ImGui::End();

@@ -9,6 +9,7 @@
 
 #include "../Object/gameObject.h"
 #include"../Object/BoxObject.h"
+#include"../Object/Player.h"
 
 #include "../Render/modelRenderer.h"
 
@@ -127,7 +128,7 @@ public:
                 object->DrawBase(matrix);
             }
         }
-
+        
         Draw();
     }
 
@@ -236,7 +237,10 @@ public:
         const auto& objList = m_GameObject[Layer1];
         for (const auto& obj : objList)
         {
-            obj->SetDestroy();
+            if (typeid(*obj) != typeid(Player)) // Œ^‚ð’²‚×‚é
+            {
+                obj->SetDestroy();
+            }            
         }
 
         //ƒwƒbƒ_‚ðŽÌ‚Ä‚é
