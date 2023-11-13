@@ -50,7 +50,16 @@ public:
 	void SetFreeze(FrizeNum freez, bool _b);
 
 	//回転を加える
-	void AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode,bool _back);
+	void AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode);
+
+	//慣性テンソルの設定
+	void SetInetiaTensorOfSpherAngular(float _radius, DirectX::SimpleMath::Vector3 _centerOfMass);
+
+	//直方体のテンソルの設定
+	void SetInetiaTensorOfRectangular(float x, float y, float z, DirectX::SimpleMath::Vector3 _centerOfMass);
+
+	//一点に力を加える
+	void AddForceToPoint(DirectX::SimpleMath::Vector3 _force, DirectX::SimpleMath::Vector3 localPos, ForceMode forceMode);
 
 private:
 
@@ -95,10 +104,6 @@ private:
 	
 	//トルクによって回転する際に、オブジェクトに影響する空気抵抗の大きさ
 	float m_AngularDrag = -1.0f;
-
-	//後ろに回っているかどうか
-	bool m_BackRoll = false;
-
 
 	//固定情報
 	Frieze m_Frize;

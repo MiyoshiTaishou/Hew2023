@@ -30,5 +30,7 @@ private:
 	float m_Speed = 100.0f;
 
 	//‰ñ“]‘¬“x
-	float m_RotSpeed = 15.0f;
+	float m_RotSpeed = 150.0f;
+
+	DirectX::SimpleMath::Vector3 torque;
 };

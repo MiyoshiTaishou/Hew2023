@@ -36,7 +36,8 @@ using namespace DirectX::SimpleMath;
 void Player::Init()
 {
 	//座標、サイズ設定
-	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
+	//this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
+	this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
 	this->m_Position.x = 10.0f;
 	this->m_Position.z = 0.0f;
 
@@ -48,13 +49,15 @@ void Player::Init()
 
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	//model->Load("../asset\\model\\bullet.obj");
-	model->Load("../asset\\model\\bullet.obj");
+	model->Load("../asset\\model\\box.obj");
 
 	Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
 	shadow->SetSize(10.0f);
 
-	AddComponent<RigidBody>()->Init();
+	RigidBody* body = AddComponent<RigidBody>();
+	body->Init();
+	//body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
 
 	//当たり判定の大きさをオブジェクトに合わせる
 	Vector3 absModelScale;
@@ -64,7 +67,10 @@ void Player::Init()
 
 	BoxCollider* box = AddComponent<BoxCollider>();
 	box->Init();
-	box->SetColliderScale((absModelScale * m_Scale));
+	Vector3 absScale = absModelScale * m_Scale;
+	box->SetColliderScale(absScale);
+
+	body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 }
 
 void Player::Update()
@@ -79,6 +85,8 @@ void Player::Update()
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
 	}
+
+	GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
 }
 
 void Player::Draw()
@@ -93,6 +101,39 @@ void Player::Draw()
 	//移動速度
 	ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
 	ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
+
+	//回転
+	ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
+
+	//サイズ
+	ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
+	
+	if (ImGui::Button("Resset"))
+	{
+		m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
+		torque = Vector3(0.0f, 0.0f, 0.0f);
+		m_Scale = Vector3(1.0f, 1.0f, 1.0f);
+	}
+
+	if (ImGui::Button("SetTensor"))
+	{
+		RigidBody* body = GetComponent<RigidBody>();
+
+		//当たり判定の大きさをオブジェクトに合わせる
+		Vector3 absModelScale;
+		absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
+		absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
+		absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
+
+		Vector3 absScale = absModelScale * m_Scale;
+
+		body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+	}
+
 	ImGui::End();
 }
 
@@ -130,7 +171,13 @@ void Player::Collision()
 	}
 	
 	//高さを取得	
-	float Height = scene->GetGameObject<Field>()->GetFieldHeight(m_Position);
+	Field* filed = scene->GetGameObject<Field>();
+	if (!filed)
+	{
+		return;
+	}
+
+	float Height = filed->GetFieldHeight(m_Position);
 	
 	if (Height != 0.0f)
 	{
@@ -160,16 +207,24 @@ void Player::ConInput()
 	{
 		Vector3 force = forward * m_Speed;
 		Vector3 forceRot = forward * m_RotSpeed;
+		forceRot.y = 0.0f;
+		forceRot.z = 0.0f;
+		forceRot.x = m_RotSpeed;
+
+		//body->AddForceToPoint(force, Vector3(1.0f, 0.0f, 0.0f), ForceMode::Force);
 
 		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force,false);
+		body->AddTorque(forceRot, ForceMode::Force);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN))
 	{
 		Vector3 force = forward * -m_Speed;
 		Vector3 forceRot = forward * -m_RotSpeed;
+		forceRot.y = 0.0f;
+		//forceRot.z = 0.0f;
+
 		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force,true);
+		body->AddTorque(forceRot, ForceMode::Force);
 	}
 	/*if (Input::GetGamePad(BUTTON::LLEFT))
 	{
