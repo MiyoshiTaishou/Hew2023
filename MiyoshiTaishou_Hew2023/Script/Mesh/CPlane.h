@@ -5,6 +5,7 @@
 struct PLANEINFO {
 	DirectX::SimpleMath::Plane		plane;			//平面の方程式
 	DirectX::SimpleMath::Vector3	p0, p1, p2;		//頂点座標
+	DirectX::SimpleMath::Vector3	pNormal;			//法線
 };
 
 // 平面クラス

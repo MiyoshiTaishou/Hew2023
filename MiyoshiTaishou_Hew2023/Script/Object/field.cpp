@@ -1,10 +1,20 @@
 #include "field.h"
 #include <WICTextureLoader.h>
+
+//マネージャー
 #include"../Sysytem/dx11mathuntil.h"
+#include"../Sysytem/manager.h"
+
+//シーン
+#include"../Scene/scene.h"
+
+//オブジェクト
+#include"../Object/Player.h"
 
 //コンポーネント
 #include "../Component/shader.h"
 #include"../Component/Collider.h"
+#include"../Component/RigidBody.h"
 
 //描画
 #include "../Render/modelRenderer.h"
@@ -15,6 +25,8 @@
 #include"../Mesh/CUndulationPlaneMesh.h"
 #include"../Mesh/CPlane.h"
 #include"../Mesh/CPlaneMeshTexture.h"
+
+#include"../ImGui/ImGuiManager.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -97,6 +109,11 @@ void Field::Draw()
 	g_planemesh.Draw();
 	g_meshrenderer.Draw();
 
+	ImGui::Begin("Debug");
+	ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
+	ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
+	ImGui::End();
+
 	// 入力レイアウト設定
 //	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
 
@@ -159,6 +176,9 @@ float Field::GetFieldHeight(DirectX::SimpleMath::Vector3 pos)
 	}
 
 	float t;
+
+	float threshold = 0.9f;
+
 	// 面数分
 	for (unsigned int idx = 0; idx < g_planes.size(); idx++) {
 		Vector3 up = { 0,1,0 };
@@ -172,9 +192,49 @@ float Field::GetFieldHeight(DirectX::SimpleMath::Vector3 pos)
 				g_planes[idx].GetPlaneInfo().p0,
 				g_planes[idx].GetPlaneInfo().p1,
 				g_planes[idx].GetPlaneInfo().p2, ans);
-			if (sts) return ans.y;
+			if (sts)
+			{
+				float slope = fabsf(g_planes[idx].GetPlaneInfo().pNormal.Dot(up));
+
+				//転がれる
+				if (slope > threshold)
+				{
+					//坂道を転がる処理
+					Vector3 dir = CalculateDiagonalDirection(g_planes[idx].GetPlaneInfo().pNormal);
+
+					Scene* scene = Manager::GetScene();
+					Player* player = scene->GetGameObject<Player>();
+					RigidBody* body = player->GetComponent<RigidBody>();					
+
+					Vector3 force = dir * 10.0f;
+					body->AddForce(force, ForceMode::Force);
+					body->AddTorque((force / 2.0f), ForceMode::Force,true);
+
+					direction = dir;
+					normalDB = g_planes[idx].GetPlaneInfo().pNormal;
+				}				
+
+				return ans.y;
+			}
 		}
 	}
 
 	return 0;
+}
+
+Vector3 Field::CalculateDiagonalDirection(Vector3 normal)
+{
+	// 法線ベクトルが垂直な方向（Y軸方向）を取得
+	Vector3 up = Vector3(0, 1, 0);
+
+	// 法線ベクトルと垂直な方向を求める（クロス積）
+	Vector3 diagonalDirection = normal.Cross(up);	
+
+	Vector3 dir = normal.Cross(diagonalDirection);
+
+	// 正規化して長さを1にする
+	dir.Normalize();
+
+	// ボールが坂道を下る方向は逆向き
+	return dir;
 }
