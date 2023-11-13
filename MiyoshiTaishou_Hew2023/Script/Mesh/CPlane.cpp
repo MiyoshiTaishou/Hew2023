@@ -18,7 +18,7 @@ void CPlane::MakeEquatation(
 
 	normal = p0p1.Cross(p1p2);
 
-	normal.Normalize();
+	normal.Normalize();	
 
 	//	DX11Vec3Cross(normal, p0p1, p1p2);
 
@@ -36,4 +36,6 @@ void CPlane::MakeEquatation(
 	m_planeinfo.p0 = p0;
 	m_planeinfo.p1 = p1;
 	m_planeinfo.p2 = p2;
+	
+	m_planeinfo.pNormal = normal;
 }

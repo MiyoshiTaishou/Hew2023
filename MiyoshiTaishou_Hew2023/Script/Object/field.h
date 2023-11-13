@@ -29,4 +29,10 @@ public:
 
 	// 現在位置の高さを求める
 	float  GetFieldHeight(DirectX::SimpleMath::Vector3 pos);
+
+	// 法線ベクトルから斜めの方向を計算
+	DirectX::SimpleMath::Vector3 CalculateDiagonalDirection(DirectX::SimpleMath::Vector3 normal);
+
+	DirectX::SimpleMath::Vector3 direction;
+	DirectX::SimpleMath::Vector3 normalDB;	
 };
