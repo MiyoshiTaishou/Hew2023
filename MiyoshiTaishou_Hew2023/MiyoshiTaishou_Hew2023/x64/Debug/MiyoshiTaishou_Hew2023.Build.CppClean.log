@@ -30,6 +30,8 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_he
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\application.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\transition.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\titlescene.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\stageeditor.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\resultscene.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\gamescene.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\renderer.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\modelrenderer.obj
@@ -37,9 +39,10 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_he
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\sky.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\player.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\field.obj
-c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\resultscene.obj
-c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\stageeditor.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\debugcamera.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\perlinnoise.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\customer.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\debug\animationmodel.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\debug\ps_bloomblur.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\debug\ps_circle.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\debug\ps_concentrationshader.cso

@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\directxtex\include;C:\Program Files\assimp\5.2.0\include;C:\directxtk\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\directxtk\lib\x64\Debug;C:\Program Files\assimp\5.2.0\lib\Debug;C:\directxtex\lib\x64\debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\directxtex\include;C:\Program Files\assimp\5.2.5\include;C:\directxtk\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Assimp\5.2.5\lib;C:\directxtk\lib\x64\Debug;C:\directxtex\lib\x64\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Program Files\assimp\5.2.5\include;C:\directxtex\include;C:\directxtk\include;$(IncludePath)</IncludePath>
@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Script\Component\animationModel.cpp" />
     <ClCompile Include="..\Script\Component\audio.cpp" />
     <ClCompile Include="..\Script\Component\BoxCollider.cpp" />
     <ClCompile Include="..\Script\Component\Collider.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="..\Script\Mesh\Perlinnoise.cpp" />
     <ClCompile Include="..\Script\Object\BoxObject.cpp" />
     <ClCompile Include="..\Script\Object\camera.cpp" />
+    <ClCompile Include="..\Script\Object\Customer.cpp" />
     <ClCompile Include="..\Script\Object\DebugCamera.cpp" />
     <ClCompile Include="..\Script\Object\field.cpp" />
     <ClCompile Include="..\Script\Object\Player.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="..\Script\UI\score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Script\Component\animationModel.h" />
     <ClInclude Include="..\Script\Component\audio.h" />
     <ClInclude Include="..\Script\Component\BoxCollider.h" />
     <ClInclude Include="..\Script\Component\Collider.h" />
@@ -210,6 +213,7 @@
     <ClInclude Include="..\Script\Mesh\Perlinnoise.h" />
     <ClInclude Include="..\Script\Object\BoxObject.h" />
     <ClInclude Include="..\Script\Object\camera.h" />
+    <ClInclude Include="..\Script\Object\Customer.h" />
     <ClInclude Include="..\Script\Object\DebugCamera.h" />
     <ClInclude Include="..\Script\Object\field.h" />
     <ClInclude Include="..\Script\Object\gameObject.h" />
@@ -332,6 +336,10 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingOneSkinVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
     </FxCompile>
     <FxCompile Include="..\shader\vertexLightingPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>

@@ -51,10 +51,8 @@ class ModelRenderer : public Component
 private:
     static std::unordered_map<std::string, MODEL*> m_ModelPool;
 
-    static void LoadModel(const char* FileName, MODEL* Model);
-    static std::vector<DirectX::SimpleMath::Vector3> LoadModelVertex(const char* FileName, MODEL* Model);
-    static void LoadObj(const char* FileName, MODEL_OBJ* ModelObj);
-    static std::vector<DirectX::SimpleMath::Vector3> LoadObjVertex(const char* FileName, MODEL_OBJ* ModelObj);
+    static void LoadModel(const char* FileName, MODEL* Model);    
+    static void LoadObj(const char* FileName, MODEL_OBJ* ModelObj);    
     static void LoadMaterial(const char* FileName, MODEL_MATERIAL** MaterialArray, unsigned int* MaterialNum);
 
     MODEL* m_Model{};
@@ -65,12 +63,8 @@ public:
 
     using Component::Component;
 
-    void Load(const char* FileName);
-    std::vector<DirectX::SimpleMath::Vector3> LoadVertex(const char* FileName);
-
-    std::vector<VERTEX_3D> GetVertex(const char* FileName);
-    int GetIndexNum();
-
+    void Load(const char* FileName);   
+   
     /// 描画関数（オーバーライド）
     void Draw() override;
 
