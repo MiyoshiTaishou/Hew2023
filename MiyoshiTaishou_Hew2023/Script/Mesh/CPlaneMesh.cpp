@@ -1,4 +1,5 @@
 #include	"CPlaneMesh.h"
+#include	<iostream>
 
 void CPlaneMesh::Init(
 	int divx, int divy,
@@ -158,6 +159,51 @@ CPlaneMesh::FACE CPlaneMesh::GetTriangle(int triangleno) {
 	face.idx[1] = m_indices[triangleno * 3 + 1];
 	face.idx[2] = m_indices[triangleno * 3 + 2];
 	return face;
+}
+
+int CPlaneMesh::GetSquareNo(DirectX::SimpleMath::Vector3 pos)
+{
+	// 床メッシュはXZ平面をベースで作成している
+	double x = pos.x;
+	double y = pos.z;
+
+	// 平面の幅
+	double planewidth = m_width;
+
+	// 平面の高さ
+	double planeheight = m_height;
+
+	// マップチップサイズ（絶対値で計算）
+	double mapchipwidth = fabs(planewidth / m_divX);
+	double mapchipheight = fabs(planeheight / m_divY);
+
+	// 左下原点の相対座標に変換
+	double relativex = x + (planewidth / 2.0);
+	double relativey = y + (planeheight / 2.0);
+
+	// 左から何番目か？
+	unsigned int mapchipx = static_cast<unsigned int>(relativex / mapchipwidth);
+
+	// 下から何番目か？
+	unsigned int mapchipy = static_cast<unsigned int>(relativey / mapchipheight);
+
+	// 左下を０番目とした場合の順番を計算
+	int squareno;
+	squareno = mapchipy * m_divX + mapchipx;
+
+	if (squareno < 0) {
+		squareno = 0;
+	}
+	else {
+		if (squareno > m_divX * m_divY - 1) {
+			squareno = m_divX * m_divY - 1;
+		}
+	}
+
+	//
+	//std::cout << "mapchipx mapchipy: " << mapchipx << "," << mapchipy << "," << squareno << "(" << x << "," << y << ")" << std::endl;
+
+	return squareno;
 }
 
 

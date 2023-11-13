@@ -36,7 +36,7 @@ using namespace DirectX::SimpleMath;
 void Player::Init()
 {
 	//座標、サイズ設定
-	//this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
+	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
 	this->m_Position.x = 10.0f;
 	this->m_Position.z = 0.0f;
@@ -57,7 +57,7 @@ void Player::Init()
 
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
-	//body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
+	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
 
 	//当たり判定の大きさをオブジェクトに合わせる
 	Vector3 absModelScale;
@@ -70,7 +70,7 @@ void Player::Init()
 	Vector3 absScale = absModelScale * m_Scale;
 	box->SetColliderScale(absScale);
 
-	body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 }
 
 void Player::Update()
@@ -177,8 +177,28 @@ void Player::Collision()
 		return;
 	}
 
-	float Height = filed->GetFieldHeight(m_Position);
+	//　範囲チェック 
+	Vector3 max = filed->GetMax();
+	Vector3 min = filed->GetMin();
+
+	if (m_Position.x <= min.x) {
+		m_Position.x = min.x;
+	}
+	if (m_Position.x >= max.x) {
+		m_Position.x = max.x;
+	}
+
+	if (m_Position.z <= min.z) {
+		m_Position.z = min.z;
+	}
+	if (m_Position.z >= max.z) {
+		m_Position.z = max.z;
+	}
+
+	float Height = filed->GetFieldHeightBySqno(m_Position);
 	
+	//float Height = 0.0f;
+
 	if (Height != 0.0f)
 	{
 		//pos.y = Height;
@@ -221,7 +241,8 @@ void Player::ConInput()
 		Vector3 force = forward * -m_Speed;
 		Vector3 forceRot = forward * -m_RotSpeed;
 		forceRot.y = 0.0f;
-		//forceRot.z = 0.0f;
+		forceRot.z = 0.0f;
+		forceRot.x = -m_RotSpeed;
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);

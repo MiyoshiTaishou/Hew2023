@@ -26,6 +26,10 @@ public:
 	int GetDivY();
 	// 指定した3角形番号の三角形インデックスを取得
 	FACE GetTriangle(int triangleno);
+
+	// 何番目の四角形かを見つける
+	int GetSquareNo(DirectX::SimpleMath::Vector3 pos);
+
 private:
 	unsigned int m_divX = 1;
 	unsigned int m_divY = 1;

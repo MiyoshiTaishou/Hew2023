@@ -3,7 +3,8 @@
 #include	"CPlaneMesh.h"
 #include	"CPlaneMeshTexture.h"
 
-class CUndulationPlaneMesh : public CPlaneMeshTexture {
+class CUndulationPlaneMesh : public CPlaneMesh {
 public:
 	void MakeUndulation(float min, float max);
+	void MakeUndulationPerlinnoise(float max, double octave, double persistence);
 };
