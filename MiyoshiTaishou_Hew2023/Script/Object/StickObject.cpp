@@ -29,7 +29,25 @@ void StickObject::Update()
 		return;
 	}
 
-	float Height = filed->GetFieldHeight(m_Position);
+	//　範囲チェック 
+	Vector3 max = filed->GetMax();
+	Vector3 min = filed->GetMin();
+
+	if (m_Position.x <= min.x) {
+		m_Position.x = min.x;
+	}
+	if (m_Position.x >= max.x) {
+		m_Position.x = max.x;
+	}
+
+	if (m_Position.z <= min.z) {
+		m_Position.z = min.z;
+	}
+	if (m_Position.z >= max.z) {
+		m_Position.z = max.z;
+	}
+
+	float Height = filed->GetFieldHeightBySqno(m_Position);
 
 	m_Position.y = Height;
 }

@@ -165,6 +165,9 @@
     <ClCompile Include="..\Script\Scene\StageEditor.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Mesh\Perlinnoise.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\DebugCamera.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\Perlinnoise.h">
+      <Filter>ソース ファイル\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

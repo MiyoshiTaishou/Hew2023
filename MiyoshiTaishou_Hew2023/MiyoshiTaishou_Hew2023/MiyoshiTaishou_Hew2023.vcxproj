@@ -159,6 +159,7 @@
     <ClCompile Include="..\Script\Mesh\CPlaneMesh.cpp" />
     <ClCompile Include="..\Script\Mesh\CPlaneMeshTexture.cpp" />
     <ClCompile Include="..\Script\Mesh\CUndulationPlaneMesh.cpp" />
+    <ClCompile Include="..\Script\Mesh\Perlinnoise.cpp" />
     <ClCompile Include="..\Script\Object\BoxObject.cpp" />
     <ClCompile Include="..\Script\Object\camera.cpp" />
     <ClCompile Include="..\Script\Object\DebugCamera.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="..\Script\Mesh\CPlaneMesh.h" />
     <ClInclude Include="..\Script\Mesh\CPlaneMeshTexture.h" />
     <ClInclude Include="..\Script\Mesh\CUndulationPlaneMesh.h" />
+    <ClInclude Include="..\Script\Mesh\Perlinnoise.h" />
     <ClInclude Include="..\Script\Object\BoxObject.h" />
     <ClInclude Include="..\Script\Object\camera.h" />
     <ClInclude Include="..\Script\Object\DebugCamera.h" />
