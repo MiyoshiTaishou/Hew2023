@@ -126,6 +126,11 @@ void Shadow::Update()
 
 	{
 		Field* filed = scene->GetGameObject<Field>();
+		if (!filed)
+		{
+			return;
+		}
+
 		groundHeight = filed->GetFieldHeight(m_Position) + 0.3f;
 	}
 

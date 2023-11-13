@@ -204,11 +204,22 @@ float Field::GetFieldHeight(DirectX::SimpleMath::Vector3 pos)
 
 					Scene* scene = Manager::GetScene();
 					Player* player = scene->GetGameObject<Player>();
+
+					if (!player)
+					{
+						return ans.y;
+					}
+
 					RigidBody* body = player->GetComponent<RigidBody>();					
 
 					Vector3 force = dir * 10.0f;
-					body->AddForce(force, ForceMode::Force);
-					body->AddTorque((force / 2.0f), ForceMode::Force,true);
+				
+					//body->AddForceToPoint(force, dir, ForceMode::Force);
+					//body->AddForce(force, ForceMode::Force);		
+
+					force.y = 0.0f;
+
+					//body->AddTorque((force), ForceMode::Force);
 
 					direction = dir;
 					normalDB = g_planes[idx].GetPlaneInfo().pNormal;

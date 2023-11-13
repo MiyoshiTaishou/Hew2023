@@ -1,4 +1,4 @@
-#include "RigidBody.h"
+ï»¿#include "RigidBody.h"
 
 #include"../Object/gameObject.h"
 
@@ -18,20 +18,20 @@ void RigidBody::Init()
 
 void RigidBody::Update()
 {	
-	//—Íˆ—
-	const float deltaTime = 1.f / 60.f; // Œo‰ßŠÔBŒÅ’èƒtƒŒ[ƒ€ƒŒ[ƒg‚ª‚æ‚¢B
+	//åŠ›å‡¦ç†
+	const float deltaTime = 1.f / 60.f; // çµŒéæ™‚é–“ã€‚å›ºå®šãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ¼ãƒˆãŒã‚ˆã„ã€‚
 	Vector3 friction = -m_Velocity * m_Drag;
-	Vector3 acceleration = m_Force / m_Mass;//‰Á‘¬“x‚ğŒvZ
-	m_Velocity = m_Velocity + (acceleration - friction) * deltaTime; // ‘¬“x‚ğXV
+	Vector3 acceleration = m_Force / m_Mass;//åŠ é€Ÿåº¦ã‚’è¨ˆç®—
+	m_Velocity = m_Velocity + (acceleration - friction) * deltaTime; // é€Ÿåº¦ã‚’æ›´æ–°
 
-	//d—Íˆ—
+	//é‡åŠ›å‡¦ç†
 	if (m_UseGravity)
 	{
 		const float gravity = 0.98f;
 		//m_Velocity.y -= gravity * m_Mass * m_GravityScale;
 	}
 
-	//ŒÅ’è‰»‚³‚ê‚Ä‚¢‚é‚È‚çŒvZ‚ğ–³Œø‚É‚·‚é
+	//å›ºå®šåŒ–ã•ã‚Œã¦ã„ã‚‹ãªã‚‰è¨ˆç®—ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 	if (m_Frize.Xpos)
 	{
 		m_Velocity.x = 0.0f;
@@ -45,43 +45,66 @@ void RigidBody::Update()
 		m_Velocity.z = 0.0f;
 	}
 
-	m_Force = Vector3(0.f, 0.f, 0.f); // •ú’u‚·‚é‚Æˆê¶‰Á‘¬‚·‚é‚Ì‚Å0‚É–ß‚·
+	m_Force = Vector3(0.f, 0.f, 0.f); // æ”¾ç½®ã™ã‚‹ã¨ä¸€ç”ŸåŠ é€Ÿã™ã‚‹ã®ã§0ã«æˆ»ã™
 
 
-	//À•WXV
+	//åº§æ¨™æ›´æ–°
 	Vector3 pos = m_GameObject->GetPosition();	
 	pos += m_Velocity * deltaTime;
 	m_GameObject->SetPosition(pos);	
 
-	//‰ñ“]ˆ—
-	Vector3 frictionTorque = -m_AngularVelocity * m_AngularDrag;
-	Vector3 accelerationTorque = m_Torque / m_Mass;//‰Á‘¬“x‚ğŒvZ
-	m_AngularVelocity = m_AngularVelocity + (accelerationTorque - frictionTorque) * deltaTime; // ‘¬“x‚ğXV
-	
-	//‰ñ“]XV
+	//å›è»¢å‡¦ç†
+	//Rotã‚’ãƒãƒˆãƒªãƒƒã‚¯ã‚¹ã«å¤‰æ›
+	Matrix rotMatrix = Matrix::CreateFromYawPitchRoll(m_GameObject->GetRotation().y, m_GameObject->GetRotation().x, m_GameObject->GetRotation().z);
+
+	//å›è»¢å¾Œã®æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã‚’æ±‚ã‚ã‚‹
+	Matrix currentInetiaTensor = rotMatrix.Transpose() * m_InetiaTensor * rotMatrix;
+
+	// Vector3ã‚’Vector4ã«å¤‰æ›
+	Vector4 torque4(m_Torque.x, m_Torque.y, m_Torque.z, 0.0f);
+
+	//è§’åŠ é€Ÿåº¦ã‚’æ±‚ã‚ã‚‹
+	Vector4 result4 = Vector4::Transform(torque4, currentInetiaTensor.Invert());
+
+	// Vector4ã‚’Vector3ã«æˆ»ã™
+	Vector3 angularAccel(result4.x, result4.y, result4.z);	
+
+	//è§’é€Ÿåº¦ã‚’æ±‚ã‚ã‚‹
+	m_AngularVelocity = angularAccel + angularAccel * deltaTime;
+
+	// å›è»¢ã‚’æ›´æ–°
 	Vector3 rot = m_GameObject->GetRotation();
-
-	//XZ‚ÌŒü‚«‚©‚ç‰ñ“]‚ğŒˆ‚ß‚é
-	float absX = fabsf(m_AngularVelocity.x);
-	float absZ = fabsf(m_AngularVelocity.z);
-	float addXZ = absX + absZ;		
-
-	//Œã‚ë‚É‰ñ‚Á‚Ä‚¢‚é‚È‚ç‰ñ“]‚ÌŒü‚«‚ğ‹t‚É‚·‚é
-	if (m_BackRoll)
-	{
-		addXZ *= -1;
-	}
-
-	rot.x += addXZ * deltaTime;
-
+	rot += m_AngularVelocity * deltaTime;
 	m_GameObject->SetRotation(rot);
 
-	m_Torque = Vector3(0.f, 0.f, 0.f); // •ú’u‚·‚é‚Æˆê¶‰Á‘¬‚·‚é‚Ì‚Å0‚É–ß‚·
+	//Vector3 frictionTorque = -m_AngularVelocity * m_AngularDrag;
+	//Vector3 accelerationTorque = m_Torque / m_Mass;//åŠ é€Ÿåº¦ã‚’è¨ˆç®—
+	//m_AngularVelocity = m_AngularVelocity + (accelerationTorque - frictionTorque) * deltaTime; // é€Ÿåº¦ã‚’æ›´æ–°
+	//
+	////å›è»¢æ›´æ–°
+	//Vector3 rot = m_GameObject->GetRotation();
+
+	////XZã®å‘ãã‹ã‚‰å›è»¢ã‚’æ±ºã‚ã‚‹
+	//float absX = fabsf(m_AngularVelocity.x);
+	//float absZ = fabsf(m_AngularVelocity.z);
+	//float addXZ = absX + absZ;		
+
+	////å¾Œã‚ã«å›ã£ã¦ã„ã‚‹ãªã‚‰å›è»¢ã®å‘ãã‚’é€†ã«ã™ã‚‹
+	//if (m_BackRoll)
+	//{
+	//	addXZ *= -1;
+	//}
+
+	//rot.x += addXZ * deltaTime;
+
+	//m_GameObject->SetRotation(m_AngularVelocity);
+
+	m_Torque = Vector3(0.f, 0.f, 0.f); // æ”¾ç½®ã™ã‚‹ã¨ä¸€ç”ŸåŠ é€Ÿã™ã‚‹ã®ã§0ã«æˆ»ã™
 }
 
 void RigidBody::Draw()
 {
-	//’lŠm”F—p
+	//å€¤ç¢ºèªç”¨
 	ImGui::Begin("Rigidbody");
 	ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
 	ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
@@ -90,7 +113,7 @@ void RigidBody::Draw()
 
 void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)
 {	
-	const float deltaTime = 1.f / 60.f; // Œo‰ßŠÔ
+	const float deltaTime = 1.f / 60.f; // çµŒéæ™‚é–“
 
 	switch (forceMode)
 	{
@@ -112,9 +135,9 @@ void RigidBody::SetFreeze(FrizeNum freez, bool _b)
 {
 }
 
-void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode, bool _back)
+void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode)
 {
-	const float deltaTime = 1.f / 60.f; // Œo‰ßŠÔBŒÅ’èƒtƒŒ[ƒ€ƒŒ[ƒg‚ª‚æ‚¢B
+	const float deltaTime = 1.f / 60.f; // çµŒéæ™‚é–“ã€‚å›ºå®šãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ¼ãƒˆãŒã‚ˆã„ã€‚
 
 	switch (forceMode)
 	{
@@ -129,7 +152,73 @@ void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceM
 		break;
 	case ForceMode::VelocityChange:
 		m_Torque = m_Torque + ((_torque / deltaTime) * m_Mass);
-	}
+	}	
+}
 
-	m_BackRoll = _back;
+//æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã®è¨­å®š
+void RigidBody::SetInetiaTensorOfSpherAngular(float _radius, DirectX::SimpleMath::Vector3 _centerOfMass)
+{
+	float coefficient = (2.0f / 5.0f) * m_Mass * (_radius * _radius);
+
+	Matrix tensor;
+
+	tensor._11 = coefficient;
+	tensor._12 = 0;
+	tensor._13 = 0;
+	tensor._14 = 0;
+
+	tensor._21 = 0;
+	tensor._22 = coefficient;
+	tensor._23 = 0;
+	tensor._24 = 0;
+
+	tensor._31 = 0;
+	tensor._32 = 0;
+	tensor._33 = coefficient;
+	tensor._34 = 0;
+
+	tensor._41 = 0;
+	tensor._42 = 0;
+	tensor._43 = 0;
+	tensor._44 = 1;
+
+	m_InetiaTensor = tensor;
+}
+
+void RigidBody::SetInetiaTensorOfRectangular(float x, float y, float z, DirectX::SimpleMath::Vector3 _centerOfMass)
+{
+	m_CenterOfMass = _centerOfMass;
+
+	// é‡å¿ƒã®æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã‚’è¨ˆç®—
+	float Ixx = -m_Mass * (m_CenterOfMass.y * m_CenterOfMass.y + m_CenterOfMass.z * m_CenterOfMass.z);
+	float Iyy = -m_Mass * (m_CenterOfMass.x * m_CenterOfMass.x + m_CenterOfMass.z * m_CenterOfMass.z);
+	float Izz = -m_Mass * (m_CenterOfMass.x * m_CenterOfMass.x + m_CenterOfMass.y * m_CenterOfMass.y);
+
+	// ç›´æ–¹ä½“ã®å½¢çŠ¶ã«ã‚ˆã‚‹æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã‚’è¨ˆç®—
+	float Ixx_rect = 1.0f / 12.0f * m_Mass * (y * y + z * z);
+	float Iyy_rect = 1.0f / 12.0f * m_Mass * (x * x + z * z);
+	float Izz_rect = 1.0f / 12.0f * m_Mass * (x * x + y * y);
+
+	// è¶³ã—åˆã‚ã›ã‚‹ã€‚æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã®å¯¾ç§°æ€§ã‚’ã†ã¾ãä½¿ã£ã¦å‡¦ç†ã‚’åŠ¹ç‡åŒ–
+	m_InetiaTensor._11 = Ixx + Ixx_rect;
+	m_InetiaTensor._22 = Iyy + Iyy_rect;
+	m_InetiaTensor._33 = Izz + Izz_rect;
+
+	// æ…£æ€§ãƒ†ãƒ³ã‚½ãƒ«ã®éå¯¾è§’æˆåˆ†ã¯ã‚¼ãƒ­ï¼ˆç›´æ–¹ä½“ã®å ´åˆï¼‰
+	m_InetiaTensor._12 = m_InetiaTensor._21 = 0.0f;
+	m_InetiaTensor._13 = m_InetiaTensor._31 = 0.0f;
+	m_InetiaTensor._23 = m_InetiaTensor._32 = 0.0f;
+
+	m_InetiaTensor._41 = 0;
+	m_InetiaTensor._42 = 0;
+	m_InetiaTensor._43 = 0;
+	m_InetiaTensor._44 = 1;
+}
+
+void RigidBody::AddForceToPoint(Vector3 _force, Vector3 localPos, ForceMode forceMode)
+{	
+	Vector3 radius = localPos - m_CenterOfMass;
+	Vector3 _torque = radius.Cross(_force);
+	AddForce(_force, forceMode);
+	AddTorque(_torque, forceMode);
 }
