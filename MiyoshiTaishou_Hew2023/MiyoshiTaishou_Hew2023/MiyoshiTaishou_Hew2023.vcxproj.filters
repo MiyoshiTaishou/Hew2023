@@ -168,6 +168,12 @@
     <ClCompile Include="..\Script\Mesh\Perlinnoise.cpp">
       <Filter>ソース ファイル\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Component\animationModel.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\Customer.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -326,6 +332,12 @@
     <ClInclude Include="..\Script\Mesh\Perlinnoise.h">
       <Filter>ソース ファイル\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="..\Script\Component\animationModel.h">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\Customer.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\shader\common.hlsl">
@@ -395,6 +407,9 @@
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
     <FxCompile Include="..\shader\VS_Object.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\vertexLightingOneSkinVS.hlsl">
       <Filter>リソース ファイル\VS</Filter>
     </FxCompile>
   </ItemGroup>

@@ -11,6 +11,7 @@
 #include"../Object/camera.h"
 #include"../Object/sky.h"
 #include"../Object/field.h"
+#include"../Object/Customer.h"
 
 //ÉVÅ[Éìä÷åW
 #include"ResultScene.h"
@@ -35,6 +36,7 @@ void GameScene::Init()
 	AddGameObject<Sky>(Layer1);
 	AddGameObject<BoxObject>(Layer1);
 	AddGameObject<Player>(Layer1);
+	AddGameObject<Customer>(Layer1);
 	//AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
