@@ -31,6 +31,10 @@ struct BONE
 	aiMatrix4x4 AnimationMatrix1;
 	aiMatrix4x4 AnimationMatrix2;
 	aiMatrix4x4 OffsetMatrix;
+	aiQuaternion BlendRFrom;				// モーションブレンドする際のFROM側
+	aiQuaternion BlendRTo;					// モーションブレンドする際のTO側
+	aiVector3D	BlendPosFrom;				// モーションブレンドする際のFROM側
+	aiVector3D	BlendPosTo;					// モーションブレンドする際のTO側
 	int			idx;						// 20230909
 };
 

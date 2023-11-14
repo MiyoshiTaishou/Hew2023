@@ -22,6 +22,7 @@
 
 //コンポーネント
 #include"../Component/audio.h"
+#include"../Component/BoxCollider.h"
 
 #include"../ImGui/ImGuiManager.h"
 
@@ -73,6 +74,16 @@ void GameScene::Update()
 
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
+	{
+		Manager::SetScene<ResultScene>();
+
+		return;
+	}
+
+	Customer* cus = GetGameObject<Customer>();
+	Player* player = GetGameObject<Player>();
+
+	if (player->GetComponent<BoxCollider>()->Hit(cus->GetComponent<BoxCollider>()))
 	{
 		Manager::SetScene<ResultScene>();
 

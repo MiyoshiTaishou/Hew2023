@@ -38,6 +38,15 @@ void Invoke(std::function<void()> Function, int Time)
 		}).detach();
 }
 
+float CalculateDistance(const DirectX::SimpleMath::Vector3 point1, const DirectX::SimpleMath::Vector3& point2)
+{
+    float distanceX = point2.x - point1.x;
+    float distanceY = point2.y - point1.y;
+    float distanceZ = point2.z - point1.z;
+
+    return std::sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
+}
+
 //--------------------------------------------------------------------------------------
 // シェーダーファイルを読み込む
 //--------------------------------------------------------------------------------------
