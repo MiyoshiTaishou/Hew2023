@@ -13,7 +13,7 @@
 
 //コンポーネント
 #include"../Component/shader.h"
-#include"../Component/BoxCollider.h"
+#include"../Component/SphereCollider.h"
 #include"../Component/RigidBody.h"
 #include"../Component/shadow.h"
 
@@ -27,6 +27,7 @@
 #include"BoxObject.h"
 #include"camera.h"
 #include"field.h"
+#include"TakoyakiObject.h"
 
 //UI
 #include"../UI/score.h"
@@ -59,16 +60,9 @@ void Player::Init()
 	body->Init();
 	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
 
-	//当たり判定の大きさをオブジェクトに合わせる
-	Vector3 absModelScale;
-	absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
-	absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
-	absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
-
-	BoxCollider* box = AddComponent<BoxCollider>();
-	box->Init();
-	Vector3 absScale = absModelScale * m_Scale;
-	box->SetColliderScale(absScale);
+	SphereCollider* sphere = AddComponent<SphereCollider>();
+	sphere->Init();
+	sphere->SetRadius((ModelRenderer::Max.x * m_Scale.x));
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 }
@@ -144,18 +138,18 @@ void Player::Collision()
 
 	//くっつくオブジェクト当たり判定
 	{
-		std::vector<BoxObject*> boxlist = scene->GetGameObjects<BoxObject>();
+		std::vector<TakoyakiObject*> Takoyakilist = scene->GetGameObjects<TakoyakiObject>();
 
-		for (const auto& boxobj : boxlist)
+		for (const auto& Takoyaki : Takoyakilist)
 		{			
-			if (this->GetComponent<BoxCollider>()->Hit(boxobj->GetComponent<BoxCollider>()))
+			if (this->GetComponent<SphereCollider>()->Hit(Takoyaki->GetComponent<SphereCollider>()))
 			{
 				//くっつく処理
-				StickObject* child = AddChild<BoxObject>();				
+				StickObject* child = AddChild<TakoyakiObject>();				
 				child->Stick();						
 
 				//オブジェクト削除
-				boxobj->SetDestroy();
+				Takoyaki->SetDestroy();
 
 				//スコア加算
 				Score* score = scene->GetGameObject<Score>();

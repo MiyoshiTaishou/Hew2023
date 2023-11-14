@@ -148,6 +148,7 @@
     <ClCompile Include="..\Script\Component\RigidBody.cpp" />
     <ClCompile Include="..\Script\Component\shader.cpp" />
     <ClCompile Include="..\Script\Component\shadow.cpp" />
+    <ClCompile Include="..\Script\Component\SphereCollider.cpp" />
     <ClCompile Include="..\Script\Component\sprite.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui.cpp" />
     <ClCompile Include="..\Script\ImGui\ImGuiManager.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="..\Script\Object\Player.cpp" />
     <ClCompile Include="..\Script\Object\sky.cpp" />
     <ClCompile Include="..\Script\Object\StickObject.cpp" />
+    <ClCompile Include="..\Script\Object\TakoyakiObject.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
     <ClCompile Include="..\Script\Render\renderer.cpp" />
     <ClCompile Include="..\Script\Scene\GameScene.cpp" />
@@ -194,6 +196,7 @@
     <ClInclude Include="..\Script\Component\RigidBody.h" />
     <ClInclude Include="..\Script\Component\shader.h" />
     <ClInclude Include="..\Script\Component\shadow.h" />
+    <ClInclude Include="..\Script\Component\SphereCollider.h" />
     <ClInclude Include="..\Script\Component\sprite.h" />
     <ClInclude Include="..\Script\ImGui\imconfig.h" />
     <ClInclude Include="..\Script\ImGui\imgui.h" />
@@ -220,6 +223,7 @@
     <ClInclude Include="..\Script\Object\Player.h" />
     <ClInclude Include="..\Script\Object\sky.h" />
     <ClInclude Include="..\Script\Object\StickObject.h" />
+    <ClInclude Include="..\Script\Object\TakoyakiObject.h" />
     <ClInclude Include="..\Script\Render\CIndexBuffer.h" />
     <ClInclude Include="..\Script\Render\CVertexBuffer.h" />
     <ClInclude Include="..\Script\Render\modelRenderer.h" />

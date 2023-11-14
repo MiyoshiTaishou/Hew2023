@@ -3,6 +3,7 @@
 //コンポーネント
 #include"../Component/shader.h"
 #include"../Component/BoxCollider.h"
+#include"../Component/SphereCollider.h"
 
 //オブジェクト
 #include"field.h"
@@ -27,8 +28,8 @@ void Customer::Init()
 	m_Model->LoadAnimation("../asset\\model\\Akai_Idle.fbx", "Idle");
 	m_Model->LoadAnimation("../asset\\model\\Akai_ShakeHand.fbx", "Run");
 
-	BoxCollider* box = AddComponent<BoxCollider>();
-	box->SetColliderScale(Vector3(2.0f, 2.0f, 2.0f));
+	SphereCollider* sphere = AddComponent<SphereCollider>();
+	sphere->SetRadius(2.0f);
 
 	m_Scale = Vector3(0.1f, 0.1f, 0.1f);
 	m_Position.z = 10.0f;
