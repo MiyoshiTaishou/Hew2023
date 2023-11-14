@@ -12,6 +12,7 @@
 #include"../Object/sky.h"
 #include"../Object/field.h"
 #include"../Object/Customer.h"
+#include"../Object/TakoyakiObject.h"
 
 //シーン関係
 #include"ResultScene.h"
@@ -22,7 +23,7 @@
 
 //コンポーネント
 #include"../Component/audio.h"
-#include"../Component/BoxCollider.h"
+#include"../Component/SphereCollider.h"
 
 #include"../ImGui/ImGuiManager.h"
 
@@ -35,7 +36,7 @@ void GameScene::Init()
 	//オブジェクト生成
 	LoadObjectData("Obj.csv");
 	AddGameObject<Sky>(Layer1);
-	AddGameObject<BoxObject>(Layer1);
+	AddGameObject<TakoyakiObject>(Layer1);
 	AddGameObject<Player>(Layer1);
 	AddGameObject<Customer>(Layer1);
 	//AddGameObject<Field>(Layer1);
@@ -80,10 +81,12 @@ void GameScene::Update()
 		return;
 	}
 
-	Customer* cus = GetGameObject<Customer>();
 	Player* player = GetGameObject<Player>();
+	Customer* cus = GetGameObject<Customer>();
 
-	if (player->GetComponent<BoxCollider>()->Hit(cus->GetComponent<BoxCollider>()))
+	SphereCollider* col = player->GetComponent<SphereCollider>();
+
+	if(col->Hit(cus->GetComponent<SphereCollider>()))
 	{
 		Manager::SetScene<ResultScene>();
 

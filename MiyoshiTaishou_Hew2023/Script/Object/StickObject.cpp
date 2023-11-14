@@ -65,5 +65,5 @@ void StickObject::Stick()
 	m_Scale *= m_ScaleDown;
 
 	//À•WÝ’è
-	m_Position = cameraObj->GetForward() * m_Scale * 2.0f;
+	m_Position = cameraObj->GetForward() * m_Scale * 0.2f;
 }
