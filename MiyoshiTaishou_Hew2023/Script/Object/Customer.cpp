@@ -2,9 +2,11 @@
 
 //コンポーネント
 #include"../Component/shader.h"
+#include"../Component/BoxCollider.h"
 
 //オブジェクト
 #include"field.h"
+#include"Player.h"
 
 //シーン
 #include"../Scene/scene.h"
@@ -23,7 +25,10 @@ void Customer::Init()
 
 	m_Model->Load("../asset\\model\\Akai.fbx");									// animation ok
 	m_Model->LoadAnimation("../asset\\model\\Akai_Idle.fbx", "Idle");
-	m_Model->LoadAnimation("../asset\\model\\Akai_Run.fbx", "Run");
+	m_Model->LoadAnimation("../asset\\model\\Akai_ShakeHand.fbx", "Run");
+
+	BoxCollider* box = AddComponent<BoxCollider>();
+	box->SetColliderScale(Vector3(2.0f, 2.0f, 2.0f));
 
 	m_Scale = Vector3(0.1f, 0.1f, 0.1f);
 	m_Position.z = 10.0f;
@@ -32,22 +37,26 @@ void Customer::Init()
 void Customer::Update()
 {
 	Scene* nowscene = Manager::GetScene();
+	Player* player = nowscene->GetGameObject<Player>();
 
-	if (Input::GetKeyPress('W'))
+	//常にプレイヤーの方を向く処理
+	//プレイヤーへのベクトルを計算
+	Vector3 dir = player->GetPosition() - m_Position;
+	m_Rotation.y = atan2(dir.x, dir.z);
+
+	//距離計測
+	float distance = CalculateDistance(player->GetPosition(), m_Position);
+
+	//距離に応じてアニメーションを変える
+	if (distance < 25.0f)
 	{
 		m_BlendRate += 0.1f;
 		m_Frame++;
-
-	}
-	else if (Input::GetKeyPress('S'))
-	{
-		m_BlendRate += 0.1f;
-		m_Frame--;
 	}
 	else
 	{
 		m_BlendRate -= 0.1f;
-		m_Frame++;
+		m_Frame--;
 	}
 
 	if (m_BlendRate > 1.0f)

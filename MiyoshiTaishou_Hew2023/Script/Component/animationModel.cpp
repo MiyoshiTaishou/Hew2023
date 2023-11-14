@@ -311,6 +311,7 @@ void AnimationModel::Update(const char *AnimationName1, int Frame1, const char *
 	aiAnimation* animation1 = m_Animation[AnimationName1]->mAnimations[0];
 	aiAnimation* animation2 = m_Animation[AnimationName2]->mAnimations[0];
 
+	//アニメーション1
 	for (unsigned int c = 0; c < animation1->mNumChannels; c++)
 	{
 		aiNodeAnim* nodeAnim = animation1->mChannels[c];
@@ -324,6 +325,51 @@ void AnimationModel::Update(const char *AnimationName1, int Frame1, const char *
 
 		f = Frame1 % nodeAnim->mNumPositionKeys;				//簡易実装
 		aiVector3D pos = nodeAnim->mPositionKeys[f].mValue;
+
+		bone->BlendPosFrom = pos;
+		bone->BlendRFrom = rot;
+
+		bone->AnimationMatrix = aiMatrix4x4(aiVector3D(1.0f, 1.0f, 1.0f), rot, pos);
+	}
+
+	// 現在のアニメーション2について関連するボーンを全て更新
+	for (unsigned int c = 0; c < animation2->mNumChannels; c++)
+	{
+		aiNodeAnim* nodeAnim = animation2->mChannels[c];
+
+		BONE* bone = &m_Bone[nodeAnim->mNodeName.C_Str()];
+
+		int f;
+
+		f = Frame1 % nodeAnim->mNumRotationKeys;//簡易実装
+		aiQuaternion rot = nodeAnim->mRotationKeys[f].mValue;
+
+		f = Frame1 % nodeAnim->mNumPositionKeys;//簡易実装
+		aiVector3D pos = nodeAnim->mPositionKeys[f].mValue;
+
+		bone->BlendPosTo = pos;
+		bone->BlendRTo = rot;
+	}
+
+	// ブレンド
+	for (unsigned int c = 0; c < animation2->mNumChannels; c++)
+	{
+		aiNodeAnim* nodeAnim = animation2->mChannels[c];
+
+		BONE* bone = &m_Bone[nodeAnim->mNodeName.C_Str()];
+
+		// 位置のブレンド
+		aiVector3D pos1 = bone->BlendPosFrom;
+		aiVector3D pos2 = bone->BlendPosTo;
+
+		aiVector3D pos = pos1 * (1.0f - BlendRate) + pos2 * BlendRate;//線形補間
+
+		// 姿勢のブレンド
+		aiQuaternion rot1 = bone->BlendRFrom;
+		aiQuaternion rot2 = bone->BlendRTo;
+
+		aiQuaternion rot;
+		aiQuaternion::Interpolate(rot, rot1, rot2, BlendRate);//球面線形補間
 
 		bone->AnimationMatrix = aiMatrix4x4(aiVector3D(1.0f, 1.0f, 1.0f), rot, pos);
 	}

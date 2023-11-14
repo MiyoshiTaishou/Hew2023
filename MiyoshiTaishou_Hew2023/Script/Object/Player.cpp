@@ -37,7 +37,7 @@ void Player::Init()
 {
 	//座標、サイズ設定
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
-	this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
+	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
 	this->m_Position.x = 10.0f;
 	this->m_Position.z = 0.0f;
 
@@ -49,7 +49,7 @@ void Player::Init()
 
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	//model->Load("../asset\\model\\bullet.obj");
-	model->Load("../asset\\model\\box.obj");
+	model->Load("../asset\\model\\bullet.obj");
 
 	Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();

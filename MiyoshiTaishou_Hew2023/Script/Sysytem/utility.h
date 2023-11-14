@@ -6,6 +6,7 @@
 #include    <locale.h>
 #include    <d3dcompiler.h>
 #include    <vector>
+#include    <SimpleMath.h>
 
 void Invoke(std::function<void()> Function, int Time);
 
@@ -112,3 +113,6 @@ bool CreateIndexBuffer(
     ID3D11Buffer** pIndexBuffer);    			// インデックスバッファ
 
 void Invoke(std::function<void()> Function, int Time);
+
+// ユークリッド距離を計算する関数
+float CalculateDistance(const DirectX::SimpleMath::Vector3 point1, const DirectX::SimpleMath::Vector3& point2);
