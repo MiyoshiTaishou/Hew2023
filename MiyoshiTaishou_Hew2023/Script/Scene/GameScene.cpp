@@ -13,6 +13,7 @@
 #include"../Object/field.h"
 #include"../Object/Customer.h"
 #include"../Object/TakoyakiObject.h"
+#include"../Object/BillBoardObject.h"
 
 //シーン関係
 #include"ResultScene.h"
@@ -36,10 +37,11 @@ void GameScene::Init()
 	//オブジェクト生成
 	LoadObjectData("Obj.csv");
 	AddGameObject<Sky>(Layer1);
-	AddGameObject<TakoyakiObject>(Layer1);
-	AddGameObject<Player>(Layer1);
+	AddGameObject<TakoyakiObject>(Layer1);	
 	AddGameObject<Customer>(Layer1);
-	//AddGameObject<Field>(Layer1);
+	AddGameObject<Player>(Layer1);
+	//AddGameObject<BillBoardObject>(Layer1);
+	AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
 

@@ -9,12 +9,14 @@
 #include"../Object/Player.h"
 #include"../Object/field.h"
 #include"../Object/camera.h"
+#include"../Object/BillBoardObject.h"
 #include"Transition.h"
 
 //コンポーネント
 #include"../Component/shader.h"
 #include"../Component/sprite.h"
 #include"../Component/audio.h"
+#include"../Component/SphereCollider.h"
 
 //シーン
 #include"GameScene.h"
@@ -25,6 +27,8 @@ void TitleScene::Init()
 	AddGameObject<Sky>(Layer1);
 	AddGameObject<Player>(Layer1);
 	AddGameObject<Field>(Layer1);
+	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
+	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);
 
 	AddGameObject<Camera>(Layer0);
 
@@ -45,19 +49,30 @@ void TitleScene::Init()
 
 void TitleScene::Update()
 {
-	//if (m_Transition->GetState() == Transition::State::Stop)
-	//{
-	//	if (Input::GetKeyTrigger(VK_RETURN))
-	//	{
-	//		m_Transition->FadeOut();
-	//	}
-	//}	
+	if (m_Transition->GetState() == Transition::State::Stop)
+	{
+		if (Input::GetKeyTrigger(VK_RETURN))
+		{
+			m_Transition->FadeOut();
+		}
+	}	
 
-	////画面遷移が終了しているか
-	//if (m_Transition->GetState() == Transition::State::Finish)
-	//{
-	//	Manager::SetScene<GameScene>();
+	//画面遷移が終了しているか
+	if (m_Transition->GetState() == Transition::State::Finish)
+	{
+		Manager::SetScene<GameScene>();
 
-	//	return;
-	//}
+		return;
+	}
+
+	Player* player = GetGameObject<Player>();
+	BillBoardObject* bill = GetGameObject<BillBoardObject>();
+
+	SphereCollider* col = player->GetComponent<SphereCollider>();
+
+	if (col->Hit(bill->GetComponent<SphereCollider>()))
+	{
+		Manager::SetScene<GameScene>();		
+		return;
+	}
 }

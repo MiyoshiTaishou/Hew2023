@@ -180,6 +180,9 @@
     <ClCompile Include="..\Script\Object\TakoyakiObject.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Object\BillBoardObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -348,6 +351,9 @@
       <Filter>ソース ファイル\Componet</Filter>
     </ClInclude>
     <ClInclude Include="..\Script\Object\TakoyakiObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\BillBoardObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>
