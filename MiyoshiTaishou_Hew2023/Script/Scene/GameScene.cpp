@@ -21,6 +21,7 @@
 
 //UI関係ヘッダ
 #include"../UI/score.h"
+#include"../UI/BillBoardScore.h"
 
 //コンポーネント
 #include"../Component/audio.h"
@@ -37,11 +38,14 @@ void GameScene::Init()
 	//オブジェクト生成
 	LoadObjectData("Obj.csv");
 	AddGameObject<Sky>(Layer1);
-	AddGameObject<TakoyakiObject>(Layer1);	
-	AddGameObject<Customer>(Layer1);
+	//AddGameObject<TakoyakiObject>(Layer1);	
+	Customer* cus = AddGameObject<Customer>(Layer1);
 	AddGameObject<Player>(Layer1);
-	//AddGameObject<BillBoardObject>(Layer1);
-	AddGameObject<Field>(Layer1);
+	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
+	BillBoardScore* bill = cus->AddChild<BillBoardScore>();	
+	bill->SetPosition(Vector3(0, 20, 0));
+	bill->SetRotation(Vector3(0, 90, 0));	
+	//AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
 
@@ -85,6 +89,11 @@ void GameScene::Update()
 
 	Player* player = GetGameObject<Player>();
 	Customer* cus = GetGameObject<Customer>();
+
+	if (!cus)
+	{
+		return;
+	}
 
 	SphereCollider* col = player->GetComponent<SphereCollider>();
 
