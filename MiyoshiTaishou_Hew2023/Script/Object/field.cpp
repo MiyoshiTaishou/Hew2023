@@ -244,7 +244,7 @@ Vector3 Field::CalculateDiagonalDirection(Vector3 normal)
 	return dir;
 }
 
-float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos)
+float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 {
 	float t;
 
@@ -270,18 +270,19 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos)
 				m_planes[idx].GetPlaneInfo().p1,
 				m_planes[idx].GetPlaneInfo().p2, ans);
 			if (sts) {
-				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
-
-				//â“¹‚ð“]‚ª‚éˆ—
-				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);
 
 				Scene* scene = Manager::GetScene();
 				Player* player = scene->GetGameObject<Player>();
 
-				if (!player)
+				if (!player || _off)
 				{
 					return ans.y;
 				}
+
+				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
+
+				//â“¹‚ð“]‚ª‚éˆ—
+				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
 				RigidBody* body = player->GetComponent<RigidBody>();
 
@@ -319,19 +320,21 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos)
 				m_planes[idx].GetPlaneInfo().p0,
 				m_planes[idx].GetPlaneInfo().p1,
 				m_planes[idx].GetPlaneInfo().p2, ans);
-			if (sts) {
-				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
-
-				//â“¹‚ð“]‚ª‚éˆ—
-				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);
+			if (sts) 
+			{
 
 				Scene* scene = Manager::GetScene();
 				Player* player = scene->GetGameObject<Player>();
 
-				if (!player)
+				if (!player || _off)
 				{
 					return ans.y;
 				}
+
+				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
+
+				//â“¹‚ð“]‚ª‚éˆ—
+				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
 				RigidBody* body = player->GetComponent<RigidBody>();
 

@@ -39,19 +39,18 @@ void GameScene::Init()
 	LoadObjectData("Obj.csv");
 	AddGameObject<Sky>(Layer1);
 	//AddGameObject<TakoyakiObject>(Layer1);	
-	Customer* cus = AddGameObject<Customer>(Layer1);
 	AddGameObject<Player>(Layer1);
+	Customer* cus = AddGameObject<Customer>(Layer1);	
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
-	BillBoardScore* bill = cus->AddChild<BillBoardScore>();	
-	bill->SetPosition(Vector3(0, 20, 10));	
+	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
 	bill->AddCount(cus->GetRequests());
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
-	//AddGameObject<Field>(Layer1);
-
+	AddGameObject<Field>(Layer1);
+	
 	AddGameObject<Camera>(Layer0);
 
-	AddGameObject<Score>(Layer3);
+	AddGameObject<Score>(Layer3);	
 
 	for (int i = 0; i < MAX_SPHERE; i++)
 	{
@@ -74,6 +73,7 @@ void GameScene::Update()
 {
 	//ƒV[ƒ“‘JˆÚ
 	if (m_Transition->GetState() == Transition::State::Stop)
+	
 	{
 		if (Input::GetKeyTrigger(VK_RETURN))
 		{
@@ -102,7 +102,7 @@ void GameScene::Update()
 	if(col->Hit(cus->GetComponent<SphereCollider>()))
 	{
 		//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
-		if (GetGameObject<Score>()->GetCount() > cus->GetRequests())
+		if (GetGameObject<Score>()->GetCount() >= cus->GetRequests())
 		{
 			Manager::SetScene<ResultScene>();
 			return;

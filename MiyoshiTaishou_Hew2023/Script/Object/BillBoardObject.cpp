@@ -147,7 +147,7 @@ void BillBoardObject::Update()
 		m_Position.z = max.z;
 	}
 
-	float Height = filed->GetFieldHeightBySqno(m_Position);
+	float Height = filed->GetFieldHeightBySqno(m_Position,true);
 
 	//float Height = 0.0f;
 

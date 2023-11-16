@@ -1,10 +1,15 @@
 #include "../Sysytem/main.h"
 #include "../Sysytem/manager.h"
+
 #include "../Render/renderer.h"
+
 #include "camera.h"
 #include"Player.h"
+#include"field.h"
 
 #include"../ImGui/ImGuiManager.h"
+
+#include"../Scene/scene.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -41,9 +46,36 @@ void Camera::Update()
 
 	lastCamEye = m_Position;
 
-	this->m_Position.y += 10.0f;
+	this->m_Position.y += 30.0f;
 
 	this->m_Rotation.y = playerobj->GetRotation().y;	
+
+	//高さを取得	
+	Field* filed = nowscene->GetGameObject<Field>();
+	if (!filed)
+	{
+		return;
+	}
+
+	//　範囲チェック 
+	Vector3 max = filed->GetMax();
+	Vector3 min = filed->GetMin();
+
+	if (m_Position.x <= min.x) {
+		m_Position.x = min.x;
+	}
+	if (m_Position.x >= max.x) {
+		m_Position.x = max.x;
+	}
+
+	if (m_Position.z <= min.z) {
+		m_Position.z = min.z;
+	}
+	if (m_Position.z >= max.z) {
+		m_Position.z = max.z;
+	}
+
+	float Height = filed->GetFieldHeightBySqno(m_Position,true);
 }
 
 void Camera::Draw()

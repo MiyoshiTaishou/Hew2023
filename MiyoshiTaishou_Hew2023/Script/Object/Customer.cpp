@@ -16,6 +16,8 @@
 #include"../Sysytem/manager.h"
 #include"../Sysytem/input.h"
 
+#include"../ImGui/ImGuiManager.h"
+
 using namespace DirectX::SimpleMath;
 
 void Customer::Init()
@@ -92,13 +94,23 @@ void Customer::Update()
 	}
 
 	//接地
-	float groundHeight = fieldobj->GetFieldHeightBySqno(m_Position);
+	float groundHeight = fieldobj->GetFieldHeightBySqno(m_Position,true);
 
 	// 位置が０以下なら地面位置にセットする
 	if (m_Position.y < groundHeight)
 	{
 		m_Position.y = groundHeight;		
 	}	
+}
+
+void Customer::Draw()
+{
+	ImGui::Begin("Customer");
+	//サイズ
+	ImGui::SliderFloat("RotX##", &m_Position.x, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotY##", &m_Position.y, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotZ##", &m_Position.z, 0.0f, 100.0f);
+	ImGui::End();
 }
 
 void Customer::PreDraw()
