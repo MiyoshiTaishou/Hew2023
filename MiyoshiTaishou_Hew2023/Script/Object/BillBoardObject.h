@@ -11,5 +11,5 @@ public:
 	void Init();
 	void Uninit();
 	void Draw();	
-	void Update();
+	void Update();	
 };

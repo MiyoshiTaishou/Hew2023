@@ -31,7 +31,7 @@
 
 using namespace DirectX::SimpleMath;
 
-#define MAX_BOX 10
+#define MAX_SPHERE 10
 
 void GameScene::Init()
 {
@@ -43,20 +43,22 @@ void GameScene::Init()
 	AddGameObject<Player>(Layer1);
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();	
-	bill->SetPosition(Vector3(0, 20, 0));
-	bill->SetRotation(Vector3(0, 90, 0));	
+	bill->SetPosition(Vector3(0, 20, 10));	
+	bill->AddCount(cus->GetRequests());
+
+	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	//AddGameObject<Field>(Layer1);
 
 	AddGameObject<Camera>(Layer0);
 
 	AddGameObject<Score>(Layer3);
 
-	/*for (int i = 0; i < MAX_BOX; i++)
+	for (int i = 0; i < MAX_SPHERE; i++)
 	{
-		BoxObject* box = AddGameObject<BoxObject>(Layer1);
+		TakoyakiObject* takoyaki = AddGameObject<TakoyakiObject>(Layer1);
 		Vector3 pos = Vector3(5.0f * i, 1.0f, 1.0f);
-		box->SetPosition(pos);
-	}*/
+		takoyaki->SetPosition(pos);
+	}
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -99,8 +101,11 @@ void GameScene::Update()
 
 	if(col->Hit(cus->GetComponent<SphereCollider>()))
 	{
-		Manager::SetScene<ResultScene>();
-
-		return;
+		//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
+		if (GetGameObject<Score>()->GetCount() > cus->GetRequests())
+		{
+			Manager::SetScene<ResultScene>();
+			return;
+		}				
 	}
 }
