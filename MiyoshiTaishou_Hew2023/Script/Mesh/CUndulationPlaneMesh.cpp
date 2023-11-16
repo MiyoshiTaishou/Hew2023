@@ -25,8 +25,8 @@ void CUndulationPlaneMesh::MakeUndulationPerlinnoise(float max, double octave, d
 			v.Position.x,
 			0,
 			v.Position.z,
-			8,
-			0.98);
+			octave,
+			persistence);
 
 		v.Position.y = d * max;
 	}

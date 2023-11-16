@@ -48,8 +48,8 @@ void Field::Init()
 //		3.0f);						// 最大
 
 	m_planemesh.MakeUndulationPerlinnoise(
-		50.0f,			// 最大の高さ
-		4,				// オクターブ数
+		40.0f,			// 最大の高さ
+		10,				// オクターブ数
 		0.28f);			// パーシステンス
 
 	// 平面の方程式を生成（全面）
