@@ -135,9 +135,12 @@ private:
     static ID3D11DepthStencilState* m_DepthStateDisable;
     static ID3D11BlendState* m_BlendState;
     static ID3D11BlendState* m_BlendStateATC;
-    static Application* m_Application;
+    static Application* m_Application;    
 
 public:
+    //カリング
+    static ID3D11RasterizerState* m_RasterizerState[3];
+
     /**
      * @brief レンダラの初期化
      * @param ap Applicationクラスへのポインタ

@@ -2,6 +2,7 @@
 #include "../Sysytem/main.h"
 #include "renderer.h"
 #include <io.h>
+#include<iostream>
 
 using namespace DirectX::SimpleMath;
 
@@ -31,6 +32,7 @@ ID3D11DepthStencilState* Renderer::m_DepthStateDisable{};
 
 ID3D11BlendState*		Renderer::m_BlendState{};
 ID3D11BlendState*		Renderer::m_BlendStateATC{};
+ID3D11RasterizerState*	Renderer::m_RasterizerState[3]{};
 
 Application*			Renderer::m_Application;
 
@@ -121,18 +123,24 @@ void Renderer::Init(Application* ap)
 
 
 	// ラスタライザステート設定
-	D3D11_RASTERIZER_DESC rasterizerDesc{};
-	rasterizerDesc.FillMode = D3D11_FILL_SOLID; 
-	rasterizerDesc.CullMode = D3D11_CULL_BACK; 
-//	rasterizerDesc.CullMode = D3D11_CULL_NONE;
-//	rasterizerDesc.CullMode = D3D11_CULL_FRONT;
+	D3D11_RASTERIZER_DESC rasterizerDesc = {};
+	D3D11_CULL_MODE cull[] = {
+		D3D11_CULL_NONE,
+		D3D11_CULL_FRONT,
+		D3D11_CULL_BACK
+	};
 	rasterizerDesc.DepthClipEnable = TRUE;
 	rasterizerDesc.MultisampleEnable = FALSE; 
+	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
+	rasterizerDesc.FrontCounterClockwise = true;
 
-	ID3D11RasterizerState *rs;
-	m_Device->CreateRasterizerState( &rasterizerDesc, &rs );
+	for (int i = 0; i < 3; ++i)
+	{
+		rasterizerDesc.CullMode = cull[i];
+		hr = m_Device->CreateRasterizerState(&rasterizerDesc, &m_RasterizerState[i]);		
+	}	
 
-	m_DeviceContext->RSSetState( rs );
+	m_DeviceContext->RSSetState(m_RasterizerState[1]);
 
 
 
@@ -195,7 +203,7 @@ void Renderer::Init(Application* ap)
 	m_DeviceContext->PSSetSamplers( 0, 1, &samplerState );
 
 	//定数バッファの作成
-	CreateConstntBuffer();
+	CreateConstntBuffer();	
 }
 
 
@@ -514,8 +522,11 @@ void Renderer::CreateVertexShader( ID3D11VertexShader** VertexShader, ID3D11Inpu
 	fread(buffer, fsize, 1, file);
 	fclose(file);
 
-	m_Device->CreateVertexShader(buffer, fsize, NULL, VertexShader);
-
+	HRESULT hr = m_Device->CreateVertexShader(buffer, fsize, NULL, VertexShader);
+	if (FAILED(hr))
+	{
+		std::cout << "Vertex shader creation failed! Error code: 0x" << std::hex << hr << std::endl;
+	}
 
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{

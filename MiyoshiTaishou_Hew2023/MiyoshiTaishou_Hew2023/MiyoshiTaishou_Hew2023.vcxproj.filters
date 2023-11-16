@@ -436,5 +436,11 @@
     <FxCompile Include="..\shader\vertexLightingOneSkinVS.hlsl">
       <Filter>リソース ファイル\VS</Filter>
     </FxCompile>
+    <FxCompile Include="..\shader\VS_OutLine.hlsl">
+      <Filter>リソース ファイル\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_OutLine.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
