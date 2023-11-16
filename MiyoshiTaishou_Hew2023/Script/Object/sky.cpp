@@ -13,7 +13,7 @@ using namespace DirectX::SimpleMath;
 
 void Sky::Init()
 {
-	m_Scale = Vector3(100.0f, 100.0f, 100.0f);
+	m_Scale = Vector3(1000.0f, 1000.0f, 1000.0f);
 
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
 	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_OrangeScale.cso");
