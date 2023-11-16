@@ -13,13 +13,13 @@
 using namespace DirectX::SimpleMath;
 
 void StickObject::Update()
-{	
-	//くっついていたら処理をしない
+{		
+	//くっついていたら親オブジェクトを上げる
 	if (m_Stick)
 	{				
 		return;
 	}
-	
+
 	Scene* scene = Manager::GetScene();
 
 	Field* filed = scene->GetGameObject<Field>();
@@ -47,7 +47,7 @@ void StickObject::Update()
 		m_Position.z = max.z;
 	}
 
-	float Height = filed->GetFieldHeightBySqno(m_Position);
+	float Height = filed->GetFieldHeightBySqno(m_Position,true);
 
 	m_Position.y = Height;
 }

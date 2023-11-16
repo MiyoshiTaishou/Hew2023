@@ -16,6 +16,7 @@ public:
 
 	void Init() override;
 	void Update() override;
+	void Draw()override;
 	void PreDraw() override;
 
 	void SetRequests(int _count) { m_Requests = _count; }

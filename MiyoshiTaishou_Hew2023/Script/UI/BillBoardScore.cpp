@@ -7,6 +7,7 @@
 #include"../Object/Player.h"
 #include"../Object/camera.h"
 #include"../Object/field.h"
+#include"../Object/Customer.h"
 
 //システム
 #include"../Sysytem/manager.h"
@@ -81,7 +82,7 @@ void BillBoardScore::Uninit()
 
 void BillBoardScore::Draw()
 {
-	GetComponent<Shader>()->Draw();
+	GetComponent<Shader>()->Draw();	
 
 	// ワールドマトリクス設定
 	Matrix world, scale, rot, trans;
@@ -159,5 +160,10 @@ void BillBoardScore::Update()
 	//常にプレイヤーの方を向く処理
 	//プレイヤーへのベクトルを計算
 	Vector3 dir = camera->GetPosition() - m_Position;
-	m_Rotation.y = atan2(dir.x, dir.z);
+	m_Rotation.y = atan2(dir.x, dir.z);	
+
+	Customer* cus = nowscene->GetGameObject<Customer>();
+	Vector3 pos = cus->GetPosition();	
+	pos.y += 20.0f;
+	m_Position = pos;
 }
