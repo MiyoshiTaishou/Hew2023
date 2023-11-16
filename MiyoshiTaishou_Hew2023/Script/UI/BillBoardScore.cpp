@@ -13,6 +13,8 @@
 
 #include"../Scene/scene.h"
 
+#include"../ImGui/ImGuiManager.h"
+
 using namespace DirectX::SimpleMath;
 
 void BillBoardScore::Init()
@@ -63,17 +65,16 @@ void BillBoardScore::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	m_Count = 0;
+
+	//向きが違うので合わせる
+	m_Rotation.z = 3.2f;
+	m_Rotation.y = 90.0f;
 }
 
 void BillBoardScore::Uninit()
-{
-	for (auto& com : m_Component) {
-		com->Uninit();
-		delete com;
-	}
-
-	m_Component.clear();
-
+{	
 	m_VertexBuffer->Release();
 	m_Texture->Release();
 }
@@ -110,60 +111,53 @@ void BillBoardScore::Draw()
 
 	int count = m_Count;
 
-	for (int i = 0; i < 3; i++)
-	{
-		int number = count % 10;
-		count /= 10;
+	int number = count % 10;
+	count /= 10;
 
-		//テクスチャ座標算出
-		float tx = number % 5 * (1.0f / 5);
-		float ty = number / 5 * (1.0f / 5);
+	//テクスチャ座標算出
+	float tx = number % 5 * (1.0f / 5);
+	float ty = number / 5 * (1.0f / 5);
 
-		//頂点データ書き換え
-		D3D11_MAPPED_SUBRESOURCE msr;
-		HRESULT result = Renderer::GetDeviceContext()->Map(m_VertexBuffer, 0,
-			D3D11_MAP_WRITE_DISCARD, 0, &msr);
+	//頂点データ書き換え
+	D3D11_MAPPED_SUBRESOURCE msr;
+	HRESULT result = Renderer::GetDeviceContext()->Map(m_VertexBuffer, 0,
+		D3D11_MAP_WRITE_DISCARD, 0, &msr);
 
-		if (FAILED(result))
-		{
-			std::cerr << "Failed to map vertex buffer. Error code: " << result << std::endl;
-			return;
-		}
+	VERTEX_3D* vertex = (VERTEX_3D*)msr.pData;	
 
-		VERTEX_3D* vertex = (VERTEX_3D*)msr.pData;
+	vertex[0].Position = Vector3(-m_Width, -m_Height, 0.0f);
+	vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[0].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[0].TexCoord = Vector2(tx, ty);
 
-		float x = 100 - i * 30.0f;
-		float y = 30;
-		float height = 50.0f;
-		float width = 50.0f;
+	vertex[1].Position = Vector3(m_Width, -m_Height, 0.0f);
+	vertex[1].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[1].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[1].TexCoord = Vector2(tx + 0.2f, ty);
 
-		vertex[0].Position = Vector3(-m_Width, -m_Height, 0.0f);
-		vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
-		vertex[0].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-		vertex[0].TexCoord = Vector2(tx, ty);
+	vertex[2].Position = Vector3(-m_Width, m_Height, 0.0f);
+	vertex[2].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[2].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[2].TexCoord = Vector2(tx, ty + 0.2f);
 
-		vertex[1].Position = Vector3(m_Width, -m_Height, 0.0f);
-		vertex[1].Normal = Vector3(0.0f, 1.0f, 0.0f);
-		vertex[1].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-		vertex[1].TexCoord = Vector2(tx + 0.2f, ty);
+	vertex[3].Position = Vector3(m_Width, m_Height, 0.0f);
+	vertex[3].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[3].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[3].TexCoord = Vector2(tx + 0.2f, ty + 0.2f);
 
-		vertex[2].Position = Vector3(-m_Width, m_Height, 0.0f);
-		vertex[2].Normal = Vector3(0.0f, 1.0f, 0.0f);
-		vertex[2].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-		vertex[2].TexCoord = Vector2(tx, ty + 0.2f);
+	Renderer::GetDeviceContext()->Unmap(m_VertexBuffer, 0);
 
-		vertex[3].Position = Vector3(m_Width, m_Height, 0.0f);
-		vertex[3].Normal = Vector3(0.0f, 1.0f, 0.0f);
-		vertex[3].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-		vertex[3].TexCoord = Vector2(tx + 0.2f, ty + 0.2f);
-
-		Renderer::GetDeviceContext()->Unmap(m_VertexBuffer, 0);
-
-		// ポリゴン描画
-		Renderer::GetDeviceContext()->Draw(4, 0);
-	}
+	// ポリゴン描画
+	Renderer::GetDeviceContext()->Draw(4, 0);	
 }
 
 void BillBoardScore::Update()
 {
+	Scene* nowscene = Manager::GetScene();
+	Camera* camera = nowscene->GetGameObject<Camera>();
+
+	//常にプレイヤーの方を向く処理
+	//プレイヤーへのベクトルを計算
+	Vector3 dir = camera->GetPosition() - m_Position;
+	m_Rotation.y = atan2(dir.x, dir.z);
 }
