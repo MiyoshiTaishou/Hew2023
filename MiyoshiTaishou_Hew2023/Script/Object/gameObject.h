@@ -193,7 +193,7 @@ public:
         child->InitBase();
 
         return child;
-    }
+    }   
 
     /**
      * @brief オブジェクトとその子オブジェクト、コンポーネントを初期化します。

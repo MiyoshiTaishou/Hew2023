@@ -103,7 +103,7 @@ public:
         {
             for (GameObject* object : objectList)
             {
-                object->UpdateBase();
+                object->UpdateBase();                
             }
             // ƒ‰ƒ€ƒ_Ž®
             // íœ‚µ‚Ä‚¢‚¢‚à‚Ì‚Ííœ‚·‚é
