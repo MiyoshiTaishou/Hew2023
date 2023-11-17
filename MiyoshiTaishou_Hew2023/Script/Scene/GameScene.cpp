@@ -14,6 +14,7 @@
 #include"../Object/Customer.h"
 #include"../Object/TakoyakiObject.h"
 #include"../Object/BillBoardObject.h"
+#include"../Object/Enemy.h"
 
 //ÉVÅ[Éìä÷åW
 #include"ResultScene.h"
@@ -40,13 +41,15 @@ void GameScene::Init()
 	AddGameObject<Sky>(Layer1);
 	//AddGameObject<TakoyakiObject>(Layer1);	
 	AddGameObject<Player>(Layer1);
-	Customer* cus = AddGameObject<Customer>(Layer1);	
+	//Customer* cus = AddGameObject<Customer>(Layer1);	
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
-	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
-	bill->AddCount(cus->GetRequests());
+	//BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
+	//bill->AddCount(cus->GetRequests());
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	AddGameObject<Field>(Layer1);
+
+	AddGameObject<Enemy>(Layer1);
 	
 	AddGameObject<Camera>(Layer0);
 

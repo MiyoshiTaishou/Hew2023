@@ -167,6 +167,7 @@
     <ClCompile Include="..\Script\Object\camera.cpp" />
     <ClCompile Include="..\Script\Object\Customer.cpp" />
     <ClCompile Include="..\Script\Object\DebugCamera.cpp" />
+    <ClCompile Include="..\Script\Object\Enemy.cpp" />
     <ClCompile Include="..\Script\Object\field.cpp" />
     <ClCompile Include="..\Script\Object\Player.cpp" />
     <ClCompile Include="..\Script\Object\sky.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="..\Script\Object\camera.h" />
     <ClInclude Include="..\Script\Object\Customer.h" />
     <ClInclude Include="..\Script\Object\DebugCamera.h" />
+    <ClInclude Include="..\Script\Object\Enemy.h" />
     <ClInclude Include="..\Script\Object\field.h" />
     <ClInclude Include="..\Script\Object\gameObject.h" />
     <ClInclude Include="..\Script\Object\Player.h" />

@@ -157,8 +157,8 @@ void BillBoardScore::Update()
 	Scene* nowscene = Manager::GetScene();
 	Camera* camera = nowscene->GetGameObject<Camera>();
 
-	//常にプレイヤーの方を向く処理
-	//プレイヤーへのベクトルを計算
+	//常にカメラの方を向く処理
+	//カメラへのベクトルを計算
 	Vector3 dir = camera->GetPosition() - m_Position;
 	m_Rotation.y = atan2(dir.x, dir.z);	
 
