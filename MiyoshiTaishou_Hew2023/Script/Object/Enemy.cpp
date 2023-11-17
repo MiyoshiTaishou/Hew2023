@@ -3,6 +3,7 @@
 //オブジェクト
 #include"Player.h"
 #include"field.h"
+#include"TakoyakiObject.h"
 
 //シーン
 #include"../Scene/scene.h"
@@ -41,6 +42,18 @@ void Enemy::Update()
     ExecuteStateFunction(m_State);
 
     Scene* scene = Manager::GetScene();
+
+    //当たったときの処理
+    Player* player = scene->GetGameObject<Player>();
+
+    if (GetComponent<SphereCollider>()->Hit(player->GetComponent<SphereCollider>()))
+    {        
+        //付き飛ばす
+        Vector3 force = GetForward() * 30.0f;
+        player->GetComponent<RigidBody>()->AddForce(force, ForceMode::Impulse);    
+    }
+
+    //地形に沿った移動
     Field* field = scene->GetGameObject<Field>();
     if (!field)
     {
@@ -63,25 +76,29 @@ void Enemy::PreDraw()
 void Enemy::InitializeStateFunctions()
 {
     Scene* scene = Manager::GetScene();
-    Player* player = scene->GetGameObject<Player>();
-   
-    m_StateFunctions[EnemyState::Idle] = [player,this]()
-    {
-        const float searchAngle = 60.0f; // 索敵する角度範囲（例：30度）
+    Player* player = scene->GetGameObject<Player>();   
 
-        // プレイヤーの位置を取得
-        Vector3 playerPos = player->GetPosition();
+    m_StateFunctions[EnemyState::Idle] = [player,this]()
+    {        
+        const float searchAngle = 60.0f; // 索敵する角度範囲（例：30度）
 
         // 敵の向き（ラジアン単位の角度）
         float enemyAngleRad = m_Rotation.y * (3.14f / 180.0f);
 
+        // プレイヤーの位置を取得
+        Vector3 playerPos = player->GetPosition();
+       
         // 敵の向きに対してのプレイヤーとの角度を計算
         Vector3 dirToPlayer = playerPos - m_Position;
+        dirToPlayer.Normalize();
         float angleToPlayerRad = std::atan2(dirToPlayer.x, dirToPlayer.z);
-        float angleDifference = std::abs(enemyAngleRad - angleToPlayerRad);
 
-        // 特定の角度範囲内にプレイヤーがいる場合は索敵成功
-        if (angleDifference <= (searchAngle * 0.5f * (3.14f / 180.0f))) {
+        // 左右に30度ずつの範囲を計算
+        float leftAngleRad = enemyAngleRad - (30.0f * (3.14f / 180.0f));
+        float rightAngleRad = enemyAngleRad + (30.0f * (3.14f / 180.0f));
+       
+        // プレイヤーの角度が左右の範囲内にあるかどうかをチェック
+        if (angleToPlayerRad >= leftAngleRad && angleToPlayerRad <= rightAngleRad) {
             float distance = Vector3::Distance(playerPos, m_Position);
             if (distance <= m_VisibiltyRange) {
                 // 索敵成功時の処理
@@ -130,7 +147,7 @@ void Enemy::InitializeStateFunctions()
         if (distance >= m_VisibiltyRange)
         {
             m_State = EnemyState::Idle;
-        }
+        }       
     };
 
     m_StateFunctions[EnemyState::Defend] = []()
