@@ -40,7 +40,7 @@ void Player::Init()
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
 	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
 	this->m_Position.x = 10.0f;
-	this->m_Position.z = 0.0f;
+	this->m_Position.z = -10.0f;
 
 	//コンポーネント
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
@@ -147,7 +147,7 @@ void Player::Collision()
 			{
 				//くっつく処理
 				StickObject* child = AddChild<TakoyakiObject>();				
-				child->Stick();						
+				child->Stick(Takoyaki->GetPosition());						
 
 				//オブジェクト削除
 				Takoyaki->SetDestroy();
@@ -194,11 +194,11 @@ void Player::Collision()
 	
 	//float Height = 0.0f;
 
-	if (Height != 0.0f)
+	// 位置が０以下なら地面位置にセットする
+	if ((m_Position.y - 2)  < Height)
 	{
-		//pos.y = Height;
 		m_Position.y = Height + 2;
-	}		
+	}
 }
 
 //入力処理

@@ -49,11 +49,20 @@ public:
 	//軸の固定
 	void SetFreeze(FrizeNum freez, bool _b);
 
+	float GetMass();
+	//質量変更
+	void SetMass(float _mass);
+
 	//回転を加える
 	void AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode);
 
 	//慣性テンソルの設定
 	void SetInetiaTensorOfSpherAngular(float _radius, DirectX::SimpleMath::Vector3 _centerOfMass);
+
+	//慣性テンソルを足す
+	void AddInetiaTensorOfSpherAngular(DirectX::SimpleMath::Matrix _InetiaTensor);
+
+	DirectX::SimpleMath::Matrix GetInetiaTensor();
 
 	//直方体のテンソルの設定
 	void SetInetiaTensorOfRectangular(float x, float y, float z, DirectX::SimpleMath::Vector3 _centerOfMass);
@@ -68,7 +77,7 @@ private:
 	//力
 	
 	//物体の質量
-	float m_Mass = 1.0f;			
+	float m_Mass = 0.5f;			
 
 	//力によって動く際の空気抵抗の大きさ
 	float m_Drag = -1.0f;				
@@ -77,7 +86,7 @@ private:
 	bool m_UseGravity = true;		
 
 	//重力の強さ
-	float m_GravityScale = 0.1f;   
+	float m_GravityScale = 0.0f;   
 
 	//オブジェクトの現在の速度
 	DirectX::SimpleMath::Vector3 m_Velocity; 
