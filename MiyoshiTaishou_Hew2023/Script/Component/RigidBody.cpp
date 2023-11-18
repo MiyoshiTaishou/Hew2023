@@ -28,7 +28,7 @@ void RigidBody::Update()
 	if (m_UseGravity)
 	{
 		const float gravity = 0.98f;
-		//m_Velocity.y -= gravity * m_Mass * m_GravityScale;
+		m_Velocity.y -= gravity * m_Mass * m_GravityScale;
 	}
 
 	//固定化されているなら計算を無効にする
@@ -135,6 +135,16 @@ void RigidBody::SetFreeze(FrizeNum freez, bool _b)
 {
 }
 
+float RigidBody::GetMass()
+{
+	return m_Mass;
+}
+
+void RigidBody::SetMass(float _mass)
+{
+	m_Mass = _mass;
+}
+
 void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode)
 {
 	const float deltaTime = 1.f / 60.f; // 経過時間。固定フレームレートがよい。
@@ -183,6 +193,17 @@ void RigidBody::SetInetiaTensorOfSpherAngular(float _radius, DirectX::SimpleMath
 	tensor._44 = 1;
 
 	m_InetiaTensor = tensor;
+}
+
+//二つの慣性テンソルを足す
+void RigidBody::AddInetiaTensorOfSpherAngular(DirectX::SimpleMath::Matrix _InetiaTensor)
+{
+	m_InetiaTensor += _InetiaTensor;
+}
+
+DirectX::SimpleMath::Matrix RigidBody::GetInetiaTensor()
+{
+	return m_InetiaTensor;
 }
 
 void RigidBody::SetInetiaTensorOfRectangular(float x, float y, float z, DirectX::SimpleMath::Vector3 _centerOfMass)

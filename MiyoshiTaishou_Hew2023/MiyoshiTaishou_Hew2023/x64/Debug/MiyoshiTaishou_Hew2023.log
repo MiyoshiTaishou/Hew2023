@@ -1,39 +1,3 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  Collider.cpp
-  RigidBody.cpp
-  shadow.cpp
-  sprite.cpp
-  BillBoardObject.cpp
-  BoxObject.cpp
-  Customer.cpp
-  DebugCamera.cpp
-  Enemy.cpp
-  Player.cpp
   StickObject.cpp
-  TakoyakiObject.cpp
-  camera.cpp
-  field.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(155,44): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(161,33): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-  sky.cpp
-  GameScene.cpp
-  ResultScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,62): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(28,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  StageEditor.cpp
-  TitleScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Transition.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,17): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  コンパイル中...
-  Application.cpp
-  manager.cpp
-  BillBoardScore.cpp
-  score.cpp
-  コードを生成中...
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe

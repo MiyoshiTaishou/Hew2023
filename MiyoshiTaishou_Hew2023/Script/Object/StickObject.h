@@ -10,7 +10,7 @@ public:
 	void Update();
 
 	//‚­‚Á‚Â‚¢‚½‚Æ‚«‚ÉŒÄ‚Ôˆ—
-	void Stick();
+	void Stick(DirectX::SimpleMath::Vector3 _pos);
 
 private:
 
