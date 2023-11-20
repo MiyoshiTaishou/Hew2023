@@ -166,4 +166,23 @@ void BillBoardScore::Update()
 	Vector3 pos = cus->GetPosition();	
 	pos.y += 20.0f;
 	m_Position = pos;
+
+	//アニメーション処理
+	if (m_UpDown)
+	{
+		m_Scale += Vector3(0.1f, 0.1f, 0.1f);
+	}
+	else
+	{
+		m_Scale -= Vector3(0.1f, 0.1f, 0.1f);
+	}
+
+	if (m_Scale.x > m_AnimMax)
+	{
+		m_UpDown = false;
+	}
+	if (m_Scale.x < m_AnimMin)
+	{
+		m_UpDown = true;
+	}
 }

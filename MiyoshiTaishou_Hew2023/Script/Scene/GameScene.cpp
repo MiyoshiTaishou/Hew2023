@@ -42,18 +42,18 @@ void GameScene::Init()
 	//AddGameObject<TakoyakiObject>(Layer1);	
 	AddGameObject<Player>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);	
-	BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
+	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
 	bill->AddCount(cus->GetRequests());
 
-	AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
+	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	AddGameObject<Field>(Layer1);
 
 	AddGameObject<Enemy>(Layer1);
 	
 	AddGameObject<Camera>(Layer0);
 
-	AddGameObject<Score>(Layer3);	
+	Score* score = AddGameObject<Score>(Layer3);	
 
 	for (int i = 0; i < MAX_SPHERE; i++)
 	{

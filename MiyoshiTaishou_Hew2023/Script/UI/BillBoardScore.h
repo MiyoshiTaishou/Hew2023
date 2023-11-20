@@ -14,6 +14,11 @@ private:
 	float m_Width = 1.0f;
 	float m_Height = 1.0f;
 
+	float m_AnimMax = 3.0f;
+	float m_AnimMin = 2.0f;
+
+	bool m_UpDown = true;
+
 public:
 	void Init();
 	void Uninit();

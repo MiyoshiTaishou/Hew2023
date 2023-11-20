@@ -46,6 +46,12 @@ public:
 	//引数　力のベクトル,力の計算モード
 	void AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode);
 
+	//速度の取得
+	DirectX::SimpleMath::Vector3 GetVelocity();
+
+	//速度
+	void SetVelocity(DirectX::SimpleMath::Vector3 _vel);
+
 	//軸の固定
 	void SetFreeze(FrizeNum freez, bool _b);
 
@@ -83,10 +89,10 @@ private:
 	float m_Drag = -1.0f;				
 
 	//重力の影響を受ける
-	bool m_UseGravity = true;		
+	bool m_UseGravity = false;		
 
 	//重力の強さ
-	float m_GravityScale = 0.0f;   
+	float m_GravityScale = 5.0f;   
 
 	//オブジェクトの現在の速度
 	DirectX::SimpleMath::Vector3 m_Velocity; 

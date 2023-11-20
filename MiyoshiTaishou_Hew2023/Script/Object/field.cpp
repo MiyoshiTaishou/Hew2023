@@ -48,7 +48,7 @@ void Field::Init()
 //		3.0f);						// 最大
 
 	m_planemesh.MakeUndulationPerlinnoise(
-		0.0f,			// 最大の高さ
+		10.0f,			// 最大の高さ
 		10,				// オクターブ数
 		0.28f);			// パーシステンス
 
@@ -278,9 +278,7 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 				{
 					return ans.y;
 				}
-
-				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
-
+				
 				//坂道を転がる処理
 				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
@@ -329,14 +327,22 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 				if (!player || _off)
 				{
 					return ans.y;
-				}
-
-				float slope = fabsf(m_planes[idx].GetPlaneInfo().pNormal.Dot(up));
+				}				
 
 				//坂道を転がる処理
 				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
 				RigidBody* body = player->GetComponent<RigidBody>();
+
+				//傾きが小さいなら
+				if (dir.x < 0.5f)
+				{
+					dir.x = 0.0f;
+				}
+				if (dir.z < 0.5f)
+				{
+					dir.z = 0.0f;
+				}
 
 				Vector3 force = dir * 10.0f;
 
