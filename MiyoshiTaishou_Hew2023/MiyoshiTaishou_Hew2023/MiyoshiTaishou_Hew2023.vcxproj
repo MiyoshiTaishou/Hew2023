@@ -110,7 +110,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="..\Script\Component\animationModel.cpp" />
     <ClCompile Include="..\Script\Component\audio.cpp" />
+    <ClCompile Include="..\Script\Component\BoundingSphere.cpp" />
     <ClCompile Include="..\Script\Component\BoxCollider.cpp" />
     <ClCompile Include="..\Script\Component\Collider.cpp" />
     <ClCompile Include="..\Script\Component\RigidBody.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="..\Script\Mesh\CPlane.cpp" />
     <ClCompile Include="..\Script\Mesh\CPlaneMesh.cpp" />
     <ClCompile Include="..\Script\Mesh\CPlaneMeshTexture.cpp" />
+    <ClCompile Include="..\Script\Mesh\CSphereMesh.cpp" />
     <ClCompile Include="..\Script\Mesh\CUndulationPlaneMesh.cpp" />
     <ClCompile Include="..\Script\Mesh\Perlinnoise.cpp" />
     <ClCompile Include="..\Script\Object\BillBoardObject.cpp" />
@@ -193,6 +195,7 @@
   <ItemGroup>
     <ClInclude Include="..\Script\Component\animationModel.h" />
     <ClInclude Include="..\Script\Component\audio.h" />
+    <ClInclude Include="..\Script\Component\BoundingSphere.h" />
     <ClInclude Include="..\Script\Component\BoxCollider.h" />
     <ClInclude Include="..\Script\Component\Collider.h" />
     <ClInclude Include="..\Script\Component\component.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="..\Script\Mesh\CPlane.h" />
     <ClInclude Include="..\Script\Mesh\CPlaneMesh.h" />
     <ClInclude Include="..\Script\Mesh\CPlaneMeshTexture.h" />
+    <ClInclude Include="..\Script\Mesh\CSphereMesh.h" />
     <ClInclude Include="..\Script\Mesh\CUndulationPlaneMesh.h" />
     <ClInclude Include="..\Script\Mesh\Perlinnoise.h" />
     <ClInclude Include="..\Script\Object\BillBoardObject.h" />

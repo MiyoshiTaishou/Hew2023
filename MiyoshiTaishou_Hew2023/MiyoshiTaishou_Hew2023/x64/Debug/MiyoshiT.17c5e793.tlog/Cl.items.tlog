@@ -1,5 +1,6 @@
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\animationModel.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\animationModel.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\audio.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\audio.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoundingSphere.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoundingSphere.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoxCollider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BoxCollider.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\Collider.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Collider.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\RigidBody.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\RigidBody.obj
@@ -17,6 +18,7 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\ImGui\imgu
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlane.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlane.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlaneMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlaneMesh.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlaneMeshTexture.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CPlaneMeshTexture.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CSphereMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CSphereMesh.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CUndulationPlaneMesh.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\CUndulationPlaneMesh.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\Perlinnoise.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\Perlinnoise.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\BillBoardObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\BillBoardObject.obj

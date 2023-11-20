@@ -63,6 +63,20 @@ void BillBoardObject::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	//球のメッシュ作成
+	m_Sphere = new CSphereMesh();
+	m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);
+
+	m_MeshRenderer = new CMeshRenderer();
+	m_MeshRenderer->Init(*m_Sphere);
+
+	m_SphereMt.Ambient = Color(0, 0, 0, 0);
+	m_SphereMt.Diffuse = Color(1, 1, 1, 0.3f);
+	m_SphereMt.Specular = Color(0, 0, 0, 0);
+	m_SphereMt.Shininess = 0;
+	m_SphereMt.Emission = Color(0, 0, 0, 0);
+	m_SphereMt.TextureEnable = FALSE;
 }
 
 void BillBoardObject::Uninit()
@@ -76,6 +90,9 @@ void BillBoardObject::Uninit()
 
 	m_VertexBuffer->Release();
 	m_Texture->Release();
+
+	delete m_MeshRenderer;
+	delete m_Sphere;
 }
 
 void BillBoardObject::Draw()
@@ -94,7 +111,7 @@ void BillBoardObject::Draw()
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
-
+	
 	// マテリアル設定
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
@@ -110,6 +127,10 @@ void BillBoardObject::Draw()
 
 	// ポリゴン描画
 	Renderer::GetDeviceContext()->Draw(4, 0);
+
+	// マテリアル設定
+	Renderer::SetMaterial(m_SphereMt);
+	m_MeshRenderer->Draw();
 }
 
 void BillBoardObject::Update()

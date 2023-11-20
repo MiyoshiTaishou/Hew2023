@@ -23,6 +23,6 @@ bool SphereCollider::Hit(const SphereCollider* _sphereCol)
 }
 
 void SphereCollider::SetRadius(float _radius)
-{
+{   
 	m_Radius = _radius;
 }

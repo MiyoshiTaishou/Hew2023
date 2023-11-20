@@ -43,9 +43,9 @@ void Player::Init()
 	this->m_Position.z = -10.0f;
 
 	//コンポーネント
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
-	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
+	//AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	
 
@@ -57,15 +57,39 @@ void Player::Init()
 	shadow->Init();
 	shadow->SetSize(10.0f);
 
+	// 境界球生成
+	m_Bs.Caliculate();
+
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
 	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
 
 	SphereCollider* sphere = AddComponent<SphereCollider>();
 	sphere->Init();
-	sphere->SetRadius((ModelRenderer::Max.x * m_Scale.x));
+	sphere->SetRadius(2.0f);
+
+
+	//球のメッシュ作成
+	m_Sphere = new CSphereMesh();
+	m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);
+
+	m_MeshRenderer = new CMeshRenderer();
+	m_MeshRenderer->Init(*m_Sphere);
+
+	m_SphereMt.Ambient = Color(0, 0, 0, 0);
+	m_SphereMt.Diffuse = Color(1, 1, 1, 0.3f);
+	m_SphereMt.Specular = Color(0, 0, 0, 0);
+	m_SphereMt.Shininess = 0;
+	m_SphereMt.Emission = Color(0, 0, 0, 0);
+	m_SphereMt.TextureEnable = FALSE;
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+}
+
+void Player::Uninit()
+{
+	delete m_MeshRenderer;
+	delete m_Sphere;
 }
 
 void Player::Update()
@@ -130,6 +154,19 @@ void Player::Draw()
 	}
 
 	ImGui::End();
+
+	// ワールド変換行列生成
+	// マトリクス設定
+	Matrix world, scale, trans;
+	scale = DirectX::SimpleMath::Matrix::CreateScale(Vector3(1.0f,1.0f,1.0f));
+	trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
+	world = scale * trans;
+	// GPUに行列をセットする
+	Renderer::SetWorldMatrix(&world);//位置
+
+	// マテリアル設定
+	Renderer::SetMaterial(m_SphereMt);
+	m_MeshRenderer->Draw();	
 }
 
 void Player::Collision()

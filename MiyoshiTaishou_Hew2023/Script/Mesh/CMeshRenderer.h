@@ -9,13 +9,15 @@ protected:
 	CIndexBuffer				m_IndexBuffer;		// インデックスバッファ
 	int							m_IndexNum = 0;		// インデックス数
 public:
-	virtual void Init(CMesh& mesh) {
+	virtual void Init(CMesh& mesh) 
+	{
 		m_VertexBuffer.Create(mesh.GetVertices());
 		m_IndexBuffer.Create(mesh.GetIndices());
 		m_IndexNum = static_cast<int>(mesh.GetIndices().size());
 	}
 
-	virtual void Draw() {
+	virtual void Draw() 
+	{
 		ID3D11DeviceContext* devicecontext;
 
 		devicecontext = Renderer::GetDeviceContext();
