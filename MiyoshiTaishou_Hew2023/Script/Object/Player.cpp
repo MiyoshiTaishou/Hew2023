@@ -197,7 +197,20 @@ void Player::Collision()
 	// 位置が０以下なら地面位置にセットする
 	if ((m_Position.y - 2)  < Height)
 	{
+		////速度を0にする
+		//RigidBody* body = GetComponent<RigidBody>();
+		//Vector3 vel = body->GetVelocity();	
+		//Vector3 force = { 0,-(vel.y / 2),0 };
+		//vel.y = 0.0f;		
+		//body->SetVelocity(vel);		
+
 		m_Position.y = Height + 2;
+
+		////バウンドする
+		//if (force.y > 10.0f)
+		//{
+		//	body->AddForce(force, ForceMode::Impulse);
+		//}
 	}
 }
 
@@ -262,7 +275,7 @@ void Player::ConInput()
 
 	if (Input::GetKeyTrigger('J'))
 	{
-		Vector3 force = { 0,100,0 };
+		Vector3 force = { 0,50,0 };
 		body->AddForce(force, ForceMode::Impulse);
 	}
 }

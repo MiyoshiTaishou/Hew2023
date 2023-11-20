@@ -131,6 +131,16 @@ void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMod
 	}
 }
 
+DirectX::SimpleMath::Vector3 RigidBody::GetVelocity()
+{
+	return m_Velocity;
+}
+
+void RigidBody::SetVelocity(DirectX::SimpleMath::Vector3 _vel)
+{
+	m_Velocity = _vel;
+}
+
 void RigidBody::SetFreeze(FrizeNum freez, bool _b)
 {
 }

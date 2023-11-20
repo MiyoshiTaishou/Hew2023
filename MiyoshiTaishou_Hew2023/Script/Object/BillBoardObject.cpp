@@ -154,6 +154,6 @@ void BillBoardObject::Update()
 	if (Height != 0.0f)
 	{
 		//pos.y = Height;
-		m_Position.y = Height + 2;
+		m_Position.y = Height + 5;
 	}
 }
