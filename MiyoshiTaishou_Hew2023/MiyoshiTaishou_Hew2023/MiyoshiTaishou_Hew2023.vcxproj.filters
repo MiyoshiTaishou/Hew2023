@@ -189,6 +189,12 @@
     <ClCompile Include="..\Script\Object\Enemy.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Mesh\CSphereMesh.cpp">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Component\BoundingSphere.cpp">
+      <Filter>ソース ファイル\Componet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -367,6 +373,12 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\Enemy.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Mesh\CSphereMesh.h">
+      <Filter>ソース ファイル\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Component\BoundingSphere.h">
+      <Filter>ソース ファイル\Componet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

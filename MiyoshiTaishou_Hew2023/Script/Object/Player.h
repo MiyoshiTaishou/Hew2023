@@ -1,5 +1,8 @@
 #pragma once
 #include"gameObject.h"
+#include"../Mesh/CMeshRenderer.h"
+#include"../Mesh/CSphereMesh.h"
+#include"../Component/BoundingSphere.h"
 
 enum PLAYERSTATE
 {
@@ -13,6 +16,7 @@ class Player : public GameObject
 public:
 
 	void Init();
+	void Uninit();
 	void Update();
 	void Draw();
 
@@ -33,4 +37,9 @@ private:
 	float m_RotSpeed = 150.0f;
 
 	DirectX::SimpleMath::Vector3 torque;
+
+	CMeshRenderer* m_MeshRenderer;
+	CSphereMesh* m_Sphere;
+	MATERIAL m_SphereMt;
+	BoundingSphere m_Bs;
 };
