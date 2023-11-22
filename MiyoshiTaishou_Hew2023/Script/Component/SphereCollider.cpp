@@ -12,7 +12,7 @@ void SphereCollider::Init()
         return;
     }
 
-    //球のメッシュ追加
+    //球のメッシュ追加  
     m_Sphere = new CSphereMesh();
     m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);  
 
@@ -35,7 +35,10 @@ void SphereCollider::Uninit()
     }
 
     delete m_Sphere;
+    m_Sphere = nullptr;
+
     delete m_MeshRenderer;
+    m_MeshRenderer = nullptr;
 }
 
 void SphereCollider::Draw()
@@ -62,6 +65,12 @@ void SphereCollider::Draw()
 
 bool SphereCollider::Hit(const SphereCollider* _sphereCol)
 {
+    //有効か
+    if (!m_CanHit || !_sphereCol->m_CanHit)
+    {
+        return false;
+    }
+
     // 2つの球の中心座標の差を計算
     Vector3 centerDifference;
     centerDifference.x = m_ColliderPos.x - _sphereCol->m_ColliderPos.x;

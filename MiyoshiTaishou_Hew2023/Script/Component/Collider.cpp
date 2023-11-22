@@ -36,6 +36,11 @@ void Collider::SetRelative(DirectX::SimpleMath::Vector3 _rel)
 	m_Relative = _rel;
 }
 
+void Collider::SetCanHit(bool _hit)
+{
+	m_CanHit = _hit;
+}
+
 bool Collider::CheckInTriangle(const DirectX::SimpleMath::Vector3& a, const DirectX::SimpleMath::Vector3& b, const DirectX::SimpleMath::Vector3& c, const DirectX::SimpleMath::Vector3& p)
 {
 	Vector3	ab, bc, ca;			// ‚R•Ó‚ÌƒxƒNƒgƒ‹

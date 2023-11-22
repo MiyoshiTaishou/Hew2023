@@ -15,6 +15,8 @@ public:
 
 	void SetRelative(DirectX::SimpleMath::Vector3 _rel);
 
+	void SetCanHit(bool _hit);
+
 	bool CheckInTriangle(
 		const DirectX::SimpleMath::Vector3& a,
 		const DirectX::SimpleMath::Vector3& b,
@@ -47,5 +49,8 @@ protected:
 
 	//“–‚½‚è”»’è‚Ì‰ñ“]
 	DirectX::SimpleMath::Vector3 m_ColliderRot;
+
+	//“–‚½‚è”»’è‚ª—LŒø‚©‚Ç‚¤‚©
+	bool m_CanHit = true;
 
 };

@@ -61,8 +61,7 @@ void Player::Init()
 	body->Init();
 	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
 
-	SphereCollider* sphere = AddComponent<SphereCollider>();
-	sphere->Init();
+	SphereCollider* sphere = AddComponent<SphereCollider>();	
 	sphere->SetRadius(2.0f);	
 
 	m_Collider.push_back(sphere);
@@ -145,11 +144,11 @@ void Player::Collision()
 		std::vector<TakoyakiObject*> Takoyakilist = scene->GetGameObjects<TakoyakiObject>();
 
 		
-		for (const auto& coll : m_Collider)
+		for (int i = 0; i < m_Collider.size(); i ++)
 		{			
 			for (const auto& Takoyaki : Takoyakilist)
 			{
-				if (coll->Hit(Takoyaki->GetComponent<SphereCollider>()))
+				if (m_Collider[i]->Hit(Takoyaki->GetComponent<SphereCollider>()))
 				{
 					//くっつく処理
 					StickObject* child = AddChild<TakoyakiObject>();
@@ -163,6 +162,7 @@ void Player::Collision()
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();
+					Takoyaki->GetComponent<SphereCollider>()->SetCanHit(false);
 
 					//スコア加算
 					Score* score = scene->GetGameObject<Score>();
