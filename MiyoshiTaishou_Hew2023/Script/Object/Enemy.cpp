@@ -46,12 +46,18 @@ void Enemy::Update()
     //当たったときの処理
     Player* player = scene->GetGameObject<Player>();
 
-    if (GetComponent<SphereCollider>()->Hit(player->GetComponent<SphereCollider>()))
-    {        
-        //付き飛ばす
-        Vector3 force = GetForward() * 30.0f;
-        player->GetComponent<RigidBody>()->AddForce(force, ForceMode::Impulse);    
-    }
+    //当たり判定を全てとる
+    std::vector<SphereCollider*> colliders = player->GetComponents<SphereCollider>();
+
+    for (int i = 0; i < colliders.size(); i++)
+    {
+        if (GetComponent<SphereCollider>()->Hit(colliders[i]))
+        {
+            //付き飛ばす
+            Vector3 force = GetForward() * 30.0f;
+            player->GetComponent<RigidBody>()->AddForce(force, ForceMode::Impulse);
+        }
+    }  
 
     //地形に沿った移動
     Field* field = scene->GetGameObject<Field>();

@@ -189,6 +189,22 @@ public:
         return nullptr;
     }
 
+    template <typename T>
+    std::vector<T*> GetComponents()
+    {
+        std::vector<T*> components; // STL配列
+        
+        for (Component* comp : m_Component)
+        {
+            if (typeid(*comp) == typeid(T))
+            {
+                components.push_back((T*)comp);
+            }
+        }        
+
+        return components;
+    }
+
     /**
      * @brief 子オブジェクトを追加します。
      * @tparam T 追加する子オブジェクトの型
