@@ -2,6 +2,7 @@
 
 #include	<vector>
 #include	<wrl/client.h>
+#include"renderer.h"
 
 using Microsoft::WRL::ComPtr;
 

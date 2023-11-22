@@ -102,6 +102,15 @@ public:
         return side;
     }
 
+    //回転行列を取得する
+    DirectX::SimpleMath::Matrix GetRotMatrix()
+    {
+        DirectX::SimpleMath::Matrix rot;
+        rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+
+        return rot;
+    }
+
     /**
      * @brief オブジェクトの破棄フラグを設定します。
      */
