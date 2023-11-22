@@ -13,6 +13,8 @@ public:
 
 	void SetColliderScale(DirectX::SimpleMath::Vector3 _scale);
 
+	void SetRelative(DirectX::SimpleMath::Vector3 _rel);
+
 	bool CheckInTriangle(
 		const DirectX::SimpleMath::Vector3& a,
 		const DirectX::SimpleMath::Vector3& b,
@@ -36,6 +38,9 @@ protected:
 
 	//“–‚½‚è”»’è‚ÌÀ•W
 	DirectX::SimpleMath::Vector3 m_ColliderPos;
+
+	//‘Š‘ÎˆÊ’u
+	DirectX::SimpleMath::Vector3 m_Relative;
 
 	//“–‚½‚è”»’è‚Ì‘å‚«‚³
 	DirectX::SimpleMath::Vector3 m_ColliderScale;

@@ -1,8 +1,5 @@
 #pragma once
 #include"gameObject.h"
-#include"../Mesh/CMeshRenderer.h"
-#include"../Mesh/CSphereMesh.h"
-#include"../Component/BoundingSphere.h"
 
 enum PLAYERSTATE
 {
@@ -11,12 +8,13 @@ enum PLAYERSTATE
 	NONE,
 };
 
+class SphereCollider;
+
 class Player : public GameObject
 {
 public:
 
 	void Init();
-	void Uninit();
 	void Update();
 	void Draw();
 
@@ -36,10 +34,7 @@ private:
 	//‰ñ“]‘¬“x
 	float m_RotSpeed = 150.0f;
 
-	DirectX::SimpleMath::Vector3 torque;
+	DirectX::SimpleMath::Vector3 torque;	
 
-	CMeshRenderer* m_MeshRenderer;
-	CSphereMesh* m_Sphere;
-	MATERIAL m_SphereMt;
-	BoundingSphere m_Bs;
+	std::vector<SphereCollider*> m_Collider;
 };

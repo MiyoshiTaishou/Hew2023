@@ -12,14 +12,28 @@ void Collider::Init()
 
 void Collider::Update()
 {
-	//オブジェクトに合わせる
-	this->m_ColliderPos = this->m_GameObject->GetPosition();
-	this->m_ColliderRot = this->m_GameObject->GetRotation();
+	// オブジェクトの位置に相対位置を加えて新しい位置を設定する
+	DirectX::SimpleMath::Vector3 originalRelativePosition = m_Relative;
+	this->m_ColliderPos = this->m_GameObject->GetPosition() + originalRelativePosition;
+
+	// オブジェクトの回転行列を取得する
+	DirectX::SimpleMath::Matrix objRotationMatrix = this->m_GameObject->GetRotMatrix();
+
+	// 回転前の相対位置を回転させて新しい相対位置を計算する
+	DirectX::SimpleMath::Vector3 rotatedRelativePosition = DirectX::SimpleMath::Vector3::Transform(originalRelativePosition, objRotationMatrix);
+
+	// 新しい位置ベクトルを設定する
+	this->m_ColliderPos = this->m_GameObject->GetPosition() + rotatedRelativePosition;
 }
 
 void Collider::SetColliderScale(DirectX::SimpleMath::Vector3 _scale)
 {
 	m_ColliderScale = _scale;
+}
+
+void Collider::SetRelative(DirectX::SimpleMath::Vector3 _rel)
+{
+	m_Relative = _rel;
 }
 
 bool Collider::CheckInTriangle(const DirectX::SimpleMath::Vector3& a, const DirectX::SimpleMath::Vector3& b, const DirectX::SimpleMath::Vector3& c, const DirectX::SimpleMath::Vector3& p)
