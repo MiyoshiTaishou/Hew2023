@@ -21,6 +21,8 @@
 // シーンマネージャ内メンバ変数の実体
 Scene* Manager::m_Scene{};// 現在シーン
 
+int Manager::m_Count = 0;//たこ焼きの数
+
 // グローバル変数
 std::list<GameObject*> g_gameobjectlist;
 
@@ -46,8 +48,9 @@ void Manager::Init(Application* ap)
 
 	// Titleを初期シーンに登録
 	//SetScene<StageEditor>();
-	SetScene<TitleScene>();
-	//SetScene<GameScene>();
+	//SetScene<TitleScene>();
+	SetScene<GameScene>();
+	//SetScene<ResultScene>();
 }
 
 void Manager::Uninit()

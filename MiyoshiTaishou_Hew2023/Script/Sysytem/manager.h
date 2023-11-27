@@ -10,6 +10,8 @@ class Manager
 private:
     static class Scene* m_Scene; // 現在のシーンへのポインタ
 
+    static int m_Count;//たこ焼きの数
+
 public:
     /**
      * @brief Managerクラスの初期化
@@ -59,5 +61,16 @@ public:
 
         m_Scene = new T();
         m_Scene->InitBase();
+    }
+
+    //たこ焼きに数を追加
+    static void AddCount(int _count)
+    {
+        m_Count += _count;
+    }
+
+    static int GetCount()
+    {
+        return m_Count;
     }
 };

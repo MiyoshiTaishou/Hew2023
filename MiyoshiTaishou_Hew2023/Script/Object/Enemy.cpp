@@ -30,7 +30,7 @@ void Enemy::Init()
     m_Model->LoadAnimation("../asset\\model\\Akai_Run.fbx", "Run");
 
     InitializeStateFunctions();
-    AddComponent<SphereCollider>()->SetRadius(2.0f);
+    AddComponent<SphereCollider>()->SetRadius(4.0f);
     AddComponent<RigidBody>();
 
     m_Scale = Vector3(0.1f, 0.1f, 0.1f);

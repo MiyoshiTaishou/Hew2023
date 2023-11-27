@@ -11,8 +11,11 @@ private:
 
 	int m_Count;
 
+	int m_Interval = 60.0f;
+
 public:
 	void Init();
+	void Init(int x, int y, int Width, int Height);
 	void Uninit();
 	void Draw();
 	void Update();
