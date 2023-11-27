@@ -167,6 +167,7 @@ void Player::Collision()
 					//ƒXƒRƒA‰ÁŽZ
 					Score* score = scene->GetGameObject<Score>();
 					score->AddCount(1);
+					Manager::AddCount(1);
 
 					state = HIT;
 				}

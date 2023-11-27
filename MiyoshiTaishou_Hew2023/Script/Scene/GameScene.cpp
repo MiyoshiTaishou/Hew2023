@@ -32,8 +32,6 @@
 
 using namespace DirectX::SimpleMath;
 
-#define MAX_SPHERE 10
-
 void GameScene::Init()
 {
 	//オブジェクト生成

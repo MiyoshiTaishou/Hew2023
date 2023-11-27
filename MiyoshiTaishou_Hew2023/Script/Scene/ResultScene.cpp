@@ -19,14 +19,29 @@
 //シーン
 #include"TitleScene.h"
 
+//UI
+#include"../UI/score.h"
+
 void ResultScene::Init()
 {
 	//リザルトロゴ
 	GameObject* resultLogo = AddGameObject<GameObject>(3);// 3はレイヤ番号
 	resultLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
-		"../shader\\PS_BloomBlur.cso");
-	resultLogo->AddComponent<Sprite>()->Init(320.0f, 0.0f, 640, 320.0f,
-		"../asset\\texture\\arigatou.png");
+		"../shader\\unlitTexturePS.cso");
+	resultLogo->AddComponent<Sprite>()->Init(0.0f, 0.0f, 1280, 720.0f,
+		"../asset\\texture\\result.jpg");
+
+	Score* score = AddGameObject<Score>(Layer3);
+	score->Init(400, 210, 100, 100);
+	score->AddCount(Manager::GetCount());
+
+	Score* scoreRate = AddGameObject<Score>(Layer3);
+	scoreRate->Init(400, 410, 100, 100);
+
+	//どの程度とれたか
+	float rate = ((float)Manager::GetCount() /  (float)MAX_SPHERE);
+	int percent = rate * 100;
+	scoreRate->AddCount(percent);
 
 	//オブジェクト生成
 	AddGameObject<Sky>(Layer1);

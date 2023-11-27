@@ -65,7 +65,71 @@ void Score::Init()
 
 	assert(m_Texture);
 
+	//値を保存するのに使用していないポジションとスケールを使う
+	m_Position.x = 0;
+	m_Position.y = 0;
+	m_Scale.x = 200;
+	m_Scale.y = 200;
 
+	m_Count = 0;
+}
+
+void Score::Init(int x, int y, int Width, int Height)
+{
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
+
+
+	VERTEX_3D vertex[4];
+
+	vertex[0].Position = Vector3(x, y, 0.0f);
+	vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[0].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[0].TexCoord = Vector2(0.0f, 0.0f);
+
+	vertex[1].Position = Vector3(x + Width, 0.0f, 0.0f);
+	vertex[1].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[1].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[1].TexCoord = Vector2(1.0f, 0.0f);
+
+	vertex[2].Position = Vector3(x, y + Height, 0.0f);
+	vertex[2].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[2].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[2].TexCoord = Vector2(0.0f, 1.0f);
+
+	vertex[3].Position = Vector3(x + Width, y + Height, 0.0f);
+	vertex[3].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[3].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[3].TexCoord = Vector2(1.0f, 1.0f);
+
+	// 頂点バッファ生成
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DYNAMIC;
+	bd.ByteWidth = sizeof(VERTEX_3D) * 4;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+	D3D11_SUBRESOURCE_DATA sd;
+	ZeroMemory(&sd, sizeof(sd));
+	sd.pSysMem = vertex;
+
+	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
+
+
+	// テクスチャ読み込み
+	DirectX::CreateWICTextureFromFile(
+		Renderer::GetDevice(),
+		L"../asset/texture/number.png",
+		nullptr,
+		&m_Texture);
+
+	assert(m_Texture);
+
+	//値を保存するのに使用していないポジションとスケールを使う
+	m_Position.x = x;
+	m_Position.y = y;
+	m_Scale.x = Width;
+	m_Scale.y = Height;
 
 	m_Count = 0;
 }
@@ -128,10 +192,10 @@ void Score::Draw()
 
 		VERTEX_3D* vertex = (VERTEX_3D*)msr.pData;
 
-		float x = 100 - i * 30.0f;
-		float y = 30;
-		float height = 50.0f;
-		float width = 50.0f;
+		float x = m_Position.x - i * m_Interval;
+		float y = m_Position.y;
+		float height = m_Scale.y;
+		float width = m_Scale.x;
 
 		vertex[0].Position = Vector3(x, y, 0.0f);
 		vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
