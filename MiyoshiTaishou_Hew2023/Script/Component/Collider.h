@@ -16,6 +16,16 @@ public:
 	void SetRelative(DirectX::SimpleMath::Vector3 _rel);
 
 	void SetCanHit(bool _hit);
+	
+	DirectX::SimpleMath::Vector3 GetPos()
+	{
+		return m_ColliderPos;
+	}
+
+	DirectX::SimpleMath::Vector3 GetRelative()
+	{
+		return m_Relative;
+	}
 
 	bool CheckInTriangle(
 		const DirectX::SimpleMath::Vector3& a,

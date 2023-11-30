@@ -66,7 +66,7 @@ void Enemy::Update()
         return;
     }
 
-    float hight = field->GetFieldHeightBySqno(m_Position, true);
+    float hight = field->GetFieldHeightBySqno(m_Position, *this);
     m_Position.y = hight;
 }
 

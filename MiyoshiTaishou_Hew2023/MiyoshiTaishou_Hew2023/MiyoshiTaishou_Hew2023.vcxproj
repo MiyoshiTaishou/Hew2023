@@ -179,6 +179,7 @@
     <ClCompile Include="..\Script\Render\renderer.cpp" />
     <ClCompile Include="..\Script\Scene\GameScene.cpp" />
     <ClCompile Include="..\Script\Scene\ResultScene.cpp" />
+    <ClCompile Include="..\Script\Scene\SlopeScene.cpp" />
     <ClCompile Include="..\Script\Scene\StageEditor.cpp" />
     <ClCompile Include="..\Script\Scene\TitleScene.cpp" />
     <ClCompile Include="..\Script\Scene\Transition.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="..\Script\Scene\GameScene.h" />
     <ClInclude Include="..\Script\Scene\ResultScene.h" />
     <ClInclude Include="..\Script\Scene\scene.h" />
+    <ClInclude Include="..\Script\Scene\SlopeScene.h" />
     <ClInclude Include="..\Script\Scene\StageEditor.h" />
     <ClInclude Include="..\Script\Scene\TitleScene.h" />
     <ClInclude Include="..\Script\Scene\Transition.h" />

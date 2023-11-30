@@ -48,45 +48,45 @@ void StickObject::Update()
 	//くっついていたら親オブジェクトを上げる
 	if (m_Stick)
 	{
-		// 親オブジェクト(Player)を取得
-		Player* player = scene->GetGameObject<Player>();
+		//// 親オブジェクト(Player)を取得
+		//Player* player = scene->GetGameObject<Player>();
 
-		// 親オブジェクトのローカル座標系におけるオフセットを求める
-	  // マトリクス設定
-		DirectX::SimpleMath::Matrix world, scale, rot, trans;
-		scale = DirectX::SimpleMath::Matrix::CreateScale(player->GetScale().x, player->GetScale().y, player->GetScale().z);
-		rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(player->GetRotation().y, player->GetRotation().x, player->GetRotation().z);
-		trans = DirectX::SimpleMath::Matrix::CreateTranslation(player->GetPosition().x, player->GetPosition().y, player->GetPosition().z);
-		world = scale * rot * trans;
+		//// 親オブジェクトのローカル座標系におけるオフセットを求める
+	 // // マトリクス設定
+		//DirectX::SimpleMath::Matrix world, scale, rot, trans;
+		//scale = DirectX::SimpleMath::Matrix::CreateScale(player->GetScale().x, player->GetScale().y, player->GetScale().z);
+		//rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(player->GetRotation().y, player->GetRotation().x, player->GetRotation().z);
+		//trans = DirectX::SimpleMath::Matrix::CreateTranslation(player->GetPosition().x, player->GetPosition().y, player->GetPosition().z);
+		//world = scale * rot * trans;
 
-		// 親オブジェクトのローカル座標系のY軸ベクトルを取得
-		DirectX::SimpleMath::Vector3 parentLocalYAxis(0.0f, 1.0f, 0.0f); // 親オブジェクトのローカルY軸（例として上向きを仮定）
+		//// 親オブジェクトのローカル座標系のY軸ベクトルを取得
+		//DirectX::SimpleMath::Vector3 parentLocalYAxis(0.0f, 1.0f, 0.0f); // 親オブジェクトのローカルY軸（例として上向きを仮定）
 
-		// 親オブジェクトのローカル座標系のY軸ベクトルを回転行列で変換
-		DirectX::SimpleMath::Vector3 rotatedParentLocalYAxis = DirectX::SimpleMath::Vector3::TransformNormal(parentLocalYAxis, world);
+		//// 親オブジェクトのローカル座標系のY軸ベクトルを回転行列で変換
+		//DirectX::SimpleMath::Vector3 rotatedParentLocalYAxis = DirectX::SimpleMath::Vector3::TransformNormal(parentLocalYAxis, world);
 
-		// hitPositionLocalが親オブジェクトの下方向にあるかどうかをチェック
-		float dotProduct = m_Position.Dot(rotatedParentLocalYAxis);
+		//// hitPositionLocalが親オブジェクトの下方向にあるかどうかをチェック
+		//float dotProduct = m_Position.Dot(rotatedParentLocalYAxis);
 
-		//下方向
-		if (dotProduct < 0.0f) 
-		{
-			float Height = filed->GetFieldHeightBySqno(m_Position, true);			
-			Vector3 pos = player->GetPosition();
-			pos.y = Height + 4;
-			player->SetPosition(pos);
-		}		
-		else
-		{
-			Vector3 pos = player->GetPosition();
-			float Height = filed->GetFieldHeightBySqno(pos, true);
-			pos.y = Height;
-			player->SetPosition(pos);
-		}
+		////下方向
+		//if (dotProduct < 0.0f) 
+		//{
+		//	float Height = filed->GetFieldHeightBySqno(m_Position, true);			
+		//	Vector3 pos = player->GetPosition();
+		//	pos.y = Height + 4;
+		//	player->SetPosition(pos);
+		//}		
+		//else
+		//{
+		//	Vector3 pos = player->GetPosition();
+		//	float Height = filed->GetFieldHeightBySqno(pos, true);
+		//	pos.y = Height;
+		//	player->SetPosition(pos);
+		//}
 	}
 	else
 	{
-		float Height = filed->GetFieldHeightBySqno(m_Position, true);
+		float Height = filed->GetFieldHeightBySqno(m_Position, *this);
 
 		m_Position.y = Height;
 	}	

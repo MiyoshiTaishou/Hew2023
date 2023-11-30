@@ -67,7 +67,9 @@ void GameScene::Init()
 	bgm->GetComponent<Audio>()->Play();
 
 	m_Transition = AddGameObject<Transition>(Layer3);
-	m_Transition->FadeIn();//フェードイン開始		
+	m_Transition->FadeIn();//フェードイン開始	
+
+	Manager::InitCount();
 }
 
 void GameScene::Update()

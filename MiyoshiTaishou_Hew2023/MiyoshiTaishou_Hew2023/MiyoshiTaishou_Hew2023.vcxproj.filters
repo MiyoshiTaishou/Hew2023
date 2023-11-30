@@ -195,6 +195,9 @@
     <ClCompile Include="..\Script\Component\BoundingSphere.cpp">
       <Filter>ソース ファイル\Componet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Scene\SlopeScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -379,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Component\BoundingSphere.h">
       <Filter>ソース ファイル\Componet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\SlopeScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

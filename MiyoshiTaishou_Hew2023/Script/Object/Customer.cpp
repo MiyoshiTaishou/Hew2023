@@ -31,7 +31,7 @@ void Customer::Init()
 	m_Model->LoadAnimation("../asset\\model\\Akai_ShakeHand.fbx", "Run");
 
 	SphereCollider* sphere = AddComponent<SphereCollider>();
-	sphere->SetRadius(2.0f);
+	sphere->SetRadius(4.0f);
 
 	m_Scale = Vector3(0.1f, 0.1f, 0.1f);
 	m_Position.z = 10.0f;
@@ -94,7 +94,7 @@ void Customer::Update()
 	}
 
 	//接地
-	float groundHeight = fieldobj->GetFieldHeightBySqno(m_Position,true);
+	float groundHeight = fieldobj->GetFieldHeightBySqno(m_Position,*this);
 
 	// 位置が０以下なら地面位置にセットする
 	if (m_Position.y < groundHeight)

@@ -59,6 +59,9 @@ public:
 	//¿—Ê•ÏX
 	void SetMass(float _mass);
 
+	//d—Í‚ğ—LŒø‚É‚·‚é‚©
+	void SetGravity(bool _gravity);
+
 	//‰ñ“]‚ğ‰Á‚¦‚é
 	void AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode);
 
