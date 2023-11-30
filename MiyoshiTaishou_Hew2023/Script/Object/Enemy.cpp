@@ -31,7 +31,9 @@ void Enemy::Init()
 
     InitializeStateFunctions();
     AddComponent<SphereCollider>()->SetRadius(4.0f);
-    AddComponent<RigidBody>();
+    RigidBody* body = AddComponent<RigidBody>();
+    body->SetFreeze(FrizeNum::XRot, true);
+    body->SetFreeze(FrizeNum::ZRot, true);
 
     m_Scale = Vector3(0.1f, 0.1f, 0.1f);
     m_Position.x = 30.0f;   

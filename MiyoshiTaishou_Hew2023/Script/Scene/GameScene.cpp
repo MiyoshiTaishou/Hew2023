@@ -100,15 +100,18 @@ void GameScene::Update()
 		return;
 	}
 
-	SphereCollider* col = player->GetComponent<SphereCollider>();
+	std::vector<SphereCollider*> col = player->GetComponents<SphereCollider>();
 
-	if(col->Hit(cus->GetComponent<SphereCollider>()))
+	for (int i = 0; i < col.size(); i++)
 	{
-		//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
-		if (GetGameObject<Score>()->GetCount() >= cus->GetRequests())
+		if (col[i]->Hit(cus->GetComponent<SphereCollider>()))
 		{
-			Manager::SetScene<ResultScene>();
-			return;
-		}				
+			//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
+			if (GetGameObject<Score>()->GetCount() >= cus->GetRequests())
+			{
+				Manager::SetScene<ResultScene>();
+				return;
+			}
+		}
 	}
 }

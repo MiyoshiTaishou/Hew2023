@@ -72,6 +72,19 @@ void RigidBody::Update()
 	//角速度を求める
 	m_AngularVelocity = angularAccel + angularAccel * deltaTime;
 
+	if (m_Frize.XRot)
+	{
+		m_AngularVelocity.x = 0.0f;
+	}
+	if (m_Frize.YRot)
+	{
+		m_AngularVelocity.y = 0.0f;
+	}
+	if (m_Frize.ZRot)
+	{
+		m_AngularVelocity.z = 0.0f;
+	}
+
 	// 回転を更新
 	Vector3 rot = m_GameObject->GetRotation();
 	rot += m_AngularVelocity * deltaTime;
@@ -143,6 +156,29 @@ void RigidBody::SetVelocity(DirectX::SimpleMath::Vector3 _vel)
 
 void RigidBody::SetFreeze(FrizeNum freez, bool _b)
 {
+	switch (freez)
+	{
+	case Xpos:
+		m_Frize.Xpos = _b;
+		break;
+	case YPos:
+		m_Frize.YPos = _b;
+		break;
+	case ZPos:
+		m_Frize.ZPos = _b;
+		break;
+	case XRot:
+		m_Frize.XRot = _b;
+		break;
+	case YRot:
+		m_Frize.YRot = _b;
+		break;
+	case ZRot:
+		m_Frize.ZRot = _b;
+		break;
+	default:
+		break;
+	}
 }
 
 float RigidBody::GetMass()

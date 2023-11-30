@@ -156,10 +156,10 @@ void Player::Collision()
 
 					//コライダー追加
 					SphereCollider* sphere = AddComponent<SphereCollider>();					
-					sphere->SetRadius(2.0f);
-					/*Vector3 leng = (Takoyaki->GetPosition() - m_Position);
-					float length = leng.Length();*/
+					sphere->SetRadius(2.0f);					
 					sphere->SetRelative((Takoyaki->GetPosition() - m_Position));
+					sphere->m_Hitobj = child;
+					sphere->m_hit = true;
 					m_Collider.push_back(sphere);					
 
 					//オブジェクト削除

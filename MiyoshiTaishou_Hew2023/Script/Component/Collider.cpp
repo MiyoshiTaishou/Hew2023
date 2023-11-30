@@ -12,18 +12,31 @@ void Collider::Init()
 
 void Collider::Update()
 {
-	// オブジェクトの位置に相対位置を加えて新しい位置を設定する
-	DirectX::SimpleMath::Vector3 originalRelativePosition = m_Relative;
-	this->m_ColliderPos = this->m_GameObject->GetPosition() + originalRelativePosition;
+	//// オブジェクトの位置に相対位置を加えて新しい位置を設定する
+	//DirectX::SimpleMath::Vector3 originalRelativePosition = m_Relative;
+	//this->m_ColliderPos = this->m_GameObject->GetPosition() + originalRelativePosition;
 
-	// オブジェクトの回転行列を取得する
-	DirectX::SimpleMath::Matrix objRotationMatrix = this->m_GameObject->GetRotMatrix();
+	//// オブジェクトの回転行列を取得する
+	//DirectX::SimpleMath::Matrix objRotationMatrix = this->m_GameObject->GetRotMatrix();
 
-	// 回転前の相対位置を回転させて新しい相対位置を計算する
-	DirectX::SimpleMath::Vector3 rotatedRelativePosition = DirectX::SimpleMath::Vector3::Transform(originalRelativePosition, objRotationMatrix);
+	//// 回転前の相対位置を回転させて新しい相対位置を計算する
+	//DirectX::SimpleMath::Vector3 rotatedRelativePosition = DirectX::SimpleMath::Vector3::Transform(originalRelativePosition, objRotationMatrix);
 
-	// 新しい位置ベクトルを設定する
-	this->m_ColliderPos = this->m_GameObject->GetPosition() + rotatedRelativePosition;
+	//// 新しい位置ベクトルを設定する
+	//DirectX::SimpleMath::Vector3 newColliderPos = this->m_GameObject->GetPosition() + rotatedRelativePosition;
+	//// m_ColliderPosに新しい位置を設定する
+	//this->m_ColliderPos = newColliderPos;
+
+	if (m_hit)
+	{
+		m_ColliderPos.x = m_Hitobj->m_matrix._41;
+		m_ColliderPos.y = m_Hitobj->m_matrix._42;
+		m_ColliderPos.z = m_Hitobj->m_matrix._43;
+	}
+	else
+	{
+		m_ColliderPos = m_GameObject->GetPosition();
+	}
 }
 
 void Collider::SetColliderScale(DirectX::SimpleMath::Vector3 _scale)

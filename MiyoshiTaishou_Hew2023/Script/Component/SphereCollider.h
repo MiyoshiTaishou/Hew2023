@@ -21,7 +21,7 @@ private:
 
 	using Collider::Collider;	
 
-	float m_Radius;//”¼Œa
+	float m_Radius;//”¼Œa	
 
 	CMeshRenderer* m_MeshRenderer;
 	CSphereMesh* m_Sphere;

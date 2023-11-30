@@ -14,7 +14,7 @@
 #include "../Render/modelRenderer.h"
 
 //‚½‚±Ä‚«‚ÌÅ‘å”
-#define MAX_SPHERE 10
+#define MAX_SPHERE 30
 
 enum OBJTAG
 {
