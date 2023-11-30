@@ -155,6 +155,11 @@ void RigidBody::SetMass(float _mass)
 	m_Mass = _mass;
 }
 
+void RigidBody::SetGravity(bool _gravity)
+{
+	m_UseGravity = _gravity;
+}
+
 void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode)
 {
 	const float deltaTime = 1.f / 60.f; // 経過時間。固定フレームレートがよい。

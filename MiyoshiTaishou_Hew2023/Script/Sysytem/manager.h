@@ -73,4 +73,9 @@ public:
     {
         return m_Count;
     }
+
+    static void InitCount()
+    {
+        m_Count = 0;
+    }
 };

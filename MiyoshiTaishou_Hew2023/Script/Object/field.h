@@ -36,7 +36,7 @@ public:
 	// 現在位置の高さを求める
 	float  GetFieldHeight(DirectX::SimpleMath::Vector3 pos);
 	//_offRigidBodyの影響を与えるかどうか
-	float GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off);
+	float GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& obj);
 
 	// 法線ベクトルから斜めの方向を計算
 	DirectX::SimpleMath::Vector3 CalculateDiagonalDirection(DirectX::SimpleMath::Vector3 normal);

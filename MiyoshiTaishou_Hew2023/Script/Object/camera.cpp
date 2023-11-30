@@ -75,7 +75,7 @@ void Camera::Update()
 		m_Position.z = max.z;
 	}
 
-	float Height = filed->GetFieldHeightBySqno(m_Position,true);
+	float Height = filed->GetFieldHeightBySqno(m_Position,*this);
 }
 
 void Camera::Draw()

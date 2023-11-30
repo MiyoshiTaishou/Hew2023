@@ -48,7 +48,7 @@ void Field::Init()
 //		3.0f);						// 最大
 
 	m_planemesh.MakeUndulationPerlinnoise(
-		10.0f,			// 最大の高さ
+		30.0f,			// 最大の高さ
 		10,				// オクターブ数
 		0.28f);			// パーシステンス
 
@@ -244,7 +244,7 @@ Vector3 Field::CalculateDiagonalDirection(Vector3 normal)
 	return dir;
 }
 
-float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
+float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& obj)
 {
 	float t;
 
@@ -271,25 +271,23 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 				m_planes[idx].GetPlaneInfo().p2, ans);
 			if (sts) {
 
-				Scene* scene = Manager::GetScene();
-				Player* player = scene->GetGameObject<Player>();
-
-				if (!player || _off)
-				{
-					return ans.y;
-				}
+				Scene* scene = Manager::GetScene();				
 				
 				//坂道を転がる処理
 				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
-				RigidBody* body = player->GetComponent<RigidBody>();
+				RigidBody* body = obj.GetComponent<RigidBody>();
+
+				if (body == nullptr)
+				{
+					return ans.y;
+				}
 
 				Vector3 force = dir * 10.0f;
+				force.y = 0.0f;
 
 				body->AddForceToPoint(force, dir, ForceMode::Force);
-				body->AddForce(force, ForceMode::Force);		
-
-				force.y = 0.0f;
+				body->AddForce(force, ForceMode::Force);						
 
 				//body->AddTorque((force), ForceMode::Force);
 
@@ -321,18 +319,17 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 			if (sts) 
 			{
 
-				Scene* scene = Manager::GetScene();
-				Player* player = scene->GetGameObject<Player>();
-
-				if (!player || _off)
-				{
-					return ans.y;
-				}				
+				Scene* scene = Manager::GetScene();				
 
 				//坂道を転がる処理
 				Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);				
 
-				RigidBody* body = player->GetComponent<RigidBody>();
+				RigidBody* body = obj.GetComponent<RigidBody>();
+
+				if (body == nullptr)
+				{
+					return ans.y;
+				}
 
 				//傾きが小さいなら
 				if (dir.x < 0.5f)
@@ -345,6 +342,7 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, bool _off)
 				}
 
 				Vector3 force = dir * 10.0f;
+				force.y = 0.0f;
 
 				body->AddForceToPoint(force, dir, ForceMode::Force);
 				body->AddForce(force, ForceMode::Force);		

@@ -157,6 +157,8 @@ void Player::Collision()
 					//コライダー追加
 					SphereCollider* sphere = AddComponent<SphereCollider>();					
 					sphere->SetRadius(2.0f);
+					/*Vector3 leng = (Takoyaki->GetPosition() - m_Position);
+					float length = leng.Length();*/
 					sphere->SetRelative((Takoyaki->GetPosition() - m_Position));
 					m_Collider.push_back(sphere);					
 
@@ -204,7 +206,22 @@ void Player::Collision()
 		m_Position.z = max.z;
 	}
 
-	float Height = filed->GetFieldHeightBySqno(m_Position,false);
+	//今一番低い位置にいるコライダーの高さに合わせる
+	Vector3 underPos = m_Position;
+	float underRelative = 0.0f;
+	for (int i = 0; i < m_Collider.size(); i++)
+	{
+		Vector3 collPos = m_Collider[i]->GetPos();		
+
+		//小さい
+		if (underPos.y > collPos.y)
+		{
+			underPos = collPos;
+			underRelative = m_Collider[i]->GetRelative().y;
+		}
+	}
+
+	float Height = filed->GetFieldHeightBySqno(underPos,*this);
 	
 	//float Height = 0.0f;
 
@@ -218,7 +235,8 @@ void Player::Collision()
 		//vel.y = 0.0f;		
 		//body->SetVelocity(vel);		
 
-		m_Position.y = Height + 2;
+		
+		m_Position.y = Height +  fabsf(underRelative) + 2.0f;
 
 		////バウンドする
 		//if (force.y > 10.0f)
