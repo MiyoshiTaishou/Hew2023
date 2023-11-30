@@ -20,6 +20,9 @@ protected:
     std::list<GameObject*> m_ChildGameObject; ///< 子オブジェクトのリスト
 
 public:
+
+    DirectX::SimpleMath::Matrix m_matrix;
+
     /**
      * @brief GameObjectクラスのコンストラクタ
      */
@@ -280,6 +283,8 @@ public:
         rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
         trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
         world = scale * rot * trans * ParentMatrix;
+
+        m_matrix = world;
 
         PreDraw();
 

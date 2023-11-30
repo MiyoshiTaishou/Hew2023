@@ -7,6 +7,9 @@ class Collider : public Component
 {
 public:
 
+	bool m_hit = false;
+	GameObject* m_Hitobj;
+
 	void Init();
 
 	void Update();
@@ -62,5 +65,6 @@ protected:
 
 	//“–‚½‚è”»’è‚ª—LŒø‚©‚Ç‚¤‚©
 	bool m_CanHit = true;
+
 
 };

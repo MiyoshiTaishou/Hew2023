@@ -50,9 +50,9 @@ void Manager::Init(Application* ap)
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
 	//SetScene<StageEditor>();
 	//SetScene<TitleScene>();
-	//SetScene<GameScene>();
+	SetScene<GameScene>();
 	//SetScene<ResultScene>();
-	SetScene<SlopeScene>();
+	//SetScene<SlopeScene>();
 }
 
 void Manager::Uninit()

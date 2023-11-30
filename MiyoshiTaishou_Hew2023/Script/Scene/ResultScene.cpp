@@ -44,11 +44,11 @@ void ResultScene::Init()
 	scoreRate->AddCount(percent);
 
 	//オブジェクト生成
-	AddGameObject<Sky>(Layer1);
-	AddGameObject<Player>(Layer1);
-	AddGameObject<Field>(Layer1);
+	//AddGameObject<Sky>(Layer1);
+	//AddGameObject<Player>(Layer1);
+	//AddGameObject<Field>(Layer1);
 
-	AddGameObject<Camera>(Layer0);
+	//AddGameObject<Camera>(Layer0);
 
 	//BGM追加
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
