@@ -108,6 +108,7 @@ void Field::Draw()
 	ImGui::Begin("Debug");
 	ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
 	ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
+	ImGui::Text("Dis %f", dis);
 	ImGui::End();
 
 	// 入力レイアウト設定
@@ -364,4 +365,101 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 	// 見つからなかった場合は０
 	//std::cout << "床なし" << "(" << sqno << ")" << std::endl;
 	return oldheight;
+}
+
+void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3 _point)
+{
+	float t;
+
+	// 現在位置からのっかている四角形番号を取得
+	int sqno = m_planemesh.GetSquareNo(_point);
+
+	static float oldheight = 0;
+
+	// 下面チェック
+	{
+		int idx = sqno * 2;
+
+		// 面数分
+		Vector3 up = { 0,1,0 };
+		Vector3 startpoint = { _point.x,0,_point.z };
+		Plane p = m_planes[idx].GetPlaneInfo().plane;
+		Vector3 ans;
+
+		bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
+		if (sts) {
+			sts = m_Collider->CheckInTriangle(
+				m_planes[idx].GetPlaneInfo().p0,
+				m_planes[idx].GetPlaneInfo().p1,
+				m_planes[idx].GetPlaneInfo().p2, ans);
+			if (sts) {
+				Plane plane = m_planes[idx].GetPlaneInfo().plane;
+				float distance = plane.x * _point.x + plane.y * _point.y + plane.z * _point.z + plane.w;
+
+				dis = distance;
+
+				if (distance <= 0)
+				{
+					Scene* scene = Manager::GetScene();
+
+					Player* player = scene->GetGameObject<Player>();
+
+					float moveDistance = -distance;
+
+					Vector3 pos = player->GetPosition();
+
+					pos.x += moveDistance * plane.x;
+					pos.y += moveDistance * plane.y;
+					pos.z += moveDistance * plane.z;
+
+					player->SetPosition(pos);
+				}
+			}
+		}
+	}
+
+	// 上面チェック
+	{
+		int idx = sqno * 2 + 1;
+
+		// 面数分
+		Vector3 up = { 0,1,0 };
+		Vector3 startpoint = { _point.x,0,_point.z };
+		Plane p = m_planes[idx].GetPlaneInfo().plane;
+		Vector3 ans;
+
+		bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
+		if (sts) {
+			sts = m_Collider->CheckInTriangle(
+				m_planes[idx].GetPlaneInfo().p0,
+				m_planes[idx].GetPlaneInfo().p1,
+				m_planes[idx].GetPlaneInfo().p2, ans);
+			if (sts)
+			{
+				Plane plane = m_planes[idx].GetPlaneInfo().plane;
+				float distance = plane.x * _point.x + plane.y * _point.y + plane.z * _point.z + plane.w;
+					
+
+				dis = distance;
+
+				if (distance <= 0)
+				{
+					Scene* scene = Manager::GetScene();
+
+					Player* player = scene->GetGameObject<Player>();
+
+					float moveDistance = -distance;
+
+					Vector3 pos = player->GetPosition();
+
+					pos.x += moveDistance * plane.x;
+					pos.y += moveDistance * plane.y;
+					pos.z += moveDistance * plane.z;
+
+					player->SetPosition(pos);
+				}				
+			}
+		}
+
+	}	
 }

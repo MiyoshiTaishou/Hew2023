@@ -141,7 +141,8 @@ void BillBoardObject::Update()
 	//常にプレイヤーの方を向く処理
 	//プレイヤーへのベクトルを計算
 	Vector3 dir = camera->GetPosition() - m_Position;
-	//m_Rotation.y = atan2(dir.x, dir.z);	
+	m_Rotation.y = atan2(dir.x, dir.z);
+	m_Rotation.y -= 60.0f;
 
 	//高さを取得	
 	Field* filed = nowscene->GetGameObject<Field>();
