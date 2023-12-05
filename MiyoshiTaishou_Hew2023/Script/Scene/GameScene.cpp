@@ -34,8 +34,7 @@ using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
 {
-	//オブジェクト生成
-	LoadObjectData("Obj.csv");
+	//オブジェクト生成	
 	AddGameObject<Sky>(Layer1);
 	//AddGameObject<TakoyakiObject>(Layer1);	
 	AddGameObject<Player>(Layer1);
@@ -53,11 +52,22 @@ void GameScene::Init()
 
 	Score* score = AddGameObject<Score>(Layer3);	
 
+	int idxZ = 1;
+	int idxX = 1;
+
 	for (int i = 0; i < MAX_SPHERE; i++)
-	{
+	{		
+		if (idxX > 10)
+		{
+			idxZ++;
+			idxX = 1;
+		}
+
 		TakoyakiObject* takoyaki = AddGameObject<TakoyakiObject>(Layer1);
-		Vector3 pos = Vector3(5.0f * i, 1.0f, 1.0f);
+		Vector3 pos = Vector3((20.0f * idxX) - 100.0f, 1.0f, (20.0f * idxZ) - 100.0f);
 		takoyaki->SetPosition(pos);
+
+		idxX++;
 	}
 
 	//BGMobj

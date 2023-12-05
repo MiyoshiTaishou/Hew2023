@@ -25,6 +25,7 @@ public:
 		// トポロジーをセット（旧プリミティブタイプ）
 		devicecontext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
+
 		m_VertexBuffer.SetGPU();
 		m_IndexBuffer.SetGPU();
 

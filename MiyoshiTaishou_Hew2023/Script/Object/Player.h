@@ -9,12 +9,15 @@ enum PLAYERSTATE
 };
 
 class SphereCollider;
+class CMeshRenderer;
+class CSphereMesh;
 
 class Player : public GameObject
 {
 public:
 
 	void Init();
+	void Uninit();
 	void Update();
 	void Draw();
 
@@ -37,4 +40,13 @@ private:
 	DirectX::SimpleMath::Vector3 torque;	
 
 	std::vector<SphereCollider*> m_Collider;
+
+	//球の表面の点
+	DirectX::SimpleMath::Vector3 m_Point[6];
+
+	//点の描画に使用する変数
+	CMeshRenderer* m_MeshRenderer[6];
+	CSphereMesh* m_Sphere[6];
+
+	float m_Distance[6];
 };

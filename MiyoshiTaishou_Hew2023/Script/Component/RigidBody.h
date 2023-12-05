@@ -92,10 +92,10 @@ private:
 	float m_Drag = -1.0f;				
 
 	//重力の影響を受ける
-	bool m_UseGravity = false;		
+	bool m_UseGravity = true;		
 
 	//重力の強さ
-	float m_GravityScale = 5.0f;   
+	float m_GravityScale = 1.0f;   
 
 	//オブジェクトの現在の速度
 	DirectX::SimpleMath::Vector3 m_Velocity; 

@@ -132,6 +132,7 @@ void Renderer::Init(Application* ap)
 	rasterizerDesc.DepthClipEnable = TRUE;
 	rasterizerDesc.MultisampleEnable = FALSE; 
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
+	//rasterizerDesc.FillMode = D3D11_FILL_WIREFRAME;
 	rasterizerDesc.FrontCounterClockwise = true;
 
 	for (int i = 0; i < 3; ++i)

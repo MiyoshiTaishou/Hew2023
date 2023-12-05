@@ -173,6 +173,7 @@
     <ClCompile Include="..\Script\Object\field.cpp" />
     <ClCompile Include="..\Script\Object\Player.cpp" />
     <ClCompile Include="..\Script\Object\sky.cpp" />
+    <ClCompile Include="..\Script\Object\Sphere.cpp" />
     <ClCompile Include="..\Script\Object\StickObject.cpp" />
     <ClCompile Include="..\Script\Object\TakoyakiObject.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="..\Script\Object\gameObject.h" />
     <ClInclude Include="..\Script\Object\Player.h" />
     <ClInclude Include="..\Script\Object\sky.h" />
+    <ClInclude Include="..\Script\Object\Sphere.h" />
     <ClInclude Include="..\Script\Object\StickObject.h" />
     <ClInclude Include="..\Script\Object\TakoyakiObject.h" />
     <ClInclude Include="..\Script\Render\CIndexBuffer.h" />
