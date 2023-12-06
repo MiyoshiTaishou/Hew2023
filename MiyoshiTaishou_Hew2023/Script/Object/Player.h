@@ -1,6 +1,8 @@
 #pragma once
 #include"gameObject.h"
 
+#define MAX_SPHERE_MESH 14
+
 enum PLAYERSTATE
 {
 	IDLE,
@@ -42,11 +44,11 @@ private:
 	std::vector<SphereCollider*> m_Collider;
 
 	//球の表面の点
-	DirectX::SimpleMath::Vector3 m_Point[6];
+	DirectX::SimpleMath::Vector3 m_Point[MAX_SPHERE_MESH];
 
 	//点の描画に使用する変数
-	CMeshRenderer* m_MeshRenderer[6];
-	CSphereMesh* m_Sphere[6];
+	CMeshRenderer* m_MeshRenderer[MAX_SPHERE_MESH];
+	CSphereMesh* m_Sphere[MAX_SPHERE_MESH];
 
-	float m_Distance[6];
+	float m_Distance[MAX_SPHERE_MESH];
 };

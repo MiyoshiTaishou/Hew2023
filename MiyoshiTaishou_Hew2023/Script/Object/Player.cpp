@@ -82,8 +82,8 @@ void Player::Init()
 	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2) - m_Distance[4]);
 	//奥
 	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2) + m_Distance[5]);
-
-	for (int i = 0; i < 6; i++)
+	
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		//球のメッシュ作成
 		m_Sphere[i] = new CSphereMesh();
@@ -98,7 +98,7 @@ void Player::Init()
 
 void Player::Uninit()
 {
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		delete m_Sphere[i];
 		delete m_MeshRenderer[i];
@@ -132,9 +132,26 @@ void Player::Update()
 	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2) - m_Distance[4]);
 	//奥
 	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2) + m_Distance[5]);	
+	//左下
+	m_Point[6] = (m_Point[0] + m_Point[2]) / 2;
+	//左上
+	m_Point[7] = (m_Point[0] + m_Point[3]) / 2;
+	//左手前
+	m_Point[8] = (m_Point[0] + m_Point[4]) / 2;
+	//左奥
+	m_Point[9] = (m_Point[0] + m_Point[5]) / 2;
+	//右下
+	m_Point[10] = (m_Point[1] + m_Point[2]) / 2;
+	//右下
+	m_Point[11] = (m_Point[1] + m_Point[3]) / 2;
+	//右手前
+	m_Point[12] = (m_Point[1] + m_Point[4]) / 2;
+	//右奥
+	m_Point[13] = (m_Point[1] + m_Point[5]) / 2;
+
 
 	// ポイントをプレイヤーの回転に合わせて変換する
-	for (int i = 0; i < 6; ++i) {
+	for (int i = 0; i < MAX_SPHERE_MESH; ++i) {
 		// ポイントをベクトルに変換
 		Vector3 point = m_Point[i];
 
@@ -208,7 +225,7 @@ void Player::Draw()
 
 	ImGui::End();	
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		// ワールドマトリクス設定
 		Matrix world, scale, rot, trans;
@@ -337,10 +354,10 @@ void Player::Collision()
 	//	//}
 	//}
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		filed->PointPlaneCollision(m_Point[i]);
-	}	
+	}
 }
 
 //入力処理

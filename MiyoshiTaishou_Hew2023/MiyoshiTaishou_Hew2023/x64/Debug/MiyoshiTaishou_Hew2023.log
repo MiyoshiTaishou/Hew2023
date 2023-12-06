@@ -1,34 +1,4 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  shadow.cpp
-  SphereCollider.cpp
-  BillBoardObject.cpp
-  BoxObject.cpp
-  camera.cpp
-  Customer.cpp
-  Enemy.cpp
-  field.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(156,44): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(162,33): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
   Player.cpp
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Sphere.cpp
-  StickObject.cpp
-  TakoyakiObject.cpp
-  GameScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  ResultScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(31,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(31,49): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(31,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(43,14): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  SlopeScene.cpp
-  StageEditor.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  TitleScene.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(38,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  BillBoardScore.cpp
-  コードを生成中...
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe
