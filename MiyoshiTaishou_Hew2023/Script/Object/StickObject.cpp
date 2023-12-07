@@ -8,6 +8,7 @@
 #include"../Component/BoxCollider.h"
 #include"../Component/RigidBody.h"
 #include"../Component/SphereCollider.h"
+#include"../Component/audio.h"
 
 //オブジェクト
 #include"field.h"
@@ -16,6 +17,12 @@
 #include"Player.h"
 
 using namespace DirectX::SimpleMath;
+
+void StickObject::Init()
+{
+	m_HitSE = AddComponent<Audio>();
+	m_HitSE->Load("../asset\\audio\\ぷよん_2.wav");
+}
 
 void StickObject::Update()
 {			
@@ -128,5 +135,7 @@ void StickObject::Stick(Vector3 _pos)
 
 	RigidBody* body = player->GetComponent<RigidBody>();
 	body->AddInetiaTensorOfSpherAngular(body->GetInetiaTensor() / 100);
-	body->SetMass((body->GetMass() + 0.01f));		
+	body->SetMass((body->GetMass() + 0.01f));	
+
+	m_HitSE->Play();
 }

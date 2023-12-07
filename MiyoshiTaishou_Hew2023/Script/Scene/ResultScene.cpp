@@ -68,6 +68,11 @@ void ResultScene::Update()
 		{
 			m_Transition->FadeOut();
 		}
+
+		if (Input::GetGamePad(BUTTON::ABUTTON))
+		{
+			m_Transition->FadeOut();
+		}
 	}
 
 	//‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
