@@ -295,10 +295,10 @@ public:
             {
             case BOX:
             {
-                BoxObject* box = AddGameObject<BoxObject>(Layer1);
+              /*  BoxObject* box = AddGameObject<BoxObject>(Layer1);
                 box->SetPosition(pos);
                 box->SetScale(scale);
-                box->SetRotation(rot);
+                box->SetRotation(rot);*/
                 break;
             }
             default:

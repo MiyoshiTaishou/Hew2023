@@ -16,6 +16,7 @@
 #include"../Component/SphereCollider.h"
 #include"../Component/RigidBody.h"
 #include"../Component/shadow.h"
+#include"../Component/BoxCollider.h"
 
 //描画
 #include"../Render/modelRenderer.h"
@@ -287,6 +288,24 @@ void Player::Collision()
 			}		
 		}
 	}
+
+	//壁との当たり判定
+	{
+		std::vector<BoxObject*> boxList = scene->GetGameObjects<BoxObject>();
+
+		for (const auto& box : boxList)
+		{
+			for (int i = 0; i < MAX_SPHERE_MESH; i++)
+			{
+				if (box->GetComponent<BoxCollider>()->PointHit(m_Point[i]))
+				{
+					RigidBody* body = this->GetComponent<RigidBody>();
+					Vector3 vel = body->GetVelocity();
+					body->AddForce(-vel, ForceMode::Force);
+				}
+			}
+		}
+	}
 	
 	//高さを取得	
 	Field* filed = scene->GetGameObject<Field>();
@@ -312,47 +331,6 @@ void Player::Collision()
 	if (m_Position.z >= max.z) {
 		m_Position.z = max.z;
 	}
-
-	////今一番低い位置にいるコライダーの高さに合わせる
-	//Vector3 underPos = m_Position;
-	//float underRelative = 0.0f;
-	//for (int i = 0; i < m_Collider.size(); i++)
-	//{
-	//	Vector3 collPos = m_Collider[i]->GetPos();		
-
-	//	//小さい
-	//	if (underPos.y > collPos.y)
-	//	{
-	//		underPos = collPos;
-	//		underRelative = m_Collider[i]->GetRelative().y;
-	//	}
-	//}
-
-	////float Height = filed->GetFieldHeightBySqno(underPos,*this);
-	//float Height = filed->GetFieldHeightBySqno(m_Position,*this);
-	//
-	////float Height = 0.0f;
-
-	//// 位置が０以下なら地面位置にセットする
-	//if ((m_Position.y - 2)  < Height)
-	//{
-	//	////速度を0にする
-	//	//RigidBody* body = GetComponent<RigidBody>();
-	//	//Vector3 vel = body->GetVelocity();	
-	//	//Vector3 force = { 0,-(vel.y / 2),0 };
-	//	//vel.y = 0.0f;		
-	//	//body->SetVelocity(vel);		
-
-	//	
-	//	//m_Position.y = Height +  fabsf(underRelative) + 2.0f;
-	//	m_Position.y = Height + 2.0f;
-
-	//	////バウンドする
-	//	//if (force.y > 10.0f)
-	//	//{
-	//	//	body->AddForce(force, ForceMode::Impulse);
-	//	//}
-	//}
 
 	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{

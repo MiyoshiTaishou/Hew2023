@@ -39,6 +39,8 @@ public:
 		const DirectX::SimpleMath::Vector3& pvecSeparate,// •ª—£Ž²
 		const DirectX::SimpleMath::Vector3& pvecDistance);
 
+	//“_‚Æ‚Ì“–‚½‚è”»’è
+	bool PointHit(const DirectX::SimpleMath::Vector3 point);
 
 private:
 	using Collider::Collider;	
