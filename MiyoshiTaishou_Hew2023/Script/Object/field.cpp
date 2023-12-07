@@ -367,99 +367,109 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 	return oldheight;
 }
 
-void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3 _point)
+void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3* _point)
 {
 	float t;
 
-	// 現在位置からのっかている四角形番号を取得
-	int sqno = m_planemesh.GetSquareNo(_point);
+	// すべての点のめり込み量を考慮してオブジェクト全体を補正する
+	Vector3 totalCorrection = Vector3::Zero;
 
-	static float oldheight = 0;
-
-	// 下面チェック
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
-		int idx = sqno * 2;
+		// 現在位置からのっかている四角形番号を取得
+		int sqno = m_planemesh.GetSquareNo(_point[i]);
 
-		// 面数分
-		Vector3 up = { 0,1,0 };
-		Vector3 startpoint = { _point.x,0,_point.z };
-		Plane p = m_planes[idx].GetPlaneInfo().plane;
-		Vector3 ans;
+		static float oldheight = 0;
 
-		bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
-		if (sts) {
-			sts = m_Collider->CheckInTriangle(
-				m_planes[idx].GetPlaneInfo().p0,
-				m_planes[idx].GetPlaneInfo().p1,
-				m_planes[idx].GetPlaneInfo().p2, ans);
+		// 下面チェック
+		{
+			int idx = sqno * 2;
+
+			// 面数分
+			Vector3 up = { 0,1,0 };
+			Vector3 startpoint = { _point[i].x,0,_point[i].z};
+			Plane p = m_planes[idx].GetPlaneInfo().plane;
+			Vector3 ans;
+
+			bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
 			if (sts) {
-				Plane plane = m_planes[idx].GetPlaneInfo().plane;
-				float distance = plane.x * _point.x + plane.y * _point.y + plane.z * _point.z + plane.w;
+				sts = m_Collider->CheckInTriangle(
+					m_planes[idx].GetPlaneInfo().p0,
+					m_planes[idx].GetPlaneInfo().p1,
+					m_planes[idx].GetPlaneInfo().p2, ans);
+				if (sts) {
+					Plane plane = m_planes[idx].GetPlaneInfo().plane;
+					float distance = plane.x * _point[i].x + plane.y * _point[i].y + plane.z * _point[i].z + plane.w;
 
-				dis = distance;
+					dis = distance;
 
-				if (distance <= 0)
-				{
-					Scene* scene = Manager::GetScene();
+					if (distance <= 0)
+					{
+						Scene* scene = Manager::GetScene();
 
-					Player* player = scene->GetGameObject<Player>();
+						Player* player = scene->GetGameObject<Player>();
 
-					float moveDistance = -distance;
+						float moveDistance = -distance * 0.5f;
 
-					Vector3 pos = player->GetPosition();
+						Vector3 pos = player->GetPosition();
 
-					pos.x += moveDistance * plane.x;
-					pos.y += moveDistance * plane.y;
-					pos.z += moveDistance * plane.z;
+						totalCorrection.x += moveDistance * plane.x;
+						totalCorrection.y += moveDistance * plane.y;
+						totalCorrection.z += moveDistance * plane.z;
 
-					player->SetPosition(pos);
+						//player->SetPosition(pos);						
+					}
 				}
 			}
 		}
+
+		// 上面チェック
+		{
+			int idx = sqno * 2 + 1;
+
+			// 面数分
+			Vector3 up = { 0,1,0 };
+			Vector3 startpoint = { _point[i].x,0,_point[i].z};
+			Plane p = m_planes[idx].GetPlaneInfo().plane;
+			Vector3 ans;
+
+			bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
+			if (sts) {
+				sts = m_Collider->CheckInTriangle(
+					m_planes[idx].GetPlaneInfo().p0,
+					m_planes[idx].GetPlaneInfo().p1,
+					m_planes[idx].GetPlaneInfo().p2, ans);
+				if (sts)
+				{
+					Plane plane = m_planes[idx].GetPlaneInfo().plane;
+					float distance = plane.x * _point[i].x + plane.y * _point[i].y + plane.z * _point[i].z + plane.w;
+
+
+					dis = distance;
+
+					if (distance <= 0)
+					{
+						Scene* scene = Manager::GetScene();
+
+						Player* player = scene->GetGameObject<Player>();
+
+						float moveDistance = -distance * 0.5f;
+
+						Vector3 pos = player->GetPosition();
+
+						totalCorrection.x += moveDistance * plane.x;
+						totalCorrection.y += moveDistance * plane.y;
+						totalCorrection.z += moveDistance * plane.z;
+
+						//player->SetPosition(pos);
+					}
+				}
+			}
+
+		}
 	}
 
-	// 上面チェック
-	{
-		int idx = sqno * 2 + 1;
-
-		// 面数分
-		Vector3 up = { 0,1,0 };
-		Vector3 startpoint = { _point.x,0,_point.z };
-		Plane p = m_planes[idx].GetPlaneInfo().plane;
-		Vector3 ans;
-
-		bool sts = m_Collider->LinetoPlaneCross(p, startpoint, up, t, ans);
-		if (sts) {
-			sts = m_Collider->CheckInTriangle(
-				m_planes[idx].GetPlaneInfo().p0,
-				m_planes[idx].GetPlaneInfo().p1,
-				m_planes[idx].GetPlaneInfo().p2, ans);
-			if (sts)
-			{
-				Plane plane = m_planes[idx].GetPlaneInfo().plane;
-				float distance = plane.x * _point.x + plane.y * _point.y + plane.z * _point.z + plane.w;
-					
-
-				dis = distance;
-
-				if (distance <= 0)
-				{
-					Scene* scene = Manager::GetScene();
-
-					Player* player = scene->GetGameObject<Player>();
-
-					float moveDistance = -distance;
-
-					Vector3 pos = player->GetPosition();
-
-					pos.x += moveDistance * plane.x;
-					pos.y += moveDistance * plane.y;
-					pos.z += moveDistance * plane.z;
-
-					player->SetPosition(pos);
-				}				
-			}
-		}
-
-	}	
+	Scene* scene = Manager::GetScene();
+	Player* player = scene->GetGameObject<Player>();
+	player->SetPosition(player->GetPosition() + totalCorrection);
 }

@@ -107,13 +107,7 @@ void Player::Uninit()
 }
 
 void Player::Update()
-{	
-	//当たり判定処理
-	Collision();
-
-	//コントローラー入力
-	ConInput();
-
+{		
 	//コンポーネントのUpdate呼び出し
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
@@ -121,6 +115,50 @@ void Player::Update()
 
 	GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
 
+	//左端
+	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2), m_Position.y, m_Position.z);
+	//右端
+	m_Point[1] = Vector3(m_Position.x + (m_Scale.x / 2), m_Position.y, m_Position.z);
+	//下
+	m_Point[2] = Vector3(m_Position.x, m_Position.y - (m_Scale.y / 2), m_Position.z);
+	//上
+	m_Point[3] = Vector3(m_Position.x, m_Position.y + (m_Scale.y / 2), m_Position.z);
+	//手前
+	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2));
+	//奥
+	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2));	
+	//左下
+	m_Point[6] = (m_Point[0] + m_Point[2]) / 2;
+	m_Point[6].x -= m_Distance[6];
+	m_Point[6].y -= m_Distance[6];
+	//左上
+	m_Point[7] = (m_Point[0] + m_Point[3]) / 2;
+	m_Point[7].x -= m_Distance[7];
+	m_Point[7].y += m_Distance[7];
+	//左手前
+	m_Point[8] = (m_Point[0] + m_Point[4]) / 2;
+	m_Point[8].x -= m_Distance[8];
+	m_Point[8].z -= m_Distance[8];
+	//左奥
+	m_Point[9] = (m_Point[0] + m_Point[5]) / 2;
+	m_Point[9].x -= m_Distance[9];
+	m_Point[9].z += m_Distance[9];
+	//右下
+	m_Point[10] = (m_Point[1] + m_Point[2]) / 2;
+	m_Point[10].x += m_Distance[10];
+	m_Point[10].y -= m_Distance[10];
+	//右上
+	m_Point[11] = (m_Point[1] + m_Point[3]) / 2;
+	m_Point[11].x += m_Distance[11];
+	m_Point[11].y += m_Distance[11];
+	//右手前
+	m_Point[12] = (m_Point[1] + m_Point[4]) / 2;
+	m_Point[12].x += m_Distance[12];
+	m_Point[12].z -= m_Distance[12];
+	//右奥
+	m_Point[13] = (m_Point[1] + m_Point[5]) / 2;
+	m_Point[13].x += m_Distance[13];
+	m_Point[13].z += m_Distance[13];
 	//左端
 	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2) - m_Distance[0], m_Position.y, m_Position.z);
 	//右端
@@ -132,23 +170,7 @@ void Player::Update()
 	//手前
 	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2) - m_Distance[4]);
 	//奥
-	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2) + m_Distance[5]);	
-	//左下
-	m_Point[6] = (m_Point[0] + m_Point[2]) / 2;
-	//左上
-	m_Point[7] = (m_Point[0] + m_Point[3]) / 2;
-	//左手前
-	m_Point[8] = (m_Point[0] + m_Point[4]) / 2;
-	//左奥
-	m_Point[9] = (m_Point[0] + m_Point[5]) / 2;
-	//右下
-	m_Point[10] = (m_Point[1] + m_Point[2]) / 2;
-	//右下
-	m_Point[11] = (m_Point[1] + m_Point[3]) / 2;
-	//右手前
-	m_Point[12] = (m_Point[1] + m_Point[4]) / 2;
-	//右奥
-	m_Point[13] = (m_Point[1] + m_Point[5]) / 2;
+	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2) + m_Distance[5]);
 
 
 	// ポイントをプレイヤーの回転に合わせて変換する
@@ -169,6 +191,13 @@ void Player::Update()
 		// 回転後のポイントを更新
 		m_Point[i] = rotatedVector;
 	}
+
+	//当たり判定処理
+	Collision();
+
+	//コントローラー入力
+	ConInput();
+
 }
 
 void Player::Draw()
@@ -195,12 +224,18 @@ void Player::Draw()
 	ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
 
 	//サイズ
-	ImGui::SliderFloat("Left##", &m_Distance[0], 0.0f, 10.0f);
+
+	for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
+	{
+		ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
+	}
+
+	/*ImGui::SliderFloat("Left##", &m_Distance[0], 0.0f, 10.0f);
 	ImGui::SliderFloat("Right##", &m_Distance[1], 0.0f, 10.0f);
 	ImGui::SliderFloat("Down##", &m_Distance[2], 0.0f, 10.0f);
 	ImGui::SliderFloat("Up##", &m_Distance[3], 0.0f, 10.0f);
 	ImGui::SliderFloat("Front##", &m_Distance[4], 0.0f, 10.0f);
-	ImGui::SliderFloat("Back##", &m_Distance[5], 0.0f, 10.0f);
+	ImGui::SliderFloat("Back##", &m_Distance[5], 0.0f, 10.0f);*/
 	
 	if (ImGui::Button("Resset"))
 	{
@@ -332,10 +367,12 @@ void Player::Collision()
 		m_Position.z = max.z;
 	}
 
-	for (int i = 0; i < MAX_SPHERE_MESH; i++)
+	/*for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
-		filed->PointPlaneCollision(m_Point[i]);
-	}
+		filed->PointPlaneCollision(m_Point);
+	}*/
+
+	filed->PointPlaneCollision(m_Point);
 }
 
 //入力処理

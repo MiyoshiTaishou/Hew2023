@@ -5,6 +5,7 @@
 #include	"../Mesh/CUndulationPlaneMesh.h"
 #include	"../Mesh/CMeshRenderer.h"
 #include	"../Mesh/CPlane.h"
+#include	"Player.h"
 
 //前方宣言
 class CPlane;
@@ -40,7 +41,7 @@ public:
 	//_offRigidBodyの影響を与えるかどうか
 	float GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& obj);
 
-	void PointPlaneCollision(DirectX::SimpleMath::Vector3 _point);
+	void PointPlaneCollision(DirectX::SimpleMath::Vector3* _point);
 
 	// 法線ベクトルから斜めの方向を計算
 	DirectX::SimpleMath::Vector3 CalculateDiagonalDirection(DirectX::SimpleMath::Vector3 normal);

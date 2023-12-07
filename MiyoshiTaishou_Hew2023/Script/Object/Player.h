@@ -34,10 +34,10 @@ private:
 	PLAYERSTATE state = IDLE;
 
 	//ˆÚ“®‘¬“x
-	float m_Speed = 100.0f;
+	float m_Speed = 70.0f;
 
 	//‰ñ“]‘¬“x
-	float m_RotSpeed = 150.0f;
+	float m_RotSpeed = 50.0f;
 
 	DirectX::SimpleMath::Vector3 torque;	
 
