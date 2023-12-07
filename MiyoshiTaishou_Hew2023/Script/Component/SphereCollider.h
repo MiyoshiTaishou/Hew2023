@@ -15,7 +15,7 @@ public:
 
 	void SetRadius(float _radius);
 
-	bool m_Invisble = false;
+	bool m_Invisble = true;
 
 private:
 

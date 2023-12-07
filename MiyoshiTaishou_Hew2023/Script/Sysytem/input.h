@@ -21,6 +21,7 @@ enum BUTTON
     RDOWN,  /**< 右下ボタン */
     RLEFT,  /**< 右左ボタン */
     RRIGHT, /**< 右右ボタン */
+    ABUTTON,/**< Aボタン    */ 
 };
 
 /**

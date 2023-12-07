@@ -72,6 +72,50 @@ void Player::Init()
 	
 
 	//左端
+	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2), m_Position.y, m_Position.z);
+	//右端
+	m_Point[1] = Vector3(m_Position.x + (m_Scale.x / 2), m_Position.y, m_Position.z);
+	//下
+	m_Point[2] = Vector3(m_Position.x, m_Position.y - (m_Scale.y / 2), m_Position.z);
+	//上
+	m_Point[3] = Vector3(m_Position.x, m_Position.y + (m_Scale.y / 2), m_Position.z);
+	//手前
+	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2));
+	//奥
+	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2));
+	//左下
+	m_Point[6] = (m_Point[0] + m_Point[2]) / 2;
+	m_Point[6].x -= m_Distance[6];
+	m_Point[6].y -= m_Distance[6];
+	//左上
+	m_Point[7] = (m_Point[0] + m_Point[3]) / 2;
+	m_Point[7].x -= m_Distance[7];
+	m_Point[7].y += m_Distance[7];
+	//左手前
+	m_Point[8] = (m_Point[0] + m_Point[4]) / 2;
+	m_Point[8].x -= m_Distance[8];
+	m_Point[8].z -= m_Distance[8];
+	//左奥
+	m_Point[9] = (m_Point[0] + m_Point[5]) / 2;
+	m_Point[9].x -= m_Distance[9];
+	m_Point[9].z += m_Distance[9];
+	//右下
+	m_Point[10] = (m_Point[1] + m_Point[2]) / 2;
+	m_Point[10].x += m_Distance[10];
+	m_Point[10].y -= m_Distance[10];
+	//右上
+	m_Point[11] = (m_Point[1] + m_Point[3]) / 2;
+	m_Point[11].x += m_Distance[11];
+	m_Point[11].y += m_Distance[11];
+	//右手前
+	m_Point[12] = (m_Point[1] + m_Point[4]) / 2;
+	m_Point[12].x += m_Distance[12];
+	m_Point[12].z -= m_Distance[12];
+	//右奥
+	m_Point[13] = (m_Point[1] + m_Point[5]) / 2;
+	m_Point[13].x += m_Distance[13];
+	m_Point[13].z += m_Distance[13];
+	//左端
 	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2) - m_Distance[0], m_Position.y, m_Position.z);
 	//右端
 	m_Point[1] = Vector3(m_Position.x + (m_Scale.x / 2) + m_Distance[1], m_Position.y, m_Position.z);
@@ -83,7 +127,7 @@ void Player::Init()
 	m_Point[4] = Vector3(m_Position.x, m_Position.y, m_Position.z - (m_Scale.z / 2) - m_Distance[4]);
 	//奥
 	m_Point[5] = Vector3(m_Position.x, m_Position.y, m_Position.z + (m_Scale.z / 2) + m_Distance[5]);
-	
+
 	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		//球のメッシュ作成
@@ -91,7 +135,7 @@ void Player::Init()
 		m_Sphere[i]->Init(1.0f, Color(1, 1, 1, 1), 100, 100);
 
 		m_MeshRenderer[i] = new CMeshRenderer();
-		m_MeshRenderer[i]->Init(*m_Sphere[i]);
+		m_MeshRenderer[i]->Init(*m_Sphere[i]);		
 	}	
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
@@ -261,18 +305,18 @@ void Player::Draw()
 
 	ImGui::End();	
 
-	for (int i = 0; i < MAX_SPHERE_MESH; i++)
-	{
-		// ワールドマトリクス設定
-		Matrix world, scale, rot, trans;
-		scale = Matrix::CreateScale(1.0f);
-		rot = Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
-		trans = Matrix::CreateTranslation(m_Point[i].x, m_Point[i].y, m_Point[i].z);
-		world = scale * rot * trans;
-		Renderer::SetWorldMatrix(&world);
+	//for (int i = 0; i < MAX_SPHERE_MESH; i++)
+	//{
+	//	// ワールドマトリクス設定
+	//	Matrix world, scale, rot, trans;
+	//	scale = Matrix::CreateScale(1.0f);
+	//	rot = Matrix::CreateFromYawPitchRoll(0, 0, 0);
+	//	trans = Matrix::CreateTranslation(m_Point[i].x, m_Point[i].y, m_Point[i].z);
+	//	world = scale * rot * trans;
+	//	Renderer::SetWorldMatrix(&world);
 
-		m_MeshRenderer[i]->Draw();
-	}	
+	//	m_MeshRenderer[i]->Draw();
+	//}	
 
 	//m_MeshRenderer->Draw();	
 }
@@ -303,7 +347,24 @@ void Player::Collision()
 					sphere->SetRelative((Takoyaki->GetPosition() - m_Position));
 					sphere->m_Hitobj = child;
 					sphere->m_hit = true;
-					m_Collider.push_back(sphere);					
+					m_Collider.push_back(sphere);	
+
+					//一番近い点の距離を延ばす
+					int no = 0;
+					float length = 1000;
+					for (int j = 0; j < MAX_SPHERE_MESH; j++)
+					{						
+						Vector3 len = Takoyaki->GetPosition() - m_Point[j];
+
+						//一番近い点を入れ替える
+						if (length > len.Length())
+						{
+							length = len.Length();
+							no = j;
+						}					
+					}
+
+					m_Distance[no] += 1.0f;
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();
@@ -387,12 +448,14 @@ void Player::ConInput()
 
 	//カメラの前向きベクトル
 	Vector3 forward = Vector3(0, 0, 0);	
+	Vector3 side = Vector3(0, 0, 0);	
 	if (cameraObj)
 	{
 		forward = cameraObj->GetForward();
+		side = cameraObj->GetSide();
 	}
 
-	if (Input::GetGamePad(BUTTON::LUP)  && Input::GetGamePad(BUTTON::RUP))
+	if (Input::GetGamePad(BUTTON::LUP))
 	{
 		Vector3 force = forward * m_Speed;
 		Vector3 forceRot = forward * m_RotSpeed;
@@ -405,13 +468,38 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 	}
-	if (Input::GetGamePad(BUTTON::LDOWN) && Input::GetGamePad(BUTTON::RDOWN))
+	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
 		Vector3 force = forward * -m_Speed;
 		Vector3 forceRot = forward * -m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.z = 0.0f;
 		forceRot.x = -m_RotSpeed;
+
+		body->AddForce(force, ForceMode::Force);
+		body->AddTorque(forceRot, ForceMode::Force);
+	}
+
+	if (Input::GetGamePad(BUTTON::LRIGHT))
+	{
+		Vector3 force = side * -m_Speed;
+		Vector3 forceRot = side * -m_RotSpeed;
+		forceRot.y = 0.0f;
+		forceRot.x = 0.0f;
+		forceRot.z = -m_RotSpeed;
+
+		//body->AddForceToPoint(force, Vector3(1.0f, 0.0f, 0.0f), ForceMode::Force);
+
+		body->AddForce(force, ForceMode::Force);
+		body->AddTorque(forceRot, ForceMode::Force);
+	}
+	if (Input::GetGamePad(BUTTON::LLEFT))
+	{
+		Vector3 force = side * m_Speed;
+		Vector3 forceRot = side * m_RotSpeed;
+		forceRot.y = 0.0f;
+		forceRot.x = 0.0f;
+		forceRot.z = m_RotSpeed;
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
@@ -425,11 +513,11 @@ void Player::ConInput()
 		m_Position.x += 0.1f;
 	}*/
 
-	if (Input::GetGamePad(BUTTON::RDOWN) && Input::GetGamePad(BUTTON::LUP))
+	if (Input::GetGamePad(BUTTON::RRIGHT))
 	{
 		m_Rotation.y += 0.05f;
 	}
-	if (Input::GetGamePad(BUTTON::RUP) && Input::GetGamePad(BUTTON::LDOWN))
+	if (Input::GetGamePad(BUTTON::RLEFT))
 	{
 		m_Rotation.y -= 0.05f;
 	}
