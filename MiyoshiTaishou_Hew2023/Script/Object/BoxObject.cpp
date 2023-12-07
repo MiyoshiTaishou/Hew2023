@@ -34,5 +34,5 @@ void BoxObject::Init()
 
 	BoxCollider* box = AddComponent<BoxCollider>();
 	box->Init();
-	box->SetColliderScale(absModelScale);
+	box->SetColliderScale(absModelScale * m_Scale);
 }

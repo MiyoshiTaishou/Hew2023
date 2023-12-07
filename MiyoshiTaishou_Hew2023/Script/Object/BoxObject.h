@@ -1,8 +1,8 @@
 #pragma once
-#include"StickObject.h"
+#include"gameObject.h"
 
 
-class BoxObject : public StickObject
+class BoxObject : public GameObject
 {
 public:
 

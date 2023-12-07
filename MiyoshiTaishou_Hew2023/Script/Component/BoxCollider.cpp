@@ -5,6 +5,8 @@
 
 #include"../ImGui/ImGuiManager.h"
 
+#include"../Object/gameObject.h"
+
 using namespace DirectX::SimpleMath;
 
 void BoxCollider::Init()
@@ -29,7 +31,10 @@ void BoxCollider::Update()
 	m_Info.fLengthY = m_ColliderScale.y;
 	m_Info.fLengthZ = m_ColliderScale.z;
 
-	Collider::Update();
+	m_ColliderPos = this->m_GameObject->GetPosition();
+	m_ColliderScale = this->m_GameObject->GetScale();
+
+	//Collider::Update();
 }
 
 void BoxCollider::Draw()
@@ -242,6 +247,15 @@ bool BoxCollider::CompareLength(const OBBInfo& pboxB, const DirectX::SimpleMath:
 	if (fDistance > fShadowA + fShadowB) {
 		return false;
 	}
+
+	return false;
+}
+
+bool BoxCollider::PointHit(const DirectX::SimpleMath::Vector3 point)
+{
+	return (point.x >= this->m_ColliderPos.x - this->m_ColliderScale.x / 2 && point.x <= this->m_ColliderPos.x + this->m_ColliderScale.x / 2) &&
+		(point.y >= this->m_ColliderPos.y - this->m_ColliderScale.y / 2 && point.y <= this->m_ColliderPos.y + this->m_ColliderScale.y / 2) &&
+		(point.z >= this->m_ColliderPos.z - this->m_ColliderScale.z / 2 && point.z <= this->m_ColliderPos.z + this->m_ColliderScale.z / 2);
 
 	return false;
 }

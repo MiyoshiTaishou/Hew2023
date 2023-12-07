@@ -49,8 +49,8 @@ void Manager::Init(Application* ap)
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
 	//SetScene<StageEditor>();
-	//SetScene<TitleScene>();
-	SetScene<GameScene>();
+	SetScene<TitleScene>();
+	//SetScene<GameScene>();
 	//SetScene<ResultScene>();
 	//SetScene<SlopeScene>();
 }
