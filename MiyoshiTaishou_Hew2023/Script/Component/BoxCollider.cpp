@@ -46,9 +46,9 @@ void BoxCollider::Draw()
 	float P1Top = this->m_ColliderPos.y + (this->m_ColliderScale.y / 2);
 	float P1Bottom = this->m_ColliderPos.y - (this->m_ColliderScale.y / 2);
 
-	ImGui::Begin("Collider");
-	ImGui::Text("Pos\nLeft %f\nRight %f\nFront %f\n Back %f",P1Left,P1Right,P1Front,P1Back);
-	ImGui::End();
+	//ImGui::Begin("Collider");
+	//ImGui::Text("Pos\nLeft %f\nRight %f\nFront %f\n Back %f",P1Left,P1Right,P1Front,P1Back);
+	//ImGui::End();
 }
 
 bool BoxCollider::Hit(const BoxCollider* _boxCol)

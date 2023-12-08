@@ -36,8 +36,7 @@ void TitleScene::Init()
 	BoxObject* box2 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
-	BoxObject* box5 = AddGameObject<BoxObject>(Layer1);
-
+	
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();

@@ -130,7 +130,7 @@ void BillBoardObject::Draw()
 
 	// マテリアル設定
 	Renderer::SetMaterial(m_SphereMt);
-	m_MeshRenderer->Draw();
+	//m_MeshRenderer->Draw();
 }
 
 void BillBoardObject::Update()
@@ -142,6 +142,7 @@ void BillBoardObject::Update()
 	//プレイヤーへのベクトルを計算
 	Vector3 dir = camera->GetPosition() - m_Position;
 	m_Rotation.y = atan2(dir.x, dir.z);
+	//角度がずれているので調整
 	m_Rotation.y -= 60.0f;
 
 	//高さを取得	
@@ -173,7 +174,7 @@ void BillBoardObject::Update()
 
 	//float Height = 0.0f;
 
-	if (Height != 0.0f)
+	if (Height != 0.0f + 5.0f)
 	{
 		//pos.y = Height;
 		m_Position.y = Height + 5;

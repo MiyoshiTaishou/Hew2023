@@ -10,7 +10,7 @@ private:
 	int m_Frame;
 	float m_BlendRate;
 	//‚½‚±Ä‚«‚Ì—v‹”
-	int m_Requests = 5;
+	int m_Requests = 8;
 	
 public:
 

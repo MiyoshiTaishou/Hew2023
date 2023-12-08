@@ -15,6 +15,7 @@ public:
 
 	void SetRadius(float _radius);
 
+	//“–‚½‚è”»’è‚ğ‰Â‹‰»
 	bool m_Invisble = true;
 
 private:
@@ -23,6 +24,7 @@ private:
 
 	float m_Radius;//”¼Œa	
 
+	//‰Â‹‰»—p‚ÌƒƒbƒVƒ…
 	CMeshRenderer* m_MeshRenderer;
 	CSphereMesh* m_Sphere;
 	MATERIAL m_SphereMt;

@@ -43,6 +43,7 @@ void GameScene::Init()
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
 	bill->AddCount(cus->GetRequests());
 
+
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	AddGameObject<Field>(Layer1);
 
@@ -50,7 +51,7 @@ void GameScene::Init()
 	
 	AddGameObject<Camera>(Layer0);
 
-	Score* score = AddGameObject<Score>(Layer3);	
+	//Score* score = AddGameObject<Score>(Layer3);	
 
 	int idxZ = 1;
 	int idxX = 1;
@@ -117,7 +118,7 @@ void GameScene::Update()
 		if (col[i]->Hit(cus->GetComponent<SphereCollider>()))
 		{
 			//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
-			if (GetGameObject<Score>()->GetCount() >= cus->GetRequests())
+			if (Manager::GetCount() >= cus->GetRequests())
 			{
 				Manager::SetScene<ResultScene>();
 				return;

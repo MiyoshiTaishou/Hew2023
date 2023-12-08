@@ -46,8 +46,8 @@ void Player::Init()
 	this->m_Position.y = 0.0f;
 
 	//コンポーネント
-	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
+	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	
@@ -67,9 +67,7 @@ void Player::Init()
 	SphereCollider* sphere = AddComponent<SphereCollider>();	
 	sphere->SetRadius(2.0f);	
 
-	m_Collider.push_back(sphere);
-
-	
+	m_Collider.push_back(sphere);	
 
 	//左端
 	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2), m_Position.y, m_Position.z);
@@ -246,64 +244,57 @@ void Player::Update()
 
 void Player::Draw()
 {
-	//プレイヤーの情報を表示する
-	ImGui::Begin("Player");
-	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
-	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
-	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
-	ImGui::Text("PlayerState\n %d", this->state);
-	//移動速度
-	ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
-	ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
+	////プレイヤーの情報を表示する
+	//ImGui::Begin("Player");
+	//ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
+	//ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
+	//ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
+	//ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	//ImGui::Text("PlayerState\n %d", this->state);
+	////移動速度
+	//ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
+	//ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
 
-	//回転
-	ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
-	ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
-	ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
+	////回転
+	//ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
+	//ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
+	//ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
 
-	//サイズ
-	ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
-	ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
-	ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
+	////サイズ
+	//ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
+	//ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
+	//ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
 
-	//サイズ
+	////サイズ
 
-	for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
-	{
-		ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
-	}
+	//for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
+	//{
+	//	ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
+	//}	
+	//
+	//if (ImGui::Button("Resset"))
+	//{
+	//	m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
+	//	torque = Vector3(0.0f, 0.0f, 0.0f);
+	//	m_Scale = Vector3(1.0f, 1.0f, 1.0f);
+	//}
 
-	/*ImGui::SliderFloat("Left##", &m_Distance[0], 0.0f, 10.0f);
-	ImGui::SliderFloat("Right##", &m_Distance[1], 0.0f, 10.0f);
-	ImGui::SliderFloat("Down##", &m_Distance[2], 0.0f, 10.0f);
-	ImGui::SliderFloat("Up##", &m_Distance[3], 0.0f, 10.0f);
-	ImGui::SliderFloat("Front##", &m_Distance[4], 0.0f, 10.0f);
-	ImGui::SliderFloat("Back##", &m_Distance[5], 0.0f, 10.0f);*/
-	
-	if (ImGui::Button("Resset"))
-	{
-		m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
-		torque = Vector3(0.0f, 0.0f, 0.0f);
-		m_Scale = Vector3(1.0f, 1.0f, 1.0f);
-	}
+	//if (ImGui::Button("SetTensor"))
+	//{
+	//	RigidBody* body = GetComponent<RigidBody>();
 
-	if (ImGui::Button("SetTensor"))
-	{
-		RigidBody* body = GetComponent<RigidBody>();
+	//	//当たり判定の大きさをオブジェクトに合わせる
+	//	Vector3 absModelScale;
+	//	absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
+	//	absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
+	//	absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
 
-		//当たり判定の大きさをオブジェクトに合わせる
-		Vector3 absModelScale;
-		absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
-		absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
-		absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
+	//	Vector3 absScale = absModelScale * m_Scale;
 
-		Vector3 absScale = absModelScale * m_Scale;
+	//	body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+	//}
 
-		body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
-	}
-
-	ImGui::End();	
+	//ImGui::End();	
 
 	//for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	//{
@@ -364,15 +355,15 @@ void Player::Collision()
 						}					
 					}
 
-					m_Distance[no] += 1.0f;
+					m_Distance[no] += 2.0f;
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();
 					Takoyaki->GetComponent<SphereCollider>()->SetCanHit(false);
 
 					//スコア加算
-					Score* score = scene->GetGameObject<Score>();
-					score->AddCount(1);
+					//Score* score = scene->GetGameObject<Score>();
+					//score->AddCount(1);
 					Manager::AddCount(1);					
 
 					state = HIT;
@@ -504,14 +495,6 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 	}
-	/*if (Input::GetGamePad(BUTTON::LLEFT))
-	{
-		m_Position.x -= 0.1f;
-	}
-	if (Input::GetGamePad(BUTTON::LRIGHT))
-	{
-		m_Position.x += 0.1f;
-	}*/
 
 	if (Input::GetGamePad(BUTTON::RRIGHT))
 	{
