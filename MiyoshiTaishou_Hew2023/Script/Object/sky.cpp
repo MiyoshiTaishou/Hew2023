@@ -50,10 +50,10 @@ void Sky::Update()
 
 void Sky::Draw()
 {
-	ImGui::Begin("Sky Bloom");
-	ImGui::SliderFloat("power", &bloom.power, 0.0f, 5.0f);
-	ImGui::SliderFloat("bloom", &bloom.bloom, 0.0f, 1.0f);
-	ImGui::End();
+	//ImGui::Begin("Sky Bloom");
+	//ImGui::SliderFloat("power", &bloom.power, 0.0f, 5.0f);
+	//ImGui::SliderFloat("bloom", &bloom.bloom, 0.0f, 1.0f);
+	//ImGui::End();
 
 	Renderer::SetBloom(bloom);
 }

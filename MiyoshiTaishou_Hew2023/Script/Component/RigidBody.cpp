@@ -55,7 +55,8 @@ void RigidBody::Update()
 
 	//回転処理
 	//Rotをマトリックスに変換
-	Matrix rotMatrix = Matrix::CreateFromYawPitchRoll(m_GameObject->GetRotation().y, m_GameObject->GetRotation().x, m_GameObject->GetRotation().z);
+	Vector3 Rot = m_GameObject->GetRotation();
+	Matrix rotMatrix = Matrix::CreateFromYawPitchRoll(Rot.y, Rot.x, Rot.z);
 
 	//回転後の慣性テンソルを求める
 	Matrix currentInetiaTensor = rotMatrix.Transpose() * m_InetiaTensor * rotMatrix;
@@ -72,6 +73,7 @@ void RigidBody::Update()
 	//角速度を求める
 	m_AngularVelocity = angularAccel + angularAccel * deltaTime;
 
+	//フリーズしていたら値を0にする
 	if (m_Frize.XRot)
 	{
 		m_AngularVelocity.x = 0.0f;
@@ -88,46 +90,25 @@ void RigidBody::Update()
 	// 回転を更新
 	Vector3 rot = m_GameObject->GetRotation();
 	rot += m_AngularVelocity * deltaTime;
-	m_GameObject->SetRotation(rot);
-
-	//Vector3 frictionTorque = -m_AngularVelocity * m_AngularDrag;
-	//Vector3 accelerationTorque = m_Torque / m_Mass;//加速度を計算
-	//m_AngularVelocity = m_AngularVelocity + (accelerationTorque - frictionTorque) * deltaTime; // 速度を更新
-	//
-	////回転更新
-	//Vector3 rot = m_GameObject->GetRotation();
-
-	////XZの向きから回転を決める
-	//float absX = fabsf(m_AngularVelocity.x);
-	//float absZ = fabsf(m_AngularVelocity.z);
-	//float addXZ = absX + absZ;		
-
-	////後ろに回っているなら回転の向きを逆にする
-	//if (m_BackRoll)
-	//{
-	//	addXZ *= -1;
-	//}
-
-	//rot.x += addXZ * deltaTime;
-
-	//m_GameObject->SetRotation(m_AngularVelocity);
+	m_GameObject->SetRotation(rot);	
 
 	m_Torque = Vector3(0.f, 0.f, 0.f); // 放置すると一生加速するので0に戻す
 }
 
 void RigidBody::Draw()
 {
-	//値確認用
-	ImGui::Begin("Rigidbody");
-	ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
-	ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
-	ImGui::End();
+	////値確認用
+	//ImGui::Begin("Rigidbody");
+	//ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
+	//ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
+	//ImGui::End();
 }
 
 void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)
 {	
 	const float deltaTime = 1.f / 60.f; // 経過時間
 
+	//力の加え方
 	switch (forceMode)
 	{
 	case ForceMode::Force:
@@ -200,6 +181,7 @@ void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceM
 {
 	const float deltaTime = 1.f / 60.f; // 経過時間。固定フレームレートがよい。
 
+	//回転の力の加え方
 	switch (forceMode)
 	{
 	case ForceMode::Force:

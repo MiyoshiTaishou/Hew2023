@@ -105,11 +105,11 @@ void Field::Draw()
 	//レンダラで描画
 	m_renderer.Draw();
 
-	ImGui::Begin("Debug");
-	ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
-	ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
-	ImGui::Text("Dis %f", dis);
-	ImGui::End();
+	//ImGui::Begin("Debug");
+	//ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
+	//ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
+	//ImGui::Text("Dis %f", dis);
+	//ImGui::End();
 
 	// 入力レイアウト設定
 //	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);

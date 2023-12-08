@@ -31,7 +31,7 @@ void Customer::Init()
 	m_Model->LoadAnimation("../asset\\model\\Akai_ShakeHand.fbx", "Run");
 
 	SphereCollider* sphere = AddComponent<SphereCollider>();
-	sphere->SetRadius(4.0f);
+	sphere->SetRadius(5.0f);
 
 	m_Scale = Vector3(0.1f, 0.1f, 0.1f);
 	m_Position.z = 10.0f;
@@ -105,12 +105,12 @@ void Customer::Update()
 
 void Customer::Draw()
 {
-	ImGui::Begin("Customer");
-	//サイズ
-	ImGui::SliderFloat("RotX##", &m_Position.x, 0.0f, 100.0f);
-	ImGui::SliderFloat("RotY##", &m_Position.y, 0.0f, 100.0f);
-	ImGui::SliderFloat("RotZ##", &m_Position.z, 0.0f, 100.0f);
-	ImGui::End();
+	//ImGui::Begin("Customer");
+	////サイズ
+	//ImGui::SliderFloat("RotX##", &m_Position.x, 0.0f, 100.0f);
+	//ImGui::SliderFloat("RotY##", &m_Position.y, 0.0f, 100.0f);
+	//ImGui::SliderFloat("RotZ##", &m_Position.z, 0.0f, 100.0f);
+	//ImGui::End();
 }
 
 void Customer::PreDraw()
