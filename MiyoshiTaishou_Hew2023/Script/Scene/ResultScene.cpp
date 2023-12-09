@@ -32,11 +32,11 @@ void ResultScene::Init()
 		"../asset\\texture\\result.jpg");
 
 	Score* score = AddGameObject<Score>(Layer3);
-	score->Init(400, 210, 100, 100);
+	score->Init(400, 230, 50, 50);
 	score->AddCount(Manager::GetCount());
 
 	Score* scoreRate = AddGameObject<Score>(Layer3);
-	scoreRate->Init(400, 410, 100, 100);
+	scoreRate->Init(400, 480, 40, 40);
 
 	//‚Ç‚Ì’ö“x‚Æ‚ê‚½‚©
 	float rate = ((float)Manager::GetCount() /  (float)MAX_SPHERE);

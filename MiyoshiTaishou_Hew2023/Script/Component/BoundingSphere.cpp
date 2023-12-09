@@ -1,3 +1,5 @@
+#define NOMINMAX
+
 #include"BoundingSphere.h"
 #include"../Render/modelRenderer.h"
 

@@ -41,4 +41,6 @@ public:
     {
         return m_ViewMatrix;
     }
+
+    GameObject* m_TargetObj;
 };

@@ -18,7 +18,7 @@ using namespace DirectX::SimpleMath;
 
 void SlopeScene::Init()
 {
-	AddGameObject<DebugCamera>(Layer0);
+	DebugCamera* camera = AddGameObject<DebugCamera>(Layer0);
 
 	AddGameObject<Field>(Layer1);
 
@@ -26,6 +26,8 @@ void SlopeScene::Init()
 	RigidBody* body = sphere->AddComponent<RigidBody>();
 	body->SetGravity(true);
 	sphere->AddComponent<SphereCollider>()->SetRadius(2.0f);
+
+	camera->m_TargetObj = sphere;
 	/*sphere->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\unlitTexturePS.cso");*/
 }

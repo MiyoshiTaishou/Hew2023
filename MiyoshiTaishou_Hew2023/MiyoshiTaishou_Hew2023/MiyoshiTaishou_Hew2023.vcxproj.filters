@@ -198,8 +198,11 @@
     <ClCompile Include="..\Script\Scene\SlopeScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Scene\TensorScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="..\Script\Object\Sphere.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -391,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\Sphere.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Scene\TensorScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

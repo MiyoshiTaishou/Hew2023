@@ -12,32 +12,37 @@ using namespace DirectX::SimpleMath;
 
 void DebugCamera::Init()
 {
-	m_Position = Vector3(0.0f, 10.0f, -50.0f);
-	m_Target = Vector3(0.0f, 0.0f, 0.0f);	
+	m_Position = Vector3(0.0f, 60.0f, -50.0f);
+	m_Target = Vector3(0.0f, 20.0f, 0.0f);	
 }
 
 void DebugCamera::Update()
 {	
-	m_Foward = this->GetForward();		
+	m_Foward = this->GetForward();
+
+	m_Position = m_TargetObj->GetPosition() - m_Foward * 50.0f;
+	this->m_Target = m_TargetObj->GetPosition() + m_Foward * 3.0f;
+
+	// 緩やかカメラ処理
+	// 1フレーム前のカメラ位置保存変数
+	static Vector3 lastCamEye;
+	float blendFactor = 0.5; // 平均化の重み
+	m_Position.x = lastCamEye.x * blendFactor
+		+ m_Position.x * (1.0f - blendFactor);
+	m_Position.y = lastCamEye.y * blendFactor
+		+ m_Position.y * (1.0f - blendFactor);
+	m_Position.z = lastCamEye.z * blendFactor
+		+ m_Position.z * (1.0f - blendFactor);
+
+	lastCamEye = m_Position;
+
+	this->m_Position.y += 30.0f;
+
+	this->m_Rotation.y = m_TargetObj->GetRotation().y;
 }
 
 void DebugCamera::Draw()
 {
-	ImGui::Begin("Camera");
-
-	ImGui::SliderFloat("posX", &this->m_Position.x, -100.0f, 100.0f);
-	ImGui::SliderFloat("posY", &this->m_Position.y, -100.0f, 100.0f);
-	ImGui::SliderFloat("posZ", &this->m_Position.z, -100.0f, 100.0f);
-
-	ImGui::SliderFloat("targetX", &this->m_Target.x, -100.0f, 100.0f);
-	ImGui::SliderFloat("targetY", &this->m_Target.y, -100.0f, 100.0f);
-	ImGui::SliderFloat("targetZ", &this->m_Target.z, -100.0f, 100.0f);
-
-	ImGui::SliderFloat("rotX", &this->m_Rotation.x, -100.0f, 100.0f);
-	ImGui::SliderFloat("rotY", &this->m_Rotation.y, -100.0f, 100.0f);
-	ImGui::SliderFloat("rotZ", &this->m_Rotation.z, -100.0f, 100.0f);
-
-	ImGui::End();
 	// ビュー変換後列作成
 	Vector3 up = Vector3(0.0f, 1.0f, 0.0f);
 	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										// 左手系にした　20230511 by suzuki.tomoki
