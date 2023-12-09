@@ -16,9 +16,6 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_ConcentrationShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_DepthWrite.cso</FullPath>
-    </ContentFile>
-    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_DistanceAlhpa.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -29,6 +26,9 @@
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_OrangeScale.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_OutLine.cso</FullPath>
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_PolarCoordinates.cso</FullPath>
@@ -49,6 +49,9 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\unlitTextureVS.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\vertexLightingOneSkinVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\vertexLightingPS.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -61,10 +64,19 @@
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_LightingOneSkin.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_Object.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_OutLine.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_Rotation.cso</FullPath>
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\VS_Shadow.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Release\PS_DepthWrite.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
