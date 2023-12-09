@@ -96,7 +96,7 @@ void StickObject::Update()
 	{
 		float Height = filed->GetFieldHeightBySqno(m_Position, *this);
 
-		m_Position.y = Height;
+		m_Position.y = Height + 2.0f;
 	}	
 }
 

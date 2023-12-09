@@ -134,9 +134,11 @@ void Shadow::Update()
 		groundHeight = filed->GetFieldHeight(m_Position) + 0.3f;
 	}
 
-	m_Position = m_GameObject->GetPosition();
-	m_Position.y = groundHeight;
-
+	if (groundHeight != 0.0f + 1.0f)
+	{
+		m_Position = m_GameObject->GetPosition();
+		m_Position.y = groundHeight;
+	}	
 }
 
 

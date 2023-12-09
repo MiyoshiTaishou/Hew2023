@@ -355,15 +355,15 @@ void Player::Collision()
 						}					
 					}
 
-					m_Distance[no] += 2.0f;
+					m_Distance[no] += 1.5f;
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();
 					Takoyaki->GetComponent<SphereCollider>()->SetCanHit(false);
 
 					//スコア加算
-					//Score* score = scene->GetGameObject<Score>();
-					//score->AddCount(1);
+					Score* score = scene->GetGameObject<Score>();
+					score->AddCount(1);
 					Manager::AddCount(1);					
 
 					state = HIT;

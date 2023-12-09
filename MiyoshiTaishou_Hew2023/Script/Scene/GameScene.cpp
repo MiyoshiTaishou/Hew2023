@@ -51,7 +51,7 @@ void GameScene::Init()
 	
 	AddGameObject<Camera>(Layer0);
 
-	//Score* score = AddGameObject<Score>(Layer3);	
+	Score* score = AddGameObject<Score>(Layer3);	
 
 	int idxZ = 1;
 	int idxX = 1;

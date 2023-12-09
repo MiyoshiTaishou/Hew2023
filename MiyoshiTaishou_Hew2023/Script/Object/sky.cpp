@@ -15,8 +15,8 @@ void Sky::Init()
 {
 	m_Scale = Vector3(1000.0f, 1000.0f, 1000.0f);
 
-	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_PolarCoordinates.cso");
-	//AddComponent<Shader>()->Load("shader\\unlitTextureVS.cso", "shader\\PS_OrangeScale.cso");
+	//AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_PolarCoordinates.cso");
+	//AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_OrangeScale.cso");
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_Rotation.cso", "shader\\PS_BloomBlur.cso");
 	//AddComponent<Shader>()->Load("shader\\VS_Scale.cso", "shader\\PS_Circle.cso");
