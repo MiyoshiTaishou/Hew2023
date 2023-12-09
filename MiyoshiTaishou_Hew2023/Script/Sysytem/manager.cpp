@@ -49,8 +49,8 @@ void Manager::Init(Application* ap)
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
 	//SetScene<StageEditor>();
-	//SetScene<TitleScene>();
-	SetScene<GameScene>();
+	SetScene<TitleScene>();
+	//SetScene<GameScene>();
 	//SetScene<ResultScene>();
 	//SetScene<SlopeScene>();
 }
@@ -115,6 +115,9 @@ void Manager::Draw(uint64_t d)
 
 		if (ImGui::Button("StageEditor"))
 			SetScene<StageEditor>();
+
+		if (ImGui::Button("SlopScene"))
+			SetScene<SlopeScene>();
 
 		ImGui::TreePop();
 	}

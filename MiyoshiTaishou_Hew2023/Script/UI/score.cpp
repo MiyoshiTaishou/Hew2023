@@ -66,10 +66,10 @@ void Score::Init()
 	assert(m_Texture);
 
 	//値を保存するのに使用していないポジションとスケールを使う
-	m_Position.x = 0;
+	m_Position.x = 120;
 	m_Position.y = 0;
-	m_Scale.x = 200;
-	m_Scale.y = 200;
+	m_Scale.x = 100;
+	m_Scale.y = 100;
 
 	m_Count = 0;
 }
