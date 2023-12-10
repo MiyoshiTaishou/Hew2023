@@ -13,6 +13,7 @@ enum PLAYERSTATE
 class SphereCollider;
 class CMeshRenderer;
 class CSphereMesh;
+class Particle;
 
 class Player : public GameObject
 {
@@ -51,4 +52,6 @@ private:
 	CSphereMesh* m_Sphere[MAX_SPHERE_MESH];
 
 	float m_Distance[MAX_SPHERE_MESH];
+
+	Particle* m_Particle;
 };

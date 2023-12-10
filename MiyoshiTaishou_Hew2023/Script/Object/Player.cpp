@@ -31,6 +31,9 @@
 #include"TakoyakiObject.h"
 #include"Sphere.h"
 
+//パーティクル
+#include"../Particle/Particle.h"
+
 //UI
 #include"../UI/score.h"
 
@@ -137,6 +140,8 @@ void Player::Init()
 	}	
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+
+	m_Particle = new Particle();
 }
 
 void Player::Uninit()
@@ -146,6 +151,8 @@ void Player::Uninit()
 		delete m_Sphere[i];
 		delete m_MeshRenderer[i];
 	}
+
+	m_Particle->Uninit();
 }
 
 void Player::Update()
@@ -154,6 +161,8 @@ void Player::Update()
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
 	}
+
+	m_Particle->Update();
 
 	GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
 
@@ -310,6 +319,8 @@ void Player::Draw()
 	//}	
 
 	//m_MeshRenderer->Draw();	
+
+	m_Particle->Draw();
 }
 
 void Player::Collision()
@@ -458,6 +469,8 @@ void Player::ConInput()
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
+
+		m_Particle->Create(m_Position);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
