@@ -178,6 +178,8 @@
     <ClCompile Include="..\Script\Object\Sphere.cpp" />
     <ClCompile Include="..\Script\Object\StickObject.cpp" />
     <ClCompile Include="..\Script\Object\TakoyakiObject.cpp" />
+    <ClCompile Include="..\Script\Particle\Particle.cpp" />
+    <ClCompile Include="..\Script\Particle\ParticleObject.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
     <ClCompile Include="..\Script\Render\renderer.cpp" />
     <ClCompile Include="..\Script\Scene\GameScene.cpp" />
@@ -239,6 +241,8 @@
     <ClInclude Include="..\Script\Object\Sphere.h" />
     <ClInclude Include="..\Script\Object\StickObject.h" />
     <ClInclude Include="..\Script\Object\TakoyakiObject.h" />
+    <ClInclude Include="..\Script\Particle\Particle.h" />
+    <ClInclude Include="..\Script\Particle\ParticleObject.h" />
     <ClInclude Include="..\Script\Render\CIndexBuffer.h" />
     <ClInclude Include="..\Script\Render\CVertexBuffer.h" />
     <ClInclude Include="..\Script\Render\modelRenderer.h" />
@@ -354,6 +358,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_WhiteAlpha.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="..\shader\unlitTexturePS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
