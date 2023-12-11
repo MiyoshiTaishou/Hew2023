@@ -470,7 +470,7 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 
-		m_Particle->Create(m_Position);
+		//m_Particle->Create(m_Position);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{

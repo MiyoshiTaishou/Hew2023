@@ -85,7 +85,7 @@ void ParticleObject::Draw()
 	// ƒ}ƒeƒŠƒAƒ‹İ’è
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, m_Alpha);
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.5);
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
