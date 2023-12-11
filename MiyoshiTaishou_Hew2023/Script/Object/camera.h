@@ -42,4 +42,10 @@ public:
     {
         return m_ViewMatrix;
     }
+
+    float theta = 30; // …•½•ûŒü‚ÌŠp“x
+    float phi = 30; // ‚’¼•ûŒü‚ÌŠp“x
+
+    DirectX::SimpleMath::Vector3 camForward;
+    DirectX::SimpleMath::Vector3 camRight;
 };

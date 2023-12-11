@@ -454,13 +454,15 @@ void Player::ConInput()
 	if (cameraObj)
 	{
 		forward = cameraObj->GetForward();
+		//forward *= -1;
+		forward.y = 0.0f;
 		side = cameraObj->GetSide();
 	}
 
 	if (Input::GetGamePad(BUTTON::LUP))
 	{
-		Vector3 force = forward * m_Speed;
-		Vector3 forceRot = forward * m_RotSpeed;
+		Vector3 force = cameraObj->camForward * m_Speed;
+		Vector3 forceRot = cameraObj->camForward * m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.z = 0.0f;
 		forceRot.x = m_RotSpeed;
@@ -474,11 +476,11 @@ void Player::ConInput()
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
-		Vector3 force = forward * -m_Speed;
-		Vector3 forceRot = forward * -m_RotSpeed;
+		Vector3 force = cameraObj->camForward * -m_Speed;
+		Vector3 forceRot = cameraObj->camForward * -m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.z = 0.0f;
-		forceRot.x = -m_RotSpeed;
+		forceRot.x = m_RotSpeed;
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
@@ -486,11 +488,11 @@ void Player::ConInput()
 
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{
-		Vector3 force = side * -m_Speed;
-		Vector3 forceRot = side * -m_RotSpeed;
+		Vector3 force = cameraObj->camRight * -m_Speed;
+		Vector3 forceRot = cameraObj->camRight * -m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.x = 0.0f;
-		forceRot.z = -m_RotSpeed;
+		forceRot.z = -m_RotSpeed;		
 
 		//body->AddForceToPoint(force, Vector3(1.0f, 0.0f, 0.0f), ForceMode::Force);
 
@@ -499,8 +501,8 @@ void Player::ConInput()
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{
-		Vector3 force = side * m_Speed;
-		Vector3 forceRot = side * m_RotSpeed;
+		Vector3 force = cameraObj->camRight * m_Speed;
+		Vector3 forceRot = cameraObj->camRight * m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.x = 0.0f;
 		forceRot.z = m_RotSpeed;
@@ -511,11 +513,13 @@ void Player::ConInput()
 
 	if (Input::GetGamePad(BUTTON::RRIGHT))
 	{
-		m_Rotation.y += 0.05f;
+		//m_Rotation.y += 0.05f;
+		cameraObj->theta -= 0.1f;
 	}
 	if (Input::GetGamePad(BUTTON::RLEFT))
 	{
-		m_Rotation.y -= 0.05f;
+		//m_Rotation.y -= 0.05f;
+		cameraObj->theta += 0.1f;
 	}
 
 	if (Input::GetKeyTrigger('J'))

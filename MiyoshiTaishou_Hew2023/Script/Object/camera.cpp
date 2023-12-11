@@ -20,6 +20,7 @@ void Camera::Init()
 
 	Scene* nowscene = Manager::GetScene();
 	Player* playerobj = nowscene->GetGameObject<Player>();
+
 	m_Foward = playerobj->GetForward();
 }
 
@@ -28,10 +29,29 @@ void Camera::Update()
 	Scene* nowscene = Manager::GetScene();
 	Player* playerobj = nowscene->GetGameObject<Player>();
 
-	m_Foward = this->GetForward();
+	//カメラとプレイヤーを結ぶベクトル
+	camForward = playerobj->GetPosition() - m_Position;
+	camForward.Normalize();
 
-	m_Position = playerobj->GetPosition() - m_Foward * 50.0f;
-	this->m_Target = playerobj->GetPosition() + m_Foward * 3.0f;
+	// ベクトルの横向き版を作成するために、Y軸とZ軸を入れ替えて符号を反転させることで90度回転させます
+	camRight = Vector3(-camForward.z, 0.0f, camForward.x); // Y軸とZ軸を入れ替えてX軸を反転させる
+	camRight.Normalize();
+
+	// 球座標系でのカメラ位置を更新するためのパラメータ
+	float radius = 50.0f; // カメラの距離
+
+
+	// 球座標系からデカルト座標系へ変換してカメラ位置を計算
+	Vector3 cameraPos;
+	cameraPos.x = playerobj->GetPosition().x + radius * sin(phi) * cos(theta);
+	cameraPos.y = playerobj->GetPosition().y + radius * cos(phi);
+	cameraPos.z = playerobj->GetPosition().z + radius * sin(phi) * sin(theta);
+
+	//m_Foward = this->GetForward();
+
+	//m_Position = playerobj->GetPosition() - m_Foward * 50.0f;
+	m_Position = cameraPos;
+	this->m_Target = playerobj->GetPosition() /*+ m_Foward * 3.0f*/;
 
 	// 緩やかカメラ処理
 	// 1フレーム前のカメラ位置保存変数
@@ -48,7 +68,7 @@ void Camera::Update()
 
 	this->m_Position.y += 30.0f;
 
-	this->m_Rotation.y = playerobj->GetRotation().y;	
+	//this->m_Rotation.y = playerobj->GetRotation().y;	
 
 	//高さを取得	
 	Field* filed = nowscene->GetGameObject<Field>();
@@ -108,6 +128,11 @@ void Camera::Draw()
 //	projectionMatrix = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearPlane, farPlane);
 
 	Renderer::SetProjectionMatrix(&projectionMatrix);
+
+	ImGui::Begin("Camera");
+	ImGui::Text("%f,%f,%f", camForward.x, camForward.y, camForward.z);
+	ImGui::Text("%f,%f,%f", camRight.x, camRight.y, camRight.z);
+	ImGui::End();
 }
 
 void Camera::SetTarget(DirectX::SimpleMath::Vector3 target)

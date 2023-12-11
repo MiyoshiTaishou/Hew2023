@@ -4,6 +4,11 @@
 
 #include"../ImGui/ImGuiManager.h"
 
+#include"../Sysytem/manager.h"
+#include"../Scene/scene.h"
+
+#include"../Object/camera.h"
+
 using namespace DirectX::SimpleMath;
 
 void RigidBody::Init()
@@ -51,10 +56,11 @@ void RigidBody::Update()
 	//座標更新
 	Vector3 pos = m_GameObject->GetPosition();	
 	pos += m_Velocity * deltaTime;
-	m_GameObject->SetPosition(pos);	
+	m_GameObject->SetPosition(pos);		
 
 	//回転処理
 	//Rotをマトリックスに変換
+
 	Vector3 Rot = m_GameObject->GetRotation();
 	Matrix rotMatrix = Matrix::CreateFromYawPitchRoll(Rot.y, Rot.x, Rot.z);
 
