@@ -52,6 +52,9 @@ public:
 	//‘¬“x
 	void SetVelocity(DirectX::SimpleMath::Vector3 _vel);
 
+	//‰ñ“]‘¬“x
+	DirectX::SimpleMath::Vector3 GetRotVelocity();
+
 	//Ž²‚ÌŒÅ’è
 	void SetFreeze(FrizeNum freez, bool _b);
 

@@ -142,6 +142,8 @@ void Player::Init()
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
 	m_Particle = new Particle();
+
+	m_Rotmatrix = Matrix::Identity;
 }
 
 void Player::Uninit()
@@ -232,7 +234,7 @@ void Player::Update()
 		point -= m_Position;
 
 		// ポイントを行列で回転させる
-		Matrix rotationMatrix = this->GetRotMatrix();
+		Matrix rotationMatrix = m_Rotmatrix;
 		Vector3 rotatedVector;
 		rotatedVector.x = rotationMatrix._11 * point.x + rotationMatrix._12 * point.y + rotationMatrix._13 * point.z;
 		rotatedVector.y = rotationMatrix._21 * point.x + rotationMatrix._22 * point.y + rotationMatrix._23 * point.z;
@@ -253,70 +255,71 @@ void Player::Update()
 
 void Player::Draw()
 {
-	////プレイヤーの情報を表示する
-	//ImGui::Begin("Player");
-	//ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
-	//ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
-	//ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	//ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
-	//ImGui::Text("PlayerState\n %d", this->state);
-	////移動速度
-	//ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
-	//ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
+	//プレイヤーの情報を表示する
+	ImGui::Begin("Player");
+	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
+	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
+	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	ImGui::Text("PlayerState\n %d", this->state);
+	//移動速度
+	ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
+	ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
 
-	////回転
-	//ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
-	//ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
-	//ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
+	//回転
+	ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
 
-	////サイズ
-	//ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
+	//サイズ
+	ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
 
-	////サイズ
+	//サイズ
 
-	//for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
-	//{
-	//	ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
-	//}	
-	//
-	//if (ImGui::Button("Resset"))
-	//{
-	//	m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
-	//	torque = Vector3(0.0f, 0.0f, 0.0f);
-	//	m_Scale = Vector3(1.0f, 1.0f, 1.0f);
-	//}
+	for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
+	{
+		ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
+	}	
+	
+	if (ImGui::Button("Resset"))
+	{
+		m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
+		torque = Vector3(0.0f, 0.0f, 0.0f);
+		m_Scale = Vector3(1.0f, 1.0f, 1.0f);
+	}
 
-	//if (ImGui::Button("SetTensor"))
-	//{
-	//	RigidBody* body = GetComponent<RigidBody>();
+	if (ImGui::Button("SetTensor"))
+	{
+		RigidBody* body = GetComponent<RigidBody>();
 
-	//	//当たり判定の大きさをオブジェクトに合わせる
-	//	Vector3 absModelScale;
-	//	absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
-	//	absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
-	//	absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
+		//当たり判定の大きさをオブジェクトに合わせる
+		Vector3 absModelScale;
+		absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
+		absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
+		absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
 
-	//	Vector3 absScale = absModelScale * m_Scale;
+		Vector3 absScale = absModelScale * m_Scale;
 
-	//	body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
-	//}
+		body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+	}
 
-	//ImGui::End();	
+	ImGui::End();	
 
-	//for (int i = 0; i < MAX_SPHERE_MESH; i++)
-	//{
-	//	// ワールドマトリクス設定
-	//	Matrix world, scale, rot, trans;
-	//	scale = Matrix::CreateScale(1.0f);
-	//	rot = Matrix::CreateFromYawPitchRoll(0, 0, 0);
-	//	trans = Matrix::CreateTranslation(m_Point[i].x, m_Point[i].y, m_Point[i].z);
-	//	world = scale * rot * trans;
-	//	Renderer::SetWorldMatrix(&world);
+	for (int i = 0; i < MAX_SPHERE_MESH; i++)
+	{
+		// ワールドマトリクス設定
+		Matrix world, scale, rot, trans;
+		scale = Matrix::CreateScale(1.0);
+		rot = Matrix::CreateFromYawPitchRoll(0, 0, 0);
+		//rot = m_Rotmatrix;
+		trans = Matrix::CreateTranslation(m_Point[i].x, m_Point[i].y, m_Point[i].z);
+		world = scale * rot * trans;
+		Renderer::SetWorldMatrix(&world);
 
-	//	m_MeshRenderer[i]->Draw();
-	//}	
+		m_MeshRenderer[i]->Draw();
+	}	
 
 	//m_MeshRenderer->Draw();	
 
@@ -460,7 +463,38 @@ void Player::ConInput()
 	}
 
 	if (Input::GetGamePad(BUTTON::LUP))
-	{		
+	{	
+		// Y軸ベクトル
+		Vector3 yAxis = Vector3(0.0f, 1.0f, 0.0f);
+		Vector3 zAxis = cameraObj->camForward;
+
+		Vector3 right = yAxis.Cross(zAxis); // カメラの右向きベクトルを計算		
+		right.Normalize();
+
+		float dot = yAxis.Dot(zAxis);
+
+		Vector3 axis = right;
+		float angle = atan2f(right.y, dot);
+
+		Quaternion xRotQtr = Quaternion::CreateFromAxisAngle(axis, m_RotSpeed);
+
+		m_RotSpeed += 0.1f;
+
+		//// Y軸とZ軸のクォータニオンを作成
+		//Quaternion yRotationQuaternion = Quaternion::CreateFromAxisAngle(yAxis, m_RotSpeed);
+		//Quaternion zRotationQuaternion = Quaternion::CreateFromAxisAngle(Vector3::UnitZ, acos(zAxis.Dot(Vector3::UnitY)));
+
+		//// Y軸回転後のZ軸の回転を求める
+		//Quaternion rotatedZ = zRotationQuaternion * yRotationQuaternion;
+
+		//// 累積回転に新たな回転を追加する
+		//accumulatedRotation *= rotatedZ;
+
+		// クォータニオンを行列に変換
+		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
+
+		m_Rotmatrix = xCenterAxisMatrix;
+
 		Vector3 camF;
 		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
 		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
@@ -480,10 +514,43 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 
-		//m_Particle->Create(m_Position);
+		m_Particle->Create(m_Position);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
+		// Y軸ベクトル
+		Vector3 yAxis = Vector3(0.0f, 1.0f, 0.0f);
+		Vector3 zAxis = cameraObj->camForward;
+
+		Vector3 right = yAxis.Cross(zAxis); // カメラの右向きベクトルを計算		
+		right.Normalize();
+
+		float dot = yAxis.Dot(zAxis);
+
+		Vector3 axis = right;
+		float angle = atan2f(right.y, dot);
+
+		Quaternion xRotQtr = Quaternion::CreateFromAxisAngle(axis, m_RotSpeed);
+
+		m_RotSpeed -= 0.1f;
+
+		//// Y軸とZ軸のクォータニオンを作成
+		//Quaternion yRotationQuaternion = Quaternion::CreateFromAxisAngle(yAxis, m_RotSpeed);
+		//Quaternion zRotationQuaternion = Quaternion::CreateFromAxisAngle(Vector3::UnitZ, acos(zAxis.Dot(Vector3::UnitY)));
+
+		//// Y軸回転後のZ軸の回転を求める
+		//Quaternion rotatedZ = zRotationQuaternion * yRotationQuaternion;
+
+		//// 累積回転に新たな回転を追加する
+		//accumulatedRotation *= rotatedZ;
+
+		// クォータニオンを行列に変換
+		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
+
+		m_Rotmatrix = xCenterAxisMatrix;
+
+		Quaternion qtr;
+		
 		Vector3 camF;
 		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
 		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
@@ -500,6 +567,8 @@ void Player::ConInput()
 
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
+
+		m_Particle->Create(m_Position);
 	}
 
 	if (Input::GetGamePad(BUTTON::LRIGHT))

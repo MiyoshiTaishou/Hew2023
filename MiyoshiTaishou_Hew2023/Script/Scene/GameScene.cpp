@@ -75,10 +75,10 @@ void GameScene::Init()
 	}
 
 	//BGMobj
-	//GameObject* bgm = AddGameObject<GameObject>(3);
-	//bgm->AddComponent<Audio>()->Init();
-	//bgm->GetComponent<Audio>()->Load("../asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
-	//bgm->GetComponent<Audio>()->Play();
+	GameObject* bgm = AddGameObject<GameObject>(3);
+	bgm->AddComponent<Audio>()->Init();
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
+	bgm->GetComponent<Audio>()->Play();
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	

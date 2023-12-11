@@ -144,6 +144,11 @@ void RigidBody::SetVelocity(DirectX::SimpleMath::Vector3 _vel)
 	m_Velocity = _vel;
 }
 
+DirectX::SimpleMath::Vector3 RigidBody::GetRotVelocity()
+{
+	return m_AngularVelocity;
+}
+
 void RigidBody::SetFreeze(FrizeNum freez, bool _b)
 {
 	switch (freez)

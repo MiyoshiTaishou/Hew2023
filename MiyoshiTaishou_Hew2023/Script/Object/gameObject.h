@@ -22,6 +22,7 @@ protected:
 public:
 
     DirectX::SimpleMath::Matrix m_matrix;
+    DirectX::SimpleMath::Matrix m_Rotmatrix;
 
     /**
      * @brief GameObjectクラスのコンストラクタ
@@ -280,7 +281,8 @@ public:
         // マトリクス設定
         DirectX::SimpleMath::Matrix world, scale, rot, trans;
         scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);
-        rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+        //rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+        rot = m_Rotmatrix;
         trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
         world = scale * rot * trans * ParentMatrix;
 
