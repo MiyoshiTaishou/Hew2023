@@ -17,7 +17,7 @@ public:
 	DirectX::SimpleMath::Vector3 m_Dir;
 
 	//パーティクルの終わる時間
-	float m_LifeTime = 50.0f;
+	float m_LifeTime = 10.0f;
 
 	float m_Alpha = 1.0f;
 };

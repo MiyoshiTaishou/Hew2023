@@ -68,10 +68,13 @@ void RigidBody::Update()
 	Vector4 result4 = Vector4::Transform(torque4, currentInetiaTensor.Invert());
 
 	// Vector4をVector3に戻す
-	Vector3 angularAccel(result4.x, result4.y, result4.z);	
+	Vector3 angularAccel(result4.x, result4.y, result4.z);
+
+	Vector3 Rotfriction = -m_AngularVelocity * m_AngularDrag;
+	Vector3 Rotacceleration = m_Torque / m_Mass;//加速度を計算
 
 	//角速度を求める
-	m_AngularVelocity = angularAccel + angularAccel * deltaTime;
+	m_AngularVelocity += angularAccel + (Rotacceleration - Rotfriction) * deltaTime;
 
 	//フリーズしていたら値を0にする
 	if (m_Frize.XRot)
@@ -90,18 +93,18 @@ void RigidBody::Update()
 	// 回転を更新
 	Vector3 rot = m_GameObject->GetRotation();
 	rot += m_AngularVelocity * deltaTime;
-	m_GameObject->SetRotation(rot);	
+	m_GameObject->SetRotation(rot);
 
 	m_Torque = Vector3(0.f, 0.f, 0.f); // 放置すると一生加速するので0に戻す
 }
 
 void RigidBody::Draw()
 {
-	////値確認用
-	//ImGui::Begin("Rigidbody");
-	//ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
-	//ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
-	//ImGui::End();
+	//値確認用
+	ImGui::Begin("Rigidbody");
+	ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
+	ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
+	ImGui::End();
 }
 
 void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)
