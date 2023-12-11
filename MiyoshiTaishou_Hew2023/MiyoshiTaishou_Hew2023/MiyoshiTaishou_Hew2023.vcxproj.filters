@@ -213,6 +213,9 @@
     <ClCompile Include="..\Script\Particle\ParticleObject.cpp">
       <Filter>ソース ファイル\Particle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\UI\Timer.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -412,6 +415,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Particle\ParticleObject.h">
       <Filter>ソース ファイル\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\UI\Timer.h">
+      <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

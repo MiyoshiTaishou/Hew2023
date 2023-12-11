@@ -198,6 +198,7 @@
     <ClCompile Include="..\Script\Sysytem\utility.cpp" />
     <ClCompile Include="..\Script\UI\BillBoardScore.cpp" />
     <ClCompile Include="..\Script\UI\score.cpp" />
+    <ClCompile Include="..\Script\UI\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Component\animationModel.h" />
@@ -266,6 +267,7 @@
     <ClInclude Include="..\Script\Sysytem\utility.h" />
     <ClInclude Include="..\Script\UI\BillBoardScore.h" />
     <ClInclude Include="..\Script\UI\score.h" />
+    <ClInclude Include="..\Script\UI\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\shader\common.hlsl">

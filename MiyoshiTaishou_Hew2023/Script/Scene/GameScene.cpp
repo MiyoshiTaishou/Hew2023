@@ -23,6 +23,7 @@
 //UI関係ヘッダ
 #include"../UI/score.h"
 #include"../UI/BillBoardScore.h"
+#include"../UI/Timer.h"
 
 //コンポーネント
 #include"../Component/audio.h"
@@ -52,6 +53,8 @@ void GameScene::Init()
 	AddGameObject<Camera>(Layer0);
 
 	Score* score = AddGameObject<Score>(Layer3);	
+
+	AddGameObject<Timer>(Layer3);
 
 	int idxZ = 1;
 	int idxX = 1;

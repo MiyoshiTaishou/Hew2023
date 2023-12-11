@@ -460,8 +460,16 @@ void Player::ConInput()
 	}
 
 	if (Input::GetGamePad(BUTTON::LUP))
-	{
-		Vector3 force = cameraObj->camForward * m_Speed;
+	{		
+		Vector3 camF;
+		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
+		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
+		camF.y=0.0f;
+
+		camF.Normalize();
+
+		Vector3 force = camF * m_Speed;
+		//force.y = 0.0f;
 		Vector3 forceRot = cameraObj->camForward * m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.z = 0.0f;
@@ -476,7 +484,15 @@ void Player::ConInput()
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
+		Vector3 camF;
+		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
+		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
+		camF.y = 0.0f;
+
+		camF.Normalize();
+
 		Vector3 force = cameraObj->camForward * -m_Speed;
+		force.y = 0.0f;
 		Vector3 forceRot = cameraObj->camForward * -m_RotSpeed;
 		forceRot.y = 0.0f;
 		forceRot.z = 0.0f;
