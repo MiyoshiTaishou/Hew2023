@@ -38,7 +38,9 @@ private:
 	float m_Speed = 70.0f;
 
 	//‰ñ“]‘¬“x
-	float m_RotSpeed = 1.0f;
+	float m_RotSpeed = 0.0f;
+
+	DirectX::SimpleMath::Quaternion accumulatedRotation = DirectX::SimpleMath::Quaternion::Identity;
 
 	DirectX::SimpleMath::Vector3 torque;	
 
