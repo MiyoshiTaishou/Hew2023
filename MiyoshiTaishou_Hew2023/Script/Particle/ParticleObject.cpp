@@ -18,7 +18,7 @@ using namespace DirectX::SimpleMath;
 
 void ParticleObject::Init()
 {
-	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 	AddComponent<RigidBody>();
 
 	VERTEX_3D vertex[4];
@@ -81,11 +81,11 @@ void ParticleObject::Uninit()
 }
 
 void ParticleObject::Draw()
-{
+{		
 	// マテリアル設定
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0);
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.1);
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
@@ -111,7 +111,7 @@ void ParticleObject::Draw()
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	// ポリゴン描画
-	Renderer::GetDeviceContext()->Draw(4, 0);	
+	Renderer::GetDeviceContext()->Draw(4, 0);		
 }
 
 void ParticleObject::Update()
@@ -129,7 +129,6 @@ void ParticleObject::Update()
 	//パーティクルの寿命
 	if (m_LifeTime > 0)
 	{
-		m_LifeTime--;
-		m_Alpha -= 0.01f;
+		m_LifeTime--;		
 	}	
 }
