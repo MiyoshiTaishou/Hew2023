@@ -245,6 +245,8 @@ void Player::Update()
 		m_Point[i] = rotatedVector;
 	}
 
+	m_Particle->Create(m_Position);
+
 	//“–‚½‚è”»’èˆ—
 	Collision();
 

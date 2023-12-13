@@ -65,6 +65,15 @@ void ParticleObject::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	m_Scale.x = rand() % 100 * 0.01f;
+
+	if ((rand() % 10) > 5)
+	{
+		m_DirRot = false;
+	}
+
+	m_RotSpeed += rand() % 10 * 0.01f;
 }
 
 void ParticleObject::Uninit()
@@ -85,8 +94,8 @@ void ParticleObject::Draw()
 	// É}ÉeÉäÉAÉãê›íË
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0);
-	material.TextureEnable = true;
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.1);
+	//material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
 	GetComponent<Shader>()->Draw();
@@ -131,5 +140,15 @@ void ParticleObject::Update()
 	{
 		m_LifeTime--;
 		m_Alpha -= 0.01f;
+		m_Scale.x += 0.01f;
+		
+		if (m_DirRot)
+		{
+			m_Rotation.z += m_RotSpeed;
+		}
+		else
+		{
+			m_Rotation.z -= m_RotSpeed;
+		}
 	}	
 }
