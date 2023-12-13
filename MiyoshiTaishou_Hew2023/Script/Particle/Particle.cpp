@@ -23,10 +23,6 @@ void Particle::Uninit()
 
 void Particle::Draw()
 {
-	// ‰ÁŽZ‡¬
-	//Renderer::SetBlendState(BS_ADDITIVE);
-	//Renderer::SetBlendState(BS_ALPHABLEND);
-
 	for (auto* obj : m_Particle)
 	{
 		if (obj != nullptr)
@@ -34,9 +30,6 @@ void Particle::Draw()
 			obj->DrawBase(Matrix::Identity);
 		}
 	}
-
-	// ”¼“§–¾‡¬
-	//Renderer::SetBlendState(0);
 }
 
 void Particle::Update()
@@ -58,7 +51,7 @@ void Particle::Update()
 			{
 				obj->UninitBase();
 				delete obj;
-				m_Particle.erase(m_Particle.begin() + i);
+				m_Particle.erase(m_Particle.begin() + i);				
 			}
 		}
 	}

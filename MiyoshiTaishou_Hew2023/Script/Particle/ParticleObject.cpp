@@ -18,7 +18,7 @@ using namespace DirectX::SimpleMath;
 
 void ParticleObject::Init()
 {
-	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
+	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<RigidBody>();
 
 	VERTEX_3D vertex[4];
@@ -65,6 +65,15 @@ void ParticleObject::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	m_Scale.x = rand() % 100 * 0.01f;
+
+	if ((rand() % 10) > 5)
+	{
+		m_DirRot = false;
+	}
+
+	m_RotSpeed += rand() % 10 * 0.01f;
 }
 
 void ParticleObject::Uninit()
@@ -81,12 +90,12 @@ void ParticleObject::Uninit()
 }
 
 void ParticleObject::Draw()
-{		
+{
 	// マテリアル設定
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
 	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.1);
-	material.TextureEnable = true;
+	//material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
 	GetComponent<Shader>()->Draw();
@@ -111,7 +120,7 @@ void ParticleObject::Draw()
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	// ポリゴン描画
-	Renderer::GetDeviceContext()->Draw(4, 0);		
+	Renderer::GetDeviceContext()->Draw(4, 0);	
 }
 
 void ParticleObject::Update()
@@ -129,6 +138,17 @@ void ParticleObject::Update()
 	//パーティクルの寿命
 	if (m_LifeTime > 0)
 	{
-		m_LifeTime--;		
+		m_LifeTime--;
+		m_Alpha -= 0.01f;
+		m_Scale.x += 0.01f;
+		
+		if (m_DirRot)
+		{
+			m_Rotation.z += m_RotSpeed;
+		}
+		else
+		{
+			m_Rotation.z -= m_RotSpeed;
+		}
 	}	
 }
