@@ -24,7 +24,7 @@ private:
 	DirectX::SimpleMath::Vector3 m_ParticleStartPos;
 
 	//パーティクル速度
-	DirectX::SimpleMath::Vector3 m_Speed = {0,20,0};
+	DirectX::SimpleMath::Vector3 m_Speed = {0,50,0};
 
 	//振れ幅
 	int m_Ampl = 10;	
