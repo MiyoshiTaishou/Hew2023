@@ -109,6 +109,16 @@ struct ScaleShader
     DirectX::SimpleMath::Vector3 dummy;
 };
 
+// ブレンドステート
+enum EBlendState {
+    BS_NONE = 0,							// 半透明合成無し
+    BS_ALPHABLEND,							// 半透明合成
+    BS_ADDITIVE,							// 加算合成
+    BS_SUBTRACTION,							// 減算合成
+
+    MAX_BLENDSTATE
+};
+
 /**
  * @brief レンダラクラス
  */
@@ -133,7 +143,7 @@ private:
     static ID3D11Buffer* m_ScaleBuffer;
     static ID3D11DepthStencilState* m_DepthStateEnable;
     static ID3D11DepthStencilState* m_DepthStateDisable;
-    static ID3D11BlendState* m_BlendState;
+    static ID3D11BlendState* m_BlendState[MAX_BLENDSTATE];
     static ID3D11BlendState* m_BlendStateATC;
     static Application* m_Application;    
 
@@ -275,4 +285,16 @@ public:
      * @brief ポストプロセスを実行
      */
     static void PostProcess();
+
+    //=============================================================================
+    // ブレンド ステート設定
+    //=============================================================================
+    static void SetBlendState(int nBlendState)
+    {
+        if (nBlendState >= 0 && nBlendState < MAX_BLENDSTATE) {
+            float blendFactor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+            m_DeviceContext->OMSetBlendState(m_BlendState[nBlendState], blendFactor, 0xffffffff);
+        }
+    }
+
 };
