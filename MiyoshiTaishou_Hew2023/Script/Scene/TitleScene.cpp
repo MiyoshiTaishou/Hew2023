@@ -17,6 +17,7 @@
 #include"../Component/sprite.h"
 #include"../Component/audio.h"
 #include"../Component/SphereCollider.h"
+#include"../Component/RootChaise.h"
 
 //シーン
 #include"GameScene.h"
@@ -40,7 +41,8 @@ void TitleScene::Init()
 	GameObject* Yatai = AddGameObject<GameObject>(Layer1);
 	Yatai->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	Yatai->AddComponent<ModelRenderer>()->Load("../asset\\model\\Yatai.obj");
-	Yatai->SetScale(Vector3(10, 10, 10) *0.002);	
+	Yatai->SetScale(Vector3(10, 10, 10) *0.002);
+	Yatai->AddComponent<RootChaise>();
 	
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();

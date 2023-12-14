@@ -149,6 +149,7 @@
     <ClCompile Include="..\Script\Component\BoxCollider.cpp" />
     <ClCompile Include="..\Script\Component\Collider.cpp" />
     <ClCompile Include="..\Script\Component\RigidBody.cpp" />
+    <ClCompile Include="..\Script\Component\RootChaise.cpp" />
     <ClCompile Include="..\Script\Component\shader.cpp" />
     <ClCompile Include="..\Script\Component\shadow.cpp" />
     <ClCompile Include="..\Script\Component\SphereCollider.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="..\Script\Component\Collider.h" />
     <ClInclude Include="..\Script\Component\component.h" />
     <ClInclude Include="..\Script\Component\RigidBody.h" />
+    <ClInclude Include="..\Script\Component\RootChaise.h" />
     <ClInclude Include="..\Script\Component\shader.h" />
     <ClInclude Include="..\Script\Component\shadow.h" />
     <ClInclude Include="..\Script\Component\SphereCollider.h" />
