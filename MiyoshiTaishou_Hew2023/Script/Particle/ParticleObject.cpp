@@ -151,4 +151,9 @@ void ParticleObject::Update()
 			m_Rotation.z -= m_RotSpeed;
 		}
 	}	
+
+	RigidBody* body = this->GetComponent<RigidBody>();
+
+	Vector3 power = this->m_Dir * m_Speed;
+	body->AddForce(power, ForceMode::Acceleration);
 }

@@ -39,12 +39,7 @@ void Particle::Update()
 		auto* obj = m_Particle[i];
 
 		if (obj != nullptr)
-		{
-			RigidBody* body = obj->GetComponent<RigidBody>();
-
-			Vector3 power = obj->m_Dir * m_Speed;
-			body->AddForce(power, ForceMode::Acceleration);
-
+		{			
 			obj->UpdateBase();
 
 			if (obj->m_LifeTime == 0)
@@ -57,7 +52,7 @@ void Particle::Update()
 	}
 }
 
-void Particle::Create(DirectX::SimpleMath::Vector3 _pos /*DirectX::SimpleMath::Vector3 _dir*/)
+void Particle::Create(DirectX::SimpleMath::Vector3 _pos, DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed)
 {
 	//パーティクルの生成
 	for (int i = 0; i < m_ParticleCount; i++)
@@ -71,6 +66,7 @@ void Particle::Create(DirectX::SimpleMath::Vector3 _pos /*DirectX::SimpleMath::V
 		Vector3 Dir = Vector3(randDirX, 1, randDirZ);
 
 		obj->m_Dir = Dir;
+		obj->m_Speed = _speed;
 
 		float randPosX = rand() % m_Ampl * 0.5f;
 		float randPosZ = rand() % m_Ampl * 0.5f;

@@ -13,7 +13,7 @@ public:
 
 	//パーティクル生成
 	//引数、開始地点、方向
-	void Create(DirectX::SimpleMath::Vector3 _pos/*DirectX::SimpleMath::Vector3 _dir*/);
+	void Create(DirectX::SimpleMath::Vector3 _pos,DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed);
 
 private:
 
@@ -21,10 +21,7 @@ private:
 	int m_ParticleCount = 1;
 
 	//開始地点（プレイヤーの座標）
-	DirectX::SimpleMath::Vector3 m_ParticleStartPos;
-
-	//パーティクル速度
-	DirectX::SimpleMath::Vector3 m_Speed = {0,50,0};
+	DirectX::SimpleMath::Vector3 m_ParticleStartPos;	
 
 	//振れ幅
 	int m_Ampl = 10;	
