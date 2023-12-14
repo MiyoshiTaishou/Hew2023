@@ -30,7 +30,7 @@ ID3D11DepthStencilState* Renderer::m_DepthStateEnable{};
 ID3D11DepthStencilState* Renderer::m_DepthStateDisable{};
 
 
-ID3D11BlendState*		Renderer::m_BlendState{};
+ID3D11BlendState*		Renderer::m_BlendState[MAX_BLENDSTATE]{};
 ID3D11BlendState*		Renderer::m_BlendStateATC{};
 ID3D11RasterizerState*	Renderer::m_RasterizerState[3]{};
 
@@ -90,12 +90,14 @@ void Renderer::Init(Application* ap)
 	textureDesc.Height = swapChainDesc.BufferDesc.Height;
 	textureDesc.MipLevels = 1;
 	textureDesc.ArraySize = 1;
-	textureDesc.Format = DXGI_FORMAT_D16_UNORM;
+	textureDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
 	textureDesc.SampleDesc = swapChainDesc.SampleDesc;
 	textureDesc.Usage = D3D11_USAGE_DEFAULT;
 	textureDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	textureDesc.CPUAccessFlags = 0;
 	textureDesc.MiscFlags = 0;
+	textureDesc.SampleDesc.Count = 1;
+	textureDesc.SampleDesc.Quality = 0;
 	m_Device->CreateTexture2D(&textureDesc, NULL, &depthStencile);
 
 	// デプスステンシルビュー作成
@@ -103,7 +105,25 @@ void Renderer::Init(Application* ap)
 	depthStencilViewDesc.Format = textureDesc.Format;
 	depthStencilViewDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
 	depthStencilViewDesc.Flags = 0;
+	depthStencilViewDesc.Texture2D.MipSlice = 0;
 	m_Device->CreateDepthStencilView(depthStencile, &depthStencilViewDesc, &m_DepthStencilView);
+
+	// ID3D11ShaderResourceViewの作成
+	D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDesc{};
+	shaderResourceViewDesc.Format = textureDesc.Format;
+	shaderResourceViewDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	shaderResourceViewDesc.Texture2D.MostDetailedMip = 0;
+	shaderResourceViewDesc.Texture2D.MipLevels = 1;
+
+	ID3D11ShaderResourceView* m_ShaderResourceView = nullptr;
+	HRESULT result = m_Device->CreateShaderResourceView(depthStencile, &shaderResourceViewDesc, &m_ShaderResourceView);
+
+	m_DeviceContext->PSSetShaderResources(1, 1, &m_ShaderResourceView);
+
+	if (FAILED(result)) {
+		// エラー処理
+	}
+
 	depthStencile->Release();
 
 
@@ -146,28 +166,58 @@ void Renderer::Init(Application* ap)
 
 
 
-	// ブレンドステート設定
-	D3D11_BLEND_DESC blendDesc{};
-	blendDesc.AlphaToCoverageEnable = FALSE;
-	blendDesc.IndependentBlendEnable = FALSE;
-	blendDesc.RenderTarget[0].BlendEnable = TRUE;
-	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
-	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
-	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
-	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
-	blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
-	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
-	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+	//// ブレンドステート設定
+	//D3D11_BLEND_DESC blendDesc{};
+	//blendDesc.AlphaToCoverageEnable = FALSE;
+	//blendDesc.IndependentBlendEnable = FALSE;
+	//blendDesc.RenderTarget[0].BlendEnable = TRUE;
+	//blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	//blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	//blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	//blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	//blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	//blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	//blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 
-	m_Device->CreateBlendState( &blendDesc, &m_BlendState );
+	/*m_Device->CreateBlendState( &blendDesc, &m_BlendState );
 
 	blendDesc.AlphaToCoverageEnable = TRUE;
 	m_Device->CreateBlendState( &blendDesc, &m_BlendStateATC );
 
 	float blendFactor[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-	m_DeviceContext->OMSetBlendState(m_BlendState, blendFactor, 0xffffffff );
+	m_DeviceContext->OMSetBlendState(m_BlendState, blendFactor, 0xffffffff );*/
 
 
+	// ブレンド ステート生成
+	D3D11_BLEND_DESC BlendDesc;
+	ZeroMemory(&BlendDesc, sizeof(BlendDesc));
+	BlendDesc.AlphaToCoverageEnable = FALSE;
+	BlendDesc.IndependentBlendEnable = TRUE;
+	BlendDesc.RenderTarget[0].BlendEnable = FALSE;
+	BlendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	BlendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	BlendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	BlendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	BlendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	BlendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	BlendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+
+	m_Device->CreateBlendState(&BlendDesc, &m_BlendState[0]);
+
+	// ブレンド ステート生成 (アルファ ブレンド用)
+	//BlendDesc.AlphaToCoverageEnable = TRUE;
+	BlendDesc.RenderTarget[0].BlendEnable = TRUE;
+	m_Device->CreateBlendState(&BlendDesc, &m_BlendState[1]);
+
+	// ブレンド ステート生成 (加算合成用)
+	BlendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
+	m_Device->CreateBlendState(&BlendDesc, &m_BlendState[2]);
+
+	// ブレンド ステート生成 (減算合成用)
+	BlendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_REV_SUBTRACT;
+	m_Device->CreateBlendState(&BlendDesc, &m_BlendState[3]);
+
+	SetBlendState(BS_ALPHABLEND);
 
 
 
@@ -389,7 +439,7 @@ void Renderer::SetATCEnable( bool Enable )
 	if (Enable)
 		m_DeviceContext->OMSetBlendState(m_BlendStateATC, blendFactor, 0xffffffff);
 	else
-		m_DeviceContext->OMSetBlendState(m_BlendState, blendFactor, 0xffffffff);
+		m_DeviceContext->OMSetBlendState(m_BlendState[0], blendFactor, 0xffffffff);
 
 }
 

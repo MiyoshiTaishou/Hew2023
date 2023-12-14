@@ -35,25 +35,21 @@
 using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
-{
-	AddGameObject<Yatai>(Layer1);
-
+{	
 	//オブジェクト生成	
 	AddGameObject<Sky>(Layer1);
-	//AddGameObject<TakoyakiObject>(Layer1);	
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetRotation(Vector3(30, 10000, 30));
-	Customer* cus = AddGameObject<Customer>(Layer1);	
-	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
-	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
-	bill->AddCount(cus->GetRequests());	
+	//AddGameObject<TakoyakiObject>(Layer1);			
+	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);	
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	AddGameObject<Field>(Layer1);
 
-	AddGameObject<Enemy>(Layer1);
-	
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
+
 	AddGameObject<Camera>(Layer0);
+
+	AddGameObject<Enemy>(Layer1);	
 
 	Score* score = AddGameObject<Score>(Layer3);	
 
@@ -80,11 +76,16 @@ void GameScene::Init()
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\maou_12_sekaiga_bokurani_yurerumade.wav");
-	bgm->GetComponent<Audio>()->Play();
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
+	bgm->GetComponent<Audio>()->Play();	
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
+
+	AddGameObject<Yatai>(Layer1);
+	Customer* cus = AddGameObject<Customer>(Layer1);
+	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
+	bill->AddCount(cus->GetRequests());
 
 	Manager::InitCount();
 }

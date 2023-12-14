@@ -18,6 +18,7 @@ using namespace DirectX::SimpleMath;
 
 void ParticleObject::Init()
 {
+	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_WhiteAlpha.cso");
 	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<RigidBody>();
 
@@ -94,8 +95,8 @@ void ParticleObject::Draw()
 	// É}ÉeÉäÉAÉãê›íË
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.1);
-	//material.TextureEnable = true;
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.5f);
+	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
 	GetComponent<Shader>()->Draw();
@@ -140,7 +141,7 @@ void ParticleObject::Update()
 	{
 		m_LifeTime--;
 		m_Alpha -= 0.01f;
-		m_Scale.x += 0.01f;
+		m_Scale.x += 0.1f;
 		
 		if (m_DirRot)
 		{
