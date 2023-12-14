@@ -36,6 +36,11 @@ void TitleScene::Init()
 	BoxObject* box2 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
+
+	GameObject* Yatai = AddGameObject<GameObject>(Layer1);
+	Yatai->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	Yatai->AddComponent<ModelRenderer>()->Load("../asset\\model\\Yatai.obj");
+	Yatai->SetScale(Vector3(10, 10, 10) *0.002);	
 	
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();

@@ -514,7 +514,7 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 
-		m_Particle->Create(m_Position);
+		m_Particle->Create(m_Position,-body->GetVelocity(),Vector3::Up);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{
@@ -568,7 +568,7 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Force);
 		body->AddTorque(forceRot, ForceMode::Force);
 
-		m_Particle->Create(m_Position);
+		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 
 	if (Input::GetGamePad(BUTTON::LRIGHT))
