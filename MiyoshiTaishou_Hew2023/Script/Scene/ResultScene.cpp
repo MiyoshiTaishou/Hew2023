@@ -53,7 +53,7 @@ void ResultScene::Init()
 	//BGM’Ç‰Á
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\kiminochikara.wav");
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play();
 
 	m_Transition = AddGameObject<Transition>(3);

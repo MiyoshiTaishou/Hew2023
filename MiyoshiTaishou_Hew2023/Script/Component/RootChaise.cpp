@@ -22,6 +22,40 @@ void RootChaise::Init()
 
     particle = new Particle();
     particle->Init();
+
+    std::ifstream inputFile("Test.csv");
+    if (inputFile.is_open())
+    {
+        std::string line;
+        while (getline(inputFile, line))
+        {
+            size_t pos = line.find(",");
+            if (pos != std::string::npos)
+            {
+                std::string label = line.substr(0, pos);
+                std::string valueStr = line.substr(pos + 1);
+
+                // インデックスの検出と値の解析
+                int posIndex = std::stoi(label.substr(4, 1));
+                float value = std::stof(valueStr);
+
+                // ラベルの種類に基づいて m_SpherePos を更新
+                if (label.find("PosX") != std::string::npos)
+                {
+                    m_SpherePos[posIndex].x = value;
+                }
+                else if (label.find("PosY") != std::string::npos)
+                {
+                    m_SpherePos[posIndex].y = value;
+                }
+                else if (label.find("PosZ") != std::string::npos)
+                {
+                    m_SpherePos[posIndex].z = value;
+                }
+            }
+        }
+        inputFile.close();
+    }
 }
 
 void RootChaise::Uninit()

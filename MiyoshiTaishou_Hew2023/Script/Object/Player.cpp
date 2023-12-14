@@ -59,9 +59,9 @@ void Player::Init()
 	//model->Load("../asset\\model\\bullet.obj");
 	model->Load("../asset\\model\\bullet.obj");
 
-	Shadow* shadow = AddComponent<Shadow>();
+	/*Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
-	shadow->SetSize(10.0f);
+	shadow->SetSize(10.0f);*/
 	
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
@@ -320,7 +320,7 @@ void Player::Draw()
 		world = scale * rot * trans;
 		Renderer::SetWorldMatrix(&world);
 
-		m_MeshRenderer[i]->Draw();
+		//m_MeshRenderer[i]->Draw();
 	}	
 
 	//m_MeshRenderer->Draw();	

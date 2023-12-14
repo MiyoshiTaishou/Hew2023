@@ -28,8 +28,7 @@ using namespace DirectX::SimpleMath;
 void TitleScene::Init()
 {
 	//オブジェクト生成
-	AddGameObject<Sky>(Layer1);
-	AddGameObject<Player>(Layer1);
+	AddGameObject<Sky>(Layer1);	
 	Field* filed = AddGameObject<Field>(Layer1);
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
 	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);
@@ -58,6 +57,8 @@ void TitleScene::Init()
 	box4->SetPosition(Vector3(0, 0, min.z));
 	box4->SetScale(Vector3(160, 20, 5));	
 
+	AddGameObject<Player>(Layer1);
+
 	AddGameObject<Camera>(Layer0);
 
 	GameObject* titleLogo = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
@@ -68,11 +69,11 @@ void TitleScene::Init()
 
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\kiminochikara.wav");
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play();
 
 	m_Transition = AddGameObject<Transition>(3);
-	m_Transition->FadeIn();//フェードイン開始
+	m_Transition->FadeIn();//フェードイン開始	
 }
 
 void TitleScene::Update()
