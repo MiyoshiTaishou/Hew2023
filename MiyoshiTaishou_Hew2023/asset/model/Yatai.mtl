@@ -2,13 +2,6 @@
 #
 #
 
-newmtl _side road
-illum 2
-Ka 0.000000 0.000000 0.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.200000 0.200000 0.200000
-Ns 32.000000
-
 newmtl _flipable stand
 illum 2
 Ka 0.000000 0.000000 0.000000
@@ -606,7 +599,6 @@ Ns 32.000000
 
 newmtl _main body
 illum 2
-map_Kd bodybaseSurface_Color.jpg
 Ka 0.000000 0.000000 0.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.200000 0.200000 0.200000

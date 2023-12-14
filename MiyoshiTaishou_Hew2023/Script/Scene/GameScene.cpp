@@ -15,6 +15,7 @@
 #include"../Object/TakoyakiObject.h"
 #include"../Object/BillBoardObject.h"
 #include"../Object/Enemy.h"
+#include"../Object/Yatai.h"
 
 //シーン関係
 #include"ResultScene.h"
@@ -35,15 +36,17 @@ using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
 {
+	AddGameObject<Yatai>(Layer1);
+
 	//オブジェクト生成	
 	AddGameObject<Sky>(Layer1);
 	//AddGameObject<TakoyakiObject>(Layer1);	
-	AddGameObject<Player>(Layer1);
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
 	Customer* cus = AddGameObject<Customer>(Layer1);	
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();		
-	bill->AddCount(cus->GetRequests());
-
+	bill->AddCount(cus->GetRequests());	
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
 	AddGameObject<Field>(Layer1);

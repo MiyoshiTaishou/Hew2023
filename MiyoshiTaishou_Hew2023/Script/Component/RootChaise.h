@@ -2,8 +2,9 @@
 #include"component.h"
 #include"../Mesh/CMeshRenderer.h"
 #include"../Mesh/CSphereMesh.h"
+#include"../Particle/Particle.h"
 
-#define MAX_BEJIE 7
+#define MAX_BEJIE 10
 
 //ベジエ曲線を用いて移動をするためのコンポーネント
 class RootChaise : public Component
@@ -18,13 +19,19 @@ public:
 private:
 
 	float m_Rate = 0.0f;
-	float m_MoveSpeed = 0.01f;
+	float m_MoveSpeed = 0.001f;
 
 	//可視化用のメッシュ
 	CMeshRenderer* m_MeshRenderer[MAX_BEJIE];
 	CSphereMesh* m_Sphere[MAX_BEJIE];
 
+	//ベジエの座標
 	DirectX::SimpleMath::Vector3 m_SpherePos[MAX_BEJIE];
 
+	//到着したか
+	bool m_Goal = false;
+
 	using Component::Component;
+
+	Particle* particle;
 };

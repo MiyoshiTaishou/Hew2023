@@ -10,6 +10,7 @@
 #include"../Object/field.h"
 #include"../Object/camera.h"
 #include"../Object/BillBoardObject.h"
+#include"../Object/Yatai.h"
 #include"Transition.h"
 
 //コンポーネント
@@ -38,11 +39,8 @@ void TitleScene::Init()
 	BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
 
-	GameObject* Yatai = AddGameObject<GameObject>(Layer1);
-	Yatai->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	Yatai->AddComponent<ModelRenderer>()->Load("../asset\\model\\Yatai.obj");
-	Yatai->SetScale(Vector3(10, 10, 10) *0.002);
-	Yatai->AddComponent<RootChaise>();
+	AddGameObject<Yatai>(Layer1);
+	
 	
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
