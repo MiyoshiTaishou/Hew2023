@@ -16,6 +16,9 @@ protected:
     DirectX::SimpleMath::Vector3 m_Rotation = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f); ///< オブジェクトの回転
     DirectX::SimpleMath::Vector3 m_Scale = DirectX::SimpleMath::Vector3(1.0f, 1.0f, 1.0f); ///< オブジェクトのスケール
 
+    //クォータニオンを使うかどうか
+    bool m_Qtr = false;
+
     std::list<Component*> m_Component; ///< オブジェクトにアタッチされたコンポーネントのリスト
     std::list<GameObject*> m_ChildGameObject; ///< 子オブジェクトのリスト
 
@@ -280,9 +283,12 @@ public:
     {
         // マトリクス設定
         DirectX::SimpleMath::Matrix world, scale, rot, trans;
-        scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);
-        //rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
-        rot = m_Rotmatrix;
+        scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);        
+        rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);  
+        if (m_Qtr)
+        {
+            rot = m_Rotmatrix;
+        }
         trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
         world = scale * rot * trans * ParentMatrix;
 

@@ -144,6 +144,8 @@ void Player::Init()
 	m_Particle = new Particle();
 
 	m_Rotmatrix = Matrix::Identity;
+
+	m_Qtr = true;
 }
 
 void Player::Uninit()
@@ -494,7 +496,7 @@ void Player::ConInput()
 		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
 
 		m_Rotmatrix = xCenterAxisMatrix;
-
+		
 		Vector3 camF;
 		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
 		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
@@ -548,7 +550,7 @@ void Player::ConInput()
 		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
 
 		m_Rotmatrix = xCenterAxisMatrix;
-
+			
 		Quaternion qtr;
 		
 		Vector3 camF;
