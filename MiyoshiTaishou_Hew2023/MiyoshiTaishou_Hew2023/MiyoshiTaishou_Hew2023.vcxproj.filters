@@ -220,7 +220,7 @@
       <Filter>ソース ファイル\Componet</Filter>
     </ClCompile>
     <ClCompile Include="..\Script\Object\Yatai.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -512,6 +512,9 @@
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
     <FxCompile Include="..\shader\PS_WhiteAlpha.hlsl">
+      <Filter>リソース ファイル\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="..\shader\PS_AlphaFade.hlsl">
       <Filter>リソース ファイル\PS</Filter>
     </FxCompile>
   </ItemGroup>

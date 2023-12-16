@@ -129,10 +129,10 @@ void Camera::Draw()
 
 	Renderer::SetProjectionMatrix(&projectionMatrix);
 
-	ImGui::Begin("Camera");
+	/*ImGui::Begin("Camera");
 	ImGui::Text("%f,%f,%f", camForward.x, camForward.y, camForward.z);
 	ImGui::Text("%f,%f,%f", camRight.x, camRight.y, camRight.z);
-	ImGui::End();
+	ImGui::End();*/
 }
 
 void Camera::SetTarget(DirectX::SimpleMath::Vector3 target)
