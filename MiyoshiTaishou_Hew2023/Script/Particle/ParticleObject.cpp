@@ -20,6 +20,7 @@ void ParticleObject::Init()
 {
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_WhiteAlpha.cso");
 	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 	AddComponent<RigidBody>();
 
 	VERTEX_3D vertex[4];
@@ -95,7 +96,7 @@ void ParticleObject::Draw()
 	// ƒ}ƒeƒŠƒAƒ‹Ý’è
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.5f);
+	material.Diffuse = Color(m_Alpha, m_Alpha, m_Alpha, m_Alpha);
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
@@ -140,17 +141,17 @@ void ParticleObject::Update()
 	if (m_LifeTime > 0)
 	{
 		m_LifeTime--;
-		m_Alpha -= 0.01f;
+		m_Alpha -= 0.05f;
 		m_Scale.x += 0.1f;
 		
-		if (m_DirRot)
+		/*if (m_DirRot)
 		{
 			m_Rotation.z += m_RotSpeed;
 		}
 		else
 		{
 			m_Rotation.z -= m_RotSpeed;
-		}
+		}*/
 	}	
 
 	RigidBody* body = this->GetComponent<RigidBody>();

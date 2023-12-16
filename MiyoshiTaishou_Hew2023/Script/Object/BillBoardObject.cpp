@@ -58,7 +58,7 @@ void BillBoardObject::Init()
 	// テクスチャ読み込み
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
-		L"../asset/texture/TitleLogo.jpg",
+		L"../asset/texture/GameStart.png",
 		nullptr,
 		&m_Texture);
 
@@ -77,6 +77,8 @@ void BillBoardObject::Init()
 	m_SphereMt.Shininess = 0;
 	m_SphereMt.Emission = Color(0, 0, 0, 0);
 	m_SphereMt.TextureEnable = FALSE;
+
+	m_Scale.x = 5.0f;
 }
 
 void BillBoardObject::Uninit()

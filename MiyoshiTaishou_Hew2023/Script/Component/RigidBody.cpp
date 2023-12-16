@@ -106,11 +106,11 @@ void RigidBody::Update()
 
 void RigidBody::Draw()
 {
-	//値確認用
-	ImGui::Begin("Rigidbody");
-	ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
-	ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
-	ImGui::End();
+	////値確認用
+	//ImGui::Begin("Rigidbody");
+	//ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
+	//ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
+	//ImGui::End();
 }
 
 void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)

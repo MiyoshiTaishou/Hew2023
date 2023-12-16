@@ -42,14 +42,7 @@ void GameScene::Init()
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);	
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
-	AddGameObject<Field>(Layer1);
-
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetRotation(Vector3(30, 10000, 30));
-
-	AddGameObject<Camera>(Layer0);
-
-	AddGameObject<Enemy>(Layer1);	
+	AddGameObject<Field>(Layer1);	
 
 	Score* score = AddGameObject<Score>(Layer3);	
 
@@ -72,6 +65,14 @@ void GameScene::Init()
 
 		idxX++;
 	}
+
+
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
+
+	AddGameObject<Camera>(Layer0);
+
+	AddGameObject<Enemy>(Layer1);
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);

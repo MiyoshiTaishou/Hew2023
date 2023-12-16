@@ -415,7 +415,7 @@ void Renderer::CreateConstntBuffer()
 	scale.circleRadius = 10.0f;
 	scale.screenSize = { 1.0f,1.0f };
 
-	SetScaleShader(scale);
+	SetScaleShader(scale);	
 }
 
 

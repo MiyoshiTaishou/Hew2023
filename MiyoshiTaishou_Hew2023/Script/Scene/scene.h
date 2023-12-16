@@ -12,6 +12,7 @@
 #include"../Object/Player.h"
 
 #include "../Render/modelRenderer.h"
+#include"../Particle/Particle.h"
 
 //たこ焼きの最大数
 #define MAX_SPHERE 100
@@ -35,9 +36,12 @@ class Scene
 {
 protected:
     // STLのリスト構造
-    std::array<std::list<GameObject*>, 4> m_GameObject;
+    std::array<std::list<GameObject*>, 4> m_GameObject;    
 
 public:
+
+    std::vector<Particle*> m_Particle;
+
     /**
      * @brief Sceneクラスのコンストラクタ
      */
@@ -74,6 +78,11 @@ public:
     void InitBase()
     {
         Init();
+
+        for (Particle* particl : m_Particle)
+        {
+            particl->Init();
+        }
     }
 
     /**
@@ -90,6 +99,11 @@ public:
             }
             // リストクリア
             objectList.clear();
+        }
+
+        for (Particle* particl : m_Particle)
+        {
+            particl->Uninit();
         }
 
         Uninit();
@@ -113,6 +127,11 @@ public:
             objectList.remove_if([](GameObject* object) { return object->Destroy(); });
         }
 
+        for (Particle* particl : m_Particle)
+        {
+            particl->Update();
+        }
+
         Update();
     }
 
@@ -130,6 +149,11 @@ public:
             {
                 object->DrawBase(matrix);
             }
+        }
+
+        for (Particle* particl : m_Particle)
+        {
+            particl->Draw();
         }
         
         Draw();
