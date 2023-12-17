@@ -29,6 +29,7 @@
 #include"camera.h"
 #include"field.h"
 #include"TakoyakiObject.h"
+#include"FakeTakotaki.h"
 #include"Sphere.h"
 
 //パーティクル
@@ -339,6 +340,7 @@ void Player::Collision()
 	//くっつくオブジェクト当たり判定
 	{
 		std::vector<TakoyakiObject*> Takoyakilist = scene->GetGameObjects<TakoyakiObject>();
+		std::vector<FakeTakoyakiObject*> FakeTakoyakilist = scene->GetGameObjects<FakeTakoyakiObject>();
 
 		
 		for (int i = 0; i < m_Collider.size(); i ++)
@@ -392,6 +394,59 @@ void Player::Collision()
 					state = IDLE;
 				}
 			}		
+
+			for (int i = 0; i < m_Collider.size(); i++)
+			{
+				for (const auto& Takoyaki : FakeTakoyakilist)
+				{
+					if (m_Collider[i]->Hit(Takoyaki->GetComponent<SphereCollider>()))
+					{
+						//くっつく処理
+						StickObject* child = AddChild<FakeTakoyakiObject>();
+						child->Stick(Takoyaki->GetPosition());
+
+						//コライダー追加
+						SphereCollider* sphere = AddComponent<SphereCollider>();
+						sphere->SetRadius(2.0f);
+						sphere->SetRelative((Takoyaki->GetPosition() - m_Position));
+						sphere->m_Hitobj = child;
+						sphere->m_hit = true;
+						m_Collider.push_back(sphere);
+
+						//一番近い点の距離を延ばす
+						int no = 0;
+						float length = 1000;
+						for (int j = 0; j < MAX_SPHERE_MESH; j++)
+						{
+							Vector3 len = Takoyaki->GetPosition() - m_Point[j];
+
+							//一番近い点を入れ替える
+							if (length > len.Length())
+							{
+								length = len.Length();
+								no = j;
+							}
+						}
+
+						m_Distance[no] += 1.5f;
+
+						//オブジェクト削除
+						Takoyaki->SetDestroy();
+						Takoyaki->GetComponent<SphereCollider>()->SetCanHit(false);
+
+						//スコア加算
+						Score* score = scene->GetGameObject<Score>();
+						score->AddCount(1);
+						Manager::AddCount(1);
+
+						state = HIT;
+					}
+					else
+					{
+						state = IDLE;
+					}
+				}
+			}
 		}
 	}
 

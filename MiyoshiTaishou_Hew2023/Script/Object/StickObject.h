@@ -14,13 +14,14 @@ public:
 	//‚­‚Á‚Â‚¢‚½‚Æ‚«‚ÉŒÄ‚Ôˆ—
 	void Stick(DirectX::SimpleMath::Vector3 _pos);
 
-private:
-
-	//‚­‚Á‚Â‚¢‚Ä‚¢‚é‚©‚Ç‚¤‚©
-	bool m_Stick = false;
+private:	
 
 	//Œ³‚ÌƒTƒCƒY‚©‚ç‚Ç‚ê‚¾‚¯¬‚³‚­‚·‚é‚©‚Ì”{—¦
 	float m_ScaleDown = 0.1f;
 
 	Audio* m_HitSE;
+
+protected:
+	//‚­‚Á‚Â‚¢‚Ä‚¢‚é‚©‚Ç‚¤‚©
+	bool m_Stick = false;
 };
