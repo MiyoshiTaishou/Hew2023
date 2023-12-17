@@ -222,6 +222,9 @@
     <ClCompile Include="..\Script\Object\Yatai.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Object\FakeTakotaki.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -429,6 +432,9 @@
       <Filter>ソース ファイル\Componet</Filter>
     </ClInclude>
     <ClInclude Include="..\Script\Object\Yatai.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\FakeTakotaki.h">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>

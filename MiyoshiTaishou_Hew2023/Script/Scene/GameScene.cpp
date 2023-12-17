@@ -13,6 +13,7 @@
 #include"../Object/field.h"
 #include"../Object/Customer.h"
 #include"../Object/TakoyakiObject.h"
+#include"../Object/FakeTakotaki.h"
 #include"../Object/BillBoardObject.h"
 #include"../Object/Enemy.h"
 #include"../Object/Yatai.h"
@@ -59,7 +60,19 @@ void GameScene::Init()
 			idxX = 1;
 		}
 
-		TakoyakiObject* takoyaki = AddGameObject<TakoyakiObject>(Layer1);
+		//‹U•¨‚Æ–{•¨‚ðƒ‰ƒ“ƒ_ƒ€‚É•ª—Þ
+		int numKind = rand() % 100;
+
+		StickObject* takoyaki;
+		if (numKind > 90)
+		{
+			takoyaki = AddGameObject<FakeTakoyakiObject>(Layer1);
+		}
+		else
+		{
+			takoyaki = AddGameObject<TakoyakiObject>(Layer1);
+		}
+		
 		Vector3 pos = Vector3((20.0f * idxX) - 100.0f, 1.0f, (20.0f * idxZ) - 100.0f);
 		takoyaki->SetPosition(pos);
 
