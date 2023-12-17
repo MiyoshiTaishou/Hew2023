@@ -8,7 +8,7 @@ private:
     //シーン遷移フラグ
     bool m_Goal = false;
 
-    float currentTime = 0.0f;// 現在の時間を取得する処理（例えば、DirectXの時間関数を使用する）
+    float currentTime = 1.0f;// 現在の時間を取得する処理（例えば、DirectXの時間関数を使用する）
 
     // 時間をシェーダーに送信するための定数バッファの作成
     ID3D11Buffer* timeBuffer;
