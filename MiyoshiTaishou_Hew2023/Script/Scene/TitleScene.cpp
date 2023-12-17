@@ -136,7 +136,12 @@ void TitleScene::Update()
 		return;
 	}
 
-	currentTime += 0.005f;
+	currentTime -= 0.005f;
+
+	if (currentTime < 0.0f)
+	{
+		currentTime = 0.0f;
+	}
 
 	ZeroMemory(&timeBufferData, sizeof(timeBufferData));
 	float timeData[4] = { currentTime, 0.0f, 0.0f, 0.0f }; // ŽžŠÔƒf[ƒ^‚ðŠi”[‚·‚éê‡

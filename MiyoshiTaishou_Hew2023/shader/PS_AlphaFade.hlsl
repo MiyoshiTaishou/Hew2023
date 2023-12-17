@@ -15,7 +15,7 @@ void main(in PS_IN In, out float4 outDiffuse : SV_Target)
         outDiffuse = g_Texture.Sample(g_SamplerState, In.TexCoord);
 
         // 画像の高さに応じて透過度を変化させる
-        float fadeAmount = saturate(In.TexCoord.y - timeData.x); // UV座標のy値を使用
+        float fadeAmount = saturate((timeData.x - In.TexCoord.y) * 5); // 下から上に徐々に透過するために乗数を調整
         
         outDiffuse.a *= fadeAmount;
     }
