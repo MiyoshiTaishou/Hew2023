@@ -61,6 +61,7 @@ void StickObject::Update()
 	//くっついていたら親オブジェクトを上げる
 	if (m_Stick)
 	{
+		GetComponent<Shadow>()->SetShadowView(false);
 		return;
 	}
 	else

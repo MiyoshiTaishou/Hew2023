@@ -2,6 +2,7 @@
 
 //コンポーネント
 #include"../Component/RigidBody.h"
+#include"../Component/shadow.h"
 
 //システム
 #include"../Scene/scene.h"
@@ -24,6 +25,7 @@ void FakeTakoyakiObject::Update()
 {
 	if (m_Stick)
 	{
+		GetComponent<Shadow>()->SetShadowView(false);
 		return;
 	}
 
@@ -76,5 +78,5 @@ void FakeTakoyakiObject::Update()
 	}
 	if (m_Position.z >= max.z) {
 		m_Position.z = max.z;
-	}
+	}	
 }
