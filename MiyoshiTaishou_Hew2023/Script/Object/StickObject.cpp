@@ -9,6 +9,7 @@
 #include"../Component/RigidBody.h"
 #include"../Component/SphereCollider.h"
 #include"../Component/audio.h"
+#include"../Component/shadow.h"
 
 //オブジェクト
 #include"field.h"
@@ -22,6 +23,10 @@ void StickObject::Init()
 {
 	m_HitSE = AddComponent<Audio>();
 	m_HitSE->Load("../asset\\audio\\ぷよん_2.wav");
+
+	Shadow* shadow = AddComponent<Shadow>();
+	shadow->Init();
+	shadow->SetSize(10.0f);
 }
 
 void StickObject::Update()

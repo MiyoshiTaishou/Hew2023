@@ -4,6 +4,8 @@
 #include "../Object/gameObject.h"
 #include "component.h"
 
+class Shader;
+
 class Shadow : public Component
 {
 
@@ -13,6 +15,8 @@ private:
 
 	DirectX::SimpleMath::Vector3 m_Position{};
 	float	m_Size = 1.0f;
+
+	Shader* m_Shader;
 
 public:
 	using Component::Component;
