@@ -51,7 +51,7 @@ bool IsInFrustum(const DirectX::SimpleMath::Vector3& pos, const DirectX::SimpleM
 {
     //プロジェクション行列からしすいだいの6つの平面を取得する
     DirectX::SimpleMath::Plane plane[6];
-    DirectX::SimpleMath::Matrix matInverse = matrix.Invert();
+    DirectX::SimpleMath::Matrix matInverse = matrix;
 
     // 左平面
     plane[0] = DirectX::SimpleMath::Plane
@@ -107,7 +107,8 @@ bool IsInFrustum(const DirectX::SimpleMath::Vector3& pos, const DirectX::SimpleM
         matInverse._44 - matInverse._43
     );
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++) 
+    {
         float ans = plane[i].x * pos.x + plane[i].y * pos.y + plane[i].z * pos.z + plane[i].w;
         if (ans < 0) {
             return false;

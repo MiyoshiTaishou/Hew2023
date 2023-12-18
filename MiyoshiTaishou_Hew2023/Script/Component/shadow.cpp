@@ -155,6 +155,10 @@ void Shadow::Update()
 
 void Shadow::Draw()
 {
+	if (!m_ShadowView)
+	{
+		return;
+	}
 
 	m_Shader->Draw();
 

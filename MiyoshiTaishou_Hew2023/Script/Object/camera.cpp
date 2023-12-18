@@ -116,7 +116,7 @@ void Camera::Draw()
 
 	float aspectRatio = static_cast<float>(SCREEN_WIDTH) / static_cast<float>(SCREEN_HEIGHT);	// アスペクト比	
 	float nearPlane = 1.0f;       // ニアクリップ
-	float farPlane = 1000.0f;      // ファークリップ
+	float farPlane = 10000.0f;      // ファークリップ
 
 	//プロジェクション行列の生成	
 	m_ProjMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	// 左手系にした　20230511 by suzuki.tomoki

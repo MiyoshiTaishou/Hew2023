@@ -292,7 +292,7 @@ public:
      */
     void DrawBase(DirectX::SimpleMath::Matrix ParentMatrix)
     {
-        if (m_InFrustum)
+        if (m_InFrustum) 
         {
             // マトリクス設定
             DirectX::SimpleMath::Matrix world, scale, rot, trans;

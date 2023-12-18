@@ -18,6 +18,9 @@ private:
 
 	Shader* m_Shader;
 
+	//‰e‚ð•`‰æ‚·‚é
+	bool m_ShadowView = true;
+
 public:
 	using Component::Component;
 
@@ -27,5 +30,7 @@ public:
 	void Draw() override;
 
 	void SetSize(float Size) { m_Size = Size; }
+
+	void SetShadowView(bool _view) { m_ShadowView = _view; }
 
 };
