@@ -49,20 +49,19 @@ void Player::Init()
 	this->m_Position.z = -10.0f;
 	this->m_Position.y = 0.0f;
 
+	ModelRenderer* model = AddComponent<ModelRenderer>();
+	//model->Load("../asset\\model\\bullet.obj");
+	model->Load("../asset\\model\\bullet.obj");
+
+	Shadow* shadow = AddComponent<Shadow>();
+	shadow->Init();
+	shadow->SetSize(10.0f);
+
 	//コンポーネント
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
-	
-
-	ModelRenderer* model = AddComponent<ModelRenderer>();
-	//model->Load("../asset\\model\\bullet.obj");
-	model->Load("../asset\\model\\bullet.obj");
-
-	/*Shadow* shadow = AddComponent<Shadow>();
-	shadow->Init();
-	shadow->SetSize(10.0f);*/
 	
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();

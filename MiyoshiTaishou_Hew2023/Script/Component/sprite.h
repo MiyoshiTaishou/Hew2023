@@ -12,7 +12,7 @@ private:
 	ID3D11Buffer*				m_VertexBuffer{};
 	ID3D11ShaderResourceView*	m_Texture{};
 
-	MATERIAL					m_Material{};
+	MATERIAL					m_Material{};	
 
 public:
 

@@ -11,6 +11,8 @@
 #include"../Object/field.h"
 //#include "cylinder.h"
 
+#include"shader.h"
+
 using namespace DirectX::SimpleMath;
 
 void Shadow::Init()
@@ -59,6 +61,10 @@ void Shadow::Init()
 		&m_Texture);
 
 	assert(m_Texture);
+
+	m_Shader = new Shader(m_GameObject);
+	m_Shader->Init();
+	m_Shader->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 }
 
 
@@ -66,6 +72,7 @@ void Shadow::Uninit()
 {
 	m_VertexBuffer->Release();
 	m_Texture->Release();
+	m_Shader->Uninit();
 }
 
 
@@ -139,6 +146,8 @@ void Shadow::Update()
 		m_Position = m_GameObject->GetPosition();
 		m_Position.y = groundHeight;
 	}	
+
+	m_Shader->Update();
 }
 
 
@@ -146,6 +155,8 @@ void Shadow::Update()
 
 void Shadow::Draw()
 {
+
+	m_Shader->Draw();
 
 	// マトリクス設定
 	Matrix world, scale, trans;
