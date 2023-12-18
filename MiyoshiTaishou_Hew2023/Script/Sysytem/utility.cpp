@@ -47,6 +47,75 @@ float CalculateDistance(const DirectX::SimpleMath::Vector3 point1, const DirectX
     return std::sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
 }
 
+bool IsInFrustum(const DirectX::SimpleMath::Vector3& pos, const DirectX::SimpleMath::Matrix& matrix)
+{
+    //プロジェクション行列からしすいだいの6つの平面を取得する
+    DirectX::SimpleMath::Plane plane[6];
+    DirectX::SimpleMath::Matrix matInverse = matrix.Invert();
+
+    // 左平面
+    plane[0] = DirectX::SimpleMath::Plane
+    (
+        matInverse._14 + matInverse._11,
+        matInverse._24 + matInverse._21,
+        matInverse._34 + matInverse._31,
+        matInverse._44 + matInverse._41
+    );
+
+    // 右平面
+    plane[1] = DirectX::SimpleMath::Plane
+    (
+        matInverse._14 - matInverse._11,
+        matInverse._24 - matInverse._21,
+        matInverse._34 - matInverse._31,
+        matInverse._44 - matInverse._41
+    );
+
+    // 上平面
+    plane[2] = DirectX::SimpleMath::Plane
+    (
+        matInverse._14 - matInverse._12,
+        matInverse._24 - matInverse._22,
+        matInverse._34 - matInverse._32,
+        matInverse._44 - matInverse._42
+    );
+
+    // 下平面
+    plane[3] = DirectX::SimpleMath::Plane
+    (
+        matInverse._14 + matInverse._12,
+        matInverse._24 + matInverse._22,
+        matInverse._34 + matInverse._32,
+        matInverse._44 + matInverse._42
+    );
+
+    // 近平面
+    plane[4] = DirectX::SimpleMath::Plane
+    (
+        matInverse._13,
+        matInverse._23,
+        matInverse._33,
+        matInverse._43
+    );
+
+    // 遠平面
+    plane[5] = DirectX::SimpleMath::Plane
+    (
+        matInverse._14 - matInverse._13,
+        matInverse._24 - matInverse._23,
+        matInverse._34 - matInverse._33,
+        matInverse._44 - matInverse._43
+    );
+
+    for (int i = 0; i < 6; i++) {
+        float ans = plane[i].x * pos.x + plane[i].y * pos.y + plane[i].z * pos.z + plane[i].w;
+        if (ans < 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 //--------------------------------------------------------------------------------------
 // シェーダーファイルを読み込む
 //--------------------------------------------------------------------------------------

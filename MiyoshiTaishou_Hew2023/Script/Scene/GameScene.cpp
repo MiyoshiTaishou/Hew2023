@@ -106,6 +106,28 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
+	Camera* camera = GetGameObject<Camera>();
+
+	std::vector<TakoyakiObject*> stickObj = GetGameObjects<TakoyakiObject>();
+
+	for (auto& obj : stickObj)
+	{
+		//Œ©‚¦‚é‚©Œ©‚¦‚È‚¢‚©‚ð”»’f
+		Matrix vpmtx;
+		vpmtx = camera->GetViewMatrix() * camera->GetProjMatrix();
+
+		bool sts = IsInFrustum(obj->GetPosition(), vpmtx);
+
+		if (!sts)
+		{
+			obj->SetFrustum(false);
+		}
+		else
+		{
+			obj->SetFrustum(true);
+		}
+	}	
+
 	//ƒV[ƒ“‘JˆÚ
 	if (m_Transition->GetState() == Transition::State::Stop)
 	

@@ -116,3 +116,12 @@ void Invoke(std::function<void()> Function, int Time);
 
 // ユークリッド距離を計算する関数
 float CalculateDistance(const DirectX::SimpleMath::Vector3 point1, const DirectX::SimpleMath::Vector3& point2);
+
+//==============================================================================
+//!	@fn		IsInFrustum
+//!	@brief	フラスタム内かどうかをチェック
+//!	@param　位置座標（ワールド）　　	　	
+//!	@param　ビュー変換行列＊プロジェクション変換行列
+//!	@retval	true フラスタム内　false フラスタム外
+//==============================================================================
+bool IsInFrustum(const DirectX::SimpleMath::Vector3& pos, const DirectX::SimpleMath::Matrix& matrix);

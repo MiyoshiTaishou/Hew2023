@@ -118,16 +118,15 @@ void Camera::Draw()
 	float nearPlane = 1.0f;       // ニアクリップ
 	float farPlane = 1000.0f;      // ファークリップ
 
-	//プロジェクション行列の生成
-	Matrix projectionMatrix;
-	projectionMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	// 左手系にした　20230511 by suzuki.tomoki
+	//プロジェクション行列の生成	
+	m_ProjMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	// 左手系にした　20230511 by suzuki.tomoki
 
 	// DIRECTXTKのメソッドは右手系　20230511 by suzuki.tomoki
 	// 右手系にすると３角形頂点が反時計回りになるので描画されなくなるので注意
 	// このコードは確認テストのために残す
 //	projectionMatrix = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearPlane, farPlane);
 
-	Renderer::SetProjectionMatrix(&projectionMatrix);
+	Renderer::SetProjectionMatrix(&m_ProjMatrix);
 
 	/*ImGui::Begin("Camera");
 	ImGui::Text("%f,%f,%f", camForward.x, camForward.y, camForward.z);
