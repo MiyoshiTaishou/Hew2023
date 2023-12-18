@@ -10,6 +10,7 @@ class Camera : public GameObject
 private:
     DirectX::SimpleMath::Vector3 m_Target{}; ///< カメラのターゲット座標
     DirectX::SimpleMath::Matrix m_ViewMatrix{}; ///< カメラのビュー行列
+    DirectX::SimpleMath::Matrix m_ProjMatrix{}; ///< カメラのプロジェクション行列
     DirectX::SimpleMath::Vector3 m_Foward{}; ///< カメラの前方ベクトル
 
 public:
@@ -41,6 +42,11 @@ public:
     DirectX::SimpleMath::Matrix GetViewMatrix()
     {
         return m_ViewMatrix;
+    }
+
+    DirectX::SimpleMath::Matrix GetProjMatrix()
+    {
+        return m_ProjMatrix;
     }
 
     float theta = 30; // 水平方向の角度

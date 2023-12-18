@@ -31,7 +31,7 @@ void StickObject::Init()
 
 void StickObject::Update()
 {			
-	Scene* scene = Manager::GetScene();
+	Scene* scene = Manager::GetScene();	
 
 	Field* filed = scene->GetGameObject<Field>();
 

@@ -22,6 +22,9 @@ protected:
     std::list<Component*> m_Component; ///< オブジェクトにアタッチされたコンポーネントのリスト
     std::list<GameObject*> m_ChildGameObject; ///< 子オブジェクトのリスト
 
+    //カリング内かどうか
+    bool m_InFrustum = true;
+
 public:
 
     DirectX::SimpleMath::Matrix m_matrix;
@@ -107,6 +110,11 @@ public:
         side.z = rot._33;
 
         return side;
+    }
+    
+    void SetFrustum(bool _frustum)
+    {
+        m_InFrustum = _frustum;
     }
 
     //回転行列を取得する
@@ -261,18 +269,21 @@ public:
      * @brief オブジェクトとその子オブジェクト、コンポーネントを更新します。
      */
     void UpdateBase()
-    {
-        for (GameObject* child : m_ChildGameObject)
+    {  
+        if (m_InFrustum)
         {
-            child->UpdateBase();
-        }
+            for (GameObject* child : m_ChildGameObject)
+            {
+                child->UpdateBase();
+            }
 
-        for (Component* component : m_Component)
-        {
-            component->Update();
-        }
+            for (Component* component : m_Component)
+            {
+                component->Update();
+            }
 
-        Update();
+            Update();
+        }
     }
 
     /**
@@ -281,33 +292,36 @@ public:
      */
     void DrawBase(DirectX::SimpleMath::Matrix ParentMatrix)
     {
-        // マトリクス設定
-        DirectX::SimpleMath::Matrix world, scale, rot, trans;
-        scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);        
-        rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);  
-        if (m_Qtr)
+        if (m_InFrustum)
         {
-            rot = m_Rotmatrix;
+            // マトリクス設定
+            DirectX::SimpleMath::Matrix world, scale, rot, trans;
+            scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);
+            rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+            if (m_Qtr)
+            {
+                rot = m_Rotmatrix;
+            }
+            trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
+            world = scale * rot * trans * ParentMatrix;
+
+            m_matrix = world;
+
+            PreDraw();
+
+            for (GameObject* child : m_ChildGameObject)
+            {
+                child->DrawBase(world);
+            }
+
+            Renderer::SetWorldMatrix(&world);
+
+            for (Component* component : m_Component)
+            {
+                component->Draw();
+            }
+
+            Draw();
         }
-        trans = DirectX::SimpleMath::Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
-        world = scale * rot * trans * ParentMatrix;
-
-        m_matrix = world;
-
-        PreDraw();
-
-        for (GameObject* child : m_ChildGameObject)
-        {
-            child->DrawBase(world);
-        }
-
-        Renderer::SetWorldMatrix(&world);
-
-        for (Component* component : m_Component)
-        {
-            component->Draw();
-        }
-
-        Draw();
     }
 };
