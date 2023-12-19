@@ -22,26 +22,66 @@
 //UI
 #include"../UI/score.h"
 
+using namespace DirectX::SimpleMath;
+
 void ResultScene::Init()
 {
+	int idxY = 0;
+	int idxX = 0;
+		
 	//リザルトロゴ
 	GameObject* resultLogo = AddGameObject<GameObject>(3);// 3はレイヤ番号
 	resultLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\unlitTexturePS.cso");
 	resultLogo->AddComponent<Sprite>()->Init(0.0f, 0.0f, 1280, 720.0f,
-		"../asset\\texture\\result.jpg");
+		"../asset\\texture\\Maturi.jpg");	
 
-	Score* score = AddGameObject<Score>(Layer3);
-	score->Init(400, 230, 50, 50);
-	score->AddCount(Manager::GetCount());
+	//取った数だけたこ焼きの画像を生成
+	for (int i = 0; i < Manager::GetCount(); i++)
+	{
+		if (idxX > 9)
+		{
+			idxY++;
+			idxX = 0;
+		}
 
-	Score* scoreRate = AddGameObject<Score>(Layer3);
-	scoreRate->Init(400, 480, 40, 40);
+		//たこ焼きの数分追加
+		GameObject* Takoyaki = AddGameObject<GameObject>(Layer3);
+		Takoyaki->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+			"../shader\\unlitTexturePS.cso");
+		Takoyaki->AddComponent<Sprite>()->Init(0.0f + (idxX * 50.0f), 600.0f - (idxY * 50.0f), 50.0f, 50.0f,
+			"../asset\\texture\\2DTakoyaki.png");
+		
+		m_Mt.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.0f);
+		m_Mt.TextureEnable = true;
 
-	//どの程度とれたか
-	float rate = ((float)Manager::GetCount() /  (float)MAX_SPHERE);
-	int percent = rate * 100;
-	scoreRate->AddCount(percent);
+		Takoyaki->GetComponent<Sprite>()->SetMaterial(m_Mt);
+
+		m_SpriteObj.push_back(Takoyaki);
+
+		idxX++;
+	}
+
+	//結果発表
+	m_ResultTex = AddGameObject<GameObject>(Layer3);
+	m_ResultTex->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	m_ResultTex->AddComponent<Sprite>()->Init(800,200, 500.0f, 281.5f,
+		"../asset\\texture\\TakoyaKing.png");
+	m_Mt.Diffuse.w = 0.0f;
+	m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
+
+	//Score* score = AddGameObject<Score>(Layer3);
+	//score->Init(400, 230, 50, 50);
+	//score->AddCount(Manager::GetCount());
+
+	//Score* scoreRate = AddGameObject<Score>(Layer3);
+	//scoreRate->Init(400, 480, 40, 40);
+
+	////どの程度とれたか
+	//float rate = ((float)Manager::GetCount() /  (float)MAX_SPHERE);
+	//int percent = rate * 100;
+	//scoreRate->AddCount(percent);
 
 	//オブジェクト生成
 	//AddGameObject<Sky>(Layer1);
@@ -71,7 +111,17 @@ void ResultScene::Update()
 
 		if (Input::GetGamePad(BUTTON::ABUTTON))
 		{
-			m_Transition->FadeOut();
+			//押されたら一気に表示
+			m_Mt.Diffuse.w = 1.0f;
+			for (auto& obj : m_SpriteObj)
+			{
+				obj->GetComponent<Sprite>()->SetMaterial(m_Mt);
+			}
+			//ここにあっぱれを入れる
+			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
+			
+			m_Skip = true;
+			Invoke([=]() {m_Transition->FadeOut(); }, 1000);			
 		}
 	}
 
@@ -82,4 +132,43 @@ void ResultScene::Update()
 
 		return;
 	}
+
+	//スキップされたらこの処理を行わない
+	if (m_Skip)
+	{
+		return;
+	}
+
+	//たこ焼きを順番に表示していく処理
+	if (m_SpriteObj.size() == 0)
+	{
+		return;
+	}
+
+	//完全に表示出来たら次へ
+	if (m_Mt.Diffuse.w > 1.0f)
+	{
+		m_Mt.Diffuse.w = 0.0f;
+		m_SpriteNo++;
+	}
+	else
+	{	
+		//徐々に加速する
+		m_Mt.Diffuse.w += m_SpriteNo / 10 * 0.1f + 0.1f;
+	}	
+
+	//最後までたこ焼きを描画したら結果発表テクスチャを差し込む
+	if (m_SpriteNo >= m_SpriteObj.size())
+	{		
+		m_Mt.Diffuse.w = 1.0f;
+	
+		//ここにあっぱれを入れる
+		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
+		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 2000);
+
+		return;
+	}
+
+	m_SpriteObj[m_SpriteNo]->GetComponent<Sprite>()->SetMaterial(m_Mt);
+	
 }
