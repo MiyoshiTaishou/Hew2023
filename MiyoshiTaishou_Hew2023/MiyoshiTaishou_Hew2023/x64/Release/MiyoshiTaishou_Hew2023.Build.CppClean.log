@@ -1,5 +1,4 @@
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\vc143.pdb
-c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cspheremesh.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cplanemeshtexture.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cplanemesh.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cplane.obj
@@ -19,7 +18,6 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_he
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\boxcollider.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\audio.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\animationmodel.obj
-c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\stageeditor.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\slopescene.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\resultscene.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\gamescene.obj
@@ -39,6 +37,7 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_he
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\billboardobject.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\perlinnoise.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cundulationplanemesh.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\cspheremesh.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\score.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\billboardscore.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\utility.obj
@@ -50,6 +49,16 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_he
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\application.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\transition.obj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\titlescene.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\stageeditor.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\boundingsphere.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\tensorscene.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\particleobject.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\particle.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\yatai.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\faketakotaki.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\rootchaise.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\timer.obj
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_alphafade.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_bloomblur.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_circle.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_concentrationshader.cso
@@ -63,6 +72,7 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_po
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_rgbsplit.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_shadow.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_toon.cso
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\ps_whitealpha.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\unlittextureps.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\unlittexturevs.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\vertexlightingoneskinvs.cso
@@ -74,7 +84,12 @@ c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\vs_ob
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\vs_outline.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\vs_rotation.cso
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\vs_shadow.cso
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\miyoshitaishou_hew2023.exe
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshitaishou_hew2023.ipdb
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\x64\release\miyoshitaishou_hew2023.pdb
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshitaishou_hew2023.iobj
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshit.17c5e793.tlog\cl.command.1.tlog
+c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshit.17c5e793.tlog\cl.items.tlog
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshit.17c5e793.tlog\cl.read.1.tlog
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshit.17c5e793.tlog\cl.write.1.tlog
 c:\users\taish\documents\github\hew2023\miyoshitaishou_hew2023\miyoshitaishou_hew2023\x64\release\miyoshit.17c5e793.tlog\fxc.command.1.tlog
