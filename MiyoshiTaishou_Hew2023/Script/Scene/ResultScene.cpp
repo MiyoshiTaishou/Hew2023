@@ -66,8 +66,28 @@ void ResultScene::Init()
 	m_ResultTex = AddGameObject<GameObject>(Layer3);
 	m_ResultTex->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\unlitTexturePS.cso");
-	m_ResultTex->AddComponent<Sprite>()->Init(800,200, 500.0f, 281.5f,
-		"../asset\\texture\\TakoyaKing.png");
+
+	if (Manager::GetCount() < 30)
+	{
+		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
+			"../asset\\texture\\SyouMori.png");
+	}	
+	else if(Manager::GetCount() < 60)
+	{
+		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
+			"../asset\\texture\\TyuuMori.png");
+	}
+	else if (Manager::GetCount() < 99)
+	{
+		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
+			"../asset\\texture\\OoMori.png");
+	}
+	else if (Manager::GetCount() == 100)
+	{
+		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
+			"../asset\\texture\\Takoyakinngu.png");
+	}
+
 	m_Mt.Diffuse.w = 0.0f;
 	m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
 
@@ -164,7 +184,7 @@ void ResultScene::Update()
 	
 		//‚±‚±‚É‚ ‚Á‚Ï‚ê‚ð“ü‚ê‚é
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
-		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 2000);
+		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
 
 		return;
 	}
