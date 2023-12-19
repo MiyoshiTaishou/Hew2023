@@ -62,10 +62,7 @@ void TitleScene::Init()
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
-	bgm->GetComponent<Audio>()->Play();
-
-	m_Transition = AddGameObject<Transition>(3);
-	m_Transition->FadeIn();//フェードイン開始	
+	bgm->GetComponent<Audio>()->Play();	
 
 	GameObject* titleLogo = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
 	titleLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
@@ -105,6 +102,9 @@ void TitleScene::Init()
 	ID3D11Buffer* timeBuffers[] = { timeBuffer };
 	Renderer::GetDeviceContext()->VSSetConstantBuffers(10, 1, timeBuffers); // 頂点シェーダーに渡す場合
 	Renderer::GetDeviceContext()->PSSetConstantBuffers(10, 1, timeBuffers); // ピクセルシェーダーに渡す場合
+
+	m_Transition = AddGameObject<Transition>(3);
+	m_Transition->FadeIn();//フェードイン開始	
 }
 
 void TitleScene::Update()
@@ -132,7 +132,7 @@ void TitleScene::Update()
 
 	if (col->Hit(bill->GetComponent<SphereCollider>()))
 	{
-		Manager::SetScene<GameScene>();		
+		m_Transition->FadeOut();
 		return;
 	}
 

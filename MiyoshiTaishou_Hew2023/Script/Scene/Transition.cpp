@@ -12,12 +12,12 @@ void Transition::Init()
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 
 	m_Sprite = AddComponent<Sprite>();
-	m_Sprite->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT, "../asset\\texture\\title.jpg");
+	m_Sprite->Init(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_HEIGHT, "../asset\\texture\\Niji.jpg");
 
 	// マテリアルの設定
 	MATERIAL material{};
-	material.Diffuse = Color(0.0f, 0.0f, 0.0f, 1.0f);
-	material.TextureEnable = false;
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	material.TextureEnable = true;
 	m_Sprite->SetMaterial(material);
 }
 
@@ -54,7 +54,7 @@ void Transition::Update()
 
 	// マテリアルの設定
 	MATERIAL material{};
-	material.Diffuse = Color(0.0f, 0.0f, 0.0f, m_Alpha);
-	material.TextureEnable = false;
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, m_Alpha);
+	material.TextureEnable = true;
 	m_Sprite->SetMaterial(material);
 }
