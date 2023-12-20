@@ -15,7 +15,7 @@
 #include"../Particle/Particle.h"
 
 //‚½‚±Ä‚«‚ÌÅ‘å”
-#define MAX_SPHERE 100
+#define MAX_SPHERE 10
 
 enum OBJTAG
 {
@@ -151,10 +151,10 @@ public:
             }
         }
 
-        for (Particle* particl : m_Particle)
+      /*  for (Particle* particl : m_Particle)
         {
             particl->Draw();
-        }
+        }*/
         
         Draw();
     }

@@ -180,7 +180,9 @@
     <ClCompile Include="..\Script\Object\Sphere.cpp" />
     <ClCompile Include="..\Script\Object\StickObject.cpp" />
     <ClCompile Include="..\Script\Object\TakoyakiObject.cpp" />
-    <ClCompile Include="..\Script\Object\Yatai.cpp" />
+    <ClCompile Include="..\Script\Object\TreeObject.cpp" />
+    <ClCompile Include="..\Script\Object\YakisobaObject.cpp" />
+    <ClCompile Include="..\Script\Object\YataiObject.cpp" />
     <ClCompile Include="..\Script\Particle\Particle.cpp" />
     <ClCompile Include="..\Script\Particle\ParticleObject.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
@@ -247,7 +249,9 @@
     <ClInclude Include="..\Script\Object\Sphere.h" />
     <ClInclude Include="..\Script\Object\StickObject.h" />
     <ClInclude Include="..\Script\Object\TakoyakiObject.h" />
-    <ClInclude Include="..\Script\Object\Yatai.h" />
+    <ClInclude Include="..\Script\Object\TreeObject.h" />
+    <ClInclude Include="..\Script\Object\YakisobaObject.h" />
+    <ClInclude Include="..\Script\Object\YataiObject.h" />
     <ClInclude Include="..\Script\Particle\Particle.h" />
     <ClInclude Include="..\Script\Particle\ParticleObject.h" />
     <ClInclude Include="..\Script\Render\CIndexBuffer.h" />

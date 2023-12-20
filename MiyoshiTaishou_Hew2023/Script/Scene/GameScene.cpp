@@ -16,7 +16,7 @@
 #include"../Object/FakeTakotaki.h"
 #include"../Object/BillBoardObject.h"
 #include"../Object/Enemy.h"
-#include"../Object/Yatai.h"
+#include"../Object/YataiObject.h"
 
 //シーン関係
 #include"ResultScene.h"
@@ -91,12 +91,12 @@ void GameScene::Init()
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
-	bgm->GetComponent<Audio>()->Play();	
+	bgm->GetComponent<Audio>()->Play(true);	
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
 
-	AddGameObject<Yatai>(Layer1);
+	AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());

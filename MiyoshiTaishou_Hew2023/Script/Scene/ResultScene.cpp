@@ -48,7 +48,7 @@ void ResultScene::Init()
 		m_SE[i] = AddGameObject<GameObject>(Layer3);
 		Audio* SE4 = m_SE[i]->AddComponent<Audio>();
 		SE4->Load("../asset\\audio\\打ち上げ花火2.wav");
-		SE4->SetVolume(5.0f);
+		SE4->SetVolume(10.0f);
 	}	
 		
 	//リザルトロゴ
@@ -89,7 +89,7 @@ void ResultScene::Init()
 	m_ResultTex->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\unlitTexturePS.cso");
 
-	if (Manager::GetCount() < 30)
+	if (Manager::GetCount() < MAX_SPHERE * 0.3f)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\SyouMori.png");
@@ -97,7 +97,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\男声「オーッ！」.wav");
 		SE3->SetVolume(5.0f);
 	}	
-	else if(Manager::GetCount() < 60)
+	else if(Manager::GetCount() < MAX_SPHERE * 0.6f)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\TyuuMori.png");
@@ -105,7 +105,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\男衆「イエーイ！」.wav");
 		SE3->SetVolume(5.0f);
 	}
-	else if (Manager::GetCount() < 99)
+	else if (Manager::GetCount() < MAX_SPHERE)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\OoMori.png");
@@ -113,7 +113,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\あっぱれ.wav");
 		SE3->SetVolume(5.0f);
 	}
-	else if (Manager::GetCount() == 100)
+	else if (Manager::GetCount() == MAX_SPHERE)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\Takoyakinngu.png");
@@ -157,29 +157,6 @@ void ResultScene::Init()
 
 void ResultScene::Update()
 {
-	if (m_Transition->GetState() == Transition::State::Stop)
-	{
-		if (Input::GetKeyTrigger(VK_RETURN))
-		{
-			m_Transition->FadeOut();
-		}
-
-		if (Input::GetGamePad(BUTTON::ABUTTON))
-		{
-			//押されたら一気に表示
-			m_Mt.Diffuse.w = 1.0f;
-			for (auto& obj : m_SpriteObj)
-			{
-				obj->GetComponent<Sprite>()->SetMaterial(m_Mt);
-			}
-			//ここにあっぱれを入れる
-			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
-			
-			m_Skip = true;
-			Invoke([=]() {m_Transition->FadeOut(); }, 1000);			
-		}
-	}
-
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
 	{
@@ -193,6 +170,31 @@ void ResultScene::Update()
 	{
 		return;
 	}
+
+	if (m_Transition->GetState() == Transition::State::Stop)
+	{
+		if (Input::GetKeyTrigger(VK_RETURN))
+		{
+			m_Transition->FadeOut();
+		}
+
+		if (Input::GetGamePad(BUTTON::ABUTTON))
+		{			
+			//押されたら一気に表示
+			m_Mt.Diffuse.w = 1.0f;
+			for (auto& obj : m_SpriteObj)
+			{
+				obj->GetComponent<Sprite>()->SetMaterial(m_Mt);
+			}
+			//ここにあっぱれを入れる
+			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);			
+			m_SE[1]->GetComponent<Audio>()->Play();
+			m_SE[2]->GetComponent<Audio>()->Play();
+			
+			m_Skip = true;
+			Invoke([=]() {m_Transition->FadeOut(); }, 1000);			
+		}
+	}	
 
 	//たこ焼きを順番に表示していく処理
 	if (m_SpriteObj.size() == 0)
@@ -223,7 +225,7 @@ void ResultScene::Update()
 		Audio* SE = m_SE[1]->GetComponent<Audio>();
 		Audio* SE2 = m_SE[2]->GetComponent<Audio>();
 
-		if (Manager::GetCount() == 100)
+		if (Manager::GetCount() == MAX_SPHERE)
 		{
 			for (int i = 3; i < 7; i++)
 			{
@@ -235,7 +237,9 @@ void ResultScene::Update()
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
 		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
 		Invoke([=]() {SE->Play(); }, 1000);
-		Invoke([=]() {SE2->Play(); }, 1000);		
+		Invoke([=]() {SE2->Play(); }, 1000);	
+
+		Invoke([=]() {m_Transition->FadeOut(); }, 10000);
 
 		return;
 	}

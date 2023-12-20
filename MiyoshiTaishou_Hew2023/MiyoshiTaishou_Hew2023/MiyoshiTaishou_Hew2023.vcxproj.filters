@@ -219,11 +219,17 @@
     <ClCompile Include="..\Script\Component\RootChaise.cpp">
       <Filter>ソース ファイル\Componet</Filter>
     </ClCompile>
-    <ClCompile Include="..\Script\Object\Yatai.cpp">
+    <ClCompile Include="..\Script\Object\YataiObject.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
     <ClCompile Include="..\Script\Object\FakeTakotaki.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\TreeObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\YakisobaObject.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -431,10 +437,16 @@
     <ClInclude Include="..\Script\Component\RootChaise.h">
       <Filter>ソース ファイル\Componet</Filter>
     </ClInclude>
-    <ClInclude Include="..\Script\Object\Yatai.h">
+    <ClInclude Include="..\Script\Object\YataiObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
     <ClInclude Include="..\Script\Object\FakeTakotaki.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\TreeObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\YakisobaObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>

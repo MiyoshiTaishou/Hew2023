@@ -156,7 +156,7 @@ void RootChaise::Draw()
     //}    
     //ImGui::End();
 
-    //particle->Draw();
+    particle->Draw();
 }
 
 void RootChaise::Update()
