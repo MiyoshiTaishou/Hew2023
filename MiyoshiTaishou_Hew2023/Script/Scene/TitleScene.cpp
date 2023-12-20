@@ -10,7 +10,9 @@
 #include"../Object/field.h"
 #include"../Object/camera.h"
 #include"../Object/BillBoardObject.h"
-#include"../Object/Yatai.h"
+#include"../Object/YataiObject.h"
+#include"../Object/TreeObject.h"
+#include"../Object/YakisobaObject.h"
 #include"Transition.h"
 
 //コンポーネント
@@ -36,9 +38,16 @@ void TitleScene::Init()
 	BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
 	BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
 
-	AddGameObject<Yatai>(Layer1);
+	AddGameObject<TreeObject>(Layer1);
+	AddGameObject<YakisobaObject>(Layer1);
+	AddGameObject<YataiObject>(Layer1);
 	
-	
+	GameObject* obj = AddGameObject<GameObject>(Layer1);
+	obj->AddComponent<ModelRenderer>()->Load("../asset\\model\\Kasutera.obj");
+	obj->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");	
+	obj->SetScale(Vector3(1, 1, 1) * 0.1f);
+	obj->SetPosition(Vector3(0, 10, 100));
+
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();
@@ -53,11 +62,12 @@ void TitleScene::Init()
 	box3->SetScale(Vector3(160, 20, 5));
 
 	box4->SetPosition(Vector3(0, 0, min.z));
-	box4->SetScale(Vector3(160, 20, 5));	
+	box4->SetScale(Vector3(160, 20, 5));			
 
 	AddGameObject<Player>(Layer1);
 
 	AddGameObject<Camera>(Layer0);	
+	
 
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
@@ -104,7 +114,7 @@ void TitleScene::Init()
 	Renderer::GetDeviceContext()->PSSetConstantBuffers(10, 1, timeBuffers); // ピクセルシェーダーに渡す場合
 
 	m_Transition = AddGameObject<Transition>(3);
-	m_Transition->FadeIn();//フェードイン開始	
+	m_Transition->FadeIn();//フェードイン開始		
 }
 
 void TitleScene::Update()
