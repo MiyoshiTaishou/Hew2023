@@ -28,6 +28,28 @@ void ResultScene::Init()
 {
 	int idxY = 0;
 	int idxX = 0;
+
+	//SE追加
+	m_SE[0] = AddGameObject<GameObject>(3);
+	Audio* SE = m_SE[0]->AddComponent<Audio>();
+	SE->Load("../asset\\audio\\和太鼓でドン.wav");
+	SE->SetVolume(2.0f);
+
+	m_SE[1] = AddGameObject<GameObject>(3);
+	Audio* SE2 = m_SE[1]->AddComponent<Audio>();
+	SE2->Load("../asset\\audio\\和太鼓でドドン.wav");
+	SE2->SetVolume(5.0f);
+
+	m_SE[2] = AddGameObject<GameObject>(3);
+	Audio* SE3 = m_SE[2]->AddComponent<Audio>();	
+
+	for (int i = 3; i < 7; i++)
+	{
+		m_SE[i] = AddGameObject<GameObject>(Layer3);
+		Audio* SE4 = m_SE[i]->AddComponent<Audio>();
+		SE4->Load("../asset\\audio\\打ち上げ花火2.wav");
+		SE4->SetVolume(5.0f);
+	}	
 		
 	//リザルトロゴ
 	GameObject* resultLogo = AddGameObject<GameObject>(3);// 3はレイヤ番号
@@ -71,21 +93,33 @@ void ResultScene::Init()
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\SyouMori.png");
+
+		SE3->Load("../asset\\audio\\男声「オーッ！」.wav");
+		SE3->SetVolume(5.0f);
 	}	
 	else if(Manager::GetCount() < 60)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\TyuuMori.png");
+
+		SE3->Load("../asset\\audio\\男衆「イエーイ！」.wav");
+		SE3->SetVolume(5.0f);
 	}
 	else if (Manager::GetCount() < 99)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\OoMori.png");
+
+		SE3->Load("../asset\\audio\\あっぱれ.wav");
+		SE3->SetVolume(5.0f);
 	}
 	else if (Manager::GetCount() == 100)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\Takoyakinngu.png");
+
+		SE3->Load("../asset\\audio\\あっぱれ.wav");
+		SE3->SetVolume(5.0f);
 	}
 
 	m_Mt.Diffuse.w = 0.0f;
@@ -115,6 +149,7 @@ void ResultScene::Init()
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play();
+	bgm->GetComponent<Audio>()->SetVolume(0.5f);
 
 	m_Transition = AddGameObject<Transition>(3);
 	m_Transition->FadeIn();//フェードイン開始
@@ -168,6 +203,7 @@ void ResultScene::Update()
 	//完全に表示出来たら次へ
 	if (m_Mt.Diffuse.w > 1.0f)
 	{
+		m_SE[0]->GetComponent<Audio>()->Play();
 		m_Mt.Diffuse.w = 0.0f;
 		m_SpriteNo++;
 	}
@@ -180,11 +216,26 @@ void ResultScene::Update()
 	//最後までたこ焼きを描画したら結果発表テクスチャを差し込む
 	if (m_SpriteNo >= m_SpriteObj.size())
 	{		
+		m_Skip = true;
 		m_Mt.Diffuse.w = 1.0f;
 	
 		//ここにあっぱれを入れる
+		Audio* SE = m_SE[1]->GetComponent<Audio>();
+		Audio* SE2 = m_SE[2]->GetComponent<Audio>();
+
+		if (Manager::GetCount() == 100)
+		{
+			for (int i = 3; i < 7; i++)
+			{
+				Audio* SE3 = m_SE[3]->GetComponent<Audio>();
+				Invoke([=]() {SE3->Play(); }, 1000 + i * 500);
+			}
+		}
+
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
 		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
+		Invoke([=]() {SE->Play(); }, 1000);
+		Invoke([=]() {SE2->Play(); }, 1000);		
 
 		return;
 	}
