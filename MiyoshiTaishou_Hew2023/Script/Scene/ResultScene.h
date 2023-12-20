@@ -23,6 +23,9 @@ class ResultScene : public Scene
     //スキップ
     bool m_Skip = false;
 
+    //SE
+    GameObject* m_SE[8];
+
 public:
     void Init()override;
     void Update()override;

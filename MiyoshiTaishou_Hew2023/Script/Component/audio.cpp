@@ -131,5 +131,10 @@ void Audio::Play(bool Loop)
 
 }
 
+void Audio::SetVolume(float _volume)
+{
+	m_SourceVoice->SetVolume(_volume);
+}
+
 
 
