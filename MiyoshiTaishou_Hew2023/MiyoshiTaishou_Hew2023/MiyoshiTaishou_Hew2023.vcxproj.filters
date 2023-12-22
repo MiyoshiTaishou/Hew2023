@@ -229,7 +229,13 @@
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
     <ClCompile Include="..\Script\Object\YakisobaObject.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\KasuteraObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Script\Object\CarObject.cpp">
+      <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -447,6 +453,12 @@
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
     <ClInclude Include="..\Script\Object\YakisobaObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\KasuteraObject.h">
+      <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Object\CarObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClInclude>
   </ItemGroup>

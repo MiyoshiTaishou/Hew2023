@@ -130,6 +130,11 @@ void ParticleObject::Update()
 	Scene* nowscene = Manager::GetScene();
 	Camera* camera = nowscene->GetGameObject<Camera>();
 
+	if (!camera)
+	{
+		return;
+	}
+
 	//常にプレイヤーの方を向く処理
 	//プレイヤーへのベクトルを計算
 	Vector3 dir = camera->GetPosition() - m_Position;

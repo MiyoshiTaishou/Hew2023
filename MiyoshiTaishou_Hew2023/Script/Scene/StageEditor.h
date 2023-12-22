@@ -17,6 +17,8 @@ private:
 
 	//リストのオブジェクトのIndex
 	int selectedObjectIndex = -1;
+
+	GameObject* obj;
 };
 
 

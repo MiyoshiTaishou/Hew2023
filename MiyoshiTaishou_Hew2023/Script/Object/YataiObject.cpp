@@ -33,6 +33,11 @@ void YataiObject::Update()
 	Scene* scene = Manager::GetScene();
 	Player* player = scene->GetGameObject<Player>();
 
+	if (!player)
+	{
+		return;
+	}
+
 	if (GetComponent<SphereCollider>()->Hit(player->GetComponent<SphereCollider>()))
 	{
 		player->GetComponent<RigidBody>()->AddForce(Vector3(0, 50, 0), ForceMode::Impulse);

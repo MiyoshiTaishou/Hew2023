@@ -37,6 +37,8 @@ using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
 {	
+	LoadObjectData("obj.csv");
+
 	//オブジェクト生成	
 	AddGameObject<Sky>(Layer1);
 	//AddGameObject<TakoyakiObject>(Layer1);			

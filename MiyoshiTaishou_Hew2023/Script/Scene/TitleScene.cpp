@@ -13,6 +13,8 @@
 #include"../Object/YataiObject.h"
 #include"../Object/TreeObject.h"
 #include"../Object/YakisobaObject.h"
+#include"../Object/KasuteraObject.h"
+#include"../Object/CarObject.h"
 #include"Transition.h"
 
 //コンポーネント
@@ -41,12 +43,8 @@ void TitleScene::Init()
 	AddGameObject<TreeObject>(Layer1);
 	AddGameObject<YakisobaObject>(Layer1);
 	AddGameObject<YataiObject>(Layer1);
-	
-	GameObject* obj = AddGameObject<GameObject>(Layer1);
-	obj->AddComponent<ModelRenderer>()->Load("../asset\\model\\Kasutera.obj");
-	obj->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");	
-	obj->SetScale(Vector3(1, 1, 1) * 0.1f);
-	obj->SetPosition(Vector3(0, 10, 100));
+	AddGameObject<KasuteraObject>(Layer1);
+	AddGameObject<CarObject>(Layer1);	
 
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
