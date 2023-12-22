@@ -36,6 +36,11 @@ void TreeObject::Update()
 
 	Player* player = scene->GetGameObject<Player>();
 
+	if (!player)
+	{
+		return;
+	}
+
 	//“–‚½‚Á‚½‚ç’e‚«”ò‚Î‚·
 	if (this->m_Collider->Hit(player->GetComponent<SphereCollider>()))
 	{

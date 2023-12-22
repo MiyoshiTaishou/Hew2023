@@ -49,8 +49,8 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
-	//SetScene<StageEditor>();
-	SetScene<TitleScene>();
+	SetScene<StageEditor>();
+	//SetScene<TitleScene>();
 	//SetScene<GameScene>();
 	//SetScene<ResultScene>();
 	//SetScene<SlopeScene>();
@@ -96,35 +96,35 @@ void Manager::Draw(uint64_t d)
 
 	float fps = 1000.0f / d;
 
-	//ImGui::Begin("FPS");
-	//ImGui::Text("%fFPS",fps);
-	//ImGui::End();
+	ImGui::Begin("FPS");
+	ImGui::Text("%fFPS",fps);
+	ImGui::End();
 
 
-	////Debug‚æ‚¤ƒV[ƒ“‘JˆÚ
-	//ImGui::Begin("SceneChange");
+	//Debug‚æ‚¤ƒV[ƒ“‘JˆÚ
+	ImGui::Begin("SceneChange");
 
-	//if (ImGui::TreeNode(("Scene")))
-	//{
-	//	if (ImGui::Button("TiTle"))
-	//		SetScene<TitleScene>();
+	if (ImGui::TreeNode(("Scene")))
+	{
+		if (ImGui::Button("TiTle"))
+			SetScene<TitleScene>();
 
-	//	if (ImGui::Button("Game"))
-	//		SetScene<GameScene>();
+		if (ImGui::Button("Game"))
+			SetScene<GameScene>();
 
-	//	if (ImGui::Button("Result"))
-	//		SetScene<ResultScene>();
+		if (ImGui::Button("Result"))
+			SetScene<ResultScene>();
 
-	//	if (ImGui::Button("StageEditor"))
-	//		SetScene<StageEditor>();
+		if (ImGui::Button("StageEditor"))
+			SetScene<StageEditor>();
 
-	//	if (ImGui::Button("SlopScene"))
-	//		SetScene<SlopeScene>();
+		if (ImGui::Button("SlopScene"))
+			SetScene<SlopeScene>();
 
-	//	ImGui::TreePop();
-	//}
+		ImGui::TreePop();
+	}
 
-	//ImGui::End();
+	ImGui::End();
 
 	ImGuiManager::End();
 	Renderer::End();

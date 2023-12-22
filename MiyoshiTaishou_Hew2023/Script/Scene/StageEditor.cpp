@@ -9,6 +9,13 @@
 #include"../Object/camera.h"
 #include"../Object/DebugCamera.h"
 
+//ステージ用オブジェクト
+#include"../Object/YataiObject.h"
+#include"../Object/YakisobaObject.h"
+#include"../Object/TreeObject.h"
+#include"../Object/KasuteraObject.h"
+#include"../Object/CarObject.h"
+
 //UI
 #include"../UI/score.h"
 
@@ -16,9 +23,12 @@
 
 void StageEditor::Init()
 {
-	AddGameObject<DebugCamera>(Layer0);
+    obj = new GameObject;
+    obj->Init();
+
+    AddGameObject<DebugCamera>(Layer0)->m_TargetObj = obj;
 	AddGameObject<Sky>(Layer0);
-    //AddGameObject<Field>(Layer1);
+    //AddGameObject<Field>(Layer1);   
 
     AddGameObject<Score>(Layer3);
 }
@@ -93,14 +103,29 @@ void StageEditor::CreateObj()
 {
     if (ImGui::TreeNode(("Create Object ")))
     {
-        if (ImGui::Button("BOXCreate"))
+        if (ImGui::Button("YataiCreate"))
         {            
-            BoxObject* box = AddGameObject<BoxObject>(Layer1);          
+            YataiObject* yatai = AddGameObject<YataiObject>(Layer1);          
         }
 
-        if (ImGui::Button("ENEMYCreate"))
+        if (ImGui::Button("YakisobCareate"))
         {
-            BoxObject* box = AddGameObject<BoxObject>(Layer1);
+            YakisobaObject* yakisoba = AddGameObject<YakisobaObject>(Layer1);
+        }
+
+        if (ImGui::Button("TreeCareate"))
+        {
+            TreeObject* tree = AddGameObject<TreeObject>(Layer1);
+        }
+
+        if (ImGui::Button("KasuteraCareate"))
+        {
+            KasuteraObject* kasutera = AddGameObject<KasuteraObject>(Layer1);
+        }
+
+        if (ImGui::Button("CarCareate"))
+        {
+            CarObject* car = AddGameObject<CarObject>(Layer1);
         }
 
         ImGui::TreePop();

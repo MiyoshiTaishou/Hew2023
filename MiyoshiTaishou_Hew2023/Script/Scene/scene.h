@@ -11,6 +11,13 @@
 #include"../Object/BoxObject.h"
 #include"../Object/Player.h"
 
+//ステージ用オブジェクト
+#include"../Object/YataiObject.h"
+#include"../Object/YakisobaObject.h"
+#include"../Object/TreeObject.h"
+#include"../Object/KasuteraObject.h"
+#include"../Object/CarObject.h"
+
 #include "../Render/modelRenderer.h"
 #include"../Particle/Particle.h"
 
@@ -20,6 +27,11 @@
 enum OBJTAG
 {
     BOX,
+    YATAI,
+    YAKISOBA,
+    TREE,
+    KASUTERA,
+    CAR,
 };
 
 enum Layer
@@ -241,7 +253,27 @@ public:
             if (typeid(*obj) == typeid(BoxObject))
             {
                 outputFile << OBJTAG::BOX;
-            }                
+            }               
+            if (typeid(*obj) == typeid(YataiObject))
+            {
+                outputFile << OBJTAG::YATAI;
+            }
+            if (typeid(*obj) == typeid(YakisobaObject))
+            {
+                outputFile << OBJTAG::YAKISOBA;
+            }
+            if (typeid(*obj) == typeid(TreeObject))
+            {
+                outputFile << OBJTAG::TREE;
+            }
+            if (typeid(*obj) == typeid(KasuteraObject))
+            {
+                outputFile << OBJTAG::KASUTERA;
+            }
+            if (typeid(*obj) == typeid(CarObject))
+            {
+                outputFile << OBJTAG::CAR;
+            }
             
             outputFile << "," << obj->GetPosition().x << "," << obj->GetPosition().y << "," << obj->GetPosition().z << ","
                 << obj->GetScale().x << "," << obj->GetScale().y << "," << obj->GetScale().z << ","
@@ -314,15 +346,54 @@ public:
             std::getline(ss, token, '\n');
             rot.z = std::stof(token); 
 
-            switch (tag
-)
+            switch (tag)
             {
             case BOX:
             {
-              /*  BoxObject* box = AddGameObject<BoxObject>(Layer1);
-                box->SetPosition(pos);
-                box->SetScale(scale);
-                box->SetRotation(rot);*/
+                BoxObject* obj = AddGameObject<BoxObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case YATAI:
+            {
+                YataiObject* obj = AddGameObject<YataiObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case YAKISOBA:
+            {
+                YakisobaObject* obj = AddGameObject<YakisobaObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case TREE:
+            {
+                TreeObject* obj = AddGameObject<TreeObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case KASUTERA:
+            {
+                KasuteraObject* obj = AddGameObject<KasuteraObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case CAR:
+            {
+                CarObject* obj = AddGameObject<CarObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
                 break;
             }
             default:
