@@ -15,6 +15,8 @@
 #include"../Object/TreeObject.h"
 #include"../Object/KasuteraObject.h"
 #include"../Object/CarObject.h"
+#include"../Object/TakoyakiObject.h"
+#include"../Object/FakeTakotaki.h"
 
 //UI
 #include"../UI/score.h"
@@ -130,7 +132,17 @@ void StageEditor::CreateObj()
 
         if (ImGui::Button("FiledCareate"))
         {
-            Field* car = AddGameObject<Field>(Layer1);
+            Field* filed = AddGameObject<Field>(Layer1);
+        }
+
+        if (ImGui::Button("TakoyakiCareate"))
+        {
+            TakoyakiObject* takoyaki = AddGameObject<TakoyakiObject>(Layer1);
+        }
+
+        if (ImGui::Button("FakeTakoyakiCareate"))
+        {
+            FakeTakoyakiObject* takoyaki = AddGameObject<FakeTakoyakiObject>(Layer1);
         }
 
         ImGui::TreePop();

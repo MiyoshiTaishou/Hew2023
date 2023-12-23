@@ -18,12 +18,14 @@
 #include"../Object/KasuteraObject.h"
 #include"../Object/CarObject.h"
 #include"../Object/field.h"
+#include"../Object/TakoyakiObject.h"
+#include"../Object/FakeTakotaki.h"
 
 #include "../Render/modelRenderer.h"
 #include"../Particle/Particle.h"
 
 //ÇΩÇ±èƒÇ´ÇÃç≈ëÂêî
-#define MAX_SPHERE 10
+//#define MAX_SPHERE 10
 
 enum OBJTAG
 {
@@ -34,6 +36,8 @@ enum OBJTAG
     KASUTERA,
     CAR,
     FILED,
+    TAKOYAKI,
+    FAKE,
 };
 
 enum Layer
@@ -280,6 +284,14 @@ public:
             {
                 outputFile << OBJTAG::FILED;
             }
+            if (typeid(*obj) == typeid(TakoyakiObject))
+            {
+                outputFile << OBJTAG::TAKOYAKI;
+            }
+            if (typeid(*obj) == typeid(FakeTakoyakiObject))
+            {
+                outputFile << OBJTAG::FAKE;
+            }
             
             outputFile << "," << obj->GetPosition().x << "," << obj->GetPosition().y << "," << obj->GetPosition().z << ","
                 << obj->GetScale().x << "," << obj->GetScale().y << "," << obj->GetScale().z << ","
@@ -405,6 +417,22 @@ public:
             case FILED:
             {
                 Field* obj = AddGameObject<Field>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case TAKOYAKI:
+            {
+                TakoyakiObject* obj = AddGameObject<TakoyakiObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case FAKE:
+            {
+                FakeTakoyakiObject* obj = AddGameObject<FakeTakoyakiObject>(Layer1);
                 obj->SetPosition(pos);
                 obj->SetScale(scale);
                 obj->SetRotation(rot);
