@@ -28,7 +28,7 @@ void StageEditor::Init()
 
     AddGameObject<DebugCamera>(Layer0)->m_TargetObj = obj;
 	AddGameObject<Sky>(Layer0);
-    //AddGameObject<Field>(Layer1);   
+    AddGameObject<Field>(Layer1);   
 
     AddGameObject<Score>(Layer3);
 }
@@ -126,6 +126,11 @@ void StageEditor::CreateObj()
         if (ImGui::Button("CarCareate"))
         {
             CarObject* car = AddGameObject<CarObject>(Layer1);
+        }
+
+        if (ImGui::Button("FiledCareate"))
+        {
+            Field* car = AddGameObject<Field>(Layer1);
         }
 
         ImGui::TreePop();

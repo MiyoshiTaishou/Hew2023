@@ -17,6 +17,7 @@
 #include"../Object/TreeObject.h"
 #include"../Object/KasuteraObject.h"
 #include"../Object/CarObject.h"
+#include"../Object/field.h"
 
 #include "../Render/modelRenderer.h"
 #include"../Particle/Particle.h"
@@ -32,6 +33,7 @@ enum OBJTAG
     TREE,
     KASUTERA,
     CAR,
+    FILED,
 };
 
 enum Layer
@@ -274,6 +276,10 @@ public:
             {
                 outputFile << OBJTAG::CAR;
             }
+            if (typeid(*obj) == typeid(Field))
+            {
+                outputFile << OBJTAG::FILED;
+            }
             
             outputFile << "," << obj->GetPosition().x << "," << obj->GetPosition().y << "," << obj->GetPosition().z << ","
                 << obj->GetScale().x << "," << obj->GetScale().y << "," << obj->GetScale().z << ","
@@ -391,6 +397,14 @@ public:
             case CAR:
             {
                 CarObject* obj = AddGameObject<CarObject>(Layer1);
+                obj->SetPosition(pos);
+                obj->SetScale(scale);
+                obj->SetRotation(rot);
+                break;
+            }
+            case FILED:
+            {
+                Field* obj = AddGameObject<Field>(Layer1);
                 obj->SetPosition(pos);
                 obj->SetScale(scale);
                 obj->SetRotation(rot);

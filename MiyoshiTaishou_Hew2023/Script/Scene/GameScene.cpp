@@ -36,7 +36,7 @@
 using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
-{	
+{		
 	LoadObjectData("obj.csv");
 
 	//オブジェクト生成	
@@ -45,7 +45,7 @@ void GameScene::Init()
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);	
 
 	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
-	AddGameObject<Field>(Layer1);	
+	//AddGameObject<Field>(Layer1);	
 
 	Score* score = AddGameObject<Score>(Layer3);	
 
@@ -101,7 +101,7 @@ void GameScene::Init()
 	AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
-	bill->AddCount(cus->GetRequests());
+	bill->AddCount(cus->GetRequests());	
 
 	Manager::InitCount();
 }

@@ -71,6 +71,19 @@ void DebugCamera::Draw()
 //	projectionMatrix = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearPlane, farPlane);
 
 	Renderer::SetProjectionMatrix(&projectionMatrix);
+
+	Vector3 pos = m_TargetObj->GetPosition();
+	Vector3 rot = m_TargetObj->GetRotation();
+	ImGui::Begin("Camera");
+	// スライダー
+	ImGui::SliderFloat("posX##", &pos.x, -100.0f, 100.0f);
+	ImGui::SliderFloat("posY##", &pos.y, -100.0f, 100.0f);
+	ImGui::SliderFloat("posZ##", &pos.z, -300.0f, 100.0f);
+	ImGui::SliderFloat("rotY##", &rot.y, -100.0f, 100.0f);
+	ImGui::End();
+
+	m_TargetObj->SetPosition(pos);
+	m_TargetObj->SetRotation(rot);
 }
 
 void DebugCamera::SetTarget(DirectX::SimpleMath::Vector3 target)

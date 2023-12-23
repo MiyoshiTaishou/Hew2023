@@ -478,7 +478,7 @@ void Player::Collision()
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();
 
-	if (m_Position.x <= min.x) {
+	/*if (m_Position.x <= min.x) {
 		m_Position.x = min.x;
 	}
 	if (m_Position.x >= max.x) {
@@ -490,7 +490,7 @@ void Player::Collision()
 	}
 	if (m_Position.z >= max.z) {
 		m_Position.z = max.z;
-	}
+	}*/
 
 	/*for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
