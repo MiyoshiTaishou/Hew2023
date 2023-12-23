@@ -11,6 +11,7 @@ private:
     static class Scene* m_Scene; // 現在のシーンへのポインタ
 
     static int m_Count;//たこ焼きの数
+    static int m_CountMax;//たこ焼きの数
 
 public:
     /**
@@ -72,6 +73,16 @@ public:
     static int GetCount()
     {
         return m_Count;
+    }
+
+    static int GetCountMax()
+    {
+        return m_CountMax;
+    }
+
+    static void SetCountMax(int _count)
+    {
+        m_CountMax = _count;
     }
 
     static void InitCount()

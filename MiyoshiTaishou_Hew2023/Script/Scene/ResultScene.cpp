@@ -89,7 +89,7 @@ void ResultScene::Init()
 	m_ResultTex->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\unlitTexturePS.cso");
 
-	if (Manager::GetCount() < MAX_SPHERE * 0.3f)
+	if (Manager::GetCount() < Manager::GetCountMax() * 0.3f)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\SyouMori.png");
@@ -97,7 +97,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\男声「オーッ！」.wav");
 		SE3->SetVolume(5.0f);
 	}	
-	else if(Manager::GetCount() < MAX_SPHERE * 0.6f)
+	else if(Manager::GetCount() < Manager::GetCountMax() * 0.6f)
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\TyuuMori.png");
@@ -105,7 +105,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\男衆「イエーイ！」.wav");
 		SE3->SetVolume(5.0f);
 	}
-	else if (Manager::GetCount() < MAX_SPHERE)
+	else if (Manager::GetCount() < Manager::GetCountMax())
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\OoMori.png");
@@ -113,7 +113,7 @@ void ResultScene::Init()
 		SE3->Load("../asset\\audio\\あっぱれ.wav");
 		SE3->SetVolume(5.0f);
 	}
-	else if (Manager::GetCount() == MAX_SPHERE)
+	else if (Manager::GetCount() == Manager::GetCountMax())
 	{
 		m_ResultTex->AddComponent<Sprite>()->Init(600, 200, 700.0f, 481.5f,
 			"../asset\\texture\\Takoyakinngu.png");
@@ -225,7 +225,7 @@ void ResultScene::Update()
 		Audio* SE = m_SE[1]->GetComponent<Audio>();
 		Audio* SE2 = m_SE[2]->GetComponent<Audio>();
 
-		if (Manager::GetCount() == MAX_SPHERE)
+		if (Manager::GetCount() == Manager::GetCountMax())
 		{
 			for (int i = 3; i < 7; i++)
 			{

@@ -24,6 +24,7 @@
 Scene* Manager::m_Scene{};// 現在シーン
 
 int Manager::m_Count = 0;//たこ焼きの数
+int Manager::m_CountMax = 0;//最大数
 
 // グローバル変数
 std::list<GameObject*> g_gameobjectlist;
