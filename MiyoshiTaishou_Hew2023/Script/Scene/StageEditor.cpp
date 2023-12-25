@@ -71,13 +71,13 @@ void StageEditor::Draw()
     // 保存ボタン
     if (ImGui::Button("Save Positions"))
     {
-        SaveObjectData("Obj.csv");
+        SaveObjectData(m_buffer);
     }
 
     // 読み込みボタン
     if (ImGui::Button("Load Positions"))
     {
-        LoadObjectData("Obj.csv");
+        LoadObjectData(m_buffer);
     }
 
     //オブジェクト削除
@@ -93,6 +93,8 @@ void StageEditor::Draw()
             selectedObjectIndex = -1;
         }    
     }
+
+    ImGui::InputText("File Name", m_buffer, sizeof(m_buffer));
 
     ImGui::End();
 

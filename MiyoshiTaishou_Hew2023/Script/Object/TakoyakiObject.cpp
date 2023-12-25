@@ -23,7 +23,7 @@ void TakoyakiObject::Init()
 	model->Load("../asset\\model\\bullet.obj");	
 
 	SphereCollider* sphere = AddComponent<SphereCollider>();	
-	sphere->SetRadius((ModelRenderer::Max.x * m_Scale.x));
+	sphere->SetRadius(2.0f);
 
 	m_Position.x = 10.0f;
 

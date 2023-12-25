@@ -128,19 +128,7 @@ void ParticleObject::Draw()
 void ParticleObject::Update()
 {
 	Scene* nowscene = Manager::GetScene();
-	Camera* camera = nowscene->GetGameObject<Camera>();
-
-	if (!camera)
-	{
-		return;
-	}
-
-	//常にプレイヤーの方を向く処理
-	//プレイヤーへのベクトルを計算
-	Vector3 dir = camera->GetPosition() - m_Position;
-	m_Rotation.y = atan2(dir.x, dir.z);
-	//角度がずれているので調整
-	m_Rotation.y -= 60.0f;
+	Camera* camera = nowscene->GetGameObject<Camera>();	
 
 	//パーティクルの寿命
 	if (m_LifeTime > 0)
@@ -163,4 +151,16 @@ void ParticleObject::Update()
 
 	Vector3 power = this->m_Dir * m_Speed;
 	body->AddForce(power, ForceMode::Acceleration);
+
+	if (!camera)
+	{
+		return;
+	}
+
+	//常にプレイヤーの方を向く処理
+	//プレイヤーへのベクトルを計算
+	Vector3 dir = camera->GetPosition() - m_Position;
+	m_Rotation.y = atan2(dir.x, dir.z);
+	//角度がずれているので調整
+	m_Rotation.y -= 60.0f;
 }

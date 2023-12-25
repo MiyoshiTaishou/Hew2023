@@ -28,7 +28,7 @@ void RootChaise::Init()
     scne->m_Particle.push_back(particle);
     //particle->Init();
 
-    std::ifstream inputFile("Test.csv");
+    std::ifstream inputFile(m_buffer);
     if (inputFile.is_open())
     {
         std::string line;
@@ -91,70 +91,75 @@ void RootChaise::Draw()
         // GPUに行列をセットする
         Renderer::SetWorldMatrix(&world);//位置
        
-        //m_MeshRenderer[i]->Draw();
+        m_MeshRenderer[i]->Draw();
     }   
 
-    //ImGui::Begin("Collider");
+    ImGui::Begin("Collider");
 
-    //if (ImGui::Button("Save Values"))
-    //{
-    //    std::ofstream outputFile("Test.csv"); // ファイルを作成または上書き
-    //    if (outputFile.is_open())
-    //    {
-    //        for (int i = 0; i < 4; i++)
-    //        {
-    //            outputFile << "PosX" << i << "," << m_SpherePos[i].x << "\n";
-    //            outputFile << "PosY" << i << "," << m_SpherePos[i].y << "\n";
-    //            outputFile << "PosZ" << i << "," << m_SpherePos[i].z << "\n";
-    //        }
-    //        outputFile.close();
-    //    }
-    //}
+    if (ImGui::Button("Save Values"))
+    {
+        std::ofstream outputFile(m_buffer); // ファイルを作成または上書き
+        if (outputFile.is_open())
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                outputFile << "PosX" << i << "," << m_SpherePos[i].x << "\n";
+                outputFile << "PosY" << i << "," << m_SpherePos[i].y << "\n";
+                outputFile << "PosZ" << i << "," << m_SpherePos[i].z << "\n";
+            }
+            outputFile.close();
+        }
+    }    
 
-    //if (ImGui::Button("Load Value"))
-    //{
-    //    std::ifstream inputFile("Test.csv");
-    //    if (inputFile.is_open())
-    //    {
-    //        std::string line;
-    //        while (getline(inputFile, line))
-    //        {
-    //            size_t pos = line.find(",");
-    //            if (pos != std::string::npos)
-    //            {
-    //                std::string label = line.substr(0, pos);
-    //                std::string valueStr = line.substr(pos + 1);
+    if (ImGui::Button("Load Value"))
+    {
+        std::ifstream inputFile(m_buffer);
+        if (inputFile.is_open())
+        {
+            std::string line;
+            while (getline(inputFile, line))
+            {
+                size_t pos = line.find(",");
+                if (pos != std::string::npos)
+                {
+                    std::string label = line.substr(0, pos);
+                    std::string valueStr = line.substr(pos + 1);
 
-    //                // インデックスの検出と値の解析
-    //                int posIndex = std::stoi(label.substr(4, 1));
-    //                float value = std::stof(valueStr);
+                    // インデックスの検出と値の解析
+                    int posIndex = std::stoi(label.substr(4, 1));
+                    float value = std::stof(valueStr);
 
-    //                // ラベルの種類に基づいて m_SpherePos を更新
-    //                if (label.find("PosX") != std::string::npos)
-    //                {
-    //                    m_SpherePos[posIndex].x = value;
-    //                }
-    //                else if (label.find("PosY") != std::string::npos)
-    //                {
-    //                    m_SpherePos[posIndex].y = value;
-    //                }
-    //                else if (label.find("PosZ") != std::string::npos)
-    //                {
-    //                    m_SpherePos[posIndex].z = value;
-    //                }
-    //            }
-    //        }
-    //        inputFile.close();
-    //    }
-    //}
+                    // ラベルの種類に基づいて m_SpherePos を更新
+                    if (label.find("PosX") != std::string::npos)
+                    {
+                        m_SpherePos[posIndex].x = value;
+                    }
+                    else if (label.find("PosY") != std::string::npos)
+                    {
+                        m_SpherePos[posIndex].y = value;
+                    }
+                    else if (label.find("PosZ") != std::string::npos)
+                    {
+                        m_SpherePos[posIndex].z = value;
+                    }
+                }
+            }
+            inputFile.close();
+        }
+    }
 
-    //for (int i = 0; i < 4; i++)
-    //{
-    //    ImGui::SliderFloat(("PosX" + std::to_string(i)).c_str(), &m_SpherePos[i].x, -1000, 1000);
-    //    ImGui::SliderFloat(("PosY" + std::to_string(i)).c_str(), &m_SpherePos[i].y, -1000, 1000);
-    //    ImGui::SliderFloat(("PosZ" + std::to_string(i)).c_str(), &m_SpherePos[i].z, -1000, 1000);
-    //}    
-    //ImGui::End();
+    for (int i = 0; i < 4; i++)
+    {
+        ImGui::SliderFloat(("PosX" + std::to_string(i)).c_str(), &m_SpherePos[i].x, -1000, 1000);
+        ImGui::SliderFloat(("PosY" + std::to_string(i)).c_str(), &m_SpherePos[i].y, -1000, 1000);
+        ImGui::SliderFloat(("PosZ" + std::to_string(i)).c_str(), &m_SpherePos[i].z, -1000, 1000);
+    }    
+
+    // std::stringをchar型のバッファにコピー
+    //strcpy_s(m_buffer, m_GameObject->GetFileName().c_str());    
+    ImGui::InputText("File Name", m_buffer, sizeof(m_buffer));    
+   
+    ImGui::End();
 
     particle->Draw();
 }
@@ -223,5 +228,5 @@ void RootChaise::Update()
     }   
 
     particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
-    //particle->Update();
+    particle->Update();
 }

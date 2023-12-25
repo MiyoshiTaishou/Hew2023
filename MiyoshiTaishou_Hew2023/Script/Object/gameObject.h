@@ -4,6 +4,7 @@
 #include <list>
 #include <SimpleMath.h>
 #include "../Component/component.h"
+#include<string>
 
 /**
  * @brief ゲームオブジェクトの基本クラスです。
@@ -11,6 +12,7 @@
 class GameObject
 {
 protected:
+
     bool m_Destroy = false; ///< オブジェクトの破棄フラグ
     DirectX::SimpleMath::Vector3 m_Position = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f); ///< オブジェクトの位置
     DirectX::SimpleMath::Vector3 m_Rotation = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f); ///< オブジェクトの回転
@@ -38,7 +40,7 @@ public:
     /**
      * @brief GameObjectクラスのデストラクタ
      */
-    virtual ~GameObject() {}
+    virtual ~GameObject() {}   
 
     /**
      * @brief オブジェクトの位置を取得します。
