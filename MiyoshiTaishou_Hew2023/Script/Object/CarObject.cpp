@@ -7,6 +7,7 @@
 #include"../Component/SphereCollider.h"
 #include"../Component/RigidBody.h"
 #include"../Component/audio.h"
+#include"../Component/RootChaise.h"
 
 #include"../Object/Player.h"
 
@@ -25,6 +26,7 @@ void CarObject::Init()
 	m_Collider->SetRadius(15.0f);
 	this->SetScale(Vector3(3, 3, 3));
 	this->SetPosition(Vector3(-50, 0, 0));
+	this->AddComponent<RootChaise>();
 
 	//SE
 	m_SE = AddComponent<Audio>();

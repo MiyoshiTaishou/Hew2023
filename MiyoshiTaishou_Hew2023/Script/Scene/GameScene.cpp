@@ -36,11 +36,7 @@
 using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
-{		
-	LoadObjectData("obj.csv");
-
-	//オブジェクト生成	
-	AddGameObject<Sky>(Layer1);
+{			
 	//AddGameObject<TakoyakiObject>(Layer1);			
 	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);	
 
@@ -79,13 +75,7 @@ void GameScene::Init()
 	//	takoyaki->SetPosition(pos);
 
 	//	idxX++;
-	//}
-
-
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetRotation(Vector3(30, 10000, 30));
-
-	AddGameObject<Camera>(Layer0);
+	//}		
 
 	//AddGameObject<Enemy>(Layer1);
 
@@ -97,6 +87,11 @@ void GameScene::Init()
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
+
+	LoadObjectData("Stage1-1.csv");
+
+	//オブジェクト生成	
+	AddGameObject<Sky>(Layer1);
 
 	//AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
@@ -111,6 +106,11 @@ void GameScene::Init()
 	countMax += GetGameObjects<FakeTakoyakiObject>().size();
 
 	Manager::SetCountMax(countMax);
+
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
+
+	AddGameObject<Camera>(Layer0);
 }
 
 void GameScene::Update()

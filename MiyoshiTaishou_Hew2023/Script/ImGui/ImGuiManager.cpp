@@ -1049,7 +1049,7 @@ void ImGuiManager::ImGuiInit(Application* ap)
 	//セットアップ
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO();
+	ImGuiIO& io = ImGui::GetIO();	
 	ImGui_ImplWin32_Init(m_Application->GetWindow());
 	ImGui_ImplDX11_Init(Renderer::GetDevice(),Renderer::GetDeviceContext());
 	ImGui::StyleColorsDark();
@@ -1080,6 +1080,7 @@ void ImGuiManager::Begin()
 
 void ImGuiManager::End()
 {	
+	
 	ImGui::Render();
 
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());

@@ -1,5 +1,6 @@
 #pragma once
 #include "../Object/gameObject.h"
+
 class YataiObject : public GameObject
 {
 private:	

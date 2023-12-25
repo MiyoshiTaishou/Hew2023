@@ -19,6 +19,9 @@ private:
 	int selectedObjectIndex = -1;
 
 	GameObject* obj;
+
+	//–¼‘O•ÏX—p•Ï”
+	char m_buffer[256] = "test.csv";
 };
 
 
