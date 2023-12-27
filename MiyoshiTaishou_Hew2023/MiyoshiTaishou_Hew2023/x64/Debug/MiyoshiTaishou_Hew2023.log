@@ -7,7 +7,10 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\
   BillBoardObject.cpp
   BoxObject.cpp
   CarObject.cpp
-C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(53,17): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(61,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(65,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(72,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(76,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   Customer.cpp
   DebugCamera.cpp
   Enemy.cpp

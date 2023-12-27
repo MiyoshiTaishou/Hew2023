@@ -19,7 +19,7 @@ public:
 private:
 
 	float m_Rate = 0.0f;
-	float m_MoveSpeed = 0.001f;
+	float m_MoveSpeed = 0.005f;
 
 	//‰Â‹‰»—p‚ÌƒƒbƒVƒ…
 	CMeshRenderer* m_MeshRenderer[MAX_BEJIE];
