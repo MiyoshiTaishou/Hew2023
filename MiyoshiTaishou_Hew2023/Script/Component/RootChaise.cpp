@@ -209,21 +209,21 @@ void RootChaise::Update()
 
         //常にプレイヤーの方を向く処理
         //プレイヤーへのベクトルを計算
-        Vector3 dir = m_GameObject->GetPosition() - afterPos;
+        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[7];
         Vector3 rot = m_GameObject->GetRotation();
         rot.y = atan2(dir.x, dir.z);
-        rot.y -= 90.0f;
+        //rot.y -= 0.0f;
         m_GameObject->SetRotation(rot);
     }
     else
     {
         m_GameObject->SetPosition(m_SpherePos[6]);
         //常にプレイヤーの方を向く処理
-      //プレイヤーへのベクトルを計算
-        Vector3 dir = m_GameObject->GetPosition() - afterPos;
+        //プレイヤーへのベクトルを計算
+        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[5];
         Vector3 rot = m_GameObject->GetRotation();
         rot.y = atan2(dir.x, dir.z);
-        rot.y -= 90.0f;
+        rot.y -= 180.0f;
         m_GameObject->SetRotation(rot);
     }   
 
