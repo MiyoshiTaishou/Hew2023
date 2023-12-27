@@ -2,7 +2,7 @@
 #include "../Object/gameObject.h"
 
 class Audio;
-class SphereCollider;
+class BoxCollider;
 
 class KasuteraObject : public GameObject
 {
@@ -12,7 +12,7 @@ private:
 	Audio* m_SE;
 
 	//“–‚½‚è”»’è
-	SphereCollider* m_Collider;
+	BoxCollider* m_Collider;
 
 public:
 	void Init();

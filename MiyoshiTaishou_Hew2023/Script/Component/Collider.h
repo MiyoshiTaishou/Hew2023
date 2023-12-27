@@ -30,6 +30,16 @@ public:
 		return m_Relative;
 	}
 
+	void SetCollScale(DirectX::SimpleMath::Vector3 _scale)
+	{
+		m_ColliderScale = _scale;
+	}
+
+	DirectX::SimpleMath::Vector3 GetCollScale()
+	{
+		return m_ColliderScale;
+	}
+
 	bool CheckInTriangle(
 		const DirectX::SimpleMath::Vector3& a,
 		const DirectX::SimpleMath::Vector3& b,

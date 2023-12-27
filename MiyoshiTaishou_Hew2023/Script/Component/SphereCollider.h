@@ -14,6 +14,7 @@ public:
 	bool Hit(const SphereCollider* _sphereCol);
 
 	void SetRadius(float _radius);
+	float GetRadius();
 
 	//“–‚½‚è”»’è‚ð‰ÂŽ‹‰»
 	bool m_Invisble = false;

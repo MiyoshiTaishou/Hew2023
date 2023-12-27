@@ -30,6 +30,11 @@ public:
 	//コントローラー入力
 	void ConInput();
 
+	DirectX::SimpleMath::Vector3 GetAfterPos()
+	{
+		return m_AfterPos;
+	}
+
 private:
 
 	PLAYERSTATE state = IDLE;
@@ -56,4 +61,6 @@ private:
 	float m_Distance[MAX_SPHERE_MESH];
 
 	Particle* m_Particle;
+	
+	DirectX::SimpleMath::Vector3 m_AfterPos;
 };

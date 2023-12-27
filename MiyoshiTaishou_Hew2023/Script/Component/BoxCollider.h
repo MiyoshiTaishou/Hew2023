@@ -2,6 +2,7 @@
 #include"Collider.h"
 
 class Sprite;
+class SphereCollider;
 
 // BOX’è‹`
 struct AABB {
@@ -30,7 +31,8 @@ public:
 	void Update();
 	void Draw();
 
-	bool Hit(const BoxCollider* _boxCol);
+	bool HitBox(const BoxCollider* _boxCol);
+	bool HitSphere(SphereCollider* _sphereCol);
 
 	bool Collision(BoxCollider& _box);
 

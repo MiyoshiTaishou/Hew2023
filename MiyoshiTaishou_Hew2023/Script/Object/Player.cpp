@@ -163,7 +163,10 @@ void Player::Uninit()
 }
 
 void Player::Update()
-{		
+{	
+	//前の座標を残しておく
+	m_AfterPos = m_Position;
+
 	//コンポーネントのUpdate呼び出し
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
@@ -171,7 +174,7 @@ void Player::Update()
 
 	//m_Particle->Update();
 
-	GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
+	//GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
 
 	//左端
 	m_Point[0] = Vector3(m_Position.x - (m_Scale.x / 2), m_Position.y, m_Position.z);
@@ -254,8 +257,7 @@ void Player::Update()
 	Collision();
 
 	//コントローラー入力
-	ConInput();
-
+	ConInput();	
 }
 
 void Player::Draw()
