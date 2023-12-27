@@ -93,3 +93,8 @@ void SphereCollider::SetRadius(float _radius)
 {   
 	m_Radius = _radius;
 }
+
+float SphereCollider::GetRadius()
+{
+    return m_Radius;
+}

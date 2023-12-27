@@ -11,6 +11,7 @@
 #include"../Component/shader.h"
 #include"../Render/modelRenderer.h"
 #include"../Component/SphereCollider.h"
+#include"../Component/BoxCollider.h"
 #include"../Component/RigidBody.h"
 #include"../Component/audio.h"
 
@@ -20,8 +21,8 @@ void KasuteraObject::Init()
 {
 	this->AddComponent<ModelRenderer>()->Load("../asset\\model\\Kasutera.obj");
 	this->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	m_Collider = this->AddComponent<SphereCollider>();
-	m_Collider->SetRadius(15.0f);
+	m_Collider = this->AddComponent<BoxCollider>();
+	m_Collider->SetCollScale(Vector3(10,100,10));
 	this->SetScale(Vector3(0.1, 0.1, 0.1));
 	this->SetPosition(Vector3(50, 0, 0));
 
@@ -42,17 +43,38 @@ void KasuteraObject::Update()
 	}
 
 	//“–‚½‚Á‚½‚ç’e‚«”ò‚Î‚·
-	if (this->m_Collider->Hit(player->GetComponent<SphereCollider>()))
+	if (this->m_Collider->HitSphere(player->GetComponent<SphereCollider>()))
 	{
-		RigidBody* body = player->GetComponent<RigidBody>();
-		Vector3 playerVel = body->GetVelocity();
+		// ˆÚ“®•ûŒü‚ðŒvŽZ‚·‚é
+		Vector3 collisionDirection = m_Position - player->GetPosition();
 
-		playerVel *= -1.1;
+		Vector3 playerPos = player->GetPosition();
 
-		playerVel.y = 0.0f;
+		//‚Ç‚¿‚ç‚Ì•ûŒü‚©‚ç“–‚½‚Á‚Ä‚¢‚é‚©”»’f‚·‚é
+		if (std::abs(collisionDirection.x) > std::abs(collisionDirection.z))
+		{
+			if (collisionDirection.x > 0)
+			{
+				playerPos.x = m_Collider->GetPos().x - m_Collider->GetCollScale().x / 1.4;
+			}
+			else if (collisionDirection.x < 0)
+			{
+				playerPos.x = m_Collider->GetPos().x + m_Collider->GetCollScale().x / 1.4;
+			}
+		}
+		else
+		{
+			if (collisionDirection.z > 0)
+			{
+				playerPos.z = m_Collider->GetPos().z - m_Collider->GetCollScale().z / 1.4;
+			}
+			else if (collisionDirection.z < 0)
+			{
+				playerPos.z = m_Collider->GetPos().z + m_Collider->GetCollScale().z / 1.4;
+			}
+		}
 
-		body->AddForce(playerVel, ForceMode::Impulse);
-
-		m_SE->Play();
+		player->SetPosition(playerPos);
+		player->GetComponent<RigidBody>()->SetVelocity(Vector3::Zero);
 	}
 }

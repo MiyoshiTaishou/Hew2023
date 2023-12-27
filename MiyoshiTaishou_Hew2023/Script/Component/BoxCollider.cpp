@@ -1,6 +1,7 @@
 #include <WICTextureLoader.h>
 
 #include "BoxCollider.h"
+#include"SphereCollider.h"
 #include"sprite.h"
 
 #include"../ImGui/ImGuiManager.h"
@@ -32,7 +33,7 @@ void BoxCollider::Update()
 	m_Info.fLengthZ = m_ColliderScale.z;
 
 	m_ColliderPos = this->m_GameObject->GetPosition();
-	m_ColliderScale = this->m_GameObject->GetScale();
+	//m_ColliderScale = this->m_GameObject->GetScale();
 
 	//Collider::Update();
 }
@@ -51,7 +52,7 @@ void BoxCollider::Draw()
 	//ImGui::End();
 }
 
-bool BoxCollider::Hit(const BoxCollider* _boxCol)
+bool BoxCollider::HitBox(const BoxCollider* _boxCol)
 {
 	float P1Left = this->m_ColliderPos.x - (this->m_ColliderScale.x / 2);
 	float P1Right = this->m_ColliderPos.x + (this->m_ColliderScale.x / 2);
@@ -88,6 +89,26 @@ bool BoxCollider::Hit(const BoxCollider* _boxCol)
 	}
 
 	return true;
+}
+
+bool BoxCollider::HitSphere(SphereCollider* _sphereCol)
+{	
+
+	// ボックスの最小点と最大点を計算する
+	DirectX::SimpleMath::Vector3 boxMin = m_ColliderPos - m_ColliderScale * 0.5f;
+	DirectX::SimpleMath::Vector3 boxMax = m_ColliderPos + m_ColliderScale * 0.5f;
+
+	// スフィアの中心とボックスの最も近い点を計算する
+	DirectX::SimpleMath::Vector3 closestPointInBox = _sphereCol->GetPos();
+	closestPointInBox.x = std::max(boxMin.x, std::min(_sphereCol->GetPos().x, boxMax.x));
+	closestPointInBox.y = std::max(boxMin.y, std::min(_sphereCol->GetPos().y, boxMax.y));
+	closestPointInBox.z = std::max(boxMin.z, std::min(_sphereCol->GetPos().z, boxMax.z));
+
+	// スフィアとボックスの最も近い点の距離を計算する
+	float distance = DirectX::SimpleMath::Vector3::Distance(_sphereCol->GetPos(), closestPointInBox);
+
+	// スフィアの半径と最も近い点の距離を比較し、衝突判定を行う
+	return distance <= _sphereCol->GetRadius();
 }
 
 bool BoxCollider::Collision(BoxCollider& _box)

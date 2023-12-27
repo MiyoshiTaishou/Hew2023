@@ -64,7 +64,7 @@ bool Input::GetGamePad(BUTTON button)
     case BUTTON::RLEFT:                                                         
         return (m_ControllerState.Gamepad.sThumbRX < 0);
     case BUTTON::RRIGHT:                                                        
-        return (m_ControllerState.Gamepad.sThumbRX > 0);
+        return (m_ControllerState.Gamepad.sThumbRX > 10000);
     case BUTTON::ABUTTON:
         return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A);
     default:
