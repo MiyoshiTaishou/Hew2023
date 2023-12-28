@@ -17,8 +17,8 @@ public:
 	float GetRadius();
 
 	//“–‚½‚è”»’è‚ð‰ÂŽ‹‰»
-	bool m_Invisble = false;
-	//bool m_Invisble = true;
+	//bool m_Invisble = false;
+	bool m_Invisble = true;
 
 private:
 

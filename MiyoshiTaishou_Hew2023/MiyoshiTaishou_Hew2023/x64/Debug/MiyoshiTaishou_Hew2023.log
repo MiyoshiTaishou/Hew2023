@@ -1,6 +1,138 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
+  BoundingSphere.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoundingSphere.cpp(1,1): warning C4005: 'NOMINMAX': マクロが再定義されました。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\BoundingSphere.cpp(1,1): message : 'NOMINMAX' は以前にコマンド ラインで宣言されています
+  BoxCollider.cpp
+  Collider.cpp
+  RigidBody.cpp
+  RootChaise.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\RootChaise.cpp(23,30): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  SphereCollider.cpp
+  animationModel.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\animationModel.cpp(210,19): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Component\animationModel.cpp(379,82): warning C4305: '引数': 'double' から 'TReal' へ切り詰めます。
+          with
+          [
+              TReal=ai_real
+          ]
+  shader.cpp
+  shadow.cpp
+  sprite.cpp
+  ImGuiManager.cpp
+  CPlaneMesh.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CPlaneMesh.cpp(198,16): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
+  CPlaneMeshTexture.cpp
+  CSphereMesh.cpp
+  CUndulationPlaneMesh.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CUndulationPlaneMesh.cpp(28,4): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\CUndulationPlaneMesh.cpp(31,20): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  BillBoardObject.cpp
+  BoxObject.cpp
+  CarObject.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(61,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(65,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(72,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp(76,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Customer.cpp
+  DebugCamera.cpp
+  コードを生成中...
+  コンパイル中...
+  Enemy.cpp
+  FakeTakotaki.cpp
+  KasuteraObject.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(26,35): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(26,30): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(26,25): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(58,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(62,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(69,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp(73,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Player.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Sphere.cpp
+  StickObject.cpp
+  TakoyakiObject.cpp
+  TreeObject.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\TreeObject.cpp(58,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\TreeObject.cpp(62,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\TreeObject.cpp(69,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\TreeObject.cpp(73,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  YakisobaObject.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YakisobaObject.cpp(57,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YakisobaObject.cpp(61,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YakisobaObject.cpp(68,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YakisobaObject.cpp(72,42): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  YataiObject.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YataiObject.cpp(50,44): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\YataiObject.cpp(50,38): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  camera.cpp
+  field.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(156,44): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp(162,33): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  sky.cpp
+  Particle.cpp
+  ParticleObject.cpp
+  modelRenderer.cpp
+  renderer.cpp
   GameScene.cpp
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\GameScene.cpp(105,51): warning C4267: '+=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\GameScene.cpp(106,55): warning C4267: '+=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  ResultScene.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(58,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(58,49): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(58,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(74,97): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(74,90): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(74,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(74,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(94,63): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(94,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(102,63): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(102,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(110,63): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(110,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(118,63): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\ResultScene.cpp(118,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  SlopeScene.cpp
+  コードを生成中...
+  コンパイル中...
+  StageEditor.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  TensorScene.cpp
+  TitleScene.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(78,61): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(78,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(78,42): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(84,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(84,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp(84,37): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Transition.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp(15,17): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Application.cpp
+  DirectWrite.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\DirectWrite.cpp(61,58): warning C4267: '引数': 'size_t' から 'UINT32' に変換しました。データが失われているかもしれません。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\DirectWrite.cpp(87,39): warning C4267: '引数': 'size_t' から 'UINT32' に変換しました。データが失われているかもしれません。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\DirectWrite.cpp(105,13): warning C4996: 'ID2D1Factory::GetDesktopDpi': Deprecated. Use DisplayInformation::LogicalDpi for Windows Store Apps or GetDpiForWindow for desktop apps.
+  manager.cpp
+  BillBoardScore.cpp
+  Timer.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\Timer.cpp(51,16): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  score.cpp
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.h(14,19): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(84,34): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(84,31): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(89,33): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(94,36): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(94,31): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(99,44): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(99,33): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(129,17): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(130,17): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(131,14): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\UI\score.cpp(132,14): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   MiyoshiTaishou_Hew2023.vcxproj -> C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\x64\Debug\MiyoshiTaishou_Hew2023.exe

@@ -127,7 +127,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -196,6 +196,7 @@
     <ClCompile Include="..\Script\Scene\TensorScene.cpp" />
     <ClCompile Include="..\Script\Scene\TitleScene.cpp" />
     <ClCompile Include="..\Script\Scene\Transition.cpp" />
+    <ClCompile Include="..\Script\Scene\TutorialScene.cpp" />
     <ClCompile Include="..\Script\Sysytem\Application.cpp" />
     <ClCompile Include="..\Script\Sysytem\DirectWrite.cpp" />
     <ClCompile Include="..\Script\Sysytem\dx11mathuntil.cpp" />
@@ -271,6 +272,7 @@
     <ClInclude Include="..\Script\Scene\TensorScene.h" />
     <ClInclude Include="..\Script\Scene\TitleScene.h" />
     <ClInclude Include="..\Script\Scene\Transition.h" />
+    <ClInclude Include="..\Script\Scene\TutorialScene.h" />
     <ClInclude Include="..\Script\Sysytem\Application.h" />
     <ClInclude Include="..\Script\Sysytem\component.h" />
     <ClInclude Include="..\Script\Sysytem\DirectWrite.h" />

@@ -119,12 +119,12 @@ void GameScene::Init()
 	write = new DirectWrite(data);
 
 	write->Init();
+
+
 }
 
 void GameScene::Update()
-{
-	write->DrawString("Ç±Ç±Ç…ï∂éöÇ™èëÇØÇ‹Ç∑", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
-
+{	
 	Camera* camera = GetGameObject<Camera>();
 
 	std::vector<TakoyakiObject*> stickObj = GetGameObjects<TakoyakiObject>();
@@ -192,4 +192,16 @@ void GameScene::Update()
 void GameScene::Draw()
 {
 	write->DrawString("ÇΩÇ±èƒÇ´ç∞", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
+	write->DrawString(text, Vector2(90, 120), D2D1_DRAW_TEXT_OPTIONS_NONE);
+
+	if (flame > 60 && pushText.size() > texIdx)
+	{
+		
+		text.push_back(pushText[texIdx]);
+		text.push_back(pushText[texIdx + 1]);
+		flame = 0;
+		texIdx += 2;
+	}
+
+	flame += 2.0f;
 }

@@ -22,4 +22,10 @@ private:
 	bool m_Goal = false;
 
 	DirectWrite* write;
+
+	std::string text = "これはテストです";
+	std::string pushText = "追加文章挿入テスト";
+
+	float flame = 0;
+	int texIdx = 0;
 };
