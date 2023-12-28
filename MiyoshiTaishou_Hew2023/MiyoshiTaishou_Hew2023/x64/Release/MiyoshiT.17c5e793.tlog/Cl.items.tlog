@@ -25,11 +25,13 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Mesh\Perli
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\BillBoardObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\BillBoardObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\BoxObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\BoxObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\camera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\camera.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\CarObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\CarObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Customer.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Customer.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\DebugCamera.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\DebugCamera.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Enemy.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Enemy.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\FakeTakotaki.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\FakeTakotaki.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\field.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\field.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\KasuteraObject.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\KasuteraObject.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Player.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Player.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\sky.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\sky.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Object\Sphere.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Sphere.obj
@@ -49,7 +51,9 @@ C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Stag
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TensorScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\TensorScene.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TitleScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\TitleScene.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\Transition.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Transition.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Scene\TutorialScene.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\TutorialScene.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\Application.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\Application.obj
+C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\DirectWrite.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\DirectWrite.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\dx11mathuntil.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\dx11mathuntil.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\input.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\input.obj
 C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\Script\Sysytem\main.cpp;C:\Users\Taish\Documents\GitHub\Hew2023\MiyoshiTaishou_Hew2023\MiyoshiTaishou_Hew2023\x64\Release\main.obj

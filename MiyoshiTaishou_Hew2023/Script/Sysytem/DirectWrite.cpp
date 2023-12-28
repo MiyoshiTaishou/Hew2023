@@ -1,6 +1,11 @@
 #include "DirectWrite.h"
 #include "../Render/renderer.h"		// Renderer
 
+#include <iostream>
+#include <fstream>
+#include <locale>
+#include <codecvt>
+
 std::wstring DirectWrite::StringToWString(std::string oString)
 {
 	// SJIS → wstring
@@ -88,6 +93,25 @@ void DirectWrite::DrawString(std::string str, D2D1_RECT_F rect, D2D1_DRAW_TEXT_O
 
 	// 描画の終了
 	pRT->EndDraw();
+}
+
+std::vector<std::string> DirectWrite::ReadTextFile(const std::string& fileName)
+{
+	std::vector<std::string> lines;
+	std::ifstream file(fileName);
+
+	if (file.is_open()) {
+		std::string line;
+		while (std::getline(file, line)) {
+			lines.push_back(line);
+		}
+		file.close();
+	}
+	else {
+		std::cerr << "ファイルを開けませんでした: " << fileName << std::endl;
+	}
+
+	return lines;
 }
 
 void DirectWrite::Init()

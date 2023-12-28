@@ -138,6 +138,7 @@ public:
 	// options：テキストの整形
 	void DrawString(std::string str, D2D1_RECT_F rect, D2D1_DRAW_TEXT_OPTIONS options);
 
+	std::vector<std::string> ReadTextFile(const std::string& fileName);
 	// 初期化
 	void Init();
 
