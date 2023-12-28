@@ -296,4 +296,10 @@ public:
             m_DeviceContext->OMSetBlendState(m_BlendState[nBlendState], blendFactor, 0xffffffff);
         }
     }
+
+    //スワップチェインを返す
+    static IDXGISwapChain* GetSwapChain()
+    {
+        return m_SwapChain;
+    }
 };

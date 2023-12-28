@@ -91,7 +91,7 @@ void GameScene::Init()
 	LoadObjectData("Stage1-1.csv");
 
 	//オブジェクト生成	
-	AddGameObject<Sky>(Layer1);
+	//AddGameObject<Sky>(Layer1);
 
 	//AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
@@ -111,10 +111,20 @@ void GameScene::Init()
 	player->SetRotation(Vector3(30, 10000, 30));
 
 	AddGameObject<Camera>(Layer0);
+
+	FontData* data = new FontData();
+	data->fontSize = 60;
+	data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;
+
+	write = new DirectWrite(data);
+
+	write->Init();
 }
 
 void GameScene::Update()
 {
+	write->DrawString("ここに文字が書けます", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
+
 	Camera* camera = GetGameObject<Camera>();
 
 	std::vector<TakoyakiObject*> stickObj = GetGameObjects<TakoyakiObject>();
@@ -176,5 +186,10 @@ void GameScene::Update()
 				return;
 			}
 		}
-	}
+	}	
+}
+
+void GameScene::Draw()
+{
+	write->DrawString("たこ焼き魂", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
 }
