@@ -1,6 +1,6 @@
 #pragma once
 #include"scene.h"
-
+#include"../Sysytem/DirectWrite.h"
 /**
  * @brief ゲームシーン管理クラス
  */
@@ -11,6 +11,7 @@ public:
 
 	void Init()override;
 	void Update()override;	
+	void Draw()override;
 
 private:
 
@@ -19,4 +20,6 @@ private:
 
 	//ゴール判定
 	bool m_Goal = false;
+
+	DirectWrite* write;
 };

@@ -237,6 +237,9 @@
     <ClCompile Include="..\Script\Object\CarObject.cpp">
       <Filter>ソース ファイル\Objcet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\Sysytem\DirectWrite.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -460,6 +463,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Object\CarObject.h">
       <Filter>ソース ファイル\Objcet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\Sysytem\DirectWrite.h">
+      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -197,6 +197,7 @@
     <ClCompile Include="..\Script\Scene\TitleScene.cpp" />
     <ClCompile Include="..\Script\Scene\Transition.cpp" />
     <ClCompile Include="..\Script\Sysytem\Application.cpp" />
+    <ClCompile Include="..\Script\Sysytem\DirectWrite.cpp" />
     <ClCompile Include="..\Script\Sysytem\dx11mathuntil.cpp" />
     <ClCompile Include="..\Script\Sysytem\input.cpp" />
     <ClCompile Include="..\Script\Sysytem\main.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="..\Script\Scene\Transition.h" />
     <ClInclude Include="..\Script\Sysytem\Application.h" />
     <ClInclude Include="..\Script\Sysytem\component.h" />
+    <ClInclude Include="..\Script\Sysytem\DirectWrite.h" />
     <ClInclude Include="..\Script\Sysytem\dx11mathuntil.h" />
     <ClInclude Include="..\Script\Sysytem\fpscontrol.h" />
     <ClInclude Include="..\Script\Sysytem\input.h" />
