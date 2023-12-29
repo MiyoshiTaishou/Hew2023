@@ -26,6 +26,7 @@
 
 //シーン
 #include"GameScene.h"
+#include"TutorialScene.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -87,6 +88,10 @@ void TitleScene::Init()
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
 	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);	
 
+	BillBoardObject* bill2 = AddGameObject<BillBoardObject>(Layer1);
+	bill2->AddComponent<SphereCollider>()->SetRadius(2.0f);
+	bill2->SetPosition(Vector3(50, 0, 50));
+
 	//虹をフェードさせる
 	// 毎フレームごとの時間を更新	
 
@@ -134,13 +139,20 @@ void TitleScene::Update()
 	}
 
 	Player* player = GetGameObject<Player>();
-	BillBoardObject* bill = GetGameObject<BillBoardObject>();
+	std::vector<BillBoardObject*> billList = GetGameObjects<BillBoardObject>();
+	//BillBoardObject* bill = GetGameObject<BillBoardObject>();
 
 	SphereCollider* col = player->GetComponent<SphereCollider>();
 
-	if (col->Hit(bill->GetComponent<SphereCollider>()))
+	if (col->Hit(billList[0]->GetComponent<SphereCollider>()))
 	{
 		m_Transition->FadeOut();
+		return;
+	}
+
+	if (col->Hit(billList[1]->GetComponent<SphereCollider>()))
+	{
+		Manager::SetScene<TutorialScene>();
 		return;
 	}
 

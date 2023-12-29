@@ -5,6 +5,15 @@
  * @brief チュートリアルシーン
  */
 
+//チュートリアルの進行具合
+enum PROGRESS
+{
+	START,
+	MOVE,
+	ACTION,
+	END,
+};
+
 class TutorialScene : public Scene
 {
 public:
@@ -21,13 +30,16 @@ private:
 	//ゴール判定
 	bool m_Goal = false;
 
-	DirectWrite* write;
+	DirectWrite* m_Write;
 
-	std::string text;
-	std::vector<std::string> textList;
-	std::string pushText = "よう!新入り!たこ焼きを転がすのは初めてって顔だな!";
+	std::string m_Text;
+	std::vector<std::string> m_TextList;	
 
-	float flame = 0;
-	int texIdx = 0;
-	int listIdx = 0;
+	//テキスト送り処理変数
+	float m_Flame = 0;
+	int m_TexIdx = 0;
+	int m_ListIdx = 0;
+
+	//進行度
+	PROGRESS m_Progress = START;
 };

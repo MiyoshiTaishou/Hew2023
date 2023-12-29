@@ -46,6 +46,7 @@ private:
 
    
    static  XINPUT_STATE m_ControllerState;
+   static  XINPUT_STATE m_OldControllerState;
     //static DirectX::GamePad m_GamePad;              /**< ゲームパッドのオブジェクト */
     //static DirectX::GamePad::State m_State;        /**< ゲームパッドの状態 */
     //static DirectX::GamePad::ButtonStateTracker m_StateTracker; /**< ゲームパッドのボタンの状態を追跡するトラッカー */
@@ -86,6 +87,8 @@ public:
      * @return ボタンの状態が指定した状態である場合はtrue、それ以外はfalse
      */
     static bool GetGamePad(BUTTON button);
+
+    static bool GetGamePadTrigger(BUTTON button);
 
     static void Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger);
 };
