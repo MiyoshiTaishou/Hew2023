@@ -11,6 +11,7 @@ BYTE Input::m_KeyState[256];
 //DirectX::GamePad::State Input::m_State;
 
 XINPUT_STATE Input::m_ControllerState; // コントローラーの状態を保持する変数
+XINPUT_STATE Input::m_OldControllerState;
 
 void Input::Init()
 {
@@ -22,6 +23,7 @@ void Input::Init()
 void Input::Update()
 {
     memcpy(m_OldKeyState, m_KeyState, 256);
+    m_OldControllerState = m_ControllerState;
     GetKeyboardState(m_KeyState);
 
     // コントローラーの状態を取得
@@ -67,6 +69,22 @@ bool Input::GetGamePad(BUTTON button)
         return (m_ControllerState.Gamepad.sThumbRX > 10000);
     case BUTTON::ABUTTON:
         return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A);
+    default:
+        break;
+    }
+    return false;
+}
+
+bool Input::GetGamePadTrigger(BUTTON button)
+{
+    switch (button)
+    {
+    case BUTTON::LUP:
+        return (m_ControllerState.Gamepad.sThumbLY > 0) && !(m_OldControllerState.Gamepad.sThumbLY > 0);
+    case BUTTON::LDOWN:
+        return (m_ControllerState.Gamepad.sThumbLY < 0) && !(m_OldControllerState.Gamepad.sThumbLY < 0);        
+    case BUTTON::ABUTTON:
+        return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A);
     default:
         break;
     }
