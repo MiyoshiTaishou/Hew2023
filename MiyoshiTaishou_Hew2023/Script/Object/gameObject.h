@@ -18,6 +18,7 @@ protected:
     DirectX::SimpleMath::Vector3 m_Rotation = DirectX::SimpleMath::Vector3(0.0f, 0.0f, 0.0f); ///< オブジェクトの回転
     DirectX::SimpleMath::Vector3 m_Scale = DirectX::SimpleMath::Vector3(1.0f, 1.0f, 1.0f); ///< オブジェクトのスケール
 
+    DirectX::SimpleMath::Quaternion m_Quaternion = DirectX::SimpleMath::Quaternion::Identity;
     //クォータニオンを使うかどうか
     bool m_Qtr = false;
 
@@ -60,6 +61,7 @@ public:
      */
     DirectX::SimpleMath::Vector3 GetScale() { return m_Scale; }
 
+    DirectX::SimpleMath::Quaternion GetQtr() { return m_Quaternion; }
     /**
      * @brief オブジェクトの位置を設定します。
      * @param Position 新しい位置
@@ -78,6 +80,7 @@ public:
      */
     void SetScale(DirectX::SimpleMath::Vector3 Scale) { m_Scale = Scale; }
 
+    void SetQtr(DirectX::SimpleMath::Quaternion qtr) { m_Quaternion = qtr; }
     /**
      * @brief オブジェクトの前方ベクトルを取得します。
      * @return オブジェクトの前方ベクトル
@@ -299,7 +302,8 @@ public:
             // マトリクス設定
             DirectX::SimpleMath::Matrix world, scale, rot, trans;
             scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);
-            rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+            //rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+            rot = DirectX::SimpleMath::Matrix::CreateFromQuaternion(m_Quaternion);
             if (m_Qtr)
             {
                 rot = m_Rotmatrix;

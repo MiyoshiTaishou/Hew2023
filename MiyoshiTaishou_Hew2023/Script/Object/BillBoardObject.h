@@ -15,6 +15,7 @@ private:
 
 public:
 	void Init();
+	void Init(const char* TextureName);
 	void Uninit();
 	void Draw();	
 	void Update();	

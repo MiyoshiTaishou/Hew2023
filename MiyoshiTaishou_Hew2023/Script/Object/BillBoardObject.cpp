@@ -81,6 +81,74 @@ void BillBoardObject::Init()
 	m_Scale.x = 5.0f;
 }
 
+void BillBoardObject::Init(const char* TextureName)
+{
+	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_OrangeScale.cso");
+
+	VERTEX_3D vertex[4];
+
+	vertex[0].Position = Vector3(-5.0f, 5.0f, 0.0f);
+	vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[0].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[0].TexCoord = Vector2(0.0f, 0.0f);
+
+	vertex[1].Position = Vector3(5.0f, 5.0f, 0.0f);
+	vertex[1].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[1].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[1].TexCoord = Vector2(1.0f, 0.0f);
+
+	vertex[2].Position = Vector3(-5.0f, -5.0f, 0.0f);
+	vertex[2].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[2].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[2].TexCoord = Vector2(0.0f, 1.0f);
+
+	vertex[3].Position = Vector3(5.0f, -5.0f, 0.0f);
+	vertex[3].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[3].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[3].TexCoord = Vector2(1.0f, 1.0f);
+
+	// 頂点バッファ生成
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(VERTEX_3D) * 4;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA sd;
+	ZeroMemory(&sd, sizeof(sd));
+	sd.pSysMem = vertex;
+
+	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
+
+	std::wstring ws = sjis_to_wide_winapi(TextureName);
+
+	// テクスチャ読み込み
+	DirectX::CreateWICTextureFromFile(
+		Renderer::GetDevice(),
+		ws.c_str(),
+		nullptr,
+		&m_Texture);
+
+	assert(m_Texture);
+
+	//球のメッシュ作成
+	m_Sphere = new CSphereMesh();
+	m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);
+
+	m_MeshRenderer = new CMeshRenderer();
+	m_MeshRenderer->Init(*m_Sphere);
+
+	m_SphereMt.Ambient = Color(0, 0, 0, 0);
+	m_SphereMt.Diffuse = Color(1, 1, 1, 0.3f);
+	m_SphereMt.Specular = Color(0, 0, 0, 0);
+	m_SphereMt.Shininess = 0;
+	m_SphereMt.Emission = Color(0, 0, 0, 0);
+	m_SphereMt.TextureEnable = FALSE;
+
+	m_Scale.x = 5.0f;	
+}
+
 void BillBoardObject::Uninit()
 {
 	for (auto& com : m_Component) {

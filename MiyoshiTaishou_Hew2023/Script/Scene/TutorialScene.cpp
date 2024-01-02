@@ -193,8 +193,11 @@ void TutorialScene::Update()
 				//最後までテキストが描画された
 				if (m_TextList.size() <= m_ListIdx)
 				{
-					TakoyakiObject* obj = AddGameObject<TakoyakiObject>(Layer1);
-					obj->SetPosition(Vector3::Zero);
+					for (int i = 0; i < 30; i++)
+					{
+						TakoyakiObject* obj = AddGameObject<TakoyakiObject>(Layer1);
+						obj->SetPosition((Vector3(10, 0, 0)* i) - (Vector3(150, 0, 0)));
+					}					
 				}
 			}
 		}
