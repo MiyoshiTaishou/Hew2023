@@ -202,6 +202,8 @@ void RootChaise::Update()
     m_SpherePos[9] = Vector3::Lerp(m_SpherePos[8], m_SpherePos[7], move);    
 
     Vector3 afterPos = m_GameObject->GetPosition();
+    float yaw = 0;
+    Quaternion qtr = m_GameObject->GetQtr();
 
     if (m_Goal)
     {
@@ -209,23 +211,22 @@ void RootChaise::Update()
 
         //常にプレイヤーの方を向く処理
         //プレイヤーへのベクトルを計算
-        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[7];
-        Vector3 rot = m_GameObject->GetRotation();
-        rot.y = atan2(dir.x, dir.z);
-        //rot.y -= 0.0f;
-        m_GameObject->SetRotation(rot);
+        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[7];                
+        float yaw = atan2(dir.x, dir.z);        
+        qtr = Quaternion::CreateFromYawPitchRoll(yaw, 0, 0);               
     }
     else
     {
         m_GameObject->SetPosition(m_SpherePos[6]);
         //常にプレイヤーの方を向く処理
-        //プレイヤーへのベクトルを計算
-        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[5];
-        Vector3 rot = m_GameObject->GetRotation();
-        rot.y = atan2(dir.x, dir.z);
-        rot.y -= 180.0f;
-        m_GameObject->SetRotation(rot);
+       //プレイヤーへのベクトルを計算
+        Vector3 dir = m_GameObject->GetPosition() - m_SpherePos[4];
+        float yaw = atan2(dir.x, dir.z);
+        qtr = Quaternion::CreateFromYawPitchRoll(yaw, 0, 0);
     }   
+
+    //回転処理
+    m_GameObject->SetQtr(qtr);
 
     particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
     particle->Update();

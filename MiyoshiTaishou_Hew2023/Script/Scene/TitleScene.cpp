@@ -88,7 +88,8 @@ void TitleScene::Init()
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
 	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);	
 
-	BillBoardObject* bill2 = AddGameObject<BillBoardObject>(Layer1);
+	BillBoardObject* bill2 = AddGameObject<BillBoardObject>(Layer1);	
+	bill2->Init("../asset/texture/Tutorial.png");
 	bill2->AddComponent<SphereCollider>()->SetRadius(2.0f);
 	bill2->SetPosition(Vector3(50, 0, 50));
 
