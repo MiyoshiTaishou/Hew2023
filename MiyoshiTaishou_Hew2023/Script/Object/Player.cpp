@@ -523,39 +523,13 @@ void Player::ConInput()
 		side = cameraObj->GetSide();
 	}
 
+	float yaw = 0.0f;
+	float pitch = 0.0f;
+	float roll = 0.0f;
+
 	if (Input::GetGamePad(BUTTON::LUP))
-	{	
-		// Y軸ベクトル
-		Vector3 yAxis = Vector3(0.0f, 1.0f, 0.0f);
-		Vector3 zAxis = cameraObj->camForward;
-
-		Vector3 right = yAxis.Cross(zAxis); // カメラの右向きベクトルを計算		
-		right.Normalize();
-
-		float dot = yAxis.Dot(zAxis);
-
-		Vector3 axis = right;
-		float angle = atan2f(right.y, dot);
-
-		Quaternion xRotQtr = Quaternion::CreateFromAxisAngle(axis, m_RotSpeed);
-
-		m_RotSpeed += 0.1f;
-
-		//// Y軸とZ軸のクォータニオンを作成
-		//Quaternion yRotationQuaternion = Quaternion::CreateFromAxisAngle(yAxis, m_RotSpeed);
-		//Quaternion zRotationQuaternion = Quaternion::CreateFromAxisAngle(Vector3::UnitZ, acos(zAxis.Dot(Vector3::UnitY)));
-
-		//// Y軸回転後のZ軸の回転を求める
-		//Quaternion rotatedZ = zRotationQuaternion * yRotationQuaternion;
-
-		//// 累積回転に新たな回転を追加する
-		//accumulatedRotation *= rotatedZ;
-
-		// クォータニオンを行列に変換
-		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
-
-		m_Rotmatrix = xCenterAxisMatrix;
-		
+	{						
+		//移動処理
 		Vector3 camF;
 		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
 		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
@@ -564,54 +538,17 @@ void Player::ConInput()
 		camF.Normalize();
 
 		Vector3 force = camF * m_Speed;
-		//force.y = 0.0f;
-		Vector3 forceRot = cameraObj->camForward * m_RotSpeed;
-		forceRot.y = 0.0f;
-		forceRot.z = 0.0f;
-		forceRot.x = m_RotSpeed;
-
-		//body->AddForceToPoint(force, Vector3(1.0f, 0.0f, 0.0f), ForceMode::Force);
+		//force.y = 0.0f;	
 
 		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force);
-
+		
 		m_Particle->Create(m_Position,-body->GetVelocity(),Vector3::Up);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
-	{
-		// Y軸ベクトル
-		Vector3 yAxis = Vector3(0.0f, 1.0f, 0.0f);
-		Vector3 zAxis = cameraObj->camForward;
-
-		Vector3 right = yAxis.Cross(zAxis); // カメラの右向きベクトルを計算		
-		right.Normalize();
-
-		float dot = yAxis.Dot(zAxis);
-
-		Vector3 axis = right;
-		float angle = atan2f(right.y, dot);
-
-		Quaternion xRotQtr = Quaternion::CreateFromAxisAngle(axis, m_RotSpeed);
-
-		m_RotSpeed -= 0.1f;
-
-		//// Y軸とZ軸のクォータニオンを作成
-		//Quaternion yRotationQuaternion = Quaternion::CreateFromAxisAngle(yAxis, m_RotSpeed);
-		//Quaternion zRotationQuaternion = Quaternion::CreateFromAxisAngle(Vector3::UnitZ, acos(zAxis.Dot(Vector3::UnitY)));
-
-		//// Y軸回転後のZ軸の回転を求める
-		//Quaternion rotatedZ = zRotationQuaternion * yRotationQuaternion;
-
-		//// 累積回転に新たな回転を追加する
-		//accumulatedRotation *= rotatedZ;
-
-		// クォータニオンを行列に変換
-		Matrix xCenterAxisMatrix = Matrix::CreateFromQuaternion(xRotQtr);
-
-		m_Rotmatrix = xCenterAxisMatrix;
-			
-		Quaternion qtr;
+	{	
+		//回転処理	
 		
+		//移動処理
 		Vector3 camF;
 		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
 		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
@@ -620,41 +557,25 @@ void Player::ConInput()
 		camF.Normalize();
 
 		Vector3 force = cameraObj->camForward * -m_Speed;
-		force.y = 0.0f;
-		Vector3 forceRot = cameraObj->camForward * -m_RotSpeed;
-		forceRot.y = 0.0f;
-		forceRot.z = 0.0f;
-		forceRot.x = m_RotSpeed;
+		force.y = 0.0f;		
 
-		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force);
+		body->AddForce(force, ForceMode::Force);		
 
 		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 
 	if (Input::GetGamePad(BUTTON::LRIGHT))
-	{
-		Vector3 force = cameraObj->camRight * -m_Speed;
-		Vector3 forceRot = cameraObj->camRight * -m_RotSpeed;
-		forceRot.y = 0.0f;
-		forceRot.x = 0.0f;
-		forceRot.z = -m_RotSpeed;		
+	{		
 
-		//body->AddForceToPoint(force, Vector3(1.0f, 0.0f, 0.0f), ForceMode::Force);
-
-		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force);
+		Vector3 force = cameraObj->camRight * -m_Speed;		
+		
+		body->AddForce(force, ForceMode::Force);		
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
-	{
-		Vector3 force = cameraObj->camRight * m_Speed;
-		Vector3 forceRot = cameraObj->camRight * m_RotSpeed;
-		forceRot.y = 0.0f;
-		forceRot.x = 0.0f;
-		forceRot.z = m_RotSpeed;
+	{		
+		Vector3 force = cameraObj->camRight * m_Speed;	
 
-		body->AddForce(force, ForceMode::Force);
-		body->AddTorque(forceRot, ForceMode::Force);
+		body->AddForce(force, ForceMode::Force);		
 	}
 
 	if (Input::GetGamePad(BUTTON::RRIGHT))
@@ -673,4 +594,12 @@ void Player::ConInput()
 		Vector3 force = { 0,50,0 };
 		body->AddForce(force, ForceMode::Impulse);
 	}
+
+	Vector3 vel = body->GetVelocity();
+	//yaw = vel.y * 0.1f;
+	pitch = vel.z * 0.01f;
+	roll = vel.x * -0.01f;
+
+	this->accumulatedRotation *= Quaternion::CreateFromYawPitchRoll(yaw, pitch, roll);
+	m_Rotmatrix = Matrix::CreateFromQuaternion(accumulatedRotation);
 }
