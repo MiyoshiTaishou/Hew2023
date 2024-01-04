@@ -135,40 +135,28 @@ void TutorialScene::Update()
 	switch (m_Progress)
 	{
 	case START:
+	{
+		bool moveCheck = false;
+
 		if (Input::GetGamePad(BUTTON::LDOWN))
 		{
-			m_Progress = MOVE;
-			m_TextList.clear();
-			m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアルムーブ.txt");
-
-			m_ListIdx = 0;
-			m_TexIdx = 0;
-			m_Text.clear();
-			m_Flame = 0;
+			moveCheck = true;
 		}
 		if (Input::GetGamePad(BUTTON::LUP))
 		{
-			m_Progress = MOVE;
-			m_TextList.clear();
-			m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアルムーブ.txt");
-
-			m_ListIdx = 0;
-			m_TexIdx = 0;
-			m_Text.clear();
-			m_Flame = 0;
+			moveCheck = true;
 		}
 		if (Input::GetGamePad(BUTTON::LLEFT))
 		{
-			m_Progress = MOVE;
-			m_TextList.clear();
-			m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアルムーブ.txt");
-
-			m_ListIdx = 0;
-			m_TexIdx = 0;
-			m_Text.clear();
-			m_Flame = 0;
+			moveCheck = true;
 		}
 		if (Input::GetGamePad(BUTTON::LRIGHT))
+		{
+			moveCheck = true;
+		}
+
+		//移動した
+		if (moveCheck)
 		{
 			m_Progress = MOVE;
 			m_TextList.clear();
@@ -179,7 +167,9 @@ void TutorialScene::Update()
 			m_Text.clear();
 			m_Flame = 0;
 		}
+
 		break;
+	}
 	case MOVE:
 	{	
 		TakoyakiObject* obj = GetGameObject<TakoyakiObject>();

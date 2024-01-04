@@ -16,6 +16,10 @@ private:
 
     // データを入れるための構造体を作成し、データを設定する場合
     D3D11_SUBRESOURCE_DATA timeBufferData;
+
+    //SE鳴らす
+    GameObject* m_SEObj;
+
 public:
     void Init()override;
     void Update()override;   

@@ -527,19 +527,13 @@ void Player::ConInput()
 	float pitch = 0.0f;
 	float roll = 0.0f;
 
+	//前後移動
 	if (Input::GetGamePad(BUTTON::LUP))
 	{						
-		//移動処理
-		Vector3 camF;
-		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
-		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
-		camF.y=0.0f;
-
-		camF.Normalize();
-
-		Vector3 force = camF * m_Speed;
-		//force.y = 0.0f;	
-
+		//移動処理	
+		
+		Vector3 force = cameraObj->camForward * m_Speed;
+		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);
 		
 		m_Particle->Create(m_Position,-body->GetVelocity(),Vector3::Up);
@@ -548,36 +542,32 @@ void Player::ConInput()
 	{	
 		//回転処理	
 		
-		//移動処理
-		Vector3 camF;
-		camF.x = cameraObj->camForward.x / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
-		camF.z = cameraObj->camForward.z / fabsf((cameraObj->camForward.x + cameraObj->camForward.z));
-		camF.y = 0.0f;
-
-		camF.Normalize();
-
-		Vector3 force = cameraObj->camForward * -m_Speed;
-		force.y = 0.0f;		
-
+		//移動処理	
+		Vector3 force = cameraObj->camForward * -m_Speed;	
+		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);		
 
 		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 
+	//左右移動
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{		
 
-		Vector3 force = cameraObj->camRight * -m_Speed;		
-		
-		body->AddForce(force, ForceMode::Force);		
+		Vector3 force = cameraObj->camRight * -m_Speed;				
+		body->AddForce(force, ForceMode::Force);	
+
+		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{		
 		Vector3 force = cameraObj->camRight * m_Speed;	
+		body->AddForce(force, ForceMode::Force);
 
-		body->AddForce(force, ForceMode::Force);		
+		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 
+	//カメラ操作
 	if (Input::GetGamePad(BUTTON::RRIGHT))
 	{
 		//m_Rotation.y += 0.05f;
@@ -595,10 +585,11 @@ void Player::ConInput()
 		body->AddForce(force, ForceMode::Impulse);
 	}
 
+	//速度を小さくした値を回転の値にする
 	Vector3 vel = body->GetVelocity();
 	//yaw = vel.y * 0.1f;
-	pitch = vel.z * 0.01f;
-	roll = vel.x * -0.01f;
+	pitch = vel.z * 0.005f;
+	roll = vel.x * -0.005f;
 
 	this->accumulatedRotation *= Quaternion::CreateFromYawPitchRoll(yaw, pitch, roll);
 	m_Rotmatrix = Matrix::CreateFromQuaternion(accumulatedRotation);
