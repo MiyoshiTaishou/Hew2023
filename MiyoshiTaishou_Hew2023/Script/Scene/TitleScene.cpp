@@ -117,6 +117,12 @@ void TitleScene::Init()
 	Renderer::GetDeviceContext()->VSSetConstantBuffers(10, 1, timeBuffers); // 頂点シェーダーに渡す場合
 	Renderer::GetDeviceContext()->PSSetConstantBuffers(10, 1, timeBuffers); // ピクセルシェーダーに渡す場合
 
+	//SE設定
+	m_SEObj = AddGameObject<GameObject>(Layer3);
+	m_SEObj->AddComponent<Audio>()->Init();
+	m_SEObj->GetComponent<Audio>()->Load("../asset\\audio\\男声「オーッ！」.wav");
+	m_SEObj->GetComponent<Audio>()->SetVolume(5.0f);
+
 	m_Transition = AddGameObject<Transition>(3);
 	m_Transition->FadeIn();//フェードイン開始		
 }
@@ -133,7 +139,7 @@ void TitleScene::Update()
 
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
-	{
+	{		
 		Manager::SetScene<GameScene>();
 
 		return;
@@ -147,12 +153,14 @@ void TitleScene::Update()
 
 	if (col->Hit(billList[0]->GetComponent<SphereCollider>()))
 	{
+		m_SEObj->GetComponent<Audio>()->Play();
 		m_Transition->FadeOut();
 		return;
 	}
 
 	if (col->Hit(billList[1]->GetComponent<SphereCollider>()))
 	{
+		m_SEObj->GetComponent<Audio>()->Play();
 		Manager::SetScene<TutorialScene>();
 		return;
 	}
