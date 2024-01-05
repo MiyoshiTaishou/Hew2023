@@ -95,6 +95,10 @@ void GameScene::Init()
 
 	//AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
+
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
+
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());	
 
@@ -106,10 +110,7 @@ void GameScene::Init()
 	countMax += GetGameObjects<FakeTakoyakiObject>().size();
 
 	Manager::SetCountMax(countMax);
-
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetRotation(Vector3(30, 10000, 30));
-
+	
 	AddGameObject<Camera>(Layer0);
 
 	FontData* data = new FontData();
@@ -191,7 +192,7 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
-	write->DrawString("‚½‚±Ä‚«°", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
+	/*write->DrawString("‚½‚±Ä‚«°", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
 	write->DrawString(text, Vector2(90, 120), D2D1_DRAW_TEXT_OPTIONS_NONE);
 
 	if (flame > 60 && pushText.size() > texIdx)
@@ -203,5 +204,5 @@ void GameScene::Draw()
 		texIdx += 2;
 	}
 
-	flame += 2.0f;
+	flame += 2.0f;*/
 }

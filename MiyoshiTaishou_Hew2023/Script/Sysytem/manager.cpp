@@ -99,13 +99,13 @@ void Manager::Draw(uint64_t d)
 
 	float fps = 1000.0f / d;
 
-	ImGui::Begin("FPS");
-	ImGui::Text("%fFPS",fps);
-	ImGui::End();
+	//ImGui::Begin("FPS");
+	//ImGui::Text("%fFPS",fps);
+	//ImGui::End();
 
 
 	//Debug‚æ‚¤ƒV[ƒ“‘JˆÚ
-	ImGui::Begin("SceneChange");
+	/*ImGui::Begin("SceneChange");
 
 	if (ImGui::TreeNode(("Scene")))
 	{
@@ -127,7 +127,7 @@ void Manager::Draw(uint64_t d)
 		ImGui::TreePop();
 	}
 
-	ImGui::End();
+	ImGui::End();*/
 
 	ImGuiManager::End();
 	Renderer::End();
