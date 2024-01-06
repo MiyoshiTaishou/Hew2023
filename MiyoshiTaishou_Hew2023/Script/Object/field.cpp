@@ -47,10 +47,12 @@ void Field::Init()
 //		0.0f,						// 最小
 //		3.0f);						// 最大
 
-	m_planemesh.MakeUndulationPerlinnoise(
-		0.0f,			// 最大の高さ
-		10,				// オクターブ数
-		0.28f);			// パーシステンス
+	//m_planemesh.MakeUndulationPerlinnoise(
+	//	10.0f,			// 最大の高さ
+	//	10,				// オクターブ数
+	//	0.28f);			// パーシステンス
+
+	m_planemesh.LoadUndulation("saveMap.csv");
 
 	// 平面の方程式を生成（全面）
 	MakeEquatation();
@@ -147,6 +149,23 @@ void Field::Draw()
 	//// ポリゴン描画
 	//Renderer::GetDeviceContext()->Draw(4, 0);
 
+
+	m_planemesh.MakeUndulationSelf();
+
+	ImGui::Begin("FiledCreate");
+	if (ImGui::Button("Create"))
+	{
+		// 平面の方程式を生成（全面）
+		MakeEquatation();
+
+		// レンダラー初期化
+		m_renderer.Init(m_planemesh);
+	}
+	if (ImGui::Button(("Save")))
+	{
+		m_planemesh.SaveUndulation("saveMap.csv");
+	}
+	ImGui::End();
 }
 
 void Field::MakeEquatation()
