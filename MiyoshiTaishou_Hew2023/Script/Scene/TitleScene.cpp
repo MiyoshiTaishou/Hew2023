@@ -36,10 +36,10 @@ void TitleScene::Init()
 	AddGameObject<Sky>(Layer1);	
 	Field* filed = AddGameObject<Field>(Layer1);	
 
-	BoxObject* box = AddGameObject<BoxObject>(Layer1);
-	BoxObject* box2 = AddGameObject<BoxObject>(Layer1);
-	BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
-	BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
+	//BoxObject* box = AddGameObject<BoxObject>(Layer1);
+	//BoxObject* box2 = AddGameObject<BoxObject>(Layer1);
+	//BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
+	//BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
 
 	AddGameObject<TreeObject>(Layer1);
 	AddGameObject<YakisobaObject>(Layer1);
@@ -51,17 +51,17 @@ void TitleScene::Init()
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();
 
-	box->SetPosition(Vector3(max.x, 0, 0));
-	box->SetScale(Vector3(5, 20, 160));
+	//box->SetPosition(Vector3(max.x, 0, 0));
+	//box->SetScale(Vector3(5, 20, 160));
 
-	box2->SetPosition(Vector3(min.x, 0, 0));
-	box2->SetScale(Vector3(5, 20, 160));
+	//box2->SetPosition(Vector3(min.x, 0, 0));
+	//box2->SetScale(Vector3(5, 20, 160));
 
-	box3->SetPosition(Vector3(0, 0, max.z));
-	box3->SetScale(Vector3(160, 20, 5));
+	//box3->SetPosition(Vector3(0, 0, max.z));
+	//box3->SetScale(Vector3(160, 20, 5));
 
-	box4->SetPosition(Vector3(0, 0, min.z));
-	box4->SetScale(Vector3(160, 20, 5));			
+	//box4->SetPosition(Vector3(0, 0, min.z));
+	//box4->SetScale(Vector3(160, 20, 5));			
 
 	AddGameObject<Player>(Layer1);
 

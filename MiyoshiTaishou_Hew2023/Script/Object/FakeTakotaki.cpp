@@ -14,6 +14,8 @@
 
 using namespace DirectX::SimpleMath;
 
+#define MAX_FILED 20
+
 void FakeTakoyakiObject::Init()
 {
 	TakoyakiObject::Init();
@@ -46,6 +48,28 @@ void FakeTakoyakiObject::Update()
 	//距離を計算
 	float distance = toPlayerVec.Length();
 
+	Field* filed = scene->GetGameObject<Field>();
+
+	//　範囲チェック 
+	Vector3 max = filed->GetMax();
+	Vector3 min = filed->GetMin();
+
+	if (m_Position.x <= min.x + MAX_FILED) {
+		m_Position.x = min.x + MAX_FILED;
+	}
+	if (m_Position.x >= max.x - MAX_FILED) {
+		m_Position.x = max.x - MAX_FILED;
+	}
+
+	if (m_Position.z <= min.z + MAX_FILED) {
+		m_Position.z = min.z + MAX_FILED;
+	}
+	if (m_Position.z >= max.z - MAX_FILED) {
+		m_Position.z = max.z - MAX_FILED;
+	}
+
+	m_Position.y = filed->GetFieldHeightBySqno(m_Position, *this);
+
 	//範囲内なら逃げる
 	if (distance < m_EscapeLength)
 	{
@@ -59,24 +83,4 @@ void FakeTakoyakiObject::Update()
 	{
 		return;
 	}
-
-	Field* filed = scene->GetGameObject<Field>();
-
-	//　範囲チェック 
-	Vector3 max = filed->GetMax();
-	Vector3 min = filed->GetMin();
-
-	if (m_Position.x <= min.x) {
-		m_Position.x = min.x;
-	}
-	if (m_Position.x >= max.x) {
-		m_Position.x = max.x;
-	}
-
-	if (m_Position.z <= min.z) {
-		m_Position.z = min.z;
-	}
-	if (m_Position.z >= max.z) {
-		m_Position.z = max.z;
-	}	
 }

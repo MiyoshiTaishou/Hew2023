@@ -152,15 +152,13 @@ void Field::Draw()
 
 	m_planemesh.MakeUndulationSelf();
 
-	ImGui::Begin("FiledCreate");
-	if (ImGui::Button("Create"))
-	{
-		// 平面の方程式を生成（全面）
-		MakeEquatation();
+	// 平面の方程式を生成（全面）
+	MakeEquatation();
 
-		// レンダラー初期化
-		m_renderer.Init(m_planemesh);
-	}
+	// レンダラー初期化
+	m_renderer.Init(m_planemesh);
+
+	ImGui::Begin("FiledCreate");	
 	if (ImGui::Button(("Save")))
 	{
 		m_planemesh.SaveUndulation("saveMap.csv");
