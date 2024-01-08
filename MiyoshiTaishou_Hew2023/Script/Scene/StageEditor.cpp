@@ -23,11 +23,13 @@
 
 #define NOTSELECTED -1
 
+
 void StageEditor::Init()
 {
     obj = new GameObject;
     obj->Init();
-
+    obj->SetPosition(DirectX::SimpleMath::Vector3(0, 100, -300));
+        
     AddGameObject<DebugCamera>(Layer0)->m_TargetObj = obj;
 	AddGameObject<Sky>(Layer0);
     AddGameObject<Field>(Layer1);   

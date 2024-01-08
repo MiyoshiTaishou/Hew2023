@@ -39,10 +39,21 @@ void CUndulationPlaneMesh::MakeUndulationPerlinnoise(float max, double octave, d
 void CUndulationPlaneMesh::MakeUndulationSelf()
 {
 	ImGui::Begin("FieldMake");
+
+	if (ImGui::Button("Resset"))
+	{
+		for (size_t i = 0; i < m_vertices.size(); ++i)
+		{
+			m_vertices[i].Position.y = 0.0f;
+		}
+	}
+
 	for (size_t i = 0; i < m_vertices.size(); ++i) 
 	{
-		ImGui::SliderFloat(("Vertex " + std::to_string(i)).c_str(), &m_vertices[i].Position.y, 0, 100);		
+		ImGui::SliderFloat(("Vertex " + std::to_string(i)).c_str(), &m_vertices[i].Position.y, 0, 50);	
+		m_vertices[i].Position.y = floor(m_vertices[i].Position.y);
 	}
+
 	ImGui::End();
 }
 

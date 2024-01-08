@@ -105,7 +105,7 @@ void Manager::Draw(uint64_t d)
 
 
 	//Debug‚æ‚¤ƒV[ƒ“‘JˆÚ
-	/*ImGui::Begin("SceneChange");
+	ImGui::Begin("SceneChange");
 
 	if (ImGui::TreeNode(("Scene")))
 	{
@@ -127,7 +127,7 @@ void Manager::Draw(uint64_t d)
 		ImGui::TreePop();
 	}
 
-	ImGui::End();*/
+	ImGui::End();
 
 	ImGuiManager::End();
 	Renderer::End();
