@@ -47,7 +47,8 @@ void TutorialScene::Init()
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\‚½‚±Ä‚«°-_Takoyaki-Spirit_.wav");
+	//bgm->GetComponent<Audio>()->Load("../asset\\audio\\‚½‚±Ä‚«°-_Takoyaki-Spirit_.wav");
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play(true);
 
 	m_Transition = AddGameObject<Transition>(Layer3);

@@ -35,7 +35,7 @@ void Field::Init()
 
 	// 床メッシュ生成
 	m_planemesh.Init(
-		25, 25,					// 分割数
+		10, 10,					// 分割数
 		320,						// サイズ
 		320,						// サイズ
 		Color(1, 1, 1, 1),			// 頂点カラー
@@ -52,7 +52,7 @@ void Field::Init()
 	//	10,				// オクターブ数
 	//	0.28f);			// パーシステンス
 
-	m_planemesh.LoadUndulation("saveMap.csv");
+	m_planemesh.LoadUndulation("testMap.csv");
 
 	// 平面の方程式を生成（全面）
 	MakeEquatation();
@@ -152,6 +152,8 @@ void Field::Draw()
 
 	m_planemesh.MakeUndulationSelf();
 
+	m_planemesh.LoadUndulation("testMap.csv");
+
 	// 平面の方程式を生成（全面）
 	MakeEquatation();
 
@@ -161,9 +163,13 @@ void Field::Draw()
 	ImGui::Begin("FiledCreate");	
 	if (ImGui::Button(("Save")))
 	{
-		m_planemesh.SaveUndulation("saveMap.csv");
+		m_planemesh.SaveUndulation("testMap.csv");
 	}
-	ImGui::End();
+	if (ImGui::Button(("Load")))
+	{
+		m_planemesh.LoadUndulation("testMap.csv");
+	}
+	ImGui::End();	
 }
 
 void Field::MakeEquatation()
@@ -390,13 +396,17 @@ void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3* _point)
 
 	// すべての点のめり込み量を考慮してオブジェクト全体を補正する
 	Vector3 totalCorrection = Vector3::Zero;
+	Vector3 force;
 
+	Scene* scene = Manager::GetScene();
+	Player* player = scene->GetGameObject<Player>();
+	Vector3 pPos = player->GetPosition();
 	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		// 現在位置からのっかている四角形番号を取得
 		int sqno = m_planemesh.GetSquareNo(_point[i]);
 
-		static float oldheight = 0;
+		static float oldheight = 0;		
 
 		// 下面チェック
 		{
@@ -434,7 +444,15 @@ void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3* _point)
 						totalCorrection.y += moveDistance * plane.y;
 						totalCorrection.z += moveDistance * plane.z;
 
-						//player->SetPosition(pos);						
+						//player->SetPosition(pos);		
+
+						//坂道を転がる処理
+						Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);																	
+
+						force = dir * 10.0f;
+						force.y = 0.0f;
+					
+						pPos.y = ans.y;
 					}
 				}
 			}
@@ -479,14 +497,21 @@ void Field::PointPlaneCollision(DirectX::SimpleMath::Vector3* _point)
 						totalCorrection.z += moveDistance * plane.z;
 
 						//player->SetPosition(pos);
+
+							//坂道を転がる処理
+						Vector3 dir = CalculateDiagonalDirection(m_planes[idx].GetPlaneInfo().pNormal);					
+
+						force = dir * 50.0f;
+						force.y = 0.0f;
+					
+						pPos.y = ans.y;
 					}
 				}
 			}
 
 		}
 	}
-
-	Scene* scene = Manager::GetScene();
-	Player* player = scene->GetGameObject<Player>();
+	
+	player->GetComponent<RigidBody>()->AddForce(force, ForceMode::Acceleration);
 	player->SetPosition(player->GetPosition() + totalCorrection);
 }
