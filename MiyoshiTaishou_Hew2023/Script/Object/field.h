@@ -31,8 +31,12 @@ private:
 
 	float dis = 0.0f;
 
+	//–¼‘O•ÏX—p•Ï”
+	char m_buffer[256] = "None.csv";
+
 public:
 	void Init();
+	void Init(const std::string& filename);
 	void Uninit();	
 	void Draw();
 
