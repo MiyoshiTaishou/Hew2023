@@ -4,6 +4,7 @@
 
 #include"../Sysytem/manager.h"
 #include"../Scene/scene.h"
+#include"../Object/field.h"
 
 #include <fstream> // ファイル操作用のヘッダー
 
@@ -227,6 +228,11 @@ void RootChaise::Update()
 
     //回転処理
     m_GameObject->SetQtr(qtr);
+
+    //高さ調整
+    Vector3 pos = m_GameObject->GetPosition();
+    pos.y = Manager::GetScene()->GetGameObject<Field>()->GetFieldHeightBySqno(pos, *m_GameObject);
+    m_GameObject->SetPosition(pos);
 
     particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
     particle->Update();

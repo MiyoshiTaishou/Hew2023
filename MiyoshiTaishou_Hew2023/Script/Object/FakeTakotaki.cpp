@@ -69,6 +69,7 @@ void FakeTakoyakiObject::Update()
 	}
 
 	m_Position.y = filed->GetFieldHeightBySqno(m_Position, *this);
+	m_Position.y += 2.0f;
 
 	//”ÍˆÍ“à‚È‚ç“¦‚°‚é
 	if (distance < m_EscapeLength)
