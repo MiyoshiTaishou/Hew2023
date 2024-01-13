@@ -34,8 +34,7 @@ enum OBJTAG
     YAKISOBA,
     TREE,
     KASUTERA,
-    CAR,
-    FILED,
+    CAR,   
     TAKOYAKI,
     FAKE,
 };
@@ -260,37 +259,37 @@ public:
             {
                 outputFile << OBJTAG::BOX;
             }               
-            if (typeid(*obj) == typeid(YataiObject))
+            else if (typeid(*obj) == typeid(YataiObject))
             {
                 outputFile << OBJTAG::YATAI;
             }
-            if (typeid(*obj) == typeid(YakisobaObject))
+            else if (typeid(*obj) == typeid(YakisobaObject))
             {
                 outputFile << OBJTAG::YAKISOBA;
             }
-            if (typeid(*obj) == typeid(TreeObject))
+            else if (typeid(*obj) == typeid(TreeObject))
             {
                 outputFile << OBJTAG::TREE;
             }
-            if (typeid(*obj) == typeid(KasuteraObject))
+            else if (typeid(*obj) == typeid(KasuteraObject))
             {
                 outputFile << OBJTAG::KASUTERA;
             }
-            if (typeid(*obj) == typeid(CarObject))
+            else if (typeid(*obj) == typeid(CarObject))
             {
                 outputFile << OBJTAG::CAR;
-            }
-            if (typeid(*obj) == typeid(Field))
-            {
-                outputFile << OBJTAG::FILED;
-            }
-            if (typeid(*obj) == typeid(TakoyakiObject))
+            }         
+            else if (typeid(*obj) == typeid(TakoyakiObject))
             {
                 outputFile << OBJTAG::TAKOYAKI;
             }
-            if (typeid(*obj) == typeid(FakeTakoyakiObject))
+            else if (typeid(*obj) == typeid(FakeTakoyakiObject))
             {
                 outputFile << OBJTAG::FAKE;
+            }
+            else
+            {
+                continue;
             }
             
             outputFile << "," << obj->GetPosition().x << "," << obj->GetPosition().y << "," << obj->GetPosition().z << ","
@@ -311,14 +310,14 @@ public:
             return;
         }
 
-        const auto& objList = m_GameObject[Layer1];
-        for (const auto& obj : objList)
-        {
-            if (typeid(*obj) != typeid(Player)) // Œ^‚ð’²‚×‚é
-            {
-                obj->SetDestroy();
-            }            
-        }
+        //const auto& objList = m_GameObject[Layer1];
+        //for (const auto& obj : objList)
+        //{
+        //    if (typeid(*obj) != typeid(Player)) // Œ^‚ð’²‚×‚é
+        //    {
+        //        obj->SetDestroy();
+        //    }            
+        //}
 
         //ƒwƒbƒ_‚ðŽÌ‚Ä‚é
         std::string header;
@@ -413,15 +412,7 @@ public:
                 obj->SetScale(scale);
                 obj->SetRotation(rot);
                 break;
-            }
-            case FILED:
-            {
-                Field* obj = AddGameObject<Field>(Layer1);
-                obj->SetPosition(pos);
-                obj->SetScale(scale);
-                obj->SetRotation(rot);
-                break;
-            }
+            }         
             case TAKOYAKI:
             {
                 TakoyakiObject* obj = AddGameObject<TakoyakiObject>(Layer1);

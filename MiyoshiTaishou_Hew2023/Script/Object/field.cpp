@@ -30,44 +30,44 @@ using namespace DirectX::SimpleMath;
 
 void Field::Init()
 {
-	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	m_Collider = AddComponent<Collider>();
-
-	// 床メッシュ生成
-	m_planemesh.Init(
-		10, 10,					// 分割数
-		320,						// サイズ
-		320,						// サイズ
-		Color(1, 1, 1, 1),			// 頂点カラー
-		Vector3(0, 0, -1),			// 法線ベクトル
-		true);						// XZ平面
-
-	// 凸凹を付ける（一様分布で）
-//	m_planemesh.MakeUndulation(
-//		0.0f,						// 最小
-//		3.0f);						// 最大
-
-	//m_planemesh.MakeUndulationPerlinnoise(
-	//	10.0f,			// 最大の高さ
-	//	10,				// オクターブ数
-	//	0.28f);			// パーシステンス
-
-	m_planemesh.LoadUndulation("testMap.csv");
-
-	// 平面の方程式を生成（全面）
-	MakeEquatation();
-
-	// レンダラー初期化
-	m_renderer.Init(m_planemesh);
-
-	// テクスチャ読み込み
-	DirectX::CreateWICTextureFromFile(
-		Renderer::GetDevice(),
-		L"../asset/texture/Stone.jpg",
-		nullptr,
-		&m_Texture);
-
-	assert(m_Texture);
+//	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+//	m_Collider = AddComponent<Collider>();
+//
+//	// 床メッシュ生成
+//	m_planemesh.Init(
+//		10, 10,					// 分割数
+//		320,						// サイズ
+//		320,						// サイズ
+//		Color(1, 1, 1, 1),			// 頂点カラー
+//		Vector3(0, 0, -1),			// 法線ベクトル
+//		true);						// XZ平面
+//
+//	// 凸凹を付ける（一様分布で）
+////	m_planemesh.MakeUndulation(
+////		0.0f,						// 最小
+////		3.0f);						// 最大
+//
+//	//m_planemesh.MakeUndulationPerlinnoise(
+//	//	10.0f,			// 最大の高さ
+//	//	10,				// オクターブ数
+//	//	0.28f);			// パーシステンス
+//
+//	m_planemesh.LoadUndulation("testMap.csv");
+//
+//	// 平面の方程式を生成（全面）
+//	MakeEquatation();
+//
+//	// レンダラー初期化
+//	m_renderer.Init(m_planemesh);
+//
+//	// テクスチャ読み込み
+//	DirectX::CreateWICTextureFromFile(
+//		Renderer::GetDevice(),
+//		L"../asset/texture/Stone.jpg",
+//		nullptr,
+//		&m_Texture);
+//
+//	assert(m_Texture);
 }
 
 void Field::Init(const std::string& filename)
