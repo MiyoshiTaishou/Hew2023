@@ -36,48 +36,13 @@
 using namespace DirectX::SimpleMath;
 
 void GameScene::Init()
-{			
-	//AddGameObject<TakoyakiObject>(Layer1);			
-	//BillBoardScore* socre = AddGameObject<BillBoardScore>(Layer1);	
-
-	//AddGameObject<BillBoardScore>(Layer1)->AddCount(5);
-	//AddGameObject<Field>(Layer1);	
-
+{				
 	Score* score = AddGameObject<Score>(Layer3);	
 
-	AddGameObject<Timer>(Layer3);
+	AddGameObject<Timer>(Layer3);	
 
-	//int idxZ = 1;
-	//int idxX = 1;
-
-	//for (int i = 0; i < MAX_SPHERE; i++)
-	//{		
-	//	if (idxX > 10)
-	//	{
-	//		idxZ++;
-	//		idxX = 1;
-	//	}
-
-	//	//偽物と本物をランダムに分類
-	//	int numKind = rand() % 100;
-
-	//	StickObject* takoyaki;
-	//	if (numKind > 90)
-	//	{
-	//		takoyaki = AddGameObject<FakeTakoyakiObject>(Layer1);
-	//	}
-	//	else
-	//	{
-	//		takoyaki = AddGameObject<TakoyakiObject>(Layer1);
-	//	}
-	//	
-	//	Vector3 pos = Vector3((20.0f * idxX) - 100.0f, 1.0f, (20.0f * idxZ) - 100.0f);
-	//	takoyaki->SetPosition(pos);
-
-	//	idxX++;
-	//}		
-
-	//AddGameObject<Enemy>(Layer1);
+	Field* filed = AddGameObject<Field>(Layer1);
+	filed->Init("testMap.csv");
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -88,7 +53,7 @@ void GameScene::Init()
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
 
-	LoadObjectData("Stage1-1.csv");
+	LoadObjectData("Stage1-2.csv");
 
 	//オブジェクト生成	
 	//AddGameObject<Sky>(Layer1);
@@ -119,9 +84,7 @@ void GameScene::Init()
 
 	write = new DirectWrite(data);
 
-	write->Init();
-
-
+	write->Init();	
 }
 
 void GameScene::Update()
