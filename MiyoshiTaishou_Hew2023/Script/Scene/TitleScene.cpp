@@ -34,36 +34,21 @@ void TitleScene::Init()
 {
 	//オブジェクト生成
 	AddGameObject<Sky>(Layer1);	
-	Field* filed = AddGameObject<Field>(Layer1);	
+	Field* filed = AddGameObject<Field>(Layer1);
+	filed->Init("Title.csv");
 
-	//BoxObject* box = AddGameObject<BoxObject>(Layer1);
-	//BoxObject* box2 = AddGameObject<BoxObject>(Layer1);
-	//BoxObject* box3 = AddGameObject<BoxObject>(Layer1);
-	//BoxObject* box4 = AddGameObject<BoxObject>(Layer1);
-
-	AddGameObject<TreeObject>(Layer1);
-	AddGameObject<YakisobaObject>(Layer1);
-	AddGameObject<YataiObject>(Layer1);
-	AddGameObject<KasuteraObject>(Layer1);
-	AddGameObject<CarObject>(Layer1);	
+	//AddGameObject<TreeObject>(Layer1);
+	//AddGameObject<YakisobaObject>(Layer1);
+	//AddGameObject<YataiObject>(Layer1);
+	//AddGameObject<KasuteraObject>(Layer1);
+	//AddGameObject<CarObject>(Layer1);	
 
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
-	Vector3 min = filed->GetMin();
+	Vector3 min = filed->GetMin();	
 
-	//box->SetPosition(Vector3(max.x, 0, 0));
-	//box->SetScale(Vector3(5, 20, 160));
-
-	//box2->SetPosition(Vector3(min.x, 0, 0));
-	//box2->SetScale(Vector3(5, 20, 160));
-
-	//box3->SetPosition(Vector3(0, 0, max.z));
-	//box3->SetScale(Vector3(160, 20, 5));
-
-	//box4->SetPosition(Vector3(0, 0, min.z));
-	//box4->SetScale(Vector3(160, 20, 5));			
-
-	AddGameObject<Player>(Layer1);
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetPosition(Vector3(0, 40, -140));
 
 	AddGameObject<Camera>(Layer0);	
 	
@@ -87,11 +72,12 @@ void TitleScene::Init()
 
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
 	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);	
+	bill->SetPosition(Vector3(100, 0, 50));
 
 	BillBoardObject* bill2 = AddGameObject<BillBoardObject>(Layer1);	
 	bill2->Init("../asset/texture/Tutorial.png");
 	bill2->AddComponent<SphereCollider>()->SetRadius(2.0f);
-	bill2->SetPosition(Vector3(50, 0, 50));
+	bill2->SetPosition(Vector3(0, 0, 50));
 
 	//虹をフェードさせる
 	// 毎フレームごとの時間を更新	
@@ -151,6 +137,7 @@ void TitleScene::Update()
 
 	SphereCollider* col = player->GetComponent<SphereCollider>();
 
+	//画面遷移
 	if (col->Hit(billList[0]->GetComponent<SphereCollider>()))
 	{
 		m_SEObj->GetComponent<Audio>()->Play();
@@ -165,6 +152,7 @@ void TitleScene::Update()
 		return;
 	}
 
+	//時間経過処理
 	currentTime -= 0.005f;
 
 	if (currentTime < 0.0f)
