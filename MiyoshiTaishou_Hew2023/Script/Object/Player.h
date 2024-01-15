@@ -42,6 +42,9 @@ private:
 	//ˆÚ“®‘¬“x
 	float m_Speed = 70.0f;
 
+	//‰Á‘¬“x
+	float m_Acc = 1.0f;
+
 	//‰ñ“]‘¬“x
 	float m_RotSpeed = 0.0f;
 	float m_RotSpeedSide = 0.0f;
