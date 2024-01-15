@@ -42,6 +42,8 @@ void TutorialScene::Init()
 {
 	Score* score = AddGameObject<Score>(Layer3);
 
+	AddGameObject<Sky>(Layer1);
+
 	Field* filed = AddGameObject<Field>(Layer1);
 	filed->Init("Title.csv");	
 
@@ -51,6 +53,13 @@ void TutorialScene::Init()
 	//bgm->GetComponent<Audio>()->Load("../asset\\audio\\たこ焼き魂-_Takoyaki-Spirit_.wav");
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play(true);
+
+	//チュートリアルたこ焼き
+	GameObject* Takoyaki = AddGameObject<GameObject>(Layer3);
+	Takoyaki->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	Takoyaki->AddComponent<Sprite>()->Init(1150, 600, 100.0f, 100.0f,
+		"../asset\\texture\\2DTakoyaki.png");
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
@@ -63,16 +72,9 @@ void TutorialScene::Init()
 	Manager::SetCountMax(countMax);
 
 	Player* player = AddGameObject<Player>(Layer1);
-	player->SetPosition(Vector3(30, 0, 30));
+	player->SetPosition(Vector3(0, 40, -140));
 
-	AddGameObject<Camera>(Layer0);
-
-	//チュートリアルたこ焼き
-	GameObject* Takoyaki = AddGameObject<GameObject>(Layer3);
-	Takoyaki->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
-		"../shader\\unlitTexturePS.cso");
-	Takoyaki->AddComponent<Sprite>()->Init(1150,600, 100.0f, 100.0f,
-		"../asset\\texture\\2DTakoyaki.png");
+	AddGameObject<Camera>(Layer0);	
 
 	//フォント設定
 	FontData* data = new FontData();

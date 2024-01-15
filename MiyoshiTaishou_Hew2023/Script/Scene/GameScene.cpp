@@ -41,8 +41,13 @@ void GameScene::Init()
 
 	AddGameObject<Timer>(Layer3);	
 
+	AddGameObject<Sky>(Layer1);	
+
 	Field* filed = AddGameObject<Field>(Layer1);
 	filed->Init("testMap.csv");
+
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetRotation(Vector3(30, 10000, 30));
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -54,10 +59,7 @@ void GameScene::Init()
 	m_Transition->FadeIn();//フェードイン開始	
 
 	Customer* cus = AddGameObject<Customer>(Layer1);
-
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetRotation(Vector3(30, 10000, 30));
-
+	
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());
 

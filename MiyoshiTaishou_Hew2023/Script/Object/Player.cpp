@@ -40,6 +40,8 @@
 
 using namespace DirectX::SimpleMath;
 
+#define MAX_FILED 20
+
 void Player::Init()
 {
 	//座標、サイズ設定
@@ -49,19 +51,20 @@ void Player::Init()
 	this->m_Position.z = -10.0f;
 	this->m_Position.y = 0.0f;
 
-	ModelRenderer* model = AddComponent<ModelRenderer>();
-	//model->Load("../asset\\model\\bullet.obj");
-	model->Load("../asset\\model\\bullet.obj");
-
-	Shadow* shadow = AddComponent<Shadow>();
-	shadow->Init();
-	shadow->SetSize(10.0f);
-
-	//コンポーネント
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
+
+	ModelRenderer* model = AddComponent<ModelRenderer>();
+	//model->Load("../asset\\model\\bullet.obj");
+	model->Load("../asset\\model\\bullet.obj");
+	
+	Shadow* shadow = AddComponent<Shadow>();
+	shadow->Init();
+	shadow->SetSize(10.0f);
+
+	//コンポーネント	
 	
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
@@ -257,11 +260,11 @@ void Player::Update()
 	Collision();
 
 	//コントローラー入力
-	ConInput();	
+	ConInput();		
 }
 
 void Player::Draw()
-{
+{		
 	////プレイヤーの情報を表示する
 	//ImGui::Begin("Player");
 	//ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
@@ -330,7 +333,7 @@ void Player::Draw()
 
 	//m_MeshRenderer->Draw();	
 
-	m_Particle->Draw();
+	m_Particle->Draw();	
 }
 
 void Player::Collision()
@@ -477,27 +480,30 @@ void Player::Collision()
 	}
 
 	//　範囲チェック 
+	//　範囲チェック 
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();
 
-	if (m_Position.x <= min.x) {
-		m_Position.x = min.x;
+	if (m_Position.x <= min.x + MAX_FILED) {
+		m_Position.x = min.x + MAX_FILED;
 	}
-	if (m_Position.x >= max.x) {
-		m_Position.x = max.x;
+	if (m_Position.x >= max.x - MAX_FILED) {
+		m_Position.x = max.x - MAX_FILED;
 	}
 
-	if (m_Position.z <= min.z) {
-		m_Position.z = min.z;
+	if (m_Position.z <= min.z + MAX_FILED) {
+		m_Position.z = min.z + MAX_FILED;
 	}
-	if (m_Position.z >= max.z) {
-		m_Position.z = max.z;
+	if (m_Position.z >= max.z - MAX_FILED) {
+		m_Position.z = max.z - MAX_FILED;
 	}
 
 	/*for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		filed->PointPlaneCollision(m_Point);
 	}*/
+
+
 
 	filed->PointPlaneCollision(m_Point);
 }
@@ -532,7 +538,7 @@ void Player::ConInput()
 	{						
 		//移動処理	
 		
-		Vector3 force = cameraObj->camForward * m_Speed;
+		Vector3 force = cameraObj->camForward * m_Speed * m_Acc;
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);
 		
@@ -543,7 +549,7 @@ void Player::ConInput()
 		//回転処理	
 		
 		//移動処理	
-		Vector3 force = cameraObj->camForward * -m_Speed;	
+		Vector3 force = cameraObj->camForward * -m_Speed * m_Acc;
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);		
 
@@ -554,14 +560,14 @@ void Player::ConInput()
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{		
 
-		Vector3 force = cameraObj->camRight * -m_Speed;				
+		Vector3 force = cameraObj->camRight * -m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);	
 
 		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{		
-		Vector3 force = cameraObj->camRight * m_Speed;	
+		Vector3 force = cameraObj->camRight * m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);
 
 		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
@@ -577,6 +583,15 @@ void Player::ConInput()
 	{
 		//m_Rotation.y -= 0.05f;
 		cameraObj->theta += 0.1f;
+	}
+
+	if (Input::GetGamePad(BUTTON::ABUTTON))
+	{
+		m_Acc = 1.5f;
+	}
+	else
+	{
+		m_Acc = 1.0f;
 	}
 
 	if (Input::GetKeyTrigger('J'))
