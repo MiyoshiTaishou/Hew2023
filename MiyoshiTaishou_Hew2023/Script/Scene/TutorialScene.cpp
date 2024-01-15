@@ -42,7 +42,8 @@ void TutorialScene::Init()
 {
 	Score* score = AddGameObject<Score>(Layer3);
 
-	AddGameObject<Field>(Layer1);
+	Field* filed = AddGameObject<Field>(Layer1);
+	filed->Init("Title.csv");	
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);

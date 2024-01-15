@@ -53,19 +53,20 @@ void GameScene::Init()
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
 
-	LoadObjectData("Stage1-2.csv");
-
-	//オブジェクト生成	
-	//AddGameObject<Sky>(Layer1);
-
-	//AddGameObject<YataiObject>(Layer1);
 	Customer* cus = AddGameObject<Customer>(Layer1);
 
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetRotation(Vector3(30, 10000, 30));
 
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
-	bill->AddCount(cus->GetRequests());	
+	bill->AddCount(cus->GetRequests());
+
+	LoadObjectData("Stage1-2.csv");
+
+	//オブジェクト生成	
+	//AddGameObject<Sky>(Layer1);
+
+	//AddGameObject<YataiObject>(Layer1);
 
 	Manager::InitCount();
 
