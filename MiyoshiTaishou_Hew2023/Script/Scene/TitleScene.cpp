@@ -28,14 +28,24 @@
 #include"GameScene.h"
 #include"TutorialScene.h"
 
+//UI
+#include"../UI/score.h"
+
 using namespace DirectX::SimpleMath;
 
 void TitleScene::Init()
 {
+	Score* score = AddGameObject<Score>(Layer3);
+
 	//オブジェクト生成
 	AddGameObject<Sky>(Layer1);	
 	Field* filed = AddGameObject<Field>(Layer1);
 	filed->Init("Title.csv");
+
+	Player* player = AddGameObject<Player>(Layer1);
+	player->SetPosition(Vector3(0, 40, -140));
+
+	LoadObjectData("titleMap.csv");
 
 	//AddGameObject<TreeObject>(Layer1);
 	//AddGameObject<YakisobaObject>(Layer1);
@@ -45,10 +55,7 @@ void TitleScene::Init()
 
 	//　範囲チェック 
 	Vector3 max = filed->GetMax();
-	Vector3 min = filed->GetMin();	
-
-	Player* player = AddGameObject<Player>(Layer1);
-	player->SetPosition(Vector3(0, 40, -140));
+	Vector3 min = filed->GetMin();		
 
 	AddGameObject<Camera>(Layer0);	
 	

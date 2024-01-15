@@ -49,7 +49,7 @@ public:
         return m_ProjMatrix;
     }
 
-    float theta = 30; // …•½•ûŒü‚ÌŠp“x
+    float theta = 127; // …•½•ûŒü‚ÌŠp“x
     float phi = 30; // ‚’¼•ûŒü‚ÌŠp“x
 
     DirectX::SimpleMath::Vector3 camForward;
