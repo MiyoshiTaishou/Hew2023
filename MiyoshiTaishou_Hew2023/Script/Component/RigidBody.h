@@ -106,8 +106,6 @@ private:
 	//オブジェクトに現在加えられている力
 	DirectX::SimpleMath::Vector3 m_Force;
 
-
-
 	//回転
 
 	//オブジェクトの重心の位置(ローカル座標)
@@ -121,13 +119,10 @@ private:
 	
 	//慣性テンソル
 	DirectX::SimpleMath::Matrix m_InetiaTensor;
-	 
-	
+	 	
 	//トルクによって回転する際に、オブジェクトに影響する空気抵抗の大きさ
 	float m_AngularDrag = -1.0f;
 
 	//固定情報
 	Frieze m_Frize;
-
-
 };

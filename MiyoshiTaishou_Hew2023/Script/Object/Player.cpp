@@ -46,10 +46,7 @@ void Player::Init()
 {
 	//座標、サイズ設定
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
-	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);
-	this->m_Position.x = 10.0f;
-	this->m_Position.z = -10.0f;
-	this->m_Position.y = 0.0f;
+	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);	
 
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
@@ -60,9 +57,9 @@ void Player::Init()
 	//model->Load("../asset\\model\\bullet.obj");
 	model->Load("../asset\\model\\bullet.obj");
 	
-	Shadow* shadow = AddComponent<Shadow>();
+	/*Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
-	shadow->SetSize(10.0f);
+	shadow->SetSize(10.0f);*/
 
 	//コンポーネント	
 	
@@ -144,10 +141,10 @@ void Player::Init()
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
-	m_Particle = new Particle();	
+	//m_Particle = new Particle();	
 
 	Scene* scene = Manager::GetScene();
-	scene->m_Particle.push_back(m_Particle);
+	//scene->m_Particle.push_back(m_Particle);
 
 	m_Rotmatrix = Matrix::Identity;
 
@@ -160,9 +157,7 @@ void Player::Uninit()
 	{
 		delete m_Sphere[i];
 		delete m_MeshRenderer[i];
-	}
-
-	//m_Particle->Uninit();
+	}	
 }
 
 void Player::Update()
@@ -262,7 +257,7 @@ void Player::Update()
 	//コントローラー入力
 	ConInput();		
 }
-
+//
 void Player::Draw()
 {		
 	////プレイヤーの情報を表示する
@@ -333,7 +328,7 @@ void Player::Draw()
 
 	//m_MeshRenderer->Draw();	
 
-	m_Particle->Draw();	
+	//m_Particle->Draw();	
 }
 
 void Player::Collision()
