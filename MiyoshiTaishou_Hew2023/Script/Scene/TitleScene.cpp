@@ -47,13 +47,13 @@ void TitleScene::Init()
 
 	LoadObjectData("titleMap.csv");
 
-	//AddGameObject<TreeObject>(Layer1);
-	//AddGameObject<YakisobaObject>(Layer1);
-	//AddGameObject<YataiObject>(Layer1);
-	//AddGameObject<KasuteraObject>(Layer1);
-	//AddGameObject<CarObject>(Layer1);	
+	AddGameObject<TreeObject>(Layer1);
+	AddGameObject<YakisobaObject>(Layer1);
+	AddGameObject<YataiObject>(Layer1);
+	AddGameObject<KasuteraObject>(Layer1);
+	AddGameObject<CarObject>(Layer1);	
 
-	//　範囲チェック 
+	//範囲チェック 
 	Vector3 max = filed->GetMax();
 	Vector3 min = filed->GetMin();		
 
@@ -87,7 +87,7 @@ void TitleScene::Init()
 	bill2->SetPosition(Vector3(0, 0, 50));
 
 	//虹をフェードさせる
-	// 毎フレームごとの時間を更新	
+	//毎フレームごとの時間を更新	
 
 	
 	ZeroMemory(&timeBufferDesc, sizeof(timeBufferDesc));
@@ -140,7 +140,7 @@ void TitleScene::Update()
 
 	Player* player = GetGameObject<Player>();
 	std::vector<BillBoardObject*> billList = GetGameObjects<BillBoardObject>();
-	//BillBoardObject* bill = GetGameObject<BillBoardObject>();
+	BillBoardObject* bill = GetGameObject<BillBoardObject>();
 
 	SphereCollider* col = player->GetComponent<SphereCollider>();
 

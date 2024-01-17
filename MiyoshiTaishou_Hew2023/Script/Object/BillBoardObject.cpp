@@ -133,7 +133,7 @@ void BillBoardObject::Init(const char* TextureName)
 	assert(m_Texture);
 
 	//‹…‚ÌƒƒbƒVƒ…ì¬
-	m_Sphere = new CSphereMesh();
+	/*m_Sphere = new CSphereMesh();
 	m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);
 
 	m_MeshRenderer = new CMeshRenderer();
@@ -146,7 +146,7 @@ void BillBoardObject::Init(const char* TextureName)
 	m_SphereMt.Emission = Color(0, 0, 0, 0);
 	m_SphereMt.TextureEnable = FALSE;
 
-	m_Scale.x = 5.0f;	
+	m_Scale.x = 5.0f;	*/
 }
 
 void BillBoardObject::Uninit()

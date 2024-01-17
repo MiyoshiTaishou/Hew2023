@@ -24,9 +24,9 @@ void RootChaise::Init()
         m_SpherePos[i].x = i * 10;
     }  
 
-    particle = new Particle();
+    //particle = new Particle();
     Scene* scne = Manager::GetScene();
-    scne->m_Particle.push_back(particle);
+    //scne->m_Particle.push_back(particle);
     //particle->Init();
 
     std::ifstream inputFile(m_buffer);
@@ -162,7 +162,7 @@ void RootChaise::Draw()
    
     //ImGui::End();
 
-    particle->Draw();
+    //particle->Draw();
 }
 
 void RootChaise::Update()
@@ -234,6 +234,6 @@ void RootChaise::Update()
     pos.y = Manager::GetScene()->GetGameObject<Field>()->GetFieldHeightBySqno(pos, *m_GameObject);
     m_GameObject->SetPosition(pos);
 
-    particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
-    particle->Update();
+    //particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
+    //particle->Update();
 }

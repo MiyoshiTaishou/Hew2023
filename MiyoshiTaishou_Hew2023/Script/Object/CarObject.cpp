@@ -27,7 +27,7 @@ void CarObject::Init()
 	m_Collider->SetCollScale(Vector3(10,10,10));
 	this->SetScale(Vector3(3, 3, 3));
 	this->SetPosition(Vector3(-50, 0, 0));
-	this->AddComponent<RootChaise>();
+	//this->AddComponent<RootChaise>();
 
 	//SE
 	m_SE = AddComponent<Audio>();
