@@ -19,7 +19,7 @@ using namespace DirectX::SimpleMath;
 void ParticleObject::Init()
 {
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_WhiteAlpha.cso");
-	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
 	AddComponent<RigidBody>();
 
@@ -79,14 +79,7 @@ void ParticleObject::Init()
 }
 
 void ParticleObject::Uninit()
-{
-	for (auto& com : m_Component) {
-		com->Uninit();
-		delete com;
-	}
-
-	m_Component.clear();
-
+{	
 	m_VertexBuffer->Release();
 	m_Texture->Release();
 }

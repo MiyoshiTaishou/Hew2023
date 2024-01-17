@@ -89,6 +89,12 @@ void TutorialScene::Init()
 	m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアル.txt");
 }
 
+void TutorialScene::Uninit()
+{
+	m_Write->Release();
+	delete m_Write;
+}
+
 void TutorialScene::Update()
 {
 	Camera* camera = GetGameObject<Camera>();
@@ -170,6 +176,8 @@ void TutorialScene::Update()
 			m_TexIdx = 0;
 			m_Text.clear();
 			m_Flame = 0;
+
+			m_TextEnd = false;
 		}
 
 		break;
@@ -206,6 +214,8 @@ void TutorialScene::Update()
 			m_TexIdx = 0;
 			m_Text.clear();
 			m_Flame = 0;
+
+			m_TextEnd = false;
 		}	
 		break;
 	}
@@ -221,18 +231,39 @@ void TutorialScene::Update()
 		break;
 	}
 
-	//次の文章にいく
-	if (Input::GetGamePadTrigger(BUTTON::ABUTTON))
+	if (m_TextEnd)
 	{
-		m_ListIdx++;
-		m_TexIdx = 0;
-		m_Text.clear();
-		m_Flame = 0;
+		return;
+	}
+
+	//次の文章にいく
+	if (m_TextList[m_ListIdx].size() < m_TexIdx)
+	{
+		if (Input::GetGamePadTrigger(BUTTON::ABUTTON))
+		{			
+			m_ListIdx++;
+			m_TexIdx = 0;
+			m_Text.clear();
+			m_Flame = 0;
+		}
+	}
+	else
+	{
+		if (Input::GetGamePadTrigger(BUTTON::ABUTTON))
+		{
+			while (m_TextList[m_ListIdx].size() > m_TexIdx)
+			{
+				m_Text.push_back(m_TextList[m_ListIdx][m_TexIdx]);
+				m_Flame = 0;
+				m_TexIdx += 1;
+			}
+		}
 	}
 
 	//最後までテキストが描画された
 	if (m_TextList.size() <= m_ListIdx)
 	{
+		m_TextEnd = true;
 		return;
 	}
 

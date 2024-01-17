@@ -18,7 +18,8 @@ class TutorialScene : public Scene
 {
 public:
 
-	void Init()override;
+	void Init()override;	
+	void Uninit()override;
 	void Update()override;
 	void Draw()override;	
 
@@ -29,6 +30,8 @@ private:
 
 	//ƒS[ƒ‹”»’è
 	bool m_Goal = false;
+
+	bool m_TextEnd = false;
 
 	DirectWrite* m_Write;
 

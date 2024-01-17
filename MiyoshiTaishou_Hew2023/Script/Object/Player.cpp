@@ -141,7 +141,7 @@ void Player::Init()
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
-	//m_Particle = new Particle();	
+	m_Particle = new Particle();	
 
 	Scene* scene = Manager::GetScene();
 	//scene->m_Particle.push_back(m_Particle);
@@ -158,6 +158,10 @@ void Player::Uninit()
 		delete m_Sphere[i];
 		delete m_MeshRenderer[i];
 	}	
+
+	m_Particle->Uninit();
+
+	delete m_Particle;
 }
 
 void Player::Update()
@@ -251,6 +255,8 @@ void Player::Update()
 		m_Point[i] = rotatedVector;
 	}
 
+	m_Particle->Update();
+
 	//“–‚½‚è”»’èˆ—
 	Collision();
 
@@ -328,7 +334,7 @@ void Player::Draw()
 
 	//m_MeshRenderer->Draw();	
 
-	//m_Particle->Draw();	
+	m_Particle->Draw();	
 }
 
 void Player::Collision()
@@ -535,7 +541,9 @@ void Player::ConInput()
 		
 		Vector3 force = cameraObj->camForward * m_Speed * m_Acc;
 		force.y = 0.0f;
-		body->AddForce(force, ForceMode::Force);			
+		body->AddForce(force, ForceMode::Force);	
+
+		m_Particle->Create(m_Position, Vector3::Up, Vector3(1, 10, 1));
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{	
