@@ -178,4 +178,5 @@ void DirectWrite::Release()
 	if (pDWriteFactory) pDWriteFactory->Release();
 	if (pD2DFactory) pD2DFactory->Release();
 	if (pTextLayout) pTextLayout->Release();
+	if (Setting)delete Setting;
 }

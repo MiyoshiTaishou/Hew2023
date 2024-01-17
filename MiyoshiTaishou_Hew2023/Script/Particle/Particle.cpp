@@ -7,6 +7,7 @@ using namespace DirectX::SimpleMath;
 
 void Particle::Init()
 {
+
 }
 
 void Particle::Uninit()
@@ -16,6 +17,7 @@ void Particle::Uninit()
 		if (obj != nullptr)
 		{
 			obj->UninitBase();
+			delete obj;			
 		}
 	}
 
