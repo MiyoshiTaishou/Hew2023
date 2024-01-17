@@ -57,9 +57,9 @@ void Player::Init()
 	//model->Load("../asset\\model\\bullet.obj");
 	model->Load("../asset\\model\\bullet.obj");
 	
-	/*Shadow* shadow = AddComponent<Shadow>();
+	Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
-	shadow->SetSize(10.0f);*/
+	shadow->SetSize(10.0f);
 
 	//コンポーネント	
 	
@@ -535,9 +535,7 @@ void Player::ConInput()
 		
 		Vector3 force = cameraObj->camForward * m_Speed * m_Acc;
 		force.y = 0.0f;
-		body->AddForce(force, ForceMode::Force);
-		
-		m_Particle->Create(m_Position,-body->GetVelocity(),Vector3::Up);
+		body->AddForce(force, ForceMode::Force);			
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{	
@@ -546,26 +544,19 @@ void Player::ConInput()
 		//移動処理	
 		Vector3 force = cameraObj->camForward * -m_Speed * m_Acc;
 		force.y = 0.0f;
-		body->AddForce(force, ForceMode::Force);		
-
-		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
+		body->AddForce(force, ForceMode::Force);				
 	}
 
 	//左右移動
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{		
-
 		Vector3 force = cameraObj->camRight * -m_Speed * m_Acc;
-		body->AddForce(force, ForceMode::Force);	
-
-		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
+		body->AddForce(force, ForceMode::Force);			
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{		
 		Vector3 force = cameraObj->camRight * m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);
-
-		m_Particle->Create(m_Position, -body->GetVelocity(), Vector3::Up);
 	}
 
 	//カメラ操作

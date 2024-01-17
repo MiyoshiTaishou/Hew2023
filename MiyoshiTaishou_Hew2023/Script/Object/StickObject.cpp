@@ -24,9 +24,9 @@ void StickObject::Init()
 	m_HitSE = AddComponent<Audio>();
 	m_HitSE->Load("../asset\\audio\\ぷよん_2.wav");
 
-	/*Shadow* shadow = AddComponent<Shadow>();
+	Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
-	shadow->SetSize(10.0f);*/
+	shadow->SetSize(10.0f);
 }
 
 void StickObject::Update()
@@ -60,8 +60,8 @@ void StickObject::Update()
 
 	//くっついていたら親オブジェクトを上げる
 	if (m_Stick)
-	{
-		GetComponent<Shadow>()->SetShadowView(false);
+	{		
+		GetComponent<Shadow>()->SetShadowView(false);		
 		return;
 	}
 	else
@@ -82,7 +82,7 @@ void StickObject::Stick(Vector3 _pos)
 	//Camera* cameraObj = scene->GetGameObject<Camera>();
 
 	m_Stick = true;
-	m_Scale *= m_ScaleDown;
+	m_Scale *= m_ScaleDown;	
 
 	//座標設定
 	//m_Position = cameraObj->GetForward() * m_Scale * 0.2f;

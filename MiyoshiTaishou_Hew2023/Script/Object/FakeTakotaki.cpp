@@ -26,7 +26,7 @@ void FakeTakoyakiObject::Init()
 void FakeTakoyakiObject::Update()
 {
 	if (m_Stick)
-	{
+	{		
 		GetComponent<Shadow>()->SetShadowView(false);
 		return;
 	}

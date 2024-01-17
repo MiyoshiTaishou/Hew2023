@@ -26,16 +26,19 @@
 
 void StageEditor::Init()
 {
-    obj = new GameObject;
+   /* obj = new GameObject;
     obj->Init();
-    obj->SetPosition(DirectX::SimpleMath::Vector3(0, 100, -300));
-        
-    AddGameObject<DebugCamera>(Layer0)->m_TargetObj = obj;
-	AddGameObject<Sky>(Layer0);
+    obj->SetPosition(DirectX::SimpleMath::Vector3(0, 100, -300));*/
+            
+	Sky* sky = AddGameObject<Sky>(Layer0);
     Field* filed = AddGameObject<Field>(Layer1);
     filed->Init("Title.csv");
 
+    AddGameObject<DebugCamera>(Layer0)->m_TargetObj = sky;
+
     AddGameObject<Score>(Layer3);
+
+
 }
 
 void StageEditor::Update()

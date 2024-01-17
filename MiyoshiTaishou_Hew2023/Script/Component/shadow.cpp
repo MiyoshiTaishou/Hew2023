@@ -62,17 +62,19 @@ void Shadow::Init()
 
 	assert(m_Texture);
 
-	m_Shader = new Shader(m_GameObject);
-	m_Shader->Init();
-	m_Shader->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
+	Renderer::CreateVertexShader(&m_VertexShader, &m_VertexLayout, "../shader\\unlitTextureVS.cso");
+
+	Renderer::CreatePixelShader(&m_PixelShader, "../shader\\unlitTexturePS.cso");
 }
 
 
 void Shadow::Uninit()
 {
 	m_VertexBuffer->Release();
-	m_Texture->Release();
-	m_Shader->Uninit();
+	m_Texture->Release();	
+	m_VertexLayout->Release();
+	m_VertexShader->Release();
+	m_PixelShader->Release();
 }
 
 
@@ -145,9 +147,7 @@ void Shadow::Update()
 	{
 		m_Position = m_GameObject->GetPosition();
 		m_Position.y = groundHeight;
-	}	
-
-	m_Shader->Update();
+	}		
 }
 
 
@@ -160,7 +160,12 @@ void Shadow::Draw()
 		return;
 	}
 
-	m_Shader->Draw();
+	// 入力レイアウト設定
+	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
+
+	// シェーダ設定
+	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, nullptr, 0);
+	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, nullptr, 0);
 
 	// マトリクス設定
 	Matrix world, scale, trans;

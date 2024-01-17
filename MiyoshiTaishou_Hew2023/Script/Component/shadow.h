@@ -13,10 +13,12 @@ private:
 	ID3D11Buffer* m_VertexBuffer;
 	ID3D11ShaderResourceView* m_Texture;
 
-	DirectX::SimpleMath::Vector3 m_Position{};
-	float	m_Size = 1.0f;
+	ID3D11VertexShader* m_VertexShader{};
+	ID3D11PixelShader* m_PixelShader{};
+	ID3D11InputLayout* m_VertexLayout{};
 
-	Shader* m_Shader;
+	DirectX::SimpleMath::Vector3 m_Position{};
+	float	m_Size = 1.0f;	
 
 	//‰e‚ð•`‰æ‚·‚é
 	bool m_ShadowView = true;
