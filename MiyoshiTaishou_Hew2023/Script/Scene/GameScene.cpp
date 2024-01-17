@@ -46,6 +46,8 @@ void GameScene::Init()
 	Field* filed = AddGameObject<Field>(Layer1);
 	filed->Init("testMap.csv");
 
+	LoadObjectData("Stage1-2.csv");
+
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetRotation(Vector3(30, 10000, 30));
 
@@ -62,8 +64,7 @@ void GameScene::Init()
 	
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());
-
-	LoadObjectData("Stage1-2.csv");
+	
 
 	//オブジェクト生成	
 	//AddGameObject<Sky>(Layer1);
@@ -79,15 +80,7 @@ void GameScene::Init()
 
 	Manager::SetCountMax(countMax);
 	
-	AddGameObject<Camera>(Layer0);
-
-	FontData* data = new FontData();
-	data->fontSize = 60;
-	data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;
-
-	write = new DirectWrite(data);
-
-	write->Init();	
+	AddGameObject<Camera>(Layer0);	
 }
 
 void GameScene::Update()

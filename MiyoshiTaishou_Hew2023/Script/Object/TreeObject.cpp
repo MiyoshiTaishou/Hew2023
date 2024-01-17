@@ -20,15 +20,15 @@ using namespace DirectX::SimpleMath;
 void TreeObject::Init()
 {
 	this->AddComponent<ModelRenderer>()->Load("../asset\\model\\lowpoyltree.obj");
-	//this->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	//m_Collider = this->AddComponent<BoxCollider>();
-	//m_Collider->SetCollScale(Vector3(10, 100, 10));
+	this->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+	m_Collider = this->AddComponent<BoxCollider>();
+	m_Collider->SetCollScale(Vector3(10, 100, 10));
 	this->SetScale(Vector3(10, 10, 10));
 	this->SetPosition(Vector3(100, -10, 0));	
 
 	//SE
-	/*m_SE = AddComponent<Audio>();
-	m_SE->Load("../asset\\audio\\‚ ‚Á‚Ï‚ê.wav");*/
+	m_SE = AddComponent<Audio>();
+	m_SE->Load("../asset\\audio\\‚ ‚Á‚Ï‚ê.wav");
 }
 
 void TreeObject::Update()

@@ -21,8 +21,8 @@ void YakisobaObject::Init()
 {
 	this->AddComponent<ModelRenderer>()->Load("../asset\\model\\Yakisoba.obj");
 	this->AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	/*m_Collider = this->AddComponent<BoxCollider>();
-	m_Collider->SetCollScale(Vector3(10,100,10));*/
+	m_Collider = this->AddComponent<BoxCollider>();
+	m_Collider->SetCollScale(Vector3(10,100,10));
 	this->SetScale(Vector3(2, 2, 2));
 	this->SetPosition(Vector3(-100, 10, 0));
 

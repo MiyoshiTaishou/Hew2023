@@ -125,25 +125,6 @@ void ResultScene::Init()
 	m_Mt.Diffuse.w = 0.0f;
 	m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
 
-	//Score* score = AddGameObject<Score>(Layer3);
-	//score->Init(400, 230, 50, 50);
-	//score->AddCount(Manager::GetCount());
-
-	//Score* scoreRate = AddGameObject<Score>(Layer3);
-	//scoreRate->Init(400, 480, 40, 40);
-
-	////どの程度とれたか
-	//float rate = ((float)Manager::GetCount() /  (float)MAX_SPHERE);
-	//int percent = rate * 100;
-	//scoreRate->AddCount(percent);
-
-	//オブジェクト生成
-	//AddGameObject<Sky>(Layer1);
-	//AddGameObject<Player>(Layer1);
-	//AddGameObject<Field>(Layer1);
-
-	//AddGameObject<Camera>(Layer0);
-
 	//BGM追加
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
@@ -229,11 +210,13 @@ void ResultScene::Update()
 		{
 			for (int i = 3; i < 7; i++)
 			{
+				//花火の音を遅らせて鳴らす
 				Audio* SE3 = m_SE[3]->GetComponent<Audio>();
 				Invoke([=]() {SE3->Play(); }, 1000 + i * 500);
 			}
 		}
 
+		//順番にたこ焼きを表示
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
 		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
 		Invoke([=]() {SE->Play(); }, 1000);
