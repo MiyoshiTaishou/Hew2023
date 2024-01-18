@@ -7,10 +7,7 @@ void SphereCollider::Init()
     Collider::Init();
 
     //見えるようにするか
-    if (m_Invisble)
-    {
-        return;
-    }
+#ifdef _DEBUG
 
     //球のメッシュ追加  
     m_Sphere = new CSphereMesh();
@@ -25,28 +22,27 @@ void SphereCollider::Init()
     m_SphereMt.Shininess = 0;
     m_SphereMt.Emission = Color(0, 0, 0, 0);
     m_SphereMt.TextureEnable = FALSE;
+
+#endif
+
 }
 
 void SphereCollider::Uninit()
 {
-    if (m_Invisble)
-    {
-        return;
-    }
+#ifdef _DEBUG
 
     delete m_Sphere;
     m_Sphere = nullptr;
 
     delete m_MeshRenderer;
     m_MeshRenderer = nullptr;
+
+#endif
 }
 
 void SphereCollider::Draw()
 {
-    if (m_Invisble)
-    {
-        return;
-    }
+#ifdef _DEBUG
 
     // ワールド変換行列生成
     // マトリクス設定
@@ -61,6 +57,8 @@ void SphereCollider::Draw()
     Renderer::SetMaterial(m_SphereMt);
 
     m_MeshRenderer->Draw();
+
+#endif
 }
 
 bool SphereCollider::Hit(const SphereCollider* _sphereCol)

@@ -22,6 +22,7 @@ enum BUTTON
     RLEFT,  /**< 右左ボタン */
     RRIGHT, /**< 右右ボタン */
     ABUTTON,/**< Aボタン    */ 
+    BBUTTON,/**< Bボタン    */
 };
 
 /**

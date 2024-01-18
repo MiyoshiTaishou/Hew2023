@@ -85,6 +85,8 @@ bool Input::GetGamePadTrigger(BUTTON button)
         return (m_ControllerState.Gamepad.sThumbLY < 0) && !(m_OldControllerState.Gamepad.sThumbLY < 0);        
     case BUTTON::ABUTTON:
         return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A);
+    case BUTTON::BBUTTON:
+        return(m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_B) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_B);
     default:
         break;
     }

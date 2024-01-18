@@ -16,10 +16,6 @@ public:
 	void SetRadius(float _radius);
 	float GetRadius();
 
-	//“–‚½‚è”»’è‚ð‰ÂŽ‹‰»
-	//bool m_Invisble = false;
-	bool m_Invisble = true;
-
 private:
 
 	using Collider::Collider;	
