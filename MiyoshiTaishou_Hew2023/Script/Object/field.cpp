@@ -191,6 +191,7 @@ void Field::Draw()
 	//// ƒ|ƒŠƒSƒ“•`‰æ
 	//Renderer::GetDeviceContext()->Draw(4, 0);
 
+#ifdef _DEBUG
 
 	m_planemesh.MakeUndulationSelf();
 
@@ -214,7 +215,9 @@ void Field::Draw()
 
 	ImGui::InputText("File Name", m_buffer, sizeof(m_buffer));
 
-	ImGui::End();	
+	ImGui::End();
+
+#endif // _DEBUG
 }
 
 void Field::MakeEquatation()

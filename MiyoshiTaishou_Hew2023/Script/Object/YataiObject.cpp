@@ -43,10 +43,3 @@ void YataiObject::Update()
 		player->GetComponent<RigidBody>()->AddForce(Vector3(0, 50, 0), ForceMode::Impulse);
 	}
 }
-
-void YataiObject::Draw()
-{
-	ImGui::Begin("Size");
-	ImGui::SliderFloat("X", &m_Scale.x, 0.01, 0.1);
-	ImGui::End();	
-}

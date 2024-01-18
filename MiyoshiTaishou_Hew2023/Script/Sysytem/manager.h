@@ -10,6 +10,10 @@ class Manager
 private:
     static class Scene* m_Scene; // 現在のシーンへのポインタ
 
+    //ゲームシーン
+    static std::string m_FiledName;
+    static std::string m_MapName;
+
     static int m_Count;//たこ焼きの数
     static int m_CountMax;//たこ焼きの数
 
@@ -88,5 +92,25 @@ public:
     static void InitCount()
     {
         m_Count = 0;
+    }
+
+    static void SetFiledName(std::string _text) 
+    {
+        m_FiledName = _text;
+    }
+
+    static void SetMapName(std::string _text)
+    {
+        m_MapName = _text;
+    }
+
+    static std::string GetFiledName()
+    {
+        return m_FiledName;
+    }
+
+    static std::string GetMapName()
+    {
+        return m_MapName;
     }
 };

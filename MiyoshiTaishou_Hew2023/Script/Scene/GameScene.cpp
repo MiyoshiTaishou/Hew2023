@@ -44,9 +44,9 @@ void GameScene::Init()
 	AddGameObject<Sky>(Layer1);	
 
 	Field* filed = AddGameObject<Field>(Layer1);
-	filed->Init("testMap.csv");
+	filed->Init(Manager::GetFiledName());
 
-	LoadObjectData("Stage1-2.csv");
+	LoadObjectData(Manager::GetMapName());
 
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetRotation(Vector3(30, 10000, 30));
