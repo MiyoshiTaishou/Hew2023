@@ -1,5 +1,13 @@
 #pragma once
 #include "scene.h"
+
+enum SELECT_SCENE
+{
+    TUTORIAL,
+    GAME1,
+    GAME2,
+};
+
 class TitleScene : public Scene
 {
 private:
@@ -19,6 +27,8 @@ private:
 
     //SE�炷
     GameObject* m_SEObj;
+
+    SELECT_SCENE m_Select;
 
 public:
     void Init()override;

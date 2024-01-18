@@ -950,7 +950,10 @@ namespace ImGui
 // [SECTION] Flags & Enumerations
 //-----------------------------------------------------------------------------
 
-// Flags for ImGui::Begin()
+// Flags for 
+// 
+// 
+// ()
 // (Those are per-window flags. There are shared flags in ImGuiIO: io.ConfigWindowsResizeFromEdges and io.ConfigWindowsMoveFromTitleBarOnly)
 enum ImGuiWindowFlags_
 {

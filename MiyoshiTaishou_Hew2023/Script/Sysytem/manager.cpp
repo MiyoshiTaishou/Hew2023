@@ -30,6 +30,9 @@ int Manager::m_CountMax = 0;//最大数
 // グローバル変数
 std::list<GameObject*> g_gameobjectlist;
 
+std::string Manager::m_MapName;
+std::string Manager::m_FiledName;
+
 void Manager::Init(Application* ap)
 {
 	
@@ -99,9 +102,11 @@ void Manager::Draw(uint64_t d)
 
 	float fps = 1000.0f / d;
 
-	//ImGui::Begin("FPS");
-	//ImGui::Text("%fFPS",fps);
-	//ImGui::End();
+#ifdef _DEBUG
+
+	ImGui::Begin("FPS");
+	ImGui::Text("%fFPS",fps);
+	ImGui::End();
 
 
 	//Debugようシーン遷移
@@ -128,6 +133,8 @@ void Manager::Draw(uint64_t d)
 	}
 
 	ImGui::End();
+
+#endif // _DEBUG
 
 	ImGuiManager::End();
 	Renderer::End();

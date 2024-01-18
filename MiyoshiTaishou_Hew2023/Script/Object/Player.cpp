@@ -266,57 +266,61 @@ void Player::Update()
 //
 void Player::Draw()
 {		
-	////プレイヤーの情報を表示する
-	//ImGui::Begin("Player");
-	//ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
-	//ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
-	//ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
-	//ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
-	//ImGui::Text("PlayerState\n %d", this->state);
-	////移動速度
-	//ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
-	//ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
+#ifdef _DEBUG
 
-	////回転
-	//ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
-	//ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
-	//ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
+	//プレイヤーの情報を表示する
+	ImGui::Begin("Player");
+	ImGui::Text("PlayerScale\n %f\nY %f\nZ %f", this->m_Scale.x, this->m_Scale.y, this->m_Scale.z);
+	ImGui::Text("PlayerPos\nX %f\nY %f\nZ %f", this->m_Position.x, this->m_Position.y, this->m_Position.z);
+	ImGui::Text("PlayerRot\nX %f\nY %f\nZ %f", this->m_Rotation.x, this->m_Rotation.y, this->m_Rotation.z);
+	ImGui::Text("PlayerFow\nX %f\nY %f\nZ %f", this->GetForward().x, this->GetForward().y, this->GetForward().z);
+	ImGui::Text("PlayerState\n %d", this->state);
+	//移動速度
+	ImGui::SliderFloat("Speed##", &m_Speed, 0.0f, 300.0f);
+	ImGui::SliderFloat("SpeedRot##", &m_RotSpeed, 0.0f, 300.0f);
 
-	////サイズ
-	//ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
+	//回転
+	ImGui::SliderFloat("TorqueX##", &torque.x, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueY##", &torque.y, -100.0f, 100.0f);
+	ImGui::SliderFloat("TorqueZ##", &torque.z, -100.0f, 100.0f);
 
-	////サイズ
+	//サイズ
+	ImGui::SliderFloat("RotX##", &m_Scale.x, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotY##", &m_Scale.y, 0.0f, 100.0f);
+	ImGui::SliderFloat("RotZ##", &m_Scale.z, 0.0f, 100.0f);
 
-	//for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
-	//{
-	//	ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
-	//}	
-	//
-	//if (ImGui::Button("Resset"))
-	//{
-	//	m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
-	//	torque = Vector3(0.0f, 0.0f, 0.0f);
-	//	m_Scale = Vector3(1.0f, 1.0f, 1.0f);
-	//}
+	//サイズ
 
-	//if (ImGui::Button("SetTensor"))
-	//{
-	//	RigidBody* body = GetComponent<RigidBody>();
+	for (int i = 0; i < MAX_SPHERE_MESH; ++i) 
+	{
+		ImGui::SliderFloat(("Distance " + std::to_string(i) + "##").c_str(), &m_Distance[i], 0.0f, 10.0f);
+	}	
+	
+	if (ImGui::Button("Resset"))
+	{
+		m_Rotation = Vector3(0.0f, 0.0f, 0.0f);
+		torque = Vector3(0.0f, 0.0f, 0.0f);
+		m_Scale = Vector3(1.0f, 1.0f, 1.0f);
+	}
 
-	//	//当たり判定の大きさをオブジェクトに合わせる
-	//	Vector3 absModelScale;
-	//	absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
-	//	absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
-	//	absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
+	if (ImGui::Button("SetTensor"))
+	{
+		RigidBody* body = GetComponent<RigidBody>();
 
-	//	Vector3 absScale = absModelScale * m_Scale;
+		//当たり判定の大きさをオブジェクトに合わせる
+		Vector3 absModelScale;
+		absModelScale.x = fabsf(ModelRenderer::Max.x) + fabsf(ModelRenderer::Min.x);
+		absModelScale.y = fabsf(ModelRenderer::Max.y) + fabsf(ModelRenderer::Min.y);
+		absModelScale.z = fabsf(ModelRenderer::Max.z) + fabsf(ModelRenderer::Min.z);
 
-	//	body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
-	//}
+		Vector3 absScale = absModelScale * m_Scale;
 
-	//ImGui::End();	
+		body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
+	}
+
+	ImGui::End();	
+
+#endif // _DEBUG
 
 	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{

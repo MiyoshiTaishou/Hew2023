@@ -125,7 +125,24 @@ void TitleScene::Update()
 	//‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
 	if (m_Transition->GetState() == Transition::State::Finish)
 	{		
-		Manager::SetScene<GameScene>();
+		switch (m_Select)
+		{
+		case TUTORIAL:
+			Manager::SetScene<TutorialScene>();
+			break;
+		case GAME1:
+			Manager::SetFiledName("testMap.csv");
+			Manager::SetMapName("Stage1-1.csv");
+			Manager::SetScene<GameScene>();			
+			break;
+		case GAME2:		
+			Manager::SetFiledName("testMap.csv");
+			Manager::SetMapName("Stage1-2.csv");
+			Manager::SetScene<GameScene>();			
+			break;
+		default:
+			break;
+		}		
 
 		return;
 	}
@@ -141,13 +158,15 @@ void TitleScene::Update()
 	{
 		m_SEObj->GetComponent<Audio>()->Play();
 		m_Transition->FadeOut();
+		m_Select = SELECT_SCENE::GAME1;
 		return;
 	}
 
 	if (col->Hit(billList[1]->GetComponent<SphereCollider>()))
 	{
 		m_SEObj->GetComponent<Audio>()->Play();
-		Manager::SetScene<TutorialScene>();
+		m_Transition->FadeOut();	
+		m_Select = SELECT_SCENE::TUTORIAL;
 		return;
 	}
 
