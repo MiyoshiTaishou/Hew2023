@@ -361,7 +361,12 @@ void Player::Collision()
 					//コライダー追加
 					SphereCollider* sphere = AddComponent<SphereCollider>();					
 					sphere->SetRadius(2.0f);					
-					sphere->SetRelative((Takoyaki->GetPosition() - m_Position));
+
+					Vector3 relative = Takoyaki->GetPosition() - m_Position;
+					relative.x = fabs(relative.x);
+					relative.y = fabs(relative.y);
+					relative.z = fabs(relative.z);
+					sphere->SetRelative(relative);
 					sphere->m_Hitobj = child;
 					sphere->m_hit = true;
 					m_Collider.push_back(sphere);	
