@@ -21,10 +21,6 @@ void BoxCollider::Init()
 	m_Info.fLengthZ = m_ColliderScale.z;
 }
 
-void BoxCollider::Uninit()
-{	
-}
-
 void BoxCollider::Update()
 {
 	m_Info.currentcenter = m_ColliderPos;

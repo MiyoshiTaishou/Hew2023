@@ -27,11 +27,13 @@ class BoxCollider : public Collider
 public:
 
 	void Init();
-	void Uninit();
 	void Update();
 	void Draw();
 
+	//ボックス同士
 	bool HitBox(const BoxCollider* _boxCol);
+
+	//ボックスとスフィア
 	bool HitSphere(SphereCollider* _sphereCol);
 
 	bool Collision(BoxCollider& _box);

@@ -88,30 +88,6 @@ void Shadow::Update()
 
 	Scene* scene = Manager::GetScene();
 
-	/*{
-		std::vector<Cylinder*> cylinderList = scene->GetGameObjects<Cylinder>();
-
-		for (Cylinder* cylinder : cylinderList)
-		{
-			if (cylinder == m_GameObject)
-				continue;
-
-			Vector3 position = cylinder->GetPosition();
-			Vector3 scale = cylinder->GetScale();
-
-			Vector3 direction = m_Position - position;
-			direction.y = 0.0f;
-			float length = direction.Length();
-
-			if (length < scale.x)
-			{
-				groundHeight = position.y + scale.y;
-
-				break;
-			}
-		}
-	}*/
-
 	{
 		std::vector<BoxObject*> boxList = scene->GetGameObjects<BoxObject>();
 
@@ -134,6 +110,7 @@ void Shadow::Update()
 	}
 
 	{
+		//’n–Ê‚Ì‚‚³‚É‡‚í‚¹‚é
 		Field* filed = scene->GetGameObject<Field>();
 		if (!filed)
 		{

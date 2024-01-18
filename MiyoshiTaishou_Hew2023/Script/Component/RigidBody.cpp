@@ -13,6 +13,7 @@ using namespace DirectX::SimpleMath;
 
 void RigidBody::Init()
 {
+	//移動回転をできるようにする
 	m_Frize.Xpos = false;
 	m_Frize.YPos = false;
 	m_Frize.ZPos = false;
@@ -24,7 +25,7 @@ void RigidBody::Init()
 void RigidBody::Update()
 {	
 	//力処理
-	const float deltaTime = 1.f / 60.f; // 経過時間。固定フレームレートがよい。
+	const float deltaTime = 1.f / 60.f; // 経過時間
 	Vector3 friction = -m_Velocity * m_Drag;
 	Vector3 acceleration = m_Force / m_Mass;//加速度を計算
 	m_Velocity = m_Velocity + (acceleration - friction) * deltaTime; // 速度を更新
@@ -106,11 +107,13 @@ void RigidBody::Update()
 
 void RigidBody::Draw()
 {
-	////値確認用
-	//ImGui::Begin("Rigidbody");
-	//ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
-	//ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
-	//ImGui::End();
+	//値確認用
+#if _DEBUG
+	ImGui::Begin("Rigidbody");
+	ImGui::Text("Velocity %f,%f,%f\n", m_Velocity.x, m_Velocity.y, m_Velocity.z);
+	ImGui::Text("Torque %f,%f,%f\n", m_AngularVelocity.x, m_AngularVelocity.y, m_AngularVelocity.z);
+	ImGui::End();
+#endif
 }
 
 void RigidBody::AddForce(DirectX::SimpleMath::Vector3 _force, ForceMode forceMode)
@@ -193,7 +196,7 @@ void RigidBody::SetGravity(bool _gravity)
 
 void RigidBody::AddTorque(DirectX::SimpleMath::Vector3 _torque, ForceMode forceMode)
 {
-	const float deltaTime = 1.f / 60.f; // 経過時間。固定フレームレートがよい。
+	const float deltaTime = 1.f / 60.f; // 経過時間
 
 	//回転の力の加え方
 	switch (forceMode)

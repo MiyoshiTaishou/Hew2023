@@ -45,38 +45,32 @@ void TitleScene::Init()
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetPosition(Vector3(0, 40, -140));
 
-	LoadObjectData("titleMap.csv");
-
-	AddGameObject<TreeObject>(Layer1);
-	AddGameObject<YakisobaObject>(Layer1);
-	AddGameObject<YataiObject>(Layer1);
-	AddGameObject<KasuteraObject>(Layer1);
-	AddGameObject<CarObject>(Layer1);	
-
-	//範囲チェック 
-	Vector3 max = filed->GetMax();
-	Vector3 min = filed->GetMin();		
+	//オブジェクトロード
+	LoadObjectData("titleMap.csv");	
 
 	AddGameObject<Camera>(Layer0);	
 	
-
+	//BGM
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play();	
 
+	//タイトル画像
 	GameObject* titleLogo = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
 	titleLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\PS_BloomBlur.cso");
 	titleLogo->AddComponent<Sprite>()->Init(320.0f, 0.0f, 640, 320.0f,
 		"../asset\\texture\\takoyaki.png");	
 
+	//フェード用画像
 	GameObject* Niji = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号		
 	Niji->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\PS_AlphaFade.cso");
 	Niji->AddComponent<Sprite>()->Init(0.0f, 0.0f, 1280, 720.0f,
 		"../asset\\texture\\Niji.jpg");
 
+	//ステージ選択画像
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
 	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);	
 	bill->SetPosition(Vector3(100, 0, 50));
@@ -87,9 +81,7 @@ void TitleScene::Init()
 	bill2->SetPosition(Vector3(0, 0, 50));
 
 	//虹をフェードさせる
-	//毎フレームごとの時間を更新	
-
-	
+	//毎フレームごとの時間を更新		
 	ZeroMemory(&timeBufferDesc, sizeof(timeBufferDesc));
 
 	timeBufferDesc.Usage = D3D11_USAGE_DEFAULT;

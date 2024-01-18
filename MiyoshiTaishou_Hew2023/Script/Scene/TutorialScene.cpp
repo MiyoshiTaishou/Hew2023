@@ -239,7 +239,7 @@ void TutorialScene::Update()
 	//Ÿ‚Ì•¶Í‚É‚¢‚­
 	if (m_TextList[m_ListIdx].size() < m_TexIdx)
 	{
-		if (Input::GetGamePadTrigger(BUTTON::ABUTTON))
+		if (Input::GetGamePadTrigger(BUTTON::BBUTTON))
 		{			
 			m_ListIdx++;
 			m_TexIdx = 0;
@@ -249,7 +249,7 @@ void TutorialScene::Update()
 	}
 	else
 	{
-		if (Input::GetGamePadTrigger(BUTTON::ABUTTON))
+		if (Input::GetGamePadTrigger(BUTTON::BBUTTON))
 		{
 			while (m_TextList[m_ListIdx].size() > m_TexIdx)
 			{

@@ -33,6 +33,7 @@ public:
 
 	void SetSize(float Size) { m_Size = Size; }
 
+	//‰e‚ð•\Ž¦‚·‚é‚©
 	void SetShadowView(bool _view) { m_ShadowView = _view; }
 
 };
