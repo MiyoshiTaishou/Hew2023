@@ -20,7 +20,7 @@ void ParticleObject::Init()
 {
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_WhiteAlpha.cso");
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");	
 	AddComponent<RigidBody>();
 
 	VERTEX_3D vertex[4];
@@ -93,7 +93,7 @@ void ParticleObject::Draw()
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
-	GetComponent<Shader>()->Draw();
+	//GetComponent<Shader>()->Draw();
 
 	// ワールドマトリクス設定
 	Matrix world, scale, rot, trans;

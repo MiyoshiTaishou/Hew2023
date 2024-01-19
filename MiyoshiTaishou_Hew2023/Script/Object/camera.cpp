@@ -41,6 +41,15 @@ void Camera::Update()
 	float radius = 50.0f; // カメラの距離
 
 
+	if (phi > 29.8)
+	{
+		phi = 29.8f;
+	}
+	else if(phi < 29.5)
+	{
+		phi = 29.5f;
+	}
+
 	// 球座標系からデカルト座標系へ変換してカメラ位置を計算
 	Vector3 cameraPos;
 	cameraPos.x = playerobj->GetPosition().x + radius * sin(phi) * cos(theta);
@@ -128,10 +137,13 @@ void Camera::Draw()
 
 	Renderer::SetProjectionMatrix(&m_ProjMatrix);
 
-	/*ImGui::Begin("Camera");
+#ifdef _DEBUG
+	ImGui::Begin("Camera");
 	ImGui::Text("%f,%f,%f", camForward.x, camForward.y, camForward.z);
 	ImGui::Text("%f,%f,%f", camRight.x, camRight.y, camRight.z);
-	ImGui::End();*/
+	ImGui::Text("Phi%f,Theta%f", phi, theta);
+	ImGui::End();
+#endif // DEBUG
 }
 
 void Camera::SetTarget(DirectX::SimpleMath::Vector3 target)

@@ -20,7 +20,10 @@ void FakeTakoyakiObject::Init()
 {
 	TakoyakiObject::Init();
 
-	AddComponent<RigidBody>()->SetGravity(false);
+	RigidBody* body = AddComponent<RigidBody>();
+	body->SetGravity(false);
+	body->SetFreeze(FrizeNum::XRot, true);
+	body->SetFreeze(FrizeNum::ZRot, true);
 }
 
 void FakeTakoyakiObject::Update()

@@ -19,6 +19,7 @@
 #include"../Object/YataiObject.h"
 
 //シーン関係
+#include"../Scene/TitleScene.h"
 #include"../Scene/GameScene.h"
 #include"ResultScene.h"
 #include"Transition.h"
@@ -78,9 +79,10 @@ void TutorialScene::Init()
 
 	//フォント設定
 	FontData* data = new FontData();
-	data->fontSize = 28;
-	//data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;
-	data->fontWeight = DWRITE_FONT_WEIGHT_NORMAL;
+	data->fontSize = 25;
+	data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;	
+	data->Color = D2D1::ColorF(1.0f, 1.0f, 0.0f, 1.0f);
+	//data->fontWeight = DWRITE_FONT_WEIGHT_NORMAL;
 
 	m_Write = new DirectWrite(data);
 
@@ -131,7 +133,7 @@ void TutorialScene::Update()
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
 	{
-		Manager::SetScene<GameScene>();
+		Manager::SetScene<TitleScene>();
 		return;
 	}
 
@@ -285,5 +287,5 @@ void TutorialScene::Update()
 
 void TutorialScene::Draw()
 {	
-	m_Write->DrawString(m_Text, Vector2(10, 600), D2D1_DRAW_TEXT_OPTIONS_NONE);		
+	m_Write->DrawString(m_Text, Vector2(10, 400), D2D1_DRAW_TEXT_OPTIONS_NONE);		
 }

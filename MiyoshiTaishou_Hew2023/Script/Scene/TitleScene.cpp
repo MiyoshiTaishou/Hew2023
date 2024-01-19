@@ -60,7 +60,7 @@ void TitleScene::Init()
 	GameObject* titleLogo = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
 	titleLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 		"../shader\\PS_BloomBlur.cso");
-	titleLogo->AddComponent<Sprite>()->Init(320.0f, 0.0f, 640, 320.0f,
+	titleLogo->AddComponent<Sprite>()->Init(320.0f, -100.0f, 640, 320.0f,
 		"../asset\\texture\\takoyaki.png");	
 
 	//フェード用画像
@@ -72,13 +72,24 @@ void TitleScene::Init()
 
 	//ステージ選択画像
 	BillBoardObject* bill = AddGameObject<BillBoardObject>(Layer1);
-	bill->AddComponent<SphereCollider>()->SetRadius(2.0f);	
-	bill->SetPosition(Vector3(100, 0, 50));
+	bill->Init("../asset/texture/半人前.png");
+	bill->AddComponent<SphereCollider>()->SetRadius(6.0f);	
+	bill->SetPosition(Vector3(100, 10, 50));
 
 	BillBoardObject* bill2 = AddGameObject<BillBoardObject>(Layer1);	
 	bill2->Init("../asset/texture/Tutorial.png");
-	bill2->AddComponent<SphereCollider>()->SetRadius(2.0f);
-	bill2->SetPosition(Vector3(0, 0, 50));
+	bill2->AddComponent<SphereCollider>()->SetRadius(6.0f);
+	bill2->SetPosition(Vector3(0, 20, 50));
+
+	BillBoardObject* bill3 = AddGameObject<BillBoardObject>(Layer1);
+	bill3->Init("../asset/texture/一人前.png");
+	bill3->AddComponent<SphereCollider>()->SetRadius(6.0f);
+	bill3->SetPosition(Vector3(-100, 10, 50));
+
+	BillBoardObject* bill4 = AddGameObject<BillBoardObject>(Layer1);
+	bill4->Init("../asset/texture/通天閣盛り.png");
+	bill4->AddComponent<SphereCollider>()->SetRadius(6.0f);
+	bill4->SetPosition(Vector3(-100, 10, -50));
 
 	//虹をフェードさせる
 	//毎フレームごとの時間を更新		
@@ -131,8 +142,8 @@ void TitleScene::Update()
 			Manager::SetScene<TutorialScene>();
 			break;
 		case GAME1:
-			Manager::SetFiledName("testMap.csv");
-			Manager::SetMapName("Stage1-1.csv");
+			Manager::SetFiledName("GameMap1-1.csv");
+			Manager::SetMapName("1-1.csv");
 			Manager::SetScene<GameScene>();			
 			break;
 		case GAME2:		
@@ -167,6 +178,22 @@ void TitleScene::Update()
 		m_SEObj->GetComponent<Audio>()->Play();
 		m_Transition->FadeOut();	
 		m_Select = SELECT_SCENE::TUTORIAL;
+		return;
+	}
+
+	if (col->Hit(billList[2]->GetComponent<SphereCollider>()))
+	{
+		m_SEObj->GetComponent<Audio>()->Play();
+		m_Transition->FadeOut();
+		m_Select = SELECT_SCENE::GAME2;
+		return;
+	}
+
+	if (col->Hit(billList[3]->GetComponent<SphereCollider>()))
+	{
+		m_SEObj->GetComponent<Audio>()->Play();
+		m_Transition->FadeOut();
+		m_Select = SELECT_SCENE::GAME2;
 		return;
 	}
 
