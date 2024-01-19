@@ -302,8 +302,8 @@ public:
             // マトリクス設定
             DirectX::SimpleMath::Matrix world, scale, rot, trans;
             scale = DirectX::SimpleMath::Matrix::CreateScale(m_Scale.x, m_Scale.y, m_Scale.z);
-            //rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
-            rot = DirectX::SimpleMath::Matrix::CreateFromQuaternion(m_Quaternion);
+            rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
+            //rot = DirectX::SimpleMath::Matrix::CreateFromQuaternion(m_Quaternion);
             if (m_Qtr)
             {
                 rot = m_Rotmatrix;

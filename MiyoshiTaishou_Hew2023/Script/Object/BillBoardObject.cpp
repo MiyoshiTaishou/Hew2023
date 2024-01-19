@@ -66,7 +66,7 @@ void BillBoardObject::Init()
 
 	//球のメッシュ作成
 	m_Sphere = new CSphereMesh();
-	m_Sphere->Init(2.0f, Color(1, 1, 1, 1), 100, 100);
+	m_Sphere->Init(10.0f, Color(1, 1, 1, 1), 100, 100);
 
 	m_MeshRenderer = new CMeshRenderer();
 	m_MeshRenderer->Init(*m_Sphere);
@@ -83,7 +83,8 @@ void BillBoardObject::Init()
 
 void BillBoardObject::Init(const char* TextureName)
 {
-	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_OrangeScale.cso");
+	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_OrangeScale.cso");
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
 
 	VERTEX_3D vertex[4];
 
@@ -151,8 +152,13 @@ void BillBoardObject::Uninit()
 
 void BillBoardObject::Draw()
 {
-	GetComponent<Shader>()->Draw();
-
+	// マテリアル設定
+	MATERIAL material;
+	ZeroMemory(&material, sizeof(material));
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	material.TextureEnable = true;
+	Renderer::SetMaterial(material);
+	
 	// ワールドマトリクス設定
 	Matrix world, scale, rot, trans;
 	scale = Matrix::CreateScale(m_Scale.x);
@@ -165,13 +171,7 @@ void BillBoardObject::Draw()
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
-	
-	// マテリアル設定
-	MATERIAL material;
-	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
-	material.TextureEnable = true;
-	Renderer::SetMaterial(material);
+
 
 	// テクスチャ設定
 	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
@@ -199,38 +199,38 @@ void BillBoardObject::Update()
 	//角度がずれているので調整
 	m_Rotation.y -= 60.0f;
 
-	//高さを取得	
-	Field* filed = nowscene->GetGameObject<Field>();
-	if (!filed)
-	{
-		return;
-	}
+	////高さを取得	
+	//Field* filed = nowscene->GetGameObject<Field>();
+	//if (!filed)
+	//{
+	//	return;
+	//}
 
-	//　範囲チェック 
-	Vector3 max = filed->GetMax();
-	Vector3 min = filed->GetMin();
+	////　範囲チェック 
+	//Vector3 max = filed->GetMax();
+	//Vector3 min = filed->GetMin();
 
-	if (m_Position.x <= min.x) {
-		m_Position.x = min.x;
-	}
-	if (m_Position.x >= max.x) {
-		m_Position.x = max.x;
-	}
+	//if (m_Position.x <= min.x) {
+	//	m_Position.x = min.x;
+	//}
+	//if (m_Position.x >= max.x) {
+	//	m_Position.x = max.x;
+	//}
 
-	if (m_Position.z <= min.z) {
-		m_Position.z = min.z;
-	}
-	if (m_Position.z >= max.z) {
-		m_Position.z = max.z;
-	}
+	//if (m_Position.z <= min.z) {
+	//	m_Position.z = min.z;
+	//}
+	//if (m_Position.z >= max.z) {
+	//	m_Position.z = max.z;
+	//}
 
-	float Height = filed->GetFieldHeightBySqno(m_Position,*this);
+	//float Height = filed->GetFieldHeightBySqno(m_Position,*this);
 
-	//float Height = 0.0f;
+	////float Height = 0.0f;
 
-	if (Height != 0.0f + 5.0f)
-	{
-		//pos.y = Height;
-		m_Position.y = Height + 5;
-	}
+	//if (Height != 0.0f + 5.0f)
+	//{
+	//	//pos.y = Height;
+	//	m_Position.y = Height + 5;
+	//}
 }

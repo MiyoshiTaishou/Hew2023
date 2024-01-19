@@ -32,7 +32,8 @@ void StageEditor::Init()
             
 	Sky* sky = AddGameObject<Sky>(Layer0);
     Field* filed = AddGameObject<Field>(Layer1);
-    filed->Init("Title.csv");
+    filed->Init("GameMap1-1.csv");
+    //filed->Init("Title.csv");
 
     AddGameObject<DebugCamera>(Layer0)->m_TargetObj = sky;
 
@@ -204,6 +205,7 @@ void StageEditor::ObjListManger()
     DirectX::SimpleMath::Vector3 pos = IndexObj->GetPosition();
     DirectX::SimpleMath::Vector3 scale = IndexObj->GetScale();
     DirectX::SimpleMath::Vector3 rot = IndexObj->GetRotation();
+    //DirectX::SimpleMath::Quaternion rot;
 
     // 減少ボタン
     if (ImGui::Button("-##PosX"))
@@ -213,7 +215,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // スライダー
-    ImGui::SliderFloat("posX##", &pos.x, -100.0f, 100.0f);
+    ImGui::SliderFloat("posX##", &pos.x, -150.0f, 150.0f);
 
     // 増加ボタン
     ImGui::SameLine();
@@ -228,7 +230,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Y座標のスライダー
-    ImGui::SliderFloat("posY##", &pos.y, -100.0f, 100.0f);
+    ImGui::SliderFloat("posY##", &pos.y, -150.0f, 150.0f);
 
     // Y座標の増加ボタン
     ImGui::SameLine();
@@ -243,7 +245,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Z座標のスライダー
-    ImGui::SliderFloat("posZ##", &pos.z, -100.0f, 100.0f);
+    ImGui::SliderFloat("posZ##", &pos.z, -150.0f, 150.0f);
 
     // Z座標の増加ボタン
     ImGui::SameLine();
@@ -258,7 +260,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Xスケールのスライダー
-    ImGui::SliderFloat("scaleX##", &scale.x, -100.0f, 100.0f);
+    ImGui::SliderFloat("scaleX##", &scale.x, -150.0f, 150.0f);
 
     // Xスケールの増加ボタン
     ImGui::SameLine();
@@ -273,7 +275,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Yスケールのスライダー
-    ImGui::SliderFloat("scaleY##", &scale.y, -100.0f, 100.0f);
+    ImGui::SliderFloat("scaleY##", &scale.y, -150.0f, 150.0f);
 
     // Yスケールの増加ボタン
     ImGui::SameLine();
@@ -288,7 +290,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Zスケールのスライダー
-    ImGui::SliderFloat("scaleZ##", &scale.z, -100.0f, 100.0f);
+    ImGui::SliderFloat("scaleZ##", &scale.z, -150.0f, 150.0f);
 
     // Zスケールの増加ボタン
     ImGui::SameLine();
@@ -303,7 +305,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // X回転のスライダー
-    ImGui::SliderFloat("rotX##", &rot.x, -100.0f, 100.0f);
+    ImGui::SliderFloat("rotX##", &rot.x, -150.0f, 150.0f);
 
     // X回転の増加ボタン
     ImGui::SameLine();
@@ -318,7 +320,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Y回転のスライダー
-    ImGui::SliderFloat("rotY##", &rot.y, -100.0f, 100.0f);
+    ImGui::SliderFloat("rotY##", &rot.y, -150.0f, 150.0f);
 
     // Y回転の増加ボタン
     ImGui::SameLine();
@@ -333,7 +335,7 @@ void StageEditor::ObjListManger()
     ImGui::SameLine(); // 同じ行にスライダーを配置
 
     // Z回転のスライダー
-    ImGui::SliderFloat("rotZ##", &rot.z, -100.0f, 100.0f);
+    ImGui::SliderFloat("rotZ##", &rot.z, -150.0f, 150.0f);
 
     // Z回転の増加ボタン
     ImGui::SameLine();
@@ -344,7 +346,7 @@ void StageEditor::ObjListManger()
     IndexObj->SetPosition(pos);
     IndexObj->SetScale(scale);
     IndexObj->SetRotation(rot);
-
+   
     if (ImGui::Button("DeleteObject"))
     {
         IndexObj->SetDestroy();

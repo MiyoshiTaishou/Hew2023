@@ -587,6 +587,16 @@ void Player::ConInput()
 		//m_Rotation.y -= 0.05f;
 		cameraObj->theta += 0.1f;
 	}
+	if (Input::GetGamePad(BUTTON::RUP))
+	{
+		//m_Rotation.y += 0.05f;
+		cameraObj->phi -= 0.1f;
+	}
+	if (Input::GetGamePad(BUTTON::RDOWN))
+	{
+		//m_Rotation.y -= 0.05f;
+		cameraObj->phi += 0.1f;
+	}
 
 	if (Input::GetGamePad(BUTTON::ABUTTON))
 	{

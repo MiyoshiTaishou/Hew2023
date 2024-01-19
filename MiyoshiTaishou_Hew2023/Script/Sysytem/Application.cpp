@@ -102,7 +102,9 @@ bool Application::InitWnd()
     // インスタンスハンドル設定.
     m_hInst = hInst;
 
-    // ウィンドウのサイズを設定.
+#ifdef _DEBUG
+
+    //ウィンドウのサイズを設定.
     RECT rc = {};
     rc.right  = static_cast<LONG>(m_Width);
     rc.bottom = static_cast<LONG>(m_Height);
@@ -120,6 +122,37 @@ bool Application::InitWnd()
         CW_USEDEFAULT,
         CW_USEDEFAULT,
         rc.right  - rc.left,
+        rc.bottom - rc.top,
+        nullptr,
+        nullptr,
+        m_hInst,
+        nullptr);
+
+#endif // _DEBUG
+
+
+    // ウィンドウのサイズを設定.
+    RECT rc = {};
+    rc.right = static_cast<LONG>(m_Width);
+    rc.bottom = static_cast<LONG>(m_Height);
+
+    // フルスクリーン モードにする場合、ウィンドウサイズをデスクトップのサイズに設定.
+    rc.right = GetSystemMetrics(SM_CXSCREEN);
+    rc.bottom = GetSystemMetrics(SM_CYSCREEN);
+
+    // ウィンドウサイズを調整.
+    auto style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU;
+    AdjustWindowRect(&rc, style, FALSE);
+
+    // ウィンドウを生成.
+    m_hWnd = CreateWindowEx(
+        0,
+        ClassName,
+        WindowName,
+        style,
+        CW_USEDEFAULT,
+        CW_USEDEFAULT,
+        rc.right - rc.left,
         rc.bottom - rc.top,
         nullptr,
         nullptr,
