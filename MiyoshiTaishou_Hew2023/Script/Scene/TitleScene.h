@@ -30,8 +30,19 @@ private:
 
     SELECT_SCENE m_Select;
 
+    GameObject* m_TitleSprite[3];
+
+    MATERIAL m_TitleMt;
+    MATERIAL m_AnyKeyMT;
+
+    bool m_UpDown = true;
+    bool m_FadeStart = false;
+
 public:
     void Init()override;
     void Update()override;   
+
+    //タイトル画面のフェード処理
+    bool FadeTitle();
 };
 

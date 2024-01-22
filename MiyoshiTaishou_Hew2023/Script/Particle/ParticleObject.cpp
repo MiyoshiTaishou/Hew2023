@@ -78,6 +78,68 @@ void ParticleObject::Init()
 	m_RotSpeed += rand() % 10 * 0.01f;
 }
 
+void ParticleObject::Init(const char* TextureName)
+{
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
+	AddComponent<RigidBody>();
+
+	VERTEX_3D vertex[4];
+
+	vertex[0].Position = Vector3(-1.0f, 1.0f, 0.0f);
+	vertex[0].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[0].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[0].TexCoord = Vector2(0.0f, 0.0f);
+
+	vertex[1].Position = Vector3(1.0f, 1.0f, 0.0f);
+	vertex[1].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[1].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[1].TexCoord = Vector2(1.0f, 0.0f);
+
+	vertex[2].Position = Vector3(-1.0f, -1.0f, 0.0f);
+	vertex[2].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[2].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[2].TexCoord = Vector2(0.0f, 1.0f);
+
+	vertex[3].Position = Vector3(1.0f, -1.0f, 0.0f);
+	vertex[3].Normal = Vector3(0.0f, 1.0f, 0.0f);
+	vertex[3].Diffuse = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+	vertex[3].TexCoord = Vector2(1.0f, 1.0f);
+
+	// 頂点バッファ生成
+	D3D11_BUFFER_DESC bd;
+	ZeroMemory(&bd, sizeof(bd));
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.ByteWidth = sizeof(VERTEX_3D) * 4;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA sd;
+	ZeroMemory(&sd, sizeof(sd));
+	sd.pSysMem = vertex;
+
+	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
+
+	std::wstring ws = sjis_to_wide_winapi(TextureName);
+
+	// テクスチャ読み込み
+	DirectX::CreateWICTextureFromFile(
+		Renderer::GetDevice(),
+		ws.c_str(),
+		nullptr,
+		&m_Texture);
+
+	assert(m_Texture);
+
+	m_Scale.x = rand() % 100 * 0.01f;
+
+	if ((rand() % 10) > 5)
+	{
+		m_DirRot = false;
+	}
+
+	m_RotSpeed += rand() % 10 * 0.01f;
+}
+
 void ParticleObject::Uninit()
 {	
 	m_VertexBuffer->Release();
@@ -89,7 +151,7 @@ void ParticleObject::Draw()
 	// マテリアル設定
 	MATERIAL material;
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = Color(m_Alpha, m_Alpha, m_Alpha, m_Alpha);
+	material.Diffuse = Color(1.0f, 1.0f, 1.0f, m_Alpha);
 	material.TextureEnable = true;
 	Renderer::SetMaterial(material);
 
@@ -127,7 +189,12 @@ void ParticleObject::Update()
 	if (m_LifeTime > 0)
 	{
 		m_LifeTime--;
-		m_Alpha -= 0.05f;
+
+		if (m_Fade)
+		{
+			m_Alpha -= 0.05f;
+		}
+
 		m_Scale.x += 0.1f;
 		
 		/*if (m_DirRot)

@@ -141,7 +141,14 @@ void Player::Init()
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
-	m_Particle = new Particle();	
+	m_Particle[0] = new Particle();
+	m_Particle[0]->SetTextureName("../asset/texture/Smoke.jpg");
+
+	m_Particle[1] = new Particle();
+	m_Particle[1]->SetTextureName("../asset/texture/ダッシュ.png");
+
+	m_Particle[2] = new Particle();
+	m_Particle[2]->SetTextureName("../asset/texture/ダッシュ.png");
 
 	Scene* scene = Manager::GetScene();
 	//scene->m_Particle.push_back(m_Particle);
@@ -159,9 +166,11 @@ void Player::Uninit()
 		delete m_MeshRenderer[i];
 	}	
 
-	m_Particle->Uninit();
-
-	delete m_Particle;
+	for (int i = 0; i < 3; i++)
+	{
+		m_Particle[i]->Uninit();
+		delete m_Particle[i];
+	}		
 }
 
 void Player::Update()
@@ -255,13 +264,19 @@ void Player::Update()
 		m_Point[i] = rotatedVector;
 	}
 
-	m_Particle->Update();
+	for (int i = 0; i < 3; i++)
+	{
+		m_Particle[i]->Update();
+	}
 
 	//当たり判定処理
 	Collision();
 
-	//コントローラー入力
-	ConInput();		
+	if (m_Controller)
+	{
+		//コントローラー入力
+		ConInput();
+	}
 }
 //
 void Player::Draw()
@@ -320,8 +335,6 @@ void Player::Draw()
 
 	ImGui::End();	
 
-#endif // _DEBUG
-
 	for (int i = 0; i < MAX_SPHERE_MESH; i++)
 	{
 		// ワールドマトリクス設定
@@ -333,12 +346,15 @@ void Player::Draw()
 		world = scale * rot * trans;
 		Renderer::SetWorldMatrix(&world);
 
-		//m_MeshRenderer[i]->Draw();
-	}	
+		m_MeshRenderer[i]->Draw();
+	}
 
-	//m_MeshRenderer->Draw();	
+#endif // _DEBUG	
 
-	m_Particle->Draw();	
+	for (int i = 0; i < 3; i++)
+	{
+		m_Particle[i]->Draw();
+	}
 }
 
 void Player::Collision()
@@ -552,7 +568,7 @@ void Player::ConInput()
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);	
 
-		m_Particle->Create(m_Position, Vector3::Up, Vector3(1, 10, 1));
+		m_Particle[0]->Create(m_Position, Vector3::Zero, Vector3::Zero, 30.0f, true, 1.0f);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{	

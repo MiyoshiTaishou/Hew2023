@@ -23,6 +23,8 @@ enum BUTTON
     RRIGHT, /**< 右右ボタン */
     ABUTTON,/**< Aボタン    */ 
     BBUTTON,/**< Bボタン    */
+    XBUTTON,
+    YBUTTON,
 };
 
 /**
@@ -92,4 +94,6 @@ public:
     static bool GetGamePadTrigger(BUTTON button);
 
     static void Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger);
+
+    static bool GetAnyButtonPressed();
 };
