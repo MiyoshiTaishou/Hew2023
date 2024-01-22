@@ -31,6 +31,7 @@
 #include"TakoyakiObject.h"
 #include"FakeTakotaki.h"
 #include"Sphere.h"
+#include"BillBoardObject.h"
 
 //パーティクル
 #include"../Particle/Particle.h"
@@ -49,8 +50,8 @@ void Player::Init()
 	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);	
 
 	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
+	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
+	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
 	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 
 	ModelRenderer* model = AddComponent<ModelRenderer>();
@@ -141,14 +142,8 @@ void Player::Init()
 
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
-	m_Particle[0] = new Particle();
-	m_Particle[0]->SetTextureName("../asset/texture/Smoke.jpg");
-
-	m_Particle[1] = new Particle();
-	m_Particle[1]->SetTextureName("../asset/texture/ダッシュ.png");
-
-	m_Particle[2] = new Particle();
-	m_Particle[2]->SetTextureName("../asset/texture/ダッシュ.png");
+	m_Particle = new Particle();
+	m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
 
 	Scene* scene = Manager::GetScene();
 	//scene->m_Particle.push_back(m_Particle);
@@ -156,6 +151,10 @@ void Player::Init()
 	m_Rotmatrix = Matrix::Identity;
 
 	m_Qtr = true;
+
+	//ビックリマーク
+	//m_Exclamation = scene->AddGameObject<BillBoardObject>(Layer1);
+	//m_Exclamation->Init("../asset/texture/ビックリマーク.png");
 }
 
 void Player::Uninit()
@@ -165,12 +164,9 @@ void Player::Uninit()
 		delete m_Sphere[i];
 		delete m_MeshRenderer[i];
 	}	
-
-	for (int i = 0; i < 3; i++)
-	{
-		m_Particle[i]->Uninit();
-		delete m_Particle[i];
-	}		
+	
+	m_Particle->Uninit();
+	delete m_Particle;		
 }
 
 void Player::Update()
@@ -264,10 +260,8 @@ void Player::Update()
 		m_Point[i] = rotatedVector;
 	}
 
-	for (int i = 0; i < 3; i++)
-	{
-		m_Particle[i]->Update();
-	}
+	//パーティクル更新処理
+	m_Particle->Update();
 
 	//当たり判定処理
 	Collision();
@@ -277,6 +271,8 @@ void Player::Update()
 		//コントローラー入力
 		ConInput();
 	}
+
+	//m_Exclamation->SetPosition(Vector3(m_Position.x, m_Position.y + 10.0f, m_Position.z));
 }
 //
 void Player::Draw()
@@ -351,10 +347,8 @@ void Player::Draw()
 
 #endif // _DEBUG	
 
-	for (int i = 0; i < 3; i++)
-	{
-		m_Particle[i]->Draw();
-	}
+	//パーティクル描画処理
+	m_Particle->Draw();
 }
 
 void Player::Collision()
@@ -568,7 +562,7 @@ void Player::ConInput()
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);	
 
-		m_Particle[0]->Create(m_Position, Vector3::Zero, Vector3::Zero, 30.0f, true, 1.0f);
+		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{	
@@ -577,57 +571,70 @@ void Player::ConInput()
 		//移動処理	
 		Vector3 force = cameraObj->camForward * -m_Speed * m_Acc;
 		force.y = 0.0f;
-		body->AddForce(force, ForceMode::Force);				
+		body->AddForce(force, ForceMode::Force);
+
+		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
 	}
 
 	//左右移動
 	if (Input::GetGamePad(BUTTON::LRIGHT))
 	{		
 		Vector3 force = cameraObj->camRight * -m_Speed * m_Acc;
-		body->AddForce(force, ForceMode::Force);			
+		body->AddForce(force, ForceMode::Force);	
+
+		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{		
 		Vector3 force = cameraObj->camRight * m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);
+
+		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
 	}
 
 	//カメラ操作
 	if (Input::GetGamePad(BUTTON::RRIGHT))
-	{
-		//m_Rotation.y += 0.05f;
+	{		
 		cameraObj->theta -= 0.1f;
 	}
 	if (Input::GetGamePad(BUTTON::RLEFT))
-	{
-		//m_Rotation.y -= 0.05f;
+	{	
 		cameraObj->theta += 0.1f;
 	}
 	if (Input::GetGamePad(BUTTON::RUP))
-	{
-		//m_Rotation.y += 0.05f;
+	{		
 		cameraObj->phi -= 0.1f;
 	}
 	if (Input::GetGamePad(BUTTON::RDOWN))
-	{
-		//m_Rotation.y -= 0.05f;
+	{		
 		cameraObj->phi += 0.1f;
 	}
 
+	//ダッシュ処理
 	if (Input::GetGamePad(BUTTON::ABUTTON))
 	{
 		m_Acc = 1.5f;
+
+		//ダッシュ中に加速していたらエフェクト発生
+		if (body->GetVelocity().x > 1.0f || body->GetVelocity().z > 1.0f)
+		{
+
+		}
 	}
 	else
 	{
 		m_Acc = 1.0f;
 	}
 
+#ifdef _DEBUG
+
 	if (Input::GetKeyTrigger('J'))
 	{
 		Vector3 force = { 0,50,0 };
 		body->AddForce(force, ForceMode::Impulse);
 	}
+
+#endif // _DEBUG
 
 	//速度を小さくした値を回転の値にする
 	Vector3 vel = body->GetVelocity();

@@ -221,7 +221,7 @@ void TitleScene::Update()
 	}
 	
 	std::vector<BillBoardObject*> billList = GetGameObjects<BillBoardObject>();
-	BillBoardObject* bill = GetGameObject<BillBoardObject>();
+	//BillBoardObject* bill = GetGameObject<BillBoardObject>();
 
 	SphereCollider* col = player->GetComponent<SphereCollider>();
 

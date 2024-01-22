@@ -1,6 +1,8 @@
 #pragma once
 #include"scene.h"
 
+class Particle;
+
 class SlopeScene : public Scene
 {
     class Transition* m_Transition{};
@@ -8,15 +10,19 @@ class SlopeScene : public Scene
     //シーン遷移フラグ
     bool m_Goal = false;
 
+    Particle* m_Particle;
+
+    DirectX::SimpleMath::Vector3 m_Pos;
+    DirectX::SimpleMath::Vector3 m_Dir;
+    DirectX::SimpleMath::Vector3 m_Speed;
+    float m_Life;
+    float m_Scale;
+    bool m_Fade = true;
 public:
     void Init()override;
+    void Uninit()override;
     void Draw()override;
     void Update()override;
 
 private:
-
-    //転がすオブジェクト
-    GameObject* sphere;
-
-    DirectX::SimpleMath::Vector3 force;
 };
