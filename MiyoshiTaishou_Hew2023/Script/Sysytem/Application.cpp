@@ -130,7 +130,7 @@ bool Application::InitWnd()
 
 #endif // _DEBUG
 
-
+#ifdef NDEBUG 
     // ウィンドウのサイズを設定.
     RECT rc = {};
     rc.right = static_cast<LONG>(m_Width);
@@ -158,6 +158,8 @@ bool Application::InitWnd()
         nullptr,
         m_hInst,
         nullptr);
+
+#endif
 
     if (m_hWnd == nullptr)
     { return false; }

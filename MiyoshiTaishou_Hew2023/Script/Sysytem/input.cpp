@@ -87,6 +87,10 @@ bool Input::GetGamePadTrigger(BUTTON button)
         return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_A);
     case BUTTON::BBUTTON:
         return(m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_B) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_B);
+    case BUTTON::XBUTTON:
+        return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_X) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_X);
+    case BUTTON::YBUTTON:
+        return (m_ControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_Y) && !(m_OldControllerState.Gamepad.wButtons & XINPUT_GAMEPAD_Y);
     default:
         break;
     }
@@ -104,4 +108,21 @@ void Input::Vibration(int player, float leftMotor, float rightMotor, float leftT
    /* vibration.bLeftTrigger = static_cast<BYTE>(leftTrigger * 255);
     vibration.bRightTrigger = static_cast<BYTE>(rightTrigger * 255);*/
     XInputSetState(player, &vibration);
+}
+
+bool Input::GetAnyButtonPressed()
+{
+    // ”CˆÓ‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Æ‚«‚Étrue‚ð•Ô‚·
+    return GetGamePadTrigger(LUP) ||
+        GetGamePadTrigger(LDOWN) ||
+        GetGamePadTrigger(LLEFT) ||
+        GetGamePadTrigger(LRIGHT) ||
+        GetGamePadTrigger(RUP) ||
+        GetGamePadTrigger(RDOWN) ||
+        GetGamePadTrigger(RLEFT) ||
+        GetGamePadTrigger(RRIGHT) ||
+        GetGamePadTrigger(ABUTTON) ||
+        GetGamePadTrigger(BBUTTON) ||
+        GetGamePadTrigger(XBUTTON) ||
+        GetGamePadTrigger(YBUTTON);
 }

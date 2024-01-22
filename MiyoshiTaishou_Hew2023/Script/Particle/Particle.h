@@ -13,7 +13,9 @@ public:
 
 	//パーティクル生成
 	//引数、開始地点、方向
-	void Create(DirectX::SimpleMath::Vector3 _pos,DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed);
+	void Create(DirectX::SimpleMath::Vector3 _pos,DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed,float _lifeTime,bool _fade,float _scale);
+
+	void SetTextureName(const char* _name) { m_TextureName = _name; }
 
 private:
 
@@ -27,4 +29,6 @@ private:
 	int m_Ampl = 10;	
 
 	std::vector<ParticleObject*> m_Particle;
+
+	std::string m_TextureName;
 };

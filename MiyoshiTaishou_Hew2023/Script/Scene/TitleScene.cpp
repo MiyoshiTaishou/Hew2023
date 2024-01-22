@@ -54,14 +54,39 @@ void TitleScene::Init()
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
-	bgm->GetComponent<Audio>()->Play();	
+	bgm->GetComponent<Audio>()->Play();		
+
+	//タイトル画面ようフェード
+	m_TitleSprite[0] = AddGameObject<GameObject>(Layer3);
+	m_TitleSprite[0]->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	m_TitleSprite[0]->AddComponent<Sprite>()->Init(0.0f, 0.0f, 1280.0f, 720.0f,
+		"../asset\\texture\\white.jpg");
+	
+	m_TitleMt.TextureEnable = true;
+	m_TitleMt.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.5f);
+
+	m_TitleSprite[0]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);
 
 	//タイトル画像
-	GameObject* titleLogo = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
-	titleLogo->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
-		"../shader\\PS_BloomBlur.cso");
-	titleLogo->AddComponent<Sprite>()->Init(320.0f, -100.0f, 640, 320.0f,
-		"../asset\\texture\\takoyaki.png");	
+	m_TitleSprite[1] = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
+	m_TitleSprite[1]->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	m_TitleSprite[1]->AddComponent<Sprite>()->Init(320.0f, 100.0f, 640, 320.0f,
+		"../asset\\texture\\takoyaki.png");
+
+	//タイトルボタン画像
+	m_TitleSprite[2] = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号
+	m_TitleSprite[2]->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	m_TitleSprite[2]->AddComponent<Sprite>()->Init(320.0f, 300.0f, 640, 320.0f,
+		"../asset\\texture\\AnyKey.png");
+
+	m_AnyKeyMT.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
+	m_AnyKeyMT.TextureEnable = true;
+
+	m_TitleSprite[2]->GetComponent<Sprite>()->SetMaterial(m_AnyKeyMT);
+
 
 	//フェード用画像
 	GameObject* Niji = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号		
@@ -90,7 +115,7 @@ void TitleScene::Init()
 	bill4->Init("../asset/texture/通天閣盛り.png");
 	bill4->AddComponent<SphereCollider>()->SetRadius(6.0f);
 	bill4->SetPosition(Vector3(-100, 10, -50));
-
+	
 	//虹をフェードさせる
 	//毎フレームごとの時間を更新		
 	ZeroMemory(&timeBufferDesc, sizeof(timeBufferDesc));
@@ -125,13 +150,41 @@ void TitleScene::Init()
 
 void TitleScene::Update()
 {
+	//時間経過処理
+	currentTime -= 0.005f;
+
+	if (currentTime < 0.0f)
+	{
+		currentTime = 0.0f;
+	}
+
+	ZeroMemory(&timeBufferData, sizeof(timeBufferData));
+	float timeData[4] = { currentTime, 0.0f, 0.0f, 0.0f }; // 時間データを格納する場合
+	timeBufferData.pSysMem = timeData;
+
+	// 定数バッファを作成
+	Renderer::GetDevice()->CreateBuffer(&timeBufferDesc, &timeBufferData, &timeBuffer);
+
+	// シェーダーに時間データを送信
+	ID3D11Buffer* timeBuffers[] = { timeBuffer };
+	Renderer::GetDeviceContext()->VSSetConstantBuffers(10, 1, timeBuffers); // 頂点シェーダーに渡す場合
+	Renderer::GetDeviceContext()->PSSetConstantBuffers(10, 1, timeBuffers); // ピクセルシェーダーに渡す場合
+
+	Player* player = GetGameObject<Player>();	
+
 	if (m_Transition->GetState() == Transition::State::Stop)
 	{
 		if (Input::GetKeyTrigger(VK_RETURN))
 		{
 			m_Transition->FadeOut();
 		}
-	}	
+	}
+
+	if (m_Transition->GetState() == Transition::State::Out)
+	{
+		player->SetController(false);
+		return;
+	}
 
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
@@ -158,7 +211,15 @@ void TitleScene::Update()
 		return;
 	}
 
-	Player* player = GetGameObject<Player>();
+	if (!FadeTitle())
+	{
+		player->SetController(false);
+	}
+	else
+	{
+		player->SetController(true);
+	}
+	
 	std::vector<BillBoardObject*> billList = GetGameObjects<BillBoardObject>();
 	BillBoardObject* bill = GetGameObject<BillBoardObject>();
 
@@ -195,25 +256,55 @@ void TitleScene::Update()
 		m_Transition->FadeOut();
 		m_Select = SELECT_SCENE::GAME2;
 		return;
-	}
+	}	
+}
 
-	//時間経過処理
-	currentTime -= 0.005f;
-
-	if (currentTime < 0.0f)
+bool TitleScene::FadeTitle()
+{
+	if (m_TitleMt.Diffuse.w < 0.0f)
 	{
-		currentTime = 0.0f;
+		m_TitleSprite[0]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);
+		m_TitleSprite[1]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);		
+		m_TitleSprite[2]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);		
+		return true;
 	}
 
-	ZeroMemory(&timeBufferData, sizeof(timeBufferData));
-	float timeData[4] = { currentTime, 0.0f, 0.0f, 0.0f }; // 時間データを格納する場合
-	timeBufferData.pSysMem = timeData;
+	if (m_FadeStart)
+	{
+		m_TitleMt.Diffuse.w -= 0.01f;
 
-	// 定数バッファを作成
-	Renderer::GetDevice()->CreateBuffer(&timeBufferDesc, &timeBufferData, &timeBuffer);
+		m_TitleSprite[0]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);
+		m_TitleSprite[1]->GetComponent<Sprite>()->SetMaterial(m_TitleMt);
+	}
+	else
+	{	
+		//値を上げるか下げるか
+		if (m_UpDown)
+		{
+			m_AnyKeyMT.Diffuse.w += 0.03f;
 
-	// シェーダーに時間データを送信
-	ID3D11Buffer* timeBuffers[] = { timeBuffer };
-	Renderer::GetDeviceContext()->VSSetConstantBuffers(10, 1, timeBuffers); // 頂点シェーダーに渡す場合
-	Renderer::GetDeviceContext()->PSSetConstantBuffers(10, 1, timeBuffers); // ピクセルシェーダーに渡す場合
+			if (m_AnyKeyMT.Diffuse.w > 1.0f)
+			{
+				m_UpDown = false;
+			}
+		}		
+		else
+		{
+			m_AnyKeyMT.Diffuse.w -= 0.03f;
+
+			if (m_AnyKeyMT.Diffuse.w < 0.0f)
+			{
+				m_UpDown = true;
+			}
+		}
+	}
+
+	if (Input::GetAnyButtonPressed())
+	{
+		m_FadeStart = true;
+	}
+
+	m_TitleSprite[2]->GetComponent<Sprite>()->SetMaterial(m_AnyKeyMT);
+
+	return false;
 }

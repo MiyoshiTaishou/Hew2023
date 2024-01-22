@@ -51,7 +51,7 @@ void Particle::Update()
 		{			
 			obj->UpdateBase();
 
-			if (obj->m_LifeTime == 0)
+			if (obj->GetLifeTime() == 0)
 			{
 				obj->UninitBase();
 				delete obj;
@@ -61,21 +61,24 @@ void Particle::Update()
 	}
 }
 
-void Particle::Create(DirectX::SimpleMath::Vector3 _pos, DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed)
+void Particle::Create(DirectX::SimpleMath::Vector3 _pos, DirectX::SimpleMath::Vector3 _dir, DirectX::SimpleMath::Vector3 _speed, float _lifeTime, bool _fade,float _scale)
 {
 	//パーティクルの生成
 	for (int i = 0; i < m_ParticleCount; i++)
 	{
 		ParticleObject* obj = new ParticleObject();
-		obj->InitBase();
+		obj->Init(m_TextureName.c_str());
 
 		//位置と進む方向を設定		
 		float randDirX = rand() % m_Ampl * 0.1f;
 		float randDirZ = rand() % m_Ampl * 0.1f;
 		Vector3 Dir = Vector3(randDirX, 1, randDirZ);
 
-		obj->m_Dir = Dir;
-		obj->m_Speed = _speed;
+		obj->SetDir(Dir);
+		obj->SetSpeed(_speed);
+		obj->SetFade(_fade);
+		obj->SetLifeTime(_lifeTime);
+		obj->SetScale(Vector3(_scale, 0, 0));
 
 		float randPosX = rand() % m_Ampl * 0.5f;
 		float randPosZ = rand() % m_Ampl * 0.5f;
@@ -85,5 +88,5 @@ void Particle::Create(DirectX::SimpleMath::Vector3 _pos, DirectX::SimpleMath::Ve
 		obj->SetPosition(Pos);
 
 		m_Particle.push_back(obj);
-	}	
+	}
 }

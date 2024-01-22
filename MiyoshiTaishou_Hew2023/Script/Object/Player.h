@@ -35,6 +35,11 @@ public:
 		return m_AfterPos;
 	}
 
+	void SetController(bool _controller)
+	{
+		m_Controller = _controller;
+	}
+
 private:
 
 	PLAYERSTATE state = IDLE;
@@ -64,7 +69,9 @@ private:
 
 	float m_Distance[MAX_SPHERE_MESH];
 
-	Particle* m_Particle;
+	Particle* m_Particle[3];
 	
 	DirectX::SimpleMath::Vector3 m_AfterPos;
+
+	bool m_Controller = true;
 };
