@@ -14,6 +14,7 @@ class SphereCollider;
 class CMeshRenderer;
 class CSphereMesh;
 class Particle;
+class BillBoardObject;
 
 class Player : public GameObject
 {
@@ -42,6 +43,7 @@ public:
 
 private:
 
+	//プレイヤーの状態
 	PLAYERSTATE state = IDLE;
 
 	//移動速度
@@ -69,9 +71,18 @@ private:
 
 	float m_Distance[MAX_SPHERE_MESH];
 
-	Particle* m_Particle[3];
+	//パーティクル
+	Particle* m_Particle;
 	
+	//前の座標
 	DirectX::SimpleMath::Vector3 m_AfterPos;
 
+	//操作可能
 	bool m_Controller = true;
+
+	//ビックリマークオブジェ
+	BillBoardObject* m_Exclamation;
+
+	//加速エフェクトオブジェ
+	GameObject* m_AccEffect;
 };

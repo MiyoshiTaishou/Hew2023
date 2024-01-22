@@ -31,6 +31,9 @@
 #include"../Component/audio.h"
 #include"../Component/SphereCollider.h"
 
+//パーティクル
+#include"../Particle/Particle.h"
+
 #include"../ImGui/ImGuiManager.h"
 
 using namespace DirectX::SimpleMath;
@@ -82,6 +85,8 @@ void GameScene::Init()
 	Manager::SetCountMax(countMax);
 	
 	AddGameObject<Camera>(Layer0);	
+
+	
 }
 
 void GameScene::Update()
