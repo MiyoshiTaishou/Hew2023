@@ -26,7 +26,7 @@ private:
 	DirectX::SimpleMath::Vector3 m_ParticleStartPos;	
 
 	//U‚ê•
-	int m_Ampl = 10;	
+	int m_Ampl = 25;	
 
 	std::vector<ParticleObject*> m_Particle;
 

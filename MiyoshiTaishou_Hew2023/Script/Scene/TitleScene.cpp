@@ -30,6 +30,7 @@
 
 //UI
 #include"../UI/score.h"
+#include"../UI/HitUI.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -87,7 +88,8 @@ void TitleScene::Init()
 
 	m_TitleSprite[2]->GetComponent<Sprite>()->SetMaterial(m_AnyKeyMT);
 
-
+	AddGameObject<HitUI>(Layer3);
+	
 	//フェード用画像
 	GameObject* Niji = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号		
 	Niji->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",

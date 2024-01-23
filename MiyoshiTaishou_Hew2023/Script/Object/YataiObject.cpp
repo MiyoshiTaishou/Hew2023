@@ -26,6 +26,16 @@ void YataiObject::Init()
 	this->SetPosition(Vector3(50, 10, 10));	
 	this->AddComponent<RootChaise>();
 	this->SetRotation(Vector3(0, 90, 0));
+
+	m_Particle = new Particle();
+	//m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
+	m_Particle->SetTextureName("../asset/texture/ガラガラ.png");
+}
+
+void YataiObject::Uninit()
+{
+	m_Particle->Uninit();
+	delete m_Particle;
 }
 
 void YataiObject::Update()
@@ -42,4 +52,23 @@ void YataiObject::Update()
 	{
 		player->GetComponent<RigidBody>()->AddForce(Vector3(0, 50, 0), ForceMode::Impulse);
 	}
+
+	//パーティクルのポジション
+	Vector3 particlePos = m_Position;
+	particlePos.y += 10.0f;
+
+	if (m_MoveCount > m_MaxMoveCount)
+	{
+		m_Particle->Create(particlePos, Vector3(0, 0, 0), Vector3(0, 0, 0), 30.0f, false, 1.0f + m_CountScale);
+		m_MoveCount = 0;
+	}
+
+	m_MoveCount++;
+
+	m_Particle->Update();
+}
+
+void YataiObject::Draw()
+{
+	m_Particle->Draw();
 }

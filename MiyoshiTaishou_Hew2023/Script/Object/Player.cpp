@@ -17,6 +17,7 @@
 #include"../Component/RigidBody.h"
 #include"../Component/shadow.h"
 #include"../Component/BoxCollider.h"
+#include"../Component/sprite.h"
 
 //描画
 #include"../Render/modelRenderer.h"
@@ -143,7 +144,8 @@ void Player::Init()
 	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
 
 	m_Particle = new Particle();
-	m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
+	//m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
+	m_Particle->SetTextureName("../asset/texture/ゴロゴロ.png");
 
 	Scene* scene = Manager::GetScene();
 	//scene->m_Particle.push_back(m_Particle);
@@ -152,9 +154,17 @@ void Player::Init()
 
 	m_Qtr = true;
 
+	//加速エフェクト
+	m_AccEffect = scene->AddGameObject<GameObject>(Layer2);
+	m_AccEffect->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+		"../shader\\unlitTexturePS.cso");
+	m_AccEffect->AddComponent<Sprite>()->Init(-600.0f * 2.0f, -300.0f * 2.0f, 1280.0f * 3, 720.0f * 3,
+		"../asset\\texture\\ダッシュ.png");
+
 	//ビックリマーク
-	//m_Exclamation = scene->AddGameObject<BillBoardObject>(Layer1);
-	//m_Exclamation->Init("../asset/texture/ビックリマーク.png");
+	m_Exclamation = scene->AddGameObject<BillBoardObject>(Layer2);
+	m_Exclamation->Init("../asset/texture/ビックリマーク.png");
+	m_Exclamation->SetScale(Vector3(1.0f, 1.0f, 1.0f));
 }
 
 void Player::Uninit()
@@ -272,7 +282,14 @@ void Player::Update()
 		ConInput();
 	}
 
-	//m_Exclamation->SetPosition(Vector3(m_Position.x, m_Position.y + 10.0f, m_Position.z));
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+
+	//ビックリマーク追尾	
+	Score* score = scene->GetGameObject<Score>();	
+
+	float countTakoyaki = score->GetCount();
+	m_Exclamation->SetPosition(Vector3(m_Position.x, m_Position.y + countTakoyaki + 10.0f , m_Position.z));
 }
 //
 void Player::Draw()
@@ -553,6 +570,14 @@ void Player::ConInput()
 	float pitch = 0.0f;
 	float roll = 0.0f;
 
+	//数に応じて画像を大きくする	
+	Score* score = scene->GetGameObject<Score>();
+	m_CountScale = score->GetCount() * 0.1f;
+
+	//パーティクルのポジション
+	Vector3 particlePos = m_Position;
+	particlePos.y += 5.0f;
+
 	//前後移動
 	if (Input::GetGamePad(BUTTON::LUP))
 	{						
@@ -562,7 +587,13 @@ void Player::ConInput()
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);	
 
-		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
+		if (m_MoveCount > m_MaxMoveCount)
+		{
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_MoveCount = 0;
+		}
+
+		m_MoveCount++;
 	}
 	if (Input::GetGamePad(BUTTON::LDOWN))
 	{	
@@ -573,7 +604,13 @@ void Player::ConInput()
 		force.y = 0.0f;
 		body->AddForce(force, ForceMode::Force);
 
-		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
+		if (m_MoveCount > m_MaxMoveCount)
+		{
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_MoveCount = 0;
+		}
+
+		m_MoveCount++;
 	}
 
 	//左右移動
@@ -582,14 +619,26 @@ void Player::ConInput()
 		Vector3 force = cameraObj->camRight * -m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);	
 
-		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
+		if (m_MoveCount > m_MaxMoveCount)
+		{
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_MoveCount = 0;
+		}
+
+		m_MoveCount++;
 	}
 	if (Input::GetGamePad(BUTTON::LLEFT))
 	{		
 		Vector3 force = cameraObj->camRight * m_Speed * m_Acc;
 		body->AddForce(force, ForceMode::Force);
 
-		m_Particle->Create(m_Position, Vector3::Up, -force, 30.0f, true, 1.0f);
+		if (m_MoveCount > m_MaxMoveCount)
+		{			
+			m_Particle->Create(particlePos, Vector3(0,0,0), Vector3(0, 0, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_MoveCount = 0;
+		}
+
+		m_MoveCount++;
 	}
 
 	//カメラ操作
@@ -618,12 +667,13 @@ void Player::ConInput()
 		//ダッシュ中に加速していたらエフェクト発生
 		if (body->GetVelocity().x > 1.0f || body->GetVelocity().z > 1.0f)
 		{
-
+			m_AccEffect->GetComponent<Sprite>()->SetView(true);
 		}
 	}
 	else
 	{
 		m_Acc = 1.0f;
+		m_AccEffect->GetComponent<Sprite>()->SetView(false);
 	}
 
 #ifdef _DEBUG

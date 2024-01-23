@@ -32,11 +32,5 @@ void TakoyakiObject::Init()
 
 void TakoyakiObject::Draw()
 {
-	////輪郭線表示
-	////カリングバックに変更
-	//Renderer::GetDeviceContext()->RSSetState(Renderer::m_RasterizerState[2]);
-	//m_OutLineShader->Draw();
-	//GetComponent<ModelRenderer>()->Draw();
-	////戻す
-	//Renderer::GetDeviceContext()->RSSetState(Renderer::m_RasterizerState[1]);
+	
 }

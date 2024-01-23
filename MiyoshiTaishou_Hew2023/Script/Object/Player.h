@@ -85,4 +85,9 @@ private:
 
 	//加速エフェクトオブジェ
 	GameObject* m_AccEffect;
+
+	//パーティクルの出す量調整用
+	int m_MoveCount = 0;
+	int m_MaxMoveCount = 10;
+	float m_CountScale;
 };
