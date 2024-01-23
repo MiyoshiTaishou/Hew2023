@@ -26,6 +26,7 @@
 #include"../UI/score.h"
 #include"../UI/BillBoardScore.h"
 #include"../UI/Timer.h"
+#include"../UI/HitUI.h"
 
 //コンポーネント
 #include"../Component/audio.h"
@@ -86,7 +87,7 @@ void GameScene::Init()
 	
 	AddGameObject<Camera>(Layer0);	
 
-	
+	AddGameObject<HitUI>(Layer3);
 }
 
 void GameScene::Update()

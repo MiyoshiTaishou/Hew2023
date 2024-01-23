@@ -14,6 +14,6 @@ public:
 private:
 
 	Shader* m_Shader;
-	Shader* m_OutLineShader;	
+	MATERIAL m_MT;
 };
 

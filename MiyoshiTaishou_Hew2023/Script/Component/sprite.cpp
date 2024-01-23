@@ -71,6 +71,11 @@ void Sprite::Uninit()
 
 void Sprite::Draw()
 {
+	if (!m_View)
+	{
+		return;
+	}
+
 	// マトリクス設定
 	Renderer::SetWorldViewProjection2D();
 

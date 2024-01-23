@@ -243,6 +243,9 @@
     <ClCompile Include="..\Script\Scene\TutorialScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Script\UI\HitUI.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Script\Sysytem\main.h">
@@ -472,6 +475,9 @@
     </ClInclude>
     <ClInclude Include="..\Script\Scene\TutorialScene.h">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Script\UI\HitUI.h">
+      <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

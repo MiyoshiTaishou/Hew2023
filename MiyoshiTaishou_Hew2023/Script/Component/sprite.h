@@ -14,6 +14,9 @@ private:
 
 	MATERIAL					m_Material{};	
 
+	//•`‰æ‰Â”\‚©
+	bool						m_View = true;
+
 public:
 
 	using Component::Component;
@@ -25,5 +28,6 @@ public:
 	void Draw() override;
 
 	void SetMaterial(MATERIAL Material) { m_Material = Material; }
+	void SetView(bool _view) { m_View = _view; }
 
 };

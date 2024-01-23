@@ -7,6 +7,8 @@
 #include"Player.h"
 #include"field.h"
 
+#include"../UI/score.h"
+
 #include"../ImGui/ImGuiManager.h"
 
 #include"../Scene/scene.h"
@@ -37,15 +39,27 @@ void Camera::Update()
 	camRight = Vector3(-camForward.z, 0.0f, camForward.x); // Y軸とZ軸を入れ替えてX軸を反転させる
 	camRight.Normalize();
 
+	// 現在シーンを取得
+	Scene* scene = Manager::GetScene();
+
+	//ビックリマーク追尾	
+	Score* score = scene->GetGameObject<Score>();
+
+
 	// 球座標系でのカメラ位置を更新するためのパラメータ
 	float radius = 50.0f; // カメラの距離
 
+	//たこ焼きの数で距離を変える
 
-	if (phi > 29.8)
+	float countLength = score->GetCount();
+
+	radius += countLength;
+
+	if (phi > 30.2f)
 	{
-		phi = 29.8f;
+		phi = 30.2f;
 	}
-	else if(phi < 29.5)
+	else if(phi < 29.5f)
 	{
 		phi = 29.5f;
 	}
