@@ -39,6 +39,7 @@
 
 //UI
 #include"../UI/score.h"
+#include"../UI/HitUI.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -426,7 +427,13 @@ void Player::Collision()
 					//スコア加算
 					Score* score = scene->GetGameObject<Score>();
 					score->AddCount(1);
-					Manager::AddCount(1);					
+					Manager::AddCount(1);	
+
+					//ヒットUI表示
+					std::vector<HitUI*> HitUIList = scene->GetGameObjects<HitUI>();
+					int num = rand() % 4;
+
+					HitUIList[num]->Indication();
 
 					state = HIT;
 				}

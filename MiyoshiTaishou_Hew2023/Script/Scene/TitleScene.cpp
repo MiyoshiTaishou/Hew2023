@@ -88,7 +88,18 @@ void TitleScene::Init()
 
 	m_TitleSprite[2]->GetComponent<Sprite>()->SetMaterial(m_AnyKeyMT);
 
-	AddGameObject<HitUI>(Layer3);
+	//ヒット時に表示するUI
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぽこ.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぽこ.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぴた.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぴた.png");
 	
 	//フェード用画像
 	GameObject* Niji = AddGameObject<GameObject>(Layer3);// 3はレイヤ番号		
