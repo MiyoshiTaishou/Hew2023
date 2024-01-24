@@ -87,7 +87,18 @@ void GameScene::Init()
 	
 	AddGameObject<Camera>(Layer0);	
 
-	AddGameObject<HitUI>(Layer3);
+	//ƒqƒbƒgŽž‚É•\Ž¦‚·‚éUI
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\‚Û‚±.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\‚Û‚±.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\‚Ò‚½.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\‚Ò‚½.png");
 }
 
 void GameScene::Update()

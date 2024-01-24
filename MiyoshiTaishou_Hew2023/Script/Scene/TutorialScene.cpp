@@ -28,6 +28,7 @@
 #include"../UI/score.h"
 #include"../UI/BillBoardScore.h"
 #include"../UI/Timer.h"
+#include"../UI/HitUI.h"
 
 //コンポーネント
 #include"../Component/audio.h"
@@ -54,6 +55,19 @@ void TutorialScene::Init()
 	//bgm->GetComponent<Audio>()->Load("../asset\\audio\\たこ焼き魂-_Takoyaki-Spirit_.wav");
 	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
 	bgm->GetComponent<Audio>()->Play(true);
+
+	//ヒット時に表示するUI
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぽこ.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぽこ.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(0.0f, 0.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぴた.png");
+
+	AddGameObject<HitUI>(Layer3)->Init(800.0f, 450.0f, 480.0f, 240.0f,
+		"../asset\\texture\\ぴた.png");
 
 	//チュートリアルたこ焼き
 	GameObject* Takoyaki = AddGameObject<GameObject>(Layer3);
