@@ -109,7 +109,7 @@ void StickObject::Stick(Vector3 _pos)
 
 	RigidBody* body = player->GetComponent<RigidBody>();
 	body->AddInetiaTensorOfSpherAngular(body->GetInetiaTensor() / 100);
-	body->SetMass((body->GetMass() + 0.01f));	
+	body->SetMass((body->GetMass() + 0.005f));	
 
 	m_HitSE->Play();
 }

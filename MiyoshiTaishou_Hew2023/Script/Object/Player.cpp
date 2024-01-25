@@ -330,7 +330,7 @@ void Player::Collision()
 						}					
 					}
 
-					m_Distance[no] += 1.5f;
+					m_Distance[no] += 1.0f;
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();

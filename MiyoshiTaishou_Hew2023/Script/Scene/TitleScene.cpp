@@ -128,6 +128,11 @@ void TitleScene::Init()
 	bill4->Init("../asset/texture/通天閣盛り.png");
 	bill4->AddComponent<SphereCollider>()->SetRadius(6.0f);
 	bill4->SetPosition(Vector3(-100, 10, -50));
+
+	BillBoardObject* bill5 = AddGameObject<BillBoardObject>(Layer1);
+	bill5->Init("../asset/texture/ご馳走さま.png");
+	bill5->AddComponent<SphereCollider>()->SetRadius(6.0f);
+	bill5->SetPosition(Vector3(100, 10, -50));
 	
 	//虹をフェードさせる
 	//毎フレームごとの時間を更新		
@@ -222,6 +227,9 @@ void TitleScene::Update()
 			Manager::SetMapName("Stage1-3.csv");
 			Manager::SetScene<GameScene>();
 			break;
+		case ENDGAME:
+			Manager::SetEnd(true);
+			break;
 		default:
 			break;
 		}		
@@ -275,6 +283,14 @@ void TitleScene::Update()
 		m_Select = SELECT_SCENE::GAME3;
 		return;
 	}	
+
+	if (col->Hit(billList[4]->GetComponent<SphereCollider>()))
+	{
+		m_SEObj->GetComponent<Audio>()->Play();
+		m_Transition->FadeOut();
+		m_Select = SELECT_SCENE::ENDGAME;
+		return;
+	}
 }
 
 bool TitleScene::FadeTitle()

@@ -204,7 +204,7 @@ void Application::MainLoop()
     Manager::Init(this);
 
 
-    while(WM_QUIT != msg.message)
+    while(WM_QUIT != msg.message && !Manager::GetEnd())
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) == TRUE)
         {
