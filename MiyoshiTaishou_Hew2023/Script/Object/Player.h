@@ -31,6 +31,9 @@ public:
 	//コントローラー入力
 	void ConInput();
 
+	//座標計算の点の処理
+	void PointUpdate();
+
 	DirectX::SimpleMath::Vector3 GetAfterPos()
 	{
 		return m_AfterPos;
