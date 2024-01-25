@@ -6,6 +6,7 @@ enum SELECT_SCENE
     TUTORIAL,
     GAME1,
     GAME2,
+    GAME3,
 };
 
 class TitleScene : public Scene

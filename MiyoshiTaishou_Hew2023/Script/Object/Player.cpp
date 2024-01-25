@@ -161,11 +161,6 @@ void Player::Init()
 		"../shader\\unlitTexturePS.cso");
 	m_AccEffect->AddComponent<Sprite>()->Init(-600.0f * 2.0f, -300.0f * 2.0f, 1280.0f * 3, 720.0f * 3,
 		"../asset\\texture\\ダッシュ.png");
-
-	//ビックリマーク
-	m_Exclamation = scene->AddGameObject<BillBoardObject>(Layer2);
-	m_Exclamation->Init("../asset/texture/ビックリマーク.png");
-	m_Exclamation->SetScale(Vector3(1.0f, 1.0f, 1.0f));
 }
 
 void Player::Uninit()
@@ -208,15 +203,6 @@ void Player::Update()
 		//コントローラー入力
 		ConInput();
 	}
-
-	// 現在シーンを取得
-	Scene* scene = Manager::GetScene();
-
-	//ビックリマーク追尾	
-	Score* score = scene->GetGameObject<Score>();	
-
-	float countTakoyaki = score->GetCount();
-	m_Exclamation->SetPosition(Vector3(m_Position.x, m_Position.y + countTakoyaki + 10.0f , m_Position.z));
 }
 //
 void Player::Draw()
@@ -503,10 +489,6 @@ void Player::ConInput()
 	float pitch = 0.0f;
 	float roll = 0.0f;
 
-	//数に応じて画像を大きくする	
-	Score* score = scene->GetGameObject<Score>();
-	m_CountScale = score->GetCount() * 0.1f;
-
 	//パーティクルのポジション
 	Vector3 particlePos = m_Position;
 	particlePos.y += 5.0f;
@@ -522,7 +504,7 @@ void Player::ConInput()
 
 		if (m_MoveCount > m_MaxMoveCount)
 		{
-			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f);
 			m_MoveCount = 0;
 		}
 
@@ -539,7 +521,7 @@ void Player::ConInput()
 
 		if (m_MoveCount > m_MaxMoveCount)
 		{
-			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f);
 			m_MoveCount = 0;
 		}
 
@@ -554,7 +536,7 @@ void Player::ConInput()
 
 		if (m_MoveCount > m_MaxMoveCount)
 		{
-			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_Particle->Create(particlePos, Vector3(0, -10, 0), Vector3(0, 10, 0), 30.0f, false, 1.0f);
 			m_MoveCount = 0;
 		}
 
@@ -567,7 +549,7 @@ void Player::ConInput()
 
 		if (m_MoveCount > m_MaxMoveCount)
 		{			
-			m_Particle->Create(particlePos, Vector3(0,0,0), Vector3(0, 0, 0), 30.0f, false, 1.0f + m_CountScale);
+			m_Particle->Create(particlePos, Vector3(0,0,0), Vector3(0, 0, 0), 30.0f, false, 1.0f);
 			m_MoveCount = 0;
 		}
 
@@ -595,7 +577,7 @@ void Player::ConInput()
 	//ダッシュ処理
 	if (Input::GetGamePad(BUTTON::ABUTTON))
 	{
-		m_Acc = 1.5f;
+		m_Acc = 2.0f;
 
 		//ダッシュ中に加速していたらエフェクト発生
 		if (body->GetVelocity().x > 1.0f || body->GetVelocity().z > 1.0f)

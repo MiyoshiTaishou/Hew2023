@@ -32,13 +32,12 @@ void StageEditor::Init()
             
 	Sky* sky = AddGameObject<Sky>(Layer0);
     Field* filed = AddGameObject<Field>(Layer1);
-    filed->Init("GameMap1-1.csv");
+    filed->Init("1-3.csv");
     //filed->Init("Title.csv");
 
     AddGameObject<DebugCamera>(Layer0)->m_TargetObj = sky;
 
     AddGameObject<Score>(Layer3);
-
 
 }
 

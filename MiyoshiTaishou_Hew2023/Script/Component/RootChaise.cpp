@@ -81,7 +81,9 @@ void RootChaise::Uninit()
 }
 
 void RootChaise::Draw()
-{
+{   
+#if DEBUG
+
     for (int i = 0; i < MAX_BEJIE; i++)
     {
         // ワールド変換行列生成
@@ -93,11 +95,9 @@ void RootChaise::Draw()
 
         // GPUに行列をセットする
         Renderer::SetWorldMatrix(&world);//位置
-       
-        m_MeshRenderer[i]->Draw();
-    }   
 
-#if DEBUG
+        m_MeshRenderer[i]->Draw();
+    }
 
     ImGui::Begin("Collider");
 

@@ -217,6 +217,11 @@ void TitleScene::Update()
 			Manager::SetMapName("Stage1-2.csv");
 			Manager::SetScene<GameScene>();			
 			break;
+		case GAME3:
+			Manager::SetFiledName("1-3.csv");
+			Manager::SetMapName("Stage1-3.csv");
+			Manager::SetScene<GameScene>();
+			break;
 		default:
 			break;
 		}		
@@ -267,7 +272,7 @@ void TitleScene::Update()
 	{
 		m_SEObj->GetComponent<Audio>()->Play();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::GAME2;
+		m_Select = SELECT_SCENE::GAME3;
 		return;
 	}	
 }

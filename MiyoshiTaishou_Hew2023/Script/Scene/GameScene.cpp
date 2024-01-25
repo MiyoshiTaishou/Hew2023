@@ -53,7 +53,7 @@ void GameScene::Init()
 	LoadObjectData(Manager::GetMapName());
 
 	Player* player = AddGameObject<Player>(Layer1);
-	player->SetPosition(Vector3(0, 50, 0));
+	player->SetPosition(Vector3(120, 50, -120));
 	//player->SetRotation(Vector3(30, 10000, 30));
 
 	//BGMobj
