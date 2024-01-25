@@ -17,6 +17,8 @@ private:
     static int m_Count;//‚½‚±Ä‚«‚Ì”
     static int m_CountMax;//‚½‚±Ä‚«‚Ì”
 
+    static bool m_End;
+
 public:
     /**
      * @brief ManagerƒNƒ‰ƒX‚Ì‰Šú‰»
@@ -104,6 +106,11 @@ public:
         m_MapName = _text;
     }
 
+    static void SetEnd(bool _end)
+    {
+        m_End = _end;
+    }
+
     static std::string GetFiledName()
     {
         return m_FiledName;
@@ -112,5 +119,10 @@ public:
     static std::string GetMapName()
     {
         return m_MapName;
+    }
+
+    static bool GetEnd()
+    {
+        return m_End;
     }
 };
