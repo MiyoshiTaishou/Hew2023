@@ -83,9 +83,6 @@ private:
 	//操作可能
 	bool m_Controller = true;
 
-	//ビックリマークオブジェ
-	BillBoardObject* m_Exclamation;
-
 	//加速エフェクトオブジェ
 	GameObject* m_AccEffect;
 
