@@ -34,6 +34,7 @@ std::list<GameObject*> g_gameobjectlist;
 
 std::string Manager::m_MapName;
 std::string Manager::m_FiledName;
+std::string Manager::m_SkyName;
 
 void Manager::Init(Application* ap)
 {

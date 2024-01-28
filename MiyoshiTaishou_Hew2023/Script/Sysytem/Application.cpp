@@ -251,6 +251,7 @@ LRESULT CALLBACK Application::WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
             // ESCが押されたのかどうかチェック
             if (LOWORD(wp) == VK_ESCAPE)
             {
+#ifdef _DEBUG
                 // メッセージボックスで修了確認
                 int result;
                 result = MessageBox(NULL, "終了してよろしいですか？",
@@ -260,6 +261,7 @@ LRESULT CALLBACK Application::WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     // xボタンが押されたのと同じ効果を発揮する
                     PostMessage(hWnd, WM_CLOSE, wp, lp);
                 }
+#endif // _DEBUG
             }            
             break;
 

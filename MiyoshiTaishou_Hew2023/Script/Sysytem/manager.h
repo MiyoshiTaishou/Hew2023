@@ -13,6 +13,7 @@ private:
     //ƒQ[ƒ€ƒV[ƒ“
     static std::string m_FiledName;
     static std::string m_MapName;
+    static std::string m_SkyName;
 
     static int m_Count;//‚½‚±Ä‚«‚Ì”
     static int m_CountMax;//‚½‚±Ä‚«‚Ì”
@@ -106,6 +107,11 @@ public:
         m_MapName = _text;
     }
 
+    static void SetSkyName(std::string _text)
+    {
+        m_SkyName = _text;
+    }
+
     static void SetEnd(bool _end)
     {
         m_End = _end;
@@ -119,6 +125,11 @@ public:
     static std::string GetMapName()
     {
         return m_MapName;
+    }
+
+    static std::string GetSkyName()
+    {
+        return m_SkyName;
     }
 
     static bool GetEnd()

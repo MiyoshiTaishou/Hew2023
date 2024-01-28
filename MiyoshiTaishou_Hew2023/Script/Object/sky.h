@@ -15,6 +15,7 @@ private:
 
 public:
 	void Init() override;
+	void Init(const char* _name);
 	void Update() override;
 	void Draw()override;
 };

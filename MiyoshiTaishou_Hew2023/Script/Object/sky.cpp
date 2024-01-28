@@ -27,6 +27,17 @@ void Sky::Init()
 	Renderer::SetBloom(bloom);	
 }
 
+void Sky::Init(const char* _name)
+{
+	m_Scale = Vector3(1000.0f, 1000.0f, 1000.0f);	
+	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
+	AddComponent<ModelRenderer>()->Load(_name);
+
+	bloom.bloom = 1.0f;
+	bloom.power = 5.0f;
+	Renderer::SetBloom(bloom);
+}
+
 
 void Sky::Update()
 {

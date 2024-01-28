@@ -36,5 +36,5 @@ private:
 	//Particle* particle;
 
 	//–¼‘O•ÏX—p•Ï”
-	char m_buffer[256] = "test.csv";
+	char m_buffer[256] = "../asset/map/YataiRoot.csv";
 };

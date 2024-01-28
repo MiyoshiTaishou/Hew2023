@@ -44,10 +44,10 @@ void TutorialScene::Init()
 {
 	Score* score = AddGameObject<Score>(Layer3);
 
-	AddGameObject<Sky>(Layer1);
+	AddGameObject<Sky>(Layer1)->Init("../asset\\model\\sky3.obj");
 
 	Field* filed = AddGameObject<Field>(Layer1);
-	filed->Init("Title.csv");	
+	filed->Init("../asset/map/Title.csv");	
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -102,7 +102,7 @@ void TutorialScene::Init()
 
 	m_Write->Init();
 
-	m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアル.txt");
+	m_TextList = m_Write->ReadTextFile("../asset/text/チュートリアル.txt");
 }
 
 void TutorialScene::Uninit()
@@ -186,7 +186,7 @@ void TutorialScene::Update()
 		{
 			m_Progress = MOVE;
 			m_TextList.clear();
-			m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアルムーブ.txt");
+			m_TextList = m_Write->ReadTextFile("../asset/text/チュートリアルムーブ.txt");
 
 			m_ListIdx = 0;
 			m_TexIdx = 0;
@@ -224,7 +224,7 @@ void TutorialScene::Update()
 			m_Progress = ACTION;
 
 			m_TextList.clear();
-			m_TextList = m_Write->ReadTextFile("../MiyoshiTaishou_Hew2023/チュートリアルヒット.txt");
+			m_TextList = m_Write->ReadTextFile("../asset/text/チュートリアルヒット.txt");
 
 			m_ListIdx = 0;
 			m_TexIdx = 0;

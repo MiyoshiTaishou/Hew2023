@@ -45,7 +45,7 @@ void GameScene::Init()
 
 	AddGameObject<Timer>(Layer3);	
 
-	AddGameObject<Sky>(Layer1);	
+	AddGameObject<Sky>(Layer1)->Init(Manager::GetSkyName().c_str());	
 
 	Field* filed = AddGameObject<Field>(Layer1);
 	filed->Init(Manager::GetFiledName());
