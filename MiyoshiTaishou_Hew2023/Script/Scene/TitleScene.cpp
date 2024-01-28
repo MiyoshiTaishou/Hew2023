@@ -39,15 +39,15 @@ void TitleScene::Init()
 	Score* score = AddGameObject<Score>(Layer3);
 
 	//オブジェクト生成
-	AddGameObject<Sky>(Layer1);	
+	AddGameObject<Sky>(Layer1)->Init("../asset\\model\\sky2.obj");
 	Field* filed = AddGameObject<Field>(Layer1);
-	filed->Init("Title.csv");
+	filed->Init("../asset/map/Title.csv");
 
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetPosition(Vector3(0, 40, -140));
 
 	//オブジェクトロード
-	LoadObjectData("titleMap.csv");	
+	LoadObjectData("../asset/map/titleMap.csv");	
 
 	AddGameObject<Camera>(Layer0);	
 	
@@ -190,6 +190,7 @@ void TitleScene::Update()
 
 	Player* player = GetGameObject<Player>();	
 
+#ifdef _DEBUG
 	if (m_Transition->GetState() == Transition::State::Stop)
 	{
 		if (Input::GetKeyTrigger(VK_RETURN))
@@ -197,6 +198,7 @@ void TitleScene::Update()
 			m_Transition->FadeOut();
 		}
 	}
+#endif // _DEBUG
 
 	if (m_Transition->GetState() == Transition::State::Out)
 	{
@@ -213,18 +215,21 @@ void TitleScene::Update()
 			Manager::SetScene<TutorialScene>();
 			break;
 		case GAME1:
-			Manager::SetFiledName("GameMap1-1.csv");
-			Manager::SetMapName("1-1.csv");
+			Manager::SetFiledName("../asset/map/GameMap1-1.csv");
+			Manager::SetMapName("../asset/map/1-1.csv");
+			Manager::SetSkyName("../asset\\model\\sky2.obj");
 			Manager::SetScene<GameScene>();			
 			break;
 		case GAME2:		
-			Manager::SetFiledName("testMap.csv");
-			Manager::SetMapName("Stage1-2.csv");
+			Manager::SetFiledName("../asset/map/GameMap1-2.csv");
+			Manager::SetMapName("../asset/map/1-2.csv");
+			Manager::SetSkyName("../asset\\model\\sky3.obj");
 			Manager::SetScene<GameScene>();			
 			break;
 		case GAME3:
-			Manager::SetFiledName("1-3.csv");
-			Manager::SetMapName("Stage1-3.csv");
+			Manager::SetFiledName("../asset/map/GameMap1-3.csv");
+			Manager::SetMapName("../asset/map/1-3.csv");
+			Manager::SetSkyName("../asset\\model\\sky.obj");
 			Manager::SetScene<GameScene>();
 			break;
 		case ENDGAME:
