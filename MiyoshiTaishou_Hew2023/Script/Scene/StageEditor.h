@@ -1,6 +1,9 @@
 #pragma once
 #include"scene.h"
 
+class Player;
+class Camera;
+
 class StageEditor : public Scene
 {
 public:
@@ -21,7 +24,11 @@ private:
 	GameObject* obj;
 
 	//–¼‘O•ÏX—p•Ï”
-	char m_buffer[256] = "test.csv";
+	char m_bufferField[256] = "test.csv";
+	char m_bufferMap[256] = "test.csv";
+
+	Player* m_Player;
+	Camera* m_Camera;
 };
 
 

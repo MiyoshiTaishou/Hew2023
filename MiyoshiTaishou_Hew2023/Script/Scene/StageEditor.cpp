@@ -1,5 +1,6 @@
 #include "StageEditor.h"
 #include"../ImGui/ImGuiManager.h"
+#include"../Sysytem/manager.h"
 
 //オブジェクト
 #include"../Object/BoxObject.h"
@@ -20,6 +21,7 @@
 
 //UI
 #include"../UI/score.h"
+#include"../UI/HitUI.h"
 
 #define NOTSELECTED -1
 
@@ -32,13 +34,25 @@ void StageEditor::Init()
             
 	Sky* sky = AddGameObject<Sky>(Layer0);
     Field* filed = AddGameObject<Field>(Layer1);
-    filed->Init("1-3.csv");
+    filed->Init("../asset/map/GameMap1-3.csv");
     //filed->Init("Title.csv");
 
     AddGameObject<DebugCamera>(Layer0)->m_TargetObj = sky;
 
     AddGameObject<Score>(Layer3);
 
+    //ヒット時に表示するUI
+    AddGameObject<HitUI>(Layer3)->Init(0.0f, 450.0f, 480.0f, 240.0f,
+        "../asset\\texture\\ぽこ.png");
+
+    AddGameObject<HitUI>(Layer3)->Init(800.0f, 0.0f, 480.0f, 240.0f,
+        "../asset\\texture\\ぽこ.png");
+
+    AddGameObject<HitUI>(Layer3)->Init(0.0f, 0.0f, 480.0f, 240.0f,
+        "../asset\\texture\\ぴた.png");
+
+    AddGameObject<HitUI>(Layer3)->Init(800.0f, 450.0f, 480.0f, 240.0f,
+        "../asset\\texture\\ぴた.png");
 }
 
 void StageEditor::Update()
@@ -61,7 +75,9 @@ void StageEditor::Draw()
         {
             camera->SetDestroy();
             player->SetDestroy();
-            AddGameObject<DebugCamera>(Layer0);
+
+            Sky* sky = GetGameObject<Sky>();
+            AddGameObject<DebugCamera>(Layer0)->m_TargetObj = sky;
         }
         else if (dbCamera)
         {
@@ -77,13 +93,21 @@ void StageEditor::Draw()
     // 保存ボタン
     if (ImGui::Button("Save Positions"))
     {
-        SaveObjectData(m_buffer);
+        SaveObjectData(m_bufferMap);
     }
 
     // 読み込みボタン
     if (ImGui::Button("Load Positions"))
     {
-        LoadObjectData(m_buffer);
+        LoadObjectData(m_bufferMap);
+    }
+
+    //ステージ当たり判定更新
+    if (ImGui::Button("FieldMeshUpdaye"))
+    {
+        GetGameObject<Field>()->SetDestroy();
+        Field* filed = AddGameObject<Field>(Layer1);
+        filed->Init(m_bufferField);
     }
 
     //オブジェクト削除
@@ -100,7 +124,8 @@ void StageEditor::Draw()
         }    
     }
 
-    ImGui::InputText("File Name", m_buffer, sizeof(m_buffer));
+    ImGui::InputText("Field Name", m_bufferField, sizeof(m_bufferField));
+    ImGui::InputText("Map Name", m_bufferMap, sizeof(m_bufferMap));
 
     ImGui::End();
 

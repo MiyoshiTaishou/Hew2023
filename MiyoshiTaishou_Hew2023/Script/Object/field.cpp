@@ -195,7 +195,7 @@ void Field::Draw()
 
 	m_planemesh.MakeUndulationSelf();
 
-	m_planemesh.LoadUndulation(m_buffer);
+	m_planemesh.LoadUndulation(Manager::GetFiledName());
 
 	// •½–Ê‚Ì•û’ö®‚ğ¶¬i‘S–Êj
 	MakeEquatation();
