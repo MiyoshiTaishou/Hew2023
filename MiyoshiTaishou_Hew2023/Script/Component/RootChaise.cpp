@@ -82,7 +82,7 @@ void RootChaise::Uninit()
 
 void RootChaise::Draw()
 {   
-#if DEBUG
+#if _DEBUG
 
     for (int i = 0; i < MAX_BEJIE; i++)
     {
