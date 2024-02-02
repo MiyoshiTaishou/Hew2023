@@ -167,12 +167,7 @@ public:
                 object->DrawBase(matrix);
             }
         }
-
-      /*  for (Particle* particl : m_Particle)
-        {
-            particl->Draw();
-        }*/
-        
+     
         Draw();
     }
 
@@ -309,16 +304,7 @@ public:
         {
             return;
         }
-
-        //const auto& objList = m_GameObject[Layer1];
-        //for (const auto& obj : objList)
-        //{
-        //    if (typeid(*obj) != typeid(Player)) // 型を調べる
-        //    {
-        //        obj->SetDestroy();
-        //    }            
-        //}
-
+    
         //ヘッダを捨てる
         std::string header;
         std::getline(inputFile, header);
@@ -333,9 +319,7 @@ public:
             DirectX::SimpleMath::Vector3 pos;
             DirectX::SimpleMath::Vector3 scale;
             DirectX::SimpleMath::Vector3 rot;
-
-            //std::getline(ss, token, '\n');
-
+           
             // カンマ区切りでデータを取得
             std::getline(ss, token, ',');
             int tagValue = std::stoi(token);

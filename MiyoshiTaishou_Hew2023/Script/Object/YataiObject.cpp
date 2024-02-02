@@ -27,8 +27,7 @@ void YataiObject::Init()
 	this->AddComponent<RootChaise>();
 	this->SetRotation(Vector3(0, 90, 0));
 
-	m_Particle = new Particle();
-	//m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
+	m_Particle = new Particle();	
 	m_Particle->SetTextureName("../asset/texture/ƒKƒ‰ƒKƒ‰.png");
 }
 

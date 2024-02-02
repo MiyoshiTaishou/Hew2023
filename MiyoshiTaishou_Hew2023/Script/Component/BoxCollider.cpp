@@ -28,10 +28,7 @@ void BoxCollider::Update()
 	m_Info.fLengthY = m_ColliderScale.y;
 	m_Info.fLengthZ = m_ColliderScale.z;
 
-	m_ColliderPos = this->m_GameObject->GetPosition();
-	//m_ColliderScale = this->m_GameObject->GetScale();
-
-	//Collider::Update();
+	m_ColliderPos = this->m_GameObject->GetPosition();	
 }
 
 void BoxCollider::Draw()
@@ -42,10 +39,6 @@ void BoxCollider::Draw()
 	float P1Back = this->m_ColliderPos.z - (this->m_ColliderScale.z / 2);
 	float P1Top = this->m_ColliderPos.y + (this->m_ColliderScale.y / 2);
 	float P1Bottom = this->m_ColliderPos.y - (this->m_ColliderScale.y / 2);
-
-	//ImGui::Begin("Collider");
-	//ImGui::Text("Pos\nLeft %f\nRight %f\nFront %f\n Back %f",P1Left,P1Right,P1Front,P1Back);
-	//ImGui::End();
 }
 
 bool BoxCollider::HitBox(const BoxCollider* _boxCol)

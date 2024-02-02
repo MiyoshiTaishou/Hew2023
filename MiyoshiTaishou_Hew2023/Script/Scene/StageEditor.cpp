@@ -55,11 +55,6 @@ void StageEditor::Init()
         "../asset\\texture\\‚Ò‚½.png");
 }
 
-void StageEditor::Update()
-{
-   
-}
-
 void StageEditor::Draw()
 {
     ImGui::Begin("Stage Editor");

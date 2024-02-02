@@ -30,44 +30,15 @@ using namespace DirectX::SimpleMath;
 
 void Field::Init()
 {
-//	AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-//	m_Collider = AddComponent<Collider>();
-//
-//	// 床メッシュ生成
-//	m_planemesh.Init(
-//		10, 10,					// 分割数
-//		320,						// サイズ
-//		320,						// サイズ
-//		Color(1, 1, 1, 1),			// 頂点カラー
-//		Vector3(0, 0, -1),			// 法線ベクトル
-//		true);						// XZ平面
-//
-//	// 凸凹を付ける（一様分布で）
-////	m_planemesh.MakeUndulation(
-////		0.0f,						// 最小
-////		3.0f);						// 最大
-//
-//	//m_planemesh.MakeUndulationPerlinnoise(
-//	//	10.0f,			// 最大の高さ
-//	//	10,				// オクターブ数
-//	//	0.28f);			// パーシステンス
-//
-//	m_planemesh.LoadUndulation("testMap.csv");
-//
-//	// 平面の方程式を生成（全面）
-//	MakeEquatation();
-//
-//	// レンダラー初期化
-//	m_renderer.Init(m_planemesh);
-//
-//	// テクスチャ読み込み
-//	DirectX::CreateWICTextureFromFile(
-//		Renderer::GetDevice(),
-//		L"../asset/texture/Stone.jpg",
-//		nullptr,
-//		&m_Texture);
-//
-//	assert(m_Texture);
+	// 凸凹を付ける（一様分布で）
+//	m_planemesh.MakeUndulation(
+//		0.0f,						// 最小
+//		3.0f);						// 最大
+
+	//m_planemesh.MakeUndulationPerlinnoise(
+	//	10.0f,			// 最大の高さ
+	//	10,				// オクターブ数
+	//	0.28f);			// パーシステンス
 }
 
 void Field::Init(const std::string& filename)
@@ -83,16 +54,6 @@ void Field::Init(const std::string& filename)
 		Color(1, 1, 1, 1),			// 頂点カラー
 		Vector3(0, 0, -1),			// 法線ベクトル
 		true);						// XZ平面
-
-	// 凸凹を付ける（一様分布で）
-//	m_planemesh.MakeUndulation(
-//		0.0f,						// 最小
-//		3.0f);						// 最大
-
-	//m_planemesh.MakeUndulationPerlinnoise(
-	//	10.0f,			// 最大の高さ
-	//	10,				// オクターブ数
-	//	0.28f);			// パーシステンス
 
 	m_planemesh.LoadUndulation(filename);
 
@@ -148,48 +109,6 @@ void Field::Draw()
 
 	//レンダラで描画
 	m_renderer.Draw();
-
-	//ImGui::Begin("Debug");
-	//ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
-	//ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
-	//ImGui::Text("Dis %f", dis);
-	//ImGui::End();
-
-	// 入力レイアウト設定
-//	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
-
-	// シェーダ設定
-//	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
-//	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
-
-	//// ワールドマトリクス設定
-	//Matrix world, scale, rot, trans;
-	//scale = Matrix::CreateScale(m_Scale.x);
-	//rot = Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
-	//trans = Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
-	//world = scale * rot * trans;
-	//Renderer::SetWorldMatrix(&world);
-
-	//// 頂点バッファ設定
-	//UINT stride = sizeof(VERTEX_3D);
-	//UINT offset = 0;
-	//Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
-
-	//// マテリアル設定
-	//MATERIAL material;
-	//ZeroMemory(&material, sizeof(material));
-	//material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
-	//material.TextureEnable = true;
-	//Renderer::SetMaterial(material);
-
-	//// テクスチャ設定
-	//Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
-
-	//// プリミティブトポロジ設定
-	//Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-	//// ポリゴン描画
-	//Renderer::GetDeviceContext()->Draw(4, 0);
 
 #ifdef _DEBUG
 
@@ -279,18 +198,12 @@ float Field::GetFieldHeight(DirectX::SimpleMath::Vector3 pos)
 				RigidBody* body = player->GetComponent<RigidBody>();					
 
 				Vector3 force = dir * 10.0f;
-			
-				//body->AddForceToPoint(force, dir, ForceMode::Force);
-				//body->AddForce(force, ForceMode::Force);		
-
+							
 				force.y = 0.0f;
-
-				//body->AddTorque((force), ForceMode::Force);
 
 				direction = dir;
 				normalDB = m_planes[idx].GetPlaneInfo().pNormal;
 							
-
 				return ans.y;
 			}
 		}
@@ -361,8 +274,6 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 				body->AddForceToPoint(force, dir, ForceMode::Force);
 				body->AddForce(force, ForceMode::Force);						
 
-				//body->AddTorque((force), ForceMode::Force);
-
 				direction = dir;
 				normalDB = m_planes[idx].GetPlaneInfo().pNormal;
 
@@ -390,7 +301,6 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 				m_planes[idx].GetPlaneInfo().p2, ans);
 			if (sts) 
 			{
-
 				Scene* scene = Manager::GetScene();				
 
 				//坂道を転がる処理
@@ -421,8 +331,6 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 
 				force.y = 0.0f;
 
-				//body->AddTorque((force), ForceMode::Force);
-
 				direction = dir;
 				normalDB = m_planes[idx].GetPlaneInfo().pNormal;
 
@@ -433,8 +341,7 @@ float Field::GetFieldHeightBySqno(DirectX::SimpleMath::Vector3 pos, GameObject& 
 
 	}
 
-	// 見つからなかった場合は０
-	//std::cout << "床なし" << "(" << sqno << ")" << std::endl;
+	// 見つからなかった場合は０	
 	return oldheight;
 }
 

@@ -18,7 +18,10 @@ public:
 
 private:
 
+	//1~0の間の値で移動の時間を調整する
 	float m_Rate = 0.0f;
+
+	//加算する値ここで速度調整
 	float m_MoveSpeed = 0.005f;
 
 	//可視化用のメッシュ
@@ -32,8 +35,6 @@ private:
 	bool m_Goal = false;
 
 	using Component::Component;
-
-	//Particle* particle;
 
 	//名前変更用変数
 	char m_buffer[256] = "../asset/map/YataiRoot.csv";

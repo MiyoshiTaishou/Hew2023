@@ -23,12 +23,8 @@ void RootChaise::Init()
 
         m_SpherePos[i].x = i * 10;
     }  
-
-    //particle = new Particle();
-    Scene* scne = Manager::GetScene();
-    //scne->m_Particle.push_back(particle);
-    //particle->Init();
-
+   
+    Scene* scne = Manager::GetScene();  
 
     //ファイルからルート情報読み込み
     std::ifstream inputFile(m_buffer);
@@ -75,9 +71,7 @@ void RootChaise::Uninit()
 
         delete m_MeshRenderer[i];
         m_MeshRenderer[i] = nullptr;
-    }  
-
-    //particle->Uninit();
+    }     
 }
 
 void RootChaise::Draw()
@@ -160,22 +154,19 @@ void RootChaise::Draw()
         ImGui::SliderFloat(("PosZ" + std::to_string(i)).c_str(), &m_SpherePos[i].z, -1000, 1000);
     }    
 
-    // std::stringをchar型のバッファにコピー
-    //strcpy_s(m_buffer, m_GameObject->GetFileName().c_str());    
+    // std::stringをchar型のバッファにコピー   
     ImGui::InputText("File Name", m_buffer, sizeof(m_buffer));    
    
     ImGui::End();
 
-#endif // DEBUG
-    //particle->Draw();
+#endif // DEBUG   
 }
 
 void RootChaise::Update()
 {    
     //加速して減速するような値の計算
     float move;
-    move = (-2 * (m_Rate * m_Rate * m_Rate)) + (3 * (m_Rate * m_Rate));
-    //move = (-1 * (m_Rate * m_Rate)) + (2 * m_Rate);
+    move = (-2 * (m_Rate * m_Rate * m_Rate)) + (3 * (m_Rate * m_Rate));   
 
     //到着
     if (m_Rate > 1.0f)
@@ -199,7 +190,7 @@ void RootChaise::Update()
     }
 
 
-    //開始位置から[2]の位置までのlerp
+    //それぞれの点同士Lerp処理これで移動する
     m_SpherePos[4] = Vector3::Lerp(m_SpherePos[0], m_SpherePos[1], move);    
     m_SpherePos[5] = Vector3::Lerp(m_SpherePos[1], m_SpherePos[2], move);    
     m_SpherePos[6] = Vector3::Lerp(m_SpherePos[4], m_SpherePos[5], move);    
@@ -238,7 +229,4 @@ void RootChaise::Update()
     Vector3 pos = m_GameObject->GetPosition();
     pos.y = Manager::GetScene()->GetGameObject<Field>()->GetFieldHeightBySqno(pos, *m_GameObject);
     m_GameObject->SetPosition(pos);
-
-    //particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
-    //particle->Update();
 }

@@ -1,7 +1,7 @@
 #pragma once
-
-
 #include "../Object/gameObject.h"
+
+//客の頭の上に配置する数字を表示するクラス
 
 class BillBoardScore : public GameObject
 {

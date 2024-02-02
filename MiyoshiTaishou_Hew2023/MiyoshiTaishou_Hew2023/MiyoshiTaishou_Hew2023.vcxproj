@@ -276,7 +276,6 @@
     <ClInclude Include="..\Script\Scene\Transition.h" />
     <ClInclude Include="..\Script\Scene\TutorialScene.h" />
     <ClInclude Include="..\Script\Sysytem\Application.h" />
-    <ClInclude Include="..\Script\Sysytem\component.h" />
     <ClInclude Include="..\Script\Sysytem\DirectWrite.h" />
     <ClInclude Include="..\Script\Sysytem\dx11mathuntil.h" />
     <ClInclude Include="..\Script\Sysytem\fpscontrol.h" />

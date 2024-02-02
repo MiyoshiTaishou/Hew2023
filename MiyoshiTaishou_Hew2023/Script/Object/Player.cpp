@@ -49,12 +49,8 @@ void Player::Init()
 {
 	//座標、サイズ設定
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
-	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);	
-
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
+	
 	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	//model->Load("../asset\\model\\bullet.obj");
@@ -64,8 +60,7 @@ void Player::Init()
 	shadow->Init();
 	shadow->SetSize(10.0f);
 
-	//コンポーネント	
-	
+	//コンポーネント		
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
 	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	
@@ -142,14 +137,10 @@ void Player::Init()
 		m_MeshRenderer[i]->Init(*m_Sphere[i]);		
 	}	
 
-	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
-
 	m_Particle = new Particle();
-	//m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
 	m_Particle->SetTextureName("../asset/texture/ゴロゴロ.png");
 
 	Scene* scene = Manager::GetScene();
-	//scene->m_Particle.push_back(m_Particle);
 
 	m_Rotmatrix = Matrix::Identity;
 
@@ -184,11 +175,7 @@ void Player::Update()
 	for (auto& cmpt : m_Component) {
 		cmpt->Update();
 	}
-
-	//m_Particle->Update();
-
-	//GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
-
+	
 	//座標計算
 	PointUpdate();
 
@@ -454,13 +441,6 @@ void Player::Collision()
 		m_Position.z = max.z - MAX_FILED;
 	}
 
-	/*for (int i = 0; i < MAX_SPHERE_MESH; i++)
-	{
-		filed->PointPlaneCollision(m_Point);
-	}*/
-
-
-
 	filed->PointPlaneCollision(m_Point);
 }
 
@@ -674,7 +654,6 @@ void Player::PointUpdate()
 	// ポイントをプレイヤーの回転に合わせて変換する
 	for (int i = 0; i < MAX_SPHERE_MESH; ++i)
 	{		
-
 		// ポイントをベクトルに変換
 		Vector3 point = m_Point[i] - m_Position;
 

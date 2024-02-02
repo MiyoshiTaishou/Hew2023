@@ -78,24 +78,16 @@ void StickObject::Stick(Vector3 _pos)
 	// 現在シーンを取得
 	Scene* scene = Manager::GetScene();
 
-	////カメラ取得
-	//Camera* cameraObj = scene->GetGameObject<Camera>();
-
 	m_Stick = true;
 	m_Scale *= m_ScaleDown;	
-
-	//座標設定
-	//m_Position = cameraObj->GetForward() * m_Scale * 0.2f;
-
+	
 	//慣性テンソルを足す
 	Player* player = scene->GetGameObject<Player>();	
 
 	// 親オブジェクトのローカル座標系におけるオフセットを求める
-	  // マトリクス設定
+	// マトリクス設定
 	DirectX::SimpleMath::Matrix world, scale, rot, trans;
-	scale = DirectX::SimpleMath::Matrix::CreateScale(player->GetScale().x, player->GetScale().y, player->GetScale().z);
-	//rot = DirectX::SimpleMath::Matrix::CreateFromYawPitchRoll(player->GetRotation().y, player->GetRotation().x, player->GetRotation().z);
-	//rot = DirectX::SimpleMath::Matrix::CreateFromQuaternion(player->GetQtr());
+	scale = DirectX::SimpleMath::Matrix::CreateScale(player->GetScale().x, player->GetScale().y, player->GetScale().z);	
 	rot = player->m_Rotmatrix;
 	trans = DirectX::SimpleMath::Matrix::CreateTranslation(player->GetPosition().x, player->GetPosition().y, player->GetPosition().z);
 	world = scale * rot * trans;

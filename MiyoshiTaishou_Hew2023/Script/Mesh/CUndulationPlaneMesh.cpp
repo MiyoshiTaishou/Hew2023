@@ -11,7 +11,8 @@ void CUndulationPlaneMesh::MakeUndulation(float min, float max)
 	std::mt19937 mt;
 	std::uniform_real_distribution<float> dist(min, max);
 
-	for (auto& v : m_vertices) {
+	for (auto& v : m_vertices)
+	{
 		v.Position.y = dist(mt);
 	}
 }
@@ -19,13 +20,8 @@ void CUndulationPlaneMesh::MakeUndulation(float min, float max)
 void CUndulationPlaneMesh::MakeUndulationPerlinnoise(float max, double octave, double persistence)
 {
 	PerlinNoise perlin;
-	for (auto& v : m_vertices) {
-
-		//		double d = perlin.noise(
-		//			v.Position.x*0.1,
-		//			0,
-		//			v.Position.z);
-
+	for (auto& v : m_vertices) 
+	{	
 		double d = perlin.octaveNoise(
 			v.Position.x,
 			0,
@@ -39,6 +35,7 @@ void CUndulationPlaneMesh::MakeUndulationPerlinnoise(float max, double octave, d
 
 void CUndulationPlaneMesh::MakeUndulationSelf()
 {
+	//çÇÇ≥ÇImGuiÇ≈ïœçX
 	ImGui::Begin("FieldMake");
 
 	if (ImGui::Button("Resset"))
@@ -66,10 +63,10 @@ void CUndulationPlaneMesh::SaveUndulation(const std::string& filename)
 		for (size_t i = 0; i < m_vertices.size(); ++i) {
 			file << "Vertex " << i << ", " << m_vertices[i].Position.y << "\n";
 		}
-		file.close();
-		// File saved successfully
+		file.close();		
 	}
-	else {
+	else 
+	{
 		// Unable to open the file
 	}
 }

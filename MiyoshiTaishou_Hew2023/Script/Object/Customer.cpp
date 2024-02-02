@@ -26,7 +26,7 @@ void Customer::Init()
 
 	m_Model = AddComponent<AnimationModel>();
 
-	m_Model->Load("../asset\\model\\Akai.fbx");									// animation ok
+	m_Model->Load("../asset\\model\\Akai.fbx");
 	m_Model->LoadAnimation("../asset\\model\\Akai_Idle.fbx", "Idle");
 	m_Model->LoadAnimation("../asset\\model\\Akai_ShakeHand.fbx", "Run");
 
@@ -101,16 +101,6 @@ void Customer::Update()
 	{
 		m_Position.y = groundHeight;		
 	}	
-}
-
-void Customer::Draw()
-{
-	//ImGui::Begin("Customer");
-	////ÉTÉCÉY
-	//ImGui::SliderFloat("RotX##", &m_Position.x, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotY##", &m_Position.y, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotZ##", &m_Position.z, 0.0f, 100.0f);
-	//ImGui::End();
 }
 
 void Customer::PreDraw()
