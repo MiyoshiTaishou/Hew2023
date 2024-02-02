@@ -18,7 +18,6 @@ public:
 	void Init(int x, int y, int Width, int Height);
 	void Uninit();
 	void Draw();
-	void Update();
 	void AddCount(int Count) { m_Count += Count; }
 	int GetCount() { return m_Count; }
 };

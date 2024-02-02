@@ -17,9 +17,7 @@
 using namespace DirectX::SimpleMath;
 
 void ParticleObject::Init()
-{
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_WhiteAlpha.cso");
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
+{	
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");	
 	AddComponent<RigidBody>();
 
@@ -195,16 +193,7 @@ void ParticleObject::Update()
 			m_Alpha -= 0.05f;
 		}
 
-		m_Scale.x += 0.1f;
-		
-		/*if (m_DirRot)
-		{
-			m_Rotation.z += m_RotSpeed;
-		}
-		else
-		{
-			m_Rotation.z -= m_RotSpeed;
-		}*/
+		m_Scale.x += 0.1f;	
 	}	
 
 	RigidBody* body = this->GetComponent<RigidBody>();

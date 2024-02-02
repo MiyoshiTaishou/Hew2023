@@ -54,7 +54,6 @@ void GameScene::Init()
 
 	Player* player = AddGameObject<Player>(Layer1);
 	player->SetPosition(Vector3(120, 50, -120));
-	//player->SetRotation(Vector3(30, 10000, 30));
 
 	//BGMobj
 	GameObject* bgm = AddGameObject<GameObject>(3);
@@ -69,12 +68,6 @@ void GameScene::Init()
 	
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());
-	
-
-	//オブジェクト生成	
-	//AddGameObject<Sky>(Layer1);
-
-	//AddGameObject<YataiObject>(Layer1);
 
 	Manager::InitCount();
 
@@ -165,21 +158,4 @@ void GameScene::Update()
 			}
 		}
 	}	
-}
-
-void GameScene::Draw()
-{
-	/*write->DrawString("たこ焼き魂", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
-	write->DrawString(text, Vector2(90, 120), D2D1_DRAW_TEXT_OPTIONS_NONE);
-
-	if (flame > 60 && pushText.size() > texIdx)
-	{
-		
-		text.push_back(pushText[texIdx]);
-		text.push_back(pushText[texIdx + 1]);
-		flame = 0;
-		texIdx += 2;
-	}
-
-	flame += 2.0f;*/
 }

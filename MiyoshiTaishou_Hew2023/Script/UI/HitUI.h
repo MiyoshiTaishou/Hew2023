@@ -2,6 +2,8 @@
 
 #include"../Object/gameObject.h"
 
+//プレイヤーがたこ焼きをくっつけたときに表示するUI
+
 //UIの状態を管理する
 enum STATEUI
 {

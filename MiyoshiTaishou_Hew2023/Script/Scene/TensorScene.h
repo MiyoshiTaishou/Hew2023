@@ -1,6 +1,8 @@
 #pragma once
 #include"scene.h"
 
+//審査会用回転テンソル披露シーン
+
 class BoxObject;
 
 class TensorScene : public Scene

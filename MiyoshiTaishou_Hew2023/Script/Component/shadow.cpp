@@ -132,6 +132,7 @@ void Shadow::Update()
 
 void Shadow::Draw()
 {
+	//•`‰æ‚·‚é‚©‚µ‚È‚¢‚©
 	if (!m_ShadowView)
 	{
 		return;
@@ -176,6 +177,4 @@ void Shadow::Draw()
 	Renderer::GetDeviceContext()->Draw(4, 0);
 
 	Renderer::SetDepthEnable(true);
-
-
 }

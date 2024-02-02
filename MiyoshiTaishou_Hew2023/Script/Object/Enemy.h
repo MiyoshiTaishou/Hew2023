@@ -10,7 +10,6 @@ enum class EnemyState {
 	Idle,
 	Attack,
 	Defend,
-	// ‘¼‚É‚à•K—v‚Èó‘Ô‚ª‚ ‚ê‚Î’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢
 };
 
 class Enemy : public GameObject

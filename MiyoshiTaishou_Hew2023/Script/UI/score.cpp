@@ -137,21 +137,16 @@ void Score::Init(int x, int y, int Width, int Height)
 
 void Score::Uninit()
 {
-
 	m_VertexBuffer->Release();
 	m_Texture->Release();
-
 }
 
 
 
 void Score::Draw()
 {
-
-
 	// マトリクス設定
 	Renderer::SetWorldViewProjection2D();
-
 
 	// 頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
@@ -170,9 +165,6 @@ void Score::Draw()
 
 	// プリミティブトポロジ設定
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-
-
 
 	int count = m_Count;
 
@@ -223,9 +215,4 @@ void Score::Draw()
 		// ポリゴン描画
 		Renderer::GetDeviceContext()->Draw(4, 0);
 	}
-}
-
-void Score::Update()
-{
-
 }

@@ -2,6 +2,7 @@
 #include"gameObject.h"
 #include"../Component/animationModel.h"
 
+//w’è”W‚ß‚½‚çƒS[ƒ‹
 class Customer : public GameObject
 {
 private:
@@ -16,7 +17,6 @@ public:
 
 	void Init() override;
 	void Update() override;
-	void Draw()override;
 	void PreDraw() override;
 
 	void SetRequests(int _count) { m_Requests = _count; }

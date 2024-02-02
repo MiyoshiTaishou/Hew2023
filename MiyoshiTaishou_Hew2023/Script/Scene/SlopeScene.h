@@ -1,6 +1,8 @@
 #pragma once
 #include"scene.h"
 
+//R¸‰ï—pâ“¹“]‚ª‚è”â˜IƒV[ƒ“
+
 class Particle;
 
 class SlopeScene : public Scene

@@ -26,9 +26,8 @@ void Particle::Uninit()
 void Particle::Draw()
 {
 	// â¡éZçáê¨
-	//Renderer::SetBlendState(BS_ADDITIVE);
-	Renderer::SetBlendState(BS_ALPHABLEND);
-
+	Renderer::SetDepthEnable(false);
+	
 	for (auto* obj : m_Particle)
 	{
 		if (obj != nullptr)
@@ -37,8 +36,7 @@ void Particle::Draw()
 		}
 	}
 
-	// îºìßñæçáê¨
-	//Renderer::SetBlendState(0);
+	Renderer::SetDepthEnable(true);
 }
 
 void Particle::Update()

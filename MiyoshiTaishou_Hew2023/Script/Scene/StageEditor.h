@@ -8,7 +8,6 @@ class StageEditor : public Scene
 {
 public:
 	void Init()override;
-	void Update()override;
 	void Draw()override;
 
 private:

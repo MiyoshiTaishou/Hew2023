@@ -3,6 +3,7 @@
 #include"../Mesh/CMeshRenderer.h"
 #include"../Mesh/CSphereMesh.h"
 
+//ビルボード処理の3Dオブジェクト
 class BillBoardObject : public GameObject
 {
 private:
@@ -15,6 +16,7 @@ private:
 
 public:
 	void Init();
+	//テクスチャ指定可能
 	void Init(const char* TextureName);
 	void Uninit();
 	void Draw();	

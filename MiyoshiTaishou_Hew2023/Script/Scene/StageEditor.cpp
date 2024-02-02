@@ -55,11 +55,6 @@ void StageEditor::Init()
         "../asset\\texture\\‚Ò‚½.png");
 }
 
-void StageEditor::Update()
-{
-   
-}
-
 void StageEditor::Draw()
 {
     ImGui::Begin("Stage Editor");
@@ -125,6 +120,8 @@ void StageEditor::Draw()
     }
 
     ImGui::InputText("Field Name", m_bufferField, sizeof(m_bufferField));
+    Manager::SetFiledName(m_bufferField);
+
     ImGui::InputText("Map Name", m_bufferMap, sizeof(m_bufferMap));
 
     ImGui::End();

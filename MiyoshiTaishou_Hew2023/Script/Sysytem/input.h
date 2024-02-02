@@ -46,24 +46,15 @@ class Input
 private:
     static BYTE m_OldKeyState[256];                 /**< 前回のキーボードの状態 */
     static BYTE m_KeyState[256];                    /**< 現在のキーボードの状態 */
-
    
    static  XINPUT_STATE m_ControllerState;
    static  XINPUT_STATE m_OldControllerState;
-    //static DirectX::GamePad m_GamePad;              /**< ゲームパッドのオブジェクト */
-    //static DirectX::GamePad::State m_State;        /**< ゲームパッドの状態 */
-    //static DirectX::GamePad::ButtonStateTracker m_StateTracker; /**< ゲームパッドのボタンの状態を追跡するトラッカー */
 
 public:
     /**
      * @brief 入力管理クラスの初期化
      */
     static void Init();
-
-    /**
-     * @brief 入力管理クラスの終了処理
-     */
-    static void Uninit();
 
     /**
      * @brief 入力情報の更新
@@ -93,6 +84,7 @@ public:
 
     static bool GetGamePadTrigger(BUTTON button);
 
+    //バイブレーション
     static void Vibration(int player, float leftMotor, float rightMotor, float leftTrigger, float rightTrigger);
 
     static bool GetAnyButtonPressed();

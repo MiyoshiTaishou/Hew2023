@@ -20,10 +20,6 @@ void CPlane::MakeEquatation(
 
 	normal.Normalize();	
 
-	//	DX11Vec3Cross(normal, p0p1, p1p2);
-
-	//	DX11Vec3Normalize(normal, normal);
-
 		// a,b,c,dÇãÅÇﬂÇÈ
 	p.x = normal.x;
 	p.y = normal.y;

@@ -40,41 +40,5 @@ void TreeObject::Update()
 	if (!player)
 	{
 		return;
-	}
-
-	//“–‚½‚Á‚½‚ç’e‚«”ò‚Î‚·
-	//if (this->m_Collider->HitSphere(player->GetComponent<SphereCollider>()))
-	//{		
-	//	// ˆÚ“®•ûŒü‚ðŒvŽZ‚·‚é
-	//	Vector3 collisionDirection = m_Position - player->GetPosition();		
-
-	//	Vector3 playerPos = player->GetPosition();
-
-	//	//‚Ç‚¿‚ç‚Ì•ûŒü‚©‚ç“–‚½‚Á‚Ä‚¢‚é‚©”»’f‚·‚é
-	//	if (std::abs(collisionDirection.x) > std::abs(collisionDirection.z))
-	//	{			
-	//		if (collisionDirection.x > 0)
-	//		{
-	//			playerPos.x = m_Collider->GetPos().x - m_Collider->GetCollScale().x / 1.4;
-	//		}
-	//		else if (collisionDirection.x < 0)
-	//		{
-	//			playerPos.x = m_Collider->GetPos().x + m_Collider->GetCollScale().x / 1.4;
-	//		}
-	//	}
-	//	else
-	//	{
-	//		if (collisionDirection.z > 0)
-	//		{
-	//			playerPos.z = m_Collider->GetPos().z - m_Collider->GetCollScale().z / 1.4;
-	//		}
-	//		else if (collisionDirection.z < 0)
-	//		{
-	//			playerPos.z = m_Collider->GetPos().z + m_Collider->GetCollScale().z / 1.4;
-	//		}
-	//	}
-
-	//	player->SetPosition(playerPos);
-	//	player->GetComponent<RigidBody>()->SetVelocity(Vector3::Zero);
-	//}
+	}	
 }

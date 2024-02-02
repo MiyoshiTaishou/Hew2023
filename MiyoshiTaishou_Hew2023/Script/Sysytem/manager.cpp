@@ -37,9 +37,7 @@ std::string Manager::m_FiledName;
 std::string Manager::m_SkyName;
 
 void Manager::Init(Application* ap)
-{
-	
-
+{	
 	// タイマ解像度を１ミリ秒にする
 	timeBeginPeriod(1);
 
@@ -57,13 +55,7 @@ void Manager::Init(Application* ap)
 	Input::Init();	
 
 	// Titleを初期シーンに登録
-	//SetScene<StageEditor>();
 	SetScene<TitleScene>();
-	//SetScene<GameScene>();
-	//SetScene<ResultScene>();
-	//SetScene<SlopeScene>();
-	//SetScene<TensorScene>();
-	//SetScene<TutorialScene>();
 }
 
 void Manager::Uninit()
@@ -99,9 +91,7 @@ void Manager::Draw(uint64_t d)
 	Renderer::Begin();
 	ImGuiManager::Begin();		
 
-	m_Scene->DrawBase();	
-
-	//Renderer::PostProcess();
+	m_Scene->DrawBase();		
 
 	float fps = 1000.0f / d;
 
