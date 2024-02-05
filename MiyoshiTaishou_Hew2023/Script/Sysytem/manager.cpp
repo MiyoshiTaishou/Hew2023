@@ -35,11 +35,10 @@ std::list<GameObject*> g_gameobjectlist;
 std::string Manager::m_MapName;
 std::string Manager::m_FiledName;
 std::string Manager::m_SkyName;
+std::vector<std::string> Manager::m_BGMList;
 
 void Manager::Init(Application* ap)
-{
-	
-
+{	
 	// タイマ解像度を１ミリ秒にする
 	timeBeginPeriod(1);
 
