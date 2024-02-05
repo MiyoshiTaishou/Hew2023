@@ -11,27 +11,17 @@ using namespace DirectX::SimpleMath;
 
 void TakoyakiObject::Init()
 {
-	m_Scale = Vector3(10.0f, 10.0f, 10.f);
+	float size = rand() % 10 + 10;
+	m_Scale = Vector3(size, size, size);
 
-	m_Shader = AddComponent<Shader>();
-	//m_Shader->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
+	m_Shader = AddComponent<Shader>();	
 	m_Shader->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
-
-	/*AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
-	m_OutLineShader->Load("../shader\\VS_OutLine.cso", "../shader\\PS_OutLine.cso");*/
 
 	ModelRenderer* model = AddComponent<ModelRenderer>();
 	model->Load("../asset\\model\\bullet.obj");	
 
 	SphereCollider* sphere = AddComponent<SphereCollider>();	
-	sphere->SetRadius(2.0f);
-
-	m_Position.x = 10.0f;
+	sphere->SetRadius(0.2 * m_Scale.x);	
 
 	StickObject::Init();
-}
-
-void TakoyakiObject::Draw()
-{
-	
 }

@@ -57,12 +57,12 @@ void Manager::Init(Application* ap)
 
 	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
 	//SetScene<StageEditor>();
-	SetScene<TitleScene>();
+	//SetScene<TitleScene>();
 	//SetScene<GameScene>();
 	//SetScene<ResultScene>();
 	//SetScene<SlopeScene>();
 	//SetScene<TensorScene>();
-	//SetScene<TutorialScene>();
+	SetScene<TutorialScene>();
 }
 
 void Manager::Uninit()
