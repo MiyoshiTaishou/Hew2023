@@ -15,6 +15,9 @@ private:
     static std::string m_MapName;
     static std::string m_SkyName;
 
+    //BGMƒŠƒXƒg
+    static std::vector<std::string> m_BGMList;
+
     static int m_Count;//‚½‚±Ä‚«‚Ì”
     static int m_CountMax;//‚½‚±Ä‚«‚Ì”
 

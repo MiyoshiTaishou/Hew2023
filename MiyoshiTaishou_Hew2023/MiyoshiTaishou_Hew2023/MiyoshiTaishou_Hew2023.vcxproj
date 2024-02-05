@@ -190,6 +190,7 @@
     <ClCompile Include="..\Script\Particle\ParticleObject.cpp" />
     <ClCompile Include="..\Script\Render\modelRenderer.cpp" />
     <ClCompile Include="..\Script\Render\renderer.cpp" />
+    <ClCompile Include="..\Script\Scene\BGMScene.cpp" />
     <ClCompile Include="..\Script\Scene\GameScene.cpp" />
     <ClCompile Include="..\Script\Scene\ResultScene.cpp" />
     <ClCompile Include="..\Script\Scene\SlopeScene.cpp" />
@@ -266,6 +267,7 @@
     <ClInclude Include="..\Script\Render\CVertexBuffer.h" />
     <ClInclude Include="..\Script\Render\modelRenderer.h" />
     <ClInclude Include="..\Script\Render\renderer.h" />
+    <ClInclude Include="..\Script\Scene\BGMScene.h" />
     <ClInclude Include="..\Script\Scene\GameScene.h" />
     <ClInclude Include="..\Script\Scene\ResultScene.h" />
     <ClInclude Include="..\Script\Scene\scene.h" />
