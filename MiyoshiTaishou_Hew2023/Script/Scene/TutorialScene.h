@@ -28,6 +28,9 @@ private:
 	//シーン遷移
 	class Transition* m_Transition{};
 
+	//吹き出し
+	GameObject* m_UIobj;
+
 	//ゴール判定
 	bool m_Goal = false;
 

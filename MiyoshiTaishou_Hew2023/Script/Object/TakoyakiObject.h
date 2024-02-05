@@ -9,7 +9,6 @@ class TakoyakiObject : public StickObject
 public:
 
 	void Init();
-	void Draw();
 
 private:
 

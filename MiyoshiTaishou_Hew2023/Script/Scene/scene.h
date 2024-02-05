@@ -308,16 +308,7 @@ public:
         if (!inputFile.is_open())
         {
             return;
-        }
-
-        //const auto& objList = m_GameObject[Layer1];
-        //for (const auto& obj : objList)
-        //{
-        //    if (typeid(*obj) != typeid(Player)) // 型を調べる
-        //    {
-        //        obj->SetDestroy();
-        //    }            
-        //}
+        }     
 
         //ヘッダを捨てる
         std::string header;
@@ -332,9 +323,7 @@ public:
             OBJTAG tag;
             DirectX::SimpleMath::Vector3 pos;
             DirectX::SimpleMath::Vector3 scale;
-            DirectX::SimpleMath::Vector3 rot;
-
-            //std::getline(ss, token, '\n');
+            DirectX::SimpleMath::Vector3 rot;           
 
             // カンマ区切りでデータを取得
             std::getline(ss, token, ',');
@@ -417,7 +406,7 @@ public:
             {
                 TakoyakiObject* obj = AddGameObject<TakoyakiObject>(Layer1);
                 obj->SetPosition(pos);
-                obj->SetScale(scale);
+                //obj->SetScale(scale);
                 obj->SetRotation(rot);
                 break;
             }

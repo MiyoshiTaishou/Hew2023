@@ -76,6 +76,11 @@ void TutorialScene::Init()
 	Takoyaki->AddComponent<Sprite>()->Init(1150, 600, 100.0f, 100.0f,
 		"../asset\\texture\\2DTakoyaki.png");
 
+	//チュートリアルUI
+	m_UIobj = AddGameObject<GameObject>(Layer3);	
+	m_UIobj->AddComponent<Sprite>()->Init(-50, 450, 1250.0f, 200.0f,
+		"../asset\\texture\\吹き出し.png");
+
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
 
@@ -249,6 +254,7 @@ void TutorialScene::Update()
 
 	if (m_TextEnd)
 	{
+		m_UIobj->GetComponent<Sprite>()->SetView(false);
 		return;
 	}
 
@@ -297,6 +303,8 @@ void TutorialScene::Update()
 	}
 
 	m_Flame += 60.0f;
+
+	m_UIobj->GetComponent<Sprite>()->SetView(true);
 }
 
 void TutorialScene::Draw()

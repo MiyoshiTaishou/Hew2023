@@ -304,7 +304,7 @@ void Player::Collision()
 
 					//コライダー追加
 					SphereCollider* sphere = AddComponent<SphereCollider>();					
-					sphere->SetRadius(2.0f);					
+					sphere->SetRadius(0.1f * Takoyaki->GetScale().x);
 
 					Vector3 relative = Takoyaki->GetPosition() - m_Position;
 					relative.x = fabs(relative.x);
@@ -330,7 +330,7 @@ void Player::Collision()
 						}					
 					}
 
-					m_Distance[no] += 1.0f;
+					m_Distance[no] += Takoyaki->GetScale().x * 0.1f;
 
 					//オブジェクト削除
 					Takoyaki->SetDestroy();
