@@ -57,10 +57,14 @@ void GameScene::Init()
 	//player->SetRotation(Vector3(30, 10000, 30));
 
 	//BGMobj
-	GameObject* bgm = AddGameObject<GameObject>(3);
-	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
-	bgm->GetComponent<Audio>()->Play(true);	
+	for (int i = 0; i < 3; i++)
+	{
+		m_BGM[i] = AddGameObject<GameObject>(Layer3);
+		m_BGM[i]->AddComponent<Audio>()->Init();
+		m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());		
+	}	
+
+	m_BGM[0]->GetComponent<Audio>()->Play(false);
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
@@ -69,12 +73,6 @@ void GameScene::Init()
 	
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());
-	
-
-	//オブジェクト生成	
-	//AddGameObject<Sky>(Layer1);
-
-	//AddGameObject<YataiObject>(Layer1);
 
 	Manager::InitCount();
 
@@ -165,21 +163,22 @@ void GameScene::Update()
 			}
 		}
 	}	
-}
 
-void GameScene::Draw()
-{
-	/*write->DrawString("たこ焼き魂", Vector2(90, 90), D2D1_DRAW_TEXT_OPTIONS_NONE);
-	write->DrawString(text, Vector2(90, 120), D2D1_DRAW_TEXT_OPTIONS_NONE);
-
-	if (flame > 60 && pushText.size() > texIdx)
+	//最後まで行ったら最初に
+	if (m_BGMIndex > 2)
 	{
-		
-		text.push_back(pushText[texIdx]);
-		text.push_back(pushText[texIdx + 1]);
-		flame = 0;
-		texIdx += 2;
+		m_BGMIndex = 0;
 	}
 
-	flame += 2.0f;*/
+	//BGMが再生終了したら次再生
+	if (!m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
+	{
+		m_BGMIndex++;
+
+		//初期文字なら再生しない
+		if (Manager::GetBGMList()[m_BGMIndex] != "None")
+		{
+			m_BGM[m_BGMIndex]->GetComponent<Audio>()->Play(false);
+		}
+	}
 }

@@ -54,7 +54,7 @@ void TitleScene::Init()
 	//BGM
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
 	bgm->GetComponent<Audio>()->Play();		
 
 	//タイトル画面ようフェード

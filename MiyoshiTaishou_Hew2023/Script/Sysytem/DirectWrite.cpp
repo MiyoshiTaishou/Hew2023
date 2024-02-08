@@ -42,6 +42,11 @@ DirectWrite::DirectWrite(Font font, IDWriteFontCollection* fontCollection, DWRIT
 
 void DirectWrite::SetFont(FontData* set)
 {
+	if (Setting != nullptr)
+	{
+		delete  Setting;
+	}
+
 	pDWriteFactory->CreateTextFormat(FontList[(int)set->font], set->fontCollection, set->fontWeight, set->fontStyle, set->fontStretch, set->fontSize, set->localeName, &pTextFormat);
 	pTextFormat->SetTextAlignment(set->textAlignment);
 	pRT->CreateSolidColorBrush(set->Color, &pSolidBrush);
@@ -114,6 +119,27 @@ std::vector<std::string> DirectWrite::ReadTextFile(const std::string& fileName)
 	return lines;
 }
 
+void DirectWrite::SetFontColor(D2D1_COLOR_F newColor)
+{
+	// FontData 構造体を更新
+	Setting->Color = newColor;
+
+	// 既存の SolidColorBrush を解放
+	if (pSolidBrush)
+	{
+		pSolidBrush->Release();
+		pSolidBrush = nullptr;
+	}
+
+	// 新しい色で SolidBrush を作成
+	HRESULT hr = pRT->CreateSolidColorBrush(newColor, &pSolidBrush);
+
+	if (FAILED(hr))
+	{
+		// エラーの処理
+	}
+}
+
 void DirectWrite::Init()
 {
 	// Direct2D,DirectWriteの初期化
@@ -168,7 +194,7 @@ void DirectWrite::Init()
 	pRT->CreateSolidColorBrush(Setting->Color, &pSolidBrush);
 }
 
-void DirectWrite::Release()
+void DirectWrite::Uninit()
 {
 	// 文字描画関連のアンロード
 	if (pBackBuffer) pBackBuffer->Release();

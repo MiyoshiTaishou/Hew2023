@@ -90,6 +90,31 @@ public:
         return m_CountMax;
     }
 
+    static std::string GetFiledName()
+    {
+        return m_FiledName;
+    }
+
+    static std::string GetMapName()
+    {
+        return m_MapName;
+    }
+
+    static std::string GetSkyName()
+    {
+        return m_SkyName;
+    }
+
+    static bool GetEnd()
+    {
+        return m_End;
+    }
+
+    static std::vector<std::string> GetBGMList()
+    {
+        return m_BGMList;
+    }
+
     static void SetCountMax(int _count)
     {
         m_CountMax = _count;
@@ -118,25 +143,10 @@ public:
     static void SetEnd(bool _end)
     {
         m_End = _end;
-    }
+    }  
 
-    static std::string GetFiledName()
+    static void SetBGMList(std::vector<std::string> _list)
     {
-        return m_FiledName;
-    }
-
-    static std::string GetMapName()
-    {
-        return m_MapName;
-    }
-
-    static std::string GetSkyName()
-    {
-        return m_SkyName;
-    }
-
-    static bool GetEnd()
-    {
-        return m_End;
+        m_BGMList = _list;
     }
 };

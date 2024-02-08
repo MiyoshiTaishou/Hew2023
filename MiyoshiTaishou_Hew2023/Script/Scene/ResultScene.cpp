@@ -128,7 +128,7 @@ void ResultScene::Init()
 	//BGM’Ç‰Á
 	GameObject* bgm = AddGameObject<GameObject>(Layer3);
 	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
+	bgm->GetComponent<Audio>()->Load("../asset\\audio\\’µ–ô.wav");
 	bgm->GetComponent<Audio>()->Play();
 	bgm->GetComponent<Audio>()->SetVolume(0.5f);
 

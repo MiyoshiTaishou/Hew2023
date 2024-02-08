@@ -20,6 +20,7 @@
 #include"../Scene/SlopeScene.h"
 #include"../Scene/TensorScene.h"
 #include"../Scene/TutorialScene.h"
+#include"../Scene/BGMScene.h"
 
 // シーンマネージャ内メンバ変数の実体
 Scene* Manager::m_Scene{};// 現在シーン
@@ -62,7 +63,8 @@ void Manager::Init(Application* ap)
 	//SetScene<ResultScene>();
 	//SetScene<SlopeScene>();
 	//SetScene<TensorScene>();
-	SetScene<TutorialScene>();
+	//SetScene<TutorialScene>();
+	SetScene<BGMScene>();
 }
 
 void Manager::Uninit()

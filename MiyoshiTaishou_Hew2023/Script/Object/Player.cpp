@@ -141,15 +141,11 @@ void Player::Init()
 		m_MeshRenderer[i] = new CMeshRenderer();
 		m_MeshRenderer[i]->Init(*m_Sphere[i]);		
 	}	
-
-	//body->SetInetiaTensorOfRectangular(absScale.x, absScale.y, absScale.z, Vector3(0.0f, 0.0f, 0.0f));
-
+	
 	m_Particle = new Particle();
-	//m_Particle->SetTextureName("../asset/texture/Smoke.jpg");
 	m_Particle->SetTextureName("../asset/texture/ゴロゴロ.png");
 
 	Scene* scene = Manager::GetScene();
-	//scene->m_Particle.push_back(m_Particle);
 
 	m_Rotmatrix = Matrix::Identity;
 
@@ -181,14 +177,11 @@ void Player::Update()
 	m_AfterPos = m_Position;
 
 	//コンポーネントのUpdate呼び出し
-	for (auto& cmpt : m_Component) {
+	for (auto& cmpt : m_Component) 
+	{
 		cmpt->Update();
 	}
-
-	//m_Particle->Update();
-
-	//GetComponent<RigidBody>()->AddTorque(torque, ForceMode::Force);
-
+	
 	//座標計算
 	PointUpdate();
 
@@ -453,14 +446,7 @@ void Player::Collision()
 	if (m_Position.z >= max.z - MAX_FILED) {
 		m_Position.z = max.z - MAX_FILED;
 	}
-
-	/*for (int i = 0; i < MAX_SPHERE_MESH; i++)
-	{
-		filed->PointPlaneCollision(m_Point);
-	}*/
-
-
-
+	
 	filed->PointPlaneCollision(m_Point);
 }
 
