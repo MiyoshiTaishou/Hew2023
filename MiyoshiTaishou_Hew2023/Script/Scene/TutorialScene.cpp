@@ -112,7 +112,7 @@ void TutorialScene::Init()
 
 void TutorialScene::Uninit()
 {
-	m_Write->Release();
+	m_Write->Uninit();
 	delete m_Write;
 }
 

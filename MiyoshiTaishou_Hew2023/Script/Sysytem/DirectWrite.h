@@ -139,9 +139,13 @@ public:
 	void DrawString(std::string str, D2D1_RECT_F rect, D2D1_DRAW_TEXT_OPTIONS options);
 
 	std::vector<std::string> ReadTextFile(const std::string& fileName);
+
+	// フォントの色を更新
+	void SetFontColor(D2D1_COLOR_F newColor);
+
 	// 初期化
 	void Init();
 
 	// 終了処理
-	void Release();
+	void Uninit();
 };

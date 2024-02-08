@@ -26,7 +26,6 @@ void Audio::UninitMaster()
 
 void Audio::Load(const char *FileName)
 {
-
 	// サウンドデータ読込
 	WAVEFORMATEX wfx = { 0 };
 
@@ -66,20 +65,15 @@ void Audio::Load(const char *FileName)
 		datachunkinfo.ckid = mmioFOURCC('d', 'a', 't', 'a');
 		mmioDescend(hmmio, &datachunkinfo, &riffchunkinfo, MMIO_FINDCHUNK);
 
-
-
 		buflen = datachunkinfo.cksize;
 		m_SoundData = new unsigned char[buflen];
 		readlen = mmioRead(hmmio, (HPSTR)m_SoundData, buflen);
 
-
 		m_Length = readlen;
 		m_PlayLength = readlen / wfx.nBlockAlign;
 
-
 		mmioClose(hmmio, 0);
 	}
-
 
 	// サウンドソース生成
 	m_Xaudio->CreateSourceVoice(&m_SourceVoice, &wfx);
@@ -98,7 +92,6 @@ void Audio::Play(bool Loop)
 {
 	m_SourceVoice->Stop();
 	m_SourceVoice->FlushSourceBuffers();
-
 
 	// バッファ設定
 	XAUDIO2_BUFFER bufinfo;
@@ -119,21 +112,28 @@ void Audio::Play(bool Loop)
 
 	m_SourceVoice->SubmitSourceBuffer(&bufinfo, NULL);
 
-/*
-	float outputMatrix[4] = { 0.0f , 0.0f, 1.0f , 0.0f };
-	m_SourceVoice->SetOutputMatrix(m_MasteringVoice, 2, 2, outputMatrix);
-	//m_SourceVoice->SetVolume(0.1f);
-*/
-
-
 	// 再生
 	m_SourceVoice->Start();
 
 }
 
+void Audio::Stop()
+{
+	m_SourceVoice->Stop();
+}
+
 void Audio::SetVolume(float _volume)
 {
 	m_SourceVoice->SetVolume(_volume);
+}
+
+bool Audio::IsSoundPlaying()
+{
+	XAUDIO2_VOICE_STATE state;
+	m_SourceVoice->GetState(&state);
+
+	// 再生が終了しているかどうかを判定
+	return (state.BuffersQueued > 0);
 }
 
 

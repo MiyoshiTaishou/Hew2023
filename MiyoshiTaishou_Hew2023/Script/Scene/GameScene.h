@@ -11,7 +11,6 @@ public:
 
 	void Init()override;
 	void Update()override;	
-	void Draw()override;	
 
 private:
 
@@ -23,4 +22,8 @@ private:
 
 	float flame = 0;
 	int texIdx = 0;
+
+	GameObject* m_BGM[3];
+
+	int m_BGMIndex = 0;
 };

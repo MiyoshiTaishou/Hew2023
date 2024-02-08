@@ -27,8 +27,11 @@ public:
 
 	void Load(const char *FileName);
 	void Play(bool Loop = false);
+	void Stop();
 
 	void SetVolume(float _volume);
 
+	// 再生が終了したかどうかを判定するメソッド
+	bool IsSoundPlaying();
 };
 
