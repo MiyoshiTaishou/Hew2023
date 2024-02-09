@@ -27,6 +27,7 @@
 //シーン
 #include"GameScene.h"
 #include"TutorialScene.h"
+#include"BGMScene.h"
 
 //UI
 #include"../UI/score.h"
@@ -51,11 +52,34 @@ void TitleScene::Init()
 
 	AddGameObject<Camera>(Layer0);	
 	
-	//BGM
-	GameObject* bgm = AddGameObject<GameObject>(Layer3);
-	bgm->AddComponent<Audio>()->Init();
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
-	bgm->GetComponent<Audio>()->Play();		
+	//BGMobj
+	for (int i = 0; i < 3; i++)
+	{
+		m_BGM[i] = AddGameObject<GameObject>(Layer3);
+		m_BGM[i]->AddComponent<Audio>()->Init();
+
+		if (Manager::GetBGMList()[i] != "../asset\\audio\\None.wav")
+		{
+			m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());
+			m_BGM[i]->GetComponent<Audio>()->SetVolume(5.0f);
+		}
+	}
+
+	//BGMが何もなければ
+	if (Manager::GetBGMList()[0] == "../asset\\audio\\None.wav")
+	{
+		//BGM追加
+		m_BGM[3] = AddGameObject<GameObject>(Layer3);
+		m_BGM[3]->AddComponent<Audio>()->Init();
+		m_BGM[3]->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
+		m_BGM[3]->GetComponent<Audio>()->SetVolume(5.0f);
+		m_BGM[3]->GetComponent<Audio>()->Play();
+	}
+	else
+	{
+		m_BGM[0]->GetComponent<Audio>()->Play(false);
+	}
+
 
 	//タイトル画面ようフェード
 	m_TitleSprite[0] = AddGameObject<GameObject>(Layer3);
@@ -133,6 +157,11 @@ void TitleScene::Init()
 	bill5->Init("../asset/texture/ご馳走さま.png");
 	bill5->AddComponent<SphereCollider>()->SetRadius(6.0f);
 	bill5->SetPosition(Vector3(100, 10, -50));
+
+	BillBoardObject* bill6 = AddGameObject<BillBoardObject>(Layer1);
+	bill6->Init("../asset/texture/祭メロ.png");
+	bill6->AddComponent<SphereCollider>()->SetRadius(6.0f);
+	bill6->SetPosition(Vector3(100, 10, -100));
 	
 	//虹をフェードさせる
 	//毎フレームごとの時間を更新		
@@ -235,6 +264,8 @@ void TitleScene::Update()
 		case ENDGAME:
 			Manager::SetEnd(true);
 			break;
+		case BGM:
+			Manager::SetScene<BGMScene>();
 		default:
 			break;
 		}		
@@ -295,6 +326,38 @@ void TitleScene::Update()
 		m_Transition->FadeOut();
 		m_Select = SELECT_SCENE::ENDGAME;
 		return;
+	}
+
+	if (col->Hit(billList[5]->GetComponent<SphereCollider>()))
+	{
+		m_SEObj->GetComponent<Audio>()->Play();
+		m_Transition->FadeOut();
+		m_Select = SELECT_SCENE::BGM;
+		return;
+	}
+
+	//初期文字なら再生しない
+	if (Manager::GetBGMList()[m_BGMIndex] == "../asset\\audio\\None.wav")
+	{
+		return;
+	}
+
+	//最後まで行ったら最初に
+	if (m_BGMIndex > 2)
+	{
+		m_BGMIndex = 0;
+	}
+
+	//BGMが再生終了したら次再生
+	if (!m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
+	{
+		m_BGMIndex++;
+
+		//初期文字なら再生しない
+		if (Manager::GetBGMList()[m_BGMIndex] != "../asset\\audio\\None.wav")
+		{
+			m_BGM[m_BGMIndex]->GetComponent<Audio>()->Play(false);
+		}
 	}
 }
 

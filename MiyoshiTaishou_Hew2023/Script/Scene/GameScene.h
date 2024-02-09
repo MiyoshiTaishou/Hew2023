@@ -21,9 +21,5 @@ private:
 	bool m_Goal = false;
 
 	float flame = 0;
-	int texIdx = 0;
-
-	GameObject* m_BGM[3];
-
-	int m_BGMIndex = 0;
+	int texIdx = 0;	
 };

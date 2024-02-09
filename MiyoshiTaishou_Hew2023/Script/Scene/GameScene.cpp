@@ -53,18 +53,35 @@ void GameScene::Init()
 	LoadObjectData(Manager::GetMapName());
 
 	Player* player = AddGameObject<Player>(Layer1);
-	player->SetPosition(Vector3(120, 50, -120));
-	//player->SetRotation(Vector3(30, 10000, 30));
+	player->SetPosition(Vector3(120, 50, -120));	
 
 	//BGMobj
 	for (int i = 0; i < 3; i++)
 	{
 		m_BGM[i] = AddGameObject<GameObject>(Layer3);
 		m_BGM[i]->AddComponent<Audio>()->Init();
-		m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());		
-	}	
 
-	m_BGM[0]->GetComponent<Audio>()->Play(false);
+		if (Manager::GetBGMList()[i] != "../asset\\audio\\None.wav")
+		{
+			m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());
+			m_BGM[i]->GetComponent<Audio>()->SetVolume(5.0f);
+		}
+	}
+
+	//BGMが何もなければ
+	if (Manager::GetBGMList()[0] == "../asset\\audio\\None.wav")
+	{
+		//BGM追加
+		m_BGM[3] = AddGameObject<GameObject>(Layer3);
+		m_BGM[3]->AddComponent<Audio>()->Init();
+		m_BGM[3]->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
+		m_BGM[3]->GetComponent<Audio>()->SetVolume(5.0f);
+		m_BGM[3]->GetComponent<Audio>()->Play();
+	}
+	else
+	{
+		m_BGM[0]->GetComponent<Audio>()->Play(false);
+	}
 
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
@@ -164,6 +181,12 @@ void GameScene::Update()
 		}
 	}	
 
+	//初期文字なら再生しない
+	if (Manager::GetBGMList()[m_BGMIndex] == "../asset\\audio\\None.wav")
+	{
+		return;
+	}
+
 	//最後まで行ったら最初に
 	if (m_BGMIndex > 2)
 	{
@@ -176,7 +199,7 @@ void GameScene::Update()
 		m_BGMIndex++;
 
 		//初期文字なら再生しない
-		if (Manager::GetBGMList()[m_BGMIndex] != "None")
+		if (Manager::GetBGMList()[m_BGMIndex] != "../asset\\audio\\None.wav")
 		{
 			m_BGM[m_BGMIndex]->GetComponent<Audio>()->Play(false);
 		}

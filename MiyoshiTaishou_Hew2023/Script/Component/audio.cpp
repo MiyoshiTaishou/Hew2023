@@ -82,8 +82,11 @@ void Audio::Load(const char *FileName)
 
 void Audio::Uninit()
 {
-	m_SourceVoice->Stop();
-	m_SourceVoice->DestroyVoice();
+	if (m_SourceVoice != nullptr)
+	{
+		m_SourceVoice->Stop();
+		m_SourceVoice->DestroyVoice();
+	}
 
 	delete[] m_SoundData;
 }
@@ -135,6 +138,3 @@ bool Audio::IsSoundPlaying()
 	// Ä¶‚ªI—¹‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð”»’è
 	return (state.BuffersQueued > 0);
 }
-
-
-

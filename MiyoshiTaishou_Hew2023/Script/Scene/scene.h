@@ -55,6 +55,10 @@ protected:
     // STL‚ÌƒŠƒXƒg\‘¢
     std::array<std::list<GameObject*>, 4> m_GameObject;    
 
+    GameObject* m_BGM[4];
+
+    int m_BGMIndex = 0;
+
 public:
 
     std::vector<Particle*> m_Particle;
