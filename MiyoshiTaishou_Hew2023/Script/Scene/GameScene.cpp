@@ -86,8 +86,7 @@ void GameScene::Init()
 	m_Transition = AddGameObject<Transition>(Layer3);
 	m_Transition->FadeIn();//フェードイン開始	
 
-	Customer* cus = AddGameObject<Customer>(Layer1);
-	
+	Customer* cus = AddGameObject<Customer>(Layer1);	
 	BillBoardScore* bill = cus->AddChild<BillBoardScore>();
 	bill->AddCount(cus->GetRequests());
 

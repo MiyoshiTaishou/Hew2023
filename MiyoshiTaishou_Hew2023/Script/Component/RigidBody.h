@@ -62,6 +62,9 @@ public:
 	//質量変更
 	void SetMass(float _mass);
 
+	//重力の重さの変更
+	void SetGravityScale(float _gravity);
+
 	//重力を有効にするか
 	void SetGravity(bool _gravity);
 
