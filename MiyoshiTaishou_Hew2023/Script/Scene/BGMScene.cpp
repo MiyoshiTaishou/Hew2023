@@ -8,12 +8,20 @@
 
 #include"../Component/sprite.h"
 #include"../Component/audio.h"
+#include"../Component/shader.h"
 
 using namespace DirectX::SimpleMath;
 
 void BGMScene::Init()
 {	
     ReadBGMName("../asset/text/曲リスト.txt");
+
+    //背景
+    GameObject* back = AddGameObject<GameObject>(3);// 3はレイヤ番号
+    back->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
+        "../shader\\unlitTexturePS.cso");
+    back->AddComponent<Sprite>()->Init(0.0f, 0.0f, 1280, 720.0f,
+        "../asset\\texture\\Maturi.jpg");
 
     //曲数分文字表示処理追加
     for (int i = 0; i < m_BGMName.size(); i++)
@@ -49,7 +57,7 @@ void BGMScene::Init()
 
     //フォント設定
     FontData* data = new FontData();
-    data->fontSize = 25;
+    data->fontSize = 20;
     data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;
     data->Color = D2D1::ColorF(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -85,7 +93,7 @@ void BGMScene::Init()
         path.append(path3);
         Audio* audio = audioObj->GetComponent<Audio>();
         audio->Load(path.c_str());
-        audio->SetVolume(10.0f);
+        audio->SetVolume(5.0f);
 
         m_AudioList.push_back(audioObj);
     }    

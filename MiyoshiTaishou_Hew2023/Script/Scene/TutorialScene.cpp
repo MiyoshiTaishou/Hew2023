@@ -50,11 +50,32 @@ void TutorialScene::Init()
 	filed->Init("../asset/map/Title.csv");	
 
 	//BGMobj
-	GameObject* bgm = AddGameObject<GameObject>(3);
-	bgm->AddComponent<Audio>()->Init();
-	//bgm->GetComponent<Audio>()->Load("../asset\\audio\\たこ焼き魂-_Takoyaki-Spirit_.wav");
-	bgm->GetComponent<Audio>()->Load("../asset\\audio\\20220515cyouyaku.wav");
-	bgm->GetComponent<Audio>()->Play(true);
+	for (int i = 0; i < 3; i++)
+	{
+		m_BGM[i] = AddGameObject<GameObject>(Layer3);
+		m_BGM[i]->AddComponent<Audio>()->Init();
+
+		if (Manager::GetBGMList()[i] != "../asset\\audio\\None.wav")
+		{
+			m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());
+			m_BGM[i]->GetComponent<Audio>()->SetVolume(5.0f);
+		}
+	}
+
+	//BGMが何もなければ
+	if (Manager::GetBGMList()[0] == "../asset\\audio\\None.wav")
+	{
+		//BGM追加
+		m_BGM[3] = AddGameObject<GameObject>(Layer3);
+		m_BGM[3]->AddComponent<Audio>()->Init();
+		m_BGM[3]->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
+		m_BGM[3]->GetComponent<Audio>()->SetVolume(5.0f);
+		m_BGM[3]->GetComponent<Audio>()->Play();
+	}
+	else
+	{
+		m_BGM[0]->GetComponent<Audio>()->Play(false);
+	}
 
 	//ヒット時に表示するUI
 	AddGameObject<HitUI>(Layer3)->Init(0.0f, 450.0f, 480.0f, 240.0f,
@@ -305,6 +326,30 @@ void TutorialScene::Update()
 	m_Flame += 60.0f;
 
 	m_UIobj->GetComponent<Sprite>()->SetView(true);
+
+	//初期文字なら再生しない
+	if (Manager::GetBGMList()[m_BGMIndex] == "../asset\\audio\\None.wav")
+	{
+		return;
+	}
+
+	//最後まで行ったら最初に
+	if (m_BGMIndex > 2)
+	{
+		m_BGMIndex = 0;
+	}
+
+	//BGMが再生終了したら次再生
+	if (!m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
+	{
+		m_BGMIndex++;
+
+		//初期文字なら再生しない
+		if (Manager::GetBGMList()[m_BGMIndex] != "../asset\\audio\\None.wav")
+		{
+			m_BGM[m_BGMIndex]->GetComponent<Audio>()->Play(false);
+		}
+	}
 }
 
 void TutorialScene::Draw()

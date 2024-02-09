@@ -8,6 +8,7 @@ enum SELECT_SCENE
     GAME2,
     GAME3,
     ENDGAME,
+    BGM,
 };
 
 class TitleScene : public Scene
