@@ -15,6 +15,9 @@
 #include"../Component/shader.h"
 #include"../Component/sprite.h"
 #include"../Component/audio.h"
+#include"../Component/PhysicsSprite.h"
+#include"../Component/RigidBody.h"
+#include"../Component/SphereCollider2D.h"
 
 //シーン
 #include"TitleScene.h"
@@ -71,13 +74,19 @@ void ResultScene::Init()
 		GameObject* Takoyaki = AddGameObject<GameObject>(Layer3);
 		Takoyaki->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",
 			"../shader\\unlitTexturePS.cso");
-		Takoyaki->AddComponent<Sprite>()->Init(0.0f + (idxX * 50.0f), 600.0f - (idxY * 50.0f), 50.0f, 50.0f,
-			"../asset\\texture\\2DTakoyaki.png");
-		
+		Takoyaki->AddComponent<PhysicsSprite>()->Init("../asset\\texture\\2DTakoyaki.png");
+		RigidBody* body = Takoyaki->AddComponent<RigidBody>();
+		body->SetGravityScale(-5.0f);
+		body->SetMass(10 - idxY);
+		body->SetGravity(false);
+		Takoyaki->AddComponent<SphereCollider2D>()->SetRadius(10.0f);
+		Takoyaki->SetPosition(Vector3(50.0f + (idxX * 50), 0.0f, 0.0f));
+		Takoyaki->SetScale(Vector3(50.0f, 50.0, 1.0f));
+
 		m_Mt.Diffuse = Color(1.0f, 1.0f, 1.0f, 0.0f);
 		m_Mt.TextureEnable = true;
 
-		Takoyaki->GetComponent<Sprite>()->SetMaterial(m_Mt);
+		Takoyaki->GetComponent<PhysicsSprite>()->SetMaterial(m_Mt);
 
 		m_SpriteObj.push_back(Takoyaki);
 
@@ -142,15 +151,28 @@ void ResultScene::Update()
 	if (m_Transition->GetState() == Transition::State::Finish)
 	{
 		Manager::SetScene<TitleScene>();
-
 		return;
+	}
+
+	//高さ変わる
+	for (int i = 0; i < m_SpriteObj.size(); i++)
+	{		
+		int idxY = i / 10;
+
+		float Hight = 600 - (idxY * 50);
+		if (m_SpriteObj[i]->GetPosition().y > Hight)
+		{
+			m_SpriteObj[i]->SetPosition(Vector3(m_SpriteObj[i]->GetPosition().x, Hight, m_SpriteObj[i]->GetPosition().z));
+			m_SpriteObj[i]->GetComponent<RigidBody>()->SetGravity(false);
+			m_SpriteObj[i]->GetComponent<RigidBody>()->SetFreeze(FrizeNum::YPos, true);
+		}
 	}
 
 	//スキップされたらこの処理を行わない
 	if (m_Skip)
 	{
 		return;
-	}
+	}	
 
 	if (m_Transition->GetState() == Transition::State::Stop)
 	{
@@ -160,22 +182,22 @@ void ResultScene::Update()
 		}
 
 		if (Input::GetGamePad(BUTTON::ABUTTON))
-		{			
+		{
 			//押されたら一気に表示
 			m_Mt.Diffuse.w = 1.0f;
 			for (auto& obj : m_SpriteObj)
 			{
-				obj->GetComponent<Sprite>()->SetMaterial(m_Mt);
+				obj->GetComponent<PhysicsSprite>()->SetMaterial(m_Mt);
 			}
 			//ここにあっぱれを入れる
-			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);			
+			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
 			m_SE[1]->GetComponent<Audio>()->Play();
 			m_SE[2]->GetComponent<Audio>()->Play();
-			
+
 			m_Skip = true;
-			Invoke([=]() {m_Transition->FadeOut(); }, 1000);			
+			Invoke([=]() {m_Transition->FadeOut(); }, 1000);
 		}
-	}	
+	}
 
 	//たこ焼きを順番に表示していく処理
 	if (m_SpriteObj.size() == 0)
@@ -187,21 +209,22 @@ void ResultScene::Update()
 	if (m_Mt.Diffuse.w > 1.0f)
 	{
 		m_SE[0]->GetComponent<Audio>()->Play();
+		m_SpriteObj[m_SpriteNo]->GetComponent<RigidBody>()->SetGravity(true);
 		m_Mt.Diffuse.w = 0.0f;
 		m_SpriteNo++;
 	}
 	else
-	{	
+	{
 		//徐々に加速する
 		m_Mt.Diffuse.w += m_SpriteNo / 10 * 0.1f + 0.1f;
-	}	
+	}
 
 	//最後までたこ焼きを描画したら結果発表テクスチャを差し込む
 	if (m_SpriteNo >= m_SpriteObj.size())
-	{		
+	{
 		m_Skip = true;
 		m_Mt.Diffuse.w = 1.0f;
-	
+
 		//ここにあっぱれを入れる
 		Audio* SE = m_SE[1]->GetComponent<Audio>();
 		Audio* SE2 = m_SE[2]->GetComponent<Audio>();
@@ -220,13 +243,12 @@ void ResultScene::Update()
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
 		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
 		Invoke([=]() {SE->Play(); }, 1000);
-		Invoke([=]() {SE2->Play(); }, 1000);	
+		Invoke([=]() {SE2->Play(); }, 1000);
 
 		Invoke([=]() {m_Transition->FadeOut(); }, 10000);
 
 		return;
 	}
 
-	m_SpriteObj[m_SpriteNo]->GetComponent<Sprite>()->SetMaterial(m_Mt);
-	
+	m_SpriteObj[m_SpriteNo]->GetComponent<PhysicsSprite>()->SetMaterial(m_Mt);	
 }

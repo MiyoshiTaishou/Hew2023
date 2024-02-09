@@ -149,11 +149,13 @@
     </ClCompile>
     <ClCompile Include="..\Script\Component\BoxCollider.cpp" />
     <ClCompile Include="..\Script\Component\Collider.cpp" />
+    <ClCompile Include="..\Script\Component\PhysicsSprite.cpp" />
     <ClCompile Include="..\Script\Component\RigidBody.cpp" />
     <ClCompile Include="..\Script\Component\RootChaise.cpp" />
     <ClCompile Include="..\Script\Component\shader.cpp" />
     <ClCompile Include="..\Script\Component\shadow.cpp" />
     <ClCompile Include="..\Script\Component\SphereCollider.cpp" />
+    <ClCompile Include="..\Script\Component\SphereCollider2D.cpp" />
     <ClCompile Include="..\Script\Component\sprite.cpp" />
     <ClCompile Include="..\Script\ImGui\imgui.cpp" />
     <ClCompile Include="..\Script\ImGui\ImGuiManager.cpp" />
@@ -219,11 +221,13 @@
     <ClInclude Include="..\Script\Component\BoxCollider.h" />
     <ClInclude Include="..\Script\Component\Collider.h" />
     <ClInclude Include="..\Script\Component\component.h" />
+    <ClInclude Include="..\Script\Component\PhysicsSprite.h" />
     <ClInclude Include="..\Script\Component\RigidBody.h" />
     <ClInclude Include="..\Script\Component\RootChaise.h" />
     <ClInclude Include="..\Script\Component\shader.h" />
     <ClInclude Include="..\Script\Component\shadow.h" />
     <ClInclude Include="..\Script\Component\SphereCollider.h" />
+    <ClInclude Include="..\Script\Component\SphereCollider2D.h" />
     <ClInclude Include="..\Script\Component\sprite.h" />
     <ClInclude Include="..\Script\ImGui\imconfig.h" />
     <ClInclude Include="..\Script\ImGui\imgui.h" />

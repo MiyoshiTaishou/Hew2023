@@ -189,6 +189,11 @@ void RigidBody::SetMass(float _mass)
 	m_Mass = _mass;
 }
 
+void RigidBody::SetGravityScale(float _gravity)
+{
+	m_GravityScale = _gravity;
+}
+
 void RigidBody::SetGravity(bool _gravity)
 {
 	m_UseGravity = _gravity;

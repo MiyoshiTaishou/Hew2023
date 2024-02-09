@@ -80,7 +80,6 @@ void TitleScene::Init()
 		m_BGM[0]->GetComponent<Audio>()->Play(false);
 	}
 
-
 	//タイトル画面ようフェード
 	m_TitleSprite[0] = AddGameObject<GameObject>(Layer3);
 	m_TitleSprite[0]->AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso",

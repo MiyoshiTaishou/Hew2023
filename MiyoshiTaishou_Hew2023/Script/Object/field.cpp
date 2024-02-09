@@ -149,48 +149,6 @@ void Field::Draw()
 	//レンダラで描画
 	m_renderer.Draw();
 
-	//ImGui::Begin("Debug");
-	//ImGui::Text("Dir %f,%f,%f", direction.x, direction.y, direction.z);
-	//ImGui::Text("Normal %f,%f,%f", normalDB.x, normalDB.y, normalDB.z);
-	//ImGui::Text("Dis %f", dis);
-	//ImGui::End();
-
-	// 入力レイアウト設定
-//	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
-
-	// シェーダ設定
-//	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
-//	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
-
-	//// ワールドマトリクス設定
-	//Matrix world, scale, rot, trans;
-	//scale = Matrix::CreateScale(m_Scale.x);
-	//rot = Matrix::CreateFromYawPitchRoll(m_Rotation.y, m_Rotation.x, m_Rotation.z);
-	//trans = Matrix::CreateTranslation(m_Position.x, m_Position.y, m_Position.z);
-	//world = scale * rot * trans;
-	//Renderer::SetWorldMatrix(&world);
-
-	//// 頂点バッファ設定
-	//UINT stride = sizeof(VERTEX_3D);
-	//UINT offset = 0;
-	//Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
-
-	//// マテリアル設定
-	//MATERIAL material;
-	//ZeroMemory(&material, sizeof(material));
-	//material.Diffuse = Color(1.0f, 1.0f, 1.0f, 1.0f);
-	//material.TextureEnable = true;
-	//Renderer::SetMaterial(material);
-
-	//// テクスチャ設定
-	//Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
-
-	//// プリミティブトポロジ設定
-	//Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-	//// ポリゴン描画
-	//Renderer::GetDeviceContext()->Draw(4, 0);
-
 #ifdef _DEBUG
 
 	m_planemesh.MakeUndulationSelf();
