@@ -63,8 +63,7 @@ void PhysicsSprite::Init(const char* TextureName)
 void PhysicsSprite::Uninit()
 {
 	m_VertexBuffer->Release();
-	m_Texture->Release();
-	//	m_TextureResource->Release();
+	m_Texture->Release();	
 }
 
 void PhysicsSprite::Draw()

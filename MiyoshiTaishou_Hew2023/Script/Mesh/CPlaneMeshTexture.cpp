@@ -11,8 +11,7 @@ void CPlaneMeshTexture::Init(int divx, int divy, int width, int height, DirectX:
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
 		L"../asset/texture/field.jpg",
-		nullptr,
-		//		&m_TextureResource,
+		nullptr,		
 		&m_Texture);
 }
 

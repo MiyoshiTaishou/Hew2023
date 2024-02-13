@@ -69,10 +69,7 @@ void Camera::Update()
 	cameraPos.x = playerobj->GetPosition().x + radius * sin(phi) * cos(theta);
 	cameraPos.y = playerobj->GetPosition().y + radius * cos(phi);
 	cameraPos.z = playerobj->GetPosition().z + radius * sin(phi) * sin(theta);
-
-	//m_Foward = this->GetForward();
-
-	//m_Position = playerobj->GetPosition() - m_Foward * 50.0f;
+	
 	m_Position = cameraPos;
 	this->m_Target = playerobj->GetPosition() /*+ m_Foward * 3.0f*/;
 
@@ -90,8 +87,6 @@ void Camera::Update()
 	lastCamEye = m_Position;
 
 	this->m_Position.y += 30.0f;
-
-	//this->m_Rotation.y = playerobj->GetRotation().y;	
 
 	//高さを取得	
 	Field* filed = nowscene->GetGameObject<Field>();
@@ -125,13 +120,8 @@ void Camera::Draw()
 {	
 	// ビュー変換後列作成
 	Vector3 up = Vector3(0.0f, 1.0f, 0.0f);
-	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										// 左手系にした　20230511 by suzuki.tomoki
-
-	// DIRECTXTKのメソッドは右手系　20230511 by suzuki.tomoki
-	// 右手系にすると３角形頂点が反時計回りになるので描画されなくなるので注意
-	// このコードは確認テストのために残す
-	//	m_ViewMatrix = m_ViewMatrix.CreateLookAt(m_Position, m_Target, up);					
-
+	m_ViewMatrix = DirectX::XMMatrixLookAtLH(m_Position, m_Target, up);										
+	
 	Renderer::SetViewMatrix(&m_ViewMatrix);
 
 	//プロジェクション行列の生成
@@ -142,13 +132,8 @@ void Camera::Draw()
 	float farPlane = 10000.0f;      // ファークリップ
 
 	//プロジェクション行列の生成	
-	m_ProjMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	// 左手系にした　20230511 by suzuki.tomoki
-
-	// DIRECTXTKのメソッドは右手系　20230511 by suzuki.tomoki
-	// 右手系にすると３角形頂点が反時計回りになるので描画されなくなるので注意
-	// このコードは確認テストのために残す
-//	projectionMatrix = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, nearPlane, farPlane);
-
+	m_ProjMatrix = DirectX::XMMatrixPerspectiveFovLH(fieldOfView, aspectRatio, nearPlane, farPlane);	
+	
 	Renderer::SetProjectionMatrix(&m_ProjMatrix);
 
 #ifdef _DEBUG

@@ -56,15 +56,14 @@ void Manager::Init(Application* ap)
 	//“ü—Í‰Šú‰»
 	Input::Init();	
 
-	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^
-	//SetScene<StageEditor>();
-	//SetScene<TitleScene>();
-	//SetScene<GameScene>();
-	//SetScene<ResultScene>();
-	//SetScene<SlopeScene>();
-	//SetScene<TensorScene>();
-	//SetScene<TutorialScene>();
-	SetScene<BGMScene>();
+	for (int i = 0; i < 3; i++)
+	{
+		std::string name = "../asset\\audio\\None.wav";
+		m_BGMList.push_back(name);
+	}
+
+	// Title‚ğ‰ŠúƒV[ƒ“‚É“o˜^	
+	SetScene<TitleScene>();	
 }
 
 void Manager::Uninit()
@@ -101,8 +100,6 @@ void Manager::Draw(uint64_t d)
 	ImGuiManager::Begin();		
 
 	m_Scene->DrawBase();	
-
-	//Renderer::PostProcess();
 
 	float fps = 1000.0f / d;
 

@@ -5,8 +5,7 @@
 class Particle
 {
 public:
-
-	void Init();
+	
 	void Uninit();
 	void Draw();
 	void Update();

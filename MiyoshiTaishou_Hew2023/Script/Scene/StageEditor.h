@@ -7,8 +7,7 @@ class Camera;
 class StageEditor : public Scene
 {
 public:
-	void Init()override;
-	void Update()override;
+	void Init()override;	
 	void Draw()override;
 
 private:

@@ -14,12 +14,9 @@ using namespace DirectX::SimpleMath;
 void Sky::Init()
 {
 	m_Scale = Vector3(1000.0f, 1000.0f, 1000.0f);
-
-	//AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_PolarCoordinates.cso");
-	//AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_OrangeScale.cso");
+	
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
-	//AddComponent<Shader>()->Load("shader\\VS_Rotation.cso", "shader\\PS_BloomBlur.cso");
-	//AddComponent<Shader>()->Load("shader\\VS_Scale.cso", "shader\\PS_Circle.cso");
+	
 	AddComponent<ModelRenderer>()->Load("../asset\\model\\sky.obj");
 
 	bloom.bloom = 1.0f;
@@ -61,11 +58,6 @@ void Sky::Update()
 
 void Sky::Draw()
 {
-	//ImGui::Begin("Sky Bloom");
-	//ImGui::SliderFloat("power", &bloom.power, 0.0f, 5.0f);
-	//ImGui::SliderFloat("bloom", &bloom.bloom, 0.0f, 1.0f);
-	//ImGui::End();
-
 	Renderer::SetBloom(bloom);
 }
 

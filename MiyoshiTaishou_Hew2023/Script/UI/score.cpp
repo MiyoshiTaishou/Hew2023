@@ -15,9 +15,7 @@ using namespace DirectX::SimpleMath;
 
 void Score::Init()
 {
-
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
-
 
 	VERTEX_3D vertex[4];
 
@@ -55,7 +53,6 @@ void Score::Init()
 
 	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
 
-
 	// テクスチャ読み込み
 	DirectX::CreateWICTextureFromFile(
 		Renderer::GetDevice(),
@@ -77,7 +74,6 @@ void Score::Init()
 void Score::Init(int x, int y, int Width, int Height)
 {
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\unlitTexturePS.cso");
-
 
 	VERTEX_3D vertex[4];
 
@@ -137,21 +133,16 @@ void Score::Init(int x, int y, int Width, int Height)
 
 void Score::Uninit()
 {
-
 	m_VertexBuffer->Release();
 	m_Texture->Release();
-
 }
 
 
 
 void Score::Draw()
 {
-
-
 	// マトリクス設定
 	Renderer::SetWorldViewProjection2D();
-
 
 	// 頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
@@ -170,9 +161,6 @@ void Score::Draw()
 
 	// プリミティブトポロジ設定
 	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-
-
 
 	int count = m_Count;
 
@@ -219,13 +207,7 @@ void Score::Draw()
 
 		Renderer::GetDeviceContext()->Unmap(m_VertexBuffer, 0);
 
-
 		// ポリゴン描画
 		Renderer::GetDeviceContext()->Draw(4, 0);
 	}
-}
-
-void Score::Update()
-{
-
 }

@@ -5,9 +5,7 @@
 class Timer : public GameObject
 {
 public:
-	void Init();
-	void Uninit();
-	void Draw();
+	void Init();	
 	void Update();
 private:
 	Pollar pollar;

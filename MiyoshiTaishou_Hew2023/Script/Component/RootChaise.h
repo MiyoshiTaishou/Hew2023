@@ -32,9 +32,7 @@ private:
 	bool m_Goal = false;
 
 	using Component::Component;
-
-	//Particle* particle;
-
+	
 	//–¼‘O•ÏX—p•Ï”
 	char m_buffer[256] = "../asset/map/YataiRoot.csv";
 };

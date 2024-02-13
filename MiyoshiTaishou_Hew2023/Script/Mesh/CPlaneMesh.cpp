@@ -200,9 +200,6 @@ int CPlaneMesh::GetSquareNo(DirectX::SimpleMath::Vector3 pos)
 		}
 	}
 
-	//
-	//std::cout << "mapchipx mapchipy: " << mapchipx << "," << mapchipy << "," << squareno << "(" << x << "," << y << ")" << std::endl;
-
 	return squareno;
 }
 

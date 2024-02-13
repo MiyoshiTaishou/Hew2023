@@ -19,10 +19,13 @@ private:
 	//パーティクルの終わる時間
 	float m_LifeTime = 30.0f;
 
+	//透明度
 	float m_Alpha = 1.0f;
 
+	//回転速度
 	float m_RotSpeed = 0.1f;
 
+	//回転するか
 	bool m_DirRot = true;
 
 	DirectX::SimpleMath::Vector3 m_ScaleColor;
@@ -42,5 +45,4 @@ public:
 	DirectX::SimpleMath::Vector3 GetDir() { return m_Dir; }
 	DirectX::SimpleMath::Vector3 GetSpeed() { return m_Speed; }
 	float GetLifeTime() { return m_LifeTime; }
-
 };

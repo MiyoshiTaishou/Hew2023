@@ -278,9 +278,6 @@
     <ClInclude Include="..\Script\Render\modelRenderer.h">
       <Filter>ソース ファイル\Render</Filter>
     </ClInclude>
-    <ClInclude Include="..\Script\Sysytem\component.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="..\Script\Sysytem\utftosjisconv.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>

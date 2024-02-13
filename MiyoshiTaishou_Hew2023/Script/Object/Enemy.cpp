@@ -21,11 +21,11 @@ using namespace DirectX::SimpleMath;
 
 void Enemy::Init()
 {
-    AddComponent<Shader>()->Load("../shader\\vertexLightingOneSkinVS.cso", "../shader\\vertexLightingPS.cso"); //20230909-02
+    AddComponent<Shader>()->Load("../shader\\vertexLightingOneSkinVS.cso", "../shader\\vertexLightingPS.cso"); 
 
     m_Model = AddComponent<AnimationModel>();
 
-    m_Model->Load("../asset\\model\\Akai.fbx");									// animation ok
+    m_Model->Load("../asset\\model\\Akai.fbx");									
     m_Model->LoadAnimation("../asset\\model\\Akai_Idle.fbx", "Idle");
     m_Model->LoadAnimation("../asset\\model\\Akai_Run.fbx", "Run");
 

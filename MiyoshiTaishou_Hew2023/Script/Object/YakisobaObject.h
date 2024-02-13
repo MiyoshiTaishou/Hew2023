@@ -15,6 +15,5 @@ private:
 	BoxCollider* m_Collider;
 
 public:
-	void Init();
-	void Update();
+	void Init();	
 };

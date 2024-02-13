@@ -81,9 +81,6 @@ void StickObject::Stick(Vector3 _pos)
 	m_Stick = true;
 	m_Scale *= m_ScaleDown;	
 
-	//À•WÝ’è
-	//m_Position = cameraObj->GetForward() * m_Scale * 0.2f;
-
 	//Šµ«ƒeƒ“ƒ\ƒ‹‚ð‘«‚·
 	Player* player = scene->GetGameObject<Player>();	
 
