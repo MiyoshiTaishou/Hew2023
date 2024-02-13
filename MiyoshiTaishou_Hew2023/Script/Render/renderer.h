@@ -280,12 +280,7 @@ public:
      * @param FileName シェーダファイルの名前
      */
     static void CreatePixelShader(ID3D11PixelShader** PixelShader, const char* FileName);
-
-    /**
-     * @brief ポストプロセスを実行
-     */
-    static void PostProcess();
-
+   
     //=============================================================================
     // ブレンド ステート設定
     //=============================================================================

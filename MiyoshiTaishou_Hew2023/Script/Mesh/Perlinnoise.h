@@ -13,8 +13,7 @@ public:
     PerlinNoise();
 
     double noise(double x, double y, double z);
-
-    // Compute Perlin noise at coordinates x, y, z with specific octaves and persistence
+    
     double octaveNoise(double x, double y, double z, int octaves, double persistence);
 
 private:

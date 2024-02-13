@@ -5,11 +5,6 @@
 
 using namespace DirectX::SimpleMath;
 
-void Particle::Init()
-{
-
-}
-
 void Particle::Uninit()
 {
 	for (auto* obj : m_Particle)
@@ -24,9 +19,7 @@ void Particle::Uninit()
 }
 
 void Particle::Draw()
-{
-	// â¡éZçáê¨
-	//Renderer::SetBlendState(BS_ADDITIVE);
+{	
 	Renderer::SetBlendState(BS_ALPHABLEND);
 
 	for (auto* obj : m_Particle)
@@ -36,9 +29,6 @@ void Particle::Draw()
 			obj->DrawBase(Matrix::Identity);
 		}
 	}
-
-	// îºìßñæçáê¨
-	//Renderer::SetBlendState(0);
 }
 
 void Particle::Update()

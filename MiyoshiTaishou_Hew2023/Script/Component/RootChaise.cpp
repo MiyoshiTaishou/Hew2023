@@ -23,13 +23,9 @@ void RootChaise::Init()
 
         m_SpherePos[i].x = i * 10;
     }  
-
-    //particle = new Particle();
+    
     Scene* scne = Manager::GetScene();
-    //scne->m_Particle.push_back(particle);
-    //particle->Init();
-
-
+    
     //ファイルからルート情報読み込み
     std::ifstream inputFile(m_buffer);
     if (inputFile.is_open())
@@ -166,8 +162,7 @@ void RootChaise::Draw()
    
     ImGui::End();
 
-#endif // DEBUG
-    //particle->Draw();
+#endif // DEBUG   
 }
 
 void RootChaise::Update()
@@ -175,8 +170,7 @@ void RootChaise::Update()
     //加速して減速するような値の計算
     float move;
     move = (-2 * (m_Rate * m_Rate * m_Rate)) + (3 * (m_Rate * m_Rate));
-    //move = (-1 * (m_Rate * m_Rate)) + (2 * m_Rate);
-
+    
     //到着
     if (m_Rate > 1.0f)
     {
@@ -197,7 +191,6 @@ void RootChaise::Update()
         //加算
         m_Rate += m_MoveSpeed;
     }
-
 
     //開始位置から[2]の位置までのlerp
     m_SpherePos[4] = Vector3::Lerp(m_SpherePos[0], m_SpherePos[1], move);    
@@ -238,7 +231,4 @@ void RootChaise::Update()
     Vector3 pos = m_GameObject->GetPosition();
     pos.y = Manager::GetScene()->GetGameObject<Field>()->GetFieldHeightBySqno(pos, *m_GameObject);
     m_GameObject->SetPosition(pos);
-
-    //particle->Create(m_GameObject->GetPosition(), Vector3::Up, Vector3::Up*100);
-    //particle->Update();
 }

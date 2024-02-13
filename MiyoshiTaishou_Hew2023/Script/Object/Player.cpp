@@ -49,23 +49,17 @@ void Player::Init()
 {
 	//座標、サイズ設定
 	this->m_Scale = Vector3(10.0f, 10.0f, 10.f);
-	//this->m_Scale = Vector3(2.0f, 1.0f, 4.0f);	
 
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\vertexLightingPS.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
 	AddComponent<Shader>()->Load("../shader\\VS_GouraudShading.cso", "../shader\\PS_OrangeScale.cso");
-	//AddComponent<Shader>()->Load("../shader\\VS_Object.cso", "../shader\\PS_Toon.cso");
-
-	ModelRenderer* model = AddComponent<ModelRenderer>();
-	//model->Load("../asset\\model\\bullet.obj");
+	
+	ModelRenderer* model = AddComponent<ModelRenderer>();	
 	model->Load("../asset\\model\\bullet.obj");
 	
 	Shadow* shadow = AddComponent<Shadow>();
 	shadow->Init();
 	shadow->SetSize(10.0f);
 
-	//コンポーネント	
-	
+	//コンポーネント		
 	RigidBody* body = AddComponent<RigidBody>();
 	body->Init();
 	body->SetInetiaTensorOfSpherAngular(5.0f, m_Position);	

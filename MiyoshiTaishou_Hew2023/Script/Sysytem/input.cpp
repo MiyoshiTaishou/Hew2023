@@ -6,9 +6,6 @@ using namespace DirectX;
 
 BYTE Input::m_OldKeyState[256];
 BYTE Input::m_KeyState[256];
-//DirectX::GamePad Input::m_GamePad;
-//DirectX::GamePad::ButtonStateTracker Input::m_StateTracker;
-//DirectX::GamePad::State Input::m_State;
 
 XINPUT_STATE Input::m_ControllerState; // コントローラーの状態を保持する変数
 XINPUT_STATE Input::m_OldControllerState;
@@ -104,9 +101,7 @@ void Input::Vibration(int player, float leftMotor, float rightMotor, float leftT
     XINPUT_VIBRATION vibration;
     ZeroMemory(&vibration, sizeof(XINPUT_VIBRATION));
     vibration.wLeftMotorSpeed = static_cast<WORD>(leftMotor * 65535.0f);
-    vibration.wRightMotorSpeed = static_cast<WORD>(rightMotor * 65535.0f);
-   /* vibration.bLeftTrigger = static_cast<BYTE>(leftTrigger * 255);
-    vibration.bRightTrigger = static_cast<BYTE>(rightTrigger * 255);*/
+    vibration.wRightMotorSpeed = static_cast<WORD>(rightMotor * 65535.0f); 
     XInputSetState(player, &vibration);
 }
 

@@ -82,8 +82,7 @@ void BillBoardObject::Init()
 }
 
 void BillBoardObject::Init(const char* TextureName)
-{
-	//AddComponent<Shader>()->Load("../shader\\vertexLightingVS.cso", "../shader\\PS_OrangeScale.cso");
+{	
 	AddComponent<Shader>()->Load("../shader\\unlitTextureVS.cso", "../shader\\PS_BloomBlur.cso");
 
 	VERTEX_3D vertex[4];
@@ -172,7 +171,6 @@ void BillBoardObject::Draw()
 	UINT offset = 0;
 	Renderer::GetDeviceContext()->IASetVertexBuffers(0, 1, &m_VertexBuffer, &stride, &offset);
 
-
 	// テクスチャ設定
 	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
 
@@ -197,40 +195,5 @@ void BillBoardObject::Update()
 	Vector3 dir = camera->GetPosition() - m_Position;
 	m_Rotation.y = atan2(dir.x, dir.z);
 	//角度がずれているので調整
-	m_Rotation.y -= 60.0f;
-
-	////高さを取得	
-	//Field* filed = nowscene->GetGameObject<Field>();
-	//if (!filed)
-	//{
-	//	return;
-	//}
-
-	////　範囲チェック 
-	//Vector3 max = filed->GetMax();
-	//Vector3 min = filed->GetMin();
-
-	//if (m_Position.x <= min.x) {
-	//	m_Position.x = min.x;
-	//}
-	//if (m_Position.x >= max.x) {
-	//	m_Position.x = max.x;
-	//}
-
-	//if (m_Position.z <= min.z) {
-	//	m_Position.z = min.z;
-	//}
-	//if (m_Position.z >= max.z) {
-	//	m_Position.z = max.z;
-	//}
-
-	//float Height = filed->GetFieldHeightBySqno(m_Position,*this);
-
-	////float Height = 0.0f;
-
-	//if (Height != 0.0f + 5.0f)
-	//{
-	//	//pos.y = Height;
-	//	m_Position.y = Height + 5;
-	//}
+	m_Rotation.y -= 60.0f;	
 }

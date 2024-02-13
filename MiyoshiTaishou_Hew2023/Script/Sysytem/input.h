@@ -50,10 +50,7 @@ private:
    
    static  XINPUT_STATE m_ControllerState;
    static  XINPUT_STATE m_OldControllerState;
-    //static DirectX::GamePad m_GamePad;              /**< ゲームパッドのオブジェクト */
-    //static DirectX::GamePad::State m_State;        /**< ゲームパッドの状態 */
-    //static DirectX::GamePad::ButtonStateTracker m_StateTracker; /**< ゲームパッドのボタンの状態を追跡するトラッカー */
-
+   
 public:
     /**
      * @brief 入力管理クラスの初期化

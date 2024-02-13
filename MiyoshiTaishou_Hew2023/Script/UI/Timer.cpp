@@ -31,15 +31,6 @@ void Timer::Init()
 	Renderer::SetPollar(pollar);
 }
 
-void Timer::Uninit()
-{	
-}
-
-void Timer::Draw()
-{
-
-}
-
 void Timer::Update()
 {	
 	Scene* scene = Manager::GetScene();

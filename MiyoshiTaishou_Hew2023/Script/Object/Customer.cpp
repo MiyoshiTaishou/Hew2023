@@ -103,16 +103,6 @@ void Customer::Update()
 	}	
 }
 
-void Customer::Draw()
-{
-	//ImGui::Begin("Customer");
-	////ƒTƒCƒY
-	//ImGui::SliderFloat("RotX##", &m_Position.x, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotY##", &m_Position.y, 0.0f, 100.0f);
-	//ImGui::SliderFloat("RotZ##", &m_Position.z, 0.0f, 100.0f);
-	//ImGui::End();
-}
-
 void Customer::PreDraw()
 {
 	m_Model->Update("Idle", m_Frame, "Run", m_Frame, m_BlendRate);

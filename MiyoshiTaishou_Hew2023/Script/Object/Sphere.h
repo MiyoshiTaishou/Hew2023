@@ -6,7 +6,7 @@ class CSphereMesh;
 
 class Sphere : public GameObject
 {
-public:	
+public:
 
 	void Init();
 	void Draw();

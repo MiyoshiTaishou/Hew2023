@@ -122,7 +122,6 @@ void TutorialScene::Init()
 	data->fontSize = 25;
 	data->fontWeight = DWRITE_FONT_WEIGHT_BOLD;	
 	data->Color = D2D1::ColorF(1.0f, 1.0f, 0.0f, 1.0f);
-	//data->fontWeight = DWRITE_FONT_WEIGHT_NORMAL;
 
 	m_Write = new DirectWrite(data);
 

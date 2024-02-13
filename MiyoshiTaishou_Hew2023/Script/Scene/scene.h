@@ -98,12 +98,7 @@ public:
      */
     void InitBase()
     {
-        Init();
-
-        for (Particle* particl : m_Particle)
-        {
-            particl->Init();
-        }
+        Init();       
     }
 
     /**

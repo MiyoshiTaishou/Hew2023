@@ -3,9 +3,7 @@
 
 PerlinNoise::PerlinNoise() {
     p.resize(512);
-
-    // Hash lookup table as defined by Ken Perlin.  This is a randomly
-    // arranged array of all numbers from 0-255 inclusive.
+  
     int permutation[256] = { 151,160,137,91,90,15,
         131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
         190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
@@ -57,18 +55,14 @@ double PerlinNoise::noise(double x, double y, double z) {
     return (res + 1.0) / 2.0;
 }
 
-// Compute Perlin noise at coordinates x, y, z 
-//  with specific octaves and persistence
 double PerlinNoise::octaveNoise(
     double x, double y, double z, 
     int octaves, double persistence) {
 
     double total = 0;
-//    double frequency = 1;
     double frequency = 5.96;
-//    double amplitude = 1;
     double amplitude = 10;
-    double maxValue = 0;  // Used for normalizing result to 0.0 - 1.0
+    double maxValue = 0;
 
     for (int i = 0; i < octaves; i++) {
         total += noise(x * frequency, y * frequency, z * frequency) * amplitude;
@@ -92,18 +86,6 @@ double PerlinNoise::lerp(double t, double a, double b) {
     return a + t * (b - a); 
 }
 
-/*
-double PerlinNoise::grad(int hash, double x, double y, double z) {
-
-     int h = hash & 15;
-     double u = h < 8 ? x : y,
-         v = h < 4 ? y : h == 12 || h == 14 ? x : z;
-     return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
-}
-*/
-
-
-
 double PerlinNoise::grad(int hash, double x, double y, double z)
 {
     switch (hash & 0xF)
@@ -124,6 +106,6 @@ double PerlinNoise::grad(int hash, double x, double y, double z)
     case 0xD: return -y + z;
     case 0xE: return  y - x;
     case 0xF: return -y - z;
-    default: return 0; // never happens
+    default: return 0;
     }
 }

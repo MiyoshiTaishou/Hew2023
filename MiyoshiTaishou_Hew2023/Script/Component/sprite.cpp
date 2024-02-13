@@ -7,7 +7,6 @@ using namespace DirectX::SimpleMath;
 
 void Sprite::Init(int x, int y, int Width, int Height, const char* TextureName)
 {
-
 	VERTEX_3D vertex[4];
 
 	vertex[0].Position = Vector3((float)x, (float)y, 0.0f);
@@ -50,7 +49,6 @@ void Sprite::Init(int x, int y, int Width, int Height, const char* TextureName)
 		Renderer::GetDevice(),
 		ws.c_str(),
 		nullptr,
-//		&m_TextureResource,
 		&m_Texture);
 
 	assert(m_Texture);
@@ -64,7 +62,6 @@ void Sprite::Uninit()
 {
 	m_VertexBuffer->Release();
 	m_Texture->Release();
-//	m_TextureResource->Release();
 }
 
 
