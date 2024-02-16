@@ -92,8 +92,7 @@ void BGMScene::Init()
         path.append(path2);
         path.append(path3);
         Audio* audio = audioObj->GetComponent<Audio>();
-        audio->Load(path.c_str());
-        audio->SetVolume(5.0f);
+        audio->Load(path.c_str());       
 
         m_AudioList.push_back(audioObj);
     }    
@@ -126,7 +125,7 @@ void BGMScene::Update()
 {
     //‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
     if (m_Transition->GetState() == Transition::State::Finish)
-    {
+    {        
         Manager::SetScene<TitleScene>();
         return;
     }
@@ -136,11 +135,24 @@ void BGMScene::Update()
         return;
     }
 
+    if (m_TitleBack)
+    {
+        if (m_AudioList[m_NowPlayIndex]->GetComponent<Audio>()->GetFade())
+        {
+            m_Transition->FadeOut();
+        }
+        else
+        {
+            return;
+        }
+    }
+
     if (m_Transition->GetState() == Transition::State::Stop)
     {
         if (Input::GetGamePadTrigger(BUTTON::BBUTTON))
         {
-            m_Transition->FadeOut();
+            m_AudioList[m_NowPlayIndex]->GetComponent<Audio>()->Stop();   
+            m_TitleBack = true;
         }
     }
 

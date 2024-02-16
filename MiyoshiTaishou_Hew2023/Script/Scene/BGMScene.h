@@ -54,6 +54,9 @@ private:
 
     int m_PlayListIndex = 0;
 
+    //ƒ^ƒCƒgƒ‹‚É–ß‚é‚©
+    bool m_TitleBack = false;
+
 public:
     void Init()override;
     void Uninit()override;

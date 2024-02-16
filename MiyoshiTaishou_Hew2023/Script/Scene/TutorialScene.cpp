@@ -170,7 +170,7 @@ void TutorialScene::Update()
 	}
 
 	//‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
-	if (m_Transition->GetState() == Transition::State::Finish)
+	if (m_Transition->GetState() == Transition::State::Finish && !m_BGM[m_BGMIndex]->GetComponent<Audio>()->GetFade())
 	{
 		Manager::SetScene<TitleScene>();
 		return;
@@ -265,6 +265,7 @@ void TutorialScene::Update()
 		if (m_TextList.size() <= m_ListIdx)
 		{
 			m_Transition->FadeOut();
+			m_BGM[m_BGMIndex]->GetComponent<Audio>()->Stop();
 		}		
 		break;
 	case END:
@@ -325,6 +326,12 @@ void TutorialScene::Update()
 	m_Flame += 60.0f;
 
 	m_UIobj->GetComponent<Sprite>()->SetView(true);
+
+	//‰½‚à‚È‚¢ê‡‚ÌBGM‚È‚ç
+	if (m_BGMIndex == 3)
+	{
+		return;
+	}
 
 	//‰Šú•¶š‚È‚çÄ¶‚µ‚È‚¢
 	if (Manager::GetBGMList()[m_BGMIndex] == "../asset\\audio\\None.wav")
