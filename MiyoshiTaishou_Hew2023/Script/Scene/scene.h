@@ -24,6 +24,9 @@
 #include "../Render/modelRenderer.h"
 #include"../Particle/Particle.h"
 
+//ロード画面用UI
+#include"../UI/LoadUI.h"
+
 //たこ焼きの最大数
 //#define MAX_SPHERE 10
 
@@ -56,12 +59,13 @@ protected:
     std::array<std::list<GameObject*>, 4> m_GameObject;    
 
     GameObject* m_BGM[4];
+    
+    //ロードUIシーン遷移で呼び出す
+    LoadUI* m_LoadUI;
 
     int m_BGMIndex = 0;
 
-public:
-
-    std::vector<Particle*> m_Particle;
+public:    
 
     /**
      * @brief Sceneクラスのコンストラクタ
@@ -98,6 +102,10 @@ public:
      */
     void InitBase()
     {
+        //LoadUI
+        m_LoadUI = new LoadUI();
+        m_LoadUI->Init();
+
         Init();       
     }
 
@@ -115,12 +123,10 @@ public:
             }
             // リストクリア
             objectList.clear();
-        }
+        }       
 
-        for (Particle* particl : m_Particle)
-        {
-            particl->Uninit();
-        }
+        m_LoadUI->UninitBase();
+        delete m_LoadUI;
 
         Uninit();
 
@@ -129,7 +135,7 @@ public:
 
     /**
      * @brief シーンの基本更新処理を行います。
-     */
+     **/
     void UpdateBase()
     {
         for (auto& objectList : m_GameObject)
@@ -142,12 +148,7 @@ public:
             // 削除していいものは削除する
             objectList.remove_if([](GameObject* object) { return object->Destroy(); });
         }
-
-        for (Particle* particl : m_Particle)
-        {
-            particl->Update();
-        }
-
+      
         Update();
     }
 
@@ -165,12 +166,7 @@ public:
             {
                 object->DrawBase(matrix);
             }
-        }
-
-      /*  for (Particle* particl : m_Particle)
-        {
-            particl->Draw();
-        }*/
+        }   
         
         Draw();
     }
@@ -235,6 +231,11 @@ public:
         }
 
         return objects;
+    }
+
+    LoadUI* GetLoadUI()
+    {
+        return m_LoadUI;
     }
 
     // オブジェクトデータをCSV形式で保存する関数

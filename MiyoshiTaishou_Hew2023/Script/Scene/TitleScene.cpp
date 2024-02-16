@@ -36,7 +36,7 @@
 using namespace DirectX::SimpleMath;
 
 void TitleScene::Init()
-{
+{	
 	Score* score = AddGameObject<Score>(Layer3);
 
 	//オブジェクト生成
@@ -60,8 +60,7 @@ void TitleScene::Init()
 
 		if (Manager::GetBGMList()[i] != "../asset\\audio\\None.wav")
 		{
-			m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());
-			m_BGM[i]->GetComponent<Audio>()->SetVolume(5.0f);
+			m_BGM[i]->GetComponent<Audio>()->Load(Manager::GetBGMList()[i].c_str());			
 		}
 	}
 
@@ -72,8 +71,10 @@ void TitleScene::Init()
 		m_BGM[3] = AddGameObject<GameObject>(Layer3);
 		m_BGM[3]->AddComponent<Audio>()->Init();
 		m_BGM[3]->GetComponent<Audio>()->Load("../asset\\audio\\跳躍.wav");
-		m_BGM[3]->GetComponent<Audio>()->SetVolume(5.0f);
+		//m_BGM[3]->GetComponent<Audio>()->SetVolume(5.0f);
 		m_BGM[3]->GetComponent<Audio>()->Play();
+
+		m_BGMIndex = 3;
 	}
 	else
 	{
@@ -202,7 +203,7 @@ void TitleScene::Update()
 	if (currentTime < 0.0f)
 	{
 		currentTime = 0.0f;
-	}
+	}	
 
 	ZeroMemory(&timeBufferData, sizeof(timeBufferData));
 	float timeData[4] = { currentTime, 0.0f, 0.0f, 0.0f }; // 時間データを格納する場合
@@ -235,8 +236,10 @@ void TitleScene::Update()
 	}
 
 	//画面遷移が終了しているか
-	if (m_Transition->GetState() == Transition::State::Finish)
+	if (m_Transition->GetState() == Transition::State::Finish /*&& !m_BGM[m_BGMIndex]->GetComponent<Audio>()->GetFade()*/)
 	{		
+		m_BGM[m_BGMIndex]->GetComponent<Audio>()->Stop();
+
 		switch (m_Select)
 		{
 		case TUTORIAL:
@@ -288,49 +291,55 @@ void TitleScene::Update()
 	//画面遷移
 	if (col->Hit(billList[0]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::GAME1;
+		m_Select = SELECT_SCENE::GAME1;		
 		return;
 	}
 
 	if (col->Hit(billList[1]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();	
-		m_Select = SELECT_SCENE::TUTORIAL;
+		m_Select = SELECT_SCENE::TUTORIAL;		
 		return;
 	}
 
 	if (col->Hit(billList[2]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::GAME2;
+		m_Select = SELECT_SCENE::GAME2;		
 		return;
 	}
 
 	if (col->Hit(billList[3]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::GAME3;
+		m_Select = SELECT_SCENE::GAME3;		
 		return;
 	}	
 
 	if (col->Hit(billList[4]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::ENDGAME;
+		m_Select = SELECT_SCENE::ENDGAME;		
 		return;
 	}
 
 	if (col->Hit(billList[5]->GetComponent<SphereCollider>()))
 	{
-		m_SEObj->GetComponent<Audio>()->Play();
+		m_SEObj->GetComponent<Audio>()->PlaySE();
 		m_Transition->FadeOut();
-		m_Select = SELECT_SCENE::BGM;
+		m_Select = SELECT_SCENE::BGM;		
+		return;
+	}	
+
+	//何もない場合のBGMなら
+	if (m_BGMIndex == 3)
+	{
 		return;
 	}
 
@@ -347,9 +356,14 @@ void TitleScene::Update()
 	}
 
 	//BGMが再生終了したら次再生
-	if (!m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
+	if (m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
 	{
 		m_BGMIndex++;
+
+		if (m_BGMIndex == 3)
+		{
+			m_BGMIndex = 0;
+		}
 
 		//初期文字なら再生しない
 		if (Manager::GetBGMList()[m_BGMIndex] != "../asset\\audio\\None.wav")

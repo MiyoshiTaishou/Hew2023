@@ -211,6 +211,7 @@
     <ClCompile Include="..\Script\Sysytem\utility.cpp" />
     <ClCompile Include="..\Script\UI\BillBoardScore.cpp" />
     <ClCompile Include="..\Script\UI\HitUI.cpp" />
+    <ClCompile Include="..\Script\UI\LoadUI.cpp" />
     <ClCompile Include="..\Script\UI\score.cpp" />
     <ClCompile Include="..\Script\UI\Timer.cpp" />
   </ItemGroup>
@@ -292,6 +293,7 @@
     <ClInclude Include="..\Script\Sysytem\utility.h" />
     <ClInclude Include="..\Script\UI\BillBoardScore.h" />
     <ClInclude Include="..\Script\UI\HitUI.h" />
+    <ClInclude Include="..\Script\UI\LoadUI.h" />
     <ClInclude Include="..\Script\UI\score.h" />
     <ClInclude Include="..\Script\UI\Timer.h" />
   </ItemGroup>

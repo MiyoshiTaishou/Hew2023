@@ -150,8 +150,10 @@ void GameScene::Update()
 	}	
 
 	//‰æ–Ê‘JˆÚ‚ªI—¹‚µ‚Ä‚¢‚é‚©
-	if (m_Transition->GetState() == Transition::State::Finish)
+	if (m_Transition->GetState() == Transition::State::Finish && !m_BGM[m_BGMIndex]->GetComponent<Audio>()->GetFade())
 	{
+		m_BGM[m_BGMIndex]->GetComponent<Audio>()->Stop();
+
 		Manager::SetScene<ResultScene>();
 
 		return;
@@ -174,11 +176,18 @@ void GameScene::Update()
 			//‹q‚É“–‚½‚Á‚½‚Æ‚«‚É‚½‚±Ä‚«‚ğ‰½ŒÂ‚Á‚Ä‚¢‚é‚©‚ÅƒV[ƒ“‘JˆÚ‚·‚é‚©Œˆ‚ß‚é			
 			if (Manager::GetCount() >= cus->GetRequests())
 			{
-				Manager::SetScene<ResultScene>();
+				m_Transition->FadeOut();
+				m_BGM[m_BGMIndex]->GetComponent<Audio>()->Stop();
 				return;
 			}
 		}
 	}	
+
+	//‰½‚à‚È‚¢ê‡‚ÌBGM‚È‚ç
+	if (m_BGMIndex == 3)
+	{
+		return;
+	}
 
 	//‰Šú•¶š‚È‚çÄ¶‚µ‚È‚¢
 	if (Manager::GetBGMList()[m_BGMIndex] == "../asset\\audio\\None.wav")
@@ -193,9 +202,14 @@ void GameScene::Update()
 	}
 
 	//BGM‚ªÄ¶I—¹‚µ‚½‚çŸÄ¶
-	if (!m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
+	if (m_BGM[m_BGMIndex]->GetComponent<Audio>()->IsSoundPlaying())
 	{
 		m_BGMIndex++;
+
+		if (m_BGMIndex == 3)
+		{
+			m_BGMIndex = 0;
+		}
 
 		//‰Šú•¶š‚È‚çÄ¶‚µ‚È‚¢
 		if (Manager::GetBGMList()[m_BGMIndex] != "../asset\\audio\\None.wav")

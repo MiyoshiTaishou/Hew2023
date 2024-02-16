@@ -30,7 +30,7 @@ private:
 
     //SE�炷
     GameObject* m_SEObj;
-
+    
     SELECT_SCENE m_Select;
 
     GameObject* m_TitleSprite[3];

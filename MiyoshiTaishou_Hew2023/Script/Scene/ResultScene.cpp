@@ -149,7 +149,7 @@ void ResultScene::Update()
 {
 	//画面遷移が終了しているか
 	if (m_Transition->GetState() == Transition::State::Finish)
-	{
+	{		
 		Manager::SetScene<TitleScene>();
 		return;
 	}
@@ -191,8 +191,8 @@ void ResultScene::Update()
 			}
 			//ここにあっぱれを入れる
 			m_ResultTex->GetComponent<Sprite>()->SetMaterial(m_Mt);
-			m_SE[1]->GetComponent<Audio>()->Play();
-			m_SE[2]->GetComponent<Audio>()->Play();
+			m_SE[1]->GetComponent<Audio>()->PlaySE();
+			m_SE[2]->GetComponent<Audio>()->PlaySE();
 
 			m_Skip = true;
 			Invoke([=]() {m_Transition->FadeOut(); }, 1000);
@@ -208,7 +208,7 @@ void ResultScene::Update()
 	//完全に表示出来たら次へ
 	if (m_Mt.Diffuse.w > 1.0f)
 	{
-		m_SE[0]->GetComponent<Audio>()->Play();
+		m_SE[0]->GetComponent<Audio>()->PlaySE();
 		m_SpriteObj[m_SpriteNo]->GetComponent<RigidBody>()->SetGravity(true);
 		m_Mt.Diffuse.w = 0.0f;
 		m_SpriteNo++;
@@ -235,15 +235,15 @@ void ResultScene::Update()
 			{
 				//花火の音を遅らせて鳴らす
 				Audio* SE3 = m_SE[3]->GetComponent<Audio>();
-				Invoke([=]() {SE3->Play(); }, 1000 + i * 500);
+				Invoke([=]() {SE3->PlaySE(); }, 1000 + i * 500);
 			}
 		}
 
 		//順番にたこ焼きを表示
 		Sprite* sprite = m_ResultTex->GetComponent<Sprite>();
 		Invoke([=]() {sprite->SetMaterial(m_Mt); }, 1000);
-		Invoke([=]() {SE->Play(); }, 1000);
-		Invoke([=]() {SE2->Play(); }, 1000);
+		Invoke([=]() {SE->PlaySE(); }, 1000);
+		Invoke([=]() {SE2->PlaySE(); }, 1000);
 
 		Invoke([=]() {m_Transition->FadeOut(); }, 10000);
 
